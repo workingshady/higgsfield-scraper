@@ -125,10 +125,15 @@ runs/
     output/
       dataset.json             ★ everything, nested and validated
       summary.md               readable tables (plans, cheapest option per model)
-      json/                    plans, plan_sets, credit_values, models, benefit_cards, comparisons, marketing, auth
-      csv/                     plans, models, model_price_points, model_entitlements, benefit_rows,
-                               comparison_matrix, credit_values, marketing_features
-      items/                   Scrapy JSONL feeds, one file per item type
+      json/                    plans, plan_sets, credit_values, models, benefit_cards, comparisons, marketing, auth, meta
+      csv/                     COMPLETE flat copy of dataset.json: every JSON field has a column (nested -> dotted
+                               columns like pricing.after_offer.per_month, lists -> JSON text in the cell). 19 tables:
+                               run_meta, plan_sets, plans, credit_values, models, model_price_points,
+                               model_entitlements, benefit_cards, benefit_sections, benefit_rows, comparisons,
+                               comparison_plans, comparison_categories, comparison_matrix, marketing_plans,
+                               marketing_promo_items, marketing_features, auth_credit_packages, auth_payloads
+                               (UTF-8 with BOM so Excel shows symbols correctly; a test enforces completeness)
+      items/                   Scrapy JSONL feeds written live during the crawl (one item per line, before joins)
       schema/dataset.schema.json
   LATEST                       name of the newest run
   index.jsonl                  one line per run

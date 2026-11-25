@@ -1,4 +1,13 @@
-"""Write the assembled dataset: nested JSON, per-section JSON, flat CSVs, JSON Schema and a Markdown summary."""
+"""Write the assembled dataset: nested JSON, per-section JSON, complete flat CSVs, JSON Schema and a Markdown summary.
+
+CSV rule: **nothing is dropped**. Every CSV row is the full JSON object flattened:
+  * nested objects  -> dotted columns   (pricing.after_offer.per_month, entitlement.caps.concurrency.count)
+  * lists           -> JSON text in one cell (["seedance_2_5", "kling3_0"])
+  * null            -> empty cell
+Child lists that are their own table (plans in a plan set, price points of a model, rows of a benefit section, …)
+go to their own CSV with the parent's keys repeated, so every JSON leaf exists in exactly one CSV.
+Columns = union over all rows, key columns first, then in first-seen order.
+"""
 from __future__ import annotations
 
 import csv
@@ -12,102 +21,141 @@ from .schemas import Dataset
 log = logging.getLogger(__name__)
 
 
+# ------------------------------------------------------------------ helpers
 def _dump(path: Path, data: Any) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=4), encoding="utf-8")
     return path
 
 
-def _csv(path: Path, rows: Iterable[dict], fields: list[str]) -> Path:
+def flatten(obj: Any, prefix: str = "", out: dict | None = None) -> dict[str, Any]:
+    """{'a': {'b': 1}, 'c': [1, 2]} -> {'a.b': 1, 'c': '[1, 2]'}. Empty dicts become an empty cell."""
+    out = {} if out is None else out
+    if isinstance(obj, dict) and obj:
+        for k, v in obj.items():
+            flatten(v, f"{prefix}.{k}" if prefix else str(k), out)
+    elif isinstance(obj, dict):
+        out[prefix] = None
+    elif isinstance(obj, list):
+        out[prefix] = json.dumps(obj, ensure_ascii=False)
+    else:
+        out[prefix] = obj
+    return out
+
+
+def _row(*parts: dict, **keys: Any) -> dict[str, Any]:
+    """Merge parent keys + flattened parts into one row."""
+    row = dict(keys)
+    for p in parts:
+        row.update(flatten(p))
+    return row
+
+
+def write_csv(path: Path, rows: Iterable[dict], first: Iterable[str] = ()) -> Path:
+    rows = list(rows)
+    cols = list(dict.fromkeys([c for c in first if any(c in r for r in rows)] + [k for r in rows for k in r]))
+    # a null parent ("discount": null) next to its flattened children ("discount.percent_off") is just a placeholder
+    cols = [c for c in cols if not (any(o.startswith(c + ".") for o in cols)
+                                    and all(r.get(c) in (None, "") for r in rows))]
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+    with path.open("w", newline="", encoding="utf-8-sig") as f:      # utf-8-sig: Excel shows €, ≈, … correctly
+        w = csv.DictWriter(f, fieldnames=cols or ["empty"], extrasaction="ignore")  # only empty placeholders dropped
         w.writeheader()
         for r in rows:
-            w.writerow({k: (json.dumps(v, ensure_ascii=False) if isinstance(v, (dict, list)) else v)
-                        for k, v in r.items()})
+            w.writerow({k: ("" if v is None else v) for k, v in r.items()})
     return path
 
 
-PLAN_FIELDS = [
-    "plan_set_key", "country_code", "plan_type", "name", "audience", "billing_period", "credits_per_month", "seats",
-    "currency", "before_offer_per_month", "after_offer_per_month", "renewal_per_month", "before_offer_total",
-    "after_offer_total", "renewal_total", "has_offer", "discount_percent", "discount_applies_to", "savings_total",
-    "savings_percent", "usd_per_credit_after_offer", "unlimited_models", "stripe_price_id", "plan_id",
-]
+def _without(d: dict, *keys: str) -> dict:
+    return {k: v for k, v in d.items() if k not in keys}
 
 
-def _plan_rows(ds: dict):
-    for ps in ds["plan_sets"]:
-        for p in ps["plans"]:
-            pr, d = p["pricing"], p.get("discount") or {}
-            yield {
-                "plan_set_key": p["plan_set_key"], "country_code": p["country_code"], "plan_type": p["plan_type"],
-                "name": p["name"], "audience": p["audience"], "billing_period": p["billing_period"],
-                "credits_per_month": p["credits_per_month"], "seats": p["seats"], "currency": p["currency"],
-                "before_offer_per_month": pr["before_offer"]["per_month"], "after_offer_per_month": pr["after_offer"]["per_month"],
-                "renewal_per_month": pr["renewal"]["per_month"], "before_offer_total": pr["before_offer"]["total"],
-                "after_offer_total": pr["after_offer"]["total"], "renewal_total": pr["renewal"]["total"],
-                "has_offer": p["has_offer"], "discount_percent": d.get("percent_off"), "discount_applies_to": d.get("applies_to"),
-                "savings_total": p["savings"]["total"], "savings_percent": p["savings"]["percent"],
-                "usd_per_credit_after_offer": p["price_per_credit"]["after_offer"],
-                "unlimited_models": ";".join(p["unlimited_model_ids"]), "stripe_price_id": p["stripe_price_id"],
-                "plan_id": p["plan_id"],
-            }
+# ------------------------------------------------------------------ tables
+def csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
+    """name -> (rows, key columns). Together these tables contain every leaf of dataset.json."""
+    T: dict[str, tuple[list[dict], list[str]]] = {}
+
+    T["run_meta"] = ([{"key": k, "value": json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v}
+                      for k, v in flatten({"schema_version": ds["schema_version"], "meta": ds["meta"],
+                                           "tab_badges": ds.get("tab_badges")}).items()], ["key"])
+
+    T["plan_sets"] = ([_row(_without(ps, "plans")) for ps in ds["plan_sets"]], ["plan_set_key"])
+    T["plans"] = ([_row(p) for ps in ds["plan_sets"] for p in ps["plans"]],
+                  ["plan_set_key", "plan_type", "name", "billing_period", "credits_per_month", "seats", "currency",
+                   "pricing.before_offer.per_month", "pricing.after_offer.per_month", "pricing.renewal.per_month",
+                   "pricing.before_offer.total", "pricing.after_offer.total", "pricing.renewal.total",
+                   "has_offer", "discount.percent_off", "discount.applies_to", "plan_id"])
+    T["credit_values"] = ([_row(c) for c in ds["credit_values"]], ["plan_set_key", "plan_type", "billing_period"])
+
+    T["models"] = ([_row(_without(m, "price_points", "entitlements"), entitlement_count=len(m["entitlements"]))
+                    for m in ds["models"]], ["model_id", "display_name", "family", "category", "has_cost_data"])
+    T["model_price_points"] = ([_row(pt, model_id=m["model_id"], display_name=m["display_name"], family=m["family"],
+                                     category=m["category"])
+                                for m in ds["models"] for pt in m["price_points"]],
+                               ["model_id", "display_name", "family", "category", "component", "unit", "credits",
+                                "original_credits", "discount_percent", "usd_estimate"])
+    T["model_entitlements"] = ([_row(e, model_id=m["model_id"], display_name=m["display_name"])
+                                for m in ds["models"] for e in m["entitlements"]],
+                               ["model_id", "display_name", "plan_type", "billing_period", "tab", "type"])
+
+    card_keys = lambda c: {"card_id": c["card_id"], "plan_type": c["plan_type"],  # noqa: E731
+                           "billing_period": c["billing_period"], "tab": c["tab"]}
+    T["benefit_cards"] = ([_row(_without(c, "sections"), section_count=len(c["sections"]))
+                           for c in ds["benefit_cards"]], ["card_id", "plan_type", "billing_period", "tab"])
+    T["benefit_sections"] = ([_row(_without(s, "rows"), **card_keys(c), row_count=len(s["rows"]))
+                              for c in ds["benefit_cards"] for s in c["sections"]],
+                             ["card_id", "plan_type", "billing_period", "tab", "section_id", "kind", "title"])
+    T["benefit_rows"] = ([_row(r, **card_keys(c), section_id=s["section_id"])
+                          for c in ds["benefit_cards"] for s in c["sections"] for r in s["rows"]],
+                         ["plan_type", "billing_period", "tab", "section_id", "row_id", "label", "model_ids",
+                          "entitlement.type", "entitlement.count", "entitlement.duration_days"])
+
+    cmp_keys = lambda c: {"comparison_id": c["comparison_id"], "plan_set_key": c["plan_set_key"],  # noqa: E731
+                          "billing_period": c["billing_period"]}
+    T["comparisons"] = ([_row(_without(c, "plans", "categories"), plan_count=len(c["plans"]),
+                              category_count=len(c["categories"])) for c in ds["comparisons"]],
+                        ["comparison_id", "plan_set_key", "billing_period"])
+    T["comparison_plans"] = ([_row(p, **cmp_keys(c)) for c in ds["comparisons"] for p in c["plans"]],
+                             ["plan_set_key", "billing_period", "plan_type", "name", "credits", "seats"])
+    T["comparison_categories"] = ([_row(_without(cat, "features"), **cmp_keys(c), feature_count=len(cat["features"]))
+                                   for c in ds["comparisons"] for cat in c["categories"]],
+                                  ["plan_set_key", "billing_period", "slug", "name"])
+    T["comparison_matrix"] = ([_row(_without(f, "values"), v, **cmp_keys(c), category=cat["slug"], feature=f["name"])
+                               for c in ds["comparisons"] for cat in c["categories"] for f in cat["features"]
+                               for v in f["values"]],
+                              ["plan_set_key", "billing_period", "category", "feature", "detail", "credits", "per",
+                               "approx", "plan_type", "raw", "available", "quantity", "quantity_unit"])
+
+    mk_keys = lambda m: {"marketing_id": m["marketing_id"], "config_version": m["config_version"],  # noqa: E731
+                         "billing_period": m["billing_period"], "plan_type": m["plan_type"]}
+    T["marketing_plans"] = ([_row(_without(m, "main_features", "feature_groups", "promo_items"),
+                                  main_feature_count=len(m["main_features"]), group_count=len(m["feature_groups"]))
+                             for m in ds["marketing"]],
+                            ["config_version", "billing_period", "plan_type", "tagline", "credits_amount", "credits_label"])
+    T["marketing_promo_items"] = ([_row(pi, **mk_keys(m), position=i) for m in ds["marketing"]
+                                   for i, pi in enumerate(m["promo_items"])],
+                                  ["config_version", "billing_period", "plan_type", "position"])
+    T["marketing_features"] = (
+        [_row(f, **mk_keys(m), group="main", group_title=None, position=i)
+         for m in ds["marketing"] for i, f in enumerate(m["main_features"])]
+        + [_row(f, **mk_keys(m), group=g["group_id"], group_title=g["title"], position=i)
+           for m in ds["marketing"] for g in m["feature_groups"] for i, f in enumerate(g["features"])],
+        ["config_version", "billing_period", "plan_type", "group", "group_title", "position", "feature_id", "text",
+         "status"])
+
+    T["auth_credit_packages"] = ([_row(p) for p in ds["auth"]["credit_packages"]], ["package_id"])
+    T["auth_payloads"] = ([_row(p) for p in ds["auth"]["payloads"]], ["endpoint", "status"])
+    return T
 
 
-def _point_rows(ds: dict):
-    for m in ds["models"]:
-        for pt in m["price_points"]:
-            yield {"model_id": m["model_id"], "display_name": m["display_name"], "family": m["family"],
-                   "category": m["category"], "component": pt["component"], **{f"dim_{k}": v for k, v in pt["dimensions"].items()},
-                   "dimensions": pt["dimensions"], "unit": pt["unit"], "credits": pt["credits"],
-                   "original_credits": pt["original_credits"], "discount_percent": pt["discount_percent"],
-                   "example": pt["example"], "usd_estimate": pt["usd_estimate"], "formula": (pt.get("formula") or {}).get("name"),
-                   "point_id": pt["point_id"]}
-
-
-def _benefit_rows(ds: dict):
-    for c in ds["benefit_cards"]:
-        for s in c["sections"]:
-            for r in s["rows"]:
-                e, caps = r["entitlement"], r["entitlement"].get("caps") or {}
-                yield {"plan_type": c["plan_type"], "billing_period": c["billing_period"], "tab": c["tab"],
-                       "section": s["section_id"], "row_id": r["row_id"], "label": r["label"],
-                       "model_ids": ";".join(r["model_ids"]), "entitlement": e["type"], "count": e["count"],
-                       "duration_days": e["duration_days"], "max_resolution": caps.get("max_resolution"),
-                       "max_duration_s": caps.get("max_duration_s"), "concurrency": caps.get("concurrency"),
-                       "starts": e["starts"], "requirements": ";".join(e["requirements"])}
-
-
-def _comparison_rows(ds: dict):
-    for c in ds["comparisons"]:
-        for cat in c["categories"]:
-            for f in cat["features"]:
-                for v in f["values"]:
-                    yield {"plan_set_key": c["plan_set_key"], "billing_period": c["billing_period"], "category": cat["slug"],
-                           "feature": f["name"], "detail": f["detail"], "credits": f["credits"], "per": f["per"],
-                           "approx": f["approx"], "plan_type": v["plan_type"], "value": v["raw"],
-                           "available": v["available"], "quantity": v["quantity"], "quantity_unit": v["quantity_unit"]}
-
-
-def _marketing_rows(ds: dict):
-    for m in ds["marketing"]:
-        groups = [("main", None, m["main_features"])] + [(g["group_id"], g["title"], g["features"]) for g in m["feature_groups"]]
-        for gid, title, feats in groups:
-            for f in feats:
-                yield {"config_version": m["config_version"], "billing_period": m["billing_period"], "plan_type": m["plan_type"],
-                       "group": gid, "group_title": title, "feature_id": f["feature_id"], "text": f["text"],
-                       "status": f["status"], "tooltip": f["tooltip"]}
-
-
+# ------------------------------------------------------------------ summary
 def _summary_md(ds: dict) -> str:
     meta = ds["meta"]
     L = [f"# Higgsfield pricing snapshot — {meta['scraped_at']}", "",
          f"- Run: `{meta.get('run_id')}`  label: `{meta.get('label')}`",
          f"- Country (by IP): **{meta.get('country_code')}**, currency **{meta.get('currency')}**, plan sets: {', '.join(meta['plan_set_keys'])}",
          f"- Model costs version: `{meta.get('costs_version')}`  marketing config: `{meta.get('marketing_latest_version')}`",
-         f"- Counts: " + ", ".join(f"{k}={v}" for k, v in meta["counts"].items()), ""]
+         "- Counts: " + ", ".join(f"{k}={v}" for k, v in meta["counts"].items()), ""]
     if meta.get("warnings"):
         L += ["**Warnings:**", *[f"- {w}" for w in meta["warnings"]], ""]
     for ps in ds["plan_sets"]:
@@ -137,6 +185,7 @@ def _summary_md(ds: dict) -> str:
     return "\n".join(L)
 
 
+# ------------------------------------------------------------------ main
 def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
     files = [
         _dump(out_dir / "dataset.json", ds),
@@ -148,34 +197,12 @@ def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
         _dump(out_dir / "json" / "comparisons.json", ds["comparisons"]),
         _dump(out_dir / "json" / "marketing.json", ds["marketing"]),
         _dump(out_dir / "json" / "auth.json", ds["auth"]),
+        _dump(out_dir / "json" / "meta.json", {"schema_version": ds["schema_version"], "meta": ds["meta"],
+                                                 "tab_badges": ds.get("tab_badges")}),
         _dump(out_dir / "schema" / "dataset.schema.json", Dataset.model_json_schema(mode="serialization")),
     ]
-    point_rows = list(_point_rows(ds))
-    dim_cols = sorted({k for r in point_rows for k in r if k.startswith("dim_")})
-    files += [
-        _csv(out_dir / "csv" / "plans.csv", _plan_rows(ds), PLAN_FIELDS),
-        _csv(out_dir / "csv" / "model_price_points.csv", point_rows,
-             ["model_id", "display_name", "family", "category", "component", *dim_cols, "unit", "credits",
-              "original_credits", "discount_percent", "example", "usd_estimate", "formula", "dimensions", "point_id"]),
-        _csv(out_dir / "csv" / "models.csv", ds["models"],
-             ["model_id", "display_name", "family", "category", "units", "options", "components", "price_point_count",
-              "has_cost_data", "has_discount", "min_credits", "max_credits"]),
-        _csv(out_dir / "csv" / "model_entitlements.csv",
-             ({"model_id": m["model_id"], **e} for m in ds["models"] for e in m["entitlements"]),
-             ["model_id", "plan_type", "billing_period", "tab", "type", "count", "duration_days", "max_resolution",
-              "max_duration_s", "concurrency", "starts", "requirements", "benefit_label"]),
-        _csv(out_dir / "csv" / "benefit_rows.csv", _benefit_rows(ds),
-             ["plan_type", "billing_period", "tab", "section", "row_id", "label", "model_ids", "entitlement", "count",
-              "duration_days", "max_resolution", "max_duration_s", "concurrency", "starts", "requirements"]),
-        _csv(out_dir / "csv" / "comparison_matrix.csv", _comparison_rows(ds),
-             ["plan_set_key", "billing_period", "category", "feature", "detail", "credits", "per", "approx", "plan_type",
-              "value", "available", "quantity", "quantity_unit"]),
-        _csv(out_dir / "csv" / "credit_values.csv", ds["credit_values"],
-             ["plan_id", "plan_set_key", "plan_type", "billing_period", "credits_per_month", "usd_per_credit_before_offer",
-              "usd_per_credit_after_offer", "credits_per_usd_after_offer"]),
-        _csv(out_dir / "csv" / "marketing_features.csv", _marketing_rows(ds),
-             ["config_version", "billing_period", "plan_type", "group", "group_title", "feature_id", "text", "status", "tooltip"]),
-    ]
+    for name, (rows, first) in csv_tables(ds).items():
+        files.append(write_csv(out_dir / "csv" / f"{name}.csv", rows, first))
     md = out_dir / "summary.md"
     md.write_text(_summary_md(ds), encoding="utf-8")
     files.append(md)

@@ -534,16 +534,25 @@ runs/<yyyymmdd-HHMMSS>_<label>/
   http/NNN_<endpoint>__<params>/   request.json, response.json (all headers, status, latency), body.raw (exact bytes), curl.sh
   output/dataset.json              everything, nested (see README §5)
   output/summary.md                plans table + cheapest option per model
-  output/json/{plans,plan_sets,credit_values,models,benefit_cards,comparisons,marketing,auth}.json
-  output/csv/plans.csv                 one row per plan
-  output/csv/models.csv                one row per model (options as JSON)
-  output/csv/model_price_points.csv    one row per price point, dim_<name> columns
-  output/csv/model_entitlements.csv    model × plan unlimited/free-gens
-  output/csv/benefit_rows.csv          card × row
-  output/csv/comparison_matrix.csv     plan set × billing × feature × plan
-  output/csv/credit_values.csv         $/credit per plan
-  output/csv/marketing_features.csv    version × plan × feature
-  output/items/<kind>.jsonl            Scrapy feed exports, one validated item per line
+  output/json/{plans,plan_sets,credit_values,models,benefit_cards,comparisons,marketing,auth,meta}.json
+  output/csv/                          COMPLETE: every JSON field is a column (nested -> dotted, lists -> JSON text)
+    run_meta.csv                       key/value: meta (counts, versions, usd_reference, warnings…) + tab_badges
+    plan_sets.csv                      one row per plan set (special_offer, country, plan types)
+    plans.csv                          one row per plan: pricing.*, discount.*, savings.*, price_per_credit.*, …
+    credit_values.csv                  $/credit per plan
+    models.csv                         one row per model (options.*, units, components, raw_cost…)
+    model_price_points.csv             one row per price point: dimensions.*, example.*, attributes.*, formula.*
+    model_entitlements.csv             model × plan unlimited/free-gens (concurrency.*)
+    benefit_cards.csv                  card: campaign.*, availability.*, tab_badge.*, unlimited_model_ids, free_gens
+    benefit_sections.csv               section: kind, title, data.* (hero grants, seat bonus, banners)
+    benefit_rows.csv                   row: entitlement.* incl. caps.*
+    comparisons.csv / comparison_plans.csv / comparison_categories.csv
+    comparison_matrix.csv              plan set × billing × feature × plan
+    marketing_plans.csv                tagline, credits_*, billing_periods.*, ui.*, special_deal
+    marketing_promo_items.csv          promo lines per plan
+    marketing_features.csv             version × plan × group × feature
+    auth_credit_packages.csv / auth_payloads.csv   (with --token)
+  output/items/<kind>.jsonl            Scrapy feeds written live during the crawl (one item per line, before joins)
   output/schema/dataset.schema.json
 runs/LATEST          newest run id      runs/index.jsonl   one summary line per run
 ```

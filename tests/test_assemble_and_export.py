@@ -53,5 +53,49 @@ def test_write_outputs(tmp_path, fixtures_dir, sel):
               "json/models.json", "schema/dataset.schema.json"):
         assert n in names
     assert json.loads((tmp_path / "dataset.json").read_text("utf-8"))["schema_version"] == 1
-    header = (tmp_path / "csv" / "model_price_points.csv").read_text("utf-8").splitlines()[0]
-    assert "dim_resolution" in header and "usd_estimate" in header
+    header = (tmp_path / "csv" / "model_price_points.csv").read_text("utf-8-sig").splitlines()[0]
+    assert "dimensions.resolution" in header and "usd_estimate" in header
+
+
+def _csv_cols_and_rows(path):
+    import csv
+    with path.open(encoding="utf-8-sig", newline="") as f:
+        rows = list(csv.DictReader(f))
+    return (set(rows[0].keys()) if rows else set()), rows
+
+
+def test_csvs_contain_every_json_field(tmp_path, fixtures_dir, sel):
+    """Nothing may exist only in JSON: every leaf of every object must be a column in its CSV, rows 1:1."""
+    from higgsfield_scraper.exporters import flatten
+
+    ds = build_dataset(_entities(fixtures_dir, sel), sel)
+    write_outputs(ds, tmp_path)
+    drop = lambda d, *ks: {k: v for k, v in d.items() if k not in ks}  # noqa: E731
+    checks = {
+        "plan_sets": [drop(ps, "plans") for ps in ds["plan_sets"]],
+        "plans": [p for ps in ds["plan_sets"] for p in ps["plans"]],
+        "credit_values": ds["credit_values"],
+        "models": [drop(m, "price_points", "entitlements") for m in ds["models"]],
+        "model_price_points": [pt for m in ds["models"] for pt in m["price_points"]],
+        "model_entitlements": [e for m in ds["models"] for e in m["entitlements"]],
+        "benefit_cards": [drop(c, "sections") for c in ds["benefit_cards"]],
+        "benefit_sections": [drop(s, "rows") for c in ds["benefit_cards"] for s in c["sections"]],
+        "benefit_rows": [r for c in ds["benefit_cards"] for s in c["sections"] for r in s["rows"]],
+        "comparisons": [drop(c, "plans", "categories") for c in ds["comparisons"]],
+        "comparison_plans": [p for c in ds["comparisons"] for p in c["plans"]],
+        "comparison_categories": [drop(cat, "features") for c in ds["comparisons"] for cat in c["categories"]],
+        "comparison_matrix": [{**drop(f, "values"), **v} for c in ds["comparisons"] for cat in c["categories"]
+                              for f in cat["features"] for v in f["values"]],
+        "marketing_plans": [drop(m, "main_features", "feature_groups", "promo_items") for m in ds["marketing"]],
+        "marketing_promo_items": [pi for m in ds["marketing"] for pi in m["promo_items"]],
+        "marketing_features": [f for m in ds["marketing"] for f in m["main_features"]]
+                              + [f for m in ds["marketing"] for g in m["feature_groups"] for f in g["features"]],
+    }
+    for table, objects in checks.items():
+        cols, rows = _csv_cols_and_rows(tmp_path / "csv" / f"{table}.csv")
+        assert len(rows) == len(objects), table
+        missing = {k for o in objects for k in flatten(o)} - cols
+        missing = {k for k in missing if not any(c.startswith(k + ".") for c in cols)}  # null parent of dotted cols
+        assert not missing, f"{table}.csv is missing JSON fields: {sorted(missing)[:10]}"
+    meta_keys = {r["key"] for r in _csv_cols_and_rows(tmp_path / "csv" / "run_meta.csv")[1]}
+    assert {"meta.country_code", "meta.counts.plans", "schema_version"} <= meta_keys
