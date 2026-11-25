@@ -11,7 +11,8 @@ References: `.claude/docs/scrapy.md` (Scrapy mechanics), `.claude/docs/schema-de
 
 Checklist:
 1. **Source choice** — use the endpoint doc in `docs/endpoints/<site>.md`; prefer JSON API → embedded JSON → HTML.
-2. **Schema first** — define/extend pydantic models in `schemas.py` and Scrapy items in `items.py`.
+2. **Schema first** — define/extend pydantic models in `higgsfield_scraper/schemas/` (one module per entity,
+   registered in `MODEL_BY_KIND`); Scrapy items in `items.py` are generated from them.
    Every item: stable hashed ID, `source_url`, `scraped_at` (UTC ISO 8601), `schema_version`.
    Money = Decimal string + ISO 4217 currency + `price_raw`. `None` = missing, `[]` = empty.
 3. **Spider** — `scrapy genspider`; `allowed_domains`; `response.json()` / `response.jmespath()` for APIs;

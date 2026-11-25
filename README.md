@@ -1,7 +1,7 @@
 # higgsfield-scraper
 
-A Scrapy project that collects **all public pricing data from [higgsfield.ai/pricing](https://higgsfield.ai/pricing)**.
-It covers:
+Scrapy scrapers for public [Higgsfield.ai](https://higgsfield.ai) data. The first scraper, `pricing`, collects
+**all public pricing data from [higgsfield.ai/pricing](https://higgsfield.ai/pricing)**. It covers:
 
 - every subscription plan, with **USD prices before and after the offer and on renewal**, plus the discount and when it applies
 - the **credit cost of every model** (Seedance, Kling, GPT Image, Nano Banana, Veo, Wan, ElevenLabs, … 86 models), covering
@@ -24,6 +24,8 @@ The page itself contains no prices. They come from JSON APIs that this project c
 
 ```bash
 # Python 3.10+
+git clone https://github.com/workingshady/higgsfield-scraper.git
+cd higgsfield-scraper
 python -m venv .venv
 .venv\Scripts\activate            # Windows   (Linux/macOS: source .venv/bin/activate)
 pip install -r requirements-dev.txt
@@ -199,6 +201,7 @@ higgsfield_scraper/
   assemble.py            joins: plans↔benefits↔models, seats, USD estimates
   exporters.py           JSON / CSV / schema / summary.md writers
   logformatter.py        one-line item logs (no 4 MB dumps)
+  middlewares.py         HttpArchiveMiddleware: writes <run>/http/ (request/response/body/curl + HAR)
   run/                   RunContext (folders, manifest), logging setup, RunManager
   settings.py            Scrapy settings (polite: robots.txt, AutoThrottle, retries)
 tests/                   offline tests on captured fixtures (+ live test with HF_LIVE=1)
@@ -214,7 +217,21 @@ python -m pytest -q                       # offline, ~5 s
 HF_LIVE=1 python -m pytest -q -m live     # real end-to-end scrape into a temp folder
 ```
 
-## 9. Notes
+## 9. Adding a scraper
+
+Everything except the pricing-specific parts is reusable: run folders, manifest, logs, the `http/` archive, the raw
+archive and `normalize`, validation, and the polite Scrapy settings.
+
+- **More pricing data** (a new pricing endpoint): add it to `constants.py` (`ENDPOINTS` + `SECTIONS`), write a parser in
+  `parsers/`, a schema in `schemas/` (registered in `MODEL_BY_KIND`; the Scrapy item is generated from it), a join in
+  `assemble.py`, an export in `exporters.py`, and a test with a captured fixture. It then becomes a new `--sections` value.
+- **A different Higgsfield area** (presets, model catalog, …): first run the `reverse-engineer-site` Claude skill on
+  the page and document the endpoints in `docs/`. Then split the package into a shared `core/` and one subpackage per
+  scraper (`pricing/`, `<new>/`), with a spider each. The CLI then becomes `scrape pricing|<new> …`.
+- Only scrape public data. robots.txt disallows `/me/`, `/library/`, `/flow/`, `/asset/`, `/share/`, `/auth/` and
+  `/payment/`, and the purchase or checkout endpoints must never be called.
+
+## 10. Notes
 
 - These are undocumented internal APIs and may change without notice. Each run logs any non-200 response,
   and `manifest.json` records a `partial` status when that happens.
