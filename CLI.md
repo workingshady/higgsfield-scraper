@@ -62,12 +62,13 @@ run label, review a summary showing the **equivalent flag command**, and choose 
 
 ## Contents
 
-1. [`scrape`](#1-scrape): all options
+1. [`scrape` pricing](#1-scrape-pricing-the-default-scraper): all options
+   [1b. Every scraper: complete option reference](#1b-every-scraper-complete-option-reference) (community, catalog, projects, blog, shared, limits, logging)
 2. [Option details: every choice and when to use it](#2-option-details)
 3. [Recipes: common combinations](#3-recipes)
 4. [`normalize`](#4-normalize)
 5. [`show`](#5-show)
-6. [`plan-sets`, `sections`, `runs`, `schema`](#6-info-commands)
+6. [`scrapers`, `login`, `auth-check`, `runs`, `runs clean`, `show-config`, `plan-sets`, `sections`, `schema`](#6-info-commands)
 7. [Output: what a run produces](#7-output)
 8. [Exit codes, environment variables, `.env`](#8-exit-codes-and-environment)
 9. [Plain Scrapy (`scrapy crawl higgsfield -a …`)](#9-plain-scrapy)
@@ -75,7 +76,7 @@ run label, review a summary showing the **equivalent flag command**, and choose 
 
 ---
 
-## 1. `scrape`
+## 1. `scrape` (pricing, the default scraper)
 
 ```
 python -m higgsfield_scraper scrape [--sections S] [--plan-sets P] [--billing B] [--marketing-versions V] [--locale L]
@@ -124,6 +125,175 @@ python -m higgsfield_scraper scrape [--sections S] [--plan-sets P] [--billing B]
 ```
 
 It takes about 10 s, makes 6 requests and downloads about 4 MB (most of that is the marketing config).
+
+---
+
+## 1b. Every scraper: complete option reference
+
+`scrape` with no scraper name means `scrape pricing` (backward compatible). Every scraper takes the shared options;
+community, catalog, projects and blog also take the limit/media options. Per-scraper guides: `docs/scrapers/`.
+
+<!-- BEGIN scraper-options -->
+<!-- generated from the argparse definitions; regenerate with scripts/gen_cli_tables.py -->
+
+### Shared options (every scraper)
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--token` | — | TOKEN | Clerk session JWT (~60 s). Prefer HF_CLERK_CLIENT or HF_EMAIL/HF_PASSWORD in .env for auto refresh |
+| `--auth` | `auto` | `auto` `off` `required` | auto: use login when configured (default) \| off: never send tokens \| required: skip login-only endpoints when no session |
+| `--cache` | off | flag | enable Scrapy HTTP cache (dev) |
+| `--no-http-archive` | off | flag | don't write &lt;run&gt;/http/ (per-request request.json, response.json, body.raw, curl.sh, session.har) |
+| `--obey-robots` | off | flag | check and obey robots.txt (default: off — robots.txt is not obeyed) |
+| `--delay` | `1.0` | DELAY | seconds between requests per domain (default 1.0) |
+| `--concurrency` | `2` | CONCURRENCY | parallel requests per domain (default 2) |
+| `--max-requests` | `5000` | MAX_REQUESTS | hard cap on HTTP responses (default 5000) |
+| `--max-minutes` | — | MAX_MINUTES | stop the crawl after N minutes |
+| `--no-stop-on-block` | off | flag | keep going after a bot-protection (captcha) response instead of stopping |
+| `--dry-run` | off | flag | print the first requests that would be made and exit |
+| `--label` | — | LABEL | run label (folder suffix) |
+| `--runs-dir` | `runs` | RUNS_DIR |  |
+| `-v` / `--verbose` | off | flag | -v: project DEBUG on the console, -vv: Scrapy DEBUG too |
+| `-q` / `--quiet` | off | flag | console shows warnings and errors only |
+| `--log-level` | — | LOG_LEVEL | console level (DEBUG/INFO/WARNING/ERROR); wins over -v/-q (env HF_LOG_LEVEL, default INFO) |
+| `--log-format` | `console` | `console` `json` | console: Rich text on stderr (default) \| json: one JSON object per line on stderr (env HF_LOG_FORMAT) |
+| `--no-color` | off | flag | plain console output (also honours the NO_COLOR environment variable) |
+| `--heartbeat` | — | SECONDS | seconds between worker.heartbeat events / manifest progress updates (default 30, 0 = off) |
+| `--file-log-level` | `DEBUG` | FILE_LOG_LEVEL | level of logs/events.jsonl and logs/run.log |
+| `--scrapy-log-level` | — | SCRAPY_LOG_LEVEL | Scrapy's own loggers (default INFO, -vv: DEBUG) |
+| `--split-logs` | off | flag | also write logs/app.log and logs/scrapy.log |
+
+### Limits and media (community, catalog, projects, blog)
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--max-items` | — | MAX_ITEMS | stop after N primary items (default: no limit) |
+| `--max-pages` | — | MAX_PAGES | max pages per paginated listing |
+| `--page-size` | — | PAGE_SIZE | items per API page (clamped to the API maximum) |
+| `--download-media` | `none` | `none` `thumbs` `full` `all` | none (links only, default) \| thumbs \| full \| all — files go to &lt;run&gt;/media/ |
+| `--max-media-files` | `500` | MAX_MEDIA_FILES | cap on downloaded files (default 500) |
+| `--max-media-mb` | `1024.0` | MAX_MEDIA_MB | cap on downloaded MB (default 1024) |
+
+### `scrape pricing`
+
+Plans, offers (before/after), renewal, discounts, per-model credit costs, benefits, comparison, marketing copy; optional logged-in top-ups/bundles
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--sections` | `plans,compare,benefits,models,marketing` | SECTIONS | comma list of ['auth', 'benefits', 'compare', 'marketing', 'models', 'plans'] or 'all' (default: plans,compare,benefits,models,marketing) |
+| `--plan-sets` | `us` | PLAN_SETS | plan_set_keys or presets ['all', 'tiers', 'us'] (default: us = ps_a3) |
+| `--billing` | `monthly,annual` | BILLING | billing periods for /compare (default: monthly,annual) |
+| `--marketing-versions` | `latest` | MARKETING_VERSIONS | latest \| all \| comma list like v51,v50 (default: latest) |
+| `--locale` | `en` | LOCALE | en, de, es, fr, ja, ko, pt-BR, zh-CN |
+| `--plan-types` | — | PLAN_TYPES | e.g. plus,ultra,team (default: all) |
+| `--models` | — | MODELS | model patterns, e.g. seedance,kling*,gpt_image_2_6 |
+| `--categories` | — | CATEGORIES | video,image,audio,other |
+| `--usd-reference` | `plus:annual` | USD_REFERENCE | plan_type:billing_period whose after-offer $/credit prices model USD estimates |
+| `--include-hidden-plans` | off | flag | keep trial/secret plan types |
+| `--include-raw-cost` | off | flag | embed each model's untouched cost JSON |
+
+### `scrape community`
+
+Community generations: model (job_set_type), prompt, settings, inputs, results, engagement; optional creator profiles (opt-in), detail, comments (login) and estimated credit cost
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--feeds` | `trending` | FEEDS | comma list of feeds: trending (main feed, ~78.6k), approved (curated, ~6.7k, mostly video), top (single page, &lt;=100), model-x (featured model showcase), 'all', or 'none' (only --publication-ids) (default: trending) |
+| `--type` | `all` | `all` `image` `video` `speak` `upscale` | media type filter (API `type`). image\|video are also enforced client-side because the approved feed ignores it; speak\|upscale are server-side only (default: all) |
+| `--models` | — | JOB_SET_TYPES | job_set_type filter, comma list and/or repeatable, e.g. --models seedance_2_5,nano_banana_2 (API `model`, trending/approved; enforced client-side for top/model-x) |
+| `--preset-ids` | — | IDS | preset/motion id filter (API `preset_id`, repeatable). Passed through; server effect unverified |
+| `--resolution` | — | RESOLUTION | API `resolution` filter (passed through; the trending feed ignores it, approved returned 0 items for 720p in tests — use with care) |
+| `--publication-ids` | — | IDS | also fetch these publications by id (GET /publications/{id}); their feed is 'detail' |
+| `--with-profiles` | off | flag | PERSONAL DATA: include creators' username, avatar, social handles and badges (creators table). Default: only the pseudonymous user_id |
+| `--with-raw-params` | off | flag | keep each generation's untouched `params` dict (raw_params) next to the normalized fields |
+| `--detail` | off | flag | fetch GET /publications/{id} for every listed item and use that (1 extra request per item) |
+| `--with-comments` | off | flag | LOGIN ONLY: fetch /publications/{id}/comments per item (needs a session; skipped otherwise) |
+| `--estimate-cost` | `off` | `off` `images` `videos` `all` | attach an estimated credit cost per generation from /job-sets/costs: off (default) \| images \| videos \| all. An estimate, not what the creator actually paid |
+| `--usd-reference` | `plus:annual` | USD_REFERENCE | plan_type:billing_period whose after-offer $/credit converts credits to USD (default: plus:annual) |
+| `--usd-plan-set` | `ps_a3` | USD_PLAN_SET | plan_set_key used for the USD reference plan (default: ps_a3) |
+
+```bash
+python -m higgsfield_scraper scrape community --max-items 300
+python -m higgsfield_scraper scrape community --feeds approved --type video --max-items 100
+python -m higgsfield_scraper scrape community --feeds trending --models nano_banana_2,seedream_v4_5 --max-items 500
+python -m higgsfield_scraper scrape community --max-items 200 --estimate-cost all
+python -m higgsfield_scraper scrape community --max-items 50 --with-profiles --download-media thumbs
+```
+
+### `scrape catalog`
+
+Preset & asset catalogs: motions (+samples/details), avatars, voices, sounds, styles, soul samples, viral-hub presets; login-only soul styles, per-model motions, mixed media, katana, ...
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--kinds` | — | KINDS | comma list of catalog kinds (short names like motion,voice or catalog_motion), or 'public' (default), 'login', 'all'. Available: motion, motion_sample, avatar, avatar_preset, voice, reference_voice, sound, style, soul_sample, viral_type, viral_preset, soul_style, mixed_media_preset, model_motion, katana_category, katana_preset, color_preset, youtube_faceless_preset, camera_setting, marketing_category, marketing_preset |
+| `--with-samples` | off | flag | also fetch the sample videos of every motion (1 request per motion, ~419; --max-pages caps the number of sample requests) |
+| `--with-details` | off | flag | also fetch /motions/{id} per motion (adds description + real preview media for the kling/minimax/seedance/wan families; ~419 requests; --max-pages caps them) |
+| `--lang` | `en` | LANG | language for viral-hub, soul styles, mixed media, katana (default: en) |
+| `--include-login-only` | `auto` | `auto` `yes` `no` | login-only catalogs: auto = when a session is configured (default), yes = always (skipped cleanly without a session), no = never |
+| `--keep-placeholders` | off | flag | keep the base64 blur placeholders (data: URIs) found in media objects (large) |
+
+```bash
+python -m higgsfield_scraper scrape catalog
+python -m higgsfield_scraper scrape catalog --kinds motion,voice,sound
+python -m higgsfield_scraper scrape catalog --kinds motion --with-samples --with-details --max-pages 50
+python -m higgsfield_scraper scrape catalog --kinds all --include-login-only yes
+python -m higgsfield_scraper scrape catalog --kinds viral_preset --lang de --download-media thumbs
+```
+
+### `scrape projects`
+
+Community projects (films/series/carousels), recommended feeds, contest entries, contests (rules, rewards, judges, winners) and contest submissions
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--what` | `all` | WHAT | comma list of ['publications', 'recommended', 'contests', 'entries', 'series'] or 'all' (default). 'series' needs a login session |
+| `--categories` | — | CATEGORIES | publication category slugs (server-side filter), e.g. spotlight,open-sourced-by-higgsfield |
+| `--featured` | off | flag | publications listing: only featured (featured=true) |
+| `--scope` | `all` | SCOPE | recommended feed scopes: ['community', 'ai_film_festival', 'talent_contest', 'ad_contest', 'discord'] or 'all' (default) |
+| `--with-details` | off | flag | fetch each publication's / contest's detail endpoint (stats, rules, rewards, prizes, winners…) |
+| `--with-submissions` | off | flag | fetch every contest's submissions (paginated) |
+| `--contest-status` | `all` | `open` `closed` `all` | open (created/open/shortlist/judge) \| closed (finished) \| all (default) |
+| `--contest-types` | `all` | CONTEST_TYPES | global,weekly or 'all' (default) |
+| `--entry-keys` | `all` | ENTRY_KEYS | contest entries (contest-participations) for ['ai_film_festival', 'talent_contest'] or 'all' |
+| `--entry-tab` | `latest` | `latest` `trending` `most_watched` `all_entries` `submissions` `liked` `voted` | ordering/tab of the contest-entries listing (default latest = every entry) |
+| `--submission-ordering` | `newest` | `newest` `most-liked` `most-viewed` `trending` |  |
+| `--max-submissions` | — | MAX_SUBMISSIONS | cap submissions per contest (default: all) |
+| `--with-profiles` | off | flag | opt-in: include authors'/contestants' usernames, names, avatars, headlines, locations, judge links and profile-based page URLs (default: pseudonymous author keys only) |
+
+```bash
+python -m higgsfield_scraper scrape projects --max-items 200
+python -m higgsfield_scraper scrape projects --what contests --with-details --with-submissions
+python -m higgsfield_scraper scrape projects --what publications --categories spotlight --with-details
+python -m higgsfield_scraper scrape projects --what recommended --scope ai_film_festival --max-pages 2
+python -m higgsfield_scraper scrape projects --what contests --contest-status closed --contest-types weekly
+python -m higgsfield_scraper scrape projects --what publications --max-items 50 --download-media thumbs
+```
+
+### `scrape blog`
+
+Blog posts + authors, talent/community posts, Creator Hub help center, case studies, changelog, Enterprise help center — metadata and full article text (Markdown/plain text)
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--what` | `blog,talents,help,enterprise-help,case-studies,changelog` | WHAT | comma list of ['blog', 'talents', 'help', 'enterprise-help', 'case-studies', 'changelog', 'community'] or 'all' (default: blog,talents,help,enterprise-help,case-studies,changelog; 'community' = the large user blog feed /blog/posts/recommended, opt-in) |
+| `--with-content` | off | flag | fetch the full article text (default: on) |
+| `--no-content` | off | flag | metadata only from the index pages / feeds (~10 requests): no per-article pages, no post bodies; text fields stay empty |
+| `--locale` | `en` | LOCALE | one of ['en', 'es', 'ja', 'ko', 'de'] (default: en; others fall back to English where no translation exists) |
+| `--tags` | — | TAGS | keep posts whose category slug/title or tags match (comma list) |
+| `--since` | — | SINCE | keep items published/updated on or after YYYY-MM-DD |
+| `--include-author-avatars` | off | flag | keep community/talent authors' avatar URLs (personal data; off by default) |
+| `--no-markdown` | off | flag | don't write output/articles/&lt;collection&gt;/&lt;slug&gt;.md |
+
+```bash
+python -m higgsfield_scraper scrape blog
+python -m higgsfield_scraper scrape blog --what help,enterprise-help --label help-only
+python -m higgsfield_scraper scrape blog --what blog --since 2026-10-01 --tags guides,comparisons
+python -m higgsfield_scraper scrape blog --no-content --label metadata-only
+python -m higgsfield_scraper scrape blog --what talents,community --max-pages 3
+python -m higgsfield_scraper scrape blog --what blog --download-media thumbs
+```
+<!-- END scraper-options -->
 
 ---
 
@@ -274,7 +444,11 @@ the cost normalizer or when you need a field the normalizer doesn't map. The ful
 | `--file-log-level INFO` | Smaller `run.log` and `events.jsonl` |
 | `--scrapy-log-level WARNING` | Hide Scrapy's INFO lines (stats dump, middleware lists) |
 
-### `--token`
+### `--token` (deprecated; prefer `login`)
+
+**Recommended instead:** put `HF_EMAIL`/`HF_PASSWORD` in `.env` and run `login` once (see
+[§6](#6-info-commands)), or set `HF_CLERK_CLIENT`. The scraper then mints fresh tokens automatically and refreshes
+on `401`. `--token` still works but logs a `cli.flag.deprecated` warning.
 
 A Clerk session JWT. Get it from DevTools → Application → Cookies → `https://higgsfield.ai` → `__session` while
 logged in. It **expires after about 60 s**, so paste it right before running. The token is never written to the
@@ -506,6 +680,39 @@ Errors: `show model nope` prints `model 'nope' not found` and exits 1. With no r
 
 ## 6. Info commands
 
+**`scrapers`**: list every scraper with its description and example commands (no network).
+
+**`login`** / **`login --code N`**: sign in with `HF_EMAIL`/`HF_PASSWORD` from `.env`.
+
+```bash
+python -m higgsfield_scraper login                 # step 1: Clerk emails a 6-digit code to the account
+python -m higgsfield_scraper login --code 123456   # step 2: session cached in runs/.auth/clerk_client.json (gitignored)
+```
+
+After that, every run mints ~60 s session tokens automatically for as long as the Clerk session lives (up to ~400
+days). Google/Apple accounts have no password: set `HF_CLERK_CLIENT` (the browser's `__client` cookie) instead. The
+interactive menu has the same flow under *Login / session*.
+
+**`auth-check [--json]`**: checks which credential source is configured and whether a token can be minted. Never
+prints secrets. `--json` gives a machine-readable result (`ok`, `source`, …). Exit 0 if OK, 1 otherwise.
+
+**`runs [--limit N] [--json]`**: recent runs from `runs/index.jsonl` (status, seconds, counts). `--json` prints the
+raw records.
+
+**`runs clean --keep-last N --keep-days D [--yes] [--json]`**: delete old run folders. Without `--yes` it is a
+**dry run** that only lists what would be deleted. A run is kept if it is among the newest N **or** younger than D
+days. Never deleted: runs still running, the latest successful run, and any run folder containing a `KEEP` file.
+
+```bash
+python -m higgsfield_scraper runs clean --keep-last 20 --keep-days 14          # preview
+python -m higgsfield_scraper runs clean --keep-last 20 --keep-days 14 --yes    # delete
+```
+
+**`show-config [--json]`**: the resolved configuration (flags, environment, `.env`, defaults) and where each value
+came from. Secrets are shown as `set`/`unset`, never their value.
+
+**`menu`** / **`-i`** / **`--interactive`**: interactive mode (see [Interactive mode](#interactive-mode)).
+
 **`plan-sets`**: static knowledge, no network.
 
 ```
@@ -562,11 +769,20 @@ wrote 9 schemas to schemas
 
 ```
 runs/<yyyymmdd-HHMMSS>_<label>/
-  manifest.json      status, args (token masked), selection, versions (python/scrapy/pydantic/git),
-                     started/finished/duration, counts, responses {endpoint: {status: n}}, scrapy_stats, files[]
-  logs/run.log       all loggers          logs/app.log     higgsfield_scraper.* only
-  logs/scrapy.log    scrapy/twisted       logs/errors.log  WARNING+
-  logs/events.jsonl  one JSON object per log line (ts, level, logger, run_id, msg, endpoint, status…)
+  manifest.json      status (running/success/partial/failure/cancelled), exit_code, scraper, args (secrets redacted),
+                     common options, selection, limits_hit, auth status, versions (python/scrapy/pydantic/git),
+                     started/finished/duration, counts, responses {endpoint: {status: n}}, scrapy_stats, files[],
+                     outputs[] (size + sha256), progress (refreshed on every heartbeat). Written atomically.
+  _SUCCESS           empty marker, only when status = success
+  logs/events.jsonl  structured JSON, one event per line: timestamp, level, logger, event, message, run.id,
+                     scraper.name, + event fields. Events: app.started, config.loaded, run.started, page.fetched,
+                     raw.saved, worker.heartbeat (items, rate, ETA, memory, queue), output.written, run.finished …
+  logs/access.jsonl  one line per HTTP request: method, url, endpoint, status, duration_ms, size, retry attempt, outcome
+  logs/run.log       everything, human-readable
+  logs/errors.log    WARNING+ with full tracebacks
+  logs/app.log, logs/scrapy.log   only with --split-logs
+  media/             downloaded files + index.jsonl (only with --download-media; not pricing)
+  (all logs, the manifest and http/ pass through one redaction layer: JWTs, cookies, Bearer tokens, passwords)
   raw/<endpoint>__<params>.json    {"meta": {endpoint,url,params,status,fetched_at}, "body": <untouched>}
   http/index.jsonl                 one line per HTTP exchange (incl. robots.txt, redirects, retries, errors)
   http/session.har                 HAR 1.2 of the whole run (import into Chrome DevTools)
@@ -604,17 +820,27 @@ All `.json` files use **4-space indentation**. The `.jsonl` files hold one objec
 
 | Exit code | Status | Meaning |
 |---|---|---|
-| 0 | `success` | Every public endpoint returned 200, and every item validated |
-| 2 | `partial` | Output was written, but there was a non-200 public response, a request error, or a dropped (invalid) item. Check `logs/errors.log` and `manifest.json` |
-| 1 | `failed` | No dataset was produced (crash, interrupted, or assembly error). `raw/` is kept |
-| 2 | — | Bad arguments (`error: unknown plan_set_key(s): ['bogus']; run python -m higgsfield_scraper plan-sets`) |
+| 0 | `success` | Every required endpoint returned 200, and every item validated |
+| 1 | `failure` | No dataset was produced (crash or assembly error). `raw/` is kept |
+| 2 | — | Usage error: bad arguments (`error: unknown plan_set_key(s): ['bogus']; …`), or `menu` without a terminal |
+| 3 | `partial` | Output was written, but there was a non-200 response, a request error, or a dropped (invalid) item. Check `logs/errors.log` and `manifest.json` |
+| 4 | `partial` + `"blocked": true` | Stopped on a bot-protection (captcha) response (`--no-stop-on-block` to continue) |
+| 130 | `cancelled` | Ctrl-C; the run is finalized with what was collected |
+
+Older manifests that say `failed` are read as `failure`. Before the logging upgrade, `partial` exited with 2.
 
 | Env var | Equivalent |
 |---|---|
-| `HF_TOKEN` | `--token` |
+| `HF_EMAIL`, `HF_PASSWORD` | credentials for `login` (option A) |
+| `HF_CLERK_CLIENT` | browser `__client` cookie (option B), auto-refreshing |
+| `HF_TOKEN` | `--token` (one-off JWT, option C) |
 | `HF_LOCALE` | `--locale` |
 | `HF_RUNS_DIR` | `--runs-dir` |
 | `HF_LOG_LEVEL` | `--log-level` |
+| `HF_LOG_FORMAT` | `--log-format` (`console` \| `json`) |
+| `NO_COLOR` | `--no-color` |
+| `HF_PREFS` | interactive-mode prefs file (default `%APPDATA%\higgsfield_scraper\prefs.json`) |
+| `HF_NO_MENU=1` / `CI` | never open the menu on a bare `python -m higgsfield_scraper` |
 | `HF_LIVE=1` | enables live tests in pytest |
 
 A `.env` file in the working directory is loaded automatically. Variables already set in the environment take
