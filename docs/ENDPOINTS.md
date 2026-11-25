@@ -34,7 +34,7 @@ Subscription plans with Stripe prices before the offer, after the offer, and on 
 
 | Query param | Required | Values | Effect |
 |---|---|---|---|
-| `plan_set_key` | no (defaults to `default`) | 25 keys, see `python -m higgs_price plan-sets` | Which price list. `ps_a3` = US |
+| `plan_set_key` | no (defaults to `default`) | 25 keys, see `python -m higgsfield_scraper plan-sets` | Which price list. `ps_a3` = US |
 | `with_localization` | no | `true` / `false` | Localized plan names |
 | `promo_link_code` | no | Code from a `/pricing?fpr=<code>` link | Promo prices (not used by the scraper) |
 

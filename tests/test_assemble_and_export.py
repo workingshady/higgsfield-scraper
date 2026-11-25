@@ -1,12 +1,12 @@
 import json
 from collections import defaultdict
 
-from higgs_price.assemble import build_dataset
-from higgs_price.exporters import write_outputs
-from higgs_price.parsers import keep, parse_envelope
-from higgs_price.raw import Envelope
-from higgs_price.selection import Selection
-from higgs_price.validation import validate_entity
+from higgsfield_scraper.assemble import build_dataset
+from higgsfield_scraper.exporters import write_outputs
+from higgsfield_scraper.parsers import keep, parse_envelope
+from higgsfield_scraper.raw import Envelope
+from higgsfield_scraper.selection import Selection
+from higgsfield_scraper.validation import validate_entity
 
 
 def _entities(fixtures_dir, sel):

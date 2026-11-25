@@ -1,9 +1,9 @@
-"""Scrapy settings for higgs_price. The RunManager overrides FEEDS / LOG_* / HIGGS_* per run."""
+"""Scrapy settings for higgsfield_scraper. The RunManager overrides FEEDS / LOG_* / HIGGS_* per run."""
 from .constants import DEFAULT_HEADERS, USER_AGENT
 
-BOT_NAME = "higgs_price"
-SPIDER_MODULES = ["higgs_price.spiders"]
-NEWSPIDER_MODULE = "higgs_price.spiders"
+BOT_NAME = "higgsfield_scraper"
+SPIDER_MODULES = ["higgsfield_scraper.spiders"]
+NEWSPIDER_MODULE = "higgsfield_scraper.spiders"
 
 # --- politeness -------------------------------------------------------------
 ROBOTSTXT_OBEY = True
@@ -25,19 +25,19 @@ TELNETCONSOLE_ENABLED = False
 
 # --- raw HTTP archive (<run>/http/: request.json, response.json, body.raw, curl.sh, session.har)
 DOWNLOADER_MIDDLEWARES = {
-    "higgs_price.middlewares.HttpArchiveMiddleware": 580,   # below HttpCompression (590): sees decoded bodies
+    "higgsfield_scraper.middlewares.HttpArchiveMiddleware": 580,   # below HttpCompression (590): sees decoded bodies
 }
 HIGGS_HTTP_ARCHIVE = True
 
 # --- pipelines --------------------------------------------------------------
 ITEM_PIPELINES = {
-    "higgs_price.pipelines.RawArchivePipeline": 50,
-    "higgs_price.pipelines.ValidationPipeline": 300,
-    "higgs_price.pipelines.CollectAndExportPipeline": 800,
+    "higgsfield_scraper.pipelines.RawArchivePipeline": 50,
+    "higgsfield_scraper.pipelines.ValidationPipeline": 300,
+    "higgsfield_scraper.pipelines.CollectAndExportPipeline": 800,
 }
 
 # --- logging ----------------------------------------------------------------
-LOG_FORMATTER = "higgs_price.logformatter.QuietLogFormatter"
+LOG_FORMATTER = "higgsfield_scraper.logformatter.QuietLogFormatter"
 LOG_LEVEL = "INFO"
 LOGSTATS_INTERVAL = 30.0
 

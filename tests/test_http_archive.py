@@ -3,8 +3,8 @@ import json
 from scrapy.http import Request, TextResponse
 from scrapy.settings import Settings
 
-from higgs_price.middlewares import HttpArchiveMiddleware
-from higgs_price.run.context import RunContext
+from higgsfield_scraper.middlewares import HttpArchiveMiddleware
+from higgsfield_scraper.run.context import RunContext
 
 
 class _Stats:

@@ -1,4 +1,4 @@
-# higgs-price
+# higgsfield-scraper
 
 A Scrapy project that collects **all public pricing data from [higgsfield.ai/pricing](https://higgsfield.ai/pricing)**.
 It covers:
@@ -27,7 +27,7 @@ The page itself contains no prices. They come from JSON APIs that this project c
 python -m venv .venv
 .venv\Scripts\activate            # Windows   (Linux/macOS: source .venv/bin/activate)
 pip install -r requirements-dev.txt
-# optional: pip install -e .      -> adds a `higgs-price` command
+# optional: pip install -e .      -> adds a `higgsfield-scraper` command
 cp .env.example .env              # optional settings (token, defaults)
 ```
 
@@ -35,17 +35,17 @@ Check that it works:
 
 ```bash
 python -m pytest -q                     # offline tests (fixtures)
-python -m higgs_price scrape --dry-run  # prints the requests it would make
+python -m higgsfield_scraper scrape --dry-run  # prints the requests it would make
 ```
 
 ## 2. Quick start
 
 ```bash
-python -m higgs_price scrape                    # default: US prices, all public sections
-python -m higgs_price show plans                # plan table from the latest run
-python -m higgs_price show models seedance      # models matching "seedance"
-python -m higgs_price show model seedance_2_5   # every option combination + credits + ≈USD
-python -m higgs_price show compare "kling 3.0"  # comparison matrix rows
+python -m higgsfield_scraper scrape                    # default: US prices, all public sections
+python -m higgsfield_scraper show plans                # plan table from the latest run
+python -m higgsfield_scraper show models seedance      # models matching "seedance"
+python -m higgsfield_scraper show model seedance_2_5   # every option combination + credits + ≈USD
+python -m higgsfield_scraper show compare "kling 3.0"  # comparison matrix rows
 ```
 
 ## 3. Commands and options
@@ -86,10 +86,10 @@ python -m higgs_price show compare "kling 3.0"  # comparison matrix rows
 Examples:
 
 ```bash
-python -m higgs_price scrape --sections plans --plan-sets all --label every-plan-set
-python -m higgs_price scrape --sections models --models "seedance*,kling*" --label video-costs
-python -m higgs_price scrape --sections all --plan-sets tiers --marketing-versions all
-python -m higgs_price scrape --sections auth,plans --token "$HF_TOKEN"
+python -m higgsfield_scraper scrape --sections plans --plan-sets all --label every-plan-set
+python -m higgsfield_scraper scrape --sections models --models "seedance*,kling*" --label video-costs
+python -m higgsfield_scraper scrape --sections all --plan-sets tiers --marketing-versions all
+python -m higgsfield_scraper scrape --sections auth,plans --token "$HF_TOKEN"
 scrapy crawl higgsfield -a sections=models -a models=seedance        # plain Scrapy works too (no manifest)
 ```
 
@@ -105,7 +105,7 @@ runs/
     manifest.json              status, args, selection, versions, timings, counts, HTTP statuses, Scrapy stats, file list
     logs/
       run.log                  everything (DEBUG+)
-      app.log                  higgs_price.* only
+      app.log                  higgsfield_scraper.* only
       scrapy.log               scrapy / twisted / warnings only
       errors.log               WARNING and above
       events.jsonl             structured JSON log (ts, level, logger, run_id, endpoint, status…)
@@ -162,7 +162,7 @@ Conventions:
 - `None` means not provided, and `[]` means an empty list.
 - `schema_version` is set on every entity.
 
-The Pydantic models in `higgs_price/schemas/` are the source of truth. Run `python -m higgs_price schema` to export
+The Pydantic models in `higgsfield_scraper/schemas/` are the source of truth. Run `python -m higgsfield_scraper schema` to export
 the JSON Schemas.
 
 **Model cost units:**
@@ -186,8 +186,8 @@ to capture the other variants. `meta.country_code` records which country the API
 ## 7. Project layout
 
 ```
-higgs_price/
-  cli.py                 entry point (python -m higgs_price)
+higgsfield_scraper/
+  cli.py                 entry point (python -m higgsfield_scraper)
   constants.py           endpoints, plan_set_keys, presets
   selection.py           sections, plan sets, and filters chosen for a run
   spiders/higgsfield.py  the Scrapy spider (JSON APIs only)

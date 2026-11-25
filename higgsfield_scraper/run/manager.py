@@ -17,7 +17,7 @@ from ..selection import Selection
 from .context import RunContext
 from .logging_setup import setup_logging, teardown_logging
 
-log = logging.getLogger("higgs_price.run")
+log = logging.getLogger("higgsfield_scraper.run")
 
 
 def _git_commit() -> Optional[str]:
@@ -31,7 +31,7 @@ def _git_commit() -> Optional[str]:
 def _versions() -> dict[str, Any]:
     import pydantic
     import scrapy
-    return {"higgs_price": __version__, "python": platform.python_version(), "scrapy": scrapy.__version__,
+    return {"higgsfield_scraper": __version__, "python": platform.python_version(), "scrapy": scrapy.__version__,
             "pydantic": pydantic.VERSION, "platform": platform.platform(), "git_commit": _git_commit()}
 
 
@@ -75,7 +75,7 @@ class RunManager:
     # ------------------------------------------------------------ scrape
     def scrape(self, sel: Selection, token: Optional[str] = None, cache: bool = False,
                settings_overrides: Optional[dict] = None, args: Optional[dict] = None) -> int:
-        os.environ.setdefault("SCRAPY_SETTINGS_MODULE", "higgs_price.settings")
+        os.environ.setdefault("SCRAPY_SETTINGS_MODULE", "higgsfield_scraper.settings")
         from scrapy.crawler import CrawlerProcess
         from scrapy.utils.project import get_project_settings
 

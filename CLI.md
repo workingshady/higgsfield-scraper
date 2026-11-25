@@ -1,11 +1,11 @@
-# CLI reference: `python -m higgs_price`
+# CLI reference: `python -m higgsfield_scraper`
 
 This file covers every command, option, choice, default and combination, with real example output (captured
-2026-11-25) and when to use each one. With `pip install -e .`, `higgs-price …` can be used in place of
-`python -m higgs_price …`.
+2026-11-25) and when to use each one. With `pip install -e .`, `higgsfield-scraper …` can be used in place of
+`python -m higgsfield_scraper …`.
 
 ```
-python -m higgs_price <command> [options]
+python -m higgsfield_scraper <command> [options]
 
 commands:
   scrape      fetch live data into a new run folder            (default if no command is given)
@@ -17,7 +17,7 @@ commands:
   schema      export JSON Schemas
 ```
 
-`python -m higgs_price --sections plans` is the same as `python -m higgs_price scrape --sections plans`.
+`python -m higgsfield_scraper --sections plans` is the same as `python -m higgsfield_scraper scrape --sections plans`.
 Every command accepts `-h / --help`.
 
 ---
@@ -40,7 +40,7 @@ Every command accepts `-h / --help`.
 ## 1. `scrape`
 
 ```
-python -m higgs_price scrape [--sections S] [--plan-sets P] [--billing B] [--marketing-versions V] [--locale L]
+python -m higgsfield_scraper scrape [--sections S] [--plan-sets P] [--billing B] [--marketing-versions V] [--locale L]
                              [--plan-types T] [--models M] [--categories C]
                              [--usd-reference R] [--include-hidden-plans] [--include-raw-cost]
                              [--label X] [--runs-dir D] [--log-level LVL] [--file-log-level LVL] [--scrapy-log-level LVL]
@@ -70,18 +70,18 @@ python -m higgs_price scrape [--sections S] [--plan-sets P] [--billing B] [--mar
 | | `--no-http-archive` | off (the archive is on) | flag: don't write `<run>/http/` |
 | | `--dry-run` | off | flag: print requests and exit, no network |
 
-**Default run** (`python -m higgs_price scrape`). Console output, trimmed:
+**Default run** (`python -m higgsfield_scraper scrape`). Console output, trimmed:
 
 ```
-12:43:28 INFO    higgs_price.run: run 20261125-104328_first-live started -> D:\higgs-price\runs\20261125-104328_first-live
-12:43:28 INFO    higgs_price.run: sections=['plans','compare','benefits','models','marketing'] plan_sets=['ps_a3'] endpoints=[…]
-12:43:30 INFO    higgs_price.spiders.higgsfield: plans {'with_localization': 'true', 'plan_set_key': 'ps_a3'} -> 15 entities (15 after filters)
-12:43:31 INFO    higgs_price.spiders.higgsfield: job_costs  -> 86 entities (86 after filters)
+12:43:28 INFO    higgsfield_scraper.run: run 20261125-104328_first-live started -> D:\higgsfield-scraper\runs\20261125-104328_first-live
+12:43:28 INFO    higgsfield_scraper.run: sections=['plans','compare','benefits','models','marketing'] plan_sets=['ps_a3'] endpoints=[…]
+12:43:30 INFO    higgsfield_scraper.spiders.higgsfield: plans {'with_localization': 'true', 'plan_set_key': 'ps_a3'} -> 15 entities (15 after filters)
+12:43:31 INFO    higgsfield_scraper.spiders.higgsfield: job_costs  -> 86 entities (86 after filters)
 …
-12:43:37 INFO    higgs_price.pipelines: dataset: plan_sets=1, plans=14, models=95, price_points=524, benefit_cards=24, comparisons=2, marketing_plans=26, …
-12:43:37 INFO    higgs_price.run: run 20261125-104328_first-live finished: SUCCESS in 9.4s
+12:43:37 INFO    higgsfield_scraper.pipelines: dataset: plan_sets=1, plans=14, models=95, price_points=524, benefit_cards=24, comparisons=2, marketing_plans=26, …
+12:43:37 INFO    higgsfield_scraper.run: run 20261125-104328_first-live finished: SUCCESS in 9.4s
 
-[SUCCESS] run folder: D:\higgs-price\runs\20261125-104328_first-live
+[SUCCESS] run folder: D:\higgsfield-scraper\runs\20261125-104328_first-live
 ```
 
 It takes about 10 s, makes 6 requests and downloads about 4 MB (most of that is the marketing config).
@@ -107,7 +107,7 @@ them. For example, `--sections models` also calls `plans` (so it can compute USD
 `plan_sets`.
 
 ```bash
-$ python -m higgs_price scrape --sections auth --token x --dry-run
+$ python -m higgsfield_scraper scrape --sections auth --token x --dry-run
 GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/packages   [auth]
 GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/bundle/unlim-catalog   [auth]
 GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces/credit-price   [auth]
@@ -130,7 +130,7 @@ max_v1_ultra max_v2 max_v2_seedance_2_5 max_v2_q max_v2_ultra max_v3 ps_a1 ps_a2
 ps_a5 ps_a6 ps_a7 mob_v1`. You can mix presets and keys: `--plan-sets us,max_v2_q`.
 
 ```bash
-$ python -m higgs_price scrape --dry-run --sections plans,compare --plan-sets tiers --billing annual
+$ python -m higgsfield_scraper scrape --dry-run --sections plans,compare --plan-sets tiers --billing annual
 GET …/subscriptions/v2/plans?with_localization=true&plan_set_key=ps_a3
 GET …/subscriptions/v2/plans?with_localization=true&plan_set_key=default
 GET …/subscriptions/v2/plans?with_localization=true&plan_set_key=max_v1
@@ -164,7 +164,7 @@ The first plan set listed is the one used for `--usd-reference`.
 | `latest,v40` | the all-versions request | newest + v40 |
 
 ```bash
-$ python -m higgs_price scrape --dry-run --sections marketing --marketing-versions v51,v40
+$ python -m higgsfield_scraper scrape --dry-run --sections marketing --marketing-versions v51,v40
 GET https://pricing.higgsfield.ai/v2/pricing-config?locale=en&planVersion=v51.0.0
 GET https://pricing.higgsfield.ai/v2/pricing-config?locale=en&planVersion=v40.0.0
 ```
@@ -242,8 +242,8 @@ logged in. It **expires after about 60 s**, so paste it right before running. Th
 manifest or the logs (it shows as `***`).
 
 ```bash
-python -m higgs_price scrape --sections auth,plans --token "eyJhbGciOi…"
-HF_TOKEN=eyJ… python -m higgs_price scrape --sections all      # also picks up auth
+python -m higgsfield_scraper scrape --sections auth,plans --token "eyJhbGciOi…"
+HF_TOKEN=eyJ… python -m higgsfield_scraper scrape --sections all      # also picks up auth
 ```
 
 Without a token, `auth` endpoints return 401. The run is still `success` because these are optional, and the
@@ -289,7 +289,7 @@ Prints the exact GET requests and exits with no network and no run folder. Use i
 running it.
 
 ```bash
-$ python -m higgs_price scrape --dry-run
+$ python -m higgsfield_scraper scrape --dry-run
 GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/plans?with_localization=true&plan_set_key=ps_a3
 GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/compare?plan_set_key=ps_a3&billing_period=monthly&with_localization=true
 GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/compare?plan_set_key=ps_a3&billing_period=annual&with_localization=true
@@ -304,28 +304,28 @@ GET https://pricing.higgsfield.ai/v2/pricing-config?locale=en
 
 | Goal | Command | Requests | Time |
 |---|---|---|---|
-| Daily US snapshot (everything public) | `python -m higgs_price scrape --label daily` | 6 | ~10 s |
-| Only plan prices (before/after offer) | `python -m higgs_price scrape --sections plans --label prices` | 4 | ~5 s |
-| Only model credit costs | `python -m higgs_price scrape --sections models --label costs` | 3 | ~5 s |
-| Seedance and Kling video costs only | `python -m higgs_price scrape --sections models --models "seedance,kling" --categories video` | 3 | ~5 s |
-| All image models with USD at the Ultra rate | `python -m higgs_price scrape --sections models --categories image --usd-reference ultra:annual` | 3 | ~5 s |
-| Every pricing experiment | `python -m higgs_price scrape --sections plans --plan-sets all --label experiments` | 75 | ~2 min |
-| What the frontend shows each tier | `python -m higgs_price scrape --sections plans,compare --plan-sets tiers` | 13 | ~25 s |
-| Quarterly / Max plans | `python -m higgs_price scrape --sections plans --plan-sets max_v2_q,max_v1_q` | 6 | ~8 s |
-| Business plans only | `python -m higgs_price scrape --sections plans,benefits --plan-types team,scale,enterprise` | 4 | ~5 s |
-| Comparison matrix, annual only | `python -m higgs_price scrape --sections compare --billing annual` | 1 | ~3 s |
-| Full marketing history | `python -m higgs_price scrape --sections marketing --marketing-versions all` | 1 | ~5 s |
-| Compare copy v40 and v51 | `python -m higgs_price scrape --sections marketing --marketing-versions v40,v51` | 2 | ~4 s |
-| German copy | `python -m higgs_price scrape --sections benefits,marketing --locale de` | 2 | ~5 s |
-| Logged-in extras | `python -m higgs_price scrape --sections all --token "$HF_TOKEN"` | 10 | ~12 s |
-| Everything possible | `python -m higgs_price scrape --sections all --plan-sets all --marketing-versions all --include-raw-cost --include-hidden-plans` | 78 | ~2 min |
-| Quiet, for cron/CI | `python -m higgs_price scrape --label cron --log-level WARNING --scrapy-log-level WARNING` | 6 | ~10 s |
-| Re-parse after a code change | `python -m higgs_price normalize --run runs/<id>` | 0 | ~3 s |
+| Daily US snapshot (everything public) | `python -m higgsfield_scraper scrape --label daily` | 6 | ~10 s |
+| Only plan prices (before/after offer) | `python -m higgsfield_scraper scrape --sections plans --label prices` | 4 | ~5 s |
+| Only model credit costs | `python -m higgsfield_scraper scrape --sections models --label costs` | 3 | ~5 s |
+| Seedance and Kling video costs only | `python -m higgsfield_scraper scrape --sections models --models "seedance,kling" --categories video` | 3 | ~5 s |
+| All image models with USD at the Ultra rate | `python -m higgsfield_scraper scrape --sections models --categories image --usd-reference ultra:annual` | 3 | ~5 s |
+| Every pricing experiment | `python -m higgsfield_scraper scrape --sections plans --plan-sets all --label experiments` | 75 | ~2 min |
+| What the frontend shows each tier | `python -m higgsfield_scraper scrape --sections plans,compare --plan-sets tiers` | 13 | ~25 s |
+| Quarterly / Max plans | `python -m higgsfield_scraper scrape --sections plans --plan-sets max_v2_q,max_v1_q` | 6 | ~8 s |
+| Business plans only | `python -m higgsfield_scraper scrape --sections plans,benefits --plan-types team,scale,enterprise` | 4 | ~5 s |
+| Comparison matrix, annual only | `python -m higgsfield_scraper scrape --sections compare --billing annual` | 1 | ~3 s |
+| Full marketing history | `python -m higgsfield_scraper scrape --sections marketing --marketing-versions all` | 1 | ~5 s |
+| Compare copy v40 and v51 | `python -m higgsfield_scraper scrape --sections marketing --marketing-versions v40,v51` | 2 | ~4 s |
+| German copy | `python -m higgsfield_scraper scrape --sections benefits,marketing --locale de` | 2 | ~5 s |
+| Logged-in extras | `python -m higgsfield_scraper scrape --sections all --token "$HF_TOKEN"` | 10 | ~12 s |
+| Everything possible | `python -m higgsfield_scraper scrape --sections all --plan-sets all --marketing-versions all --include-raw-cost --include-hidden-plans` | 78 | ~2 min |
+| Quiet, for cron/CI | `python -m higgsfield_scraper scrape --label cron --log-level WARNING --scrapy-log-level WARNING` | 6 | ~10 s |
+| Re-parse after a code change | `python -m higgsfield_scraper normalize --run runs/<id>` | 0 | ~3 s |
 
 Windows Task Scheduler / cron example:
 
 ```bat
-cd /d D:\higgs-price && .venv\Scripts\python -m higgs_price scrape --label daily --log-level WARNING
+cd /d D:\higgsfield-scraper && .venv\Scripts\python -m higgsfield_scraper scrape --label daily --log-level WARNING
 ```
 
 ---
@@ -333,7 +333,7 @@ cd /d D:\higgs-price && .venv\Scripts\python -m higgs_price scrape --label daily
 ## 4. `normalize`
 
 ```
-python -m higgs_price normalize [--run DIR] [all scrape selection/filter/output/run options]
+python -m higgsfield_scraper normalize [--run DIR] [all scrape selection/filter/output/run options]
 ```
 
 This re-parses `DIR/raw/*.json` **offline** (no network) into a **new** run folder labelled `normalize` by default,
@@ -352,8 +352,8 @@ When to use it:
 - you want to rebuild CSVs from an archived `raw/` folder.
 
 ```bash
-$ python -m higgs_price normalize --run runs/20261125-104932_all-plan-sets --sections all --plan-sets all --label all-plan-sets-reparsed
-[SUCCESS] run folder: D:\higgs-price\runs\20261125-105241_all-plan-sets-reparsed
+$ python -m higgsfield_scraper normalize --run runs/20261125-104932_all-plan-sets --sections all --plan-sets all --label all-plan-sets-reparsed
+[SUCCESS] run folder: D:\higgsfield-scraper\runs\20261125-105241_all-plan-sets-reparsed
 ```
 
 ---
@@ -361,7 +361,7 @@ $ python -m higgs_price normalize --run runs/20261125-104932_all-plan-sets --sec
 ## 5. `show`
 
 ```
-python -m higgs_price show {plans|models|model|plan-sets|benefits|compare} [FILTER] [--run DIR] [--runs-dir D]
+python -m higgsfield_scraper show {plans|models|model|plan-sets|benefits|compare} [FILTER] [--run DIR] [--runs-dir D]
 ```
 
 This reads `output/dataset.json` from the latest run, or from `--run`. It prints the dataset path to stderr and a
@@ -461,7 +461,7 @@ ps_a3                EG       14     starter,plus,ultra,team,scale
 ```
 
 Errors: `show model nope` prints `model 'nope' not found` and exits 1. With no runs, it prints
-`no dataset found; run ``python -m higgs_price scrape`` first` and exits 1.
+`no dataset found; run ``python -m higgsfield_scraper scrape`` first` and exits 1.
 
 ---
 
@@ -525,7 +525,7 @@ wrote 9 schemas to schemas
 runs/<yyyymmdd-HHMMSS>_<label>/
   manifest.json      status, args (token masked), selection, versions (python/scrapy/pydantic/git),
                      started/finished/duration, counts, responses {endpoint: {status: n}}, scrapy_stats, files[]
-  logs/run.log       all loggers          logs/app.log     higgs_price.* only
+  logs/run.log       all loggers          logs/app.log     higgsfield_scraper.* only
   logs/scrapy.log    scrapy/twisted       logs/errors.log  WARNING+
   logs/events.jsonl  one JSON object per log line (ts, level, logger, run_id, msg, endpoint, status…)
   raw/<endpoint>__<params>.json    {"meta": {endpoint,url,params,status,fetched_at}, "body": <untouched>}
@@ -559,7 +559,7 @@ All `.json` files use **4-space indentation**. The `.jsonl` files hold one objec
 | 0 | `success` | Every public endpoint returned 200, and every item validated |
 | 2 | `partial` | Output was written, but there was a non-200 public response, a request error, or a dropped (invalid) item. Check `logs/errors.log` and `manifest.json` |
 | 1 | `failed` | No dataset was produced (crash, interrupted, or assembly error). `raw/` is kept |
-| 2 | — | Bad arguments (`error: unknown plan_set_key(s): ['bogus']; run python -m higgs_price plan-sets`) |
+| 2 | — | Bad arguments (`error: unknown plan_set_key(s): ['bogus']; run python -m higgsfield_scraper plan-sets`) |
 
 | Env var | Equivalent |
 |---|---|
@@ -600,7 +600,7 @@ This still creates `runs/<ts>_scrapy-crawl/` with `raw/` and `output/`, but **no
 
 | Symptom | Cause / fix |
 |---|---|
-| `[PARTIAL]` + `invalid plan_set …` in errors.log | The API returned a shape the schema doesn't allow yet. Fix `higgs_price/schemas/`, then `normalize --run <that run>` |
+| `[PARTIAL]` + `invalid plan_set …` in errors.log | The API returned a shape the schema doesn't allow yet. Fix `higgsfield_scraper/schemas/`, then `normalize --run <that run>` |
 | `responses.plans.403` or `429` in the manifest | Blocked or rate-limited. Wait and run less often. Don't add evasion |
 | `responses.credit_packages.401` | No or expired token. This is normal without `--token` |
 | `usd_reference … not found` warning | That plan type or billing doesn't exist in the first selected plan set. Pick another `--usd-reference` or reorder `--plan-sets` |

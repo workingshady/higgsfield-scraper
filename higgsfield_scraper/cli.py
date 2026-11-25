@@ -1,12 +1,12 @@
 """Command-line entry point.
 
-  python -m higgs_price scrape   [options]     # fetch live data -> runs/<timestamp>_<label>/
-  python -m higgs_price normalize --run DIR    # re-parse a run's raw/ offline
-  python -m higgs_price show plans|models|model <id>|plan-sets|benefits|compare [--run DIR]
-  python -m higgs_price plan-sets              # known plan_set_keys and presets
-  python -m higgs_price sections               # what each section fetches
-  python -m higgs_price runs                   # recent runs
-  python -m higgs_price schema --out schemas/  # export JSON Schemas
+  python -m higgsfield_scraper scrape   [options]     # fetch live data -> runs/<timestamp>_<label>/
+  python -m higgsfield_scraper normalize --run DIR    # re-parse a run's raw/ offline
+  python -m higgsfield_scraper show plans|models|model <id>|plan-sets|benefits|compare [--run DIR]
+  python -m higgsfield_scraper plan-sets              # known plan_set_keys and presets
+  python -m higgsfield_scraper sections               # what each section fetches
+  python -m higgsfield_scraper runs                   # recent runs
+  python -m higgsfield_scraper schema --out schemas/  # export JSON Schemas
 """
 from __future__ import annotations
 
@@ -114,7 +114,7 @@ def _dataset(a) -> Optional[dict]:
     run = Path(a.run) if a.run else latest_run(a.runs_dir)
     path = run / "output" / "dataset.json" if run else None
     if not path or not path.exists():
-        print("no dataset found; run `python -m higgs_price scrape` first", file=sys.stderr)
+        print("no dataset found; run `python -m higgsfield_scraper scrape` first", file=sys.stderr)
         return None
     print(f"# {path}", file=sys.stderr)
     return json.loads(path.read_text(encoding="utf-8"))
@@ -234,7 +234,7 @@ def cmd_schema(a) -> int:
 
 # ------------------------------------------------------------------- parser
 def build_parser() -> argparse.ArgumentParser:
-    ap = argparse.ArgumentParser(prog="higgs_price", description="Scrape Higgsfield.ai plans, offers and model credit costs")
+    ap = argparse.ArgumentParser(prog="higgsfield_scraper", description="Scrape Higgsfield.ai plans, offers and model credit costs")
     sub = ap.add_subparsers(dest="command")
 
     s = sub.add_parser("scrape", help="fetch live data into a new run folder")

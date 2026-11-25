@@ -1,4 +1,4 @@
-# higgs-price
+# higgsfield-scraper
 
 Python **Scrapy** project for scraping pricing data (products → plans → price tiers / features) by
 reverse-engineering target sites' data sources and storing validated, versioned records.
@@ -35,7 +35,7 @@ Skills: `reverse-engineer-site` (map a new site before scraping), `scrape-spider
 ## Layout (see README.md for full detail)
 
 ```
-higgs_price/
+higgsfield_scraper/
   cli.py  constants.py  selection.py       # entry point, endpoint registry, run selection/filters
   spiders/higgsfield.py                    # JSON-API spider (no HTML parsing)
   parsers/                                 # pure raw-JSON -> entity dicts (unit-tested on fixtures)
@@ -58,14 +58,14 @@ runs/                                      # run output (gitignored)
 - Default plan set `ps_a3` = US prices (matches https://higgsfield.ai/pricing.md). Country comes from the IP and
   cannot be overridden — do not try to spoof it.
 - `/job-sets/costs` has many cost shapes; new shapes go in `parsers/costs.py` + a test in `tests/test_parsers.py`.
-- After changing a parser, re-parse old data offline: `python -m higgs_price normalize --run runs/<id>`.
+- After changing a parser, re-parse old data offline: `python -m higgsfield_scraper normalize --run runs/<id>`.
 
 ## Commands
 
 ```bash
 .venv\Scripts\activate
 python -m pytest -q                                   # offline tests
-python -m higgs_price scrape --dry-run                # planned requests
-python -m higgs_price scrape --sections all           # live run -> runs/<ts>_<label>/
-python -m higgs_price show model seedance_2_5         # inspect latest run
+python -m higgsfield_scraper scrape --dry-run                # planned requests
+python -m higgsfield_scraper scrape --sections all           # live run -> runs/<ts>_<label>/
+python -m higgsfield_scraper show model seedance_2_5         # inspect latest run
 ```

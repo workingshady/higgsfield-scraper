@@ -197,7 +197,7 @@ class HttpArchiveMiddleware:
         if not self.entries:
             return
         from . import __version__
-        har = {"log": {"version": "1.2", "creator": {"name": "higgs_price", "version": __version__},
+        har = {"log": {"version": "1.2", "creator": {"name": "higgsfield_scraper", "version": __version__},
                        "pages": [], "entries": self.entries}}
         path = self.dir / "session.har"
         path.write_text(json.dumps(har, ensure_ascii=False, indent=4), encoding="utf-8")

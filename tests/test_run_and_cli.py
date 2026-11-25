@@ -7,11 +7,11 @@ import sys
 import pytest
 from scrapy.http import Request, TextResponse
 
-from higgs_price.cli import main
-from higgs_price.run.context import RunContext, latest_run, slugify
-from higgs_price.run.logging_setup import setup_logging, teardown_logging
-from higgs_price.selection import Selection, normalize_version
-from higgs_price.spiders.higgsfield import HiggsfieldSpider
+from higgsfield_scraper.cli import main
+from higgsfield_scraper.run.context import RunContext, latest_run, slugify
+from higgsfield_scraper.run.logging_setup import setup_logging, teardown_logging
+from higgsfield_scraper.selection import Selection, normalize_version
+from higgsfield_scraper.spiders.higgsfield import HiggsfieldSpider
 
 
 def test_selection_presets_and_errors():
@@ -40,7 +40,7 @@ def test_run_context_layout(tmp_path):
 
 def test_logging_files(tmp_path):
     hs = setup_logging(tmp_path, "rid", "WARNING")
-    logging.getLogger("higgs_price.test").info("hello app")
+    logging.getLogger("higgsfield_scraper.test").info("hello app")
     logging.getLogger("scrapy.core").warning("hello scrapy")
     teardown_logging(hs)
     assert "hello app" in (tmp_path / "app.log").read_text("utf-8")
@@ -102,7 +102,7 @@ def test_cli_normalize_offline_end_to_end(tmp_path, fixtures_dir, capsys):
 
 @pytest.mark.live
 def test_live_scrape(tmp_path):
-    rc = subprocess.run([sys.executable, "-m", "higgs_price", "scrape", "--sections", "all", "--runs-dir",
+    rc = subprocess.run([sys.executable, "-m", "higgsfield_scraper", "scrape", "--sections", "all", "--runs-dir",
                          str(tmp_path), "--label", "pytest-live", "--log-level", "WARNING"], timeout=600).returncode
     assert rc == 0
     m = json.loads((latest_run(tmp_path) / "manifest.json").read_text("utf-8"))

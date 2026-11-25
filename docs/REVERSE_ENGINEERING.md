@@ -186,7 +186,7 @@ Observed differences between them (2026-11-25, country EG):
 | `mcp` | — | Plus and Ultra only | 4 plans (for MCP/CLI checkout) |
 
 Ultra (3k / 6k / 9k credits), Team and Scale cost the same in every plan set.
-`python -m higgs_price scrape --sections plans --plan-sets all` captures every variant.
+`python -m higgsfield_scraper scrape --sections plans --plan-sets all` captures every variant.
 
 ## 7. Geo pricing
 

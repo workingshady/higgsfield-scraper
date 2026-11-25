@@ -58,7 +58,7 @@ class Selection:
             keys.extend(PLAN_SET_PRESETS.get(k, [k]))
         bad = [k for k in keys if k not in PLAN_SET_KEYS]
         if bad:
-            raise ValueError(f"unknown plan_set_key(s): {bad}; run `python -m higgs_price plan-sets`")
+            raise ValueError(f"unknown plan_set_key(s): {bad}; run `python -m higgsfield_scraper plan-sets`")
         mv = [normalize_version(v) for v in split_csv(marketing_versions) or ["latest"]]
         return cls(
             sections=list(dict.fromkeys(secs)),

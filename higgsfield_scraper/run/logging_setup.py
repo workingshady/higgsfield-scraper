@@ -82,7 +82,7 @@ def setup_logging(logs_dir: Optional[Path], run_id: str = "-", console_level: st
         logs_dir.mkdir(parents=True, exist_ok=True)
         handlers += [
             _file(logs_dir / "run.log", file_level.upper(), fmt),
-            _file(logs_dir / "app.log", logging.DEBUG, fmt, PrefixFilter(("higgs_price",))),
+            _file(logs_dir / "app.log", logging.DEBUG, fmt, PrefixFilter(("higgsfield_scraper",))),
             _file(logs_dir / "scrapy.log", logging.DEBUG, fmt, PrefixFilter(SCRAPY_PREFIXES)),
             _file(logs_dir / "errors.log", logging.WARNING, fmt),
             _file(logs_dir / "events.jsonl", file_level.upper(), JsonFormatter()),
@@ -94,7 +94,7 @@ def setup_logging(logs_dir: Optional[Path], run_id: str = "-", console_level: st
 
     logging.getLogger("scrapy").setLevel(scrapy_level.upper())
     logging.getLogger("twisted").setLevel(scrapy_level.upper())
-    logging.getLogger("higgs_price").setLevel(logging.DEBUG)
+    logging.getLogger("higgsfield_scraper").setLevel(logging.DEBUG)
     for noisy in ("asyncio", "filelock", "urllib3", "protego"):
         logging.getLogger(noisy).setLevel(logging.WARNING)
     logging.captureWarnings(True)

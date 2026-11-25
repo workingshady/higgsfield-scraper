@@ -3,8 +3,8 @@ from pathlib import Path
 
 import pytest
 
-from higgs_price.raw import Envelope
-from higgs_price.selection import Selection
+from higgsfield_scraper.raw import Envelope
+from higgsfield_scraper.selection import Selection
 
 FIXTURES = Path(__file__).parent / "fixtures" / "raw"
 

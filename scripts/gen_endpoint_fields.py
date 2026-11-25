@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from higgs_price.run.context import latest_run  # noqa: E402
+from higgsfield_scraper.run.context import latest_run  # noqa: E402
 
 ENDPOINTS = [
     ("plans", "plans__", "GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/plans?plan_set_key=…&with_localization=true"),

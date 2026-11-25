@@ -5,7 +5,7 @@ runs/
     manifest.json            # args, selection, status, timings, counts, scrapy stats, file list
     logs/
       run.log                # everything (DEBUG+)
-      app.log                # higgs_price.* only
+      app.log                # higgsfield_scraper.* only
       scrapy.log             # scrapy.* / twisted / py.warnings
       errors.log             # WARNING+
       events.jsonl           # structured JSON log lines

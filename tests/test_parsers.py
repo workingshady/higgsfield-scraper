@@ -1,11 +1,11 @@
 from decimal import Decimal
 
-from higgs_price.parsers import keep, parse_envelope
-from higgs_price.parsers.compare import parse_detail, parse_value
-from higgs_price.parsers.costs import _Walker, family_of, humanize
-from higgs_price.parsers.marketing import select_versions
-from higgs_price.selection import Selection
-from higgs_price.validation import validate_entity
+from higgsfield_scraper.parsers import keep, parse_envelope
+from higgsfield_scraper.parsers.compare import parse_detail, parse_value
+from higgsfield_scraper.parsers.costs import _Walker, family_of, humanize
+from higgsfield_scraper.parsers.marketing import select_versions
+from higgsfield_scraper.selection import Selection
+from higgsfield_scraper.validation import validate_entity
 
 
 # ---------------------------------------------------------------- plans

@@ -1,6 +1,6 @@
 """Spider for Higgsfield pricing APIs (no HTML parsing — every section comes from a JSON endpoint).
 
-Run through the CLI (recommended):  python -m higgs_price scrape --sections all --plan-sets us
+Run through the CLI (recommended):  python -m higgsfield_scraper scrape --sections all --plan-sets us
 Or plain Scrapy:                    scrapy crawl higgsfield -a sections=plans,models -a plan_sets=ps_a3
 """
 from __future__ import annotations
