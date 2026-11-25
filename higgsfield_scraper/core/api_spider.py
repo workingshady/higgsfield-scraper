@@ -32,11 +32,13 @@ from scrapy.exceptions import CloseSpider
 from ..constants import API_BASE
 from ..items import RawResponseItem, to_item
 from ..raw import Envelope
+from ..run.logging_setup import emit
 from . import registry
 from .auth import TokenProvider
 from .base import CommonOptions
 
 HANDLED = [400, 401, 403, 404, 405, 409, 422, 429]
+SAFETY_LIMITS = ("bot protection", "closespider", "max_requests", "max_minutes")
 BLOCK_MARKERS = ("captcha-delivery.com", "datadome")
 
 
@@ -102,9 +104,12 @@ class BaseApiSpider(scrapy.Spider):
         return True
 
     def limit_hit(self, reason: str) -> None:
+        """Record a limit (dataset meta.limits_hit) and log `limit.hit`: info for user limits, warn for safety caps."""
         if reason not in self.limits_hit:
             self.limits_hit.append(reason)
-            self.logger.warning("limit: %s", reason)
+            safety = any(m in reason for m in SAFETY_LIMITS)
+            emit(self.logger, "warning" if safety else "info", "limit.hit", f"limit: {reason}", limit=reason,
+                 limit__kind="safety" if safety else "user")
 
     def page_size(self, default: int, maximum: int) -> int:
         return max(1, min(self.common.page_size or default, maximum))
@@ -131,7 +136,9 @@ class BaseApiSpider(scrapy.Spider):
         if response.status == 403 and any(m in text for m in BLOCK_MARKERS):
             stats.inc_value("higgs/blocked")
             msg = f"bot protection (DataDome captcha) on {endpoint} — stopping, no evasion attempted"
-            self.logger.error(msg)
+            emit(self.logger, "error", "request.blocked", msg, endpoint__name=endpoint,
+                 http__response__status_code=response.status, request_id=response.meta.get("request_id"),
+                 stop=self.common.stop_on_block)
             self.limit_hit(msg)
             if self.common.stop_on_block:
                 raise CloseSpider("blocked_by_bot_protection")
@@ -147,8 +154,10 @@ class BaseApiSpider(scrapy.Spider):
                               status=response.status, fetched_at=env.fetched_at.isoformat(), body=body)
         if response.status != 200:
             optional = endpoint in self.sdef.optional_endpoints or response.meta.get("auth")
-            (self.logger.info if optional else self.logger.warning)(
-                "%s -> HTTP %s %s", endpoint, response.status, str(body)[:160])
+            emit(self.logger, "info" if optional else "warning", "page.fetched",
+                 f"{endpoint} -> HTTP {response.status} {str(body)[:160]}", endpoint__name=endpoint,
+                 http__response__status_code=response.status, request_id=response.meta.get("request_id"),
+                 outcome="http_error", optional=bool(optional))
             return
         entities = self.sdef.parse_envelope(env, self.selection)
         kept = [e for e in entities if self.sdef.keep(e, self.selection)]
@@ -169,7 +178,10 @@ class BaseApiSpider(scrapy.Spider):
                     budget -= 1
                 self.count_primary()
             out.append(e)
-        self.logger.info("%s %s -> %d entities (%d kept)", endpoint, params or "", len(entities), len(out))
+        emit(self.logger, "debug", "page.fetched", f"{endpoint} {params or ''} -> {len(entities)} entities "
+             f"({len(out)} kept)", endpoint__name=endpoint, http__response__status_code=response.status,
+             request_id=response.meta.get("request_id"), entities__count=len(entities), kept__count=len(out),
+             outcome="success")
         for e in out:
             stats.inc_value(f"higgs/parsed/{e['kind']}")
             yield to_item(e)
@@ -184,10 +196,14 @@ class BaseApiSpider(scrapy.Spider):
         if failure.check(IgnoreRequest) and req.meta.get("auth"):
             # login-only request without a session (auth="required"): an expected skip, not an error
             self.crawler.stats.inc_value(f"higgs/auth/skipped/{endpoint}")
-            self.logger.info("skipped login-only %s (no session): %s", endpoint, failure.value)
+            emit(self.logger, "info", "request.skipped", f"skipped login-only {endpoint} (no session): {failure.value}",
+                 endpoint__name=endpoint, reason="no_session")
             return
         self.crawler.stats.inc_value(f"higgs/request_errors/{endpoint}")
-        self.logger.error("request failed for %s: %r", endpoint, failure.value)
+        emit(self.logger, "debug" if req.meta.get("_gave_up") else "error", "external.call.failed",
+             f"request failed for {endpoint}: {failure.value!r}", endpoint__name=endpoint,
+             request_id=req.meta.get("request_id"), error__type=type(failure.value).__name__,
+             url__full=req.url)
 
     # ------------------------------------------------------------ media
     def _media_requests(self, entity: dict) -> Iterator[scrapy.Request]:

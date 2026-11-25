@@ -17,6 +17,7 @@ from ..constants import ENDPOINTS
 from ..items import RawResponseItem, to_item
 from ..parsers import keep, parse_envelope
 from ..raw import Envelope
+from ..run.logging_setup import emit
 from ..selection import Selection
 
 HANDLED_STATUSES = [400, 401, 403, 404, 422]
@@ -42,7 +43,8 @@ class HiggsfieldSpider(scrapy.Spider):
             )
         self.selection = selection
         if "auth" in selection.sections and not self.token:
-            self.logger.warning("section 'auth' requested but no token (--token / HF_TOKEN); those endpoints will 401")
+            emit(self.logger, "warning", "auth.token.missing",
+                 "section 'auth' requested but no token (HF_TOKEN / login); those endpoints will 401")
 
     # ------------------------------------------------------------ requests
     def _request(self, endpoint: str, params: Optional[dict[str, str]] = None, auth: bool = False,
@@ -103,21 +105,26 @@ class HiggsfieldSpider(scrapy.Spider):
         except ValueError:
             body = {"_non_json": response.text[:2000]}
             stats.inc_value("higgs/non_json_responses")
-            self.logger.error("non-JSON response from %s (HTTP %s)", endpoint, response.status,
-                              extra={"endpoint": endpoint, "status": response.status})
+            emit(self.logger, "error", "page.invalid", f"non-JSON response from {endpoint} (HTTP {response.status})",
+                 endpoint__name=endpoint, http__response__status_code=response.status,
+                 request_id=response.meta.get("request_id"))
         env = Envelope(endpoint=endpoint, url=response.url, status=response.status, body=body, params=params,
                        fetched_at=datetime.now(timezone.utc))
         yield RawResponseItem(kind="raw_response", endpoint=endpoint, url=response.url, params=params,
                               status=response.status, fetched_at=env.fetched_at.isoformat(), body=body)
         if response.status != 200:
-            level = self.logger.info if ENDPOINTS[endpoint][1] else self.logger.warning
-            level("%s -> HTTP %s %s", endpoint, response.status, str(body)[:200],
-                  extra={"endpoint": endpoint, "status": response.status})
+            emit(self.logger, "info" if ENDPOINTS[endpoint][1] else "warning", "page.fetched",
+                 f"{endpoint} -> HTTP {response.status} {str(body)[:200]}", endpoint__name=endpoint,
+                 http__response__status_code=response.status, request_id=response.meta.get("request_id"),
+                 outcome="http_error", optional=bool(ENDPOINTS[endpoint][1]))
             return
         entities = parse_envelope(env, self.selection)
         kept = [e for e in entities if keep(e, self.selection)]
-        self.logger.info("%s %s -> %d entities (%d after filters)", endpoint, params or "", len(entities), len(kept),
-                         extra={"endpoint": endpoint, "status": response.status})
+        emit(self.logger, "debug", "page.fetched",
+             f"{endpoint} {params or ''} -> {len(entities)} entities ({len(kept)} after filters)",
+             endpoint__name=endpoint, http__response__status_code=response.status,
+             request_id=response.meta.get("request_id"), entities__count=len(entities), kept__count=len(kept),
+             outcome="success")
         for e in kept:
             stats.inc_value(f"higgs/parsed/{e['kind']}")
             yield to_item(e)
@@ -126,4 +133,6 @@ class HiggsfieldSpider(scrapy.Spider):
         req = failure.request
         endpoint = req.meta.get("endpoint")
         self.crawler.stats.inc_value(f"higgs/request_errors/{endpoint}")
-        self.logger.error("request failed for %s: %r", endpoint, failure.value, extra={"endpoint": endpoint})
+        emit(self.logger, "debug" if req.meta.get("_gave_up") else "error", "external.call.failed",
+             f"request failed for {endpoint}: {failure.value!r}", endpoint__name=endpoint,
+             request_id=req.meta.get("request_id"), error__type=type(failure.value).__name__, url__full=req.url)

@@ -29,6 +29,7 @@ from typing import Optional
 from scrapy.exceptions import IgnoreRequest
 
 from ..constants import USER_AGENT
+from ..run.logging_setup import emit
 
 log = logging.getLogger(__name__)
 
@@ -101,6 +102,7 @@ class TokenProvider:
                 return self._token
             if self._token and left is not None and left <= 0:
                 self.last_error = "session token expired and no HF_CLERK_CLIENT cookie to refresh it"
+                emit(log, "warning", "auth.token.expired", self.last_error, auth__can_refresh=False)
                 return None
             return self._token
 
@@ -165,8 +167,10 @@ class TokenProvider:
             raise AuthError(self.last_error)
         self.refreshes += 1
         self.last_error = None
-        log.info("auth: minted fresh session token (expires in %.0fs, refresh #%d)",
-                 (jwt_exp(jwt) or time.time()) - time.time(), self.refreshes)
+        expires_in = round((jwt_exp(jwt) or time.time()) - time.time())
+        emit(log, "info", "auth.token.refreshed",
+             f"auth: minted fresh session token (expires in {expires_in}s, refresh #{self.refreshes})",
+             expires_in_s=expires_in, refresh__count=self.refreshes)
         return jwt
 
 
@@ -200,7 +204,8 @@ class AuthMiddleware:
             tok = prov.get()
         except AuthError as e:
             self.crawler.stats.inc_value("higgs/auth/errors")
-            log.error("auth: %s", e)
+            emit(log, "error", "auth.refresh.failed", f"auth: {e}", endpoint__name=request.meta.get("endpoint"),
+                 error__type=type(e).__name__)
             if request.meta.get("auth") == "required":
                 raise IgnoreRequest(str(e)) from None
             return None
@@ -216,14 +221,19 @@ class AuthMiddleware:
                 try:
                     tok = prov.get(force_refresh=True)
                     self.crawler.stats.inc_value("higgs/auth/retried_401")
-                    log.warning("auth: 401 on %s — refreshed token, retrying once", request.meta.get("endpoint"))
+                    emit(log, "warning", "auth.token.expired",
+                         f"auth: 401 on {request.meta.get('endpoint')} — refreshed token, retrying once",
+                         endpoint__name=request.meta.get("endpoint"), request_id=request.meta.get("request_id"),
+                         auth__can_refresh=True)
                     new = request.replace(dont_filter=True)
                     new.meta["auth_retried"] = True
                     new.headers["Authorization"] = f"Bearer {tok}"
                     return new
                 except AuthError as e:
-                    log.error("auth: refresh after 401 failed: %s", e)
+                    emit(log, "error", "auth.refresh.failed", f"auth: refresh after 401 failed: {e}",
+                         endpoint__name=request.meta.get("endpoint"), error__type=type(e).__name__)
             elif prov and prov.configured:
-                log.error("auth: 401 on %s — token expired; set HF_CLERK_CLIENT for automatic refresh",
-                          request.meta.get("endpoint"))
+                emit(log, "error", "auth.token.expired",
+                     f"auth: 401 on {request.meta.get('endpoint')} — token expired; run `login` or set HF_CLERK_CLIENT "
+                     "for automatic refresh", endpoint__name=request.meta.get("endpoint"), auth__can_refresh=False)
         return response

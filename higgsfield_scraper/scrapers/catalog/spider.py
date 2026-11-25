@@ -8,6 +8,7 @@ from scrapy.exceptions import IgnoreRequest
 
 from ...core.api_spider import BaseApiSpider
 from ...raw import Envelope
+from ...run.logging_setup import emit
 from .endpoints import KIND_OF, PAGE_KIND, PRIMARY_KINDS, SHORT_OF, SOURCE_BY_ENDPOINT, Source, sources_for
 from .parsers import next_params
 
@@ -45,7 +46,8 @@ class CatalogSpider(BaseApiSpider):
         wanted = {KIND_OF[k] for k in kinds} | ({KIND_OF["motion"]} if needs_motions else set())
         if "marketing_preset" in kinds:
             wanted.add(KIND_OF["marketing_category"])
-        self.logger.info("catalog kinds: %s (session: %s)", ", ".join(kinds), "yes" if self.authed else "no")
+        emit(self.logger, "info", "endpoint.started", f"catalog kinds: {', '.join(kinds)} "
+             f"(session: {'yes' if self.authed else 'no'})", kinds=list(kinds), auth__session=self.authed)
         for kind in [KIND_OF[k] for k in KIND_OF if KIND_OF[k] in wanted]:
             for src in sources_for(kind):
                 if src.kind in ("catalog_motion_sample", "catalog_marketing_preset") or "{id}" in src.path:
@@ -60,7 +62,8 @@ class CatalogSpider(BaseApiSpider):
         req = failure.request
         if failure.check(IgnoreRequest) and req.meta.get("auth") == "required":
             self.crawler.stats.inc_value(f"higgs/auth/skipped/{req.meta.get('endpoint')}")
-            self.logger.info("skipped login-only %s: %s", req.meta.get("endpoint"), failure.value)
+            emit(self.logger, "info", "request.skipped", f"skipped login-only {req.meta.get('endpoint')}: "
+                 f"{failure.value}", endpoint__name=req.meta.get("endpoint"), reason="no_session")
             return
         return super().on_error(failure)
 

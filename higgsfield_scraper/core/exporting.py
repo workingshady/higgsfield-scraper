@@ -19,6 +19,8 @@ from typing import Any, Iterable, Optional
 
 from pydantic import BaseModel
 
+from ..run.logging_setup import emit
+
 log = logging.getLogger(__name__)
 
 
@@ -93,5 +95,6 @@ def write_standard_outputs(ds: dict, out_dir: Path, *, json_parts: dict[str, Any
     md = out_dir / "summary.md"
     md.write_text(summary_md or f"# {ds.get('meta', {}).get('scraper', 'dataset')}\n", encoding="utf-8")
     files.append(md)
-    log.info("wrote %d output files to %s", len(files), out_dir)
+    emit(log, "info", "output.written", f"wrote {len(files)} output files to {out_dir}", files__count=len(files),
+         output__dir=str(out_dir))
     return files

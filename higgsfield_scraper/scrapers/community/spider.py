@@ -8,6 +8,7 @@ from __future__ import annotations
 from typing import Any, Iterator, Optional
 
 from ...core.api_spider import BaseApiSpider
+from ...run.logging_setup import emit
 from .endpoints import (COMMENTS_ENDPOINT, COMMENTS_PATH, DETAIL_ENDPOINT, DETAIL_PATH, ENDPOINT_FEEDS, FEED_ENDPOINTS,
                         FEED_PARAMS, FEED_PATHS, JOB_COSTS_ENDPOINT, JOB_COSTS_PATH, PAGE_SIZE, PLANS_ENDPOINT,
                         COMPARE_ENDPOINT, COMPARE_PATH, BENEFITS_ENDPOINT, BENEFITS_PATH, VIRAL_ENDPOINT, VIRAL_PATH,
@@ -140,7 +141,8 @@ class CommunitySpider(BaseApiSpider):
                 self.limit_hit(f"max_items={self.common.max_items} reached")
             self.stop_reasons[feed] = reason
             if nxt is None:
-                self.logger.info("feed %s: stop after page %d (%s)", feed, self.pages[feed], reason)
+                emit(self.logger, "info", "listing.finished", f"feed {feed}: stop after page {self.pages[feed]} "
+                     f"({reason})", listing=feed, pages__count=self.pages[feed], reason=reason)
                 return
             r = self._listing(feed, nxt)
             if r is not None:

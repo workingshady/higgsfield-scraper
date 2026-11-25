@@ -19,6 +19,7 @@ from .core.privacy import profiles_opt_in, redact_personal
 from .items import RawResponseItem, to_item
 from .raw import Envelope
 from .run.context import RunContext
+from .run.logging_setup import emit
 from .validation import EntityInvalid, validate_entity
 
 log = logging.getLogger(__name__)
@@ -32,7 +33,7 @@ def run_ctx_for(crawler) -> RunContext:
         s = crawler.settings
         ctx = RunContext.create(s.get("HIGGS_RUNS_DIR", "runs"), s.get("HIGGS_RUN_LABEL", "scrapy-crawl"))
         spider.run_ctx = ctx
-        log.info("created run folder %s", ctx.run_dir)
+        emit(log, "info", "run.folder.created", f"created run folder {ctx.run_dir}", run__dir=str(ctx.run_dir))
     return ctx
 
 
@@ -70,7 +71,8 @@ class RawArchivePipeline(_Base):
                            params=item["params"] or {}, fetched_at=datetime.fromisoformat(item["fetched_at"]))
             path: Path = env.save(self.ctx.raw_dir)
             self.stats.inc_value("higgs/raw_saved")
-            log.debug("raw saved %s (%d bytes)", path.name, path.stat().st_size)
+            emit(log, "debug", "raw.saved", f"raw saved {path.name}", file__name=path.name,
+                 size_bytes=path.stat().st_size, endpoint__name=item["endpoint"])
         return item
 
 
@@ -87,7 +89,8 @@ class ValidationPipeline(_Base):
             self.stats.inc_value(f"validation/dropped/{e.kind}")
             for err in e.errors:
                 self.stats.inc_value(f"validation/error/{e.kind}/{'.'.join(map(str, err['loc']))}")
-            log.warning("invalid %s", e, extra={"kind": e.kind, "ident": e.ident})
+            emit(log, "debug", "validation.failed", f"invalid {e}", item__kind=e.kind, item__id=e.ident,
+                 errors__count=len(e.errors))            # the item.dropped warning follows (logformatter)
             raise DropItem(str(e)) from None
         self.stats.inc_value(f"validation/ok/{clean['kind']}")
         return to_item(clean)
@@ -145,8 +148,9 @@ class CollectAndExportPipeline(_Base):
                                     "country_code": ds["meta"].get("country_code")}
             for k, v in counts.items():
                 self.stats.set_value(f"higgs/output/{k}", v)
-            log.info("dataset: %s", ", ".join(f"{k}={v}" for k, v in counts.items()))
+            emit(log, "info", "dataset.built", "dataset: " + ", ".join(f"{k}={v}" for k, v in counts.items()),
+                 **{f"counts__{k}": v for k, v in counts.items()})
         except Exception as e:  # raw data is already on disk; record and keep going
             self.stats.set_value("higgs/assemble_failed", repr(e))
             spider.export_result = {"ok": False, "error": repr(e)}
-            log.exception("assembling/exporting the dataset failed")
+            emit(log, "error", "dataset.failed", "assembling/exporting the dataset failed", exc_info=True)

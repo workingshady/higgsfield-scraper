@@ -5,8 +5,12 @@
   python -m higgsfield_scraper scrapers                     # list scrapers
   python -m higgsfield_scraper normalize --run DIR          # re-parse a run's raw/ offline (scraper auto-detected)
   python -m higgsfield_scraper show plans|models|model <id>|plan-sets|benefits|compare [--run DIR]   (pricing)
-  python -m higgsfield_scraper auth-check                   # is the login/session configured and working?
-  python -m higgsfield_scraper plan-sets | sections | runs | schema
+  python -m higgsfield_scraper auth-check [--json]          # is the login/session configured and working?
+  python -m higgsfield_scraper runs [--json] | runs clean --keep-last N [--keep-days D] [--yes]
+  python -m higgsfield_scraper show-config [--json]         # resolved settings (flags/env/.env), secrets redacted
+  python -m higgsfield_scraper plan-sets | sections | schema
+
+Exit codes: 0 success · 1 failure · 2 usage error · 3 partial · 4 blocked (bot protection) · 130 cancelled (Ctrl-C)
 """
 from __future__ import annotations
 
@@ -20,7 +24,17 @@ from typing import Optional
 from .constants import DEFAULT_SECTIONS, ENDPOINTS, PLAN_SET_KEYS, PLAN_SET_PRESETS, PLAN_SET_TIERS, SECTIONS, US_PLAN_SET
 from .core import registry
 from .core.base import CommonOptions, resolve
-from .core.cli_common import add_access_args, add_limit_args, add_run_args, common_from_args
+from .core.cli_common import add_access_args, add_limit_args, add_run_args, common_from_args, resolve_log_levels
+from .core.redact import REDACTED, is_secret_key
+
+EXIT_CODES_HELP = """exit codes:
+  0    success
+  1    failure (runtime / config error)
+  2    usage error (bad arguments)
+  3    partial (finished, but some requests/items failed or a limit stopped the run)
+  4    blocked (bot protection stopped the run; no evasion is attempted)
+  130  cancelled (Ctrl-C)"""
+DOTENV_KEYS: set[str] = set()        # names (never values) of variables that came from .env
 
 
 def _load_dotenv(path: Path = Path(".env")) -> None:
@@ -30,8 +44,9 @@ def _load_dotenv(path: Path = Path(".env")) -> None:
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
-            if v.strip():
-                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+            if v.strip() and k.strip() not in os.environ:
+                os.environ[k.strip()] = v.strip().strip('"').strip("'")
+                DOTENV_KEYS.add(k.strip())
 
 
 # backwards-compatible names (tests/scripts import these)
@@ -51,9 +66,14 @@ def _public_args(a) -> dict:
         "token": "***" if getattr(a, "token", None) else None}
 
 
+def _manager(a, label: str):
+    from .run.manager import RunManager
+    return RunManager(a.runs_dir, label, *resolve_log_levels(a), log_format=a.log_format, no_color=a.no_color,
+                      heartbeat=a.heartbeat, split_logs=a.split_logs)
+
+
 # ---------------------------------------------------------------- commands
 def cmd_scrape(a) -> int:
-    from .run.manager import RunManager
     sdef = registry.get(a.scraper)
     token = a.token or os.environ.get("HF_TOKEN") or None
     sel = sdef.make_selection(a)
@@ -70,7 +90,7 @@ def cmd_scrape(a) -> int:
         return 0
     base_label = sdef.default_label(sel)
     label = a.label or (base_label if sdef.name == "pricing" else f"{sdef.name}-{base_label}")
-    mgr = RunManager(a.runs_dir, label, a.log_level, a.file_log_level, a.scrapy_log_level)
+    mgr = _manager(a, label)
     overrides = {"HIGGS_HTTP_ARCHIVE": not a.no_http_archive, "ROBOTSTXT_OBEY": a.obey_robots}
     return mgr.scrape(sel, token=token, cache=a.cache, settings_overrides=overrides, args=_public_args(a),
                       scraper=sdef.name, common=common)
@@ -78,7 +98,6 @@ def cmd_scrape(a) -> int:
 
 def cmd_normalize(a) -> int:
     from .run.context import latest_run
-    from .run.manager import RunManager
     src = Path(a.run) if a.run else latest_run(a.runs_dir)
     if not src or not (src / "raw").exists():
         print(f"no raw/ folder found in {src}", file=sys.stderr)
@@ -86,7 +105,7 @@ def cmd_normalize(a) -> int:
     m = json.loads((src / "manifest.json").read_text(encoding="utf-8")) if (src / "manifest.json").exists() else {}
     name = a.scraper or m.get("scraper") or registry.DEFAULT_SCRAPER
     sdef = registry.get(name)
-    mgr = RunManager(a.runs_dir, a.label or "normalize", a.log_level, a.file_log_level, a.scrapy_log_level)
+    mgr = _manager(a, a.label or "normalize")
     if name == "pricing":                     # unchanged pricing behaviour
         sel = sdef.make_selection(a)
         if a.sections == ",".join(DEFAULT_SECTIONS) and m:
@@ -211,9 +230,16 @@ def cmd_scrapers(a) -> int:
 
 def cmd_auth_check(a) -> int:
     from .core.auth import TokenProvider
+    if a.token:
+        print("warning: --token is deprecated (it leaks into shell history); set HF_TOKEN in .env or run `login`",
+              file=sys.stderr)
     prov = TokenProvider.from_env(a.token)
     if not prov.configured:
-        print("no login configured: set HF_CLERK_CLIENT (or HF_EMAIL/HF_PASSWORD) in .env, or pass --token")
+        if a.json:
+            print(json.dumps({"configured": False, "ok": False, "source": None,
+                              "error": "no login configured"}, indent=4))
+        else:
+            print("no login configured: run `login` (HF_EMAIL/HF_PASSWORD in .env) or set HF_CLERK_CLIENT in .env")
         return 1
     st = prov.status()
     print(json.dumps({k: v for k, v in st.items() if k != "session_id"}, indent=4))
@@ -244,14 +270,106 @@ def cmd_login(a) -> int:
 
 
 def cmd_runs(a) -> int:
+    from .run.context import normalize_status
+    if getattr(a, "runs_cmd", None) == "clean":
+        return cmd_runs_clean(a)
     idx = Path(a.runs_dir) / "index.jsonl"
-    if not idx.exists():
+    lines = [json.loads(x) for x in idx.read_text(encoding="utf-8").splitlines() if x.strip()][-a.limit:] \
+        if idx.exists() else []
+    for r in lines:
+        r["status"] = normalize_status(r.get("status"))
+        if r.get("duration_s") is None and r.get("duration_ms") is not None:
+            r["duration_s"] = round(r["duration_ms"] / 1000, 2)
+    if a.json:
+        print(json.dumps(lines, indent=4, default=str))
+        return 0
+    if not lines:
         print("no runs yet")
         return 0
-    lines = [json.loads(x) for x in idx.read_text(encoding="utf-8").splitlines() if x.strip()][-a.limit:]
     _table([[r["run_id"], r["status"], r.get("duration_s"), r.get("country_code") or "",
              ", ".join(f"{k}={v}" for k, v in (r.get("counts") or {}).items() if v)] for r in lines],
            ["run_id", "status", "secs", "country", "counts"])
+    return 0
+
+
+def cmd_runs_clean(a) -> int:
+    from .run.retention import apply_cleanup, plan_cleanup
+    cands = plan_cleanup(a.runs_dir, a.keep_last, a.keep_days)
+    todo = [c for c in cands if c.action == "delete"]
+    deleted = apply_cleanup(cands) if a.yes else []
+    if a.json:
+        print(json.dumps({"dry_run": not a.yes, "runs": [c.to_dict() for c in cands],
+                          "deleted": [c.path.name for c in deleted]}, indent=4))
+        return 0
+    for c in cands:
+        verb = ("deleted" if c in deleted else "would delete") if c.action == "delete" else "keep"
+        print(f"{verb:13} {c.path.name:45} {c.status or '-':10} {c.reason}")
+    mb = sum(c.size_bytes for c in todo) / 1048576
+    if a.yes:
+        print(f"\ndeleted {len(deleted)} run folder(s), {mb:.1f} MB", file=sys.stderr)
+    else:
+        print(f"\ndry run: {len(todo)} run folder(s) ({mb:.1f} MB) would be deleted — add --yes to delete",
+              file=sys.stderr)
+    return 0
+
+
+def _config_value(name: str, value: Optional[str]) -> Optional[str]:
+    if value is None:
+        return None
+    risky = ("TOKEN", "PASS", "SECRET", "KEY", "COOKIE", "CLIENT", "EMAIL", "SESSION", "JWT")
+    if is_secret_key(name) or any(r in name.upper() for r in risky):
+        return f"{REDACTED} (set)" if value else None
+    return value
+
+
+def cmd_show_config(a) -> int:
+    """Resolved configuration with its source (default / .env / env / flag); secret values are never printed."""
+    from .core.auth import CLERK_BASE
+    from .core.base import CommonOptions
+    from . import settings as scrapy_settings
+    env = {}
+    for k in sorted(os.environ):
+        if k.startswith("HF_") or k in ("NO_COLOR", "SCRAPY_SETTINGS_MODULE"):
+            env[k] = {"value": _config_value(k, os.environ.get(k)), "source": ".env" if k in DOTENV_KEYS else "env"}
+    def src(env_name: str) -> str:
+        return (".env" if env_name in DOTENV_KEYS else "env") if os.environ.get(env_name) else "default"
+    from .core.auth_login import CACHE_PATH as cached
+    auth_source = ("HF_TOKEN" if os.environ.get("HF_TOKEN") else "cached login" if cached.exists()
+                   else "HF_CLERK_CLIENT" if os.environ.get("HF_CLERK_CLIENT") else None)
+    cfg = {
+        "dotenv": {"path": str(Path(".env").resolve()), "exists": Path(".env").exists(),
+                   "keys": sorted(DOTENV_KEYS)},
+        "run": {"runs_dir": {"value": os.environ.get("HF_RUNS_DIR", "runs"), "source": src("HF_RUNS_DIR")},
+                "log_level": {"value": os.environ.get("HF_LOG_LEVEL", "INFO"), "source": src("HF_LOG_LEVEL")},
+                "log_format": {"value": os.environ.get("HF_LOG_FORMAT", "console"), "source": src("HF_LOG_FORMAT")},
+                "no_color": {"value": bool(os.environ.get("NO_COLOR")), "source": src("NO_COLOR")},
+                "heartbeat_s": {"value": scrapy_settings.HIGGS_HEARTBEAT, "source": "default"}},
+        "auth": {"configured": bool(auth_source), "source": auth_source,
+                 "clerk_url": {"value": CLERK_BASE, "source": src("HF_CLERK_URL")}},
+        "limits_defaults": CommonOptions().to_dict(),
+        "scrapy": {k: getattr(scrapy_settings, k) for k in (
+            "CONCURRENT_REQUESTS", "CONCURRENT_REQUESTS_PER_DOMAIN", "DOWNLOAD_DELAY", "AUTOTHROTTLE_ENABLED",
+            "DOWNLOAD_TIMEOUT", "RETRY_TIMES", "RETRY_HTTP_CODES", "ROBOTSTXT_OBEY", "COOKIES_ENABLED",
+            "USER_AGENT", "HIGGS_HTTP_ARCHIVE")},
+        "env": env,
+        "precedence": "defaults < .env < environment < command-line flags",
+    }
+    from .core.redact import redact
+    cfg = {**redact({k: v for k, v in cfg.items() if k != "env"}), "env": env}   # env values: see _config_value
+    cfg["precedence"] = cfg.pop("precedence")
+    if a.json:
+        print(json.dumps(cfg, indent=4, default=str))
+        return 0
+    def walk(d, prefix=""):
+        for k, v in d.items():
+            if isinstance(v, dict) and set(v) == {"value", "source"}:
+                print(f"{prefix}{k:28} {v['value']!s:40} ({v['source']})")
+            elif isinstance(v, dict):
+                print(f"{prefix}{k}:")
+                walk(v, prefix + "  ")
+            else:
+                print(f"{prefix}{k:28} {v}")
+    walk(cfg)
     return 0
 
 
@@ -276,14 +394,16 @@ def cmd_schema(a) -> int:
 
 # ------------------------------------------------------------------- parser
 def build_parser() -> argparse.ArgumentParser:
-    ap = argparse.ArgumentParser(prog="higgsfield_scraper", description="Scrape Higgsfield.ai data (pricing, community, …)")
+    ap = argparse.ArgumentParser(prog="higgsfield_scraper", description="Scrape Higgsfield.ai data (pricing, community, …)",
+                                 epilog=EXIT_CODES_HELP, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="command")
 
     s = sub.add_parser("scrape", help="fetch live data into a new run folder (`scrape <scraper> -h`)")
     ssub = s.add_subparsers(dest="scraper", metavar="<scraper>")
     for name, sdef in registry.available().items():
         sp = ssub.add_parser(name, help=sdef.description, description=sdef.description,
-                             epilog="examples:\n  " + "\n  ".join(sdef.examples) if sdef.examples else None,
+                             epilog=("examples:\n  " + "\n  ".join(sdef.examples) + "\n\n" if sdef.examples else "")
+                             + EXIT_CODES_HELP,
                              formatter_class=argparse.RawDescriptionHelpFormatter)
         sdef.add_args(sp)
         if name != "pricing":
@@ -292,7 +412,8 @@ def build_parser() -> argparse.ArgumentParser:
         add_run_args(sp)
         sp.set_defaults(func=cmd_scrape, scraper=name)
 
-    n = sub.add_parser("normalize", help="re-parse a run's raw/ responses offline into a new run")
+    n = sub.add_parser("normalize", help="re-parse a run's raw/ responses offline into a new run",
+                       epilog=EXIT_CODES_HELP, formatter_class=argparse.RawDescriptionHelpFormatter)
     n.add_argument("--run", default=None, help="source run folder (default: latest)")
     n.add_argument("--scraper", default=None, help="override the scraper (default: from the run's manifest)")
     _selection_args(n)
@@ -308,17 +429,33 @@ def build_parser() -> argparse.ArgumentParser:
 
     sub.add_parser("scrapers", help="list available scrapers").set_defaults(func=cmd_scrapers)
     ac = sub.add_parser("auth-check", help="check login/session configuration (never prints secrets)")
-    ac.add_argument("--token", default=None)
+    ac.add_argument("--token", default=None, help="deprecated: use HF_TOKEN in .env or `login`")
+    ac.add_argument("--json", action="store_true", help="always print machine-readable JSON")
     ac.set_defaults(func=cmd_auth_check)
     lg = sub.add_parser("login", help="log in with HF_EMAIL/HF_PASSWORD from .env (step 1), then --code (step 2)")
     lg.add_argument("--code", default=None, help="the 6-digit code Clerk emailed you")
     lg.set_defaults(func=cmd_login)
     sub.add_parser("plan-sets", help="list plan_set_keys and presets").set_defaults(func=cmd_plan_sets)
     sub.add_parser("sections", help="list pricing sections and their endpoints").set_defaults(func=cmd_sections)
-    r = sub.add_parser("runs", help="list recent runs")
+    r = sub.add_parser("runs", help="list recent runs (`runs clean -h`: delete old run folders)")
     r.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
     r.add_argument("--limit", type=int, default=20)
-    r.set_defaults(func=cmd_runs)
+    r.add_argument("--json", action="store_true", help="print the runs as JSON")
+    r.set_defaults(func=cmd_runs, runs_cmd=None)
+    rsub = r.add_subparsers(dest="runs_cmd", metavar="[clean]")
+    rc = rsub.add_parser("clean", help="delete old run folders (dry-run unless --yes)",
+                         description="Keep the newest N runs and/or runs younger than D days; delete the rest. "
+                                     "Never deletes running runs, the latest successful run or folders with a KEEP "
+                                     "file. Dry-run by default.")
+    rc.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
+    rc.add_argument("--keep-last", type=int, default=None, metavar="N", help="keep the newest N runs")
+    rc.add_argument("--keep-days", type=float, default=None, metavar="D", help="keep runs younger than D days")
+    rc.add_argument("-y", "--yes", action="store_true", help="really delete (default: dry run)")
+    rc.add_argument("--json", action="store_true")
+    rc.set_defaults(func=cmd_runs)
+    cfg = sub.add_parser("show-config", help="print the resolved configuration (flags/env/.env), secrets redacted")
+    cfg.add_argument("--json", action="store_true")
+    cfg.set_defaults(func=cmd_show_config)
     sc = sub.add_parser("schema", help="export JSON Schemas of every scraper")
     sc.add_argument("--out", default="schemas")
     sc.set_defaults(func=cmd_schema)

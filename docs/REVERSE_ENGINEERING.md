@@ -304,3 +304,68 @@ grep -ohE '[`"/](subscriptions|job-sets|workspaces|pricing-config|bundle)/[a-zA-
 curl -s "https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/plans?plan_set_key=bogus"   # 422 lists plan sets
 python scripts/gen_endpoint_fields.py        # refresh ENDPOINT_FIELDS.md from the latest run
 ```
+
+---
+
+## 13. Second round (2026-11-25): community, catalogs, projects, content, login
+
+These findings come from the agents that built each scraper. Full details are in `docs/scrapers/<name>.md`.
+
+### Login (Clerk)
+- Frontend API is proxied at `https://higgsfield.ai/_clerk`, and `https://clerk.higgsfield.ai` is the same instance.
+  Every call carries `__clerk_api_version=2026-11-18&_clerk_js_version=6.46.3` and `Origin: https://higgsfield.ai`.
+- **Sign-in methods enabled:** password, email code, Google, Apple, GitHub, Microsoft and ChatGPT OAuth, and SSO/SAML.
+  There is no instance-level MFA.
+- **Password sign-in from a new device** returns `status=needs_second_factor` with `email_code` only. This is
+  Clerk's client-trust check. The flow:
+  `POST /v1/client/sign_ins` → `…/{id}/prepare_second_factor` → `…/{id}/attempt_second_factor` (code) →
+  `created_session_id`.
+- **Session tokens:** `POST /v1/client/sessions/{sid}/tokens` mints a fresh JWT (about 60 s). Only the long-lived
+  `__client` cookie is needed; the cookie lasts up to 400 days.
+- **Bot protection:** Turnstile is configured, but it's only required for sign-up. Clerk Protect may return
+  `needs_protect_check`; the scraper stops there and never tries to bypass it. After 20 failed attempts the account
+  is locked for 60 minutes.
+
+### Community (`/publications/community/*`)
+- **Page sizes:** trending and model-x max 50 (422 above), top 100, approved has no server cap (we use 200).
+- **Cursors:** trending uses a decreasing float score; approved and model-x use a unix timestamp; top has a single
+  page. `total` counts the items remaining after the cursor.
+- **Filters:** `type` accepts `image|video|speak|upscale` only. Approved ignores `type`, and `model` filtering
+  works on trending and approved only. These are filtered client-side where the API ignores them.
+- **Videos are almost all in approved** (≈99% `viral_hub_video`); trending has about 10 videos in total.
+- Each item carries the full `params` (prompt and every setting), its inputs, and results (raw/min, plus
+  `hls`/`h264` for videos).
+- `meta.cost` is the upstream provider's token usage, **not** Higgsfield credits.
+- `profile.*` holds personal data, which is redacted from the archives unless `--with-profiles` is set.
+
+### Catalogs
+- `/motions?size=1000` returns all 419 motions in one page. 190 of them have a placeholder preview in the list;
+  only `/motions/{id}` gives their real media.
+- `/motion-samples` needs both `motion_id` and `size`. `/avatars` returns 500 for size > 200. `/avatar-presets` is
+  public.
+- **The real viral endpoint is `/viral-hub/presets/all`** (87 presets, each with a price matrix in credit units ÷ 100).
+  `/viral-hub/presets` always returns `[]`.
+- 18 catalogs are login-only (401): soul styles, mixed-media presets, per-model motions, katana, color presets,
+  camera settings, marketing studio and others.
+
+### Projects and contests
+- **Page sizes:** `/project-publications` max 50, with a score cursor and no total. Contests and submissions max 100.
+- `/contests` lists global contests only; weekly ones need `contest_type=weekly`.
+- `/contest-participations/publications` (by `tab`) is the full public entry list for the film festival
+  (~4.5k) and the talent contest.
+- `/project-publications/{username}/{slug}` is the same record as `/{id}`, not an episode endpoint.
+
+### Written content
+- Company blog posts, help articles, case studies and the changelog are **not in the API**. They come from a CMS
+  (Sanity) and are embedded in each SSR page as TanStack Router state (`$_TSR`, seroval format), which is parsed
+  directly.
+- Images, prompts and code blocks are carried in HTML comments, e.g. `<!--post-asset-block:{json}-->`.
+- Talent and community post bodies (`content_url`) are binary Yjs v1 documents from a Lexical editor; they're decoded
+  with no extra dependencies.
+
+### Cost estimation sources
+1. `/job-sets/costs` price points (exact when every price dimension is matched).
+2. The `/subscriptions/v2/compare` feature details ("Higgsfield Soul 2.0 · 0.12 credits/image"), joined to
+   job_set_types through the plan-benefit labels (approximate).
+3. The viral preset price matrices, keyed by aspect ratio and resolution. On a live sample this priced 79% of
+   community generations.

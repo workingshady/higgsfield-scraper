@@ -11,9 +11,41 @@ def add_run_args(p: argparse.ArgumentParser) -> None:
     r = p.add_argument_group("run")
     r.add_argument("--label", default=None, help="run label (folder suffix)")
     r.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
-    r.add_argument("--log-level", default=os.environ.get("HF_LOG_LEVEL", "INFO"), help="console level")
-    r.add_argument("--file-log-level", default="DEBUG")
-    r.add_argument("--scrapy-log-level", default="INFO")
+    add_log_args(p)
+
+
+def add_log_args(p: argparse.ArgumentParser) -> None:
+    g = p.add_argument_group("logging")
+    g.add_argument("-v", "--verbose", action="count", default=0,
+                   help="-v: project DEBUG on the console, -vv: Scrapy DEBUG too")
+    g.add_argument("-q", "--quiet", action="store_true", help="console shows warnings and errors only")
+    g.add_argument("--log-level", default=None,
+                   help="console level (DEBUG/INFO/WARNING/ERROR); wins over -v/-q (env HF_LOG_LEVEL, default INFO)")
+    g.add_argument("--log-format", choices=["console", "json"], default=os.environ.get("HF_LOG_FORMAT", "console"),
+                   help="console: Rich text on stderr (default) | json: one JSON object per line on stderr "
+                        "(env HF_LOG_FORMAT)")
+    g.add_argument("--no-color", action="store_true", default=bool(os.environ.get("NO_COLOR")),
+                   help="plain console output (also honours the NO_COLOR environment variable)")
+    g.add_argument("--heartbeat", type=float, default=None, metavar="SECONDS",
+                   help="seconds between worker.heartbeat events / manifest progress updates (default 30, 0 = off)")
+    g.add_argument("--file-log-level", default="DEBUG", help="level of logs/events.jsonl and logs/run.log")
+    g.add_argument("--scrapy-log-level", default=None, help="Scrapy's own loggers (default INFO, -vv: DEBUG)")
+    g.add_argument("--split-logs", action="store_true", help="also write logs/app.log and logs/scrapy.log")
+
+
+def resolve_log_levels(a: argparse.Namespace) -> tuple[str, str, str]:
+    """(console, file, scrapy) levels. Precedence: --log-level > -q > -v > HF_LOG_LEVEL > INFO."""
+    verbose = getattr(a, "verbose", 0) or 0
+    if getattr(a, "log_level", None):
+        console = a.log_level
+    elif getattr(a, "quiet", False):
+        console = "WARNING"
+    elif verbose >= 1:
+        console = "DEBUG"
+    else:
+        console = os.environ.get("HF_LOG_LEVEL", "INFO")
+    scrapy = getattr(a, "scrapy_log_level", None) or ("DEBUG" if verbose >= 2 else "INFO")
+    return console.upper(), (getattr(a, "file_log_level", None) or "DEBUG").upper(), scrapy.upper()
 
 
 def add_access_args(p: argparse.ArgumentParser) -> None:

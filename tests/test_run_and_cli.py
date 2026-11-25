@@ -43,12 +43,24 @@ def test_logging_files(tmp_path):
     logging.getLogger("higgsfield_scraper.test").info("hello app")
     logging.getLogger("scrapy.core").warning("hello scrapy")
     teardown_logging(hs)
+    assert not (tmp_path / "app.log").exists() and not (tmp_path / "scrapy.log").exists()   # only with --split-logs
+    run_log = (tmp_path / "run.log").read_text("utf-8")
+    assert "hello app" in run_log and "hello scrapy" in run_log
+    assert "hello scrapy" in (tmp_path / "errors.log").read_text("utf-8")
+    assert "hello app" not in (tmp_path / "errors.log").read_text("utf-8")
+    ev = [json.loads(x) for x in (tmp_path / "events.jsonl").read_text("utf-8").splitlines()]
+    assert ev[0]["run.id"] == "rid" and ev[0]["event"] == "app.started"
+    assert (tmp_path / "access.jsonl").read_text("utf-8") == ""
+
+
+def test_logging_split_logs(tmp_path):
+    hs = setup_logging(tmp_path, "rid", "WARNING", split_logs=True)
+    logging.getLogger("higgsfield_scraper.test").info("hello app")
+    logging.getLogger("scrapy.core").warning("hello scrapy")
+    teardown_logging(hs)
     assert "hello app" in (tmp_path / "app.log").read_text("utf-8")
     assert "hello scrapy" in (tmp_path / "scrapy.log").read_text("utf-8")
     assert "hello app" not in (tmp_path / "scrapy.log").read_text("utf-8")
-    assert "hello scrapy" in (tmp_path / "errors.log").read_text("utf-8")
-    ev = [json.loads(x) for x in (tmp_path / "events.jsonl").read_text("utf-8").splitlines()]
-    assert ev[0]["run_id"] == "rid"
 
 
 def test_spider_requests_and_parse(fixtures_dir):

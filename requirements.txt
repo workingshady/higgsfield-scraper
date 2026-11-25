@@ -1,3 +1,6 @@
 scrapy>=2.13
 pydantic>=2.7
 itemadapter>=0.8
+rich>=14.2,<16
+filelock>=3.12
+# optional: psutil>=5.9   (process memory in worker.heartbeat; a stdlib fallback is used without it)

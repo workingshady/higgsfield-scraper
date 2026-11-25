@@ -7,6 +7,7 @@ from typing import Any, Iterator
 from urllib.parse import quote
 
 from ...core.api_spider import BaseApiSpider
+from ...run.logging_setup import emit
 from . import endpoints as ep
 from .parsers import _listing_name
 
@@ -70,7 +71,9 @@ class ProjectsSpider(BaseApiSpider):
                                        {"limit": self.page_size(ep.MAX_SERIES_LIMIT, ep.MAX_SERIES_LIMIT)},
                                        auth="required")
             else:
-                self.logger.warning("original series (/series) are login-only: skipped (no session configured)")
+                emit(self.logger, "warning", "request.skipped",
+                     "original series (/series) are login-only: skipped (no session configured)",
+                     endpoint__name="series", reason="no_session")
 
     # ------------------------------------------------------------ request builders
     def _publications_page(self, base: dict, cursor):
@@ -146,7 +149,8 @@ class ProjectsSpider(BaseApiSpider):
             self.limit_hit(f"max_items={self.common.max_items} reached")
             return
         if (listing, str(nxt)) in self._cursors_seen:
-            self.logger.warning("%s: cursor %s repeated, stopping", listing, nxt)
+            emit(self.logger, "warning", "listing.cursor_repeated", f"{listing}: cursor {nxt} repeated, stopping",
+                 listing=listing, cursor=str(nxt))
             return
         self._cursors_seen.add((listing, str(nxt)))
         if not self.page_allowed(listing):

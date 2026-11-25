@@ -16,6 +16,7 @@ import logging
 from pathlib import Path
 from typing import Any, Iterable
 
+from .run.logging_setup import emit
 from .schemas import Dataset
 
 log = logging.getLogger(__name__)
@@ -206,5 +207,6 @@ def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
     md = out_dir / "summary.md"
     md.write_text(_summary_md(ds), encoding="utf-8")
     files.append(md)
-    log.info("wrote %d output files to %s", len(files), out_dir)
+    emit(log, "info", "output.written", f"wrote {len(files)} output files to {out_dir}", files__count=len(files),
+         output__dir=str(out_dir))
     return files

@@ -282,7 +282,22 @@ redeem, invite. The full rule is the `MUTATION` regex in `scripts/recon_probe.py
 
 ---
 
-## 8. Scraper options: what could be built next
+## 8. Scraper status
+
+**Update 2026-11-25:** the first five scrapers are built (`python -m higgsfield_scraper scrapers`).
+
+| Scraper | Status | Docs |
+|---|---|---|
+| `pricing` | ✅ built | [`ENDPOINTS.md`](ENDPOINTS.md) |
+| `community` | ✅ built, with an optional cost estimate | [`scrapers/community.md`](scrapers/community.md), [`scrapers/cost-estimate.md`](scrapers/cost-estimate.md) |
+| `catalog` | ✅ built: public catalogs, and login-only ones when a session exists | [`scrapers/catalog.md`](scrapers/catalog.md) |
+| `projects` | ✅ built | [`scrapers/projects.md`](scrapers/projects.md) |
+| `blog` | ✅ built: blog, help centers, case studies, changelog, talent posts | [`scrapers/blog.md`](scrapers/blog.md) |
+| apps, effects, academy, marketing pages, MCP pages | ⏳ not yet (sitemap pages) | this file, §4 |
+
+The original plan follows.
+
+### Original plan: what could be built next
 
 All of these would reuse the existing run system: run folders, logs, the `http/` archive, validation, JSON + complete
 CSVs, and `normalize`.

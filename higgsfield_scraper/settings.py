@@ -25,10 +25,14 @@ TELNETCONSOLE_ENABLED = False
 
 # --- raw HTTP archive (<run>/http/: request.json, response.json, body.raw, curl.sh, session.har)
 DOWNLOADER_MIDDLEWARES = {
+    "scrapy.downloadermiddlewares.retry.RetryMiddleware": None,
+    "higgsfield_scraper.middlewares.RetryEventsMiddleware": 550,   # Scrapy retry + external.call.retried/failed events
     "higgsfield_scraper.core.auth.AuthMiddleware": 560,            # bearer token + auto refresh (meta auth=True only)
     "higgsfield_scraper.middlewares.HttpArchiveMiddleware": 580,   # below HttpCompression (590): sees decoded bodies
+    "higgsfield_scraper.middlewares.AccessLogMiddleware": 585,     # http.request.finished -> logs/access.jsonl
 }
 HIGGS_HTTP_ARCHIVE = True
+RETRY_GIVE_UP_LOG_LEVEL = "DEBUG"  # our external.call.failed event replaces Scrapy's give-up error line
 
 # --- pipelines --------------------------------------------------------------
 ITEM_PIPELINES = {
@@ -41,7 +45,12 @@ ITEM_PIPELINES = {
 # --- logging ----------------------------------------------------------------
 LOG_FORMATTER = "higgsfield_scraper.logformatter.QuietLogFormatter"
 LOG_LEVEL = "INFO"
-LOGSTATS_INTERVAL = 30.0
+LOGSTATS_INTERVAL = 0              # Scrapy's LogStats off: the worker.heartbeat extension replaces it
+EXTENSIONS = {
+    "scrapy.extensions.logstats.LogStats": None,
+    "higgsfield_scraper.extensions.HeartbeatExtension": 500,
+}
+HIGGS_HEARTBEAT = 30.0             # seconds between worker.heartbeat events (CLI --heartbeat; 0 = off)
 
 # --- dev cache (enable with --cache) ----------------------------------------
 HTTPCACHE_ENABLED = False
