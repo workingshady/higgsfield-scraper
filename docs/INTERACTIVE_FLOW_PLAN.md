@@ -1,7 +1,9 @@
 # Interactive console mode: flow plan
 
-**Status: PLAN.** Not built yet. Implementation starts after the scraper agents finish; the library choice will be
-confirmed by the prototype research.
+**Status: IMPLEMENTED** in `higgsfield_scraper/interactive/` (usage: CLI.md, "Interactive mode"). This plan
+differs from the build in three ways. First, the command is `menu` (aliases `-i` and `--interactive`). Second,
+prefs live in `%APPDATA%\higgsfield_scraper\prefs.json` (override with `HF_PREFS`). Third, each scrape runs in a
+child process (`interactive/runner.py`), because Scrapy's reactor can start only once per process.
 
 **Goal:** two ways to run the scraper, sharing one code path.
 

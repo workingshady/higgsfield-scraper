@@ -19,6 +19,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8", "genson>=1.3"]
 metrics = ["psutil>=5.9"]          # process memory in worker.heartbeat (stdlib fallback without it)
+interactive = ["questionary>=2.0", "rich>=14.2,<16"]   # `menu` / no-args interactive mode
 
 [project.scripts]
 higgsfield-scraper = "higgsfield_scraper.cli:main"

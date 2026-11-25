@@ -15,10 +15,48 @@ commands:
   sections    list sections and the endpoints they call
   runs        list recent runs
   schema      export JSON Schemas
+  menu        interactive menu (also -i / --interactive; default with no args on a terminal)
 ```
 
 `python -m higgsfield_scraper --sections plans` is the same as `python -m higgsfield_scraper scrape --sections plans`.
 Every command accepts `-h / --help`.
+
+## Interactive mode
+
+A guided menu over the same commands. It needs the optional extra: `pip install -e ".[interactive]"`
+(questionary + rich).
+
+| How | Opens the menu? |
+|---|---|
+| `python -m higgsfield_scraper` with no arguments, stdin and stdout are a terminal, `CI` / `HF_NO_MENU` unset | yes |
+| `python -m higgsfield_scraper menu` (aliases `-i`, `--interactive`) | yes |
+| no arguments but piped / redirected / cron / CI | no: runs the pricing scrape exactly as before |
+
+If the terminal can't run prompts (Git Bash/mintty without a console, no TTY, or questionary not installed),
+`menu` prints a one-line hint and exits with code 2. On Git Bash, use Windows Terminal or `winpty python -m higgsfield_scraper`.
+
+Menu items: **Scrape** (pick one or more scrapers, then for each one "quick (defaults)", "last used options" or
+"customize". The customize step asks every option of `scrape <scraper> -h`, grouped as in `--help`. Then you set a
+run label, review a summary showing the **equivalent flag command**, and choose Run / Dry run / Edit / Cancel),
+**Normalize a past run**, **Browse runs** (table, summary.md, errors.log, open folder), **Login / session**
+(auth-check, log in with the emailed 6-digit code, log out = delete `runs/.auth/clerk_client.json`), **Test request**
+(one GET of a scraper's first public request: status, latency, size, JSON keys), **Show config**, **Clean old runs**
+(dry run, then confirm), **Settings / prefs**, **Quit**.
+
+- Every choice maps to a flag. The menu builds the same argv the flag CLI takes and parses it with the same parser.
+  Answers that equal the default add no flag. Scrapers and their options are read from the registry and argparse,
+  so a new scraper appears in the menu without menu code.
+- Each scrape runs in its own child process (`python -m higgsfield_scraper.interactive.runner <same argv>`),
+  because Scrapy's reactor can start only once per process. Several scrapers therefore run one after another,
+  each in its own run folder. The child shows a live progress panel and records `"invocation": {"mode": "interactive"}`
+  in the manifest.
+- Ctrl-C in a prompt goes back; at the main menu it quits (exit 130). Ctrl-C during a crawl stops it gracefully,
+  and the run is finalized as `cancelled` (exit 130). The menu then asks whether to run the remaining scrapers.
+- Remembered choices (last scrapers, labels and options; never secrets) are stored in
+  `%APPDATA%\higgsfield_scraper\prefs.json` (`~/.config/higgsfield_scraper/prefs.json` elsewhere). Set `HF_PREFS`
+  to use another file.
+- Passwords and codes are typed masked and are never printed or logged. If `HF_PASSWORD` is set, the menu offers to
+  use it without showing it.
 
 ---
 

@@ -9,6 +9,7 @@
   python -m higgsfield_scraper runs [--json] | runs clean --keep-last N [--keep-days D] [--yes]
   python -m higgsfield_scraper show-config [--json]         # resolved settings (flags/env/.env), secrets redacted
   python -m higgsfield_scraper plan-sets | sections | schema
+  python -m higgsfield_scraper menu                         # interactive menu (also -i; default with no args on a TTY)
 
 Exit codes: 0 success · 1 failure · 2 usage error · 3 partial · 4 blocked (bot protection) · 130 cancelled (Ctrl-C)
 """
@@ -66,37 +67,52 @@ def _public_args(a) -> dict:
         "token": "***" if getattr(a, "token", None) else None}
 
 
-def _manager(a, label: str):
+def _manager(a, label: str, console=None):
     from .run.manager import RunManager
     return RunManager(a.runs_dir, label, *resolve_log_levels(a), log_format=a.log_format, no_color=a.no_color,
-                      heartbeat=a.heartbeat, split_logs=a.split_logs)
+                      heartbeat=a.heartbeat, split_logs=a.split_logs, console=console)
+
+
+def first_requests(a) -> list:
+    """The first requests `scrape <scraper>` would make (what --dry-run prints). No network."""
+    sdef = registry.get(a.scraper)
+    token = a.token or os.environ.get("HF_TOKEN") or None
+    sel = sdef.make_selection(a)
+    spider_cls = resolve(sdef.spider_cls)
+    sp = spider_cls(selection=sel, token=token) if sdef.name == "pricing" else \
+        spider_cls(selection=sel, common=CommonOptions(**{**common_from_args(a).to_dict(), "auth": "off"}), token=None)
+    return list(sp.build_requests())
+
+
+def default_label(a) -> str:
+    """The run label `scrape` uses when --label is not given."""
+    sdef = registry.get(a.scraper)
+    base_label = sdef.default_label(sdef.make_selection(a))
+    return base_label if sdef.name == "pricing" else f"{sdef.name}-{base_label}"
 
 
 # ---------------------------------------------------------------- commands
-def cmd_scrape(a) -> int:
+def cmd_scrape(a, *, console=None, on_crawler=None, invocation_mode: str = "flags") -> int:
+    """`console` / `on_crawler` / `invocation_mode` are used by the interactive menu's runner (live progress)."""
     sdef = registry.get(a.scraper)
     token = a.token or os.environ.get("HF_TOKEN") or None
     sel = sdef.make_selection(a)
     common = common_from_args(a)
     if a.dry_run:
-        spider_cls = resolve(sdef.spider_cls)
-        sp = spider_cls(selection=sel, token=token) if sdef.name == "pricing" else \
-            spider_cls(selection=sel, common=CommonOptions(**{**common.to_dict(), "auth": "off"}), token=None)
-        for r in sp.build_requests():
+        for r in first_requests(a):
             auth = r.meta.get("auth") or "Authorization" in r.headers
             print(f"GET {r.url}" + ("   [auth]" if auth else ""))
         if sdef.name != "pricing":
             print("# (first requests only; pagination/detail requests follow at runtime)", file=sys.stderr)
         return 0
-    base_label = sdef.default_label(sel)
-    label = a.label or (base_label if sdef.name == "pricing" else f"{sdef.name}-{base_label}")
-    mgr = _manager(a, label)
+    label = a.label or default_label(a)
+    mgr = _manager(a, label, console=console)
     overrides = {"HIGGS_HTTP_ARCHIVE": not a.no_http_archive, "ROBOTSTXT_OBEY": a.obey_robots}
     return mgr.scrape(sel, token=token, cache=a.cache, settings_overrides=overrides, args=_public_args(a),
-                      scraper=sdef.name, common=common)
+                      scraper=sdef.name, common=common, on_crawler=on_crawler, invocation_mode=invocation_mode)
 
 
-def cmd_normalize(a) -> int:
+def cmd_normalize(a, *, console=None, invocation_mode: str = "flags") -> int:
     from .run.context import latest_run
     src = Path(a.run) if a.run else latest_run(a.runs_dir)
     if not src or not (src / "raw").exists():
@@ -105,15 +121,16 @@ def cmd_normalize(a) -> int:
     m = json.loads((src / "manifest.json").read_text(encoding="utf-8")) if (src / "manifest.json").exists() else {}
     name = a.scraper or m.get("scraper") or registry.DEFAULT_SCRAPER
     sdef = registry.get(name)
-    mgr = _manager(a, a.label or "normalize")
+    mgr = _manager(a, a.label or "normalize", console=console)
     if name == "pricing":                     # unchanged pricing behaviour
         sel = sdef.make_selection(a)
         if a.sections == ",".join(DEFAULT_SECTIONS) and m:
             prev = m.get("selection") or {}
             sel.sections, sel.plan_set_keys = prev.get("sections", sel.sections), prev.get("plan_set_keys", sel.plan_set_keys)
-        return mgr.normalize(src, sel, args=_public_args(a), scraper=name)
+        return mgr.normalize(src, sel, args=_public_args(a), scraper=name, invocation_mode=invocation_mode)
     sel = sdef.selection_from_dict(m.get("selection") or {})
-    return mgr.normalize(src, sel, args=_public_args(a), scraper=name, common=CommonOptions.from_dict(m.get("common")))
+    return mgr.normalize(src, sel, args=_public_args(a), scraper=name, common=CommonOptions.from_dict(m.get("common")),
+                         invocation_mode=invocation_mode)
 
 
 def _dataset(a) -> Optional[dict]:
@@ -459,7 +476,14 @@ def build_parser() -> argparse.ArgumentParser:
     sc = sub.add_parser("schema", help="export JSON Schemas of every scraper")
     sc.add_argument("--out", default="schemas")
     sc.set_defaults(func=cmd_schema)
+    sub.add_parser("menu", help="interactive menu (alias -i/--interactive; the default with no args on a terminal; "
+                                "needs the `interactive` extra)").set_defaults(func=cmd_menu)
     return ap
+
+
+def cmd_menu(a) -> int:
+    from .interactive import launch
+    return launch()
 
 
 def _normalize_argv(argv: list[str]) -> list[str]:
@@ -472,6 +496,12 @@ def _normalize_argv(argv: list[str]) -> list[str]:
     return argv
 
 
+def _auto_menu() -> bool:
+    """No arguments on a real terminal (and not CI) -> menu; otherwise the old default (pricing scrape) stays."""
+    from .interactive import should_auto_launch
+    return should_auto_launch()
+
+
 def main(argv: Optional[list[str]] = None) -> int:
     for stream in (sys.stdout, sys.stderr):   # Windows consoles default to cp1252
         try:
@@ -479,7 +509,11 @@ def main(argv: Optional[list[str]] = None) -> int:
         except (AttributeError, ValueError):
             pass
     _load_dotenv()
-    argv = _normalize_argv(list(sys.argv[1:] if argv is None else argv))
+    raw = list(sys.argv[1:] if argv is None else argv)
+    if raw[:1] in (["menu"], ["-i"], ["--interactive"]) or (argv is None and not raw and _auto_menu()):
+        from .interactive import launch            # interactive mode (questionary + rich); flags are unchanged
+        return launch()
+    argv = _normalize_argv(raw)
     a = build_parser().parse_args(argv)
     if not hasattr(a, "func"):
         build_parser().print_help()
