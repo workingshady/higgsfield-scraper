@@ -1,0 +1,4150 @@
+{
+    "meta": {
+        "endpoint": "compare",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/compare?plan_set_key=ps_a3&billing_period=annual&with_localization=true",
+        "params": {
+            "plan_set_key": "ps_a3",
+            "billing_period": "annual",
+            "with_localization": "true"
+        },
+        "fetched_at": "2026-11-25T10:44:24.269207+00:00",
+        "status": 200
+    },
+    "body": {
+        "plan_set_key": "ps_a3",
+        "plans": [
+            {
+                "id": "294f0023-0ece-4129-b2f6-1709f69be67c",
+                "plan_type": "free",
+                "name": "Free",
+                "credits": 0,
+                "billing_period": "annual",
+                "product_id": "prod_S2xmRIOaWs973C",
+                "price_id": "price_1R8rqbCmk0pn4HuHi0nab0I8",
+                "original_price": 0,
+                "original_monthly_price": 0,
+                "final_price": 0,
+                "final_monthly_price": 0,
+                "renew_price": 0,
+                "renew_monthly_price": 0,
+                "currency": "usd",
+                "discount": null,
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "9adee0f0-0545-41bb-ab38-ed430d13a5e4",
+                "plan_type": "free",
+                "name": "Free",
+                "credits": 0,
+                "billing_period": "monthly",
+                "product_id": "prod_S2xlNqhslNWRr8",
+                "price_id": "price_1R8rq9Cmk0pn4HuH3nCS3gWg",
+                "original_price": 0,
+                "original_monthly_price": 0,
+                "final_price": 0,
+                "final_monthly_price": 0,
+                "renew_price": 0,
+                "renew_monthly_price": 0,
+                "currency": "usd",
+                "discount": null,
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "b1e67e5a-eca7-46c3-8c61-816797510cbb",
+                "plan_type": "starter",
+                "name": "Starter",
+                "credits": 270,
+                "billing_period": "monthly",
+                "product_id": "prod_UBpEPiZy7OZggS",
+                "price_id": "price_1TeJKECmk0pn4HuHTcUuN2BJ",
+                "original_price": 1900,
+                "original_monthly_price": 1900,
+                "final_price": 1900,
+                "final_monthly_price": 1900,
+                "renew_price": 1900,
+                "renew_monthly_price": 1900,
+                "currency": "usd",
+                "discount": null,
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "65a30c97-a999-4d7a-bdf0-63ae41e1ce84",
+                "plan_type": "starter",
+                "name": "Starter",
+                "credits": 270,
+                "billing_period": "annual",
+                "product_id": "prod_UBpGmQEfCZSeiu",
+                "price_id": "price_1TeJMzCmk0pn4HuHsO6gjaNP",
+                "original_price": 22800,
+                "original_monthly_price": 1900,
+                "final_price": 22800,
+                "final_monthly_price": 1900,
+                "renew_price": 22800,
+                "renew_monthly_price": 1900,
+                "currency": "usd",
+                "discount": null,
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "4ea4b523-367e-4f40-8496-4dddcd04e794",
+                "plan_type": "plus",
+                "name": "Plus",
+                "credits": 1200,
+                "billing_period": "monthly",
+                "product_id": "prod_UBpHfgE0euqLQ9",
+                "price_id": "price_1TDRcSCmk0pn4HuHx2pkT7e1",
+                "original_price": 5900,
+                "original_monthly_price": 5900,
+                "final_price": 4000,
+                "final_monthly_price": 4000,
+                "renew_price": 5900,
+                "renew_monthly_price": 5900,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 33,
+                    "duration_months": null,
+                    "duration": "once"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "57386caa-1f9a-47f0-bb32-cb1b13d78635",
+                "plan_type": "plus",
+                "name": "Plus",
+                "credits": 1200,
+                "billing_period": "annual",
+                "product_id": "prod_UBpIQ04Yh2Pj1h",
+                "price_id": "price_1TDRddCmk0pn4HuHJIHeNNUZ",
+                "original_price": 70800,
+                "original_monthly_price": 5900,
+                "final_price": 36000,
+                "final_monthly_price": 3000,
+                "renew_price": 36000,
+                "renew_monthly_price": 3000,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 50,
+                    "duration_months": null,
+                    "duration": "forever"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "44821016-a687-4c84-b72a-5d73a39d6945",
+                "plan_type": "ultra",
+                "name": "Ultra",
+                "credits": 3000,
+                "billing_period": "monthly",
+                "product_id": "prod_UBpJRQ5fnHCix9",
+                "price_id": "price_1TDRfBCmk0pn4HuH6dkdybvV",
+                "original_price": 12900,
+                "original_monthly_price": 12900,
+                "final_price": 7500,
+                "final_monthly_price": 7500,
+                "renew_price": 12900,
+                "renew_monthly_price": 12900,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 42,
+                    "duration_months": null,
+                    "duration": "once"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "d16abc46-5bf7-4467-9176-eef866f7df40",
+                "plan_type": "ultra",
+                "name": "Ultra",
+                "credits": 6000,
+                "billing_period": "monthly",
+                "product_id": "prod_UBpJRQ5fnHCix9",
+                "price_id": "price_1TDRfBCmk0pn4HuHoHcVrK6i",
+                "original_price": 25000,
+                "original_monthly_price": 25000,
+                "final_price": 14000,
+                "final_monthly_price": 14000,
+                "renew_price": 25000,
+                "renew_monthly_price": 25000,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 45,
+                    "duration_months": null,
+                    "duration": "once"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "8d95ceb0-1293-43b7-9ac0-c31301205bdd",
+                "plan_type": "ultra",
+                "name": "Ultra",
+                "credits": 9000,
+                "billing_period": "monthly",
+                "product_id": "prod_UBpJRQ5fnHCix9",
+                "price_id": "price_1TDRfBCmk0pn4HuHB2PSsO5V",
+                "original_price": 37500,
+                "original_monthly_price": 37500,
+                "final_price": 19900,
+                "final_monthly_price": 19900,
+                "renew_price": 37500,
+                "renew_monthly_price": 37500,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 47,
+                    "duration_months": null,
+                    "duration": "once"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "125fdbbc-172f-46b5-995b-cb42f1722062",
+                "plan_type": "ultra",
+                "name": "Ultra",
+                "credits": 3000,
+                "billing_period": "annual",
+                "product_id": "prod_UBpMniwA2iiOOf",
+                "price_id": "price_1TDRhfCmk0pn4HuHdZEyd8mB",
+                "original_price": 154800,
+                "original_monthly_price": 12900,
+                "final_price": 54000,
+                "final_monthly_price": 4500,
+                "renew_price": 54000,
+                "renew_monthly_price": 4500,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 65,
+                    "duration_months": null,
+                    "duration": "forever"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "5b38e890-a307-4196-b1ce-6bd63924e8ce",
+                "plan_type": "ultra",
+                "name": "Ultra",
+                "credits": 6000,
+                "billing_period": "annual",
+                "product_id": "prod_UBpMniwA2iiOOf",
+                "price_id": "price_1TDRhfCmk0pn4HuHnP2LKcI7",
+                "original_price": 309600,
+                "original_monthly_price": 25800,
+                "final_price": 96000,
+                "final_monthly_price": 8000,
+                "renew_price": 96000,
+                "renew_monthly_price": 8000,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 68,
+                    "duration_months": null,
+                    "duration": "forever"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "69f7b63e-f455-4076-b70e-0e272cae61cc",
+                "plan_type": "ultra",
+                "name": "Ultra",
+                "credits": 9000,
+                "billing_period": "annual",
+                "product_id": "prod_UBpMniwA2iiOOf",
+                "price_id": "price_1TDRhfCmk0pn4HuHBbsrcvcC",
+                "original_price": 464400,
+                "original_monthly_price": 38700,
+                "final_price": 138000,
+                "final_monthly_price": 11500,
+                "renew_price": 138000,
+                "renew_monthly_price": 11500,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 70,
+                    "duration_months": null,
+                    "duration": "forever"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 1
+            },
+            {
+                "id": "11020d92-8ab1-4c02-b54c-bc51a4c2a6ad",
+                "plan_type": "team",
+                "name": "Team",
+                "credits": 1000,
+                "billing_period": "monthly",
+                "product_id": "prod_TL8IzAI3w0lO4h",
+                "price_id": "price_1UDbkrCmk0pn4HuHXP6jifOc",
+                "original_price": 7900,
+                "original_monthly_price": 7900,
+                "final_price": 5500,
+                "final_monthly_price": 5500,
+                "renew_price": 5500,
+                "renew_monthly_price": 5500,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 30,
+                    "duration_months": null,
+                    "duration": "forever"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 2
+            },
+            {
+                "id": "aba6f3cb-bf8b-42fb-b613-b711b73a8c2a",
+                "plan_type": "team",
+                "name": "Team",
+                "credits": 1000,
+                "billing_period": "annual",
+                "product_id": "prod_TL8IzAI3w0lO4h",
+                "price_id": "price_1UDbkrCmk0pn4HuHn5YfAu7T",
+                "original_price": 94800,
+                "original_monthly_price": 7900,
+                "final_price": 53998,
+                "final_monthly_price": 4500,
+                "renew_price": 53998,
+                "renew_monthly_price": 4500,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 43,
+                    "duration_months": null,
+                    "duration": "forever"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 2
+            },
+            {
+                "id": "c9e9e416-410a-4a5a-9b76-fbed74dbf8c5",
+                "plan_type": "scale",
+                "name": "Scale",
+                "credits": 2500,
+                "billing_period": "monthly",
+                "product_id": "prod_UbT74ebnYZDJrq",
+                "price_id": "price_1UBVamCmk0pn4HuHbYjsS8HC",
+                "original_price": 21500,
+                "original_monthly_price": 21500,
+                "final_price": 11999,
+                "final_monthly_price": 11999,
+                "renew_price": 11999,
+                "renew_monthly_price": 11999,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 45,
+                    "duration_months": null,
+                    "duration": "forever"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 5
+            },
+            {
+                "id": "4211f2a2-7fdb-43d3-ab11-f00135c3224d",
+                "plan_type": "scale",
+                "name": "Scale",
+                "credits": 2500,
+                "billing_period": "annual",
+                "product_id": "prod_UbT74ebnYZDJrq",
+                "price_id": "price_1UBVbiCmk0pn4HuHtvJzXVRL",
+                "original_price": 258000,
+                "original_monthly_price": 21500,
+                "final_price": 96002,
+                "final_monthly_price": 8000,
+                "renew_price": 96002,
+                "renew_monthly_price": 8000,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 63,
+                    "duration_months": null,
+                    "duration": "forever"
+                },
+                "offer": null,
+                "purchased": false,
+                "seats": 5
+            }
+        ],
+        "categories": [
+            {
+                "slug": "video",
+                "name": "Video",
+                "description": "Top-tier models to generate short videos from prompts, images, or clips",
+                "features": [
+                    {
+                        "name": "Concurrent Generations",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "1 concurrent generation"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "2 concurrent generations"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "Unlimited concurrent generations"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "Unlimited concurrent generations"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "16 concurrent generations"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "32 concurrent generations"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance 2.5 720p",
+                        "detail": "35 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "411 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "1028 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "685 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "4285 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance 2.5 1080p",
+                        "detail": "80 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "180 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "450 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "300 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "1875 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Genjutsu 720p",
+                        "detail": "35 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "92 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "411 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "1028 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "685 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "4285 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Genjutsu 1080p",
+                        "detail": "100 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "32 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "144 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "360 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "240 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "1500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Genjutsu Lite 720p",
+                        "detail": "10 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "324 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1440 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "15000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Genjutsu Lite 1080p",
+                        "detail": "20 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "162 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "720 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "1800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "7500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance 2.0 720p",
+                        "detail": "~22 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "640 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "1600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1066 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "6666 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance 2.0 1080p",
+                        "detail": "~60 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "240 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "2500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance 2.0 4K",
+                        "detail": "~110 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "130 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "327 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "218 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "1363 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance 2.0 Fast 720p",
+                        "detail": "~12 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "259 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1152 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "12000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 4.0 720p",
+                        "detail": "12.5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "259 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1152 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "12000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 4.0 1080p",
+                        "detail": "18.75 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "172 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "768 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1280 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "8000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 4.0 Flash 720p",
+                        "detail": "7.5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 3.0 720p",
+                        "detail": "~7 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 3.0 1080p",
+                        "detail": "~8 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1645 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4114 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2742 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "17142 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 3.0 4K",
+                        "detail": "~30 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "480 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "1200 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "800 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "5000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling Omni 3 Image Reference 720p",
+                        "detail": "~5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "648 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "7200 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "30000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling Omni 3 Image Reference 1080p",
+                        "detail": "~7 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling Omni 3 FLF 720p",
+                        "detail": "~5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "648 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "7200 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "30000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling Omni 3 FLF 1080p",
+                        "detail": "~6 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "518 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2304 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "5760 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3840 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "24000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Grok Video",
+                        "detail": "~7 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Grok Video Edit",
+                        "detail": "~10 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "324 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1440 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "15000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 2.6 Motion Control 720p",
+                        "detail": "~5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "648 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "7200 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "30000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 2.6 Motion Control 1080p",
+                        "detail": "~7 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 3.0 Motion Control 720p",
+                        "detail": "~7 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 3.0 Motion Control 1080p",
+                        "detail": "~12 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1152 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "12000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling Omni 1 720p",
+                        "detail": "~7 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling Omni 1 1080p",
+                        "detail": "~10 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "324 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1440 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "15000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 2.6 with sound",
+                        "detail": "~10 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "324 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1440 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "15000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 2.6 without sound",
+                        "detail": "~5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "648 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "7200 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "30000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.6 480p",
+                        "detail": "~5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "648 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "7200 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "30000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.6 720p",
+                        "detail": "~7 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.6 1080p",
+                        "detail": "~10 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "324 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1440 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "15000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.7 720p",
+                        "detail": "7.5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.7 1080p",
+                        "detail": "12.5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "259 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1152 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "12000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 3.0 480p",
+                        "detail": "3.75 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "864 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "3840 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "9600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "6400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "40000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 3.0 720p",
+                        "detail": "7.5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 3.0 1080p",
+                        "detail": "15 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "216 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "960 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1600 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "10000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 3.0 Prime 480p",
+                        "detail": "6.25 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "518 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2304 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "5760 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3840 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "24000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 3.0 Prime 720p",
+                        "detail": "13.75 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "235 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1047 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2618 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1745 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "10909 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 3.0 Prime 1080p",
+                        "detail": "27.5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "117 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "523 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "1309 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "872 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "5454 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield DoP Lite 720p",
+                        "detail": "~3 credits/3s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1080 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "12000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "8000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "50000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield DoP Standard 720p",
+                        "detail": "~7 credits/3s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "462 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2057 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "5142 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3428 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "21428 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield DoP Turbo 720p",
+                        "detail": "~5 credits/3s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "7200 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "30000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Google Veo 3.1 Fast 720p",
+                        "detail": "~16 credits/4s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "900 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2250 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1500 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "9375 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Google Veo 3.1 Fast 1080p",
+                        "detail": "~16 credits/4s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "900 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2250 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1500 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "9375 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Google Veo 3.1 720p",
+                        "detail": "~40 credits/4s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "360 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "900 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "600 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "3750 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Google Veo 3.1 1080p",
+                        "detail": "~40 credits/4s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "360 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "900 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "600 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "3750 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 2.5 Turbo 720p",
+                        "detail": "~4 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "810 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "9000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "6000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "37500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling 2.5 Turbo 1080p",
+                        "detail": "~6 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "540 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "6000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "25000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.2 Fast 720p",
+                        "detail": "~5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "648 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "7200 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "30000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.2 720p",
+                        "detail": "~7 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "462 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2057 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "5142 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3428 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "21428 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 Fast 720p",
+                        "detail": "~9 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "360 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1600 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2666 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "16666 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 Fast 1080p",
+                        "detail": "~13 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "249 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1107 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2769 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1846 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "11538 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 480p",
+                        "detail": "~5 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "648 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "7200 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "30000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 720p",
+                        "detail": "~7 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "432 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "20000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 1080p",
+                        "detail": "~10 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "324 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1440 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "15000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Minimax Hailuo 2.3 Fast 768p",
+                        "detail": "~4 credits/6s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "810 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "9000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "6000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "37500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Minimax Hailuo 2.3 Fast 1080p",
+                        "detail": "~7 credits/6s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "462 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2057 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "5142 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3428 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "21428 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Minimax Hailuo 2.3 768p",
+                        "detail": "~6 credits/6s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "540 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "6000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "25000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Minimax Hailuo 2.3 1080p",
+                        "detail": "~10 credits/6s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "324 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1440 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "15000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Minimax Hailuo 02 Fast 512p",
+                        "detail": "~3 credits/6s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1080 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "4800 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "12000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "8000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "50000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Minimax Hailuo 02 768p",
+                        "detail": "~6 credits/6s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "540 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "6000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "4000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "25000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Minimax Hailuo 02 1080p",
+                        "detail": "~10 credits/6s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "324 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1440 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "15000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance Pro Fast 720p",
+                        "detail": "~4 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "810 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "9000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "6000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "37500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance Pro Fast 1080p",
+                        "detail": "~9 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "360 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1600 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2666 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "16666 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance Pro 480p",
+                        "detail": "~4 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0 videos"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "810 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "9000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "6000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "37500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance Pro 720p",
+                        "detail": "~8 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "405 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1800 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4500 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "18750 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedance Pro 1080p",
+                        "detail": "~18 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "180 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "800 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1333 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "8333 videos"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "slug": "image",
+                "name": "Image",
+                "description": "Advanced image generation and editing models",
+                "features": [
+                    {
+                        "name": "Concurrent Generations",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "1 concurrent generation"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "4 concurrent generations"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "Unlimited concurrent generations"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "Unlimited concurrent generations"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "16 concurrent generations"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "32 concurrent generations"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Nano Banana Pro",
+                        "detail": "2 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1620 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "7200 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "18000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "12000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "75000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Nano Banana Pro 4K",
+                        "detail": "4 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "3600 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "9000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "6000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "37500 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Nano Banana 2",
+                        "detail": "2 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1620 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "7200 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "18000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "12000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "75000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Nano Banana 2.1",
+                        "detail": "2 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1620 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "7200 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "18000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "12000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "75000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "GPT Image 2.6",
+                        "detail": "1.75 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1851 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "8228 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "20571 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "13714 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "85714 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "GPT Image 2.5",
+                        "detail": "0.75 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "4320 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "19200 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "48000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "32000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "200000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "GPT Image 2",
+                        "detail": "2 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1620 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "7200 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "18000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "12000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "75000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedream 5.0 Pro",
+                        "detail": "2.5 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1296 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "5760 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "14400 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "9600 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "60000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedream 5.0 Lite",
+                        "detail": "1 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "3240 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "14400 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "36000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "24000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "150000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedream 5.0 Flash",
+                        "detail": "0.5 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "6480 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "28800 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "72000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "48000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "300000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Soul 2.0",
+                        "detail": "0.12 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "27000 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "120000 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "300000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "200000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "1250000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Soul",
+                        "detail": "0.25 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "12960 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "57600 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "144000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "96000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "600000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Soul Inpaint",
+                        "detail": "0.25 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "57600 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "144000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "96000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "600000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Product Placement",
+                        "detail": "0.25 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "57600 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "144000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "96000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "600000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Popcorn",
+                        "detail": "1.5 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "2160 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "9600 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "24000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "16000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "100000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Face Swap",
+                        "detail": "~2 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1620 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "7200 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "18000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "12000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "75000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Character Swap",
+                        "detail": "~2 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1620 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "7200 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "18000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "12000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "75000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Reve",
+                        "detail": "0.25 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "12960 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "57600 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "144000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "96000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "600000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Nano Banana",
+                        "detail": "1 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "3240 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "14400 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "36000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "24000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "150000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Banana Placement",
+                        "detail": "1 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "3240 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "14400 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "36000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "24000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "150000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Seedream",
+                        "detail": "1 credit/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "3240 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "14400 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "36000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "24000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "150000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.2",
+                        "detail": "0.5 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "6480 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "28800 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "72000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "48000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "300000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Flux Kontext",
+                        "detail": "1.5 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "2160 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "9600 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "24000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "16000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "100000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Multi Reference",
+                        "detail": "1.5 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "2160 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "9600 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "24000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "16000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "100000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "FLUX.2 Pro",
+                        "detail": "1 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "3240 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "14400 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "36000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "24000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "150000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "FLUX.2 Flex",
+                        "detail": "3 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1080 images"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "4800 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "12000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "8000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "50000 images"
+                            }
+                        }
+                    },
+                    {
+                        "name": "FLUX.2 Max",
+                        "detail": "4 credits/image",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "3600 images"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "9000 images"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "6000 images"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "37500 images"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "slug": "lipsync-studio",
+                "name": "Lipsync Studio",
+                "description": "",
+                "features": [
+                    {
+                        "name": "Concurrent Generations",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "1 concurrent generation"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "2 concurrent generations"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "6 concurrent generations"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "8 concurrent generations"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "16 concurrent generations"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "32 concurrent generations"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield Speak 2.0 720p",
+                        "detail": "~14 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1028 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2571 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1714 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "10714 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 Speak Fast 720p",
+                        "detail": "~9 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "360 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1600 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "4000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2666 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "16666 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 Speak Fast 1080p",
+                        "detail": "~12 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "259 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1152 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "12000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 Speak 480p",
+                        "detail": "~6 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "518 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "2304 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "5760 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "3840 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "24000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 Speak 720p",
+                        "detail": "~12 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "259 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1152 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2880 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1920 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "12000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Wan 2.5 Speak 1080p",
+                        "detail": "~20 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "162 videos"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "720 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "1800 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1200 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "7500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling Speak 720p",
+                        "detail": "~2 credits/2s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "7200 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "18000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "12000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "75000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling Speak 1080p",
+                        "detail": "~4 credits/2s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "3600 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "9000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "6000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "37500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Kling Lipsync 720p",
+                        "detail": "~2 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "5760 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "14400 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "9600 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "60000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Infinite Talk 480p",
+                        "detail": "~18 credits/5s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "960 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2400 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1600 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "10000 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Infinite Talk 720p",
+                        "detail": "~12 credits/2s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1200 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2000 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "12500 videos"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Sync Lipsync 3 4K 30FPS",
+                        "detail": "~18 credits/2s",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "800 videos"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "2000 videos"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "1333 videos"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "8333 videos"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "slug": "character",
+                "name": "Character",
+                "description": "",
+                "features": [
+                    {
+                        "name": "Concurrent Generations",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "1 concurrent generation"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "1 concurrent generation"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "3 concurrent generations"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3 concurrent generations"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "8 concurrent generations"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "16 concurrent generations"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Max Generations Amount",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "Up to 1 generation"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "Up to 108 generations"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "Up to 480 generations"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "Up to 1200 generations"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "Up to 800 generations"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "Up to 5000 generations"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "slug": "credits-usage",
+                "name": "Credits & Usage",
+                "description": "",
+                "features": [
+                    {
+                        "name": "Credits",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "string",
+                                "value": "0"
+                            },
+                            "starter": {
+                                "type": "string",
+                                "value": "270"
+                            },
+                            "plus": {
+                                "type": "string",
+                                "value": "1200"
+                            },
+                            "ultra": {
+                                "type": "string",
+                                "value": "3000"
+                            },
+                            "team": {
+                                "type": "string",
+                                "value": "2000"
+                            },
+                            "scale": {
+                                "type": "string",
+                                "value": "12500"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Credit discount",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "slug": "access-features",
+                "name": "Access & Features",
+                "description": "",
+                "features": [
+                    {
+                        "name": "Commercial use",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "Fast-track generation",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "Access to characters",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "Start & End Frame control",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield ads",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "Higgsfield speak",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "UGC builder",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "Priority access to new models",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": true
+                            }
+                        }
+                    },
+                    {
+                        "name": "Priority access to new features",
+                        "detail": "",
+                        "values": {
+                            "free": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "starter": {
+                                "type": "bool",
+                                "value": false
+                            },
+                            "plus": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "ultra": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "team": {
+                                "type": "bool",
+                                "value": true
+                            },
+                            "scale": {
+                                "type": "bool",
+                                "value": true
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

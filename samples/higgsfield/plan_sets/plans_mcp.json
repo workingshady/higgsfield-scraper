@@ -1,0 +1,94 @@
+{
+ "plans": [
+  {
+   "id": "b2d9227e-c173-49ff-bbc3-82de2556d5db",
+   "plan_type": "plus",
+   "name": "Plus",
+   "credits": 1000,
+   "billing_period": "monthly",
+   "product_id": "prod_UBpHfgE0euqLQ9",
+   "price_id": "price_1TDRcSCmk0pn4HuHEt8JWwgs",
+   "original_price": 4900,
+   "original_monthly_price": 4900,
+   "final_price": 3500,
+   "final_monthly_price": 3500,
+   "renew_price": 4900,
+   "renew_monthly_price": 4900,
+   "currency": "usd",
+   "discount": {
+    "percent_off": 30,
+    "duration_months": null,
+    "duration": "once"
+   },
+   "offer": null
+  },
+  {
+   "id": "530a4de7-d0ca-4d8c-b26d-84dc23d3833c",
+   "plan_type": "plus",
+   "name": "Plus",
+   "credits": 1000,
+   "billing_period": "annual",
+   "product_id": "prod_UBpIQ04Yh2Pj1h",
+   "price_id": "price_1TDRddCmk0pn4HuHzmd59zw3",
+   "original_price": 58800,
+   "original_monthly_price": 4900,
+   "final_price": 30000,
+   "final_monthly_price": 2500,
+   "renew_price": 30000,
+   "renew_monthly_price": 2500,
+   "currency": "usd",
+   "discount": {
+    "percent_off": 50,
+    "duration_months": null,
+    "duration": "forever"
+   },
+   "offer": null
+  },
+  {
+   "id": "44821016-a687-4c84-b72a-5d73a39d6945",
+   "plan_type": "ultra",
+   "name": "Ultra",
+   "credits": 3000,
+   "billing_period": "monthly",
+   "product_id": "prod_UBpJRQ5fnHCix9",
+   "price_id": "price_1TDRfBCmk0pn4HuH6dkdybvV",
+   "original_price": 12900,
+   "original_monthly_price": 12900,
+   "final_price": 7500,
+   "final_monthly_price": 7500,
+   "renew_price": 12900,
+   "renew_monthly_price": 12900,
+   "currency": "usd",
+   "discount": {
+    "percent_off": 42,
+    "duration_months": null,
+    "duration": "once"
+   },
+   "offer": null
+  },
+  {
+   "id": "125fdbbc-172f-46b5-995b-cb42f1722062",
+   "plan_type": "ultra",
+   "name": "Ultra",
+   "credits": 3000,
+   "billing_period": "annual",
+   "product_id": "prod_UBpMniwA2iiOOf",
+   "price_id": "price_1TDRhfCmk0pn4HuHdZEyd8mB",
+   "original_price": 154800,
+   "original_monthly_price": 12900,
+   "final_price": 54000,
+   "final_monthly_price": 4500,
+   "renew_price": 54000,
+   "renew_monthly_price": 4500,
+   "currency": "usd",
+   "discount": {
+    "percent_off": 65,
+    "duration_months": null,
+    "duration": "forever"
+   },
+   "offer": null
+  }
+ ],
+ "country_code": "EG",
+ "special_offer": null
+}

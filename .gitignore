@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+data/
+.scrapy/
+*.db
+*.har
+.claude/settings.local.json
+runs/
+httpcache/
+.pytest_cache/
+*.egg-info/
+schemas/
+# reverse-engineering scratch: third-party JS bundles and the 4 MB config dump
+samples/higgsfield/js/
+samples/higgsfield/pricing_config.json
+samples/higgsfield/js_urls.txt

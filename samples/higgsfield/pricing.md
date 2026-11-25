@@ -1,0 +1,583 @@
+# Higgsfield pricing
+
+Last updated: 2026-11-25
+
+Plans and prices for higgsfield.ai in US dollars, as offered to customers in the United States. Prices in other regions can differ; the price that applies to a customer is the one shown at https://higgsfield.ai/pricing.
+
+## Best prices right now
+
+Black Friday sale: up to 70% off, ends 2026-11-26 00:00 UTC.
+
+- Plus, 1,200 credits per month: $30/mo billed annually ($360 per year), or $40 for the first month on monthly billing, then $59/mo.
+- Ultra, 3,000 credits per month: $45/mo billed annually ($540 per year), or $75 for the first month on monthly billing, then $129/mo.
+- Ultra, 6,000 credits per month: $80/mo billed annually ($960 per year), or $140 for the first month on monthly billing, then $250/mo.
+- Ultra, 9,000 credits per month: $115/mo billed annually ($1,380 per year), or $199 for the first month on monthly billing, then $375/mo.
+
+## Individual plans
+
+| Plan | Credits per month | Monthly billing | Annual billing |
+| --- | --- | --- | --- |
+| Free | 0 | Free | Free |
+| Starter | 270 | $19/mo | $19/mo, billed $228 yearly |
+| Plus | 1,200 | $40 first month, then $59/mo | $30/mo, billed $360 yearly (list price $59/mo) |
+| Ultra | 3,000 | $75 first month, then $129/mo | $45/mo, billed $540 yearly (list price $129/mo) |
+| Ultra | 6,000 | $140 first month, then $250/mo | $80/mo, billed $960 yearly (list price $258/mo) |
+| Ultra | 9,000 | $199 first month, then $375/mo | $115/mo, billed $1,380 yearly (list price $387/mo) |
+
+## Business plans
+
+| Plan | Seats | Credits per seat per month | Monthly billing, per seat | Annual billing, per seat |
+| --- | --- | --- | --- | --- |
+| Team | 2–9 | 1,000 | $55/mo (list price $79/mo) | $45/mo, billed $539.98 yearly (list price $79/mo) |
+| Scale | 5–15 | 2,500 | $119.99/mo (list price $215/mo) | $80/mo, billed $960.02 yearly (list price $215/mo) |
+
+Enterprise: custom pricing, tailored to the organization. Contact sales at https://higgsfield.ai/enterprise.
+
+## Where unlimited and free generations work
+
+Unlimited & free gens work only on higgsfield.ai
+
+Unlimited access and free generations are not available in MCP/CLI, Canvas, or Supercomputer.
+
+## What each individual plan includes
+
+### Free, monthly billing
+
+**Included in plan**
+- Not included: Discount for extra credits
+- Not included: Concurrent generations
+- Access to selected models only
+- Not included: Access to all features
+- Not included: Early access to advanced AI features
+
+### Free, annual billing
+
+**Included in plan**
+- Not included: Discount for extra credits
+- Not included: Concurrent generations
+- Access to selected models only
+- Not included: Access to all features
+- Not included: Early access to advanced AI features
+
+### Starter, monthly billing
+
+**Free generations**
+- Higgsfield Genjutsu (720p, 1 free gen): 1 free generation up to 720p.
+
+**Unlimited & free gens**
+- Nano Banana Pro (No unlimited)
+- Seedream 5.0 Pro (No unlimited)
+- GPT Image 2.6 (No unlimited)
+- Soul V2 & Cinema (300 free gens): 300 free generations.
+- Nano Banana (No unlimited)
+- Kling O1 Image (No unlimited)
+- Seedream 4.5 (No unlimited)
+- Seedream 5.0 Lite (Unlimited): Unlimited on web while your subscription is active
+- Flux.2 Pro (1K, Unlimited): Unlimited up to 1K on web while your subscription is active
+- OpenAI Hazel Mini (No unlimited)
+
+**Included in plan**
+- Credit top-ups with discount
+- Parallel generations: up to 2 Videos, 4 Images
+- Seedance 2.0 Fast & 2.0 Mini access
+- Access to selected models & features
+- Not included: Early access to advanced AI features
+
+### Starter, annual billing
+
+**Free generations**
+- Higgsfield Genjutsu (720p, 3 free gens): 3 free generations up to 720p.
+
+**Unlimited & free gens**
+- Nano Banana Pro (No unlimited)
+- Seedream 5.0 Pro (No unlimited)
+- GPT Image 2.6 (No unlimited)
+- Soul V2 & Cinema (300 free gens): 300 free generations.
+- Nano Banana (No unlimited)
+- Kling O1 Image (No unlimited)
+- Seedream 4.5 (No unlimited)
+- Seedream 5.0 Lite (Unlimited): Unlimited on web while your subscription is active
+- Flux.2 Pro (1K, Unlimited): Unlimited up to 1K on web while your subscription is active
+- OpenAI Hazel Mini (No unlimited)
+
+**Included in plan**
+- Credit top-ups with discount
+- Parallel generations: up to 2 Videos, 4 Images
+- Seedance 2.0 Fast & 2.0 Mini access
+- Access to selected models only & features
+- Not included: Early access to advanced AI features
+
+### Plus, monthly billing
+
+**Free generations**
+- Higgsfield Genjutsu (720p, 2 free gens): 2 free generations up to 720p.
+
+**Unlimited & free gens**
+- Nano Banana Pro (On annual plan only)
+- Seedream 5.0 Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- GPT Image 2.6 (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Free in low or medium quality; other qualities spend credits. Free as PNG, JPEG, or WebP; other formats spend credits. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- Soul V2 & Cinema (3,000 free gens): 3,000 free generations.
+- Nano Banana (Unlimited): Unlimited on web while your subscription is active
+- Kling O1 Image (Unlimited): Unlimited on web while your subscription is active
+- Seedream 4.5 (Unlimited): Unlimited on web while your subscription is active
+- Seedream 5.0 Lite (Unlimited): Unlimited on web while your subscription is active
+- Flux.2 Pro (2K, Unlimited): Unlimited up to 2K on web while your subscription is active
+- OpenAI Hazel Mini (No unlimited)
+
+**Included in plan**
+- Credit top-ups with discount
+- Parallel generations: up to 6 Videos, 8 Images
+- All Seedance models
+- All models & features
+- Early access to advanced AI features
+
+### Plus, annual billing
+
+**Free generations**
+- Higgsfield Genjutsu (720p, 3 free gens): 3 free generations up to 720p.
+
+**Unlimited & free gens**
+- Nano Banana Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- Seedream 5.0 Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- GPT Image 2.6 (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Free in low or medium quality; other qualities spend credits. Free as PNG, JPEG, or WebP; other formats spend credits. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- Soul V2 & Cinema (5,000 free gens): 5,000 free generations.
+- Nano Banana (Unlimited): Unlimited on web while your subscription is active
+- Kling O1 Image (Unlimited): Unlimited on web while your subscription is active
+- Seedream 4.5 (Unlimited): Unlimited on web while your subscription is active
+- Seedream 5.0 Lite (Unlimited): Unlimited on web while your subscription is active
+- Flux.2 Pro (2K, Unlimited): Unlimited up to 2K on web while your subscription is active
+- OpenAI Hazel Mini (No unlimited)
+
+**Included in plan**
+- Credit top-ups with discount
+- Parallel generations: up to 6 Videos, 8 Images
+- All Seedance models
+- All models & features
+- Early access to advanced AI features
+
+### Ultra, monthly billing
+
+**Free generations**
+- Higgsfield Genjutsu (720p, 2 free gens): 2 free generations up to 720p.
+
+**Unlimited & free gens**
+- Nano Banana Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- Seedream 5.0 Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- GPT Image 2.6 (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Free in low or medium quality; other qualities spend credits. Free as PNG, JPEG, or WebP; other formats spend credits. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- Soul V2 & Cinema (5,000 free gens): 5,000 free generations.
+- Nano Banana (Unlimited): Unlimited on web while your subscription is active
+- Kling O1 Image (Unlimited): Unlimited on web while your subscription is active
+- Seedream 4.5 (Unlimited): Unlimited on web while your subscription is active
+- Seedream 5.0 Lite (Unlimited): Unlimited on web while your subscription is active
+- Flux.2 Pro (2K, Unlimited): Unlimited up to 2K on web while your subscription is active
+- OpenAI Hazel Mini (No unlimited)
+
+**Included in plan**
+- Credit top-ups with discount
+- Parallel generations: up to 8 Videos, 8 Images
+- All Seedance models
+- All models & features
+- Early access to advanced AI features
+
+### Ultra, annual billing
+
+**Free generations**
+- Higgsfield Genjutsu (720p, 3 free gens): 3 free generations up to 720p.
+
+**Unlimited & free gens**
+- Nano Banana Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- Seedream 5.0 Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- GPT Image 2.6 (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. Free in low or medium quality; other qualities spend credits. Free as PNG, JPEG, or WebP; other formats spend credits. Up to 2 generations at a time per active member, shared across all unlimited image models.
+- Soul V2 & Cinema (10,000 free gens): 10,000 free generations.
+- Nano Banana (Unlimited): Unlimited on web while your subscription is active
+- Kling O1 Image (Unlimited): Unlimited on web while your subscription is active
+- Seedream 4.5 (Unlimited): Unlimited on web while your subscription is active
+- Seedream 5.0 Lite (Unlimited): Unlimited on web while your subscription is active
+- Flux.2 Pro (2K, Unlimited): Unlimited up to 2K on web while your subscription is active
+- OpenAI Hazel Mini (No unlimited)
+
+**Included in plan**
+- Credit top-ups with discount
+- Parallel generations: up to 8 Videos, 8 Images
+- All Seedance models
+- All models & features
+- Early access to advanced AI features
+
+## What each business plan includes
+
+### Team, monthly billing
+
+**7-day unlimited Seedance 2.0**
+Unlimited up to 720p, up to 15s for 7 days on web. 1 generation at a time per active member.
+
+**Unlimited models**
+- Nano Banana Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. 1 generation at a time per active member.
+- Seedream 5.0 Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. 1 generation at a time per active member.
+
+**Bonus credits**
+- 400 one-time bonus credits per seat from seat 3, valid for 30 days.
+
+**Workspace & Collaboration**
+- 2 to 9 members in one shared workspace
+- Parallel generations: up to 16 video & 16 image
+- Access to all features & models
+- Shared credit pool
+- Shared workspace for your team
+- Early access to advanced AI features
+- Access to Seedance 2.0
+
+**Analytics & Support**
+- Basic analytics
+- Priority support
+
+**Admin & Control**
+- Not included: SSO
+- Not included: Admin spend control
+- Not included: Priority queue
+
+**Security & Compliance**
+- Not included: Delegated top-up access
+- Not included: Indemnification
+- Not included: No training on your data
+- Not included: SOC 2 security
+- Not included: AI Educator & Slack support
+
+### Team, annual billing
+
+**14-day unlimited Seedance 2.0**
+Unlimited up to 720p, up to 15s for 14 days on web. 1 generation at a time per active member.
+
+**Unlimited models**
+- Nano Banana Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. 1 generation at a time per active member.
+- Seedream 5.0 Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. 1 generation at a time per active member.
+- Kling 3.0 (No unlimited)
+
+**Bonus credits**
+- 400 one-time bonus credits per seat from seat 3, valid for 30 days.
+
+**Workspace & Collaboration**
+- 2 to 9 members in one shared workspace
+- Parallel generations: up to 16 video & 16 image
+- Access to all features & models
+- Shared credit pool
+- Shared workspace for your team
+- Early access to advanced AI features
+- Access to Seedance 2.0
+
+**Analytics & Support**
+- Basic analytics
+- Priority support
+
+**Admin & Control**
+- Not included: SSO
+- Not included: Admin spend control
+- Not included: Priority queue
+
+**Security & Compliance**
+- Not included: Delegated top-up access
+- Not included: Indemnification
+- Not included: No training on your data
+- Not included: SOC 2 security
+- Not included: AI Educator & Slack support
+
+### Scale, monthly billing
+
+**7-day unlimited Seedance 2.5**
+Unlimited up to 720p, up to 25s for 7 days on web. 1 generation at a time per active member.
+
+**Unlimited models**
+- Nano Banana Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. 1 generation at a time per active member.
+- Seedream 5.0 Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. 1 generation at a time per active member.
+
+**Bonus credits**
+- 1,250 one-time bonus credits per seat from seat 6, valid for 30 days. Unused first-month credits roll over to the next month.
+
+**Workspace & Collaboration**
+- 5 to 15 members in one shared workspace
+- Parallel generations: up to 20 video & 24 image
+- Access to all features & models
+- Shared credit pool
+- Shared workspace for your team
+- Early access to advanced AI features
+- Access to Seedance 2.0
+
+**Analytics & Support**
+- Detailed analytics
+- Priority support
+
+**Admin & Control**
+- SSO
+- Admin spend control
+- Priority queue for faster task processing
+
+**Security & Compliance**
+- Not included: Delegated top-up access
+- Not included: Indemnification
+- Not included: No training on your data
+- Not included: SOC 2 security
+- Not included: AI Educator & Slack support
+
+### Scale, annual billing
+
+**30-day unlimited Seedance 2.5**
+Unlimited up to 720p, up to 25s for 30 days on web. 1 generation at a time per active member.
+
+**Unlimited models**
+- Nano Banana Pro (4K, 7-day unlimited): Unlimited up to 4K for 7 days on web. 1 generation at a time per active member.
+- Seedream 5.0 Pro (2K, 7-day unlimited): Unlimited up to 2K for 7 days on web. 1 generation at a time per active member.
+- Kling 3.0 (7-day unlimited): Unlimited 720p up to 15s or 1080p up to 10s for 7 days on web. 1 generation at a time per active member.
+
+**Bonus credits**
+- 1,250 one-time bonus credits per seat from seat 6, valid for 30 days. Unused first-month credits roll over to the next month.
+
+**Workspace & Collaboration**
+- 5 to 15 members in one shared workspace
+- Parallel generations: up to 20 video & 24 image
+- Access to all features & models
+- Shared credit pool
+- Shared workspace for your team
+- Early access to advanced AI features
+- Access to Seedance 2.0
+
+**Analytics & Support**
+- Detailed analytics
+- Priority support
+
+**Admin & Control**
+- SSO
+- Admin spend control
+- Priority queue for faster task processing
+
+**Security & Compliance**
+- Not included: Delegated top-up access
+- Not included: Indemnification
+- Not included: No training on your data
+- Not included: SOC 2 security
+- Not included: AI Educator & Slack support
+
+### Enterprise, monthly billing
+
+**Volume based discounts on Seedance**
+Get discounts for Seedance models based on your team's volume - contact sales for a quote
+
+**Unlimited resources**
+- Volume discounts per model (Included)
+- Unlimited number of seats (Included)
+- Custom capacity (Included)
+
+**Workspace & Collaboration**
+- Unlimited members
+- Dedicated capacity (SLA)
+- Access to all features & models
+- Shared credit pool
+- Shared workspace for your team
+- Early access to advanced AI features
+- Access to Seedance 2.0
+
+**Analytics & Support**
+- Enterprise level analytics & reports
+- Personal Slack Support
+
+**Admin & Control**
+- SSO
+- Extended admin controls
+- Priority queue for faster task processing
+
+**Security & Compliance**
+- Delegated top-up access
+- Indemnification
+- No training on your data
+- SOC 2 & GDPR Compliant
+- Personal AI Educator
+
+### Enterprise, annual billing
+
+**Volume based discounts on Seedance**
+Get discounts for Seedance models based on your team's volume - contact sales for a quote
+
+**Unlimited resources**
+- Volume discounts per model (Included)
+- Unlimited number of seats (Included)
+- Custom capacity (Included)
+
+**Workspace & Collaboration**
+- Unlimited members
+- Dedicated capacity (SLA)
+- Access to all features & models
+- Shared credit pool
+- Shared workspace for your team
+- Early access to advanced AI features
+- Access to Seedance 2.0
+
+**Analytics & Support**
+- Enterprise level analytics & reports
+- Personal Slack Support
+
+**Admin & Control**
+- SSO
+- Extended admin controls
+- Priority queue for faster task processing
+
+**Security & Compliance**
+- Delegated top-up access
+- Indemnification
+- No training on your data
+- SOC 2 & GDPR Compliant
+- Personal AI Educator
+
+## Notes
+
+Unlimited models and Free Generations on plans are accessible only via higgsfield.ai and are not accessible on MCP/CLI, Canvas or Supercomputer.
+Prices exclude VAT and local taxes, calculated at checkout. Unlimited usage may be subject to dynamic speed adjustments during high-traffic periods.
+Access to new models and advanced features may be done on a rolling basis and not available to all users at launch.
+
+## FAQ
+
+### How do credits work?
+
+Credits are the main cost unit for generating media. Each model (image, video, or animation) uses a specific number of credits per generation depending on model type, duration, and resolution.
+
+Subscription credits do not roll over and expire at the end of each credit cycle.
+
+For monthly plans, credits refresh on the same date each month based on your original purchase date. For annual plans, credits refresh every 30 days from the subscription start date.
+
+New credits are added automatically at the start of each new credit cycle while your subscription is active.
+
+Monthly credits are tied to your active subscription period. Unused subscription credits do not roll over to the next billing cycle and expire at the end of each month. New credits are refreshed automatically when your subscription renews.
+
+### Is my subscription automatically renewed?
+
+Yes. Your subscription renews automatically at the end of each billing cycle to ensure uninterrupted access. You can cancel anytime in your account settings - your plan will remain active until the end of the current period.
+
+### How many images or videos can I generate?
+
+It depends on your plan and the models you use. Each plan includes an approximate number of generations per month - check the pricing table for model-specific details.
+
+### How can I purchase extra credits?
+
+If you need more credits, you can upgrade your plan for a higher monthly limit or buy credit packs to generate more media without changing your current subscription. Purchased credits are added instantly and can be used across all supported models.
+
+### How does Unlimited work?
+
+Unlimited lets you generate content without spending credits on supported models, resolutions, or quality tiers included in your plan. To ensure a smooth experience for everyone, we manage system resources dynamically:
+- Dynamic Speed Adjustment: Generation speed and concurrency may temporarily vary during periods of exceptionally high system load or peak traffic hours.
+- System Stability: Processing limits and concurrency may adjust dynamically during high load to maintain reliable platform performance for all users on unlimited plans.
+- Credit Mode: You can turn off Unlimited at any time to generate faster using credits. Simply switch to Credit Mode to bypass the standard queue and return to maximum speed instantly.
+- Fair Use: This feature is designed for personal, human use only - automation tools, credential sharing, or reselling access are strictly prohibited.
+- Account Review: If unusual activity is detected, Unlimited access may be temporarily paused for manual review by our Support Team and restored once normal usage is confirmed.
+- Access Period: If a model’s Unlimited access lasts longer than the subscription period, the plan must stay active and renew to keep the remaining days. If the plan ends, Unlimited is no longer available.
+
+### How does 365 Unlimited promo work?
+
+365 Unlimited promo gives you one year of unlimited generations on the specific models listed in each plan's card.
+- Your unlimited access for these models remains active every day for one full year from the moment of purchase.
+- These models remain available as long as your subscription is active.
+- If you cancel your subscription or switch to a lower plan that doesn't include 365 Unlimited, unlimited access stops immediately when your current plan ends.
+- If you upgrade, your unlimited access continues for the full 12 months.
+- The promo applies to both new users and existing active subscribers of eligible plans at the time of the promotion.
+- Every time the promo activates, all currently active subscribers of eligible plans automatically receive an additional 1-year extension of their unlimited access from the moment the promo starts.
+- For other models, the number of unlimited access days is specified on each model's icon on the pricing page.
+- Unlimited generations run in the standard queue, while credit-based generations always run in the priority queue.
+- Any signs of automation, scripting, or non-human activity can result in a temporary pause of your unlimited access for manual review. Access will be restored once normal usage is confirmed.
+- This policy exists to maintain reliability, speed, and fair access for everyone on unlimited plans.
+
+### Can I change my subscription after purchase?
+
+Yes. You can upgrade instantly at any time - the change takes effect immediately, and any credit difference is applied to your account. If you downgrade, the change will apply at the end of your current plan duration, and your existing plan will remain active until then.
+
+### How much does it cost to use Higgsfield Supercomputer?
+
+Every plan Higgsfield Supercomputer runs shows the credit cost upfront — before anything renders. You approve the spend, then it generates. In addition to generation costs, credits are also used for text requests - the amount varies based on your prompt complexity and the LLM model you select
+
+### Is Higgsfield free?
+
+Yes. Higgsfield offers a Free plan with limited access to selected AI models, no monthly credits, and one generation at a time. Paid plans provide access to more models, monthly credits, parallel generations, and Unlimited access on supported plans.
+
+## Business plans FAQ
+
+### How do I get started with a Team Plan?
+
+You can sign up directly on the website, invite members from the Team section, and manage credits from your account dashboard.
+
+### Can I upgrade from Team to Enterprise later?
+
+Yes. You can start with a Team Plan and switch to Enterprise at any time. Our sales team will help with migration and custom setup.
+
+### What support is included?
+
+Team Plan: Priority email support.
+Enterprise Plan: Priority support with SLA, including faster response times and dedicated assistance.
+
+### What payment methods are available?
+
+Team Plan: Credit card payments with monthly or annual billing.
+Enterprise Plan: Flexible options including credit card and invoice-based bank transfers.
+
+### Is there an admin dashboard?
+
+Yes. Both Team and Enterprise plans include centralized admin controls to manage credits, seats, and collaboration.
+Enterprise adds advanced admin tools such as usage limiting per user and audit logs.
+
+### How secure is my data?
+
+Team Plan: Standard security with centralized access.
+Enterprise Plan: Enterprise-grade security including Single Sign-On (SSO), compliance controls, and audit trails.
+
+### How many members can I add?
+
+Team Plan: Minimum 3, up to 15 members.
+Enterprise Plan: Fully configurable seats, based on your needs.
+
+### Do my credits expire or reset?
+
+Monthly plans: Credits **reset at the start of each new billing month ** (unused credits don’t roll over).
+Yearly plans: You receive a monthly credit allowance each month, and unused credits reset at the start of the next month.
+
+### What should I do if I need more credits?
+
+You can manually refill credits in the Team section of your account.
+You can also enable auto top-up to avoid interruptions and run generations without restrictions.
+
+### Are collaboration features available?
+
+Yes. Both plans include shared assets and folders.
+Additional collaboration features are in progress and will be released soon.
+
+### What features can I access?
+
+All features in Higgsfield are available.
+Plans include upgraded concurrent jobs (16 for Team, configurable for Enterprise).
+
+### What is the main difference between the Team and Enterprise plans?
+
+The Team Plan is designed for small to mid-size teams (3-15 members) with a simple setup.
+The Enterprise Plan offers configurable credits, seats, security, compliance, and integrations tailored for larger organizations.
+
+### How does billing work?
+
+Team Plans: Billed monthly or annually with centralized payment.
+Enterprise Plans: Offer both card-based billing or invoice-based bank transfers.
+
+### How does Unlimited work?
+
+Unlimited lets you generate content without spending credits on supported models, resolutions, or quality tiers included in your plan. To ensure a smooth experience for everyone, we manage system resources dynamically:
+- Dynamic Speed Adjustment: Generation speed and concurrency may temporarily vary during periods of exceptionally high system load or peak traffic hours.
+- System Stability: Processing limits and concurrency may adjust dynamically during high load to maintain reliable platform performance for all users on unlimited plans.
+- Credit Mode: You can turn off Unlimited at any time to generate faster using credits. Simply switch to Credit Mode to bypass the standard queue and return to maximum speed instantly.
+- Fair Use: This feature is designed for personal, human use only - automation tools, credential sharing, or reselling access are strictly prohibited.
+- Account Review: If unusual activity is detected, Unlimited access may be temporarily paused for manual review by our Support Team and restored once normal usage is confirmed.
+- Access Period: If a model’s Unlimited access lasts longer than the subscription period, the plan must stay active and renew to keep the remaining days. If the plan ends, Unlimited is no longer available.
+
+### How does 365 Unlimited promo work?
+
+365 Unlimited promo gives you one year of unlimited generations on the specific models listed in each plan's card.
+- Your unlimited access for these models remains active every day for one full year from the moment of purchase.
+- These models remain available as long as your subscription is active.
+- If you cancel your subscription or switch to a lower plan that doesn't include 365 Unlimited, unlimited access stops immediately when your current plan ends.
+- If you upgrade, your unlimited access continues for the full 12 months.
+- The promo applies to both new users and existing active subscribers of eligible plans at the time of the promotion.
+- Every time the promo activates, all currently active subscribers of eligible plans automatically receive an additional 1-year extension of their unlimited access from the moment the promo starts.
+- For other models, the number of unlimited access days is specified on each model's icon on the pricing page.
+- Unlimited generations run in the standard queue, while credit-based generations always run in the priority queue.
+- Any signs of automation, scripting, or non-human activity can result in a temporary pause of your unlimited access for manual review. Access will be restored once normal usage is confirmed.
+- This policy exists to maintain reliability, speed, and fair access for everyone on unlimited plans.

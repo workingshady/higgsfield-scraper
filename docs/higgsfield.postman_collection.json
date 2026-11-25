@@ -1,0 +1,652 @@
+{
+    "info": {
+        "name": "Higgsfield Pricing API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Reverse-engineered from https://higgsfield.ai/pricing (2026-11-25). See docs/endpoints/higgsfield.md. plan_set_key=ps_a3 reproduces US prices. Auth folder: set `token` to the Clerk __session JWT."
+    },
+    "variable": [
+        {
+            "key": "api_base",
+            "value": "https://fnf-api-gw.higgsfield.ai/fnf"
+        },
+        {
+            "key": "pricing_base",
+            "value": "https://pricing.higgsfield.ai"
+        },
+        {
+            "key": "locale",
+            "value": "en"
+        },
+        {
+            "key": "plan_version",
+            "value": "v51.0.0"
+        },
+        {
+            "key": "plan_set_key",
+            "value": "ps_a3",
+            "description": "one of: mcp, default, default_basic, default_q, default_ww, default_ww_q, max_v1, max_v1_q, max_v1_seedance_2_5, max_v1_ultra, max_v2, max_v2_seedance_2_5, max_v2_q, max_v2_ultra, max_v3, ps_a1, ps_a2, ps_a3, ps_a3_basic, ps_a3_q, ps_a4, ps_a5, ps_a6, ps_a7, mob_v1"
+        },
+        {
+            "key": "billing_period",
+            "value": "annual"
+        },
+        {
+            "key": "token",
+            "value": ""
+        }
+    ],
+    "item": [
+        {
+            "name": "Public",
+            "item": [
+                {
+                    "name": "Plans & prices (before/after offer)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/subscriptions/v2/plans?with_localization=true&plan_set_key={{plan_set_key}}",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "subscriptions",
+                                "v2",
+                                "plans"
+                            ],
+                            "query": [
+                                {
+                                    "key": "with_localization",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "plan_set_key",
+                                    "value": "{{plan_set_key}}"
+                                }
+                            ]
+                        },
+                        "description": "Cents. original_*=before offer, final_*=after offer, renew_*=renewal. discount.duration once|forever. country_code from IP.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);",
+                                    "const j=pm.response.json();",
+                                    "console.table(j.plans.map(p=>({plan:p.plan_type,period:p.billing_period,credits:p.credits,before:p.original_monthly_price/100,after:p.final_monthly_price/100,off:p.discount&&p.discount.percent_off})));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Plan comparison matrix",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/subscriptions/v2/compare?plan_set_key={{plan_set_key}}&billing_period={{billing_period}}&with_localization=true",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "subscriptions",
+                                "v2",
+                                "compare"
+                            ],
+                            "query": [
+                                {
+                                    "key": "plan_set_key",
+                                    "value": "{{plan_set_key}}"
+                                },
+                                {
+                                    "key": "billing_period",
+                                    "value": "{{billing_period}}"
+                                },
+                                {
+                                    "key": "with_localization",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "description": "Feature matrix per plan (video/image/lipsync/character/credits/access), seats, Free plan.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Plan benefits (unlimited / free gens)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/subscriptions/v2/plan-benefits?locale={{locale}}",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "subscriptions",
+                                "v2",
+                                "plan-benefits"
+                            ],
+                            "query": [
+                                {
+                                    "key": "locale",
+                                    "value": "{{locale}}"
+                                }
+                            ]
+                        },
+                        "description": "Card sections; job_set_types join to /job-sets/costs.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Model credit costs (all models)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/job-sets/costs",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "job-sets",
+                                "costs"
+                            ],
+                            "query": []
+                        },
+                        "description": "86 job_set_types; version = content hash.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);",
+                                    "const j=pm.response.json();",
+                                    "console.log(j.data.length+' models', j.version);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Pricing config - all versions",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{pricing_base}}/v2/pricing-config?locale={{locale}}",
+                            "host": [
+                                "{{pricing_base}}"
+                            ],
+                            "path": [
+                                "v2",
+                                "pricing-config"
+                            ],
+                            "query": [
+                                {
+                                    "key": "locale",
+                                    "value": "{{locale}}"
+                                }
+                            ]
+                        },
+                        "description": "~4-6 MB, every version.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Pricing config - one version",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{pricing_base}}/v2/pricing-config?planVersion={{plan_version}}&locale={{locale}}",
+                            "host": [
+                                "{{pricing_base}}"
+                            ],
+                            "path": [
+                                "v2",
+                                "pricing-config"
+                            ],
+                            "query": [
+                                {
+                                    "key": "planVersion",
+                                    "value": "{{plan_version}}"
+                                },
+                                {
+                                    "key": "locale",
+                                    "value": "{{locale}}"
+                                }
+                            ]
+                        },
+                        "description": "Single version.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Plan sets enum (expects 422)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/subscriptions/v2/plans?plan_set_key=__list__",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "subscriptions",
+                                "v2",
+                                "plans"
+                            ],
+                            "query": [
+                                {
+                                    "key": "plan_set_key",
+                                    "value": "__list__"
+                                }
+                            ]
+                        },
+                        "description": "Returns 422 whose message lists every valid plan_set_key.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('422 lists plan sets', () => pm.response.to.have.status(422));",
+                                    "console.log(pm.response.json().detail[0].msg);"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Auth required",
+            "item": [
+                {
+                    "name": "Credit top-up packages",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/subscriptions/v2/packages",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "subscriptions",
+                                "v2",
+                                "packages"
+                            ],
+                            "query": []
+                        },
+                        "description": "amount/credits in cents.",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Unlimited bundles catalog",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/subscriptions/bundle/unlim-catalog",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "subscriptions",
+                                "bundle",
+                                "unlim-catalog"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Credit price",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/workspaces/credit-price",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "workspaces",
+                                "credit-price"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Adjustable credits",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/pricing"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/subscriptions/v2/adjustable-credits",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "subscriptions",
+                                "v2",
+                                "adjustable-credits"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
