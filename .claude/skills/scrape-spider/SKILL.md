@@ -22,7 +22,7 @@ Checklist:
    Every `process_item` returns the item or raises `DropItem`. Credentials from env vars only.
 6. **Export** — JSONL feed as raw archive (`data/%(name)s/%(name)s_%(time)s.jsonl`); DB upserts keyed on natural
    IDs; prices appended to history.
-7. **Politeness** — `ROBOTSTXT_OBEY = True`, AutoThrottle, `DOWNLOAD_DELAY ≥ 1`, retry 429; `HTTPCACHE_ENABLED`
+7. **Politeness** — robots.txt off by default (`--obey-robots` to enable), AutoThrottle, `DOWNLOAD_DELAY ≥ 1`, retry 429; `HTTPCACHE_ENABLED`
    during development.
 8. **Verify** — `scrapy shell` for selectors; `scrapy crawl <name> -O tmp.jsonl -s CLOSESPIDER_ITEMCOUNT=20`;
    inspect output and stats (`item_scraped_count`, `item_dropped_count`, `validation/*`, error counts) before

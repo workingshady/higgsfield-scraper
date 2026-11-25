@@ -31,7 +31,7 @@ Skills: `reverse-engineer-site` (map a new site before scraping), `scrape-spider
 - Pipelines order: clean → validate (pydantic, `DropItem`) → dedup → store. Always `return item`.
 - Storage: JSONL raw archive + normalized SQL with upserts; price history is append-only.
 - Secrets (DB URLs, API keys, AWS creds, logins) come from environment variables / `.env` (gitignored). Never hardcode.
-- Politeness: `ROBOTSTXT_OBEY = True`, AutoThrottle, `DOWNLOAD_DELAY ≥ 1`, retry on 429; HTTP cache on in dev.
+- Politeness: robots.txt is NOT obeyed by default (owner decision; `--obey-robots` turns it on), AutoThrottle, `DOWNLOAD_DELAY ≥ 1`, retry on 429; HTTP cache on in dev.
 - Never bypass auth/paywalls/anti-bot protections or use non-public credentials; public data only.
 
 ## Layout (see README.md for full detail)
@@ -57,6 +57,8 @@ runs/                                      # run output (gitignored)
 - Data comes from 5 public JSON endpoints + 4 login-only ones. Docs: `docs/REVERSE_ENGINEERING.md` (findings),
   `docs/ENDPOINTS.md` (field meanings), `docs/ENDPOINT_FIELDS.md` (generated: `python scripts/gen_endpoint_fields.py`),
   `CLI.md` (every option — update it when adding/changing a CLI flag).
+- Full site inventory (features, 589 routes, 728 API paths, public vs login, next scrapers): `docs/HIGGSFIELD_DATA_INVENTORY.md`;
+  re-probe with `python scripts/recon_probe.py`.
 - All JSON output is written with `indent=4`; JSONL stays one object per line.
 - `.gitignore` output-folder patterns must be root-anchored (`/schemas/`, `/runs/`, `/data/`): an unanchored
   `schemas/` once silently excluded the `higgsfield_scraper/schemas/` package from git.

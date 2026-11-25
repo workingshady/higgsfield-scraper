@@ -18,3 +18,6 @@ __pycache__/
 samples/higgsfield/js/
 samples/higgsfield/pricing_config.json
 samples/higgsfield/js_urls.txt
+# recon response bodies contain real users' usernames/handles — keep local
+samples/higgsfield/inventory/bodies/
+samples/higgsfield/probe/

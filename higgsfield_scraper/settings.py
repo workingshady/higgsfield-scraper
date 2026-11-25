@@ -6,7 +6,7 @@ SPIDER_MODULES = ["higgsfield_scraper.spiders"]
 NEWSPIDER_MODULE = "higgsfield_scraper.spiders"
 
 # --- politeness -------------------------------------------------------------
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False           # owner decision: robots.txt not obeyed by default (CLI: --obey-robots)
 USER_AGENT = USER_AGENT
 DEFAULT_REQUEST_HEADERS = DEFAULT_HEADERS
 CONCURRENT_REQUESTS = 4

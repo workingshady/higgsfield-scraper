@@ -43,7 +43,7 @@ Related documents:
 | `fnf-api-gw.higgsfield.ai` | 404 (no rules) | The 5 public GET endpoints |
 | `pricing.higgsfield.ai` | 302 → **Cloudflare Access login** (`fnf-web-pages.cloudflareaccess.com/cdn-cgi/access/login/…`). The host is behind Zero-Trust except for the public `/v2/pricing-config` path. The redirect is offsite, so Scrapy treats robots.txt as missing (`http/002_robots.txt_redirect__…`) | `pricing-config` |
 
-The scraper sets `ROBOTSTXT_OBEY = True`, uses AutoThrottle with a delay of at least 1 s, and makes about 6–75 requests
+The scraper does **not** obey robots.txt by default (owner decision; `--obey-robots` enables it). It uses AutoThrottle with a delay of at least 1 s, and makes about 6–75 requests
 per run. It only calls the read-only GET endpoints listed below. The bundle also contains purchase, checkout and
 offer-mutation endpoints, and these must **never** be called (§8).
 

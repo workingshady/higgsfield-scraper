@@ -68,6 +68,7 @@ python -m higgsfield_scraper scrape [--sections S] [--plan-sets P] [--billing B]
 | Access | `--token` | env `HF_TOKEN` | Clerk session JWT (only for `auth`) |
 | Dev | `--cache` | off | flag: Scrapy HTTP cache in `runs/.httpcache` (1 h) |
 | | `--no-http-archive` | off (the archive is on) | flag: don't write `<run>/http/` |
+| Robots | `--obey-robots` | off (robots.txt **not** obeyed) | flag: fetch robots.txt and skip disallowed URLs. Plain Scrapy: `-s ROBOTSTXT_OBEY=True` |
 | | `--dry-run` | off | flag: print requests and exit, no network |
 
 **Default run** (`python -m higgsfield_scraper scrape`). Console output, trimmed:

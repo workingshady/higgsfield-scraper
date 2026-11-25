@@ -1,0 +1,122 @@
+{
+    "/publications/community/trending?size=1": {
+        "status": 200,
+        "bytes": 3599
+    },
+    "/publications/community/approved?size=1": {
+        "status": 200,
+        "bytes": 2819
+    },
+    "/publications/community/trending?size=1&type=video": {
+        "status": 200,
+        "bytes": 5179
+    },
+    "/publications/community/trending?size=1&model=seedance_2_5": {
+        "status": 200,
+        "bytes": 5178
+    },
+    "/publications/77557ebb-4949-4f8e-bdc6-a2e62b09e5f2": {
+        "status": 200,
+        "bytes": 3529
+    },
+    "/publications/77557ebb-4949-4f8e-bdc6-a2e62b09e5f2/related?limit=3": {
+        "status": 401,
+        "bytes": 37
+    },
+    "/publications/77557ebb-4949-4f8e-bdc6-a2e62b09e5f2/comments": {
+        "status": 401,
+        "bytes": 37
+    },
+    "/project-publications/b93872c6-1aa3-4460-b311-4717233ef04c": {
+        "status": 200,
+        "bytes": 5955
+    },
+    "/contests/7834f30d-cfbf-4a1e-9d29-a2373b581c26": {
+        "status": 404,
+        "bytes": 30
+    },
+    "/contests/by-id/7834f30d-cfbf-4a1e-9d29-a2373b581c26": {
+        "status": 200,
+        "bytes": 50493
+    },
+    "/contests/7834f30d-cfbf-4a1e-9d29-a2373b581c26/submissions": {
+        "status": 200,
+        "bytes": 29
+    },
+    "/motions?size=1": {
+        "status": 200,
+        "bytes": 306
+    },
+    "/motions/bbab2a35-ccba-45df-8c37-8ea2bd9e395a": {
+        "status": 200,
+        "bytes": 7669
+    },
+    "/motion-samples?motion_id=bbab2a35-ccba-45df-8c37-8ea2bd9e395a&size=3": {
+        "status": 200,
+        "bytes": 183126
+    },
+    "/avatars?size=3": {
+        "status": 200,
+        "bytes": 1286
+    },
+    "/sounds?size=3": {
+        "status": 200,
+        "bytes": 767
+    },
+    "/styles?size=3": {
+        "status": 200,
+        "bytes": 1014
+    },
+    "/voices?size=3": {
+        "status": 200,
+        "bytes": 1264
+    },
+    "/soul-samples?size=1": {
+        "status": 200,
+        "bytes": 2428
+    },
+    "/viral-hub/presets?lang=en": {
+        "status": 200,
+        "bytes": 2
+    },
+    "/viral-hub/types": {
+        "status": 200,
+        "bytes": 619
+    },
+    "/series": {
+        "status": 401,
+        "bytes": 37
+    },
+    "/veo3-styles": {
+        "status": 401,
+        "bytes": 37
+    },
+    "/kling-motions": {
+        "status": 401,
+        "bytes": 37
+    },
+    "/seedance-motions": {
+        "status": 401,
+        "bytes": 37
+    },
+    "/soul-styles?size=3": {
+        "status": 401,
+        "bytes": 37
+    },
+    "/mixed-media-presets?size=3&lang=en": {
+        "status": 401,
+        "bytes": 37
+    },
+    "/project-publications?limit=1": {
+        "status": 200,
+        "bytes": 5600
+    },
+    "/users/search?query=higgsfield": {
+        "status": 401,
+        "bytes": 37
+    },
+    "/contests/weekly-challenge/latest": {
+        "status": 404,
+        "bytes": 22
+    }
+}

@@ -89,7 +89,7 @@ def cmd_scrape(a) -> int:
         return 0
     label = a.label or ("-".join(sel.sections) if len(sel.sections) < 3 else "full") + f"-{'-'.join(sel.plan_set_keys[:2])}"
     mgr = RunManager(a.runs_dir, label, a.log_level, a.file_log_level, a.scrapy_log_level)
-    overrides = {"HIGGS_HTTP_ARCHIVE": not a.no_http_archive}
+    overrides = {"HIGGS_HTTP_ARCHIVE": not a.no_http_archive, "ROBOTSTXT_OBEY": a.obey_robots}
     return mgr.scrape(sel, token=token, cache=a.cache, settings_overrides=overrides, args=_public_args(a))
 
 
@@ -244,6 +244,8 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--cache", action="store_true", help="enable Scrapy HTTP cache (dev)")
     s.add_argument("--no-http-archive", action="store_true",
                    help="don't write <run>/http/ (per-request request.json, response.json, body.raw, curl.sh, session.har)")
+    s.add_argument("--obey-robots", action="store_true",
+                   help="check and obey robots.txt (default: off — robots.txt is not obeyed)")
     s.add_argument("--dry-run", action="store_true", help="print the requests that would be made and exit")
     s.set_defaults(func=cmd_scrape)
 

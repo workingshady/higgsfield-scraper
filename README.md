@@ -16,6 +16,7 @@ The page itself contains no prices. They come from JSON APIs that this project c
 | [`docs/ENDPOINTS.md`](docs/ENDPOINTS.md) | Every endpoint: params, auth, response fields and their meaning |
 | [`docs/ENDPOINT_FIELDS.md`](docs/ENDPOINT_FIELDS.md) | Auto-generated list of every JSON path, with types and examples |
 | [`docs/REVERSE_ENGINEERING.md`](docs/REVERSE_ENGINEERING.md) | All reverse-engineering findings, evidence and verification |
+| [`docs/HIGGSFIELD_DATA_INVENTORY.md`](docs/HIGGSFIELD_DATA_INVENTORY.md) | **Everything on Higgsfield**: every feature, page and API, what is public vs login, scraper options |
 | [`docs/higgsfield.postman_collection.json`](docs/higgsfield.postman_collection.json) | Postman collection |
 
 ---
@@ -83,6 +84,7 @@ python -m higgsfield_scraper show compare "kling 3.0"  # comparison matrix rows
 | `--log-level` / `--file-log-level` / `--scrapy-log-level` | `INFO` / `DEBUG` / `INFO` | Logging verbosity |
 | `--cache` | off | Scrapy HTTP cache, for development |
 | `--no-http-archive` | off | Skip the `http/` subfolder (raw request and response of every HTTP exchange) |
+| `--obey-robots` | off | Check and obey robots.txt. By default robots.txt is **not** obeyed |
 | `--dry-run` | — | Print the planned requests and exit |
 
 Examples:
@@ -208,7 +210,7 @@ higgsfield_scraper/
   logformatter.py        one-line item logs (no 4 MB dumps)
   middlewares.py         HttpArchiveMiddleware: writes <run>/http/ (request/response/body/curl + HAR)
   run/                   RunContext (folders, manifest), logging setup, RunManager
-  settings.py            Scrapy settings (polite: robots.txt, AutoThrottle, retries)
+  settings.py            Scrapy settings (AutoThrottle, delay, retries; robots.txt off by default)
 tests/                   offline tests on captured fixtures (+ live test with HF_LIVE=1)
 docs/                    ENDPOINTS.md, ENDPOINT_FIELDS.md, REVERSE_ENGINEERING.md, Postman collection
 scripts/                 gen_endpoint_fields.py (regenerates docs/ENDPOINT_FIELDS.md)
@@ -240,6 +242,6 @@ archive and `normalize`, validation, and the polite Scrapy settings.
 
 - These are undocumented internal APIs and may change without notice. Each run logs any non-200 response,
   and `manifest.json` records a `partial` status when that happens.
-- Keep the request volume low: one snapshot per run is about 6–20 requests. The spider follows robots.txt and
+- Keep the request volume low: one snapshot per run is about 6–20 requests. The spider does not check robots.txt by default (use `--obey-robots`), and it
   uses throttling.
 - Never call the purchase, checkout, or offer-mutation endpoints listed in the bundle (see the endpoint doc).
