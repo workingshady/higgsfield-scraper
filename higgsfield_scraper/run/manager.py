@@ -13,7 +13,8 @@ from pathlib import Path
 from typing import Any, Optional
 
 from .. import __version__
-from ..selection import Selection
+from ..core import registry
+from ..core.base import CommonOptions, RunMeta, ScraperDef, resolve
 from .context import RunContext
 from .logging_setup import setup_logging, teardown_logging
 
@@ -35,12 +36,13 @@ def _versions() -> dict[str, Any]:
             "pydantic": pydantic.VERSION, "platform": platform.platform(), "git_commit": _git_commit()}
 
 
-def _status(stats: dict, export: dict, sel: Selection) -> str:
+def _status(stats: dict, export: dict, sdef: ScraperDef) -> str:
     if not export.get("ok"):
         return "failed"
-    bad = [k for k in stats if k.startswith(("higgs/request_errors/", "higgs/non_json"))]
+    bad = [k for k in stats if k.startswith(("higgs/request_errors/", "higgs/non_json", "higgs/blocked"))]
     non200 = [k for k in stats if k.startswith("higgs/responses/") and not k.endswith("/200")
-              and not any(a in k for a in ("credit_packages", "unlim_catalog", "credit_price", "adjustable_credits"))]
+              and k.removeprefix("higgs/responses/").rsplit("/", 1)[0] not in sdef.optional_endpoints
+              and not k.startswith("higgs/responses/media/")]
     dropped = stats.get("validation/dropped", 0)
     return "partial" if bad or non200 or dropped else "success"
 
@@ -51,13 +53,19 @@ class RunManager:
         self.runs_dir, self.label = Path(runs_dir), label
         self.levels = (console_level, file_level, scrapy_level)
 
-    def _start(self, sel: Selection, args: dict) -> tuple[RunContext, list]:
+    def _start(self, sdef: ScraperDef, sel, args: dict, common: CommonOptions) -> tuple[RunContext, list]:
         ctx = RunContext.create(self.runs_dir, self.label)
         handlers = setup_logging(ctx.logs_dir, ctx.run_id, *self.levels)
-        ctx.write_manifest({"status": "running", "args": args, "selection": sel.to_dict(), "versions": _versions(),
-                            "paths": {"logs": "logs/", "raw": "raw/", "http": "http/", "output": "output/"}})
+        ctx.write_manifest({"status": "running", "scraper": sdef.name, "args": args, "selection": sel.to_dict(),
+                            "common": common.to_dict(), "versions": _versions(),
+                            "paths": {"logs": "logs/", "raw": "raw/", "http": "http/", "media": "media/",
+                                      "output": "output/"}})
         log.info("run %s started -> %s", ctx.run_id, ctx.run_dir.resolve())
-        log.info("sections=%s plan_sets=%s endpoints=%s", sel.sections, sel.plan_set_keys, sel.endpoints())
+        if hasattr(sel, "endpoints"):
+            log.info("scraper=%s sections=%s plan_sets=%s endpoints=%s", sdef.name, sel.sections,
+                     sel.plan_set_keys, sel.endpoints())
+        else:
+            log.info("scraper=%s selection=%s limits=%s", sdef.name, sel.to_dict(), common.to_dict())
         return ctx, handlers
 
     def _finish(self, ctx: RunContext, handlers: list, status: str, t0: float, extra: dict) -> int:
@@ -73,38 +81,46 @@ class RunManager:
         return {"success": 0, "partial": 2}.get(status, 1)
 
     # ------------------------------------------------------------ scrape
-    def scrape(self, sel: Selection, token: Optional[str] = None, cache: bool = False,
-               settings_overrides: Optional[dict] = None, args: Optional[dict] = None) -> int:
+    def scrape(self, sel, token: Optional[str] = None, cache: bool = False,
+               settings_overrides: Optional[dict] = None, args: Optional[dict] = None,
+               scraper: str = registry.DEFAULT_SCRAPER, common: Optional[CommonOptions] = None) -> int:
         os.environ.setdefault("SCRAPY_SETTINGS_MODULE", "higgsfield_scraper.settings")
         from scrapy.crawler import CrawlerProcess
         from scrapy.utils.project import get_project_settings
 
-        from ..items import ITEM_BY_KIND
-        from ..spiders.higgsfield import HiggsfieldSpider
+        from ..items import item_classes
 
+        sdef = registry.get(scraper)
+        spider_cls = resolve(sdef.spider_cls)
+        common = common or CommonOptions()
         t0 = time.monotonic()
-        ctx, handlers = self._start(sel, args or {})
+        ctx, handlers = self._start(sdef, sel, args or {}, common)
         settings = get_project_settings()
         items_dir = (ctx.output_dir / "items").resolve()
         items_dir.mkdir(parents=True, exist_ok=True)
         settings.set("FEEDS", {
             (items_dir / f"{kind}.jsonl").as_uri(): {"format": "jsonlines", "encoding": "utf8", "overwrite": True,
                                                     "store_empty": False, "item_classes": [cls]}
-            for kind, cls in ITEM_BY_KIND.items()
+            for kind, cls in item_classes(sdef.model_by_kind).items()
         }, priority="cmdline")
         settings.set("LOG_LEVEL", self.levels[2], priority="cmdline")
         settings.set("HTTPCACHE_ENABLED", cache, priority="cmdline")
         settings.set("HTTPCACHE_DIR", str((self.runs_dir / ".httpcache").resolve()), priority="cmdline")
         settings.set("LOG_INSTALL_ROOT_HANDLER", False, priority="cmdline")   # our handlers own the root logger
+        for k, v in common.settings_overrides().items():
+            settings.set(k, v, priority="cmdline")
         for k, v in (settings_overrides or {}).items():
             settings.set(k, v, priority="cmdline")
 
         process = CrawlerProcess(settings)
-        crawler = process.create_crawler(HiggsfieldSpider)
+        crawler = process.create_crawler(spider_cls)
         stats: dict = {}
         export: dict = {"ok": False, "error": "crawl did not finish"}
         try:
-            process.crawl(crawler, selection=sel, token=token, run_ctx=ctx)
+            kw = dict(selection=sel, token=token, run_ctx=ctx)
+            if sdef.name != "pricing":
+                kw["common"] = common
+            process.crawl(crawler, **kw)
             process.start()
             stats = crawler.stats.get_stats() if crawler.stats else {}
             export = getattr(crawler.spider, "export_result", export)
@@ -113,29 +129,34 @@ class RunManager:
             export = {"ok": False, "error": "interrupted"}
         except Exception:
             log.exception("crawl crashed")
-        status = _status(stats, export, sel)
+        status = _status(stats, export, sdef)
         responses = defaultdict(dict)
         for k, v in stats.items():
             if k.startswith("higgs/responses/"):
                 ep, code = k.removeprefix("higgs/responses/").rsplit("/", 1)
                 responses[ep][code] = v
+        spider = crawler.spider
+        prov = getattr(spider, "token_provider", None)
         return self._finish(ctx, handlers, status, t0, {
             "counts": export.get("counts"), "country_code": export.get("country_code"),
             "error": export.get("error"), "responses": responses,
+            "limits_hit": list(getattr(spider, "limits_hit", []) or []),
+            "auth": {k: v for k, v in prov.status().items() if k != "session_id"} if prov and prov.configured else None,
             "scrapy_stats": {k: (v.isoformat() if isinstance(v, datetime) else v) for k, v in stats.items()},
         })
 
     # --------------------------------------------------------- normalize
-    def normalize(self, source_run: Path, sel: Selection, args: Optional[dict] = None) -> int:
+    def normalize(self, source_run: Path, sel, args: Optional[dict] = None, scraper: str = registry.DEFAULT_SCRAPER,
+                  common: Optional[CommonOptions] = None) -> int:
         """Re-parse a previous run's raw/ folder offline into a new run (no network)."""
-        from ..assemble import build_dataset
-        from ..exporters import write_outputs
-        from ..parsers import keep, parse_envelope
         from ..raw import Envelope
         from ..validation import EntityInvalid, validate_entity
 
+        sdef = registry.get(scraper)
+        common = common or CommonOptions()
+        parse_envelope, keep = sdef.parse_envelope, sdef.keep
         t0 = time.monotonic()
-        ctx, handlers = self._start(sel, {**(args or {}), "source_run": str(source_run)})
+        ctx, handlers = self._start(sdef, sel, {**(args or {}), "source_run": str(source_run)}, common)
         entities: dict[str, list[dict]] = defaultdict(list)
         dropped = 0
         raws = sorted((Path(source_run) / "raw").glob("*.json"))
@@ -152,11 +173,33 @@ class RunManager:
                 except EntityInvalid as err:
                     dropped += 1
                     log.warning("invalid %s", err)
+        ids = registry.all_id_fields()
+        for kind, rows in list(entities.items()):                 # same dedup as the crawl pipeline
+            f = ids.get(kind)
+            if f:
+                seen, uniq = set(), []
+                for r in rows:
+                    k = r.get(f)
+                    if k in seen and k not in (None, ""):
+                        continue
+                    seen.add(k)
+                    uniq.append(r)
+                entities[kind] = uniq
+        if common.max_items is not None and sdef.name != "pricing":   # same --max-items budget as the crawl
+            budget = common.max_items
+            for kind in getattr(resolve(sdef.spider_cls), "primary_kinds", ()):
+                rows = entities.get(kind, [])
+                if len(rows) > budget:
+                    log.info("normalize: max_items=%s — keeping %d of %d %s", common.max_items, budget, len(rows), kind)
+                entities[kind] = rows[:budget]
+                budget = max(0, budget - len(entities[kind]))
         try:
-            ds = build_dataset(entities, sel, run_id=ctx.run_id, label=ctx.label, scraped_at=ctx.started_at)
-            write_outputs(ds, ctx.output_dir)
+            ds = sdef.build_dataset(entities, sel, RunMeta(run_id=ctx.run_id, label=ctx.label,
+                                                           scraped_at=ctx.started_at, common=common))
+            sdef.write_outputs(ds, ctx.output_dir)
             status = "partial" if dropped else "success"
-            extra = {"counts": ds["meta"]["counts"], "country_code": ds["meta"]["country_code"], "dropped": dropped}
+            extra = {"counts": ds["meta"].get(sdef.counts_key), "country_code": ds["meta"].get("country_code"),
+                     "dropped": dropped}
         except Exception as e:
             log.exception("normalize failed")
             status, extra = "failed", {"error": repr(e)}

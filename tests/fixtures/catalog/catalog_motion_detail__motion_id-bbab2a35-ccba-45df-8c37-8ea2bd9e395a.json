@@ -1,0 +1,30 @@
+{
+    "meta": {
+        "endpoint": "catalog_motion_detail",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/motions/bbab2a35-ccba-45df-8c37-8ea2bd9e395a?motion_id=bbab2a35-ccba-45df-8c37-8ea2bd9e395a",
+        "params": {
+            "motion_id": "bbab2a35-ccba-45df-8c37-8ea2bd9e395a"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "id": "bbab2a35-ccba-45df-8c37-8ea2bd9e395a",
+        "name": "Raven Transition",
+        "description": "Dark energy flares as glowing crows and fiery eyes surround the subject, channeling shinobi intensity. Mysterious, powerful, and iconic",
+        "params": {},
+        "categories": [],
+        "media": {
+            "url": "https://cdn.higgsfield.ai/kling_motion/ec0c8890-fe56-4d36-a6b8-5a886f4ddc59.mp4",
+            "type": "video",
+            "width": 600,
+            "height": 800,
+            "placeholder": "data:image/webp;base64,UklGRnQUAABXRUJQVlA4IGgUAADQAQGdASpYA...",
+            "optimized_url": "https://cdn.higgsfield.ai/kling_motion/4cb44fbc-b119-45fa-bc38-7abc9c327761.webp",
+            "thumbnail_url": "https://cdn.higgsfield.ai/kling_motion/ccb43c6f-d425-4f63-bf44-37cf7ac6bcca.webp"
+        },
+        "priority": -354,
+        "tags": [],
+        "preset_family": "kling"
+    }
+}

@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "endpoint": "community_detail",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/publications/06f9721a-592b-4f83-ba01-093c804d6610",
+    "params": {
+      "publication_id": "06f9721a-592b-4f83-ba01-093c804d6610",
+      "feed": "trending"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "job_set_type": "seedance_2_5",
+    "job_set_id": "cc62a4bc-d0cb-4ad8-bcc7-46e53d749a3e",
+    "job_set_parent_id": null,
+    "job_set_client_meta": null,
+    "board_ids": [],
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "prompt": "<<<image_1>>> — Ines\n\nCamera Settings: shot on 35mm film, anamorphic 2x squeeze, 2.39:1, oval bokeh, heavy grain,\nhalation on the bulbs. Focal length: 35mm. Aperture: f/2.0. Camera Style: handheld inside\nthe scuffle — the camera is jostled and knocked by the people restraining her, losing her\nframe and finding her again, shoved sideways twice, then dropping to the duckboards with her\nand ending on its side looking up at her and at the ring of faces standing over her; one\ncontinuous take, no cuts. Light: cold blue dawn through canvas, bare work bulbs swinging on\na cable throwing hard moving shadows, generator flicker. Style & Mood: field hospital at\nfirst light, blue-grey and dirty amber, war-film grain, generator hum, canvas cracking in\nwind, no score. Narrative Summary: a medic breaks down in front of the whole ward while\nreporting her losses. Starting Composition: camera 3ft from her face, handheld, already\nunsteady. Ines (<<<image_1>>>) stands frame-center already mid-shout at an officer\noff-frame, rows of cots and wounded men behind her, covered stretchers deep frame-right,\nbulbs swinging overhead.\n\nDynamic Description: (0s–5s) Handheld tight 35mm, already knocked off balance at frame one,\ncatching her face in snatches. She is screaming before the shot begins, face contorted,\ntendons standing in her neck, tears cutting clean lines through the soot — voice torn open,\nshouting: \"FOUR. There were forty of us and there's FOUR.\" She rips the loose dressing off\nher forearm and hurls it, then drives her fist down onto a folding table so the tin cups\njump. (5s–10s) Two people grab her from behind and she fights them hard, twisting; the\ncamera is shoved sideways by a shoulder, loses her completely for half a second, and finds\nher again mid-struggle, still shouting with no words left in it, the ampoules on her chest\nrattling. (10s–15s) Her legs go. They lower her and the camera goes down to the duckboards\nwith her, ending on its side. From the floor, looking up: she is on her knees, doubled over\nwith both hands in her cropped hair, sobbing at full volume with her forehead almost on the\nboards, a ring of faces standing over her, the bulbs swinging behind their heads.\n\nStatic Description: field hospital tent at dawn, rows of cots, swinging bulbs, canvas,\ncovered stretchers, folding table, tin cups, duckboards. Negative: no subtitles, no\ncaptions, no text overlay, no cross-dissolve, no transparency transitions, no wipes, no\ncuts, no hard cuts, no edits, no shot changes — single uninterrupted take, no mirror\nreflections, no doubled characters, no visible crew, no wound detail, no slow-motion, no\nmusic, no score, no composed crying, no build-up. She is already screaming in the very\nfirst frame and the camera must be physically knocked at least twice.",
+      "genre": "auto",
+      "medias": [
+        {
+          "data": {
+            "id": "727d971e-3a55-4d08-8216-2d9ee3de28fe",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fakex001/727d971e-3a55-4d08-8216-2d9ee3de28fe.png",
+            "type": "media_input"
+          },
+          "role": "image"
+        }
+      ],
+      "duration": 15,
+      "resolution": "1080p",
+      "aspect_ratio": "16:9",
+      "generate_audio": true,
+      "multi_shots": false,
+      "multi_shot_mode": "custom",
+      "multi_prompt": [],
+      "speedramp": "auto",
+      "reference_elements": [],
+      "prompt_language": "zh",
+      "model": "default",
+      "extension_mode": null,
+      "bitrate_mode": "high",
+      "draft": false,
+      "seed": null,
+      "draft_job_id": null
+    },
+    "meta": {},
+    "id": "e02ab22b-6d8e-46bd-874e-8090a8f00799",
+    "status": "completed",
+    "ip_check_finished": true,
+    "ip_detected": false,
+    "can_bypass_ip": false,
+    "deepfake_consent_required": false,
+    "result": null,
+    "results": {
+      "raw": {
+        "type": "video",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fakex001/hf_20260814_041459_e02ab22b-6d8e-46bd-874e-8090a8f00799_wm3.mp4",
+        "thumbnail_url": "https://cdn.higgsfield.ai/user_fakex001/hf_20260814_041459_e02ab22b-6d8e-46bd-874e-8090a8f00799_thumbnail.webp"
+      },
+      "min": {
+        "type": "video",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fakex001/hf_20260814_041459_e02ab22b-6d8e-46bd-874e-8090a8f00799_wm3.mp4",
+        "thumbnail_url": "https://cdn.higgsfield.ai/user_fakex001/hf_20260814_041459_e02ab22b-6d8e-46bd-874e-8090a8f00799_thumbnail.webp"
+      },
+      "hls": null,
+      "h264": null
+    },
+    "published_at": 1786700022.197594,
+    "created_at": 1786680899.139247,
+    "user_id": "user_fake007",
+    "trace_id": null,
+    "cluster_hash": null,
+    "representation": null,
+    "can_upgrade_to_4k": false,
+    "upgrade_options": [],
+    "expires_at": null,
+    "publication": {
+      "id": "06f9721a-592b-4f83-ba01-093c804d6610",
+      "views_count": 120908,
+      "likes_count": 289,
+      "is_liked_by_user": null,
+      "approved": true,
+      "pinned_at": null
+    },
+    "profile": {
+      "username": "creator_81",
+      "avatar_url": "https://example.invalid/avatar_81.webp",
+      "instagram_handle": null,
+      "twitter_handle": null,
+      "youtube_handle": null,
+      "tiktok_handle": null,
+      "badge": null,
+      "badges": []
+    },
+    "drama": null
+  }
+}

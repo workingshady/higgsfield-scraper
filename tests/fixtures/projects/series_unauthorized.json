@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "endpoint": "projects_series",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/series?limit=100",
+    "params": {
+      "limit": "100"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 401
+  },
+  "body": {
+    "detail": "Invalid or expired token"
+  }
+}

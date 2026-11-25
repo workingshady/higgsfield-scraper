@@ -1,0 +1,154 @@
+{
+    "meta": {
+        "endpoint": "enterprise_sitemap",
+        "url": "https://higgsfield.ai/enterprise-help-center/sitemap.xml",
+        "params": {},
+        "fetched_at": "2026-11-25T13:14:31.515287+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "sitemap",
+        "urls": [
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/getting-started",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/support",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/support/issues",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/support/contact-support",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/buy-credits",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/getting-started/intro",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/tools-creative-workflow",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/integrations",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/ai-models",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/getting-started/onboarding",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/usage-analytics",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/members-roles",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/prompting",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/groups-and-sub-workspaces",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/seedance-prompt-guides",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/limits",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/consistent-characters-products",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/canvas-first-workflow",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/sub-workspaces",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/assets",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/product-image-series",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/projects",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/plans-billing",
+                "lastmod": "2026-11-01T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/layers-image-editing",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/security-and-privacy",
+                "lastmod": "2026-11-20T00:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/ugc-consistent-voice",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/set-up-sso-saml",
+                "lastmod": "2026-11-20T07:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/chocolate-liquid-product-lock",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/script-to-finished-video",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/set-up-directory-sync-scim",
+                "lastmod": "2026-11-20T07:00:00.000Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/platform/workflow-example",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/enterprise-help-center/manage-account/link-your-claude-organization",
+                "lastmod": "2026-11-18T00:00:00Z"
+            }
+        ]
+    }
+}

@@ -1,0 +1,478 @@
+{
+    "meta": {
+        "endpoint": "creator_hub_sitemap",
+        "url": "https://higgsfield.ai/creator-hub/sitemap.xml",
+        "params": {},
+        "fetched_at": "2026-11-25T13:14:30.904068+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "sitemap",
+        "urls": [
+            {
+                "loc": "https://higgsfield.ai/creator-hub/changelog",
+                "lastmod": "2026-11-21T18:21:34Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/getting-started",
+                "lastmod": "2026-11-19T13:26:43Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/plans",
+                "lastmod": "2026-11-19T16:39:24Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits",
+                "lastmod": "2026-11-23T13:12:18Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/billing",
+                "lastmod": "2026-10-24T01:03:26Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/refunds",
+                "lastmod": "2026-11-11T18:06:55Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/integrations",
+                "lastmod": "2026-11-18T21:08:50Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/troubleshooting",
+                "lastmod": "2026-11-20T18:48:32Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools",
+                "lastmod": "2026-11-19T12:07:50Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models",
+                "lastmod": "2026-11-17T17:11:20Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/account",
+                "lastmod": "2026-09-12T22:30:31Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/business",
+                "lastmod": "2026-11-17T17:06:43Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/community",
+                "lastmod": "2026-11-19T13:33:51Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield",
+                "lastmod": "2026-09-14T16:22:34Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/getting-started/create-an-account-and-sign-in",
+                "lastmod": "2026-11-11T16:21:01Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/getting-started/whats-in-my-higgsfield-account",
+                "lastmod": "2026-08-28T01:42:39Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/getting-started/how-do-i-create-my-first-generation",
+                "lastmod": "2026-09-14T16:30:09Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/getting-started/how-do-i-write-a-good-prompt",
+                "lastmod": "2026-09-14T16:50:49Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/getting-started/higgsfield-community-on-discord",
+                "lastmod": "2026-11-19T13:26:43Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/getting-started/official-higgsfield-platforms",
+                "lastmod": "2026-09-24T18:29:04Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/plans/how-do-higgsfield-plans-work",
+                "lastmod": "2026-11-11T18:03:28Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/plans/how-do-i-upgrade-or-downgrade-my-plan",
+                "lastmod": "2026-09-14T17:11:30Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/plans/when-does-my-subscription-renew",
+                "lastmod": "2026-08-28T01:42:39Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/plans/can-i-switch-between-monthly-and-annual-billing",
+                "lastmod": "2026-10-24T12:04:16Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/plans/how-do-promo-prices-work",
+                "lastmod": "2026-09-14T17:22:07Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/plans/what-are-exclusive-offers",
+                "lastmod": "2026-11-19T16:39:24Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/plans/what-does-the-free-plan-include",
+                "lastmod": "2026-11-11T18:47:50Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits/how-credits-work",
+                "lastmod": "2026-09-22T19:58:51Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits/what-uses-my-credits",
+                "lastmod": "2026-08-28T01:42:39Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits/top-up-credits-expire",
+                "lastmod": "2026-11-11T17:39:20Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits/what-are-unlimited-models-and-which-plans-include-them",
+                "lastmod": "2026-08-28T01:42:39Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits/watermark-and-how-to-remove",
+                "lastmod": "2026-11-11T18:02:08Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits/how-does-auto-refill-work",
+                "lastmod": "2026-09-22T21:43:25Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits/how-credit-packs-work",
+                "lastmod": "2026-09-22T19:37:13Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits/how-does-marketplace-work",
+                "lastmod": "2026-11-23T13:12:18Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/credits/how-promo-codes-work",
+                "lastmod": "2026-09-22T21:46:17Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/billing/how-does-billing-work",
+                "lastmod": "2026-08-28T01:42:39Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/billing/what-should-i-do-if-my-payment-failed",
+                "lastmod": "2026-08-28T01:42:39Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/billing/how-do-i-download-my-invoice-or-receipt",
+                "lastmod": "2026-10-24T01:03:26Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/billing/how-do-i-add-a-vat-or-tax-id-to-my-invoices",
+                "lastmod": "2026-10-24T01:01:47Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/refunds/how-do-i-cancel-my-subscription",
+                "lastmod": "2026-11-11T18:06:55Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/refunds/how-do-i-request-a-refund",
+                "lastmod": "2026-10-24T12:20:38Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/refunds/why-didnt-i-receive-a-refund-after-canceling-my-subscription",
+                "lastmod": "2026-08-31T21:46:08Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/refunds/can-i-get-a-refund-for-a-subscription-i-never-used",
+                "lastmod": "2026-08-31T21:52:14Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/refunds/how-do-i-get-a-refund-for-an-accidental-charge",
+                "lastmod": "2026-08-31T22:17:50Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/refunds/can-i-get-a-partial-refund-for-unused-annual-time",
+                "lastmod": "2026-10-24T12:09:07Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-mcp",
+                "lastmod": "2026-11-18T21:08:50Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent",
+                "lastmod": "2026-09-24T22:25:40Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/integrations/external-integrations-higgsfield",
+                "lastmod": "2026-09-24T18:48:39Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-access-higgsfield-via-cli",
+                "lastmod": "2026-09-24T20:04:22Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/integrations/what-is-the-higgsfield-api",
+                "lastmod": "2026-09-24T18:20:19Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-use-katana",
+                "lastmod": "2026-11-17T17:05:31Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/generation-is-stuck-or-failed",
+                "lastmod": "2026-11-20T18:39:52Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/higgsfield-site-wont-load",
+                "lastmod": "2026-11-19T13:28:15Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/content-flagged-as-nsfw",
+                "lastmod": "2026-11-20T18:44:24Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/my-generation-blocked-for-copyright-or-ip",
+                "lastmod": "2026-11-20T18:48:32Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/how-do-i-report-a-bug-or-submit-a-feature-request",
+                "lastmod": "2026-11-19T13:33:30Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools/which-higgsfield-tool-should-i-use",
+                "lastmod": "2026-09-01T18:25:23Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-cinema-studio",
+                "lastmod": "2026-11-19T12:07:50Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-genjutsu",
+                "lastmod": "2026-10-26T14:19:53Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-marketing-studio-to-create-video-ads",
+                "lastmod": "2026-10-26T14:21:02Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-supercomputer",
+                "lastmod": "2026-10-26T14:22:04Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools/what-are-higgsfield-apps",
+                "lastmod": "2026-09-01T20:35:52Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-canvas",
+                "lastmod": "2026-09-01T20:59:32Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-ai-influencer",
+                "lastmod": "2026-09-01T22:07:44Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-upscale",
+                "lastmod": "2026-11-18T20:49:01Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/which-ai-model-should-i-use",
+                "lastmod": "2026-11-06T17:08:06Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-lipsync-voiceover-and-aspect-ratios",
+                "lastmod": "2026-09-01T22:17:12Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-soul-to-generate-images",
+                "lastmod": "2026-09-09T14:52:54Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-create-and-use-a-soul-id-character",
+                "lastmod": "2026-11-11T18:45:46Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-soul-cinema",
+                "lastmod": "2026-09-12T20:56:48Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-seedance",
+                "lastmod": "2026-11-17T17:11:20Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-kling",
+                "lastmod": "2026-11-17T17:11:05Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-nano-banana",
+                "lastmod": "2026-11-17T17:10:26Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-popcorn",
+                "lastmod": "2026-09-12T20:34:18Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-dop",
+                "lastmod": "2026-09-12T20:55:02Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/account/how-do-i-recover-access-to-my-account",
+                "lastmod": "2026-09-12T21:17:11Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/account/how-do-i-permanently-delete-my-account",
+                "lastmod": "2026-09-12T22:12:54Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/account/how-do-i-submit-a-gdpr-ccpa-or-privacy-request",
+                "lastmod": "2026-09-12T22:20:56Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/account/who-owns-my-generations-and-can-i-use-them-commercially",
+                "lastmod": "2026-09-12T22:30:31Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/business/how-do-i-submit-a-dmca-notice-or-legal-inquiry",
+                "lastmod": "2026-11-17T17:06:43Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/business/team-and-business-higgsfield",
+                "lastmod": "2026-09-14T12:08:38Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/business/how-do-i-join-a-partnership-or-creator-program",
+                "lastmod": "2026-09-14T13:26:02Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/community/what-is-higgsfield-community",
+                "lastmod": "2026-11-12T20:42:32Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/community/how-do-i-set-up-my-profile",
+                "lastmod": "2026-11-17T21:49:09Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/community/how-do-projects-work",
+                "lastmod": "2026-11-19T12:22:40Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/community/how-do-achievements-work",
+                "lastmod": "2026-11-17T21:34:04Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/help-center/community/how-do-contests-work",
+                "lastmod": "2026-11-19T13:33:51Z"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/creators",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/customers",
+                "lastmod": null
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-higgsfield-nba-finals-case-study",
+                "lastmod": "2026-11-15"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign",
+                "lastmod": "2026-11-15"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/video-ads-in-just-2-hours-with-higgsfield-mcp-alya-health-shares-their-insights",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/flat-budgets-bigger-targets-seven-ways-businesses-are-finding-money-they-already-have",
+                "lastmod": "2026-11-15"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/humanverse-castorama-turtle-campaign-higgsfield",
+                "lastmod": "2026-11-15"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/alterworld-studios-cut-pre-production-time-by-70-with-higgsfield-mcp",
+                "lastmod": "2026-11-15"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/fantasmagorie-adopt-dont-touch-my-mini-higgsfield",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/double-shots-music-videos-cinema-studio-higgsfield",
+                "lastmod": "2026-11-15"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-moria-campaign-higgsfield",
+                "lastmod": "2026-11-15"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/purga-cannes-lions-case-study",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/brilliance-higgsfield-marketing-studio",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/how-bitt-animation-runs-hybrid-ai-production",
+                "lastmod": "2026-11-15"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/madonna-and-dolce-gabbana-with-sasha-kasiuha",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/sinecera-hybrid-production-higgsfield",
+                "lastmod": "2026-11-15"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/adqua-case-study",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/kerri-zane-emmy-producer-ai-film-test-higgsfield",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/dream-slate-pictures-brings-40-years-of-indian-filmmaking-to-global-brands-with-higgsfield",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/authors-first-turned-genghis-storyboards-into-video-takes-in-minutes-with-higgsfield",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/1-in-men-s-fragrance-how-vertex-cgi-made-lynx-s-underground-films-in-higgsfield-canvas",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/big-purple-turkiye-wealth-fund-anniversary-film-higgsfield",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/levector-tango-ai-characters-higgsfield",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/gaia-cut-animation-time-with-higgsfield-enterprise",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-studio-interview",
+                "lastmod": "2026-11-19"
+            },
+            {
+                "loc": "https://higgsfield.ai/creator-hub/case-studies/boxel-studio-higgsfield-case-study",
+                "lastmod": "2026-11-15"
+            }
+        ]
+    }
+}

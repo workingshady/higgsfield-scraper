@@ -1,0 +1,377 @@
+{
+    "meta": {
+        "endpoint": "help_article",
+        "url": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield",
+        "params": {
+            "path": "/creator-hub/help-center/getting-started/what-is-higgsfield"
+        },
+        "fetched_at": "2026-11-25T13:14:45.188807+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "tsr",
+        "path": "/creator-hub/help-center/getting-started/what-is-higgsfield",
+        "sitemap_lastmod": null,
+        "head": {
+            "title": "What is Higgsfield?",
+            "lang": "en",
+            "canonical": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield",
+            "description": "Learn what Higgsfield is and how to use its AI creative tools for images, video, and visual storytelling.",
+            "og_title": "What is Higgsfield?",
+            "og_image": "https://static.higgsfield.ai/public/thumbnail/default.jpg",
+            "og_type": "article",
+            "author": "Higgsfield.AI Team",
+            "ld_json": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "Organization",
+                            "name": "Higgsfield",
+                            "url": "https://higgsfield.ai/",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "name": "Higgsfield logo",
+                                "url": "https://higgsfield.ai/icon.png"
+                            },
+                            "sameAs": [
+                                "https://x.com/higgsfield",
+                                "https://www.instagram.com/higgsfield.ai/",
+                                "https://www.tiktok.com/@higgsfield.ai90",
+                                "https://discord.com/invite/higgsfield",
+                                "https://www.linkedin.com/company/higgsfield/",
+                                "https://www.youtube.com/@HiggsfieldAI"
+                            ],
+                            "@id": "https://higgsfield.ai/#organization"
+                        },
+                        {
+                            "@type": "WebSite",
+                            "@id": "https://higgsfield.ai/#website",
+                            "name": "Higgsfield",
+                            "url": "https://higgsfield.ai/",
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            }
+                        },
+                        {
+                            "@type": "WebPage",
+                            "@id": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield",
+                            "name": "What is Higgsfield?",
+                            "description": "Learn what Higgsfield is and how to use its AI creative tools for images, video, and visual storytelling.",
+                            "breadcrumb": {
+                                "@id": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield#breadcrumb"
+                            },
+                            "dateModified": "2026-09-14T16:22:34Z",
+                            "inLanguage": "en",
+                            "isPartOf": {
+                                "@id": "https://higgsfield.ai/#website"
+                            },
+                            "mainEntity": {
+                                "@id": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield#article"
+                            },
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            },
+                            "url": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield"
+                        },
+                        {
+                            "@type": "BreadcrumbList",
+                            "@id": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield#breadcrumb",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "item": "https://higgsfield.ai/creator-hub/help-center",
+                                    "name": "Help Center",
+                                    "position": 1
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "item": "https://higgsfield.ai/creator-hub/help-center/getting-started",
+                                    "name": "Getting Started",
+                                    "position": 2
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "item": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield",
+                                    "name": "What is Higgsfield?",
+                                    "position": 3
+                                }
+                            ]
+                        },
+                        {
+                            "@type": "TechArticle",
+                            "@id": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield#article",
+                            "articleSection": "Getting Started",
+                            "author": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            },
+                            "dateModified": "2026-09-14T16:22:34Z",
+                            "datePublished": "2026-07-29T16:53:12Z",
+                            "description": "Learn what Higgsfield is and how to use its AI creative tools for images, video, and visual storytelling.",
+                            "headline": "What is Higgsfield?",
+                            "inLanguage": "en",
+                            "mainEntityOfPage": {
+                                "@id": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield"
+                            },
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "matches": [
+            {
+                "i": "__root__#",
+                "s": "success",
+                "l": {
+                    "clerkProxyUrl": "https://higgsfield.ai/_clerk",
+                    "initialEnterprise": false
+                }
+            },
+            {
+                "i": "#_creator-hub#creator-hub#help-center#$categorySlug#$articleSlug#creator-hub#help-center#getting-started#what-is-higgsfield",
+                "s": "success",
+                "l": {
+                    "article": {
+                        "category": {
+                            "description": "Learn the basics of Higgsfield, from creating your account to making your first generation.",
+                            "icon": "getting-started",
+                            "id": "4qyYt9ULe6X0TjR2v7cAGr",
+                            "order": 1,
+                            "slug": "getting-started",
+                            "title": "Getting Started"
+                        },
+                        "dateModified": "2026-09-14T16:22:34Z",
+                        "description": "Learn what Higgsfield is, what you can create with it, and how its AI tools help bring ideas to life.",
+                        "homeCardImageUrl": "https://static.higgsfield.ai/help-center/help-center-popular-topic-poster-1.webp",
+                        "id": "7hidIb3EHeqvlvsHcLbol2",
+                        "order": 1,
+                        "searchKeywords": [
+                            "Higgsfield",
+                            "Create",
+                            "Generate"
+                        ],
+                        "slug": "what-is-higgsfield",
+                        "title": "What is Higgsfield?",
+                        "author": {
+                            "description": "",
+                            "fullName": "Higgsfield",
+                            "id": null,
+                            "photoUrl": "",
+                            "position": "",
+                            "slug": "higgsfield"
+                        },
+                        "content": "<p>Higgsfield is an AI-native creative suite. It combines proprietary tools for video production, character consistency, and ad creation with access to a growing library of AI models under one subscription.</p><h2 id=\"whats-inside-higgsfield\"><strong>What&#x27;s inside Higgsfield?</strong></h2><p>Higgsfield is built around its own models and tools, each handling a specific stage of production:</p><p><strong>Soul</strong> is Higgsfield&#x27;s native image model family, built for cinematic, fashion, and culture-native visuals. <strong>Soul ID</strong> runs on top of it: train a character once from photos, and the same face appears across every image and video.</p><p><strong>Cinema Studio</strong> is how Higgsfield handles cinematic video: camera control, multi-shot scenes, and physics-aware motion.</p><p><strong>Marketing Studio</strong> is how Higgsfield handles ads: a product URL or image becomes a finished video ad in UGC, unboxing, tutorial, or TV spot format, with audio and lip sync.</p><p><strong>Canvas</strong> is how Higgsfield handles multi-model workflows: a node-based board where you chain models in sequence, collaborate in real time, and save pipelines as reusable templates.</p><p><strong>Supercomputer</strong> is how Higgsfield handles scale: describe what you need in plain language, and the agent plans the project, generates, and delivers finished assets.</p><p>These tools work together: train a character in Soul ID, cast it in Cinema Studio scenes, then scale variations with Supercomputer.</p><p>On top of this, one subscription includes a growing library of external models, including Seedance, Kling, Veo, Sora 2, Nano Banana, and others for image and video, plus Higgsfield Audio for voiceover, voice cloning, and translation.</p><p>Not sure where to start? See <a href=\"https://higgsfield.ai/creator-hub/help-center/tools/which-higgsfield-tool-should-i-use\"><span style=\"text-decoration:underline\">Which Higgsfield tool should I use?</span></a></p><h2 id=\"what-can-i-create\"><strong>What can I create?</strong></h2><p>Higgsfield covers the full creator workflow, from first generation to scaled output:</p><ul><li><strong>Generate</strong> — images and videos from text prompts and reference images</li><li><strong>Keep consistent</strong> — reusable AI characters with the same identity across every project</li><li><strong>Specialize</strong> — cinematic multi-shot scenes with camera control, product ads and UGC campaigns from a URL, voiceover and audio with voice cloning and translation</li><li><strong>Scale</strong> — recurring content tasks, batch variations, and deployed websites and landing pages through Supercomputer</li></ul><h2 id=\"do-i-need-technical-skills\"><strong>Do I need technical skills?</strong></h2><p>No. Your first generation takes a text prompt and, optionally, a reference image. No video editing, design, or machine learning experience is needed.</p><p>Advanced tools have more depth: Cinema Studio&#x27;s camera controls or Canvas pipelines take some practice, the same way any creative tool does. You can learn them step by step: see the guides for <a href=\"https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-cinema-studio\"><span style=\"text-decoration:underline\">Cinema Studio</span></a> and <a href=\"https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-canvas\"><span style=\"text-decoration:underline\">Canvas</span></a>. Or skip the learning curve entirely: describe what you need to Supercomputer, and it handles the technical decisions for you.</p><h2 id=\"how-do-i-get-started\">How do I get started?</h2><p>Sign in at <a href=\"http://higgsfield.ai\"><span style=\"text-decoration:underline\">higgsfield.ai</span></a> and choose a tool from the home page. For step-by-step instructions, see <a href=\"https://higgsfield.ai/creator-hub/help-center/getting-started/how-do-i-create-my-first-generation\"><span style=\"text-decoration:underline\">How do I create my first generation?</span></a></p>",
+                        "dateCreated": "2026-07-29T16:53:12Z",
+                        "faqSection": null,
+                        "headings": [
+                            {
+                                "id": "whats-inside-higgsfield",
+                                "level": 2,
+                                "title": "What's inside Higgsfield?"
+                            },
+                            {
+                                "id": "what-can-i-create",
+                                "level": 2,
+                                "title": "What can I create?"
+                            },
+                            {
+                                "id": "do-i-need-technical-skills",
+                                "level": 2,
+                                "title": "Do I need technical skills?"
+                            },
+                            {
+                                "id": "how-do-i-get-started",
+                                "level": 2,
+                                "title": "How do I get started?"
+                            }
+                        ],
+                        "markdown": "Higgsfield is an AI-native creative suite. It combines proprietary tools for video production, character consistency, and ad creation with access to a growing library of AI models under one subscription.\n\n## **What's inside Higgsfield?**\n\nHiggsfield is built around its own models and tools, each handling a specific stage of production:\n\n**Soul** is Higgsfield's native image model family, built for cinematic, fashion, and culture-native visuals. **Soul ID** runs on top of it: train a character once from photos, and the same face appears across every image and video.\n\n**Cinema Studio** is how Higgsfield handles cinematic video: camera control, multi-shot scenes, and physics-aware motion.\n\n**Marketing Studio** is how Higgsfield handles ads: a product URL or image becomes a finished video ad in UGC, unboxing, tutorial, or TV spot format, with audio and lip sync.\n\n**Canvas** is how Higgsfield handles multi-model workflows: a node-based board where you chain models in sequence, collaborate in real time, and save pipelines as reusable templates.\n\n**Supercomputer** is how Higgsfield handles scale: describe what you need in plain language, and the agent plans the project, generates, and delivers finished assets.\n\nThese tools work together: train a character in Soul ID, cast it in Cinema Studio scenes, then scale variations with Supercomputer.\n\nOn top of this, one subscription includes a growing library of external models, including Seedance, Kling, Veo, Sora 2, Nano Banana, and others for image and video, plus Higgsfield Audio for voiceover, voice cloning, and translation.\n\nNot sure where to start? See [Which Higgsfield tool should I use?](https://higgsfield.ai/creator-hub/help-center/tools/which-higgsfield-tool-should-i-use)\n\n## **What can I create?**\n\nHiggsfield covers the full creator workflow, from first generation to scaled output:\n\n- **Generate** — images and videos from text prompts and reference images\n\n- **Keep consistent** — reusable AI characters with the same identity across every project\n\n- **Specialize** — cinematic multi-shot scenes with camera control, product ads and UGC campaigns from a URL, voiceover and audio with voice cloning and translation\n\n- **Scale** — recurring content tasks, batch variations, and deployed websites and landing pages through Supercomputer\n\n## **Do I need technical skills?**\n\nNo. Your first generation takes a text prompt and, optionally, a reference image. No video editing, design, or machine learning experience is needed.\n\nAdvanced tools have more depth: Cinema Studio's camera controls or Canvas pipelines take some practice, the same way any creative tool does. You can learn them step by step: see the guides for [Cinema Studio](https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-cinema-studio) and [Canvas](https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-canvas). Or skip the learning curve entirely: describe what you need to Supercomputer, and it handles the technical decisions for you.\n\n## How do I get started?\n\nSign in at [higgsfield.ai](http://higgsfield.ai) and choose a tool from the home page. For step-by-step instructions, see [How do I create my first generation?](https://higgsfield.ai/creator-hub/help-center/getting-started/how-do-i-create-my-first-generation)",
+                        "readingTime": "3 min",
+                        "relatedPosts": [
+                            {
+                                "category": {
+                                    "description": "Learn the basics of Higgsfield, from creating your account to making your first generation.",
+                                    "icon": "getting-started",
+                                    "id": "4qyYt9ULe6X0TjR2v7cAGr",
+                                    "order": 1,
+                                    "slug": "getting-started",
+                                    "title": "Getting Started"
+                                },
+                                "dateModified": "2026-09-14T16:30:09Z",
+                                "description": "Create your first image or video generation on Higgsfield in a few simple steps.",
+                                "homeCardImageUrl": "https://static.higgsfield.ai/help-center/help-center-popular-topic-poster-3.webp",
+                                "id": "7uiKkVu0nvnCgHwdq0ARof",
+                                "order": 4,
+                                "searchKeywords": [
+                                    "prompt",
+                                    "generation",
+                                    "video",
+                                    "image",
+                                    "create",
+                                    "generate"
+                                ],
+                                "slug": "how-do-i-create-my-first-generation",
+                                "title": "How do I create my first generation?"
+                            },
+                            {
+                                "category": {
+                                    "description": "Explore Higgsfield tools and learn practical workflows for creating content.",
+                                    "icon": "tools-workflows",
+                                    "id": "qNmRcoFLmXzvLYuBSsSeS",
+                                    "order": 8,
+                                    "slug": "tools",
+                                    "title": "Tools"
+                                },
+                                "dateModified": "2026-09-01T18:25:23Z",
+                                "description": "See which Higgsfield tool fits your goal, from Cinema Studio to Supercomputer.",
+                                "homeCardImageUrl": "https://static.higgsfield.ai/help-center/help-center-popular-topic-poster-2.webp",
+                                "id": "6LZ8b3kZbgI4Tib16Z3Bjv",
+                                "order": 1,
+                                "searchKeywords": [
+                                    "tool",
+                                    "cinema",
+                                    "marketing",
+                                    "canvas",
+                                    "supercomputer"
+                                ],
+                                "slug": "which-higgsfield-tool-should-i-use",
+                                "title": "Which Higgsfield tool should I use?"
+                            },
+                            {
+                                "category": {
+                                    "description": "Learn about available AI models, their capabilities, and how to choose the right one.",
+                                    "icon": "ai-models",
+                                    "id": "3jlHlSwpTMHGdjOIAkK7iv",
+                                    "order": 9,
+                                    "slug": "ai-models",
+                                    "title": "Models"
+                                },
+                                "dateModified": "2026-11-06T17:08:06Z",
+                                "description": "Compare Higgsfield's image, video, and audio model families to find the right fit.",
+                                "homeCardImageUrl": "https://static.higgsfield.ai/help-center/help-center-popular-topic-poster-5.webp",
+                                "id": "5lF67CZh7IUZOgRNuDWM6S",
+                                "order": 1,
+                                "searchKeywords": [
+                                    "model",
+                                    "soul",
+                                    "seedance",
+                                    "kling",
+                                    "family"
+                                ],
+                                "slug": "which-ai-model-should-i-use",
+                                "title": "Which AI model should I use?"
+                            }
+                        ],
+                        "seoDescription": "Learn what Higgsfield is and how to use its AI creative tools for images, video, and visual storytelling.",
+                        "seoTitle": "What is Higgsfield?"
+                    },
+                    "fullDocsLink": "https://higgsfield.ai/llms-full.txt",
+                    "markdownLink": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield.md",
+                    "shareLink": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield",
+                    "head": {
+                        "meta": [
+                            {
+                                "title": "What is Higgsfield?"
+                            },
+                            {
+                                "name": "description",
+                                "content": "Learn what Higgsfield is and how to use its AI creative tools for images, video, and visual storytelling."
+                            },
+                            {
+                                "property": "og:title",
+                                "content": "What is Higgsfield?"
+                            },
+                            {
+                                "property": "og:description",
+                                "content": "Learn what Higgsfield is and how to use its AI creative tools for images, video, and visual storytelling."
+                            },
+                            {
+                                "property": "og:site_name",
+                                "content": "Higgsfield"
+                            },
+                            {
+                                "property": "og:type",
+                                "content": "article"
+                            },
+                            {
+                                "property": "og:url",
+                                "content": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield"
+                            },
+                            {
+                                "property": "og:image",
+                                "content": "https://static.higgsfield.ai/public/thumbnail/default.jpg"
+                            },
+                            {
+                                "property": "og:image:alt",
+                                "content": "The ultimate AI-powered platform for creators"
+                            },
+                            {
+                                "property": "og:image:width",
+                                "content": "1200"
+                            },
+                            {
+                                "property": "og:image:height",
+                                "content": "675"
+                            },
+                            {
+                                "property": "og:image:type",
+                                "content": "image/jpg"
+                            },
+                            {
+                                "name": "twitter:card",
+                                "content": "summary_large_image"
+                            },
+                            {
+                                "name": "twitter:site",
+                                "content": "@higgsfield_ai"
+                            },
+                            {
+                                "name": "twitter:title",
+                                "content": "What is Higgsfield?"
+                            },
+                            {
+                                "name": "twitter:description",
+                                "content": "Learn what Higgsfield is and how to use its AI creative tools for images, video, and visual storytelling."
+                            },
+                            {
+                                "name": "twitter:image",
+                                "content": "https://static.higgsfield.ai/public/thumbnail/default.jpg"
+                            },
+                            {
+                                "name": "twitter:image:alt",
+                                "content": "The ultimate AI-powered platform for creators"
+                            },
+                            {
+                                "name": "twitter:image:width",
+                                "content": "1200"
+                            },
+                            {
+                                "name": "twitter:image:height",
+                                "content": "675"
+                            },
+                            {
+                                "name": "twitter:image:type",
+                                "content": "image/jpg"
+                            }
+                        ],
+                        "links": [
+                            {
+                                "rel": "canonical",
+                                "href": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield"
+                            }
+                        ],
+                        "scripts": [
+                            {
+                                "children": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"name\":\"Higgsfield\",\"url\":\"https://higgsfield.ai/\",\"logo\":{\"@type\":\"ImageObject\",\"name\":\"Higgsfield logo\",\"url\":\"https://higgsfield.ai/icon.png\"},\"sameAs\":[\"https://x.com/higgsfield\",\"https://www.instagram.com/higgsfield.ai/\",\"https://www.tiktok.com/@higgsfield.ai90\",\"https://discord.com/invite/higgsfield\",\"https://www.linkedin.com/company/higgsfield/\",\"https://www.youtube.com/@HiggsfieldAI\"],\"@id\":\"https://higgsfield.ai/#organization\"},{\"@type\":\"WebSite\",\"@id\":\"https://higgsfield.ai/#website\",\"name\":\"Higgsfield\",\"url\":\"https://higgsfield.ai/\",\"publisher\":{\"@id\":\"https://higgsfield.ai/#organization\"}},{\"@type\":\"WebPage\",\"@id\":\"https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield\",\"name\":\"What is Higgsfield?\",\"description\":\"Learn what Higgsfield is and how to use its AI creative tools for images, video, and visual storytelling.\",\"breadcrumb\":{\"@id\":\"https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield#breadcrumb\"},\"dateModified\":\"2026-09-14T16:22:34Z\",\"inLanguage\":\"en\",\"isPartOf\":{\"@id\":\"https://higgsfield.ai/#website\"},\"mainEntity\":{\"@id\":\"https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield#article\"},\"publisher\":{\"@id\":\"https://higgsfield.ai/#organization\"},\"url\":\"https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":\"https://higgsfield.ai/creator-hub/help-center\",\"name\":\"Help Center\",\"position\":1},{\"@type\":\"ListItem\",\"item\":\"https://higgsfield.ai/creator-hub/help-center/getting-started\",\"name\":\"Getting Started\",\"position\":2},{\"@type\":\"ListItem\",\"item\":\"https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield\",\"name\":\"What is Higgsfield?\",\"position\":3}]},{\"@type\":\"TechArticle\",\"@id\":\"https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield#article\",\"articleSection\":\"Getting Started\",\"author\":{\"@id\":\"https://higgsfield.ai/#organization\"},\"dateModified\":\"2026-09-14T16:22:34Z\",\"datePublished\":\"2026-07-29T16:53:12Z\",\"description\":\"Learn what Higgsfield is and how to use its AI creative tools for images, video, and visual storytelling.\",\"headline\":\"What is Higgsfield?\",\"inLanguage\":\"en\",\"mainEntityOfPage\":{\"@id\":\"https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield\"},\"publisher\":{\"@id\":\"https://higgsfield.ai/#organization\"}}]}",
+                                "type": "application/ld+json"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

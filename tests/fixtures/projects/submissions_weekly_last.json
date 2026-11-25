@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "endpoint": "projects_contest_submissions",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/contests/64d7317b-ed8b-4a55-bec9-4f3708a12e3b/submissions?limit=100&offset=100&ordering=newest",
+    "params": {
+      "limit": "100",
+      "offset": "100",
+      "ordering": "newest"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "id": "ea14bd0b-00d2-49ac-94c5-d5270cbe6e57",
+        "contest_id": "64d7317b-ed8b-4a55-bec9-4f3708a12e3b",
+        "contest_slug": "wcc-without-a-word",
+        "type": "folder",
+        "project_id": "45bfa069-d8ab-4ea6-9339-f93bd973bd00",
+        "user": {
+          "id": "user_fake0024xxxxxxxxxxxxxxxx",
+          "username": "creator24",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "WCC#4 · LYX",
+        "description": "80% of it is video to video with sequel, it would be horrid to mention all the time stamps",
+        "thumbnail_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0024xxxxxxxxxxxxxxxx/6a79b77b-4d5a-4142-a959-3b9a3e7fc789.png",
+        "thumbnail_id": "6a79b77b-4d5a-4142-a959-3b9a3e7fc789",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0024xxxxxxxxxxxxxxxx/cc88ee0d-0bc7-4a64-81c5-7b6aa6af0d88.mp4",
+        "video_id": "cc88ee0d-0bc7-4a64-81c5-7b6aa6af0d88",
+        "winner_place": null,
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": null,
+        "winner_reviewer_name": null,
+        "winner_reviewer_company": null,
+        "clone_available": true,
+        "likes_count": 0,
+        "dislikes_count": 0,
+        "views_count": 0,
+        "post_urls": [],
+        "social_media_metrics": {
+          "instagram_views": 0,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 0
+        },
+        "total_views": 0,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": true,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0024xxxxxxxxxxxxxxxx/eb709098-4d46-4f00-b09f-6d1971899131.mp4",
+        "publication": null
+      },
+      {
+        "id": "dabae6a7-da1b-46c9-83a7-ddde273a6f4a",
+        "contest_id": "64d7317b-ed8b-4a55-bec9-4f3708a12e3b",
+        "contest_slug": "wcc-without-a-word",
+        "type": "folder",
+        "project_id": "9daa1a8c-c8a0-42c6-a420-bb53c6591db8",
+        "user": {
+          "id": "user_fake0023xxxxxxxxxxxxxxxx",
+          "username": "creator25",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "WCC#4 · Dhana Lakshmi",
+        "description": "On a hot day, a little monkey discovers a soda machine on a seaside promenade. He watches a man buy a cold can, tries the machine himself and fails. Inspired by a silver street performer, he copies the statue act right beside the machine — and a kind grandmother gives him one coin. He finally buys his very own can… then notices a sad child with empty pockets on the bench. He walks over and shares it.",
+        "thumbnail_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0023xxxxxxxxxxxxxxxx/30ffe766-bc24-4097-83bd-339c24ec9537.png",
+        "thumbnail_id": "30ffe766-bc24-4097-83bd-339c24ec9537",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0023xxxxxxxxxxxxxxxx/745b4b07-1052-4b17-9e45-ecc9eb353bcf.mp4",
+        "video_id": "745b4b07-1052-4b17-9e45-ecc9eb353bcf",
+        "winner_place": null,
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": null,
+        "winner_reviewer_name": null,
+        "winner_reviewer_company": null,
+        "clone_available": true,
+        "likes_count": 0,
+        "dislikes_count": 0,
+        "views_count": 0,
+        "post_urls": [],
+        "social_media_metrics": {
+          "instagram_views": 0,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 0
+        },
+        "total_views": 0,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": true,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0023xxxxxxxxxxxxxxxx/930dc5d9-9a9c-4ab9-92ce-f9267dbf4e2f.mp4",
+        "publication": {
+          "publication_id": "ff425a52-0ba9-4c2d-9376-9b6fce975933",
+          "slug": null,
+          "username": "creator25"
+        }
+      }
+    ],
+    "has_more": false
+  }
+}

@@ -1,0 +1,1370 @@
+{
+    "meta": {
+        "endpoint": "case_studies_index",
+        "url": "https://higgsfield.ai/creator-hub/case-studies",
+        "params": {
+            "path": "/creator-hub/case-studies"
+        },
+        "fetched_at": "2026-11-25T13:14:26.642991+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "tsr",
+        "path": "/creator-hub/case-studies",
+        "sitemap_lastmod": null,
+        "head": {
+            "title": "Customer Stories: what creators and brands make with Higgsfield",
+            "lang": "en",
+            "canonical": "https://higgsfield.ai/creator-hub/case-studies",
+            "description": "See how creators and teams use Higgsfield to produce ambitious visual work.",
+            "og_title": "Customer Stories: what creators and brands make with Higgsfield",
+            "og_image": "https://static.higgsfield.ai/public/thumbnail/default.jpg",
+            "og_type": "website",
+            "author": "Higgsfield.AI Team",
+            "ld_json": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "Organization",
+                            "name": "Higgsfield",
+                            "url": "https://higgsfield.ai/",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "name": "Higgsfield logo",
+                                "url": "https://higgsfield.ai/icon.png"
+                            },
+                            "sameAs": [
+                                "https://x.com/higgsfield",
+                                "https://www.instagram.com/higgsfield.ai/",
+                                "https://www.tiktok.com/@higgsfield.ai90",
+                                "https://discord.com/invite/higgsfield",
+                                "https://www.linkedin.com/company/higgsfield/",
+                                "https://www.youtube.com/@HiggsfieldAI"
+                            ],
+                            "@id": "https://higgsfield.ai/#organization"
+                        },
+                        {
+                            "@type": "CollectionPage",
+                            "@id": "https://higgsfield.ai/creator-hub/case-studies",
+                            "description": "See how creators and teams use Higgsfield to produce ambitious visual work.",
+                            "name": "Higgsfield Customer Stories",
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            },
+                            "url": "https://higgsfield.ai/creator-hub/case-studies",
+                            "breadcrumb": {
+                                "@id": "https://higgsfield.ai/creator-hub/case-studies#breadcrumb"
+                            }
+                        },
+                        {
+                            "@type": "BreadcrumbList",
+                            "@id": "https://higgsfield.ai/creator-hub/case-studies#breadcrumb",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "item": "https://higgsfield.ai/creator-hub/case-studies",
+                                    "name": "Higgsfield Customer Stories",
+                                    "position": 1
+                                }
+                            ]
+                        },
+                        {
+                            "@type": "ItemList",
+                            "@id": "https://higgsfield.ai/creator-hub/case-studies#items",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Vertex CGI’s Viral NBA Finals Video in 5 Days",
+                                    "position": 1,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-higgsfield-nba-finals-case-study"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Founder-Led Studios Are Building Brands with AI",
+                                    "position": 2,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Alya Health Makes Video Ads in 2 Hours with MCP",
+                                    "position": 3,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/video-ads-in-just-2-hours-with-higgsfield-mcp-alya-health-shares-their-insights"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Ways Teams Find Budget They Already Have",
+                                    "position": 4,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/flat-budgets-bigger-targets-seven-ways-businesses-are-finding-money-they-already-have"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Humanverse Makes Films up to 6x Faster",
+                                    "position": 5,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/humanverse-castorama-turtle-campaign-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Alterworld Cuts Pre-Production by 70% with MCP",
+                                    "position": 6,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/alterworld-studios-cut-pre-production-time-by-70-with-higgsfield-mcp"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Adopt Parfums Scales with Fantasmagorie and Higgsfield",
+                                    "position": 7,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/fantasmagorie-adopt-dont-touch-my-mini-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Double Shots Makes Ivy’s Music Videos in Cinema Studio",
+                                    "position": 8,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/double-shots-music-videos-cinema-studio-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Netflix’s Moria Campaign by Vertex CGI",
+                                    "position": 9,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-moria-campaign-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Cannes Lions Winner Purga Builds AI Film Worlds",
+                                    "position": 10,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/purga-cannes-lions-case-study"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Brilliance Cuts Production Costs by 80%",
+                                    "position": 11,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/brilliance-higgsfield-marketing-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "70% of BITT Animation’s Work Now Uses AI",
+                                    "position": 12,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/how-bitt-animation-runs-hybrid-ai-production"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Sasha Kasiuha: The Image Still Needs an Author",
+                                    "position": 13,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/madonna-and-dolce-gabbana-with-sasha-kasiuha"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Sinecera Runs Hybrid Production for Lacoste & More",
+                                    "position": 14,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/sinecera-hybrid-production-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AdQUA Cuts Production Costs by 97% with Higgsfield",
+                                    "position": 15,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/adqua-case-study"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Emmy Winner Kerri Zane Streamlines Production",
+                                    "position": 16,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/kerri-zane-emmy-producer-ai-film-test-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Dream Slate Delivers a Kellogg’s Film in 8 Days",
+                                    "position": 17,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/dream-slate-pictures-brings-40-years-of-indian-filmmaking-to-global-brands-with-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Authors First Turns Storyboards into Video in Minutes",
+                                    "position": 18,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/authors-first-turned-genghis-storyboards-into-video-takes-in-minutes-with-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Vertex CGI Makes Lynx’s Tube Films in 5 Weeks",
+                                    "position": 19,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/1-in-men-s-fragrance-how-vertex-cgi-made-lynx-s-underground-films-in-higgsfield-canvas"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Big Purple’s Türkiye Wealth Fund Film in 12 Days",
+                                    "position": 20,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/big-purple-turkiye-wealth-fund-anniversary-film-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Levector Brings Cinema Studio to Nestlé’s Tango",
+                                    "position": 21,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/levector-tango-ai-characters-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Gaia Cuts Animation Time from Weeks to Hours",
+                                    "position": 22,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/gaia-cut-animation-time-with-higgsfield-enterprise"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "One of One Takes Maradona’s Label to Sold Out",
+                                    "position": 23,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-studio-interview"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Boxel Studio Brings AI into Pre-Production",
+                                    "position": 24,
+                                    "url": "https://higgsfield.ai/creator-hub/case-studies/boxel-studio-higgsfield-case-study"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Vertex CGI’s Viral NBA Finals Video in 5 Days",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/c2d00636a979b3b9e2e9551f56c6c47ac27f889a-8192x4608.png",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-higgsfield-nba-finals-case-study",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-higgsfield-nba-finals-case-study"
+                    },
+                    "description": "Vertex CGI, a studio behind more than 25 billion organic views across 1,200+ campaigns, used Higgsfield throughout a five day sprint to take the NBA Finals celebration video from first call to publish, a timeline in which a traditional, AI free pipeline would have produced roughly five times fewer shots with the same team.",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-07-28",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Founder-Led Studios Are Building Brands with AI",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/e5d7eaa58026dd4bc3a51046f09840f183f7f751-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-10-21",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Alya Health Makes Video Ads in 2 Hours with MCP",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/023e1185a6a1f3abc61a927b18268f11ea87d880-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/video-ads-in-just-2-hours-with-higgsfield-mcp-alya-health-shares-their-insights",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/video-ads-in-just-2-hours-with-higgsfield-mcp-alya-health-shares-their-insights"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-11-07",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "7 Ways Teams Find Budget They Already Have",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/0fa9ce11e49e52e24bded0d05922fab160bf53fd-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/flat-budgets-bigger-targets-seven-ways-businesses-are-finding-money-they-already-have",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/flat-budgets-bigger-targets-seven-ways-businesses-are-finding-money-they-already-have"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-10-29",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Humanverse Makes Films up to 6x Faster",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/c535273c58aee67b89a46628c62e5a4d8e8b707b-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/humanverse-castorama-turtle-campaign-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/humanverse-castorama-turtle-campaign-higgsfield"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-10-29",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Alterworld Cuts Pre-Production by 70% with MCP",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/c5cc204b64485a9c0927219be2db5660b4634bad-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/alterworld-studios-cut-pre-production-time-by-70-with-higgsfield-mcp",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/alterworld-studios-cut-pre-production-time-by-70-with-higgsfield-mcp"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-10-21",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Adopt Parfums Scales with Fantasmagorie and Higgsfield",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/aa036b7168ea90eb4e4819c6add2b77adf65789e-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/fantasmagorie-adopt-dont-touch-my-mini-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/fantasmagorie-adopt-dont-touch-my-mini-higgsfield"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-10-09",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Double Shots Makes Ivy’s Music Videos in Cinema Studio",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/68fad6e32407cad93f27d986cf3414c786a799ec-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/double-shots-music-videos-cinema-studio-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/double-shots-music-videos-cinema-studio-higgsfield"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-09-19",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Netflix’s Moria Campaign by Vertex CGI",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/0427249b94a112b4b4039f9d6becc1b43ba01bce-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-moria-campaign-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-moria-campaign-higgsfield"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-09-11",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Cannes Lions Winner Purga Builds AI Film Worlds",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/42419c5dff1a211332717353fcc155ecd39c8948-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/purga-cannes-lions-case-study",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/purga-cannes-lions-case-study"
+                    },
+                    "description": "An AI creative studio that works, in its own words, in an artisanal way: how PURGA fixed characters and visual direction first, built the world around them in Cinema Studio, and carried that pipeline to a Bronze Lion in Film at Cannes Lions 2026.",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-09-08",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Brilliance Cuts Production Costs by 80%",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/f95c3a18f96cfea328fd74e8f7b40488d823f883-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/brilliance-higgsfield-marketing-studio",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/brilliance-higgsfield-marketing-studio"
+                    },
+                    "description": "https://higgsfield.ai/enterprise?utm_source=hf&utm_medium=organic&utm_category=bm&utm_campaign=case-study&utm_creator=brilliance&utm_content_type=ps&utm_post=[ID",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-08-28",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "70% of BITT Animation’s Work Now Uses AI",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/ca8dc860e77e23175b34cce722fe05e5499fa8d9-8192x4608.png",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/how-bitt-animation-runs-hybrid-ai-production",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/how-bitt-animation-runs-hybrid-ai-production"
+                    },
+                    "description": "BITT Animation has produced VFX for PepsiCo, Toyota and Coca-Cola for 24 years. Now 70% of its work involves AI, six major projects run in parallel where one did before, and fully generative jobs land at 15–20% of a traditional budget. CCO Gonzalo Canepa explains how a studio built on Maya and Nuke rebuilt itself around Higgsfield.",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-08-25",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Sasha Kasiuha: The Image Still Needs an Author",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/a6d83fa498aaab16ca6cb035a19a6ff8e793645b-8192x4608.png",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/madonna-and-dolce-gabbana-with-sasha-kasiuha",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/madonna-and-dolce-gabbana-with-sasha-kasiuha"
+                    },
+                    "description": "Creative director Sasha Kasiuha has built images for Madonna, Dolce & Gabbana, Maison Margiela and Tom Ford. In this conversation he explains where Higgsfield enters high-fashion image-making — from testing worlds before a shoot to invisible AI inserts in the edit — and why authorship, not generation, remains the real craft.",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-08-14",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Sinecera Runs Hybrid Production for Lacoste & More",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/d34e663e6710e9844cc052496b4e9f01e2584aa4-8192x4608.png",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/sinecera-hybrid-production-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/sinecera-hybrid-production-higgsfield"
+                    },
+                    "description": "Sinecera shoots conventionally, produces full AI, and runs hybrid — commercials for Lacoste and SuperStep, a century of Turkish racing for Nesine, all built inside Higgsfield's Cinema Studio.",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-08-04",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "AdQUA Cuts Production Costs by 97% with Higgsfield",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/1eedd3ef75a3026a1a433548128e773875acf4c7-8192x4608.png",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/adqua-case-study",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/adqua-case-study"
+                    },
+                    "description": "AdQUA Interactive, one of Korea’s leading independent digital agencies, and brand-building company Boosterz talk about the pain points that led them to Higgsfield, why quality decided it, and what happens when a whole organization can execute every idea it has.",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-07-31",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Emmy Winner Kerri Zane Streamlines Production",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/35ab62ec86d32ce9e010075e0536269c1d67d08c-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/kerri-zane-emmy-producer-ai-film-test-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/kerri-zane-emmy-producer-ai-film-test-higgsfield"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-09-10",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Dream Slate Delivers a Kellogg’s Film in 8 Days",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/f0abd5184400cb50127e1b162ed061b7c7ce3af3-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/dream-slate-pictures-brings-40-years-of-indian-filmmaking-to-global-brands-with-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/dream-slate-pictures-brings-40-years-of-indian-filmmaking-to-global-brands-with-higgsfield"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-11-11",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Authors First Turns Storyboards into Video in Minutes",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/c2bb96d878b837b38ecd84eccca6fb700132958e-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/authors-first-turned-genghis-storyboards-into-video-takes-in-minutes-with-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/authors-first-turned-genghis-storyboards-into-video-takes-in-minutes-with-higgsfield"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-11-09",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Vertex CGI Makes Lynx’s Tube Films in 5 Weeks",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/904fa56b17dd466463adc693baaa39888d54ca40-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/1-in-men-s-fragrance-how-vertex-cgi-made-lynx-s-underground-films-in-higgsfield-canvas",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/1-in-men-s-fragrance-how-vertex-cgi-made-lynx-s-underground-films-in-higgsfield-canvas"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-11-04",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Big Purple’s Türkiye Wealth Fund Film in 12 Days",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/ac684ea791ac981a16c686250ca270e5b483dfa7-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/big-purple-turkiye-wealth-fund-anniversary-film-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/big-purple-turkiye-wealth-fund-anniversary-film-higgsfield"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-09-30",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Levector Brings Cinema Studio to Nestlé’s Tango",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/ae580d56dbaf180811ecead8a2900769680a4242-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/levector-tango-ai-characters-higgsfield",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/levector-tango-ai-characters-higgsfield"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-09-25",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Gaia Cuts Animation Time from Weeks to Hours",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/33a399f6250812fd7ff108bcefc135225723b06d-1920x1080.jpg",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/gaia-cut-animation-time-with-higgsfield-enterprise",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/gaia-cut-animation-time-with-higgsfield-enterprise"
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-09-16",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "One of One Takes Maradona’s Label to Sold Out",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/fd840bed2f88fbae3a087fcdf007b92ee1b139d6-8192x4608.png",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-studio-interview",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-studio-interview"
+                    },
+                    "description": "Alex Shalson built the first official Maradona apparel brand world using Higgsfield, sold out in three weeks and reached over ten million people. Here is how One of One uses AI as a creative instrument, not a shortcut.",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-07-14",
+                    "articleSection": "Customer Stories"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": "Boxel Studio Brings AI into Pre-Production",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/d4ef39780f8e636b630fd8e85e044008317e2a73-8192x4608.png",
+                    "url": "https://higgsfield.ai/creator-hub/case-studies/boxel-studio-higgsfield-case-study",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/creator-hub/case-studies/boxel-studio-higgsfield-case-study"
+                    },
+                    "description": "Boxel Studio, the animation and VFX team behind Superman & Lois and The Lincoln Lawyer, used Higgsfield Cinema Studio to cut pre-production from months to days. The studio ran look development and visual prototyping on Higgsfield while keeping artists in full control and meeting Hollywood-level standards for client confidentiality and IP protection.",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-06-30",
+                    "articleSection": "Customer Stories"
+                }
+            ]
+        },
+        "matches": [
+            {
+                "i": "__root__#",
+                "s": "success",
+                "l": {
+                    "clerkProxyUrl": "https://higgsfield.ai/_clerk",
+                    "initialEnterprise": false
+                }
+            },
+            {
+                "i": "#_creator-hub#creator-hub#case-studies##creator-hub#case-studies#",
+                "s": "success",
+                "l": {
+                    "title": "Case studies",
+                    "featuredCaseStudy": {
+                        "id": "2fBkBa01tEoHjvVBCUj4TT",
+                        "title": "Vertex CGI’s Viral NBA Finals Video in 5 Days",
+                        "slug": "vertexcgi-higgsfield-nba-finals-case-study",
+                        "category": {
+                            "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                            "slug": "creators",
+                            "title": "Customer Stories"
+                        },
+                        "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/c2d00636a979b3b9e2e9551f56c6c47ac27f889a-8192x4608.png",
+                        "banner": {
+                            "title": "How VertexCGI, the Studio Behind Campaigns for Porsche and Mercedes, Used Higgsfield to Build a Viral NBA Finals Campaign",
+                            "description": "Vertex CGI, a studio behind more than 25 billion organic views across 1,200+ campaigns, used Higgsfield throughout a five day sprint to take the NBA Finals celebration video from first call to publish, a timeline in which a traditional, AI free pipeline would have produced roughly five times fewer shots with the same team.",
+                            "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/e94af85ad06df867a08da3d15191a825b400ee5a-8192x4608.webp",
+                            "link": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-higgsfield-nba-finals-case-study"
+                        },
+                        "author": null,
+                        "seoPublishDateISO": "2026-07-28T19:00:00.000Z",
+                        "dateModified": "2026-11-15T00:20:16Z",
+                        "readingTime": "6 min"
+                    },
+                    "categories": [
+                        {
+                            "category": {
+                                "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                "slug": "creators",
+                                "title": "Customer Stories"
+                            },
+                            "posts": [
+                                {
+                                    "id": "1eb327f4-acf5-428c-9cb3-acd4bf49cec4",
+                                    "title": "Founder-Led Studios Are Building Brands with AI",
+                                    "slug": "one-of-one-maradona-apparel-ai-campaign",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/e5d7eaa58026dd4bc3a51046f09840f183f7f751-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-10-21T21:27:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "5 mins"
+                                },
+                                {
+                                    "id": "daf8552c-1c51-4c9f-841a-a5e4d23f7f73",
+                                    "title": "Alya Health Makes Video Ads in 2 Hours with MCP",
+                                    "slug": "video-ads-in-just-2-hours-with-higgsfield-mcp-alya-health-shares-their-insights",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/023e1185a6a1f3abc61a927b18268f11ea87d880-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-11-07T18:39:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 mins"
+                                },
+                                {
+                                    "id": "2806e659-1ed6-4af4-83bc-e16426f42671",
+                                    "title": "7 Ways Teams Find Budget They Already Have",
+                                    "slug": "flat-budgets-bigger-targets-seven-ways-businesses-are-finding-money-they-already-have",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/0fa9ce11e49e52e24bded0d05922fab160bf53fd-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-10-29T19:35:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "5 mins"
+                                },
+                                {
+                                    "id": "c6a1f634-eb9a-4961-bb8a-e227f9c41e2e",
+                                    "title": "Humanverse Makes Films up to 6x Faster",
+                                    "slug": "humanverse-castorama-turtle-campaign-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/c535273c58aee67b89a46628c62e5a4d8e8b707b-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-10-29T19:13:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "5 min"
+                                },
+                                {
+                                    "id": "965ebd39-6b70-4fd5-9a65-d0d95c8adc31",
+                                    "title": "Alterworld Cuts Pre-Production by 70% with MCP",
+                                    "slug": "alterworld-studios-cut-pre-production-time-by-70-with-higgsfield-mcp",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/c5cc204b64485a9c0927219be2db5660b4634bad-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-10-21T21:53:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "5 min"
+                                },
+                                {
+                                    "id": "5d5c9783-0cd4-4a0b-9775-1f3be28079a7",
+                                    "title": "Adopt Parfums Scales with Fantasmagorie and Higgsfield",
+                                    "slug": "fantasmagorie-adopt-dont-touch-my-mini-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/aa036b7168ea90eb4e4819c6add2b77adf65789e-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-10-09T23:16:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 mins"
+                                },
+                                {
+                                    "id": "4aaa6b35-5337-4502-a698-40c988d46505",
+                                    "title": "Double Shots Makes Ivy’s Music Videos in Cinema Studio",
+                                    "slug": "double-shots-music-videos-cinema-studio-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/68fad6e32407cad93f27d986cf3414c786a799ec-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-09-19T13:09:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "aa237940-212d-4ec7-a6d9-1adba96cfe29",
+                                    "title": "Netflix’s Moria Campaign by Vertex CGI",
+                                    "slug": "vertexcgi-moria-campaign-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/0427249b94a112b4b4039f9d6becc1b43ba01bce-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-09-11T23:12:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "5 min"
+                                },
+                                {
+                                    "id": "de93ab51-ef84-468f-be2b-683cf03932ee",
+                                    "title": "Cannes Lions Winner Purga Builds AI Film Worlds",
+                                    "slug": "purga-cannes-lions-case-study",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/42419c5dff1a211332717353fcc155ecd39c8948-1920x1080.jpg",
+                                    "banner": {
+                                        "title": "Purga, Cannes Lions Winner, Builds AI Film Worlds with Higgsfield\n",
+                                        "description": "An AI creative studio that works, in its own words, in an artisanal way: how PURGA fixed characters and visual direction first, built the world around them in Cinema Studio, and carried that pipeline to a Bronze Lion in Film at Cannes Lions 2026.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/80a500e23eb7823651fe9276e44de7a5c15eca31.jpg",
+                                        "link": "https://higgsfield.ai/creator-hub/case-studies/purga-cannes-lions-case-study"
+                                    },
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-09-08T19:56:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 mins"
+                                },
+                                {
+                                    "id": "1sEpj1ZHHqmnPWITE0blQs",
+                                    "title": "Brilliance Cuts Production Costs by 80%",
+                                    "slug": "brilliance-higgsfield-marketing-studio",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/f95c3a18f96cfea328fd74e8f7b40488d823f883-1920x1080.jpg",
+                                    "banner": {
+                                        "title": "Brilliance Cut Production Costs by 80% with Marketing Studio",
+                                        "description": "https://higgsfield.ai/enterprise?utm_source=hf&utm_medium=organic&utm_category=bm&utm_campaign=case-study&utm_creator=brilliance&utm_content_type=ps&utm_post=[ID",
+                                        "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/f95c3a18f96cfea328fd74e8f7b40488d823f883-1920x1080.jpg",
+                                        "link": "https://higgsfield.ai/creator-hub/case-studies/brilliance-higgsfield-marketing-studio"
+                                    },
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-08-28T19:00:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 mins"
+                                },
+                                {
+                                    "id": "gEVd9bw8n9ta5hPm9MQpP",
+                                    "title": "70% of BITT Animation’s Work Now Uses AI",
+                                    "slug": "how-bitt-animation-runs-hybrid-ai-production",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/ca8dc860e77e23175b34cce722fe05e5499fa8d9-8192x4608.png",
+                                    "banner": {
+                                        "title": "How BITT Animation Runs Hybrid AI Production on Higgsfield with Cinema Studio and Supercomputer",
+                                        "description": "BITT Animation has produced VFX for PepsiCo, Toyota and Coca-Cola for 24 years. Now 70% of its work involves AI, six major projects run in parallel where one did before, and fully generative jobs land at 15–20% of a traditional budget. CCO Gonzalo Canepa explains how a studio built on Maya and Nuke rebuilt itself around Higgsfield.",
+                                        "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/ddf48e65d44a1865b45527eef7b895b3c0703db5-8192x4608.webp",
+                                        "link": "https://higgsfield.ai/creator-hub/case-studies/how-bitt-animation-runs-hybrid-ai-production"
+                                    },
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-08-25T19:00:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "10 mins"
+                                },
+                                {
+                                    "id": "5CqnVm4LwAUsMgSwU7rbFl",
+                                    "title": "Sasha Kasiuha: The Image Still Needs an Author",
+                                    "slug": "madonna-and-dolce-gabbana-with-sasha-kasiuha",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/a6d83fa498aaab16ca6cb035a19a6ff8e793645b-8192x4608.png",
+                                    "banner": {
+                                        "title": "From Madonna to Dolce & Gabbana: Sasha Kasiuha on Why the Image Still Needs an Author",
+                                        "description": "Creative director Sasha Kasiuha has built images for Madonna, Dolce & Gabbana, Maison Margiela and Tom Ford. In this conversation he explains where Higgsfield enters high-fashion image-making — from testing worlds before a shoot to invisible AI inserts in the edit — and why authorship, not generation, remains the real craft.",
+                                        "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/3b6655de6b4ee5fe850601721ff77571dd346048-8192x4608.webp",
+                                        "link": "https://higgsfield.ai/creator-hub/case-studies/madonna-and-dolce-gabbana-with-sasha-kasiuha"
+                                    },
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-08-14T20:00:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "7 min"
+                                },
+                                {
+                                    "id": "2jlLvPnLbmoafLEKXDM2ZS",
+                                    "title": "Sinecera Runs Hybrid Production for Lacoste & More",
+                                    "slug": "sinecera-hybrid-production-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/d34e663e6710e9844cc052496b4e9f01e2584aa4-8192x4608.png",
+                                    "banner": {
+                                        "title": "How Sinecera, the Studio Behind Films for Lacoste, SuperStep and Nesine, Runs Hybrid Production on Higgsfield",
+                                        "description": "Sinecera shoots conventionally, produces full AI, and runs hybrid — commercials for Lacoste and SuperStep, a century of Turkish racing for Nesine, all built inside Higgsfield's Cinema Studio.",
+                                        "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/4270e3cb87f719c223ed827b3ae65dcc1d2ea903-8192x4608.webp",
+                                        "link": "https://higgsfield.ai/creator-hub/case-studies/sinecera-hybrid-production-higgsfield"
+                                    },
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-08-04T19:00:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "oiOKjQdPSGOsC5yO7xoMc",
+                                    "title": "AdQUA Cuts Production Costs by 97% with Higgsfield",
+                                    "slug": "adqua-case-study",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/1eedd3ef75a3026a1a433548128e773875acf4c7-8192x4608.png",
+                                    "banner": {
+                                        "title": "How One of Korea's Leading Digital Agencies, AdQUA, Cut AI Production Costs by 97% with Higgsfield",
+                                        "description": "AdQUA Interactive, one of Korea’s leading independent digital agencies, and brand-building company Boosterz talk about the pain points that led them to Higgsfield, why quality decided it, and what happens when a whole organization can execute every idea it has.",
+                                        "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/324533107892038880697ba61981b4723c84d0d4-8192x4608.webp",
+                                        "link": "https://higgsfield.ai/creator-hub/case-studies/adqua-case-study"
+                                    },
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-07-31T19:00:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "8 min"
+                                },
+                                {
+                                    "id": "8ef1ae13-630d-48a7-81b0-86b6fcd6abff",
+                                    "title": "Emmy Winner Kerri Zane Streamlines Production",
+                                    "slug": "kerri-zane-emmy-producer-ai-film-test-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/35ab62ec86d32ce9e010075e0536269c1d67d08c-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-09-10T22:30:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 mins"
+                                },
+                                {
+                                    "id": "ff607ba6-862d-48ac-8f20-31fc6eb5e8e5",
+                                    "title": "Dream Slate Delivers a Kellogg’s Film in 8 Days",
+                                    "slug": "dream-slate-pictures-brings-40-years-of-indian-filmmaking-to-global-brands-with-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/f0abd5184400cb50127e1b162ed061b7c7ce3af3-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-11-11T18:05:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 min"
+                                },
+                                {
+                                    "id": "19895cce-6941-4310-979f-60bd9394f0ff",
+                                    "title": "Authors First Turns Storyboards into Video in Minutes",
+                                    "slug": "authors-first-turned-genghis-storyboards-into-video-takes-in-minutes-with-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/c2bb96d878b837b38ecd84eccca6fb700132958e-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-11-09T19:51:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 min"
+                                },
+                                {
+                                    "id": "520f9988-8742-45c3-91f6-9a156f6ab577",
+                                    "title": "Vertex CGI Makes Lynx’s Tube Films in 5 Weeks",
+                                    "slug": "1-in-men-s-fragrance-how-vertex-cgi-made-lynx-s-underground-films-in-higgsfield-canvas",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/904fa56b17dd466463adc693baaa39888d54ca40-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-11-04T19:33:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 mins"
+                                },
+                                {
+                                    "id": "634e0b81-0090-47c9-8ccd-64ed152fbde2",
+                                    "title": "Big Purple’s Türkiye Wealth Fund Film in 12 Days",
+                                    "slug": "big-purple-turkiye-wealth-fund-anniversary-film-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/ac684ea791ac981a16c686250ca270e5b483dfa7-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-09-30T17:28:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 min"
+                                },
+                                {
+                                    "id": "ba972484-444a-4fda-93d2-728fd9849bbd",
+                                    "title": "Levector Brings Cinema Studio to Nestlé’s Tango",
+                                    "slug": "levector-tango-ai-characters-higgsfield",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/ae580d56dbaf180811ecead8a2900769680a4242-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-09-25T20:17:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 min"
+                                },
+                                {
+                                    "id": "1febb9b0-5bc9-412a-904d-2f9637bb3e73",
+                                    "title": "Gaia Cuts Animation Time from Weeks to Hours",
+                                    "slug": "gaia-cut-animation-time-with-higgsfield-enterprise",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/33a399f6250812fd7ff108bcefc135225723b06d-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-09-16T23:19:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "5 min"
+                                },
+                                {
+                                    "id": "2fBkBa01tEoHjvVBCUj4TT",
+                                    "title": "Vertex CGI’s Viral NBA Finals Video in 5 Days",
+                                    "slug": "vertexcgi-higgsfield-nba-finals-case-study",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/c2d00636a979b3b9e2e9551f56c6c47ac27f889a-8192x4608.png",
+                                    "banner": {
+                                        "title": "How VertexCGI, the Studio Behind Campaigns for Porsche and Mercedes, Used Higgsfield to Build a Viral NBA Finals Campaign",
+                                        "description": "Vertex CGI, a studio behind more than 25 billion organic views across 1,200+ campaigns, used Higgsfield throughout a five day sprint to take the NBA Finals celebration video from first call to publish, a timeline in which a traditional, AI free pipeline would have produced roughly five times fewer shots with the same team.",
+                                        "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/e94af85ad06df867a08da3d15191a825b400ee5a-8192x4608.webp",
+                                        "link": "https://higgsfield.ai/creator-hub/case-studies/vertexcgi-higgsfield-nba-finals-case-study"
+                                    },
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-07-28T19:00:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "6 min"
+                                },
+                                {
+                                    "id": "5L2QQn5R8sSjCUlRJkExll",
+                                    "title": "One of One Takes Maradona’s Label to Sold Out",
+                                    "slug": "one-of-one-studio-interview",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/fd840bed2f88fbae3a087fcdf007b92ee1b139d6-8192x4608.png",
+                                    "banner": {
+                                        "title": "How One of One, the Studio Behind the Official Maradona Label, Took a Brand World From Concept to Sold Out With Higgsfield",
+                                        "description": "Alex Shalson built the first official Maradona apparel brand world using Higgsfield, sold out in three weeks and reached over ten million people. Here is how One of One uses AI as a creative instrument, not a shortcut.",
+                                        "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/d96a72e15a31814136426bd0488ebb59116e8f98-8192x4608.webp",
+                                        "link": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-studio-interview"
+                                    },
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-07-14T19:00:00.000Z",
+                                    "dateModified": "2026-11-19T00:10:55Z",
+                                    "readingTime": "9 min"
+                                },
+                                {
+                                    "id": "6XxIIXd0IYkTHaZGqlCjlr",
+                                    "title": "Boxel Studio Brings AI into Pre-Production",
+                                    "slug": "boxel-studio-higgsfield-case-study",
+                                    "category": {
+                                        "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                        "slug": "creators",
+                                        "title": "Customer Stories"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/d4ef39780f8e636b630fd8e85e044008317e2a73-8192x4608.png",
+                                    "banner": {
+                                        "title": "How Boxel Studio, the Team Behind Netflix and Hulu Hits, Brought AI Into Pre-production With Higgsfield",
+                                        "description": "Boxel Studio, the animation and VFX team behind Superman & Lois and The Lincoln Lawyer, used Higgsfield Cinema Studio to cut pre-production from months to days. The studio ran look development and visual prototyping on Higgsfield while keeping artists in full control and meeting Hollywood-level standards for client confidentiality and IP protection.",
+                                        "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/b668ac318d5cd162df7ee249867878c6ec508211-8192x4608.webp",
+                                        "link": "https://higgsfield.ai/creator-hub/case-studies/boxel-studio-higgsfield-case-study"
+                                    },
+                                    "author": null,
+                                    "seoPublishDateISO": "2026-06-30T19:00:00.000Z",
+                                    "dateModified": "2026-11-15T00:20:16Z",
+                                    "readingTime": "4 min"
+                                }
+                            ]
+                        },
+                        {
+                            "category": {
+                                "id": "4g4LiJl52lKwyJxY128CzA",
+                                "slug": "customers",
+                                "title": "Customers"
+                            },
+                            "posts": []
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

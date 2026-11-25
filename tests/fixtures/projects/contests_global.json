@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "endpoint": "projects_contests",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/contests?contest_type=global&size=100",
+    "params": {
+      "contest_type": "global",
+      "size": "100"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "contest_type": "global",
+        "submissions_close_at": null,
+        "id": "7834f30d-cfbf-4a1e-9d29-a2373b581c26",
+        "slug": "talent-contest",
+        "title": "Talent Contest",
+        "description": "Build in public. Explore prizes and rules, then submit your film to Talent Contest",
+        "start_at": "2026-11-12T17:00:00Z",
+        "end_at": "2026-11-26T17:00:00Z",
+        "status": "open",
+        "preview_image": "https://static.higgsfield.ai/community-contest/banner/bg-v2-poster.webp",
+        "preview_video": "https://static.higgsfield.ai/community-contest/banner/bg-v2.mp4",
+        "logo_url": "https://d30d7anzgyxsrg.cloudfront.net/content_user_id/15fe124e-451c-48da-bbf5-095e02c8b4d8.png",
+        "redirect_url": null,
+        "prize_pool": 1000000,
+        "submissions_count": 0,
+        "entries_count": null,
+        "winner": null,
+        "some_contestants": [],
+        "judges": [],
+        "is_trending": false
+      },
+      {
+        "contest_type": "global",
+        "submissions_close_at": null,
+        "id": "4263b5fb-fead-441d-aa37-62f8aa367aa1",
+        "slug": "higgsfield-global-film-festival",
+        "title": "Higgsfield Festival",
+        "description": "Higgsfield AI Film Festival — $1,000,000 Prize Pool",
+        "start_at": "2026-07-16T00:00:00Z",
+        "end_at": "2026-07-30T23:59:00Z",
+        "status": "open",
+        "preview_image": "https://static.higgsfield.ai/contest/festival-hero/higgs_6_fix_v2-poster.webp",
+        "preview_video": "https://static.higgsfield.ai/contest/festival-hero/higgs_6_fix_v2-optimized-1.mp4",
+        "logo_url": null,
+        "redirect_url": null,
+        "prize_pool": 1000000,
+        "submissions_count": 0,
+        "entries_count": null,
+        "winner": null,
+        "some_contestants": [],
+        "judges": [],
+        "is_trending": false
+      },
+      {
+        "contest_type": "global",
+        "submissions_close_at": null,
+        "id": "78c11281-082a-415e-a950-d5793d6101f6",
+        "slug": "higgsfield-seedance-2-contest",
+        "title": "Higgsfield Seedance 2.0 Contest",
+        "description": "Higgsfield Seedance 2.0 Contest",
+        "start_at": "2026-04-07T12:00:00Z",
+        "end_at": "2026-04-14T12:00:00Z",
+        "status": "created",
+        "preview_image": "https://static.higgsfield.ai/contests/seedance-contest/banner.webp",
+        "preview_video": null,
+        "logo_url": null,
+        "redirect_url": null,
+        "prize_pool": 50000,
+        "submissions_count": 0,
+        "entries_count": null,
+        "winner": null,
+        "some_contestants": [],
+        "judges": [],
+        "is_trending": false
+      },
+      {
+        "contest_type": "global",
+        "submissions_close_at": null,
+        "id": "98d90e17-8e95-4a7f-b9db-633ebb4aea44",
+        "slug": "make-your-action-scene",
+        "title": "Make Your Action Scene",
+        "description": "Build a world, pick your hero, raise the stakes, and cut a scene that makes people wish your film was real.",
+        "start_at": "2026-02-09T19:00:00Z",
+        "end_at": "2026-03-01T08:00:00Z",
+        "status": "finished",
+        "preview_image": "https://static.higgsfield.ai/contests/banner-mini-thumbnail.webp",
+        "preview_video": "https://cdn.higgsfield.ai/uploads/f5f9f5df-e72c-472d-af5f-4d49a6365a53.mp4",
+        "logo_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/093ae60a-5121-424d-b69d-f2218bb5b85e.webp",
+        "redirect_url": null,
+        "prize_pool": 500000,
+        "submissions_count": 8752,
+        "entries_count": null,
+        "winner": {
+          "id": "user_fake0011xxxxxxxxxxxxxxxx",
+          "username": "creator10",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "some_contestants": [
+          {
+            "id": "user_fake0010xxxxxxxxxxxxxxxx",
+            "username": "creator11",
+            "avatar_url": "https://cdn.example.test/avatar.webp"
+          },
+          {
+            "id": "user_fake0009xxxxxxxxxxxxxxxx",
+            "username": "creator12",
+            "avatar_url": "https://cdn.example.test/avatar.webp"
+          }
+        ],
+        "judges": [
+          {
+            "user_id": null,
+            "display_name": "Judge Studio 31",
+            "description": "VFX Studio",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "background_url": "https://cdn.example.test/bg.webp",
+            "external_link": "https://example.test/judge"
+          },
+          {
+            "user_id": null,
+            "display_name": "Judge Studio 73",
+            "description": "Production Studio",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "background_url": "https://cdn.example.test/bg.webp",
+            "external_link": "https://example.test/judge"
+          }
+        ],
+        "is_trending": false
+      }
+    ],
+    "has_more": false,
+    "cursor": null
+  }
+}

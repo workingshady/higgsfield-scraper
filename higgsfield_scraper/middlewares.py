@@ -28,7 +28,8 @@ from scrapy.exceptions import NotConfigured
 
 log = logging.getLogger(__name__)
 
-SECRET_HEADERS = {"authorization", "cookie", "set-cookie", "x-api-key"}
+HAR_MAX_BODY = 256 * 1024        # bodies above this are left out of session.har (full bytes stay in body.raw)
+SECRET_HEADERS ={"authorization", "cookie", "set-cookie", "x-api-key"}
 HTTP_REASONS = {200: "OK", 301: "Moved Permanently", 302: "Found", 304: "Not Modified", 400: "Bad Request",
                 401: "Unauthorized", 403: "Forbidden", 404: "Not Found", 422: "Unprocessable Entity",
                 429: "Too Many Requests", 500: "Internal Server Error", 502: "Bad Gateway", 503: "Service Unavailable"}
@@ -93,6 +94,13 @@ class HttpArchiveMiddleware:
 
     # ------------------------------------------------------------- record
     def _record(self, request, response=None, error: Optional[str] = None) -> None:
+        if request.meta.get("media"):               # media downloads: index line only (files live in <run>/media/)
+            with (self.dir / "index.jsonl").open("a", encoding="utf-8") as f:
+                f.write(json.dumps({"seq": None, "endpoint": "media", "method": request.method, "url": request.url,
+                                    "status": response.status if response is not None else None,
+                                    "bytes": len(response.body or b"") if response is not None else 0,
+                                    "error": error, "dir": None}, ensure_ascii=False) + "\n")
+            return
         self.seq += 1
         sent = request.meta.get("_http_sent_at") or datetime.now(timezone.utc)
         latency = request.meta.get("download_latency")
@@ -116,7 +124,7 @@ class HttpArchiveMiddleware:
 
         status, size, resp_headers, mime = None, 0, [], ""
         if response is not None:
-            body: bytes = response.body or b""
+            body: bytes = self._privacy(response.body or b"")
             size = len(body)
             status = response.status
             resp_headers = _headers(response.headers)
@@ -142,7 +150,20 @@ class HttpArchiveMiddleware:
         self.crawler.stats.inc_value("higgs/http_archived")
 
         self.entries.append(self._har_entry(request, response, sent, latency, req_headers, resp_headers, mime,
-                                            size, params, error))
+                                            size, params, error,
+                                            body=self._privacy(response.body or b"") if response is not None else b""))
+
+    def _privacy(self, body: bytes) -> bytes:
+        """Redact other users' personal data from archived bodies unless the run opted in (--with-profiles)."""
+        sp = getattr(self.crawler, "spider", None)
+        try:
+            from .core.privacy import profiles_opt_in, redact_json_bytes
+            from .pipelines import scraper_of
+            if sp is not None and scraper_of(sp).personal_data and not profiles_opt_in(getattr(sp, "selection", None)):
+                return redact_json_bytes(body)
+        except Exception:
+            pass
+        return body
 
     @staticmethod
     def _label(request) -> tuple[str, list[str]]:
@@ -172,11 +193,11 @@ class HttpArchiveMiddleware:
         return " \\\n  ".join([" ".join(parts[:5])] + [" ".join(parts[i:i + 2]) for i in range(5, len(parts), 2)])
 
     @staticmethod
-    def _har_entry(request, response, sent, latency, req_h, resp_h, mime, size, params, error) -> dict:
+    def _har_entry(request, response, sent, latency, req_h, resp_h, mime, size, params, error, body=b"") -> dict:
         ms = round((latency or 0) * 1000, 1)
         text = None
-        if response is not None and response.body:
-            text = response.body.decode("utf-8", "replace")
+        if body and len(body) <= HAR_MAX_BODY:
+            text = body.decode("utf-8", "replace")     # large bodies: see http/NNN_*/body.raw (no MemoryError)
         return {
             "startedDateTime": sent.isoformat(),
             "time": ms,

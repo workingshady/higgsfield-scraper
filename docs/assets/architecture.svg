@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-labelledby="t d">
+<title id="t">higgsfield-scraper — container view of one run</title>
+<desc id="d">Numbered data flow: CLI and run manager start a run; the scraper spider requests Higgsfield JSON APIs through auth and archive middlewares; parsers turn responses into entities; pipelines archive, validate, dedup and export them into a timestamped run folder.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d1fe17"/></marker><marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9ce6f3"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6e757e"/></marker></defs>
+<rect width="1280" height="800" rx="18" fill="#0f1113"/>
+<text x="32" y="44" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="800" fill="#ffffff">higgsfield-scraper <tspan fill="#d1fe17">·</tspan> container view of one run</text>
+<text x="34" y="66" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#6e757e">Data flows left → right. Numbers give the order of events. Same machinery for every scraper (pricing, community, catalog, projects, blog).</text>
+<rect x="20" y="78" width="270" height="560" rx="14" fill="#ffffff" fill-opacity="0.015" stroke="#2a2d31" stroke-dasharray="3 6"/>
+<text x="36" y="102" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5" fill="#d1fe17">HIGGSFIELD</text>
+<text x="36" y="120" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">external systems (read-only)</text>
+<rect x="306" y="78" width="650" height="560" rx="14" fill="#ffffff" fill-opacity="0.015" stroke="#2a2d31" stroke-dasharray="3 6"/>
+<text x="322" y="102" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5" fill="#d1fe17">SCRAPER PROCESS</text>
+<text x="322" y="120" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">python -m higgsfield_scraper  ·  Scrapy + pydantic</text>
+<rect x="972" y="78" width="288" height="560" rx="14" fill="#ffffff" fill-opacity="0.015" stroke="#2a2d31" stroke-dasharray="3 6"/>
+<text x="988" y="102" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5" fill="#d1fe17">LOCAL DISK</text>
+<text x="988" y="120" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">runs/&lt;timestamp&gt;_&lt;label&gt;/</text>
+<rect x="36" y="136" width="238" height="92" rx="12" fill="#16181b" stroke="#d1fe17" stroke-width="1.6"/>
+<text x="50" y="161" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">fnf-api-gw.higgsfield.ai</text>
+<text x="50" y="182" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">JSON APIs: plans · costs ·</text>
+<text x="50" y="200" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">publications · motions · contests</text>
+<rect x="36" y="244" width="238" height="74" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="50" y="269" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">pricing.higgsfield.ai</text>
+<text x="50" y="290" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">pricing-config (marketing copy)</text>
+<rect x="36" y="334" width="238" height="74" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="50" y="359" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">higgsfield.ai</text>
+<text x="50" y="380" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">sitemaps · blog · help center</text>
+<rect x="36" y="424" width="238" height="92" rx="12" fill="#16181b" stroke="#9ce6f3" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="50" y="449" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Clerk auth</text>
+<text x="50" y="470" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">login once (emailed code)</text>
+<text x="50" y="488" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">→ fresh 60 s tokens</text>
+<rect x="36" y="532" width="238" height="74" rx="12" fill="#16181b" stroke="#9ce6f3" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="50" y="557" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Media CDN</text>
+<text x="50" y="578" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">images · videos (opt-in)</text>
+<rect x="322" y="136" width="190" height="92" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="336" y="161" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">CLI</text>
+<text x="336" y="182" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">scrape &lt;scraper&gt; [options]</text>
+<text x="336" y="200" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">normalize · login · show</text>
+<rect x="322" y="244" width="190" height="74" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="336" y="269" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">RunManager</text>
+<text x="336" y="290" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">run folder · logs · manifest</text>
+<rect x="322" y="334" width="190" height="272" rx="12" fill="none" stroke="#2a2d31" stroke-dasharray="4 4"/>
+<text x="336" y="356" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" font-weight="700" letter-spacing="1" fill="#6e757e">DOWNLOADER MIDDLEWARE</text>
+<rect x="334" y="368" width="166" height="100" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="348" y="393" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">AuthMiddleware</text>
+<text x="348" y="414" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">adds Bearer token</text>
+<text x="348" y="432" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">refresh + retry on 401</text>
+<text x="348" y="450" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">skips if no login</text>
+<rect x="334" y="482" width="166" height="110" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="348" y="507" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">HttpArchive</text>
+<text x="348" y="528" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">request · response</text>
+<text x="348" y="546" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">body · curl · HAR</text>
+<text x="348" y="564" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">secrets masked</text>
+<rect x="556" y="136" width="196" height="128" rx="12" fill="#16181b" stroke="#d1fe17" stroke-width="1.6"/>
+<text x="570" y="161" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Spider</text>
+<text x="570" y="182" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">one per scraper</text>
+<text x="570" y="200" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">requests · pagination</text>
+<text x="570" y="218" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">limits · stop on captcha</text>
+<text x="570" y="236" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">(no evasion)</text>
+<rect x="556" y="302" width="196" height="92" rx="12" fill="#16181b" stroke="#d1fe17" stroke-width="1.6"/>
+<text x="570" y="327" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Parsers (pure)</text>
+<text x="570" y="348" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">raw JSON → entities</text>
+<text x="570" y="366" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">reused by normalize</text>
+<rect x="556" y="430" width="196" height="92" rx="12" fill="#16181b" stroke="#9ce6f3" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="570" y="455" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Cost estimator</text>
+<text x="570" y="476" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">generation → credits</text>
+<text x="570" y="494" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">+ USD (opt-in)</text>
+<rect x="776" y="136" width="164" height="74" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="790" y="161" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">RawArchive</text>
+<text x="790" y="182" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">untouched → raw/</text>
+<path d="M858 210 V226" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
+<rect x="776" y="226" width="164" height="74" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="790" y="251" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Validation</text>
+<text x="790" y="272" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">pydantic v2 · drop invalid</text>
+<path d="M858 300 V316" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
+<rect x="776" y="316" width="164" height="74" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="790" y="341" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Dedup</text>
+<text x="790" y="362" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">stable ids</text>
+<path d="M858 390 V406" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
+<rect x="776" y="406" width="164" height="92" rx="12" fill="#16181b" stroke="#d1fe17" stroke-width="1.6"/>
+<text x="790" y="431" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Assemble + export</text>
+<text x="790" y="452" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">joins · JSON · CSV</text>
+<text x="790" y="470" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">schema · summary</text>
+<rect x="988" y="136" width="256" height="470" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="1004" y="168" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#9ce6f3">manifest.json</text>
+<text x="1230" y="168" text-anchor="end" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#6e757e">← RunManager</text>
+<text x="1004" y="202" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#9ce6f3">logs/</text>
+<text x="1230" y="202" text-anchor="end" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#6e757e">← RunManager</text>
+<text x="1004" y="236" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#9ce6f3">raw/</text>
+<text x="1230" y="236" text-anchor="end" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#6e757e">← RawArchive</text>
+<text x="1004" y="270" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#9ce6f3">http/</text>
+<text x="1230" y="270" text-anchor="end" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#6e757e">← HttpArchive</text>
+<text x="1004" y="304" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#9ce6f3">media/</text>
+<text x="1230" y="304" text-anchor="end" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#6e757e">← Spider (opt-in)</text>
+<text x="1004" y="338" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#9ce6f3">output/</text>
+<text x="1230" y="338" text-anchor="end" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#6e757e">← Assemble + export</text>
+<text x="1026" y="372" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#ffffff">dataset.json</text>
+<text x="1026" y="406" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#ffffff">json/  csv/</text>
+<text x="1026" y="440" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#ffffff">schema/</text>
+<text x="1026" y="474" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#ffffff">items/  summary.md</text>
+<text x="1004" y="528" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">also: runs/LATEST · runs/index.jsonl</text>
+<text x="1004" y="550" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">exit 0 success · 2 partial · 1 failed</text>
+<text x="1004" y="580" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">JSON indent 4 · CSVs complete</text>
+<path d="M417 228 V242" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="440" cy="236" r="11" fill="#d1fe17"/>
+<text x="440" y="240.5" text-anchor="middle" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0f1113">1</text>
+<text x="456" y="240" text-anchor="start" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#a7adb5">start run</text>
+<path d="M512 182 H554" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="533" cy="166" r="11" fill="#d1fe17"/>
+<text x="533" y="170.5" text-anchor="middle" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0f1113">2</text>
+<text x="516" y="205" text-anchor="start" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#a7adb5">selection</text>
+<path d="M556 236 C 520 252, 532 340, 502 404" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="538" cy="290" r="11" fill="#d1fe17"/>
+<text x="538" y="294.5" text-anchor="middle" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0f1113">3</text>
+<text x="528" y="326" text-anchor="end" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#a7adb5">GET</text>
+<path d="M332 420 C 300 420, 300 182, 276 182" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)" marker-start="url(#a)"/>
+<circle cx="300" cy="300" r="11" fill="#d1fe17"/>
+<text x="300" y="304.5" text-anchor="middle" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0f1113">4</text>
+<text x="300" y="330" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#a7adb5">HTTPS</text>
+<path d="M334 520 C 312 520, 298 470, 276 470" fill="none" stroke="#9ce6f3" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#c)" marker-start="url(#c)"/>
+<text x="300" y="512" text-anchor="end" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#9ce6f3">token</text>
+<path d="M276 570 C 300 570, 310 560, 332 560" fill="none" stroke="#9ce6f3" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#c)"/>
+<text x="304" y="590" text-anchor="end" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#9ce6f3">media</text>
+<path d="M654 264 V300" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="674" cy="283" r="11" fill="#d1fe17"/>
+<text x="674" y="287.5" text-anchor="middle" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0f1113">5</text>
+<text x="690" y="287" text-anchor="start" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#a7adb5">JSON</text>
+<path d="M752 348 C 766 348, 760 175, 774 175" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="764" cy="254" r="11" fill="#d1fe17"/>
+<text x="764" y="258.5" text-anchor="middle" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0f1113">6</text>
+<path d="M654 430 V396" fill="none" stroke="#9ce6f3" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#c)" marker-start="url(#c)"/>
+<text x="664" y="418" text-anchor="start" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#9ce6f3">estimate</text>
+<path d="M940 175 H986" fill="none" stroke="#6e757e" stroke-width="2" marker-end="url(#g)"/>
+<text x="946" y="168" text-anchor="start" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#6e757e">raw/</text>
+<path d="M940 420 C 960 420, 962 338, 986 338" fill="none" stroke="#6e757e" stroke-width="2" marker-end="url(#g)"/>
+<circle cx="963" cy="395" r="11" fill="#d1fe17"/>
+<text x="963" y="399.5" text-anchor="middle" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0f1113">7</text>
+<text x="946" y="450" text-anchor="start" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#6e757e">output/</text>
+<path d="M500 592 C 700 625, 900 625, 1010 608" fill="none" stroke="#6e757e" stroke-width="2" marker-end="url(#g)"/>
+<text x="760" y="630" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#6e757e">http/  (every exchange)</text>
+<rect x="20" y="652" width="1240" height="130" rx="14" fill="#16181b" stroke="#2a2d31"/>
+<text x="38" y="678" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5" fill="#d1fe17">LEGEND</text>
+<path d="M38 704 H84" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
+<text x="96" y="708" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#a7adb5">main data flow</text>
+<path d="M338 704 H384" fill="none" stroke="#9ce6f3" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#c)"/>
+<text x="396" y="708" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#a7adb5">optional: login · media · estimates</text>
+<path d="M638 704 H684" fill="none" stroke="#6e757e" stroke-width="2" marker-end="url(#g)"/>
+<text x="696" y="708" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#a7adb5">writes to disk</text>
+<rect x="38" y="728" width="46" height="22" rx="6" fill="#0f1113" stroke="#d1fe17" stroke-width="1.6"/>
+<text x="96" y="744" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#a7adb5">core component</text>
+<rect x="338" y="728" width="46" height="22" rx="6" fill="#0f1113" stroke="#9ce6f3" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="396" y="744" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#a7adb5">optional / opt-in component</text>
+<rect x="638" y="728" width="46" height="22" rx="6" fill="#0f1113" stroke="#2a2d31" stroke-width="1.6"/>
+<text x="696" y="744" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#a7adb5">component</text>
+<rect x="938" y="728" width="46" height="22" rx="6" fill="#0f1113" stroke="#2a2d31" stroke-width="1.6" stroke-dasharray="3 6"/>
+<text x="996" y="744" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#a7adb5">lane = trust boundary</text>
+<circle cx="988" cy="704" r="11" fill="#d1fe17"/>
+<text x="988" y="708.5" text-anchor="middle" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="800" fill="#0f1113">1</text>
+<text x="1006" y="708" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#a7adb5">order of events</text>
+<text x="38" y="772" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">Double-headed arrows = request + response. Only GET requests are sent; mutating endpoints (buy, vote, generate…) are never called.</text>
+</svg>

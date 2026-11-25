@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "endpoint": "projects_contest_submissions",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/contests/98d90e17-8e95-4a7f-b9db-633ebb4aea44/submissions?limit=100&ordering=newest",
+    "params": {
+      "limit": "100",
+      "ordering": "newest"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "id": "2cfb485e-ad26-4608-895e-c19b7ad45419",
+        "contest_id": "98d90e17-8e95-4a7f-b9db-633ebb4aea44",
+        "contest_slug": "make-your-action-scene",
+        "type": "folder",
+        "project_id": "98af3542-9164-4278-acd6-44206d5596e7",
+        "user": {
+          "id": "user_fake0022xxxxxxxxxxxxxxxx",
+          "username": "creator21",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "EAGLE EYE",
+        "description": "A rogue AI facility hidden deep in mountain terrain has been identified as a global threat.\nThe US Air Force deploys F-35 stealth fighters to eliminate the target.\nAfter intense aerial dogfights against AI interceptor drones, the final strike missile destroys the underground bunker.\n\nModern air combat. Precision strike. Mission complete.",
+        "thumbnail_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0022xxxxxxxxxxxxxxxx/6b163ab8-399a-4577-84ab-76c782f05e81.png",
+        "thumbnail_id": "6b163ab8-399a-4577-84ab-76c782f05e81",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0022xxxxxxxxxxxxxxxx/3333ed4c-9775-4cb2-90c9-4ba36f552f24.mp4",
+        "video_id": "3333ed4c-9775-4cb2-90c9-4ba36f552f24",
+        "winner_place": null,
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": null,
+        "winner_reviewer_name": null,
+        "winner_reviewer_company": null,
+        "clone_available": false,
+        "likes_count": 19,
+        "dislikes_count": 5,
+        "views_count": 1170,
+        "post_urls": [
+          "https://video.example.test/post/1"
+        ],
+        "social_media_metrics": {
+          "instagram_views": 0,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 0
+        },
+        "total_views": 1170,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": true,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0022xxxxxxxxxxxxxxxx/13892476-294d-4308-83ac-ccc705be8a17.mp4",
+        "publication": null
+      },
+      {
+        "id": "a9740a8c-375f-4096-bec2-1502c0363e48",
+        "contest_id": "98d90e17-8e95-4a7f-b9db-633ebb4aea44",
+        "contest_slug": "make-your-action-scene",
+        "type": "video",
+        "project_id": null,
+        "user": {
+          "id": "user_fake0020xxxxxxxxxxxxxxxx",
+          "username": "creator22",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "Blue — The Long Game",
+        "description": "A film by André Rocha\n\nOn her night off, mercenary Blue intervenes in what appears to be a routine street robbery. A rooftop chase, a six-figure bounty, and a trembling old woman should have ended the night.\n\nBut the details don’t add up.\n\nAs small inconsistencies begin to surface, Blue realizes she may not have stumbled into a crime — she may have walked into something far more deliberate.\n\nIn a city where power hides behind carefully crafted narratives, Blue is about to learn that some encounters are never accidental.",
+        "thumbnail_src": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0020xxxxxxxxxxxxxxxx/hf_20260301_112026_cb4a424c-5973-4c04-986b-02dab96bd337.png",
+        "thumbnail_id": "hf_20260301_112026_cb4a424c-5973-4c04-986b-02dab96bd337",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0020xxxxxxxxxxxxxxxx/11d0086f-da29-4676-9b0b-ab9d4dc89310.mp4",
+        "video_id": "11d0086f-da29-4676-9b0b-ab9d4dc89310",
+        "winner_place": null,
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": null,
+        "winner_reviewer_name": null,
+        "winner_reviewer_company": null,
+        "clone_available": false,
+        "likes_count": 43,
+        "dislikes_count": 15,
+        "views_count": 4818,
+        "post_urls": [
+          "https://video.example.test/post/1"
+        ],
+        "social_media_metrics": {
+          "instagram_views": 0,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 0
+        },
+        "total_views": 4818,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": false,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0020xxxxxxxxxxxxxxxx/341723a9-8c24-444f-8f51-8bb442cc3384.mp4",
+        "publication": null
+      },
+      {
+        "id": "a8a707ee-bc11-4f12-8777-aa9a8c4b5954",
+        "contest_id": "98d90e17-8e95-4a7f-b9db-633ebb4aea44",
+        "contest_slug": "make-your-action-scene",
+        "type": "video",
+        "project_id": null,
+        "user": {
+          "id": "user_fake0021xxxxxxxxxxxxxxxx",
+          "username": "creator23",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "Dillons Mirror",
+        "description": "A curious boy discovers an old mirror in his grandfather’s antique shop , but his reflection has a mind of its own. What begins as a simple find quickly spirals into something dark, unsettling, and impossible to escape.",
+        "thumbnail_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0021xxxxxxxxxxxxxxxx/b4828f71-fbd2-48c7-b596-6fe2b8169bdb.jpg",
+        "thumbnail_id": "b4828f71-fbd2-48c7-b596-6fe2b8169bdb",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0021xxxxxxxxxxxxxxxx/0c3011e1-bb9b-461f-b477-f1b9d344b949.mp4",
+        "video_id": "0c3011e1-bb9b-461f-b477-f1b9d344b949",
+        "winner_place": null,
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": null,
+        "winner_reviewer_name": null,
+        "winner_reviewer_company": null,
+        "clone_available": false,
+        "likes_count": 30,
+        "dislikes_count": 9,
+        "views_count": 2060,
+        "post_urls": [
+          "https://video.example.test/post/1"
+        ],
+        "social_media_metrics": {
+          "instagram_views": 0,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 0
+        },
+        "total_views": 2060,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": false,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0021xxxxxxxxxxxxxxxx/0f7f91bc-71f0-4f0d-b79a-5db01cc715f6.mp4",
+        "publication": null
+      }
+    ],
+    "has_more": true
+  }
+}

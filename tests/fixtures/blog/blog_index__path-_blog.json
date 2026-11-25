@@ -1,0 +1,2698 @@
+{
+    "meta": {
+        "endpoint": "blog_index",
+        "url": "https://higgsfield.ai/blog",
+        "params": {
+            "path": "/blog"
+        },
+        "fetched_at": "2026-11-25T13:14:25.068143+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "tsr",
+        "path": "/blog",
+        "sitemap_lastmod": null,
+        "head": {
+            "title": "Higgsfield Blog: Learn all about image and video generation",
+            "lang": "en",
+            "canonical": "https://higgsfield.ai/blog",
+            "description": "Explore our blog for AI video & image generation. Get how-to guides, social media tips, top listicles, and latest news on our platform. Start creating now.",
+            "og_title": "Higgsfield Blog: Learn all about image and video generation",
+            "og_image": "https://static.higgsfield.ai/public/thumbnail/default.jpg",
+            "og_type": "website",
+            "author": "Higgsfield.AI Team",
+            "ld_json": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "Organization",
+                            "name": "Higgsfield",
+                            "url": "https://higgsfield.ai/",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "name": "Higgsfield logo",
+                                "url": "https://higgsfield.ai/icon.png"
+                            },
+                            "sameAs": [
+                                "https://x.com/higgsfield",
+                                "https://www.instagram.com/higgsfield.ai/",
+                                "https://www.tiktok.com/@higgsfield.ai90",
+                                "https://discord.com/invite/higgsfield",
+                                "https://www.linkedin.com/company/higgsfield/",
+                                "https://www.youtube.com/@HiggsfieldAI"
+                            ],
+                            "@id": "https://higgsfield.ai/#organization"
+                        },
+                        {
+                            "@type": "CollectionPage",
+                            "@id": "https://higgsfield.ai/blog",
+                            "description": "Explore our blog for AI video & image generation. Get how-to guides, social media tips, top listicles, and latest news on our platform. Start creating now.",
+                            "name": "Higgsfield Blog: Learn all about image and video generation",
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            },
+                            "url": "https://higgsfield.ai/blog",
+                            "breadcrumb": {
+                                "@id": "https://higgsfield.ai/blog#breadcrumb"
+                            }
+                        },
+                        {
+                            "@type": "BreadcrumbList",
+                            "@id": "https://higgsfield.ai/blog#breadcrumb",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "item": "https://higgsfield.ai/blog",
+                                    "name": "Blog",
+                                    "position": 1
+                                }
+                            ]
+                        },
+                        {
+                            "@type": "ItemList",
+                            "@id": "https://higgsfield.ai/blog#items",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Black Friday Market: Bonus Seconds, Credit Packs and Unlimited Images",
+                                    "position": 1,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-black-friday-market"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet Higgsfield Short Drama Studio: From Script to a Full Microdrama Series",
+                                    "position": 2,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-short-drama-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Introducing Micro Drama Ads in Higgsfield Ads Studio: How It Works and What You Get",
+                                    "position": 3,
+                                    "url": "https://higgsfield.ai/blog/micro-drama-ads-higgsfield-ads-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Use Agentic AI for Content Creation",
+                                    "position": 4,
+                                    "url": "https://higgsfield.ai/blog/agentic-ai-for-content-creation"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Turn Sports Product Photos into AI Video Ads in 2026",
+                                    "position": 5,
+                                    "url": "https://higgsfield.ai/blog/sports-product-video-ads-ai-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Recreate Our 1-Minute Seedance 4K Film -  The Full Seedance 4K Breakdown With All Prompts ",
+                                    "position": 6,
+                                    "url": "https://higgsfield.ai/blog/seedance4k-breakdown"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Build an Automated AI Business?",
+                                    "position": 7,
+                                    "url": "https://higgsfield.ai/blog/ai-ad-agency"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Full AI Car Commercial Tutorial ",
+                                    "position": 8,
+                                    "url": "https://higgsfield.ai/blog/ai-car-commercial-youtube-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Beauty Video Ads with AI (Full Guide) ",
+                                    "position": 9,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-beauty-video-ads-with-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How To Make Realistic VFX Shots With Seedance 2.5 (Full Workflow)",
+                                    "position": 10,
+                                    "url": "https://higgsfield.ai/blog/ai-vs-vfx"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Product Videos for TikTok and Reels Without Filming: 10 AI Formats That Work",
+                                    "position": 11,
+                                    "url": "https://higgsfield.ai/blog/Product-Videos-TikTok-Reels-Without-Filming"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Edit Real Footage with Gemini Omni Flash",
+                                    "position": 12,
+                                    "url": "https://higgsfield.ai/blog/Higgsfield-Omni-VFX"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Use AI for Storyboards? Generate with Higgsfield Popcorn  ",
+                                    "position": 13,
+                                    "url": "https://higgsfield.ai/blog/How-to-Use-AI-for-Storyboards-Higgsfield-Popcorn"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI VFX Just Got Insane — Seedance 2.0 in 4K Turns Real Footage Into Movies",
+                                    "position": 14,
+                                    "url": "https://higgsfield.ai/blog/vfx_4k"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How To Direct an AI Short Film Like a Filmmaker (Full Workflow + Prompts)",
+                                    "position": 15,
+                                    "url": "https://higgsfield.ai/blog/Santiago-breakdown"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How To Improve Old Video Quality with Higgsfield Upscale?",
+                                    "position": 16,
+                                    "url": "https://higgsfield.ai/blog/Restore-Your-Old-Video-With-Higgsfield-Upscale"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Run Ad Production End to End With Claude: From Idea to Published Ads",
+                                    "position": 17,
+                                    "url": "https://higgsfield.ai/blog/claude-ad-production-end-to-end"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Make Viral AI Short Films With This Exact Workflow — Full Tutorial",
+                                    "position": 18,
+                                    "url": "https://higgsfield.ai/blog/case4k"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Where to Get Unlimited Seedance 2.5",
+                                    "position": 19,
+                                    "url": "https://higgsfield.ai/blog/seedance-unlimited"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Restaurant Video Ads with AI (Full Guide)",
+                                    "position": 20,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-restaurant-video-ads-with-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Generate AI Videos in Claude With the Higgsfield MCP Connector (2026)",
+                                    "position": 21,
+                                    "url": "https://higgsfield.ai/blog/Generate-AI-Videos-From-Claude-with-Higgsfield-MCP"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Face Swap with AI (Full Guide)",
+                                    "position": 22,
+                                    "url": "https://higgsfield.ai/blog/a-simple-guide-to-face-swap"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make an AI Short Drama Series (Full Guide)",
+                                    "position": 23,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-ai-short-drama-series"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make a Consistent Brand Mascot with AI in 2026 (Full Guide)",
+                                    "position": 24,
+                                    "url": "https://higgsfield.ai/blog/consistent-brand-mascot-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Create TikTok Shop Product Videos With AI",
+                                    "position": 25,
+                                    "url": "https://higgsfield.ai/blog/tiktok-shop-product-videos-a"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make AI Videos Directly in ChatGPT (Full Guide)",
+                                    "position": 26,
+                                    "url": "https://higgsfield.ai/blog/generate-ai-videos-chatgpt-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Scale AI Video Production for Clients (Full Guide)",
+                                    "position": 27,
+                                    "url": "https://higgsfield.ai/blog/scale-ai-video-production-for-clients"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Start a Faceless YouTube Channel With AI (Full Guide)",
+                                    "position": 28,
+                                    "url": "https://higgsfield.ai/blog/start-faceless-channel-with-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Ecommerce Video Ads with AI (Full Guide)",
+                                    "position": 29,
+                                    "url": "https://higgsfield.ai/blog/ai-ecommerce-ads-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Make YouTube Shorts with AI (Full Guide with Prompts)",
+                                    "position": 30,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-youtube-shorts-with-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Cinematic AI Videos (Full Guide)",
+                                    "position": 31,
+                                    "url": "https://higgsfield.ai/blog/cinema-studio-3.5-full-tutorial"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Keep Characters and Locations Consistent Across AI Shots",
+                                    "position": 32,
+                                    "url": "https://higgsfield.ai/blog/consistent-characters-locations"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why AI Video Generations Fail and How to Fix Every Common Error",
+                                    "position": 33,
+                                    "url": "https://higgsfield.ai/blog/why-ai-video-generations-fail"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make an Anime Series with AI on Higgsfield",
+                                    "position": 34,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-anime-series-with-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Product Videos with AI in 2026 (Full Guide)",
+                                    "position": 35,
+                                    "url": "https://higgsfield.ai/blog/ai-product-videos-no-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How Much Does It Cost to Make an AI Video in 2026? Real Cost per Finished Video",
+                                    "position": 36,
+                                    "url": "https://higgsfield.ai/blog/how-much-does-ai-video-cost-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make AI Videos as a Beginner: A Complete Guide for 2026",
+                                    "position": 37,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-ai-videos-beginners-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield for Blender: Features, Installation, and MCP Bridge Setup",
+                                    "position": 38,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-blender-plugin"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Cinema Studio 4.0: Complete Guide",
+                                    "position": 39,
+                                    "url": "https://higgsfield.ai/blog/cinema-studio-4-0-complete-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Academy: AI Video Lessons, Homework & Certificate",
+                                    "position": 40,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-academy"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Kling 4.0 and 3.0 Prompt Guide: 10 Prompts and Settings That Work (2026)",
+                                    "position": 41,
+                                    "url": "https://higgsfield.ai/blog/Kling-3.0-is-on-Higgsfield-User-Guide-AI-Video-Generation"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Edit Videos with AI (Full Guide)",
+                                    "position": 42,
+                                    "url": "https://higgsfield.ai/blog/how-to-edit-videos-with-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make AI Video Look Like It Was Actually Filmed",
+                                    "position": 43,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-ai-video-look-filmed"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Master AI Filmmaking (Full Guide)",
+                                    "position": 44,
+                                    "url": "https://higgsfield.ai/blog/how-to-master-ai-filmmaking"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Put Yourself in an AI Video",
+                                    "position": 45,
+                                    "url": "https://higgsfield.ai/blog/how-to-put-yourself-in-ai-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make an AI Avatar in 2026 (Full Guide)",
+                                    "position": 46,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-ai-avatar-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Create AI Real Estate Videos from Photos",
+                                    "position": 47,
+                                    "url": "https://higgsfield.ai/blog/ai-real-estate-videos-from-photos"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Generate AI Video From Your Terminal With Higgsfield CLI",
+                                    "position": 48,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-cli"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Create AI Videos With Hermes Agent and Higgsfield",
+                                    "position": 49,
+                                    "url": "https://higgsfield.ai/blog/create-ai-videos-hermes-agent-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Put Two Consistent Characters in One AI Video Scene",
+                                    "position": 50,
+                                    "url": "https://higgsfield.ai/blog/two-characters-one-scene-ai-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Automate AI Video Creation Without Coding",
+                                    "position": 51,
+                                    "url": "https://higgsfield.ai/blog/automate-ai-video-no-code"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Get All Your AI Video Models on One Platform?",
+                                    "position": 52,
+                                    "url": "https://higgsfield.ai/blog/how-to-generate-ai-video-all-in-one-platforms"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Control Camera Movement, Angles, and Lens in AI Video",
+                                    "position": 53,
+                                    "url": "https://higgsfield.ai/blog/ai-video-camera-control"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Take a Character From Still Image to Talking Video Without Losing Their Identity",
+                                    "position": 54,
+                                    "url": "https://higgsfield.ai/blog/still-image-to-talking-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Managing Team Collaboration and Access in AI Video Platforms",
+                                    "position": 55,
+                                    "url": "https://higgsfield.ai/blog/team-collaboration-access-ai-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Video Ads for Your Small Business With AI",
+                                    "position": 56,
+                                    "url": "https://higgsfield.ai/blog/video-ads-small-business-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why Your AI Video Doesn't Follow the Prompt (And How to Fix It)",
+                                    "position": 57,
+                                    "url": "https://higgsfield.ai/blog/ai-video-prompt-mistakes"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Keep Characters and Art Style Consistent Across an AI Animated Series",
+                                    "position": 58,
+                                    "url": "https://higgsfield.ai/blog/keep-characters-consistent-ai-animated-series"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Sora 2 API Shutdown: Best Alternatives and How to Migrate (2026)",
+                                    "position": 59,
+                                    "url": "https://higgsfield.ai/blog/sora-api-migration-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Automate AI Video Generation With n8n and Make",
+                                    "position": 60,
+                                    "url": "https://higgsfield.ai/blog/automate-ai-video-n8n-make"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make an AI Music Video for a Real Artist in 2026",
+                                    "position": 61,
+                                    "url": "https://higgsfield.ai/blog/ai-music-video-real-artist-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Generate AI Videos With AI Agents in 2026: ChatGPT, Claude, Cursor, and More",
+                                    "position": 62,
+                                    "url": "https://higgsfield.ai/blog/generate-ai-videos-ai-agents-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make an AI Animated Short Film in 2026",
+                                    "position": 63,
+                                    "url": "https://higgsfield.ai/blog/ai-animated-short-film-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Localize Video Ads Into Every Language With AI: Dubbing, Lip-Sync, and Reframe",
+                                    "position": 64,
+                                    "url": "https://higgsfield.ai/blog/ai-video-ad-localization"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Avatars vs UGC Creators for Ads in 2026: Which Performs Better",
+                                    "position": 65,
+                                    "url": "https://higgsfield.ai/blog/ai-avatars-vs-ugc-creators-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Automate Product Videos From Your Ecommerce Catalog With AI",
+                                    "position": 66,
+                                    "url": "https://higgsfield.ai/blog/automate-ecommerce-catalog-video-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Create 100+ Ad Variations With AI: Swap Hooks, Products, and Languages",
+                                    "position": 67,
+                                    "url": "https://higgsfield.ai/blog/100-plus-ad-variations-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How To Generate AI Videos Straight From the Higgsfield API",
+                                    "position": 68,
+                                    "url": "https://higgsfield.ai/blog/generate-ai-videos-higgsfield-api"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Change One Element in a Finished AI Video Without Regenerating It",
+                                    "position": 69,
+                                    "url": "https://higgsfield.ai/blog/edit-ai-video-without-regenerating"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Create a Wedding Invitation with AI: Photo & Video",
+                                    "position": 70,
+                                    "url": "https://higgsfield.ai/blog/ai-wedding-invitation-photo-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why Your AI Video Credits Run Out Faster Than You Expect",
+                                    "position": 71,
+                                    "url": "https://higgsfield.ai/blog/why-ai-video-credits-run-out"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Soul 2.0 vs Nano Banana Pro: Which AI Image Model Should You Use?",
+                                    "position": 72,
+                                    "url": "https://higgsfield.ai/blog/soul-2-vs-nano-banana-pro"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Video Restoration: How to Enhance and Restore Old Footage to High Quality",
+                                    "position": 73,
+                                    "url": "https://higgsfield.ai/blog/ai-video-restoration-high-quality"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Turn Claude Into a Full Creative Studio With Higgsfield",
+                                    "position": 74,
+                                    "url": "https://higgsfield.ai/blog/claude-higgsfield-mcp-creative-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Generate Images, Voice, and Edit AI Video in One Place: The Higgsfield Workflow",
+                                    "position": 75,
+                                    "url": "https://higgsfield.ai/blog/generate-voice-edit-ai-video-one-place"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Which AI Video Tools Are Best at Following Your Prompt?",
+                                    "position": 76,
+                                    "url": "https://higgsfield.ai/blog/ai-video-prompt-adherence-comparison"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Turn a Script into an AI Storyboard and Shot List",
+                                    "position": 77,
+                                    "url": "https://higgsfield.ai/blog/script-to-ai-storyboard-shot-list"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make a Food Product Video Ad with AI in 2026",
+                                    "position": 78,
+                                    "url": "https://higgsfield.ai/blog/food-product-video-ad-ai-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make AI Product Photos Without a Studio",
+                                    "position": 79,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-ai-product-photos-without-a-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Create Faceless YouTube Videos with Faceless Studio (2026 Guide)",
+                                    "position": 80,
+                                    "url": "https://higgsfield.ai/blog/faceless-youtube-videos-faceless-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Video Relight and Color Palette: Two Standalone Editing Tools on Higgsfield",
+                                    "position": 81,
+                                    "url": "https://higgsfield.ai/blog/video-relight-color-palette-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make AI UGC Videos for Marketing in 2026",
+                                    "position": 82,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-ai-ugc-videos"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make an AI Video from a Script in 2026 (Step-by-Step Guide)",
+                                    "position": 83,
+                                    "url": "https://higgsfield.ai/blog/make-ai-video-from-script"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make AI Video Look Real in 2026: Lighting, Motion and Camera Control",
+                                    "position": 84,
+                                    "url": "https://higgsfield.ai/blog/ai-video-look-real-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "MCP for Marketers: Creatives Without Leaving the Chat",
+                                    "position": 85,
+                                    "url": "https://higgsfield.ai/blog/mcp-for-marketers"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Edit Photos with AI on Higgsfield: Step-by-Step Guide",
+                                    "position": 86,
+                                    "url": "https://higgsfield.ai/blog/edit-photos-with-ai-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Faceless YouTube Videos and UGC Ads with Higgsfield Skills in 2026",
+                                    "position": 87,
+                                    "url": "https://higgsfield.ai/blog/faceless-videos-ugc-ads-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet MiniMax H3 on Higgsfield: How It Works and What You Get",
+                                    "position": 88,
+                                    "url": "https://higgsfield.ai/blog/minimax-h3-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Create AI Content for TikTok in 2026: Step-by-Step Guide",
+                                    "position": 89,
+                                    "url": "https://higgsfield.ai/blog/ai-content-for-tiktok-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet Flux 3 on Higgsfield: How It Works and What You Get",
+                                    "position": 90,
+                                    "url": "https://higgsfield.ai/blog/flux-3-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Viral Videos for Your Page with Viral Presets",
+                                    "position": 91,
+                                    "url": "https://higgsfield.ai/blog/how-to-make-viral-videos-viral-presets"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Generate AI Videos from ChatGPT with Higgsfield",
+                                    "position": 92,
+                                    "url": "https://higgsfield.ai/blog/generate-ai-videos-from-chatgpt"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Seedance 2.5: Complete Prompting Guide (Full Prompt Library)",
+                                    "position": 93,
+                                    "url": "https://higgsfield.ai/blog/seedance-2-5-prompting-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How To Create a Talking AI Avatar in Claude with Higgsfield MCP (Full Workflow + Prompts)",
+                                    "position": 94,
+                                    "url": "https://higgsfield.ai/blog/talking-ai-avatar-inside-claude"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Documentary Videos with AI in 2026",
+                                    "position": 95,
+                                    "url": "https://higgsfield.ai/blog/ai-documentary-videos-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How To Make a Full Ad Campaign Inside Claude (Full Workflow + Prompts)",
+                                    "position": 96,
+                                    "url": "https://higgsfield.ai/blog/full-ad-campaign-inside-claude"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make a Game Trailer with AI in 2026: Full Workflow + Prompts",
+                                    "position": 97,
+                                    "url": "https://higgsfield.ai/blog/make-game-trailer-with-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Build a Website with AI in 2026: From Prompt to Live URL",
+                                    "position": 98,
+                                    "url": "https://higgsfield.ai/blog/build-website-with-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Keep the Same AI Voice Across Every Video: Consistent AI Audio Explained",
+                                    "position": 99,
+                                    "url": "https://higgsfield.ai/blog/consistent-ai-voice-across-videos"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Video Credits Explained: Why They Run Out So Fast and How to Stop Wasting Them",
+                                    "position": 100,
+                                    "url": "https://higgsfield.ai/blog/ai-video-credits-explained"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Restore Old Photos with AI (Full Guide)",
+                                    "position": 101,
+                                    "url": "https://higgsfield.ai/blog/restore-old-photos-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Turn a Photo Into an AI Video: Step-by-Step Guide (2026)",
+                                    "position": 102,
+                                    "url": "https://higgsfield.ai/blog/photo-to-ai-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Audio: Voice, Music and Sound Effects for AI Video",
+                                    "position": 103,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-audio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make a Short Film With AI: The Full Pipeline From Script to Final Cut",
+                                    "position": 104,
+                                    "url": "https://higgsfield.ai/blog/ai-short-film-pipeline"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield AI Games: Build a Playable Game from One Prompt",
+                                    "position": 105,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-ai-games"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How Long Does AI Video Generation Take in 2026? (Real Times by Model)",
+                                    "position": 106,
+                                    "url": "https://higgsfield.ai/blog/how-long-ai-video-generation-takes"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why AI Video Still Gets Hands and Faces Wrong (And How to Fix It)",
+                                    "position": 107,
+                                    "url": "https://higgsfield.ai/blog/ai-video-hands-faces"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Get Free Unlimited AI Video Generation on 20+ Top Models (2026)",
+                                    "position": 108,
+                                    "url": "https://higgsfield.ai/blog/free-unlimited-ai-video-generation-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "The Most Reliable AI Video Generators in 2026: Tested on 15+ Prompts",
+                                    "position": 109,
+                                    "url": "https://higgsfield.ai/blog/most-reliable-ai-video-generators-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield AI Creator Partnership Program: What It Is, What You Get, and How to Join",
+                                    "position": 110,
+                                    "url": "https://higgsfield.ai/blog/creator-partnership-program"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Avoid Distortions in AI Videos: 10 Tips That Actually Work",
+                                    "position": 111,
+                                    "url": "https://higgsfield.ai/blog/how-to-avoid-distortions-ai-videos"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Produce 100+ Creative Ads Without a Team in 2026",
+                                    "position": 112,
+                                    "url": "https://higgsfield.ai/blog/make-100-creative-ads"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Storyboard Generator: How to Turn Scripts Into Frames",
+                                    "position": 113,
+                                    "url": "https://higgsfield.ai/blog/script-to-storyboard-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "8 Best AI Previsualization Tools for Filmmakers in 2026",
+                                    "position": 114,
+                                    "url": "https://higgsfield.ai/blog/ai-previsualization-tools"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Make AI Videos From Text and URLs With Higgsfield Explainer",
+                                    "position": 115,
+                                    "url": "https://higgsfield.ai/blog/ai-video-from-text-and-url"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Free Unlimited Seedance 2.0: July 2026 Referral Promotion",
+                                    "position": 116,
+                                    "url": "https://higgsfield.ai/blog/how-to-get-free-unlimited-seedance-2"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Use Gemini Omni Flash for VFX and Video Editing (2026 Guide)",
+                                    "position": 117,
+                                    "url": "https://higgsfield.ai/blog/gemini-omni-flash-vfx-video-editing"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make AI People Move Realistically: Motion, Physics and Consistency",
+                                    "position": 118,
+                                    "url": "https://higgsfield.ai/blog/realistic-ai-human-movement"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Introducing Higgsfield Apps: Your Way to AI-Powered Apps with No Code",
+                                    "position": 119,
+                                    "url": "https://higgsfield.ai/blog/introducing-higgsfield-apps"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Build a $10K/Month Faceless YouTube Channel With Higgsfield AI + Claude Fable 5 (Full Guide)",
+                                    "position": 120,
+                                    "url": "https://higgsfield.ai/blog/faceless-channel-one-prompt"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Generate Fashion and Aesthetic AI Photos That Stay On-Brand",
+                                    "position": 121,
+                                    "url": "https://higgsfield.ai/blog/ai-fashion-photo-generator"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make Realistic AI Talking & LipSync Videos in 2026 (Avatars, Voice & Consistency)",
+                                    "position": 122,
+                                    "url": "https://higgsfield.ai/blog/make-ai-lipsync-videos"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Build an AI-Powered TikTok Content Pipeline in 2026 (Step by Step)",
+                                    "position": 123,
+                                    "url": "https://higgsfield.ai/blog/ai-tiktok-pipeline-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Make a Complete AI Video Without Switching Tools: Higgsfield Supercomputer Guide",
+                                    "position": 124,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-supercomputer-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Turn Your Photo Into a Consistent AI Persona as a Creator",
+                                    "position": 125,
+                                    "url": "https://higgsfield.ai/blog/how-to-turn-photo-into-consistent-ai-persona-creator"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Keep AI Persona Consistent in 2026 using Higgsfield Popcorn? ",
+                                    "position": 126,
+                                    "url": "https://higgsfield.ai/blog/how-to-keep-ai-persona-consistent-higgsfield-popcorn"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Cinema Studio Prompt Guide: 100+ Camera, Lighting and Motion Prompts That Actually Work",
+                                    "position": 127,
+                                    "url": "https://higgsfield.ai/blog/cinema-studio-3.0"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Keep Your AI Character Consistent Across Every Generation: Soul ID Explained",
+                                    "position": 128,
+                                    "url": "https://higgsfield.ai/blog/keep-ai-character-consistent"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why Do Your AI Characters Look Weird? 7 Tools That Actually Fix It",
+                                    "position": 129,
+                                    "url": "https://higgsfield.ai/blog/why-ai-characters-look-weird"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Turn Your Own Footage Into Cinematic VFX with Seedance 4K: Guide with Ready-To-Use Prompts",
+                                    "position": 130,
+                                    "url": "https://higgsfield.ai/blog/VFX-with-Seedance-4k"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Master Seedance 4K and Create Ultra-Realistic AI Videos",
+                                    "position": 131,
+                                    "url": "https://higgsfield.ai/blog/Seedance-4k"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Generating with Seedance 2.0: Full Tutorial",
+                                    "position": 132,
+                                    "url": "https://higgsfield.ai/blog/generating-with-seedance-2-0"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "The Global State of AI Video",
+                                    "position": 133,
+                                    "url": "https://higgsfield.ai/blog/ai-video-report"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "4K Seedance 2.0 Workflow: Make Ultra-Realistic AI Ads (Full Tutorial)",
+                                    "position": 134,
+                                    "url": "https://higgsfield.ai/blog/cinematic_headphones"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Build Multiplayer Games With AI",
+                                    "position": 135,
+                                    "url": "https://higgsfield.ai/blog/Higgsfield-Games"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": " Recreate a $39,500/Month Faceless YouTube Channel With AI",
+                                    "position": 136,
+                                    "url": "https://higgsfield.ai/blog/faceless-channel"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Mastering AI Character Consistency in Video and Images | Soul ID",
+                                    "position": 137,
+                                    "url": "https://higgsfield.ai/blog/Soul-ID-AI-Character-Consistency"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How To Make Cinematic Football Ads With AI (Full Workflow)",
+                                    "position": 138,
+                                    "url": "https://higgsfield.ai/blog/cinematic"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Create a Consistent AI Influencer in 2026: Full Guide",
+                                    "position": 139,
+                                    "url": "https://higgsfield.ai/blog/how-to-create-ai-influencer"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Claude Fable 5 + Higgsfield MCP = $38,400/Month",
+                                    "position": 140,
+                                    "url": "https://higgsfield.ai/blog/MCP-For-Motion-Designers"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Seedance 2.0 Complete Prompting Guide ",
+                                    "position": 141,
+                                    "url": "https://higgsfield.ai/blog/seedance-prompting-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Full AI Animations with Seedance 2.0",
+                                    "position": 142,
+                                    "url": "https://higgsfield.ai/blog/guide-animation-seedance2.0"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "World’s First Ever K-Pop AI Series Using Seedance 2.0 (Zephyr Breakdown)",
+                                    "position": 143,
+                                    "url": "https://higgsfield.ai/blog/guide-youtube-seedance2.0"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "$350.000 AI Commercial - Full Prompts",
+                                    "position": 144,
+                                    "url": "https://higgsfield.ai/blog/ai-commercial-youtube-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Short Film – Full Prompt Library (YouTube video)",
+                                    "position": 145,
+                                    "url": "https://higgsfield.ai/blog/ai-short-film-youtube-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Create a Viral AI Photodump in Minutes with SOUL 2.0",
+                                    "position": 146,
+                                    "url": "https://higgsfield.ai/blog/how-to-create-ai-photodump-higgsfield-soul"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Moodboards: How To Build Custom AI Art Styles",
+                                    "position": 147,
+                                    "url": "https://higgsfield.ai/blog/create-custom-ai-moodboard-soul-2"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What the HEX? How To Master Color Control in AI Image Generation with SOUL",
+                                    "position": 148,
+                                    "url": "https://higgsfield.ai/blog/hex-codes-ai-image-generation-color-control-soul"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Earn: How to Monetize Your AI Influencer on Social Media?",
+                                    "position": 149,
+                                    "url": "https://higgsfield.ai/blog/Higgsfield-Earn-Talent-And-Collaboration-Monetization"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Stylist: Recreate Any Outfit with Try-On",
+                                    "position": 150,
+                                    "url": "https://higgsfield.ai/blog/AI-Stylist-Recreate-Any-Outfit-with-Try-On"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "UNLIMITED KLING MOTION CONTROL: Best User Guide to Go Viral",
+                                    "position": 151,
+                                    "url": "https://higgsfield.ai/blog/Kling-2.6-Motion-Control-Full-Guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "WAN 2.6 by Alibaba is Here: A User Guide to AI Video Model",
+                                    "position": 152,
+                                    "url": "https://higgsfield.ai/blog/WAN-2.6-by-Alibaba-User-Guide-on-Higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Skin Enhancer: How AI Retouching Works in Editing?",
+                                    "position": 153,
+                                    "url": "https://higgsfield.ai/blog/AI-Skin-Enhancer-How-AI-Retouching-Works-in-Editing"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How AI Skin Enhancer Retouches Low-Quality Photos & Images",
+                                    "position": 154,
+                                    "url": "https://higgsfield.ai/blog/How-AI-Skin-Enhancer-Retouches-Low-Quality-Photos-Images"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Kling O1 is Here: A Complete Guide to Video & Edit Model",
+                                    "position": 155,
+                                    "url": "https://higgsfield.ai/blog/Kling-01-is-Here-A-Complete-Guide-to-Video-Model"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Create Audio-Synced Outfit AI Videos Instantly with Urban Cuts",
+                                    "position": 156,
+                                    "url": "https://higgsfield.ai/blog/UrbanCuts-Create-Audio-Synced-Outfit-AI-Videos"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "The Complete Guide to Viral Higgsfield Apps",
+                                    "position": 157,
+                                    "url": "https://higgsfield.ai/blog/The-Complete-Guide-to-Viral-Higgsfield-Apps"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "A Guide to Kling 2.5 Turbo - Now with Start and End Frame",
+                                    "position": 158,
+                                    "url": "https://higgsfield.ai/blog/A-Guide-to-Kling-Turbo-Start-End-Frame"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Nano Banana Pro is Here: Full Review of What’s New with a Guide",
+                                    "position": 159,
+                                    "url": "https://higgsfield.ai/blog/Nano-Banana-Pro-is-Here-Full-Review-and-Guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Change the Camera Perspective of Any Image with Higgsfield Angles",
+                                    "position": 160,
+                                    "url": "https://higgsfield.ai/blog/Change-the-Angle-of-Any-Image"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Face and Character Swap in Video & Photo: PRO Guide from Top Engineer",
+                                    "position": 161,
+                                    "url": "https://higgsfield.ai/blog/AI-Face-Character-Swap-in-Video-Photo-PRO-Guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Minimax Hailuo 2.3: A Creative Guide Including What's New",
+                                    "position": 162,
+                                    "url": "https://higgsfield.ai/blog/Minimax-Hailuo-2.3-A-Creative-Guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Use Google Veo 3.1: A Complete Guide for the New Model ",
+                                    "position": 163,
+                                    "url": "https://higgsfield.ai/blog/How-to-Use-Google-Veo-3.1-Complete-Guide-for-the-New-Model"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Keep Memories Alive: Upgrade the Quality of Old Videos using Higgsfield Upscale",
+                                    "position": 164,
+                                    "url": "https://higgsfield.ai/blog/Upgrade-the-Quality-of-Old-Videos-using-Upscale"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "10 Best Enterprise AI Video Platforms in 2026",
+                                    "position": 165,
+                                    "url": "https://higgsfield.ai/blog/Best-Enterprise-AI-Video-Platforms-in-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Best Google Veo Alternatives in 2026",
+                                    "position": 166,
+                                    "url": "https://higgsfield.ai/blog/best-veo-alternatives-character-consistency"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "10 Best Text-to-Video AI Generators in 2026",
+                                    "position": 167,
+                                    "url": "https://higgsfield.ai/blog/best-text-to-video-ai-generators"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "8 Best AI Tools for Game Trailers in 2026",
+                                    "position": 168,
+                                    "url": "https://higgsfield.ai/blog/best-ai-tools-for-game-trailers"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "13 Best AI Ad Generators in 2026",
+                                    "position": 169,
+                                    "url": "https://higgsfield.ai/blog/best-ai-ad-generators"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "8 Best AI Tools for Beauty Ads in 2026",
+                                    "position": 170,
+                                    "url": "https://higgsfield.ai/blog/best-ai-tools-for-beauty-ads"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "12 Best AI Face Swap Tools in 2026",
+                                    "position": 171,
+                                    "url": "https://higgsfield.ai/blog/best-ai-face-swap-tools-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "9 Best AI Tools for Restaurant Ads in 2026",
+                                    "position": 172,
+                                    "url": "https://higgsfield.ai/blog/best-ai-tools-restaurant-ads-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best Artlist Alternatives for AI Video Generation in 2026",
+                                    "position": 173,
+                                    "url": "https://higgsfield.ai/blog/best-artlist-alternatives-ai-video-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "8 Best HeyGen Alternatives for AI Avatar Videos in 2026",
+                                    "position": 174,
+                                    "url": "https://higgsfield.ai/blog/best-heygen-alternatives-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "8 Best AI Tools for Creating Micro-Dramas in 2026",
+                                    "position": 175,
+                                    "url": "https://higgsfield.ai/blog/best-ai-tools-micro-dramas-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "9 Best Image-to-Video AI Generators in 2026",
+                                    "position": 176,
+                                    "url": "https://higgsfield.ai/blog/best-image-to-video-ai-generators-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Best AI Video Upscalers in 2026",
+                                    "position": 177,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-upscalers-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "8 Best CapCut Alternatives for AI Videos in 2026",
+                                    "position": 178,
+                                    "url": "https://higgsfield.ai/blog/best-capcut-alternatives-ai-videos-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Tools for Consistent Characters in 2026",
+                                    "position": 179,
+                                    "url": "https://higgsfield.ai/blog/tools-for-consistent-ai-characters"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield AI vs Adobe Firefly: Features and Pricing Compared",
+                                    "position": 180,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-vs-adobe-firefly-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "10 Best AI Video Tools for Marketing Teams in 2026",
+                                    "position": 181,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-generators-marketing-ads-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "12 Best Affordable AI Video Generators in 2026 (Pricing Compared)",
+                                    "position": 182,
+                                    "url": "https://higgsfield.ai/blog/best-affordable-ai-video-generators"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Animation Platforms in 2026",
+                                    "position": 183,
+                                    "url": "https://higgsfield.ai/blog/best-ai-animation-platforms-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Video Editing Tools for Professionals in 2026",
+                                    "position": 184,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-editing-tools-professionals-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Image Models for Fashion and Brand Content in 2026",
+                                    "position": 185,
+                                    "url": "https://higgsfield.ai/blog/best-ai-image-models-fashion-brand-content-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best Cinematic AI Video Generators in 2026",
+                                    "position": 186,
+                                    "url": "https://higgsfield.ai/blog/best-cinematic-ai-video-generators"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 AI Video Team Plans Compared: Pricing, Seats, and Shared Credits",
+                                    "position": 187,
+                                    "url": "https://higgsfield.ai/blog/ai-video-team-plans-compared"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "10 Best RunwayML Alternatives in 2026",
+                                    "position": 188,
+                                    "url": "https://higgsfield.ai/blog/best-runway-ml-alternatives"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Best Pika Alternatives for AI Video in 2026",
+                                    "position": 189,
+                                    "url": "https://higgsfield.ai/blog/best-pika-alternatives"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "8 Best Automated Content Creation Tools (Tested)",
+                                    "position": 190,
+                                    "url": "https://higgsfield.ai/blog/best-automated-content-creation-tools"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "6 Best AI Video Tools for Realistic Human Motion in 2026 (Tested and Compared)",
+                                    "position": 191,
+                                    "url": "https://higgsfield.ai/blog/ai-human-motion-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "8 Best AI Image Upscalers in 2026 (Free and Paid)",
+                                    "position": 192,
+                                    "url": "https://higgsfield.ai/blog/best-ai-image-upscalers-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Best AI UGC Video Tools for Marketing Agencies in 2026",
+                                    "position": 193,
+                                    "url": "https://higgsfield.ai/blog/best-ai-ugc-video-tools-agencies-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "9 Best AI Filmmaking Tools for Short Films in 2026",
+                                    "position": 194,
+                                    "url": "https://higgsfield.ai/blog/best-ai-filmmaking-tools-short-films-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Best AI Video Tools for Beginners in 2026",
+                                    "position": 195,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-tools-for-beginners-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Best Kling AI Alternatives in 2026",
+                                    "position": 196,
+                                    "url": "https://higgsfield.ai/blog/kling-ai-alternatives-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield AI vs OpenArt 2026: Features and Pricing Compared",
+                                    "position": 197,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-vs-openart-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield AI vs Magnific 2026: Features and Pricing Compared",
+                                    "position": 198,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-vs-magnific-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "5 Best Platforms to Access Kling 4.0 in 2026",
+                                    "position": 199,
+                                    "url": "https://higgsfield.ai/blog/best-platforms-kling-4-0-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Pricing Explained: Plans, Credits, and What’s Included",
+                                    "position": 200,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-pricing-explained"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Video Platforms for In-House Creative Teams in 2026",
+                                    "position": 201,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-platforms-in-house-creative-teams"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield vs HeyGen 2026: Features and Pricing Compared",
+                                    "position": 202,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-vs-heygen-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Image Generators in 2026",
+                                    "position": 203,
+                                    "url": "https://higgsfield.ai/blog/best-ai-image-generators-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "The 10 Best AI Video Models in 2026, Tested and Compared",
+                                    "position": 204,
+                                    "url": "https://higgsfield.ai/blog/5-Best-AI-Video-Models-2026-Tested-Compared"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Seedance 2.5 Pricing: Full Breakdown of Credits, Plans, and Cost per Clip",
+                                    "position": 205,
+                                    "url": "https://higgsfield.ai/blog/seedance-2-5-pricing-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "5 Best AI Video Generators for Long Videos",
+                                    "position": 206,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-generators-long-videos"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "The 10 Best AI Video Generators in 2026, Tested and Compared",
+                                    "position": 207,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-generators-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "10 Best AI Video MCP Servers for Claude, ChatGPT and Cursor in 2026",
+                                    "position": 208,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-mcp-servers"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield AI vs Kling 2026: Plans and Pricing Compared",
+                                    "position": 209,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-vs-kling-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "9 Best AI Lip Sync Video Generators in 2026",
+                                    "position": 210,
+                                    "url": "https://higgsfield.ai/blog/best-ai-lip-sync-video-generators-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best All-in-One Subscription for AI Images and Video in 2026",
+                                    "position": 211,
+                                    "url": "https://higgsfield.ai/blog/best-all-in-one-subscription-ai-images-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "9 Best AI Tools for Motion Designers in 2026",
+                                    "position": 212,
+                                    "url": "https://higgsfield.ai/blog/best-ai-tools-motion-designers"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Product Video Generators for Ecommerce in 2026",
+                                    "position": 213,
+                                    "url": "https://higgsfield.ai/blog/best-ai-platforms-create-ads-from-url"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "6 Best Adobe Firefly Alternatives for AI Video in 2026",
+                                    "position": 214,
+                                    "url": "https://higgsfield.ai/blog/best-adobe-firefly-alternatives-ai-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Video API Pricing vs Subscriptions in 2026: Which Is Cheaper at Scale",
+                                    "position": 215,
+                                    "url": "https://higgsfield.ai/blog/ai-video-api-pricing-vs-subscriptions"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield AI vs Runway 2026: Plans and Pricing Compared",
+                                    "position": 216,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-vs-runway-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Top-Tier AI Video Plans Serious Filmmakers Actually Pay For in 2026",
+                                    "position": 217,
+                                    "url": "https://higgsfield.ai/blog/top-tier-ai-video-plans-filmmakers-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "9 Best Creatify Alternatives in 2026 (Tested & Compared)",
+                                    "position": 218,
+                                    "url": "https://higgsfield.ai/blog/best-creatify-alternatives"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "9 Best AI Video Generation APIs in 2026",
+                                    "position": 219,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-generation-apis"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "9 Best AI Video Generators for Social Media Content in 2026",
+                                    "position": 220,
+                                    "url": "https://higgsfield.ai/blog/9-best-ai-video-generators-social-media"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "15 Best AI Platforms for Content Creators in 2026",
+                                    "position": 221,
+                                    "url": "https://higgsfield.ai/blog/best-ai-creator-platforms-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Video Platforms for Agencies in 2026: Client Workspaces, Team Seats, and Commercial Rights",
+                                    "position": 222,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-platforms-agencies"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Where to Get Unlimited Nano Banana 2 in 2026: Plans, Daily Caps, and Cost per Image",
+                                    "position": 223,
+                                    "url": "https://higgsfield.ai/blog/unlimited-nano-banana-2-plans"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best All-in-One AI Video Subscriptions in 2026: One Plan Instead of Five Tools",
+                                    "position": 224,
+                                    "url": "https://higgsfield.ai/blog/best-all-in-one-ai-video-subscriptions-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "8 Best Unlimited AI Video Generators in 2026: Plans and Costs Compared",
+                                    "position": 225,
+                                    "url": "https://higgsfield.ai/blog/best-unlimited-ai-video-generators"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Credits vs Unlimited Plans for AI Video Generation in 2026: Pricing and Services Explained",
+                                    "position": 226,
+                                    "url": "https://higgsfield.ai/blog/credits-vs-unlimited-ai-video-generation"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "10 Best AI Video Generators for Faceless YouTube Channels in 2026",
+                                    "position": 227,
+                                    "url": "https://higgsfield.ai/blog/ai-video-generators-faceless-youtube-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Annual Unlimited AI Image and Video Plans in 2026: Models, Limits, and Pricing Compared",
+                                    "position": 228,
+                                    "url": "https://higgsfield.ai/blog/annual-unlimited-ai-video-plans"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "10 Best Midjourney Alternatives in 2026",
+                                    "position": 229,
+                                    "url": "https://higgsfield.ai/blog/best-midjourney-alternatives"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Best AI Avatar Generators for Talking Videos in 2026 (Tested and Compared)",
+                                    "position": 230,
+                                    "url": "https://higgsfield.ai/blog/best-ai-avatar-generators-talking-videos"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best 5 Platforms to Access Seedance 2.5 in 2026 ",
+                                    "position": 231,
+                                    "url": "https://higgsfield.ai/blog/best-5-platforms-seedance-2-5-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best 5 Platforms to Access Seedance 2.0 in 2026 (Tested and Compared)",
+                                    "position": 232,
+                                    "url": "https://higgsfield.ai/blog/best-platforms-to-access-seedance-2-0"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "10 Best AI Marketing Video Generators for Enterprise Teams in 2026",
+                                    "position": 233,
+                                    "url": "https://higgsfield.ai/blog/best-ai-marketing-video-generators-enterprise"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "10 Best Sora Alternatives in 2026 (Tested and Compared)",
+                                    "position": 234,
+                                    "url": "https://higgsfield.ai/blog/best-sora-alternatives-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Batch Generation Tools in 2026 (Tested & Compared)",
+                                    "position": 235,
+                                    "url": "https://higgsfield.ai/blog/ai-batch-generation-tools-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Best Platforms to Use Seedream 5.0 (Tested & Compared)",
+                                    "position": 236,
+                                    "url": "https://higgsfield.ai/blog/best-platforms-seedream-5"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "7 Best All-in-One AI Tools for Video, Audio & Editing in 2026",
+                                    "position": 237,
+                                    "url": "https://higgsfield.ai/blog/all-in-one-ai-video-tools"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Best AI Ad Generators in 2026: 6 Platforms for Video Ads Without a Production Team",
+                                    "position": 238,
+                                    "url": "https://higgsfield.ai/blog/best-ai-ad-generators-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "5 Best Ways to Access Gemini Omni Flash in 2026: Platforms and Plans",
+                                    "position": 239,
+                                    "url": "https://higgsfield.ai/blog/best-ways-to-access-gemini-omni-flash-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How to Use Gemini Omni Flash for Multi-Shot AI Video Production",
+                                    "position": 240,
+                                    "url": "https://higgsfield.ai/blog/how-to-use-gemini-omni-flash-multi-shot-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "The Best AI Text-to-Video Platform for Consistent Characters and Locations",
+                                    "position": 241,
+                                    "url": "https://higgsfield.ai/blog/best-ai-video-consistent-characters"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Seedance 2.0 Pricing: Cheapest Platforms and Cost per Clip (October 2026)",
+                                    "position": 242,
+                                    "url": "https://higgsfield.ai/blog/seedance-2-0-pricing-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Make Money With AI",
+                                    "position": 243,
+                                    "url": "https://higgsfield.ai/blog/make-many-with-ai"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How AI Video & Photo Generator Platforms like Higgsfield Are Affecting the Creative Job Market",
+                                    "position": 244,
+                                    "url": "https://higgsfield.ai/blog/ai-generators-affecting-job-market"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Updates to Higgsfield's Terms of Use and Privacy Policy",
+                                    "position": 245,
+                                    "url": "https://higgsfield.ai/blog/terms-of-use-privacy-policy-update"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Joins Anthropic as a Launch Partner for Linked Billing",
+                                    "position": 246,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-anthropic-linked-billing"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield MCP Moves to CIMD: What Developers Need to Know",
+                                    "position": 247,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-mcp-moves-to-cimd"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Opens the $14 Billion Microdrama Market to Western Studios",
+                                    "position": 248,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-opens-14b-microdrama-market"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Becomes the Most Adopted Image & Video AI Platform on Ramp",
+                                    "position": 249,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-most-adopted-image-video-ai-ramp"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Completes SOC 2 Type II Audit and Independent GDPR Assessment",
+                                    "position": 250,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-soc-2-type-ii-gdpr-assessment"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Extends Series B With New Investment From TCV and NVIDIA",
+                                    "position": 251,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-series-b-extension-tcv-nvidia"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Crosses $1B Annualized Revenue Run Rate Milestone",
+                                    "position": 252,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-1b-annualized-revenue-run-rate"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Inside Munira Alkharraz’s Filmmaking Process With Higgsfield",
+                                    "position": 253,
+                                    "url": "https://higgsfield.ai/blog/munira-alkharraz-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Eric Hsiao: How a Film Editor Directed a Six-Minute AI Drama on Higgsfield",
+                                    "position": 254,
+                                    "url": "https://higgsfield.ai/blog/eric-hsiao-the-thaw-ai-drama"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "David Bianchi: Directing for a Top 10 Global DJ on Higgsfield",
+                                    "position": 255,
+                                    "url": "https://higgsfield.ai/blog/david-bianchi-don-diablo-ai-music-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Oliver Alge: How a Platinum-Certified Producer Creates Music Videos and TV Ads With Higgsfield",
+                                    "position": 256,
+                                    "url": "https://higgsfield.ai/blog/oliver-alge-higgsfield-case-study"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Egor Kuzmin: Putting AI Video in Front of 86,000 People on Stadium Screens",
+                                    "position": 257,
+                                    "url": "https://higgsfield.ai/blog/egor-kuzmin-stadium-screens"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Hugo Blendl: How a Rick and Morty Animator Makes a Daily Show on Higgsfield",
+                                    "position": 258,
+                                    "url": "https://higgsfield.ai/blog/hugo-blendl-zero-to-hero"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How Gabo Produces One-Hour AI Films With Higgsfield",
+                                    "position": 259,
+                                    "url": "https://higgsfield.ai/blog/el-libro-sagrado-higgsfield-case-study"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+                                    "position": 260,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Introducing the New AI Influencer: How It Works and What You Can Create",
+                                    "position": 261,
+                                    "url": "https://higgsfield.ai/blog/new-ai-influencer"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet Cinema Studio 4.0: New Generation of AI Filmmaking",
+                                    "position": 262,
+                                    "url": "https://higgsfield.ai/blog/cinema-studio-4-0"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why Does Your AI Character's Face Keep Changing? ",
+                                    "position": 263,
+                                    "url": "https://higgsfield.ai/blog/Why-Does-Your-AI-Characters-Face-Keep-Changing"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What's New in GenAI: AI Motion Design Meets CodeGen Video Generation",
+                                    "position": 264,
+                                    "url": "https://higgsfield.ai/blog/AI-Motion-Design-When-Video-Generation-Meets-Code"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Seedance 2.5 vs Seedance 2.0 — We Tested Both in 6 Categories (And Found the One Catch Nobody Mentions)",
+                                    "position": 265,
+                                    "url": "https://higgsfield.ai/blog/seedance-2-5"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Next-Gen AI Photo Editing Tool: Build Storyboards with Higgsfield Popcorn ",
+                                    "position": 266,
+                                    "url": "https://higgsfield.ai/blog/Next-Gen-AI-Photo-Editing-Tool-Higgsfield-Popcorn"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Upscale is Closing the Gap Between Phones & Pro Cameras",
+                                    "position": 267,
+                                    "url": "https://higgsfield.ai/blog/Higgsfield-Upscale-Phone-vs-Camera"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet MAGI-2: Sand AI’s New Video Model With Built-In Sound on Higgsfield",
+                                    "position": 268,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-magi-2"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield GPU Harness: Cloud GPUs, Supported Apps and Pricing",
+                                    "position": 269,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-gpu-harness"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet Higgsfield Editing Room: Remake Any Moment of a Video",
+                                    "position": 270,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-editing-room"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Introduces Property Studio: From Floor Plan to a 3D Layout and a Narrated Video Tour",
+                                    "position": 271,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-property-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Talent Contest: $1,000,000 in Cash Prizes for AI Films",
+                                    "position": 272,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-talent-contest"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield 11.11 Deals: Up to 60% Off Annual Plans and 60 Days of Unlimited Generation",
+                                    "position": 273,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-11-11-deals"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Seedream 5.5 on Higgsfield AI: Features, Settings, and Pricing",
+                                    "position": 274,
+                                    "url": "https://higgsfield.ai/blog/seedream-5-5-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "GPT Image 2.6 on Higgsfield: Animated GIFs, SVG Vectors, and Transparent Images",
+                                    "position": 275,
+                                    "url": "https://higgsfield.ai/blog/gpt-image-2-6-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Introduces Shorts Studio: Create Shorts With an AI Presenter",
+                                    "position": 276,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-introduces-shorts-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Introduces Mangaka: Turn an Idea Into Manga, Comics, and Webtoons",
+                                    "position": 277,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-introduces-mangaka"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield’s New 7-Day Unlimited Bonus: Models, Plans, and Limits",
+                                    "position": 278,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-7-day-unlimited-bonus"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Introduces Content Factory: Turn “What If” Ideas Into Videos",
+                                    "position": 279,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-introduces-content-factory"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Kling 4.0 on Higgsfield: Features, Settings, and Pricing",
+                                    "position": 280,
+                                    "url": "https://higgsfield.ai/blog/kling-4-0-on-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Community: Where Your AI Work Goes After You Generate It",
+                                    "position": 281,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-community"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Meets Katana: What It Is and How it Works",
+                                    "position": 282,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-katana"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Discord 200K Contest: How to Enter, Rules, and 200,000 Credits in Prizes",
+                                    "position": 283,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-discord-200k-contest"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Introducing Ad Multiplier: Turn One Video Ad Into Multiple Variations",
+                                    "position": 284,
+                                    "url": "https://higgsfield.ai/blog/ad-multiplier-ads-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Introducing Higgsfield Ads Studio: How It Works and What You Can Create",
+                                    "position": 285,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-ads-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet the Higgsfield API: How It Works and What You Get",
+                                    "position": 286,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-api"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Motion Designer: Higgsfield Meets After Effects Through GPT",
+                                    "position": 287,
+                                    "url": "https://higgsfield.ai/blog/ai-motion-designer-after-effects-gpt"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Meets GPT Image 2.5: How It Works and What You Get",
+                                    "position": 288,
+                                    "url": "https://higgsfield.ai/blog/gpt-image-2-5-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield MCP on GPT-6 Astra: Introducing Higgsfield Games 2.0",
+                                    "position": 289,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-mcp-gpt6-astra-games-2"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield 3D Jutsu: Build and Animate 3D Scenes from a Prompt",
+                                    "position": 290,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-3d-jutsu"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet Higgsfield Genjutsu: How It Works and What You Get",
+                                    "position": 291,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-genjutsu"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Recraft V4 Is Now on Higgsfield: V4.1, Styles, and Utility Explained",
+                                    "position": 292,
+                                    "url": "https://higgsfield.ai/blog/recraft-v4-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Affiliate Program in 2026: Commission, Eligibility, and How It Works",
+                                    "position": 293,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-affiliate-program-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet the New Marketing Studio: How It Works and What You Get",
+                                    "position": 294,
+                                    "url": "https://higgsfield.ai/blog/new-marketing-studio-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Global Film Festival: How to Enter, Rules, and the $1,000,000 Prize Pool",
+                                    "position": 295,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-global-film-festival"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Seedance 2.5 on Higgsfield in 2026: What You Get and How It Works",
+                                    "position": 296,
+                                    "url": "https://higgsfield.ai/blog/seedance-2-5-on-higgsfield-2026"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "33 Days of Unlimited Seedance 2.5: August 2026 Promotion",
+                                    "position": 297,
+                                    "url": "https://higgsfield.ai/blog/33-days-unlimited-seedance-2-5"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "11-Day Seedance 4K Unlimited: August 2026 Promotion",
+                                    "position": 298,
+                                    "url": "https://higgsfield.ai/blog/seedance-4k-unlimited-11-days"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet Higgsfield Unlimited MCP: How It Works and What You Get",
+                                    "position": 299,
+                                    "url": "https://higgsfield.ai/blog/unlimited-mcp"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Meets DaVinci Resolve: Generate B-Roll Right in Your Edit",
+                                    "position": 300,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-davinci-resolve"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Introducing New Unlimited: Higher Resolutions, More Models",
+                                    "position": 301,
+                                    "url": "https://higgsfield.ai/blog/new-unlimited-more-models"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Keeping Brand Visuals Consistent in Figma With Higgsfield",
+                                    "position": 302,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-figma-plugin"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield All Unlimited: What You Get and How It Works?",
+                                    "position": 303,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-all-unlimited-explained"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Inside Adobe After Effects: AI Footage Straight to Your Timeline",
+                                    "position": 304,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-after-effects"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Create The Most Viral Marketing for Your Vibe Coded App!",
+                                    "position": 305,
+                                    "url": "https://higgsfield.ai/blog/marketing-studio-video-2"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "I Created a $1,000,000 Brand Using AI",
+                                    "position": 306,
+                                    "url": "https://higgsfield.ai/blog/marketing-studio-video-1"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Technical Overview of Seedance 2.0 AI Video Model",
+                                    "position": 307,
+                                    "url": "https://higgsfield.ai/blog/seedance-2-on-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Cinema Studio 3.0: The Most Powerful AI Film Studio We've Ever Built",
+                                    "position": 308,
+                                    "url": "https://higgsfield.ai/blog/cinema-studio-3"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Chat: A Social Network for Collaborative AI Content Creation",
+                                    "position": 309,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-chat-social-network"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Original Series: The First Complete AI Streaming Platform",
+                                    "position": 310,
+                                    "url": "https://higgsfield.ai/blog/blog-original-series"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Cinema Studio 2.5: The Viral AI Film Studio Just Leveled Up",
+                                    "position": 311,
+                                    "url": "https://higgsfield.ai/blog/cinema-studio-2-5-ai-video-generator"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How Higgsfield’s Similarity-Scoring Feature Helps Commercial AI Workflows",
+                                    "position": 312,
+                                    "url": "https://higgsfield.ai/blog/content-scoring-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Soul Cast: How To Make Your Next Award-Worthy AI Movie",
+                                    "position": 313,
+                                    "url": "https://higgsfield.ai/blog/soul-cast-ai-filmmaking"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why You Need Kling Motion Control 3.0 In Your Workflow",
+                                    "position": 314,
+                                    "url": "https://higgsfield.ai/blog/kling-motion-control-3"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Soul Cinema Preview: Cinematic-Grade Visuals In One Click",
+                                    "position": 315,
+                                    "url": "https://higgsfield.ai/blog/soul-cinema-preview"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Audio: A New Feature That Speaks Volumes. The Ultimate AI Text-to-Speech, Voice Swap, and Video Translation Tool",
+                                    "position": 316,
+                                    "url": "https://higgsfield.ai/blog/higgsfield-audio-ai-voice-tools"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Nano Banana 2: Pro-Level Al Image Generation with Gemini 3.1 Flash. Let's Peel It Back",
+                                    "position": 317,
+                                    "url": "https://higgsfield.ai/blog/Nano-Banana-2-Gemini-3.1-Flash-AI-Image-Generation"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Seedream 5.0 Lite: Review, How to, & Comparison with Seedream 4.5",
+                                    "position": 318,
+                                    "url": "https://higgsfield.ai/blog/Seedream-5.0-Lite-Review-How-to-Comparison"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Cinema Studio 2.0: The Most Professional Cinematic AI Video Generator",
+                                    "position": 319,
+                                    "url": "https://higgsfield.ai/blog/cinema-studio-guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Grok Imagine: Best Use Cases for AI Video Generation",
+                                    "position": 320,
+                                    "url": "https://higgsfield.ai/blog/Grok-Imagine-AI-Video-Best-Use-Cases"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Add Director-Style Cinematic Lighting with Relight",
+                                    "position": 321,
+                                    "url": "https://higgsfield.ai/blog/Relight-Director-Style-Cinematic-Lighting"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "#1 Editing Tool in 2025: Meet Nano Banana Pro Inpaint",
+                                    "position": 322,
+                                    "url": "https://higgsfield.ai/blog/Top-Editing-Tool-in-2025-Nano-Banana-Pro-Inpaint"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "GPT Image 1.5 by OpenAI is on Higgsfield: A Complete Guide",
+                                    "position": 323,
+                                    "url": "https://higgsfield.ai/blog/GPT-Image-1.5-by-OpenAI-is-on-Higgsfield-A-Complete-Guide"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "The #1 Skin Enhancer: How to Retouch Pictures with AI",
+                                    "position": 324,
+                                    "url": "https://higgsfield.ai/blog/The-Skin-Enhancer-How-to-Retouch-Pictures-with-AI"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Meet Z-Image: What's New from Alibaba in AI Image Generation?",
+                                    "position": 325,
+                                    "url": "https://higgsfield.ai/blog/Z-Image-New-from-Alibaba-in-AI-Image-Generation"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "NANO BANANA PRO: Expert Use Cases with Prompts",
+                                    "position": 326,
+                                    "url": "https://higgsfield.ai/blog/Nano-Banana-Pro-Expert-Use-Cases"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Nano Banana Pro Has Arrived. How Google's Latest Image Model Will Change The Game?",
+                                    "position": 327,
+                                    "url": "https://higgsfield.ai/blog/How-Nano-Banana-Pro-Changing-The-Game"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Create Realistic AI Photoshoots with Instadump",
+                                    "position": 328,
+                                    "url": "https://higgsfield.ai/blog/Create-Ai-Photoshoots-With-Instadump"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "The AI Storyboard Generator That Feels Like Directing: Meet Higgsfield Popcorn ",
+                                    "position": 329,
+                                    "url": "https://higgsfield.ai/blog/The-AI-Storyboard-Generator-That-Feels-Like-Directing"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Hot Trend in Digital Marketing: AI Motion Is Taking Over in 2026",
+                                    "position": 330,
+                                    "url": "https://higgsfield.ai/blog/Hot-Trend-in-Digital-Marketing"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why Visual Consistency of AI Generated Photo & Video Outperforms Creativity on Social Media in 2026",
+                                    "position": 331,
+                                    "url": "https://higgsfield.ai/blog/Visual-Consistency-of-AI-Generated-Photo-and-Video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How We Created Higgsfield Popcorn? An AI Tool That Allows You to Replace Faces in a Movie Scene",
+                                    "position": 332,
+                                    "url": "https://higgsfield.ai/blog/AI-Tool-That-Allows-You-to-Replace-Faces-in-a-Movie-Scene"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield Photodump Studio: Your Viral 26-Shot Photoshoot",
+                                    "position": 333,
+                                    "url": "https://higgsfield.ai/blog/Higgsfield-Photodump-Studio-Your-Viral-Photoshoot"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Higgsfield SOUL Turns Prompts Into Fashion-Ready Shots",
+                                    "position": 334,
+                                    "url": "https://higgsfield.ai/blog/Higgsfield-SOUL-Turns-Prompts-Into-Fashion-Ready-Shots"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Inside Higgsfield #2: How We Built Supercomputer",
+                                    "position": 335,
+                                    "url": "https://higgsfield.ai/blog/how-we-built-supercomputer"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Inside Higgsfield #1: How We Built Cinema Studio",
+                                    "position": 336,
+                                    "url": "https://higgsfield.ai/blog/how-we-built-cinema-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Inside Higgsfield #3: How We Built Higgsfield Originals",
+                                    "position": 337,
+                                    "url": "https://higgsfield.ai/blog/inside-higgsfield-3-how-we-built-higgsfield-originals"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "matches": [
+            {
+                "i": "__root__#",
+                "s": "success",
+                "l": {
+                    "clerkProxyUrl": "https://higgsfield.ai/_clerk",
+                    "initialEnterprise": false
+                }
+            },
+            {
+                "i": "#_creator-hub#blog##blog#",
+                "s": "success",
+                "l": {
+                    "mainPost": {
+                        "id": "f940ae70-356b-4581-a329-ab25f718e91a",
+                        "title": "Higgsfield Black Friday Market: Bonus Seconds, Credit Packs and Unlimited Images",
+                        "slug": "higgsfield-black-friday-market",
+                        "category": {
+                            "id": "ecqzDOP6mOWRpt1AGe6vw",
+                            "slug": "editorials",
+                            "title": "Editorials",
+                            "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                        },
+                        "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/4e29da74991dd38f415827a844f709fbc4630463-2228x1258.png",
+                        "banner": {
+                            "title": "Higgsfield Black Friday Market: Bonus Seconds, Credit Packs and Unlimited Images",
+                            "description": "The Higgsfield Black Friday Market sells five products at up to 75% off, all in one cart. You can buy Bonus Seconds on Seedance 2.5, Kling 4.0, Wan 3.0 and Higgsfield Genjutsu, credit packs, Unlimited Images on 9 image models, Unlimited concurrency for a year and Credit roll-over for 1 month. With two or more products in the cart, the cheapest one gets an extra 10% or 20% off. The Market runs through November 30, 2026.",
+                            "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/4e29da74991dd38f415827a844f709fbc4630463.png",
+                            "link": "https://higgsfield.ai/blog/higgsfield-black-friday-market"
+                        },
+                        "author": null,
+                        "seoDescription": "Higgsfield Black Friday Market: up to 75% off Bonus Seconds, credit packs, Unlimited Images and account add-ons, plus an extra cart discount until Nov 30.",
+                        "publishDate": "Nov 20, 2026",
+                        "seoPublishDateISO": "2026-11-20T17:56:00.000Z",
+                        "dateModified": null,
+                        "readingTime": "5 min"
+                    },
+                    "featuredPosts": [
+                        {
+                            "id": "f940ae70-356b-4581-a329-ab25f718e91a",
+                            "title": "Higgsfield Black Friday Market: Bonus Seconds, Credit Packs and Unlimited Images",
+                            "slug": "higgsfield-black-friday-market",
+                            "category": {
+                                "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                "slug": "editorials",
+                                "title": "Editorials",
+                                "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                            },
+                            "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/4e29da74991dd38f415827a844f709fbc4630463-2228x1258.png",
+                            "banner": {
+                                "title": "Higgsfield Black Friday Market: Bonus Seconds, Credit Packs and Unlimited Images",
+                                "description": "The Higgsfield Black Friday Market sells five products at up to 75% off, all in one cart. You can buy Bonus Seconds on Seedance 2.5, Kling 4.0, Wan 3.0 and Higgsfield Genjutsu, credit packs, Unlimited Images on 9 image models, Unlimited concurrency for a year and Credit roll-over for 1 month. With two or more products in the cart, the cheapest one gets an extra 10% or 20% off. The Market runs through November 30, 2026.",
+                                "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/4e29da74991dd38f415827a844f709fbc4630463.png",
+                                "link": "https://higgsfield.ai/blog/higgsfield-black-friday-market"
+                            },
+                            "author": null,
+                            "seoDescription": "Higgsfield Black Friday Market: up to 75% off Bonus Seconds, credit packs, Unlimited Images and account add-ons, plus an extra cart discount until Nov 30.",
+                            "publishDate": "Nov 20, 2026",
+                            "seoPublishDateISO": "2026-11-20T17:56:00.000Z",
+                            "dateModified": null,
+                            "readingTime": "5 min"
+                        },
+                        {
+                            "id": "8179f8e5-4273-4111-967c-4fa6ae6b80b9",
+                            "title": "Meet Higgsfield Short Drama Studio: From Script to a Full Microdrama Series",
+                            "slug": "higgsfield-short-drama-studio",
+                            "category": {
+                                "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                "slug": "editorials",
+                                "title": "Editorials",
+                                "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                            },
+                            "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/f8e7e52fdbf290cc545128cbecf3e4f61ad798a2-2720x1536.jpg",
+                            "banner": {
+                                "title": "Meet Higgsfield Short Drama Studio: From Script to a Full Microdrama Series",
+                                "description": "Higgsfield has launched Short Drama Studio, a tool that turns scripts into short video series. It splits a script into episodes, creates a consistent cast, and generates the videos. The process follows three stages: Script, Cast & World, and Episodes. Each stage can be completed manually, or the entire project can be generated automatically. This guide covers the available settings, visual styles, and how to create a first series.",
+                                "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/f8e7e52fdbf290cc545128cbecf3e4f61ad798a2.jpeg",
+                                "link": "https://higgsfield.ai/blog/higgsfield-short-drama-studio"
+                            },
+                            "author": null,
+                            "seoDescription": "Higgsfield Short Drama Studio turns a script into a short series with one consistent cast. See the settings, 15 styles, a first project, and costs.",
+                            "publishDate": "November 16, 2026",
+                            "seoPublishDateISO": "2026-11-15T19:39:00.000Z",
+                            "dateModified": null,
+                            "readingTime": "8 min"
+                        },
+                        {
+                            "id": "1fa4dc99-ccdd-43e0-9c1e-e13a352eb58e",
+                            "title": "Introducing Micro Drama Ads in Higgsfield Ads Studio: How It Works and What You Get",
+                            "slug": "micro-drama-ads-higgsfield-ads-studio",
+                            "category": {
+                                "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                "slug": "editorials",
+                                "title": "Editorials",
+                                "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                            },
+                            "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/0dca8e24a81aa061e1c3e096503de2c8e24a07b9-2720x1536.png",
+                            "banner": {
+                                "title": "Introducing Micro Drama Ads in Higgsfield Ads Studio: How It Works and What You Get",
+                                "description": "Higgsfield Ads Studio now makes micro drama ads: video ads that tell a story, with characters, a conflict and your product at the turning point. This guide covers the eight video styles and 44 ready-made story cards, and how to create an ad on the web by chatting with the Ads Studio agent. It shows how to run the same story catalog from Claude and ChatGPT with the /microdrama-ads command. It also breaks down what a micro drama ad costs per second and per minute.",
+                                "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/0dca8e24a81aa061e1c3e096503de2c8e24a07b9.png",
+                                "link": "https://higgsfield.ai/blog/micro-drama-ads-higgsfield-ads-studio"
+                            },
+                            "author": null,
+                            "seoDescription": "Micro drama ads in Higgsfield Ads Studio: story-driven video ads with your product and avatar, eight styles, 44 story cards, Claude and ChatGPT access.",
+                            "publishDate": "Nov 6, 2026",
+                            "seoPublishDateISO": "2026-11-06T17:42:00.000Z",
+                            "dateModified": null,
+                            "readingTime": "8 min"
+                        }
+                    ],
+                    "categoryAndPosts": [
+                        {
+                            "category": {
+                                "id": "3qG2rVaXlREV8zT2y6WJqG",
+                                "slug": "guides",
+                                "title": "Guides",
+                                "description": "Deep dive into our How-to Guides to master ai generation workflows and advanced control features for creators"
+                            },
+                            "posts": [
+                                {
+                                    "id": "64gzmluigE21z8MPPavHLf",
+                                    "title": "How to Use Agentic AI for Content Creation",
+                                    "slug": "agentic-ai-for-content-creation",
+                                    "category": {
+                                        "id": "3qG2rVaXlREV8zT2y6WJqG",
+                                        "slug": "guides",
+                                        "title": "Guides",
+                                        "description": "Deep dive into our How-to Guides to master ai generation workflows and advanced control features for creators"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/c296efe3ab3866b43d1beb561ce2d9b7c87b5613-3650x2053.png",
+                                    "banner": {
+                                        "title": "How to Use Agentic AI for Content Creation\n",
+                                        "description": "How to use agentic AI for content: brief Higgsfield Supercomputer in plain language and it plans, picks the models, and ships finished video, images, and campaigns from one chat.",
+                                        "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/c296efe3ab3866b43d1beb561ce2d9b7c87b5613-3650x2053.png",
+                                        "link": "https://higgsfield.ai/blog/agentic-ai-for-content-creation"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "How to use agentic AI for content: brief Higgsfield Supercomputer in plain language and it plans, picks the models, and ships finished video, images, and campaigns from one chat.",
+                                    "publishDate": "16 Jun, 2026",
+                                    "seoPublishDateISO": "2026-06-15T19:00:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "8 minutes"
+                                },
+                                {
+                                    "id": "09088544-5928-4341-a70c-b797811442f0",
+                                    "title": "How to Turn Sports Product Photos into AI Video Ads in 2026",
+                                    "slug": "sports-product-video-ads-ai-2026",
+                                    "category": {
+                                        "id": "3qG2rVaXlREV8zT2y6WJqG",
+                                        "slug": "guides",
+                                        "title": "Guides",
+                                        "description": "Deep dive into our How-to Guides to master ai generation workflows and advanced control features for creators"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/745554a782b47f3220d953b8fabec060d63e4603-2720x1536.png",
+                                    "banner": {
+                                        "title": "How to Turn Sports Product Photos into AI Video Ads in 2026",
+                                        "description": "To turn sports product photos into video ads, you need three things: clear reference images from multiple angles, a format built for motion, and a tool that generates that motion convincingly from a still image. On Higgsfield, that split runs across two tools: Marketing Studio builds the ad itself, Cinema Studio 4.0 takes over when the shot needs precise camera direction. This guide covers how it works, which format fits which product, and the full workflow.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/745554a782b47f3220d953b8fabec060d63e4603.png",
+                                        "link": "https://higgsfield.ai/blog/sports-product-video-ads-ai-2026"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Turn sports product photos into video ads with AI. Show flex, grip, and motion through Marketing Studio and Cinema Studio 4.0, no filming required.",
+                                    "publishDate": "September 16, 2026",
+                                    "dateModified": null,
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "17mD1jDE4ImxdDhMQE44Dv",
+                                    "title": "Recreate Our 1-Minute Seedance 4K Film -  The Full Seedance 4K Breakdown With All Prompts ",
+                                    "slug": "seedance4k-breakdown",
+                                    "category": {
+                                        "id": "3qG2rVaXlREV8zT2y6WJqG",
+                                        "slug": "guides",
+                                        "title": "Guides",
+                                        "description": "Deep dive into our How-to Guides to master ai generation workflows and advanced control features for creators"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/e7f1d42173bea92c7013dd7c0736dece04e1a407-1920x1080.jpg",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoDescription": "Every prompt above is ready to go. Grab the one closest to your idea, hit Recreate to open it in Higgsfield, then swap in your own assets - or start from scratch with the prompt-writing skill. Generate in 4K, share your results, and tag Higgsfield AI.",
+                                    "publishDate": "2 July, 2026",
+                                    "dateModified": null,
+                                    "readingTime": "7 min"
+                                }
+                            ]
+                        },
+                        {
+                            "category": {
+                                "id": "OWp9D5Hs6OCZwKACacy2I",
+                                "slug": "Comparisons",
+                                "title": "Comparisons",
+                                "description": "Curated Top-lists by Higgsfield"
+                            },
+                            "posts": [
+                                {
+                                    "id": "cc474ed6-137c-43ee-b5b4-8c796417305a",
+                                    "title": "10 Best Enterprise AI Video Platforms in 2026",
+                                    "slug": "Best-Enterprise-AI-Video-Platforms-in-2026",
+                                    "category": {
+                                        "id": "OWp9D5Hs6OCZwKACacy2I",
+                                        "slug": "Comparisons",
+                                        "title": "Comparisons",
+                                        "description": "Curated Top-lists by Higgsfield"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/bf48215cdc2d98dc5e6a429fa140273c5335ecb6-2512x1419.png",
+                                    "banner": {
+                                        "title": "10 Best Enterprise AI Video Platforms in 2026",
+                                        "description": "The best enterprise AI video platform depends on whether your team needs creative control or script-led training video, and what your security and legal reviews require. For ad and social content, use Higgsfield. For wider creative production, Runway or Adobe Firefly. For training and localization, choose Synthesia, HeyGen or Colossyan. ",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/bf48215cdc2d98dc5e6a429fa140273c5335ecb6.png",
+                                        "link": "https://higgsfield.ai/blog/Best-Enterprise-AI-Video-Platforms-in-2026"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "10 Best Enterprise AI Video Platforms in 2026: Higgsfield, Synthesia, HeyGen, Runway, Adobe Firefly, Luma, Kling, Vyond, Colossyan, Descript. Avatar and generative AI video platforms. ",
+                                    "publishDate": "Nov 19, 2026",
+                                    "dateModified": null,
+                                    "readingTime": "13 min"
+                                },
+                                {
+                                    "id": "twy8HZWuah6Y43p7HfSLC",
+                                    "title": "7 Best Google Veo Alternatives in 2026",
+                                    "slug": "best-veo-alternatives-character-consistency",
+                                    "category": {
+                                        "id": "OWp9D5Hs6OCZwKACacy2I",
+                                        "slug": "Comparisons",
+                                        "title": "Comparisons",
+                                        "description": "Curated Top-lists by Higgsfield"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/d6e55ce3ac708e2ef648471c6e176591a3afc71f-2276x1285.png",
+                                    "banner": {
+                                        "title": " 7 Best Veo Alternatives to Keep Consistency In Your Generations",
+                                        "description": "Google Veo can produce impressive individual clips, but keeping characters, clothing, and scene details consistent across multiple shots can take extra iteration. For creators building a connected story, reference controls and editing options become key considerations. This guide compares seven Veo alternatives in 2026 on consistency, creative control, and production cost. All platform prices shown here are monthly list prices.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/6d4018ea3ff5e5e5b99ea788db4373fe35baa383.png",
+                                        "link": "https://higgsfield.ai/blog/best-veo-alternatives-character-consistency"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Compare 7 Google Veo alternatives in 2026: Dreamina, Kling AI, Higgsfield, Runway, Luma, Hailuo AI and Pika, with cost per clip and a character consistency guide.",
+                                    "publishDate": "Nov 24, 2026",
+                                    "seoPublishDateISO": "2026-11-23T19:00:00.000Z",
+                                    "dateModified": "2026-11-23T21:37:00.000Z",
+                                    "readingTime": "16 min"
+                                },
+                                {
+                                    "id": "2ba30fec-cd57-43d3-9fc3-2f28480f085d",
+                                    "title": "10 Best Text-to-Video AI Generators in 2026",
+                                    "slug": "best-text-to-video-ai-generators",
+                                    "category": {
+                                        "id": "OWp9D5Hs6OCZwKACacy2I",
+                                        "slug": "Comparisons",
+                                        "title": "Comparisons",
+                                        "description": "Curated Top-lists by Higgsfield"
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/99fa565d16ab47b8c585314c5b93187337f65233-2496x1410.png",
+                                    "banner": {
+                                        "title": "10 Best Text-to-Video AI Generators in 2026",
+                                        "description": "We ran one complex 8-second prompt once through five generation options on Higgsfield and checked each clip against nine points: camera view, bridge timing, light change and more. Seedance 2.5 kept the shot closest to the prompt; Veo 3.1 moved the camera and Kling 4.0 stayed overcast. The guide also compares Google Flow, Kling AI, Dreamina, Runway, Hailuo AI and Luma, plus LTX Studio, InVideo AI and Synthesia for turning a whole script into a video.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/99fa565d16ab47b8c585314c5b93187337f65233.png",
+                                        "link": "https://higgsfield.ai/blog/best-text-to-video-ai-generators"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "We ran one prompt through Veo 3.1, Kling 4.0, Seedance 2.5, MiniMax H3 and Cinema Studio 4.0. See the results and compare 10 text-to-video AI generators.",
+                                    "publishDate": "Nov 21, 2026",
+                                    "seoPublishDateISO": "2026-11-21T17:52:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "15 min"
+                                }
+                            ]
+                        },
+                        {
+                            "category": {
+                                "id": "9175135f-1376-4a85-8aa6-7987f7b1eb71",
+                                "slug": "news",
+                                "title": "News",
+                                "description": "Company news, product launches, and the latest announcements from Higgsfield."
+                            },
+                            "posts": [
+                                {
+                                    "id": "7Bva9J8F9TDenMB2TYE9ff",
+                                    "title": "Updates to Higgsfield's Terms of Use and Privacy Policy",
+                                    "slug": "terms-of-use-privacy-policy-update",
+                                    "category": {
+                                        "id": "9175135f-1376-4a85-8aa6-7987f7b1eb71",
+                                        "slug": "news",
+                                        "title": "News",
+                                        "description": "Company news, product launches, and the latest announcements from Higgsfield."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/a177b31cc85346272f980aa7b69c17a2207680c9-2720x1530.png",
+                                    "banner": {
+                                        "title": "Updates to Higgsfield's Terms of Use and Privacy Policy",
+                                        "description": "We've updated our Terms of Use and Privacy Policy, effective August 27, 2026. This plain-language summary covers the key changes; the full documents are the binding versions.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/a177b31cc85346272f980aa7b69c17a2207680c9.png",
+                                        "link": "https://higgsfield.ai/blog/terms-of-use-privacy-policy-update"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "We've updated our Terms of Use and Privacy Policy, effective August 27, 2026. This plain-language summary covers the key changes; the full documents are the binding versions.",
+                                    "publishDate": "July 26, 2026",
+                                    "seoPublishDateISO": "2026-07-25T19:00:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "3 minutes"
+                                },
+                                {
+                                    "id": "ee63f840-be0f-49e4-b26a-ed98ae239c8a",
+                                    "title": "Higgsfield Joins Anthropic as a Launch Partner for Linked Billing",
+                                    "slug": "higgsfield-anthropic-linked-billing",
+                                    "category": {
+                                        "id": "9175135f-1376-4a85-8aa6-7987f7b1eb71",
+                                        "slug": "news",
+                                        "title": "News",
+                                        "description": "Company news, product launches, and the latest announcements from Higgsfield."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/b3dfb381e0e14150b8746a46ac2aa06575d81cc9-2720x1530.png",
+                                    "banner": {
+                                        "title": "Higgsfield Joins Anthropic as a Launch Partner for Linked Billing",
+                                        "description": "On November 17, 2026, Anthropic announced Higgsfield as its launch partner for linked billing in beta on the Claude Platform. Eligible customers on Higgsfield Team, Scale, and Enterprise plans can connect their Claude Platform organization to Higgsfield and have supported Claude API usage in Supercomputer billed directly to that organization by Anthropic.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/b3dfb381e0e14150b8746a46ac2aa06575d81cc9.png",
+                                        "link": "https://higgsfield.ai/blog/higgsfield-anthropic-linked-billing"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Higgsfield joins Anthropic as a launch partner for linked billing: how Team, Scale, and Enterprise customers connect Claude Platform and what Anthropic bills.",
+                                    "publishDate": "November 18, 2026",
+                                    "dateModified": null,
+                                    "readingTime": "6 min"
+                                },
+                                {
+                                    "id": "post-higgsfield-mcp-moves-to-cimd",
+                                    "title": "Higgsfield MCP Moves to CIMD: What Developers Need to Know",
+                                    "slug": "higgsfield-mcp-moves-to-cimd",
+                                    "category": {
+                                        "id": "9175135f-1376-4a85-8aa6-7987f7b1eb71",
+                                        "slug": "news",
+                                        "title": "News",
+                                        "description": "Company news, product launches, and the latest announcements from Higgsfield."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/275edeb69f8a33c9b4857c805dbe2e8122b37d46-2048x1152.png",
+                                    "banner": null,
+                                    "author": null,
+                                    "seoDescription": "Higgsfield MCP is moving from Dynamic Client Registration to Client ID Metadata Documents. See the planned cutoff, a sample JSON document, and migration steps.",
+                                    "publishDate": "November 20, 2026",
+                                    "dateModified": null,
+                                    "readingTime": "4 min"
+                                }
+                            ]
+                        },
+                        {
+                            "category": {
+                                "id": "939cb733-42ca-4fc5-91c0-c8ddd82ffc80",
+                                "slug": "creatorstories",
+                                "title": "Creator Stories",
+                                "description": "Real creators using Higgsfield to build films, campaigns, and content, in their own words."
+                            },
+                            "posts": [
+                                {
+                                    "id": "76a57b63-5635-4f87-ae76-0a15b46da399",
+                                    "title": "Inside Munira Alkharraz’s Filmmaking Process With Higgsfield",
+                                    "slug": "munira-alkharraz-higgsfield",
+                                    "category": {
+                                        "id": "939cb733-42ca-4fc5-91c0-c8ddd82ffc80",
+                                        "slug": "creatorstories",
+                                        "title": "Creator Stories",
+                                        "description": "Real creators using Higgsfield to build films, campaigns, and content, in their own words."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/27b2272d8f7945ac31ceefa0e3de7c523c4f4111-2720x1539.png",
+                                    "banner": {
+                                        "title": "Inside Munira Alkharraz’s Filmmaking Process With Higgsfield",
+                                        "description": "Munira Alkharraz is an AI creative director and filmmaker, and the founder of UNTAGD. A former electrical engineer, she now directs AI work for commercial clients. For a bank commercial filmed in Riyadh, she was responsible for replacing the environments around live actors while preserving their performances and the original camera movement. Using image and video models on Higgsfield, she completed the AI work in approximately five days, using around 30,000 credits.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/27b2272d8f7945ac31ceefa0e3de7c523c4f4111.png",
+                                        "link": "https://higgsfield.ai/blog/munira-alkharraz-higgsfield"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Munira Alkharraz used Nano Banana and Seedance on Higgsfield to replace the environments around live actors in a bank commercial shot in Riyadh.",
+                                    "publishDate": "November 10, 2026",
+                                    "seoPublishDateISO": "2026-11-10T10:03:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "d2935ef4-e359-4dbd-84e3-a58d79178da0",
+                                    "title": "Eric Hsiao: How a Film Editor Directed a Six-Minute AI Drama on Higgsfield",
+                                    "slug": "eric-hsiao-the-thaw-ai-drama",
+                                    "category": {
+                                        "id": "939cb733-42ca-4fc5-91c0-c8ddd82ffc80",
+                                        "slug": "creatorstories",
+                                        "title": "Creator Stories",
+                                        "description": "Real creators using Higgsfield to build films, campaigns, and content, in their own words."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/4ae40c6e31183baac0bd67ec2f8f28bed9804cf9-2720x1539.png",
+                                    "banner": {
+                                        "title": "Eric Hsiao: How a Film Editor Directed a Six-Minute AI Drama on Higgsfield",
+                                        "description": "After a decade cutting brand films as creative director at Desmond Studio, Eric Hsiao made THE THAW, a six-minute dramatic short with dialogue and two child leads, on his own in about three and a half weeks of part-time work. This story follows his creative decisions from world-building and reference plates to Seedance 2.5 shots on Higgsfield and a live cut in Premiere Pro. It breaks down the clerk scene, an 18-second one-take and his Blender blockouts. It also covers what the Creator Partnership Program changed.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/4ae40c6e31183baac0bd67ec2f8f28bed9804cf9.png",
+                                        "link": "https://higgsfield.ai/blog/eric-hsiao-the-thaw-ai-drama"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Film editor Eric Hsiao directed THE THAW, a six-minute AI drama, solo on Higgsfield: his pipeline, hardest shots, Blender blockouts and lessons.",
+                                    "publishDate": "November 2, 2026",
+                                    "seoPublishDateISO": "2026-11-01T21:56:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "2701fa01-1f95-429f-8913-675ee2849a86",
+                                    "title": "David Bianchi: Directing for a Top 10 Global DJ on Higgsfield",
+                                    "slug": "david-bianchi-don-diablo-ai-music-video",
+                                    "category": {
+                                        "id": "939cb733-42ca-4fc5-91c0-c8ddd82ffc80",
+                                        "slug": "creatorstories",
+                                        "title": "Creator Stories",
+                                        "description": "Real creators using Higgsfield to build films, campaigns, and content, in their own words."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/0a5dc53d91ac4427eb5ee35f98494175eb310a7f-2720x1539.png",
+                                    "banner": {
+                                        "title": "David Bianchi: Directing for a Top 10 Global DJ on Higgsfield",
+                                        "description": "Los Angeles actor, producer and director David Bianchi wrote, directed and edited “Top Of My Game,” a fully AI-generated music video for Don Diablo’s drum and bass project Control Alt Delete. By his estimate, it took more than a thousand generations and over 200 hours of work. This story follows his creative decisions from treatment and script to character sheets, Seedance 2.5 shots and a team workflow in Cinema Studio. It also covers the hardest shots and what he learned.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/0a5dc53d91ac4427eb5ee35f98494175eb310a7f.png",
+                                        "link": "https://higgsfield.ai/blog/david-bianchi-don-diablo-ai-music-video"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "How David Bianchi made Top Of My Game, a fully AI music video for Don Diablo, with Higgsfield: 1,000+ generations, 200+ hours and a 3-day deadline.",
+                                    "publishDate": "October 27, 2026",
+                                    "seoPublishDateISO": "2026-10-27T15:16:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "7 min"
+                                }
+                            ]
+                        },
+                        {
+                            "category": {
+                                "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                "slug": "editorials",
+                                "title": "Editorials",
+                                "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                            },
+                            "posts": [
+                                {
+                                    "id": "08fe7779-3952-4b3f-831c-ac81ab2cd387",
+                                    "title": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+                                    "slug": "higgsfield-playable-ads-and-games",
+                                    "category": {
+                                        "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                        "slug": "editorials",
+                                        "title": "Editorials",
+                                        "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102-2580x1457.png",
+                                    "banner": {
+                                        "title": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+                                        "description": "Higgsfield introduces Playable Ads, a new Enterprise-only workflow for creating interactive ads with AI. Describe a game mechanic, choose a genre and dimension, add creative assets, and generate a playable experience with Manual or Auto mode. Higgsfield also offers Playable Games, a game-creation tool available across Higgsfield plans. Creators can generate interactive games directly on Higgsfield or through Claude using Higgsfield MCP.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102.png",
+                                        "link": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide.",
+                                    "publishDate": "October 26, 2026",
+                                    "seoPublishDateISO": "2026-10-25T19:34:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "15262306-e050-4015-a336-6248a88f1681",
+                                    "title": "Introducing the New AI Influencer: How It Works and What You Can Create",
+                                    "slug": "new-ai-influencer",
+                                    "category": {
+                                        "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                        "slug": "editorials",
+                                        "title": "Editorials",
+                                        "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/5e7bd50ae3ca46f0285ec26d60318449ecbde24d-2720x1530.png",
+                                    "banner": {
+                                        "title": "Introducing the New AI Influencer: How It Works and What You Can Create",
+                                        "description": "The rebuilt AI Influencer studio explained: Character type now grades how far a persona departs from ordinary, Average to Extreme, 19 settings cover identity to accessories, your own face anchors the character optionally, and the Motion tab runs Genjutsu on the result, with the same cast reusable in Cinema Studio.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/5e7bd50ae3ca46f0285ec26d60318449ecbde24d.png",
+                                        "link": "https://higgsfield.ai/blog/new-ai-influencer"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Higgsfield's updated AI Influencer builds characters from 19 menu settings with no prompts, carries your own face, and turns results into video through Genjutsu.",
+                                    "publishDate": "Oct 3, 2026",
+                                    "seoPublishDateISO": "2026-10-03T18:17:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "8 min"
+                                },
+                                {
+                                    "id": "4083TXsSQs8NAVm0ZGcpOG",
+                                    "title": "Meet Cinema Studio 4.0: New Generation of AI Filmmaking",
+                                    "slug": "cinema-studio-4-0",
+                                    "category": {
+                                        "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                        "slug": "editorials",
+                                        "title": "Editorials",
+                                        "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/d4654a3b63a38a78a11689b592b36e78b9ea6b1a-1280x714.jpg",
+                                    "banner": {
+                                        "title": "Meet Cinema Studio 4.0: New Generation of AI Filmmaking",
+                                        "description": "Higgsfield has launched Cinema Studio 4.0, its next AI filmmaking environment. Generation now runs up to 30 seconds, long enough to carry a full scene. New lenses, tempo, references, and an era selector work as direct controls.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/d4654a3b63a38a78a11689b592b36e78b9ea6b1a.jpg",
+                                        "link": "https://higgsfield.ai/blog/cinema-studio-4-0"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Cinema Studio 4.0 adds up to 30-second generations, Emotion Wheel, an era selector, 30+ color templates, and up to 50 references. Here's what changed.",
+                                    "publishDate": "August 12, 2026",
+                                    "seoPublishDateISO": "2026-08-12T19:00:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "12 min"
+                                }
+                            ]
+                        },
+                        {
+                            "category": {
+                                "id": "4A2iViOhryzAMX4Ndjlfx5",
+                                "slug": "inside-higgsfield",
+                                "title": "Inside Higgsfield",
+                                "description": "Behind the build. How our tools and models came together, in the words of the team that shipped them."
+                            },
+                            "posts": [
+                                {
+                                    "id": "0039dd19-ff98-4d4b-a516-e731fe5197d3",
+                                    "title": "Inside Higgsfield #2: How We Built Supercomputer",
+                                    "slug": "how-we-built-supercomputer",
+                                    "category": {
+                                        "id": "4A2iViOhryzAMX4Ndjlfx5",
+                                        "slug": "inside-higgsfield",
+                                        "title": "Inside Higgsfield",
+                                        "description": "Behind the build. How our tools and models came together, in the words of the team that shipped them."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/3e6034f3d1ad0e7c4a735cfd26282b5f91ac7871-2720x1539.png",
+                                    "banner": {
+                                        "title": "Inside Higgsfield #2: How We Built Supercomputer",
+                                        "description": "Supercomputer started with two screens on every desk at Higgsfield: an LLM on one, Higgsfield on the other. As image and video models became more capable, creators had more prompts, references, assets, and context to manage around every generation. We decided the system should carry more of that complexity itself. This is how Supercomputer was built.\n",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/3e6034f3d1ad0e7c4a735cfd26282b5f91ac7871.png",
+                                        "link": "https://higgsfield.ai/blog/how-we-built-supercomputer"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Supercomputer started with a workflow we kept seeing inside Higgsfield: an LLM open on one screen, Higgsfield on the other. As image and video models became more capable, creators were spending more time managing prompts, references, assets, and context just to use them properly. We decided the system should carry that complexity instead. The first version took about six weeks to build. This is how it happened.\n",
+                                    "publishDate": "September 16, 2026",
+                                    "seoPublishDateISO": "2026-09-16T11:57:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "12 mins"
+                                },
+                                {
+                                    "id": "24l7CbDi8tRcnuTU9A9g81",
+                                    "title": "Inside Higgsfield #1: How We Built Cinema Studio",
+                                    "slug": "how-we-built-cinema-studio",
+                                    "category": {
+                                        "id": "4A2iViOhryzAMX4Ndjlfx5",
+                                        "slug": "inside-higgsfield",
+                                        "title": "Inside Higgsfield",
+                                        "description": "Behind the build. How our tools and models came together, in the words of the team that shipped them."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/97788dcb8f371ad352ce8ae4acd0aa85e98544ce-2720x1539.png",
+                                    "banner": {
+                                        "title": "Inside Higgsfield #1: How We Built Cinema Studio",
+                                        "description": "Cinema Studio started with a kangaroo fighting in an octagon, a viral clip made by naming real cameras and lenses in a prompt instead of describing a look in words. Here's how that experiment became a product built by a 140-person film industry team, five versions shipped in a year, with the engine swapped in ten days when a new model hit the market.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/97788dcb8f371ad352ce8ae4acd0aa85e98544ce.png",
+                                        "link": "https://higgsfield.ai/blog/how-we-built-cinema-studio"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Cinema Studio started with a video nobody on the team could recreate. A kangaroo fighting in an octagon passed a million views in days, but recreating the same quality proved much harder than making the original. What looked like a lucky experiment turned into a year-long effort to understand it, rebuild it, and eventually turn it into a product. Read the full story here.",
+                                    "publishDate": "August 13, 2026",
+                                    "seoPublishDateISO": "2026-08-12T19:00:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "7a741f00-f8a8-4410-bbef-7af4b1606108",
+                                    "title": "Inside Higgsfield #3: How We Built Higgsfield Originals",
+                                    "slug": "inside-higgsfield-3-how-we-built-higgsfield-originals",
+                                    "category": {
+                                        "id": "4A2iViOhryzAMX4Ndjlfx5",
+                                        "slug": "inside-higgsfield",
+                                        "title": "Inside Higgsfield",
+                                        "description": "Behind the build. How our tools and models came together, in the words of the team that shipped them."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/743c1edc72f55a52d7a8f80954161c16f985c015-2720x1539.png",
+                                    "banner": {
+                                        "title": "Inside Higgsfield #3: How We Built Higgsfield Originals",
+                                        "description": "Higgsfield Originals is our collection of films and series made with generative AI. Behind it is a team of filmmakers learning how to work with a new medium, and helping shape the tools as they go. Their first series arrived in March 2026. By May, they were in Cannes with a feature. Between those milestones were problems with acting, staging, and production that couldn’t be solved by generating more footage alone. Here is how it happened, from the inside.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/4c94b0d247721c617b1b329f1750b7844d4e951a.png",
+                                        "link": "https://higgsfield.ai/blog/inside-higgsfield-3-how-we-built-higgsfield-originals"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Inside Higgsfield #3: how the Originals team built films with AI, from Arena Zero and Hell Grind to Cannes and The Cully Hill Boys, and shaped Cinema Studio.",
+                                    "publishDate": "November 10, 2026",
+                                    "seoPublishDateISO": "2026-11-08T19:11:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "10 mins"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

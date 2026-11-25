@@ -1,0 +1,321 @@
+{
+  "meta": {
+    "endpoint": "community_trending",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/publications/community/trending?size=50&cursor=0.04998701263297621",
+    "params": {
+      "size": "50",
+      "cursor": "0.04998701263297621"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "job_set_type": "soul_cinematic",
+        "job_set_id": "68796736-8011-4366-896e-19e76eeda943",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "prompt": "Shot on 35mm film, a frame from a 1980s studio fantasy film, real film grain and halation around lights. Deep violet night sky packed with dense stars. Seen from behind, a lone figure in a long deep red hooded cloak, all red, holding a burning torch, stands at the foot of an immense castle-city, a dense black silhouette of countless towers and spires covered in thousands upon thousands of tiny pinpoint warm amber windows, densely packed like a vast city skyline at night, the way the city of Blade Runner glows. In front of him, a towering ancient gate stands slightly open, warm golden light spilling out through the gap into drifting mist on the ground around him. Overwhelming scale: the castle-city rises miles above him. Ancient architecture only, no modern buildings, no office windows. Practical lighting, no CGI look, no text.",
+          "width": 1152,
+          "height": 2048,
+          "batch_size": 2,
+          "seed": 232752,
+          "enhance_prompt": true,
+          "quality": "1080p",
+          "style_id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+          "style": {
+            "id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+            "name": "General",
+            "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+            "strength": 1.0
+          },
+          "style_strength": null,
+          "camera_model_id": "b49c8d68-e7b9-4459-aae1-c491319ac291",
+          "camera_model": {
+            "id": "b49c8d68-e7b9-4459-aae1-c491319ac291",
+            "tag": "",
+            "url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/70b1c8ee-2bb4-419e-85c3-aa9ed3c50b05.webp",
+            "name": "35mm Film",
+            "type": "camera_model"
+          },
+          "camera_lens_id": "15f74028-751c-4f0b-8b28-554c51d7582b",
+          "camera_lens": {
+            "id": "15f74028-751c-4f0b-8b28-554c51d7582b",
+            "tag": "",
+            "url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/7a87b046-9c3f-4747-bb38-fcb1f4b219e4.webp",
+            "name": "Vintage Anamorphic",
+            "type": "camera_lens"
+          }
+        },
+        "meta": {},
+        "id": "0396a6d7-776a-42e8-a2ed-bcfbb772d2e6",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": {
+          "type": "image",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake008/hf_20261124_055830_0396a6d7-776a-42e8-a2ed-bcfbb772d2e6.png"
+        },
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake008/hf_20261124_055830_0396a6d7-776a-42e8-a2ed-bcfbb772d2e6.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake008/hf_20261124_055830_0396a6d7-776a-42e8-a2ed-bcfbb772d2e6.png"
+          }
+        },
+        "published_at": 1795593658.19853,
+        "created_at": 1795499910.313147,
+        "user_id": "user_fake008",
+        "trace_id": "0396a6d7-776a-42e8-a2ed-bcfbb772d2e6",
+        "cluster_hash": "c18fc65f09c5bb0e8cd16a29319b2fc2",
+        "representation": null,
+        "publication": {
+          "id": "5d7c9b8e-3497-4072-8cb3-10666dbfebee",
+          "views_count": 2,
+          "likes_count": 0,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_8",
+          "avatar_url": "https://example.invalid/avatar_8.webp",
+          "instagram_handle": "ig_fake_8",
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "text2image_soul_v2",
+        "job_set_id": "a8b96f65-8050-4779-9bd9-be6409b1d75f",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "prompt": "Square grainy after-hours fashion snapshot, one anonymous sculptural presence that barely resembles a person. A dense tangled crownlike mass of thin bent silver wire and small mirrored discs sits low inside huge black technical-fabric folds. The metallic mass is irregular and horizontal with no human skull outline, fully opaque layered dark mesh underneath, no facial features, eye holes or exposed skin. Reflective discs hang at unequal lengths like a damaged mobile, no royal crown shape or fantasy spikes. Oversized washed charcoal coat with voluminous folds merges with the upper construction, all limbs concealed. Subject angled away, close candid framing, most of square occupied by dark cloth and scattered silver flecks. Background is an empty nearly black parking garage with one dim faraway warm light. Blunt frontal camera flash, slightly smeared highlights, coarse digital noise, shallow muddy blacks, muted gray and pale silver palette. Believable experimental wearable art photographed spontaneously, raw alternative-music moodboard image, not a sharp studio render or polished product shot. No people in background, text, logos, avatar ring, border, illustration or neon glow.",
+          "width": 2048,
+          "height": 2048,
+          "batch_size": 1,
+          "seed": 693805,
+          "enhance_prompt": false,
+          "use_sage_attention": false,
+          "quality": "1080p",
+          "use_relax": false,
+          "use_refiner": false,
+          "use_green": true,
+          "use_green_aidar": false,
+          "style_id": "3db34ab5-3439-4317-9e03-08dc30852e69",
+          "style": {
+            "id": "3db34ab5-3439-4317-9e03-08dc30852e69",
+            "name": "General",
+            "url": "https://cdn.higgsfield.ai/soul-v2-style/f33d85f2-6521-4fa8-8e8f-894cfbdee578.webp",
+            "strength": null
+          },
+          "style_strength": null
+        },
+        "meta": {},
+        "id": "dc857f88-b676-45d2-bb58-21fb6cd152d0",
+        "status": "completed",
+        "ip_check_finished": true,
+        "ip_detected": false,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": {
+          "type": "image",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake009/hf_20261014_230957_dc857f88-b676-45d2-bb58-21fb6cd152d0.png"
+        },
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake009/hf_20261014_230957_dc857f88-b676-45d2-bb58-21fb6cd152d0.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake009/hf_20261014_230957_dc857f88-b676-45d2-bb58-21fb6cd152d0.png"
+          }
+        },
+        "published_at": 1795531745.385026,
+        "created_at": 1792019397.022788,
+        "user_id": "user_fake009",
+        "trace_id": "dc857f88-b676-45d2-bb58-21fb6cd152d0",
+        "cluster_hash": "fa1f28761898e9273d5c8d03be806b5b",
+        "representation": null,
+        "publication": {
+          "id": "12e8f7b8-2a24-4140-a6f1-6e788ab53bb6",
+          "views_count": 169,
+          "likes_count": 1,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_9",
+          "avatar_url": "https://example.invalid/avatar_9.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": [
+            {
+              "name": "Test Badge",
+              "icon_url": "https://example.invalid/b.png",
+              "description": "fake"
+            }
+          ]
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "seedream_v4_5",
+        "job_set_id": "bcc3963a-6a4f-455e-87c5-147a6f62b699",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "prompt": "#3, 1 variation, chat gpt, 1k. Image only, not video. Vertical photorealistic image. Fill a vertical frame with brown ringlets around a woman's face. She looks up and to the side, holding a loose curl near her parted lips in soft warm light. Deliver one clean photograph without text, logos, watermarks, borders or interface elements.",
+          "batch_size": 1,
+          "quality": "high",
+          "aspect_ratio": "2:3",
+          "seed": 460739,
+          "width": 3328,
+          "height": 4992,
+          "input_images": [],
+          "use_unlim": true,
+          "reference_elements": []
+        },
+        "meta": {},
+        "id": "cfe480ce-0720-458d-8204-4f386a9254bc",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake010/hf_20261124_163630_cfe480ce-0720-458d-8204-4f386a9254bc.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake010/hf_20261124_163630_cfe480ce-0720-458d-8204-4f386a9254bc_min.webp"
+          }
+        },
+        "published_at": 1795575348.198682,
+        "created_at": 1795538190.359973,
+        "user_id": "user_fake010",
+        "trace_id": "cfe480ce-0720-458d-8204-4f386a9254bc",
+        "publication": {
+          "id": "8a027291-25d7-4421-94b7-7d30ec0f1a3d",
+          "views_count": 39,
+          "likes_count": 2,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_10",
+          "avatar_url": "https://example.invalid/avatar_10.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "gpt_image_2_6",
+        "job_set_id": "8e4ac3d6-4384-43b5-bacd-72329360fcec",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 2688,
+          "height": 1520,
+          "prompt": "광고 모델용 '캐릭터 레퍼런스 시트'를 실사로 만들어 줘. 왼쪽: 목선 아래 몸만 (머리 · 얼굴 없음) 가운데: 뒷모습 전신 (헤어 포함) · 오른쪽: 얼굴 클로즈업 얼굴은 딱 하나, 오른쪽 칸에만 · 글자 전부 금지, 배경불필요, 위 사진처럼 세컷만 하면돼\n\nCH-06 여자아이 (가해 학생) ⚠️ 낙인 금지\n항목\n설정\n나이 / 체형\n12세, 모네보다 큰 키, 단단한 인상, 장난기 많은 큰 눈\n헤어\n단발머리, 잔머리가 삐져나옴\n의상\n약간 낡은 후드티와 청바지, 때 묻은 운동화 (1화에서 이유를 설명하지 않음)\n연기 톤\n순진한 척 웃는 얼굴. 악의 대신 \"아무렇지 않음\"이 서늘함의 핵심\n일관성 앵커\n왼쪽 볼 작은 보조개,\n연출 주의\n1화에서 가정환경·출신을 암시하는 요소를 넣지 않음. 후반 회차에서 입체적으로 풀 때까지 \"평범한 얼굴\"로 유지",
+          "medias": [
+            {
+              "data": {
+                "id": "069abfc3-3933-4d81-b0be-61422439fcb4",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake011/069abfc3-3933-4d81-b0be-61422439fcb4.png",
+                "type": "media_input"
+              },
+              "role": "image"
+            }
+          ],
+          "aspect_ratio": "auto",
+          "quality": "high",
+          "resolution": "2k",
+          "model": "aurora-img-alpha",
+          "remove_bg": false,
+          "reference_elements": [],
+          "background": "auto",
+          "output_format": "png"
+        },
+        "meta": {
+          "cost": "{\"request_id\": \"req_89abbf3c08d045228032d7176657680c\", \"input_text_tokens\": 312, \"input_image_tokens\": 576, \"cached_text_input_tokens\": 0, \"cached_image_input_tokens\": 0, \"output_text_tokens\": 0, \"output_image_tokens\": 1972}"
+        },
+        "id": "ae83c6ff-0c7d-473a-837c-8436b8e35e5c",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake011/hf_20261125_024651_ae83c6ff-0c7d-473a-837c-8436b8e35e5c.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake011/hf_20261125_024651_ae83c6ff-0c7d-473a-837c-8436b8e35e5c.png"
+          }
+        },
+        "published_at": 1795576416.959768,
+        "created_at": 1795574811.7768,
+        "user_id": "user_fake011",
+        "trace_id": "ae83c6ff-0c7d-473a-837c-8436b8e35e5c",
+        "cluster_hash": "ba264d692ef4484cb1050fbe4e8a2c94",
+        "representation": null,
+        "publication": {
+          "id": "3d5cd9da-287c-44b1-8636-413ae05dd4e1",
+          "views_count": 60,
+          "likes_count": 1,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_11",
+          "avatar_url": "https://example.invalid/avatar_11.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      }
+    ],
+    "cursor": 0.022853445505435666,
+    "has_more": true,
+    "total": 78545
+  }
+}

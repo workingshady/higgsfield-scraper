@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "endpoint": "projects_contest_detail",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/contests/by-id/64d7317b-ed8b-4a55-bec9-4f3708a12e3b",
+    "params": {},
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "contest_type": "weekly",
+    "submissions_close_at": "2026-11-17T17:00:00Z",
+    "settings": {
+      "max_submissions": 1,
+      "new_project_per_submission": true,
+      "allow_generation_move": true,
+      "allow_generation_copy": true,
+      "source_clip_required": false
+    },
+    "rewards": {
+      "first_place_credits": 50000,
+      "second_place_credits": 30000,
+      "third_place_credits": 15000,
+      "honorable_mention_credits": 0,
+      "honorable_mentions_count": 5,
+      "style_champion_credits": 5000
+    },
+    "rules_effective_at": "2026-11-04",
+    "results_published": true,
+    "id": "64d7317b-ed8b-4a55-bec9-4f3708a12e3b",
+    "slug": "wcc-without-a-word",
+    "title": "WCC#4: Without a Word",
+    "description": "Create a 120-second animated film that tells a whole story without a single word.",
+    "start_at": "2026-11-11T17:00:00Z",
+    "end_at": "2026-11-18T17:00:00Z",
+    "status": "finished",
+    "preview_image": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/76541cf5-f61b-4d9f-a7e3-0cdc496dfd2f.jpg",
+    "preview_video": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/0d1246b6-b4ba-4a8a-afa4-330dd073374d.mp4",
+    "logo_url": null,
+    "redirect_url": null,
+    "prize_pool": 100000,
+    "submissions_count": 123,
+    "prizes": [
+      {
+        "label": "1st",
+        "type": "credits",
+        "value": 50000,
+        "count": 1
+      },
+      {
+        "label": "2nd",
+        "type": "credits",
+        "value": 30000,
+        "count": 1
+      },
+      {
+        "label": "3rd",
+        "type": "credits",
+        "value": 15000,
+        "count": 1
+      },
+      {
+        "label": "hm",
+        "type": "credits",
+        "value": 0,
+        "count": 5
+      },
+      {
+        "label": "style_champion",
+        "type": "credits",
+        "value": 5000,
+        "count": 1
+      }
+    ],
+    "theme_markdown": "Tell a complete story in animation without a single word. No dialogue, no narration, no lyrics, no text on screen to explain it. Any theme, any genre, any animated look. Music, sound effects, laughs and gasps are welcome.\n\nWith no words, the picture does the talking: where your character stands, how",
+    "details_markdown": "## Overview\n\nThe Higgsfield Weekly Challenge (the \"Challenge,\" or \"WCC\") is a recurring skill-based competition for short cinematic films created on Higgsfield. A new brief is published every week with one technical focus. Films are judged on merit by Higgsfield's team, and one project in every roun",
+    "some_contestants": [
+      {
+        "id": "user_fake0012xxxxxxxxxxxxxxxx",
+        "username": "creator16",
+        "avatar_url": "https://cdn.example.test/avatar.webp"
+      },
+      {
+        "id": "user_fake0013xxxxxxxxxxxxxxxx",
+        "username": "creator17",
+        "avatar_url": "https://cdn.example.test/avatar.webp"
+      }
+    ],
+    "winners": [
+      {
+        "id": "e3e0c549-f5e4-4394-b7ed-fae18809240b",
+        "contest_id": "64d7317b-ed8b-4a55-bec9-4f3708a12e3b",
+        "contest_slug": "wcc-without-a-word",
+        "type": "folder",
+        "project_id": "7c3fafe3-44c5-42fc-8326-c7d3a907dddf",
+        "user": {
+          "id": "user_fake0016xxxxxxxxxxxxxxxx",
+          "username": "creator15",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "Princess's Day Off",
+        "description": "A wordless 120-second animated fairy tale. A princess slips out of her castle in a servant's yellow dress and spends one day as an ordinary girl in the town below, until the bell calls her home. Hand-painted 2D look, stepped stop-motion cadence, no dialogue, no text, one heroine from the first frame to the last. \n\nVideo-to-video shot: 1:26–1:43, the walk into the square and the dance. One continuous shot made of two generations, joined at 1:34.\n\nThe pipeline, in order:\n1. Story and shot list first. Every scene is one generation of up to 30 seconds with its own cuts inside.\n2. Midjourney for the first drafts of every character and location, with frames of my own earlier film as the style reference.\n3. Seedream 5.5 in Higgsfield to turn each draft into a clean 2K production asset: character sheets, empty location plates, props.\n4. Seedance 2.5 with omni reference for the scenes: the location plate is always @Image 1, the heroine is always @Image 2, everyone else follows.\n5. One shot continued through video-to-video extension.\n6. Edit, speed, grade and sound in DaVinci Resolve.\n\nOne rule runs through all of it: style is shown, never described. Every edit prompt changes one thing and ends with the same line, so the look cannot drift.\n\nOne look from the first frame to the last: hand-painted 2D animation with visible dry gouache brushstrokes, flat simplified colour planes and a canvas texture, moving in a stepped stop-motion cadence on twos. The style was taken from frames of my own earlier film and carried into every asset as a style reference, never described again in words.\n\nPalette. Pale cream stone, dusty blue roofs, rust-red tiles, dark wood, garden green. \n\nLight. Bright flat summer daylight for the whole day, so the town reads as open and safe.\n\nCamera. Handheld, close to her, at her eye level. No static tripod shots, no smooth gimbal moves.",
+        "thumbnail_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0016xxxxxxxxxxxxxxxx/ea1882d3-2821-4e88-966c-59dc803cde9a_resize.jpg",
+        "thumbnail_id": "ea1882d3-2821-4e88-966c-59dc803cde9a_resize",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0016xxxxxxxxxxxxxxxx/c7d97690-fc5c-4ff7-b2be-a599c555dc2c.mp4",
+        "video_id": "c7d97690-fc5c-4ff7-b2be-a599c555dc2c",
+        "winner_place": "1st",
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": null,
+        "winner_reviewer_name": null,
+        "winner_reviewer_company": null,
+        "clone_available": true,
+        "likes_count": 0,
+        "dislikes_count": 0,
+        "views_count": 10,
+        "post_urls": [],
+        "social_media_metrics": {
+          "instagram_views": 0,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 0
+        },
+        "total_views": 10,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": true,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0016xxxxxxxxxxxxxxxx/b5f84a66-20d8-4a8a-95e5-f47b4d8bad11.mp4",
+        "publication": {
+          "publication_id": "5237015d-f330-4607-8ba5-5035cfef0106",
+          "slug": null,
+          "username": "creator15"
+        }
+      },
+      {
+        "id": "5217013b-f336-4b64-825a-6ecb608ec31c",
+        "contest_id": "64d7317b-ed8b-4a55-bec9-4f3708a12e3b",
+        "contest_slug": "wcc-without-a-word",
+        "type": "folder",
+        "project_id": "1f7c7434-b9d4-445e-925f-8b002b5173a9",
+        "user": {
+          "id": "user_fake0017xxxxxxxxxxxxxxxx",
+          "username": "creator18",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "Worth Every Bruise",
+        "description": "WORTH EVERY BRUISE\n\nFadel is the unluckiest man in the neighbourhood: he trips on his own doorstep and a passing bird finds his head. Walking down the lane, he discovers a starving mother cat and three kittens in a cardboard box. He wants to feed them, but his pockets are empty.\n\nAt the evening bazaar he spots fried chicken and fish he cannot afford. Then a throw-game booth loses its worker, and Fadel happily puts his head through the hole in the painted board. A kid misses, the big brother misses, and then the brother throws everything on the prize shelf: sponge, rubber chicken, plush pig, toy trumpet, rubber duck. Fadel takes every hit and earns his pay with a bump, a black eye and a missing tooth. He buys one drumstick and one fish, walks home at dusk, and feeds the cat family. A bird flies over, he flinches, nothing falls, and he laughs.\n\nA wordless story told only through faces, bodies, the camera and sound. No dialogue, no narration, no on-screen text except the title.\n\nVideo-to-video shots: 0:53 to 1:21 and 1:29 to 2:00\n\nWorkflow: painted 3D animation style, one look for the whole film. Characters, locations and props were designed in Seedream 5.0 Pro and saved as Elements. Every shot was generated with Seedance 2.5 in this project. For the long continuous shots, each finished clip was attached as the video reference for the next generation, so the action carries on in one take. We acted and filmed some scenes ourselves; that footage was used only as a reference for action and timing, while faces and places always come from the Elements.\n\nSound: ambience and SFX generated with Seed Audio; music made with Suno. All audio files are uploaded to the project. Edited outside Higgsfield without new AI.",
+        "thumbnail_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0017xxxxxxxxxxxxxxxx/6ca927f3-9b82-4103-8e6a-9684c0be3344_resize.jpg",
+        "thumbnail_id": "6ca927f3-9b82-4103-8e6a-9684c0be3344_resize",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0017xxxxxxxxxxxxxxxx/38fbc440-0153-4a89-bdff-4c981bdd52de.mp4",
+        "video_id": "38fbc440-0153-4a89-bdff-4c981bdd52de",
+        "winner_place": "2nd",
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": null,
+        "winner_reviewer_name": null,
+        "winner_reviewer_company": null,
+        "clone_available": true,
+        "likes_count": 0,
+        "dislikes_count": 0,
+        "views_count": 6,
+        "post_urls": [],
+        "social_media_metrics": {
+          "instagram_views": 0,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 0
+        },
+        "total_views": 6,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": false,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0017xxxxxxxxxxxxxxxx/310a93d6-17da-4253-a519-13e929ccb628.mp4",
+        "publication": {
+          "publication_id": "2d21e8ae-0ba2-4e07-bec8-6d102b9b7eb6",
+          "slug": null,
+          "username": "creator18"
+        }
+      },
+      {
+        "id": "7539edb2-d735-43d8-88b1-fc863f8de6c2",
+        "contest_id": "64d7317b-ed8b-4a55-bec9-4f3708a12e3b",
+        "contest_slug": "wcc-without-a-word",
+        "type": "folder",
+        "project_id": "893a39c0-59be-4275-ae71-bc01b4ebe49c",
+        "user": {
+          "id": "user_fake0018xxxxxxxxxxxxxxxx",
+          "username": "creator19",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "C-604",
+        "description": "A hitman takes position in an abandoned apartment and waits for his target across a silent housing estate at night. Through his scope, he watches an ordinary man come home after a long day — until the man's wife walks in with news that changes everything.\n\nWhy it's silent: the whole story is seen from hundreds of meters away, through glass and a rifle scope. The hitman sees everything and hears nothing — and so do we. Only the warm light of the couple's apartment breaks the cold blue night.\n\nVideo-to-video: the scope sequence is one continuous shot built with Seedance 2.5 video extension, from the man coming home to the announcement and his reaction — extended at 01:05 and 01:26. The final sequence at the window is also an extension of the earlier hideout shot.\n\nCreated on Higgsfield Cinema Studio, using Seedance 2.5 as the main video generation model.\n\nTools: Seedance 2.5, GPT Image 2, Seedream 5, Suno, DaVinci Resolve. Prompts written with Claude, using custom skills (Monkeydance for video, Monkeypaint for images).\n\nCreated by Allan Ripley",
+        "thumbnail_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0018xxxxxxxxxxxxxxxx/3b31c8c0-ce5f-443e-866e-b1dcf67c2b90_resize.jpg",
+        "thumbnail_id": "3b31c8c0-ce5f-443e-866e-b1dcf67c2b90_resize",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0018xxxxxxxxxxxxxxxx/ce09e6e5-be3a-4558-a9e9-c413daa0e2b5.mp4",
+        "video_id": "ce09e6e5-be3a-4558-a9e9-c413daa0e2b5",
+        "winner_place": "3rd",
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": null,
+        "winner_reviewer_name": null,
+        "winner_reviewer_company": null,
+        "clone_available": true,
+        "likes_count": 0,
+        "dislikes_count": 0,
+        "views_count": 7,
+        "post_urls": [],
+        "social_media_metrics": {
+          "instagram_views": 0,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 0
+        },
+        "total_views": 7,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": false,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0018xxxxxxxxxxxxxxxx/a59251a3-1d91-4990-b8f3-999eadcd3cb3.mp4",
+        "publication": {
+          "publication_id": "ce1bc9e7-d475-4dbf-9109-6e1774dffc2c",
+          "slug": "wcc-4-c-604",
+          "username": "creator19"
+        }
+      }
+    ],
+    "submission_ids": [],
+    "judges": [],
+    "timeline": null,
+    "faq": [
+      {
+        "question": "Who can enter?",
+        "answer": "Anyone with a Higgsfield account, free or paid, who meets the age and eligibility requirements in the Rules. Log in before the deadline to submit."
+      },
+      {
+        "question": "Do I need to be on the Higgsfield Discord?",
+        "answer": "No. You can enter and win without Discord. Join to discuss the brief, get feedback, watch the Wednesday winner reveal, and take part in the free credit giveaways on stream."
+      }
+    ]
+  }
+}

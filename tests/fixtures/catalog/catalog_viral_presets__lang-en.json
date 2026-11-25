@@ -1,0 +1,457 @@
+{
+    "meta": {
+        "endpoint": "catalog_viral_presets",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/viral-hub/presets/all?lang=en",
+        "params": {
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "presets": [
+            {
+                "id": "fb6ca8f7-493e-42e6-9e0d-f3e2e695825d",
+                "slug": "floating-fall",
+                "kind": "chain",
+                "name": "Floating fall",
+                "description": "Falls backward as their belongings float in midair, with the camera moving through crisp product close-ups before the fall resumes. Built for playful product reveals, dynamic lifestyle ads, and surreal slow-motion edits.",
+                "preview_url": "https://cdn.higgsfield.ai/viral_hub/d877f71c-d2f3-44df-9317-f3ce6889bcb6.mp4",
+                "thumbnail_url": "https://cdn.higgsfield.ai/viral_hub/151664fa-7f7f-43d6-80fa-4683104a3c02.webp",
+                "preview_image": null,
+                "preview_media": {
+                    "url": "https://cdn.higgsfield.ai/viral_hub/d877f71c-d2f3-44df-9317-f3ce6889bcb6.mp4",
+                    "type": "video",
+                    "width": 600,
+                    "height": 1066,
+                    "duration": 12,
+                    "main_url": "https://cdn.higgsfield.ai/viral_hub/95c7104f-9cff-40c5-b430-44354ee73074.mp4",
+                    "main_width": 1080,
+                    "duration_ms": 12096,
+                    "main_height": 1920,
+                    "content_type": "video/mp4",
+                    "optimized_url": "https://cdn.higgsfield.ai/viral_hub/95e315f0-e668-4581-a855-f4323265302d.webp",
+                    "thumbnail_url": "https://cdn.higgsfield.ai/viral_hub/151664fa-7f7f-43d6-80fa-4683104a3c02.webp"
+                },
+                "duration": 12,
+                "widescreen_image": null,
+                "widescreen_media": null,
+                "ip_check_required": false,
+                "is_main_page": false,
+                "tags": [],
+                "priority": 0,
+                "inputs": [
+                    {
+                        "id": "b422711c-78be-462a-b91e-119f3c24016e_input_images",
+                        "max": 1,
+                        "min": 1,
+                        "type": "image",
+                        "label": "Character",
+                        "binds_to": [
+                            {
+                                "node": "ca0ab347-736d-457d-8a6b-f70325baea1a",
+                                "port": "input_images"
+                            },
+                            {
+                                "node": "75deaa0a-2534-47fa-baff-ef9d26a891bf",
+                                "port": "image_references"
+                            }
+                        ],
+                        "required": true,
+                        "media_input_id": "2a6e5b3d-8de3-438c-8f4d-fc4383c19970"
+                    },
+                    {
+                        "id": "0604815d-d9be-4fec-9268-63b785934e7b_input_images",
+                        "max": 1,
+                        "min": 0,
+                        "type": "image",
+                        "label": "Location",
+                        "binds_to": [
+                            {
+                                "node": "ca0ab347-736d-457d-8a6b-f70325baea1a",
+                                "port": "input_images"
+                            },
+                            {
+                                "node": "75deaa0a-2534-47fa-baff-ef9d26a891bf",
+                                "port": "image_references"
+                            }
+                        ],
+                        "required": false,
+                        "media_input_id": "432e7d4f-11ad-4d17-bd73-64657f71592c"
+                    },
+                    {
+                        "id": "0dd30acc-ff54-4a12-a687-1b4824da78e5_input_images",
+                        "max": 3,
+                        "min": 0,
+                        "type": "image",
+                        "label": "Products",
+                        "binds_to": [
+                            {
+                                "node": "ca0ab347-736d-457d-8a6b-f70325baea1a",
+                                "port": "input_images"
+                            },
+                            {
+                                "node": "75deaa0a-2534-47fa-baff-ef9d26a891bf",
+                                "port": "image_references"
+                            }
+                        ],
+                        "required": false,
+                        "media_input_id": "e3e77554-3104-4a65-93c9-ec534c0088b4"
+                    },
+                    {
+                        "id": "e1bccbe0-3c5a-4210-9cfe-e20fb75cd080_user_prompt",
+                        "type": "text",
+                        "label": "Prompt",
+                        "binds_to": {
+                            "node": "ca0ab347-736d-457d-8a6b-f70325baea1a",
+                            "port": "user_prompt"
+                        }
+                    }
+                ],
+                "param_choices": {
+                    "75deaa0a-2534-47fa-baff-ef9d26a891bf": {
+                        "resolution": {
+                            "choices": [
+                                "480p",
+                                "720p",
+                                "1080p"
+                            ],
+                            "default": "720p"
+                        },
+                        "aspect_ratio": {
+                            "choices": [
+                                "auto",
+                                "21:9",
+                                "16:9",
+                                "4:3",
+                                "1:1",
+                                "3:4",
+                                "9:16"
+                            ],
+                            "default": "9:16"
+                        }
+                    }
+                },
+                "param_inputs": [],
+                "price_matrix": [
+                    {
+                        "key": "",
+                        "credit_units": 8400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=16:9,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=1080p",
+                        "credit_units": 14400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=16:9,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=480p",
+                        "credit_units": 3600
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=16:9,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=720p",
+                        "credit_units": 8400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=1:1,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=1080p",
+                        "credit_units": 14400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=1:1,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=480p",
+                        "credit_units": 3600
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=1:1,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=720p",
+                        "credit_units": 8400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=21:9,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=1080p",
+                        "credit_units": 14400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=21:9,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=480p",
+                        "credit_units": 3600
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=21:9,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=720p",
+                        "credit_units": 8400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=3:4,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=1080p",
+                        "credit_units": 14400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=3:4,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=480p",
+                        "credit_units": 3600
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=3:4,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=720p",
+                        "credit_units": 8400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=4:3,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=1080p",
+                        "credit_units": 14400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=4:3,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=480p",
+                        "credit_units": 3600
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=4:3,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=720p",
+                        "credit_units": 8400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=9:16,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=1080p",
+                        "credit_units": 14400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=9:16,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=480p",
+                        "credit_units": 3600
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=9:16,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=720p",
+                        "credit_units": 8400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=auto,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=1080p",
+                        "credit_units": 14400
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=auto,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=480p",
+                        "credit_units": 3600
+                    },
+                    {
+                        "key": "75deaa0a-2534-47fa-baff-ef9d26a891bf.aspect_ratio=auto,75deaa0a-2534-47fa-baff-ef9d26a891bf.resolution=720p",
+                        "credit_units": 8400
+                    }
+                ],
+                "pricing": {
+                    "type": "matrix"
+                },
+                "job_set_type": "viral_hub_video",
+                "type_ids": []
+            },
+            {
+                "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+                "slug": "vanish",
+                "kind": "chain",
+                "name": "Vanish",
+                "description": "The subject's body instantly disappears, leaving their empty clothing to suddenly collapse and fall flat onto the ground. Built for viral hooks, comedic reveals, and surreal visual effects.",
+                "preview_url": "https://cdn.higgsfield.ai/viral_hub/d63d47dd-d00f-42c8-9c45-9bddd3df7a38.mp4",
+                "thumbnail_url": "https://cdn.higgsfield.ai/viral_hub/a9944d26-47dc-463f-b4d6-446c371ae2f7.webp",
+                "preview_image": null,
+                "preview_media": {
+                    "url": "https://cdn.higgsfield.ai/viral_hub/d63d47dd-d00f-42c8-9c45-9bddd3df7a38.mp4",
+                    "type": "video",
+                    "width": 600,
+                    "height": 800,
+                    "duration": 5,
+                    "main_url": "https://cdn.higgsfield.ai/viral_hub/568cb428-46b4-4eb8-8698-40a0086a1b92.mp4",
+                    "main_width": 1248,
+                    "duration_ms": 5109,
+                    "main_height": 1664,
+                    "content_type": "video/mp4",
+                    "optimized_url": "https://cdn.higgsfield.ai/viral_hub/4aa748fd-d279-4a1c-8991-af967fe10bf4.webp",
+                    "thumbnail_url": "https://cdn.higgsfield.ai/viral_hub/a9944d26-47dc-463f-b4d6-446c371ae2f7.webp"
+                },
+                "duration": 5,
+                "widescreen_image": null,
+                "widescreen_media": {
+                    "url": "https://cdn.higgsfield.ai/viral_hub/982da2c9-a410-4fd7-ab88-a74929de3f3d.mp4",
+                    "type": "video",
+                    "width": 600,
+                    "height": 800,
+                    "duration": 5,
+                    "thumbnail_url": "https://cdn.higgsfield.ai/viral_hub/d3e61c20-20e5-4e7f-908a-c22c9b8b6bea.webp"
+                },
+                "ip_check_required": false,
+                "is_main_page": true,
+                "tags": [],
+                "priority": 1,
+                "inputs": [
+                    {
+                        "id": "6bcfad50-c1b5-4d53-b7ce-99de4099d244_input_images",
+                        "max": 1,
+                        "min": 1,
+                        "type": "image",
+                        "label": "Upload image",
+                        "binds_to": [
+                            {
+                                "node": "14c3d71e-eae8-4034-91de-d4684a282d58",
+                                "port": "input_images"
+                            },
+                            {
+                                "node": "218032e4-ca59-43af-ae5a-1dd83f2042f2",
+                                "port": "input_images"
+                            }
+                        ],
+                        "required": true
+                    },
+                    {
+                        "id": "14c3d71e-eae8-4034-91de-d4684a282d58_user_prompt",
+                        "type": "text",
+                        "label": "Prompt",
+                        "binds_to": {
+                            "node": "14c3d71e-eae8-4034-91de-d4684a282d58",
+                            "port": "user_prompt"
+                        }
+                    }
+                ],
+                "param_choices": {
+                    "218032e4-ca59-43af-ae5a-1dd83f2042f2": {
+                        "resolution": {
+                            "choices": [
+                                "480p",
+                                "720p",
+                                "1080p",
+                                "4k"
+                            ],
+                            "default": "720p"
+                        },
+                        "aspect_ratio": {
+                            "choices": [
+                                "auto",
+                                "21:9",
+                                "16:9",
+                                "4:3",
+                                "1:1",
+                                "3:4",
+                                "9:16"
+                            ],
+                            "default": "9:16"
+                        }
+                    }
+                },
+                "param_inputs": [],
+                "price_matrix": [
+                    {
+                        "key": "",
+                        "credit_units": 2250
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=16:9,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=1080p",
+                        "credit_units": 4500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=16:9,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=480p",
+                        "credit_units": 1500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=16:9,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=4k",
+                        "credit_units": 11000
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=16:9,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=720p",
+                        "credit_units": 2250
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=1:1,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=1080p",
+                        "credit_units": 4500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=1:1,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=480p",
+                        "credit_units": 1500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=1:1,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=4k",
+                        "credit_units": 11000
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=1:1,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=720p",
+                        "credit_units": 2250
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=21:9,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=1080p",
+                        "credit_units": 4500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=21:9,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=480p",
+                        "credit_units": 1500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=21:9,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=4k",
+                        "credit_units": 11000
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=21:9,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=720p",
+                        "credit_units": 2250
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=3:4,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=1080p",
+                        "credit_units": 4500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=3:4,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=480p",
+                        "credit_units": 1500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=3:4,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=4k",
+                        "credit_units": 11000
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=3:4,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=720p",
+                        "credit_units": 2250
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=4:3,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=1080p",
+                        "credit_units": 4500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=4:3,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=480p",
+                        "credit_units": 1500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=4:3,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=4k",
+                        "credit_units": 11000
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=4:3,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=720p",
+                        "credit_units": 2250
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=9:16,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=1080p",
+                        "credit_units": 4500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=9:16,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=480p",
+                        "credit_units": 1500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=9:16,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=4k",
+                        "credit_units": 11000
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=9:16,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=720p",
+                        "credit_units": 2250
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=auto,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=1080p",
+                        "credit_units": 4500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=auto,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=480p",
+                        "credit_units": 1500
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=auto,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=4k",
+                        "credit_units": 11000
+                    },
+                    {
+                        "key": "218032e4-ca59-43af-ae5a-1dd83f2042f2.aspect_ratio=auto,218032e4-ca59-43af-ae5a-1dd83f2042f2.resolution=720p",
+                        "credit_units": 2250
+                    }
+                ],
+                "pricing": {
+                    "type": "matrix"
+                },
+                "job_set_type": "viral_hub_video",
+                "type_ids": [
+                    "123491cb-d0fa-4058-806c-e18a7bf24359",
+                    "1ba83172-045a-4671-b45e-544fbcf4fdb3",
+                    "6a232208-ef05-4e2b-8f97-726e8802f404"
+                ]
+            }
+        ],
+        "total": 2,
+        "limit": null,
+        "offset": 0
+    }
+}

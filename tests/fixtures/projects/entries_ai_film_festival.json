@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "endpoint": "projects_contest_entries",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/contest-participations/publications?tab=latest&contest_key=ai_film_festival&size=100",
+    "params": {
+      "tab": "latest",
+      "contest_key": "ai_film_festival",
+      "size": "100"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "publication_id": "c49bb8db-ca14-470b-96c3-47036f6a4fa4",
+        "duration_seconds": 186.773333,
+        "state": "published",
+        "type": "film",
+        "is_ongoing": false,
+        "project_id": "c49bb8db-ca14-470b-96c3-47036f6a4fa4",
+        "snapshot_folder_id": "9251d2d0-711a-4a33-ac56-df0cb76aeb5e",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-11-25T12:49:28.934401+00:00",
+        "final_submitted_at": "2026-09-14T23:39:21.726255+00:00",
+        "is_open_source": true,
+        "name": "olfemio colors ",
+        "slug": "olfemio-colors",
+        "description": "dystopian world story building through fashion and color ",
+        "cover": {
+          "id": "7d0959ea-50ac-4880-9631-5ee3d92e04e0",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0025xxxxxxxxxxxxxxxx/hf_20260831_125522_7d0959ea-50ac-4880-9631-5ee3d92e04e0_min.webp",
+          "type": "job",
+          "width": 4096,
+          "height": 2737,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "18843557-b288-40c1-ae43-75cff9603e9b",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/18843557-b288-40c1-ae43-75cff9603e9b/index.m3u8",
+            "type": "video",
+            "width": 1920,
+            "height": 1080,
+            "min_url": null,
+            "duration": 186.773333,
+            "object_fit": "contain",
+            "thumbnail_url": null,
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0025xxxxxxxxxxxxxxxx/18843557-b288-40c1-ae43-75cff9603e9b.mp4"
+          }
+        ],
+        "trailer": null,
+        "author_user_ids": [
+          "user_fake0025xxxxxxxxxxxxxxxx"
+        ],
+        "tags": [],
+        "categories": [],
+        "show_prompts": true,
+        "show_canvas": true,
+        "is_discoverable": false,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "root_folder_id": "e380eca8-142e-4e9e-bbb6-9dc7b383c471",
+        "authors": [
+          {
+            "id": "user_fake0025xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator26",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": null,
+            "location": null,
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 0,
+            "total_projects_likes": 0,
+            "followers_count": 22,
+            "badges": []
+          }
+        ],
+        "team": null,
+        "grant_awarded_at": null,
+        "published_at": "2026-09-14T23:39:21.736052Z",
+        "views": 902,
+        "votes": 0,
+        "likes": 44,
+        "comments": 36,
+        "can_receive_audience_choice_votes": false,
+        "watch_required": false,
+        "watch_completed": false,
+        "watched_percent": 0
+      },
+      {
+        "publication_id": "a42adb1b-a12e-44fd-906c-a9fb37f9f2d0",
+        "duration_seconds": 1412.330667,
+        "state": "published",
+        "type": "film",
+        "is_ongoing": false,
+        "project_id": "a42adb1b-a12e-44fd-906c-a9fb37f9f2d0",
+        "snapshot_folder_id": "a153d248-f2ce-415c-93a0-02e48e4d9d9f",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-11-25T10:44:38.322441+00:00",
+        "final_submitted_at": "2026-09-15T15:18:59.037706+00:00",
+        "is_open_source": true,
+        "name": "Mechdriver 1",
+        "slug": "mechdriver-1",
+        "description": "The greatest mech pilot in the world left the military that betrayed her, and returns to pilot the only machine that can save them.",
+        "cover": {
+          "id": "682553d5-44f1-469c-8d3c-f9556f3aefa4",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0026xxxxxxxxxxxxxxxx/682553d5-44f1-469c-8d3c-f9556f3aefa4.jpg",
+          "type": "media",
+          "width": 2720,
+          "height": 1536,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "4de9a981-1d1d-42a0-90e1-e410a6f8e46e",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/4de9a981-1d1d-42a0-90e1-e410a6f8e46e/index.m3u8",
+            "type": "video",
+            "width": 3840,
+            "height": 2160,
+            "min_url": null,
+            "duration": 1412.330667,
+            "object_fit": "contain",
+            "thumbnail_url": null,
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0026xxxxxxxxxxxxxxxx/4de9a981-1d1d-42a0-90e1-e410a6f8e46e.mp4"
+          }
+        ],
+        "trailer": null,
+        "author_user_ids": [
+          "user_fake0026xxxxxxxxxxxxxxxx"
+        ],
+        "tags": [],
+        "categories": [],
+        "show_prompts": true,
+        "show_canvas": true,
+        "is_discoverable": false,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "root_folder_id": "e561b8e8-393c-45c3-9d9c-33e46140c574",
+        "authors": [
+          {
+            "id": "user_fake0026xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator27",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": "",
+            "location": "",
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 0,
+            "total_projects_likes": 0,
+            "followers_count": 2,
+            "badges": []
+          }
+        ],
+        "team": null,
+        "grant_awarded_at": null,
+        "published_at": "2026-09-15T15:18:59.049326Z",
+        "views": 1653,
+        "votes": 0,
+        "likes": 54,
+        "comments": 78,
+        "can_receive_audience_choice_votes": false,
+        "watch_required": false,
+        "watch_completed": false,
+        "watched_percent": 0
+      }
+    ],
+    "next_cursor": "2",
+    "total": 4518
+  }
+}

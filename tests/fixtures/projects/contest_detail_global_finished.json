@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "endpoint": "projects_contest_detail",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/contests/by-id/98d90e17-8e95-4a7f-b9db-633ebb4aea44",
+    "params": {},
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "contest_type": "global",
+    "submissions_close_at": null,
+    "settings": null,
+    "rewards": null,
+    "rules_effective_at": null,
+    "results_published": false,
+    "id": "98d90e17-8e95-4a7f-b9db-633ebb4aea44",
+    "slug": "make-your-action-scene",
+    "title": "Make Your Action Scene",
+    "description": "Build a world, pick your hero, raise the stakes, and cut a scene that makes people wish your film was real.",
+    "start_at": "2026-02-09T19:00:00Z",
+    "end_at": "2026-03-01T08:00:00Z",
+    "status": "finished",
+    "preview_image": "https://static.higgsfield.ai/contests/banner-mini-thumbnail.webp",
+    "preview_video": "https://cdn.higgsfield.ai/uploads/f5f9f5df-e72c-472d-af5f-4d49a6365a53.mp4",
+    "logo_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/093ae60a-5121-424d-b69d-f2218bb5b85e.webp",
+    "redirect_url": null,
+    "prize_pool": 500000,
+    "submissions_count": 8752,
+    "prizes": [
+      {
+        "label": "1st",
+        "type": "usd",
+        "value": 150000,
+        "count": 1
+      },
+      {
+        "label": "2nd",
+        "type": "usd",
+        "value": 100000,
+        "count": 1
+      },
+      {
+        "label": "3rd",
+        "type": "usd",
+        "value": 50000,
+        "count": 1
+      },
+      {
+        "label": "Honorable Mentions x 20",
+        "type": "usd",
+        "value": 10000,
+        "count": 20
+      }
+    ],
+    "theme_markdown": "## Theme\n\nCreate an action scene — no limits on which models you use!\n\nMartial arts, military ops, spy thrillers, superhero showdowns, post-apocalyptic survival — if it gets the adrenaline pumping, it's in. Build a world, pick your hero, raise the stakes, and cut a scene that makes people wish your ",
+    "details_markdown": "### Eligibility\n\n- Must be 18 years of age or older\n- Up to 10 submissions per person\n- Free to enter\n- The Contest is void where prohibited or in jurisdictions subject to international sanctions\n\n---\n\n### Content Requirements\n\n- Minimum length: 15 seconds\n- Maximum length: 5 minutes\n- Project must ",
+    "some_contestants": [
+      {
+        "id": "user_fake0010xxxxxxxxxxxxxxxx",
+        "username": "creator11",
+        "avatar_url": "https://cdn.example.test/avatar.webp"
+      },
+      {
+        "id": "user_fake0009xxxxxxxxxxxxxxxx",
+        "username": "creator12",
+        "avatar_url": "https://cdn.example.test/avatar.webp"
+      }
+    ],
+    "winners": [
+      {
+        "id": "4132edf8-f419-4e26-92c3-b2ce344b9592",
+        "contest_id": "98d90e17-8e95-4a7f-b9db-633ebb4aea44",
+        "contest_slug": "make-your-action-scene",
+        "type": "folder",
+        "project_id": "ec94f467-a468-4247-a3d2-8c83596089d2",
+        "user": {
+          "id": "user_fake0011xxxxxxxxxxxxxxxx",
+          "username": "creator10",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "GRANDMA vs WASP",
+        "description": "A peaceful summer breakfast becomes a full-scale war in a comedic micro-epic about pride, territory, and one very disrespectful insect.",
+        "thumbnail_src": "https://cdn.higgsfield.ai/db1bcb28-b282-4f74-872c-90faed8dceac.jpg",
+        "thumbnail_id": "db1bcb28-b282-4f74-872c-90faed8dceac",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0011xxxxxxxxxxxxxxxx/c9249d15-1981-48b1-b054-d07e350eb66c.mp4",
+        "video_id": "c9249d15-1981-48b1-b054-d07e350eb66c",
+        "winner_place": "1st",
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": "Hilarious! Loved the concept and it was executed to perfection.",
+        "winner_reviewer_name": "Reviewer Name",
+        "winner_reviewer_company": "AI Creator",
+        "clone_available": true,
+        "likes_count": 1609,
+        "dislikes_count": 74,
+        "views_count": 183334,
+        "post_urls": [
+          "https://video.example.test/post/1"
+        ],
+        "social_media_metrics": {
+          "instagram_views": 36009,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 211
+        },
+        "total_views": 219554,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": true,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0011xxxxxxxxxxxxxxxx/df31052c-871e-4c86-8069-c5ceb0d7b9aa.mp4",
+        "publication": null
+      },
+      {
+        "id": "39ddd863-f62c-48da-bd96-e0c908ed7302",
+        "contest_id": "98d90e17-8e95-4a7f-b9db-633ebb4aea44",
+        "contest_slug": "make-your-action-scene",
+        "type": "folder",
+        "project_id": "108e356b-b2ef-4d56-a81b-3fb58b1d1e93",
+        "user": {
+          "id": "user_fake0019xxxxxxxxxxxxxxxx",
+          "username": "creator20",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "title": "CUPID | Film by Shestak",
+        "description": "Aggression has become the norm.\nIt’s time to restore silence.",
+        "thumbnail_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0019xxxxxxxxxxxxxxxx/da16c4db-85a3-49a1-bf66-867431a8b7ff_resize.jpg",
+        "thumbnail_id": "da16c4db-85a3-49a1-bf66-867431a8b7ff_resize",
+        "video_src": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0019xxxxxxxxxxxxxxxx/2b0845f1-0314-4537-8860-6ab262b934a8.mp4",
+        "video_id": "2b0845f1-0314-4537-8860-6ab262b934a8",
+        "winner_place": "2nd",
+        "honorable_mention": false,
+        "style_champion": false,
+        "has_source_video": false,
+        "winner_feedback": "I really loved the concept and style of Cupid. So many shots were incredibly realistic, and the cinematic choices were unique and fun to watch.\n",
+        "winner_reviewer_name": "Reviewer Name",
+        "winner_reviewer_company": "Secret Level",
+        "clone_available": false,
+        "likes_count": 310,
+        "dislikes_count": 23,
+        "views_count": 66257,
+        "post_urls": [
+          "https://video.example.test/post/1"
+        ],
+        "social_media_metrics": {
+          "instagram_views": 0,
+          "tiktok_views": 0,
+          "youtube_views": 0,
+          "x_views": 0
+        },
+        "total_views": 66257,
+        "moderation_status": "unresolved",
+        "suspend_reason": null,
+        "shortlisted": false,
+        "like_mark": null,
+        "badges": [],
+        "has_assets": true,
+        "video_preview_url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake0019xxxxxxxxxxxxxxxx/35f0ceee-2bfd-4698-a766-906755de1f09.mp4",
+        "publication": null
+      }
+    ],
+    "submission_ids": [],
+    "judges": [
+      {
+        "user_id": null,
+        "display_name": "Judge Studio 31",
+        "description": "VFX Studio",
+        "avatar_url": "https://cdn.example.test/avatar.webp",
+        "background_url": "https://cdn.example.test/bg.webp",
+        "external_link": "https://example.test/judge"
+      },
+      {
+        "user_id": null,
+        "display_name": "Judge Studio 73",
+        "description": "Production Studio",
+        "avatar_url": "https://cdn.example.test/avatar.webp",
+        "background_url": "https://cdn.example.test/bg.webp",
+        "external_link": "https://example.test/judge"
+      },
+      {
+        "user_id": null,
+        "display_name": "Judge Studio 9",
+        "description": "AI Production Studio",
+        "avatar_url": "https://cdn.example.test/avatar.webp",
+        "background_url": "https://cdn.example.test/bg.webp",
+        "external_link": "https://example.test/judge"
+      }
+    ],
+    "timeline": null,
+    "faq": []
+  }
+}

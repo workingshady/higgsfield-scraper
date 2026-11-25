@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "endpoint": "projects_publication_detail",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/project-publications/d34bf2aa-de9f-4302-a4f2-cc4bc8008209",
+    "params": {},
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "publication_id": "d34bf2aa-de9f-4302-a4f2-cc4bc8008209",
+    "duration_seconds": 136.298667,
+    "state": "published",
+    "type": "film",
+    "is_ongoing": false,
+    "project_id": "d34bf2aa-de9f-4302-a4f2-cc4bc8008209",
+    "snapshot_folder_id": "89c544b3-d4b5-4fdf-bf49-d6a422a8de06",
+    "has_changes_since_publish": false,
+    "project_updated_at": "2026-10-26T21:11:08.857564+00:00",
+    "final_submitted_at": null,
+    "is_open_source": false,
+    "name": "Red Flag",
+    "slug": "red-flag",
+    "description": "A pitch-black Hong Kong neo-noir about romance, betrayal and, above all, self-defense. A woman is home alone, still deciding whether her new boyfriend is worth keeping, when a burglar breaks into her flat after midnight: the \"burglar\" turns out to be the boyfriend, Li, letting himself in with a surprise bouquet - the reddest flag of all. What Li doesn't know is that she's a quiet martial-arts champion... and she's just made up her mind.",
+    "cover": {
+      "id": "a1aef2d6-bea6-4853-8918-fd3d114b058b",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0003xxxxxxxxxxxxxxxx/a1aef2d6-bea6-4853-8918-fd3d114b058b.png",
+      "name": null,
+      "type": "media",
+      "width": 1920,
+      "height": 1080,
+      "min_url": null,
+      "duration": null,
+      "object_fit": "cover",
+      "thumbnail_url": null
+    },
+    "gallery_media": [
+      {
+        "id": "1d4995ca-1133-4c0a-8abd-554519e9c260",
+        "url": "https://cdn.higgsfield.ai/hls/video_input/1d4995ca-1133-4c0a-8abd-554519e9c260/index.m3u8",
+        "name": "Red Flag",
+        "type": "video",
+        "width": 1920,
+        "height": 1080,
+        "min_url": null,
+        "duration": 136.298667,
+        "object_fit": "cover",
+        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/1d4995ca-1133-4c0a-8abd-554519e9c260/thumbnail.webp",
+        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0003xxxxxxxxxxxxxxxx/1d4995ca-1133-4c0a-8abd-554519e9c260.mp4",
+        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/1d4995ca-1133-4c0a-8abd-554519e9c260/compressed.mp4"
+      }
+    ],
+    "trailer": null,
+    "author_user_ids": [
+      "user_fake0003xxxxxxxxxxxxxxxx"
+    ],
+    "tags": [],
+    "categories": [
+      "banner",
+      "spotlight"
+    ],
+    "show_prompts": true,
+    "show_canvas": true,
+    "is_discoverable": true,
+    "featured_episode_id": "bd2a3f2d-dc08-4edd-b330-91608f53a709",
+    "is_featured": true,
+    "original_folder_id": null,
+    "created_at": "2026-08-19T09:21:03.058133Z",
+    "stats": {
+      "generations_count": 3524
+    },
+    "featured_episode_slug": "red-flag/full-film",
+    "authors": [
+      {
+        "id": "user_fake0003xxxxxxxxxxxxxxxx",
+        "full_name": null,
+        "username": "creator5",
+        "avatar_url": "https://cdn.example.test/avatar.webp",
+        "headline": "Filmmaker",
+        "location": "",
+        "is_owner": true,
+        "is_followed": false,
+        "total_projects_views": 2142251,
+        "total_projects_likes": 14428,
+        "followers_count": 4946,
+        "badges": [
+          {
+            "id": "eb484085-3595-460a-a2c5-c6a08b7932f4",
+            "name": "Higgsfield Team",
+            "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2576cd81-f6e8-4dcd-afc9-05f9319a463b.png",
+            "description": "One of the people behind Higgsfield. We build the tools. You make the magic."
+          }
+        ]
+      }
+    ],
+    "team": {
+      "id": "2cb9677f-352f-4135-8dd7-1d9db550c88f",
+      "full_name": "Fake Person",
+      "username": "creator5",
+      "avatar_url": "https://cdn.example.test/avatar.webp",
+      "headline": "Filmmaker",
+      "location": "",
+      "is_owner": true,
+      "is_followed": false,
+      "total_projects_views": 2142251,
+      "total_projects_likes": 14428,
+      "followers_count": 4946,
+      "badges": [
+        {
+          "id": "eb484085-3595-460a-a2c5-c6a08b7932f4",
+          "name": "Higgsfield Team",
+          "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2576cd81-f6e8-4dcd-afc9-05f9319a463b.png",
+          "description": "One of the people behind Higgsfield. We build the tools. You make the magic."
+        }
+      ]
+    },
+    "contest_badges": [],
+    "contest_key": null,
+    "views": 71340,
+    "likes": 477,
+    "is_higgsfield_featured": false,
+    "can_receive_audience_choice_votes": false,
+    "watch_required": false,
+    "watch_completed": false,
+    "watched_percent": 0
+  }
+}

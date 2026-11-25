@@ -1,0 +1,278 @@
+{
+    "meta": {
+        "endpoint": "case_study",
+        "url": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign",
+        "params": {
+            "path": "/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign"
+        },
+        "fetched_at": "2026-11-25T13:15:09.966766+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "tsr",
+        "path": "/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign",
+        "sitemap_lastmod": null,
+        "head": {
+            "title": "Founder-Led Studios Are Building Brands with AI",
+            "lang": "en",
+            "canonical": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign",
+            "description": "How One of One built the first official Maradona apparel label with AI — no production company, no shoots in Buenos Aires or Naples, 10M reached in three weeks.",
+            "og_title": "Founder-Led Studios Are Building Brands with AI",
+            "og_image": "https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/abccfb0c2fd28644fa3ea3c0105d2fc5a8d790d0-1280x720.jpg",
+            "og_type": "article",
+            "author": "Higgsfield.AI Team",
+            "ld_json": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "Organization",
+                            "name": "Higgsfield",
+                            "url": "https://higgsfield.ai/",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "name": "Higgsfield logo",
+                                "url": "https://higgsfield.ai/icon.png"
+                            },
+                            "sameAs": [
+                                "https://x.com/higgsfield",
+                                "https://www.instagram.com/higgsfield.ai/",
+                                "https://www.tiktok.com/@higgsfield.ai90",
+                                "https://discord.com/invite/higgsfield",
+                                "https://www.linkedin.com/company/higgsfield/",
+                                "https://www.youtube.com/@HiggsfieldAI"
+                            ],
+                            "@id": "https://higgsfield.ai/#organization"
+                        },
+                        {
+                            "@type": "WebPage",
+                            "@id": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign",
+                            "url": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign",
+                            "name": "Founder-Led Studios Are Building Brands with AI",
+                            "description": "How One of One built the first official Maradona apparel label with AI — no production company, no shoots in Buenos Aires or Naples, 10M reached in three weeks.",
+                            "breadcrumb": {
+                                "@id": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign#breadcrumb"
+                            },
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            }
+                        },
+                        {
+                            "@type": "BreadcrumbList",
+                            "@id": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign#breadcrumb",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Customer Stories",
+                                    "item": "https://higgsfield.ai/creator-hub/case-studies"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Customer Stories",
+                                    "item": "https://higgsfield.ai/creator-hub/case-studies/creators"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "One of One: Taste Is the New Production Budget"
+                                }
+                            ]
+                        },
+                        {
+                            "@type": "Article",
+                            "@id": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign#article",
+                            "headline": "Founder-Led Studios Are Building Brands with AI",
+                            "description": "How One of One built the first official Maradona apparel label with AI — no production company, no shoots in Buenos Aires or Naples, 10M reached in three weeks.",
+                            "image": "https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/abccfb0c2fd28644fa3ea3c0105d2fc5a8d790d0-1280x720.jpg",
+                            "datePublished": "2026-10-21T21:27:00.000Z",
+                            "dateModified": "2026-11-15T00:20:16.000Z",
+                            "mainEntityOfPage": {
+                                "@id": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign"
+                            },
+                            "author": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            },
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "matches": [
+            {
+                "i": "__root__#",
+                "s": "success",
+                "l": {
+                    "clerkProxyUrl": "https://higgsfield.ai/_clerk",
+                    "initialEnterprise": false
+                }
+            },
+            {
+                "i": "#_creator-hub#creator-hub#case-studies#$id#creator-hub#case-studies#one-of-one-maradona-apparel-ai-campaign",
+                "s": "success",
+                "l": {
+                    "entry": {
+                        "type": "post",
+                        "post": {
+                            "id": "1eb327f4-acf5-428c-9cb3-acd4bf49cec4",
+                            "title": "Founder-Led Studios Are Building Brands with AI",
+                            "breadcrumbTitle": "One of One: Taste Is the New Production Budget",
+                            "slug": "one-of-one-maradona-apparel-ai-campaign",
+                            "description": "Building an apparel label around Diego Maradona would normally mean crews in Buenos Aires and Naples, casting in two countries, and months of schedule. One of One, a two-person AI-native studio, made every asset — site, film, product imagery, social — without a shoot. Three weeks in: 10M reached, collection sold out.",
+                            "seoDescription": "How One of One built the first official Maradona apparel label with AI — no production company, no shoots in Buenos Aires or Naples, 10M reached in three weeks.",
+                            "content": "<!--post-asset-block:%7B%22url%22%3A%22https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs479xw3z%2Fproduction%2Fb3af08efe08678c5722db80a270097cc84a08b15-1280x723.jpg%22%2C%22contentType%22%3A%22image%2Fjpeg%22%2C%22description%22%3A%22%22%2C%22filename%22%3A%222026-10-21%2022.37.54.jpg%22%2C%22width%22%3A1280%2C%22height%22%3A723%7D--><p>AI video allows a new crop of founder-led studios to embrace a different approach to brand campaigns. They begin with the creative idea, and see how far AI can carry it, rethinking how brands tell stories about athletes, entertainers and the intellectual property attached to them.</p><p>Launching a new brand usually takes a long list of people, places and resources, especially when the brand is an apparel label built around <a href=\"https://www.fifamuseum.com/en/explore/fifamuseumplus/blog/Diego-Armando-Marado\">Diego Maradona</a>, the late Argentine footballer and manager known as the King of Soccer.</p><p>You’d need a crew in <a href=\"https://argentinaonthego.com/en/diego-maradonas-tour-in-buenos-aires/\">Buenos Aires</a> to capture where Maradona learned the game, on the dirt pitches of Villa Fiorito, and another in <a href=\"https://nanovic.nd.edu/features/maradona-the-power-of-sport-and-popular-images-in-naples/\">Naples</a>, where his face still looks down from a mural in the Quartieri Spagnoli. Add a creative team, location scouts, casting agencies in two countries, permits and a producer whose whole job is keeping the schedule from collapsing. You’d burn months and a serious chunk of budget before anyone rolled a camera.</p><p>As Higgsfield AI explains below, AI video offers another way in. Lower cost is part of it, but the bigger shift is what these founders can imagine making in the first place.</p><p><a href=\"https://one-of-one-ai.com/\">One of One</a>, an AI-native studio founded by Alex Shalson and Jack Hershman, took that route to build the first official Maradona apparel label, released under Electa Global’s exclusive license and timed to the World Cup. It was the founders’ first major project, and they used AI to create every campaign asset: the website, editorial content, press materials, product images, film and social. This shows what changes today for brands that want a big campaign without a big budget.</p><p>Three weeks after launch, the campaign had reached 10 million people, and the debut collection had sold out. There was no production company, no international shoot and no months-long schedule.</p><h4 id=\"how-one-of-one-built-maradonas-world\">How One of One built Maradona’s world</h4><p>Talent-led content usually depends on a person physically showing up. That limits how much you can make and how adventurous you can get. Remove the limit and the brief gets bigger.</p><p>Shalson and Hershman started with one question: “Can we create content featuring the likeness of sporting talent without requiring them to be on set?”</p><p>Place mattered just as much. Maradona’s story can’t be separated from the cities he played in, the people who still love him and the culture that grew up around him. Buenos Aires and Naples weren’t backdrops you could swap out. The launch needed both.</p><p>A traditional production would have meant shoots in two countries, multiple crews and a schedule full of moving parts, all to capture one man’s likeness and places loaded with memory. One of One ran parallel creative workstreams using AI instead, producing the campaign’s images, video and motion on a single platform.</p><p>Before final production, the team generated concept imagery early and turned it into visual storyboards for the client, so everyone had something concrete to react to before full execution began. For talent work, that preliminary stage also set the rules for what had to stay true to the person, down to how he looked and moved. Everything after that followed those rules.</p><p>In production, the team matched models to the job: Nano Banana Pro, Nano Banana 2 and Cinema Studio for creative development and e-commerce imagery; Seedance 2.0 and Kling 3.0 for film and animation.</p><h4 id=\"taste-is-the-new-production-budget\">Taste is the new production budget</h4><p>Here’s the uncomfortable part for anyone hoping AI is a shortcut: Once everyone can use the same models, the models stop giving anyone an edge.</p><p>Polished images and short video clips are getting easier to produce. Making work that feels right for one particular brand takes a different kind of judgment.</p><p>At One of One, that judgment shows up in small calls: which model suits a shot, when an image needs another pass, when a result just isn’t good enough. The range of briefs the studio can take on with confidence keeps growing, though not every creative challenge is ready for AI production yet.</p><p>One of One uses AI only when it can bring an idea to life that would otherwise be too difficult, expensive or impractical to shoot.</p><p>As Shalson sees it, the technology is the instrument, and what the studio does with it is the craft.</p><h4 id=\"what-this-means-for-brands\">What this means for brands</h4><p>AI-native studios could change who gets to make the campaigns that shape a brand.</p><p>Big production budgets may not be necessary, even for the biggest visual ideas. Smaller teams, like the two-person team of Shalson and Hershman, can build lush brand campaigns and produce streams of content minus the cost and logistics of a traditional production. Emerging brands can expect rich, creative work that used to be out of reach.</p><p>Established brands also benefit. They can use AI video to test creative direction before committing time and money to a campaign. They can layer on extra content during a product launch. The hard part? Holding on to that identity once making more material gets easy.</p><p>Authenticity and rights will matter too, especially when a campaign features a real person. Brands and studios need clear permissions and a deliberate approach to how they represent someone’s likeness. Shalson thinks the AI rights to a person’s likeness are becoming an asset in their own right. Combine those rights with AI production and a clear creative point of view, and athletes and estates can appear in campaigns they were never filmed for. Maradona died in 2020. His label launched this year.</p><p>For founders considering this route, One of One’s approach comes down to a few habits worth borrowing:</p><ul><li>Show the idea before you build it. Rough concept images get faster, clearer feedback than a written brief.</li><li>Decide what can’t change. Settle early on which details of a person, product or place must stay accurate; hold every asset to that list.</li><li>Match the model to the shot. Different engines handle stills, motion and close-ups differently, and testing a few costs little.</li><li>Know what not to ship. Being willing to cut weak work is what earns a client’s trust.</li></ul><p>Shalson expects AI tools to become standard equipment for creative studios. His advice to other founders: Adopt them quickly, learn their limits and keep working on the craft of making something people actually want to watch.</p><p>Integrating AI early is the easy part. Having the taste to use it well is what will separate the studios that last.</p><p><em>This story was produced by</em> <a href=\"https://higgsfield.ai/\"><em>Higgsfield AI</em></a> <em>and reviewed and distributed by</em> <em><a href=\"https://stacker.com/\">Stacker</a>.</em></p><p></p><!--post-asset-block:%7B%22url%22%3A%22https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fs479xw3z%2Fproduction%2F073d93651ac4cd6246ee30ae2efd74ea7d6ad050.mp4%22%2C%22contentType%22%3A%22video%2Fmp4%22%2C%22description%22%3A%22%22%2C%22filename%22%3A%22Film_1.mp4%22%2C%22width%22%3A800%2C%22height%22%3A600%2C%22posterUrl%22%3A%22https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs479xw3z%2Fproduction%2Fabccfb0c2fd28644fa3ea3c0105d2fc5a8d790d0-1280x720.jpg%22%7D-->",
+                            "mainBannerUrl": "https://cdn.sanity.io/images/s479xw3z/production/abccfb0c2fd28644fa3ea3c0105d2fc5a8d790d0-1280x720.jpg",
+                            "author": {
+                                "id": null,
+                                "slug": "higgsfield",
+                                "fullName": "Higgsfield",
+                                "position": "",
+                                "description": "",
+                                "photoUrl": ""
+                            },
+                            "category": {
+                                "id": "4eJqdx0E1pPvo4vN6ik2rL",
+                                "slug": "creators",
+                                "title": "Customer Stories"
+                            },
+                            "cta": null,
+                            "hero": {
+                                "title": "Founder-Led Studios Are Building Brands with AI",
+                                "description": "Built with Higgsfield by founder-led studios, including the team behind the Maradona label",
+                                "ctaText": "",
+                                "ctaLink": "",
+                                "hubspotGuard": false,
+                                "media": {
+                                    "type": "static",
+                                    "source": "https://cdn.sanity.io/images/s479xw3z/production/abccfb0c2fd28644fa3ea3c0105d2fc5a8d790d0-1280x720.jpg",
+                                    "width": 1280,
+                                    "height": 720,
+                                    "description": "Founder-Led Studios Are Building Brands with AI",
+                                    "mediaDescription": "Founder-Led Studios Are Building Brands with AI"
+                                }
+                            },
+                            "headings": [
+                                {
+                                    "id": "how-one-of-one-built-maradonas-world",
+                                    "title": "How One of One built Maradona’s world",
+                                    "level": 4
+                                },
+                                {
+                                    "id": "taste-is-the-new-production-budget",
+                                    "title": "Taste is the new production budget",
+                                    "level": 4
+                                },
+                                {
+                                    "id": "what-this-means-for-brands",
+                                    "title": "What this means for brands",
+                                    "level": 4
+                                }
+                            ],
+                            "relatedPosts": [],
+                            "readingTime": "5 mins",
+                            "dateCreated": "2026-10-21T21:14:18Z",
+                            "dateModified": "2026-11-15T00:20:16Z",
+                            "seoPublishDateISO": "2026-10-21T21:27:00.000Z",
+                            "aboutSection": null,
+                            "faqSection": null,
+                            "heroMetrics": [
+                                {
+                                    "label": "Reach in three weeks",
+                                    "value": "10M"
+                                },
+                                {
+                                    "label": "Debut collection",
+                                    "value": "Sold out"
+                                },
+                                {
+                                    "label": "Behind the campaign",
+                                    "value": "2 founders"
+                                }
+                            ],
+                            "toolsUsed": [],
+                            "sidebarCta": {
+                                "title": "",
+                                "description": "",
+                                "ctaText": "",
+                                "ctaLink": "#case-study-enterprise-form",
+                                "secondaryCtaLink": "https://higgsfield.ai/generate",
+                                "secondaryCtaText": ""
+                            }
+                        }
+                    },
+                    "head": {
+                        "meta": [
+                            {
+                                "title": "Founder-Led Studios Are Building Brands with AI"
+                            },
+                            {
+                                "name": "description",
+                                "content": "How One of One built the first official Maradona apparel label with AI — no production company, no shoots in Buenos Aires or Naples, 10M reached in three weeks."
+                            },
+                            {
+                                "property": "og:title",
+                                "content": "Founder-Led Studios Are Building Brands with AI"
+                            },
+                            {
+                                "property": "og:description",
+                                "content": "How One of One built the first official Maradona apparel label with AI — no production company, no shoots in Buenos Aires or Naples, 10M reached in three weeks."
+                            },
+                            {
+                                "property": "og:site_name",
+                                "content": "Higgsfield"
+                            },
+                            {
+                                "property": "og:type",
+                                "content": "article"
+                            },
+                            {
+                                "property": "og:url",
+                                "content": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign"
+                            },
+                            {
+                                "property": "og:image",
+                                "content": "https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/abccfb0c2fd28644fa3ea3c0105d2fc5a8d790d0-1280x720.jpg"
+                            },
+                            {
+                                "name": "twitter:card",
+                                "content": "summary_large_image"
+                            },
+                            {
+                                "name": "twitter:site",
+                                "content": "@higgsfield_ai"
+                            },
+                            {
+                                "name": "twitter:title",
+                                "content": "Founder-Led Studios Are Building Brands with AI"
+                            },
+                            {
+                                "name": "twitter:description",
+                                "content": "How One of One built the first official Maradona apparel label with AI — no production company, no shoots in Buenos Aires or Naples, 10M reached in three weeks."
+                            },
+                            {
+                                "name": "twitter:image",
+                                "content": "https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/abccfb0c2fd28644fa3ea3c0105d2fc5a8d790d0-1280x720.jpg"
+                            }
+                        ],
+                        "links": [
+                            {
+                                "rel": "canonical",
+                                "href": "https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign"
+                            }
+                        ],
+                        "scripts": [
+                            {
+                                "children": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"name\":\"Higgsfield\",\"url\":\"https://higgsfield.ai/\",\"logo\":{\"@type\":\"ImageObject\",\"name\":\"Higgsfield logo\",\"url\":\"https://higgsfield.ai/icon.png\"},\"sameAs\":[\"https://x.com/higgsfield\",\"https://www.instagram.com/higgsfield.ai/\",\"https://www.tiktok.com/@higgsfield.ai90\",\"https://discord.com/invite/higgsfield\",\"https://www.linkedin.com/company/higgsfield/\",\"https://www.youtube.com/@HiggsfieldAI\"],\"@id\":\"https://higgsfield.ai/#organization\"},{\"@type\":\"WebPage\",\"@id\":\"https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign\",\"url\":\"https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign\",\"name\":\"Founder-Led Studios Are Building Brands with AI\",\"description\":\"How One of One built the first official Maradona apparel label with AI — no production company, no shoots in Buenos Aires or Naples, 10M reached in three weeks.\",\"breadcrumb\":{\"@id\":\"https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign#breadcrumb\"},\"publisher\":{\"@id\":\"https://higgsfield.ai/#organization\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Customer Stories\",\"item\":\"https://higgsfield.ai/creator-hub/case-studies\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Customer Stories\",\"item\":\"https://higgsfield.ai/creator-hub/case-studies/creators\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"One of One: Taste Is the New Production Budget\"}]},{\"@type\":\"Article\",\"@id\":\"https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign#article\",\"headline\":\"Founder-Led Studios Are Building Brands with AI\",\"description\":\"How One of One built the first official Maradona apparel label with AI — no production company, no shoots in Buenos Aires or Naples, 10M reached in three weeks.\",\"image\":\"https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/abccfb0c2fd28644fa3ea3c0105d2fc5a8d790d0-1280x720.jpg\",\"datePublished\":\"2026-10-21T21:27:00.000Z\",\"dateModified\":\"2026-11-15T00:20:16.000Z\",\"mainEntityOfPage\":{\"@id\":\"https://higgsfield.ai/creator-hub/case-studies/one-of-one-maradona-apparel-ai-campaign\"},\"author\":{\"@id\":\"https://higgsfield.ai/#organization\"},\"publisher\":{\"@id\":\"https://higgsfield.ai/#organization\"}}]}",
+                                "type": "application/ld+json"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

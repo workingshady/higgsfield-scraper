@@ -1,0 +1,666 @@
+{
+  "meta": {
+    "endpoint": "community_trending",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/publications/community/trending?size=50",
+    "params": {
+      "size": "50"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "job_set_type": "gpt_image_2_6",
+        "job_set_id": "c639df06-27bd-4fe1-b879-aa5ed9ceb157",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 1520,
+          "height": 2688,
+          "prompt": "Medium & Aesthetic: An authentic, unsettling 1990s found-footage photograph taken on a cheap Kodak disposable 35mm film camera, capturing a raw, eerie \"cursed image\" look.\n\nScene & Environment: A desolate, claustrophobic liminal space—an empty, dimly lit basement corridor with stained linoleum tiles, peeling yellowed wallpaper, and an unlit doorway receding into darkness in the background.\n\nSubject: Standing awkwardly in the center of the hallway is a tall, uncanny creature with pallid, wrinkled, fleshy skin and unnaturally long, gangly limbs. It has a heavy, bloated, distended belly. Dozens of lifelike human hands and fingers protrude asymmetrically from its torso, ribs, and shoulders, splaying outward at unnatural angles. Atop its hunched neck sits a gaunt human head with deeply sunken, shadowed eyes and a massive, slack, drooping jaw frozen in a wide, dark, gaping mouth.\n\nComposition & Camera: Shot from a low camera angle looking upward at the towering figure, slightly tilted and off-center as if snapped hastily from waist height by someone backing away.\n\nLighting & Film Artifacts: Harsh, flat, direct on-camera retro flash illuminates the creature in the foreground, washing out its fleshy texture and casting a stark, hard-edged shadow onto the wall behind it. Rapid light falloff plunges the far end of the corridor into eerie, murky darkness, mixed with a faint sickly greenish-yellow ambient glow. Imperfect 35mm film grain, slight lens softness, muted desaturated colors, subtle edge vignetting, and authentic analog flash glare.\n\nConstraints: Unpolished candid snapshot realism, no cinematic polish, no smooth CGI sheen, no studio lighting, no text or watermarks.",
+          "medias": [],
+          "aspect_ratio": "9:16",
+          "quality": "max",
+          "resolution": "2k",
+          "model": "aurora-img-alpha",
+          "remove_bg": false,
+          "reference_elements": [],
+          "background": "auto",
+          "output_format": "png"
+        },
+        "meta": {
+          "cost": "{\"request_id\": \"req_f33e9c7d02df4f4bbc6251dc3e042239\", \"input_text_tokens\": 382, \"input_image_tokens\": 0, \"cached_text_input_tokens\": 0, \"cached_image_input_tokens\": 0, \"output_text_tokens\": 0, \"output_image_tokens\": 7888}"
+        },
+        "id": "f195ce7b-f746-475b-9e67-c444637cc211",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake001/hf_20261125_061616_f195ce7b-f746-475b-9e67-c444637cc211.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake001/hf_20261125_061616_f195ce7b-f746-475b-9e67-c444637cc211.png"
+          }
+        },
+        "published_at": 1795587493.078455,
+        "created_at": 1795587376.648326,
+        "user_id": "user_fake001",
+        "trace_id": "f195ce7b-f746-475b-9e67-c444637cc211",
+        "cluster_hash": "0c4eb826277b8afb39db5ef3946d763c",
+        "representation": null,
+        "publication": {
+          "id": "77557ebb-4949-4f8e-bdc6-a2e62b09e5f2",
+          "views_count": 64,
+          "likes_count": 2,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_1",
+          "avatar_url": "https://example.invalid/avatar_1.webp",
+          "instagram_handle": null,
+          "twitter_handle": "tw_fake_1",
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "image_auto",
+        "job_set_id": "7f015115-2bef-4f05-b533-03d3ad00bae9",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 1536,
+          "height": 2752,
+          "aspect_ratio": "9:16",
+          "resolution": "2k",
+          "batch_size": 1,
+          "prompt": "Use image 1 as reference for location,pose, expression, mood. Use 2 as reference for clothes. 3 use image 3 as reference for the face. Smartphone photo quality.",
+          "medias": [
+            {
+              "data": {
+                "id": "8a32ba1b-c87d-4c89-ac8f-66d55dc7cb1b",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake002/8a32ba1b-c87d-4c89-ac8f-66d55dc7cb1b.png",
+                "type": "media_input"
+              },
+              "role": "image"
+            },
+            {
+              "data": {
+                "id": "8360934a-0a44-42e4-a6d6-6eefa71871fb",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake002/8360934a-0a44-42e4-a6d6-6eefa71871fb.png",
+                "type": "media_input"
+              },
+              "role": "image"
+            },
+            {
+              "data": {
+                "id": "c052a550-5825-4a08-8d4e-91e36a9843c2",
+                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake002/hf_20261119_160405_c052a550-5825-4a08-8d4e-91e36a9843c2.png",
+                "type": "nano_banana_2_job"
+              },
+              "role": "image"
+            }
+          ]
+        },
+        "meta": {},
+        "id": "b95f0136-eb48-421a-a810-e2670fc19a3d",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake002/hf_20261124_173607_b95f0136-eb48-421a-a810-e2670fc19a3d.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake002/hf_20261124_173607_b95f0136-eb48-421a-a810-e2670fc19a3d_min.webp"
+          }
+        },
+        "published_at": 1795542051.605045,
+        "created_at": 1795541767.402725,
+        "user_id": "user_fake002",
+        "trace_id": "c052a550-5825-4a08-8d4e-91e36a9843c2",
+        "cluster_hash": "5ff9cc3abfd06bbdf0649e4ee5de5a31",
+        "representation": null,
+        "publication": {
+          "id": "41fa5b60-07f1-47fe-9bb3-2db82fb84e44",
+          "views_count": 289,
+          "likes_count": 3,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_2",
+          "avatar_url": "https://example.invalid/avatar_2.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "nano_banana_2",
+        "job_set_id": "ea1f0e8a-a193-4a89-ac96-ca1465fb15e0",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 1856,
+          "height": 2304,
+          "aspect_ratio": "4:5",
+          "resolution": "2k",
+          "batch_size": 1,
+          "input_images": [
+            {
+              "id": "a5fdb6ab-f55f-4763-8478-27851418a163",
+              "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake003/a5fdb6ab-f55f-4763-8478-27851418a163.jpg",
+              "type": "media_input"
+            },
+            {
+              "id": "ba2f4a8e-3a8d-44bd-8a77-a6b4274fad15",
+              "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake003/ba2f4a8e-3a8d-44bd-8a77-a6b4274fad15.jpg",
+              "type": "media_input"
+            },
+            {
+              "id": "53365ef4-f58c-4720-8b6c-c34636185205",
+              "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake003/hf_20261119_083947_53365ef4-f58c-4720-8b6c-c34636185205.png",
+              "type": "image_job"
+            }
+          ],
+          "input_image": null,
+          "application": null,
+          "surface": null,
+          "prompt": "Image 1 - Reference (background, pose, camera angle, framing, lighting, expression)\nImage 2 - outfit (garment only)\nreplace girl in image with attached blonde model with attached black outfit, pose, camera unchanged"
+        },
+        "meta": {},
+        "id": "a98a4994-1edd-472a-a340-aba7f13f5b70",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake003/hf_20261119_101414_a98a4994-1edd-472a-a340-aba7f13f5b70.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake003/hf_20261119_101414_a98a4994-1edd-472a-a340-aba7f13f5b70_min.webp"
+          }
+        },
+        "published_at": 1795593861.476995,
+        "created_at": 1795083254.7414,
+        "user_id": "user_fake003",
+        "trace_id": "53365ef4-f58c-4720-8b6c-c34636185205",
+        "publication": {
+          "id": "ed919bb2-d6e4-40e6-82a2-350522536721",
+          "views_count": 15,
+          "likes_count": 0,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_3",
+          "avatar_url": "https://example.invalid/avatar_3.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "gpt_image_2_6",
+        "job_set_id": "22624d3d-6b42-447d-b0f9-cdbfaa3bd839",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 1520,
+          "height": 2688,
+          "prompt": "Candid real photo taken with a phone behind the bar at night: <<<9b2d0e3f-736d-47ea-8f5f-0d8ace042c61>>> lifts a glass smoke cloche off a crystal rocks glass on the dark counter of <<<55e70cc9-79bb-4576-9d99-b81aa43910f2>>>, releasing a slow curl of white smoke over a deep amber cocktail with a large clear ice cube; a candle glows beside it. He looks at the camera with a quiet, knowing half smile, as if saying this is the one. Background: back bar with softly glowing bottles, warm bulbs, deep black shadows, crimson and amber highlights. Realism is the priority: natural skin texture with pores and small imperfections, realistic hands, slight phone-camera grain, natural focus falloff, candid moment. Avoid: plastic or waxy skin, glassy eyes, CGI or 3D render look, illustration, daylight, cold light, text, logos, watermarks, extra people.",
+          "medias": [],
+          "aspect_ratio": "9:16",
+          "quality": "high",
+          "resolution": "2k",
+          "model": "aurora-img-alpha",
+          "remove_bg": false,
+          "reference_elements": [
+            {
+              "id": "55e70cc9-79bb-4576-9d99-b81aa43910f2",
+              "name": "loc_sant-sima-bar-barra-y-sal-n-reales",
+              "medias": [
+                {
+                  "id": "ef5bf51a-65f2-4645-9aa7-aada4c45661f",
+                  "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake004/ef5bf51a-65f2-4645-9aa7-aada4c45661f.png",
+                  "type": "media_input"
+                }
+              ],
+              "category": "environment",
+              "description": "El bar real Santísima en Zipaquirá: bar de coctelería íntimo y oscuro, barra de madera oscura con botellas iluminadas en estantes, bombillos cálidos, velas, acentos rojo carmesí y dorado ámbar, fondo negro profundo. Nunca luz de día ni luz fría.",
+              "ip_detected": null,
+              "video_medias": []
+            },
+            {
+              "id": "9b2d0e3f-736d-47ea-8f5f-0d8ace042c61",
+              "name": "char_anfitri-n-sant-sima-hombre",
+              "medias": [
+                {
+                  "id": "c08788de-8682-4799-a511-e44c2edffd6b",
+                  "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake004/c08788de-8682-4799-a511-e44c2edffd6b.png",
+                  "type": "media_input"
+                }
+              ],
+              "category": "character",
+              "description": "Cara principal de Santísima Bar (Zipaquirá, Colombia). Hombre latino de unos 30 años, pelo corto platinado, barba corta y cuidada, piel trigueña con textura real, mirada cálida y segura, media sonrisa tranquila. Viste elegante: saco gris cruzado con polo mostaza, o ropa oscura de bar. Siempre en el bar con luz cálida y fondo oscuro; aspecto de foto real, nunca de render.",
+              "ip_detected": null,
+              "video_medias": []
+            }
+          ],
+          "output_format": "png"
+        },
+        "meta": {
+          "cost": "{\"request_id\": \"req_d0c4d9255ad5447e9ff5eff4cbb04322\", \"input_text_tokens\": 220, \"input_image_tokens\": 2960, \"cached_text_input_tokens\": 0, \"cached_image_input_tokens\": 0, \"output_text_tokens\": 0, \"output_image_tokens\": 1972}"
+        },
+        "id": "efe4e0de-7b66-443b-9eee-3f13220b871b",
+        "status": "completed",
+        "ip_check_finished": true,
+        "ip_detected": false,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake004/hf_20261125_002117_efe4e0de-7b66-443b-9eee-3f13220b871b.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake004/hf_20261125_002117_efe4e0de-7b66-443b-9eee-3f13220b871b.png"
+          }
+        },
+        "published_at": 1795574832.035133,
+        "created_at": 1795566077.181792,
+        "user_id": "user_fake004",
+        "trace_id": "efe4e0de-7b66-443b-9eee-3f13220b871b",
+        "cluster_hash": "962ca8f74b0d29df57a931aa5b52aa4f",
+        "representation": null,
+        "publication": {
+          "id": "6b127673-68c1-4d22-b08f-f81985c005bc",
+          "views_count": 47,
+          "likes_count": 0,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_4",
+          "avatar_url": "https://example.invalid/avatar_4.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "text2image_soul_v2",
+        "job_set_id": "09678108-2b83-4298-b3c0-a530a1d4eac7",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "prompt": "The world's longest-legged professional leg model, a Korean supermodel. In Omotesando, Japan, natural walking stride, sensual atmosphere, smirk, very drunk, soft afternoon daylight, natural shadows, horizontal angle, natural perspective, casual snapshot.\nCaptured in a standing twerk dance style with extended legs. Her legs are spread apart, with her knees softly unlocked rather than fully rigid, maintaining a natural standing position. Her face stays directed toward the camera, maintaining direct eye contact.",
+          "width": 1152,
+          "height": 1536,
+          "batch_size": 2,
+          "seed": 432536,
+          "enhance_prompt": false,
+          "use_sage_attention": false,
+          "quality": "720p",
+          "use_relax": false,
+          "use_refiner": false,
+          "use_green": true,
+          "use_green_aidar": false,
+          "style_id": "3db34ab5-3439-4317-9e03-08dc30852e69",
+          "style": {
+            "id": "3db34ab5-3439-4317-9e03-08dc30852e69",
+            "name": "General",
+            "url": "https://cdn.higgsfield.ai/soul-v2-style/f33d85f2-6521-4fa8-8e8f-894cfbdee578.webp",
+            "strength": 1.0
+          },
+          "style_strength": 1.0,
+          "custom_reference": {
+            "id": null,
+            "name": "Neon Siren Groove",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake005/ab7af762-efd4-4bbb-9b11-2990f770a860.png",
+            "strength": 1.0
+          }
+        },
+        "meta": {},
+        "id": "609c1593-b0a1-4b83-87b7-49da66c75800",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": {
+          "type": "image",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake005/hf_20261123_085101_609c1593-b0a1-4b83-87b7-49da66c75800.png"
+        },
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake005/hf_20261123_085101_609c1593-b0a1-4b83-87b7-49da66c75800.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake005/hf_20261123_085101_609c1593-b0a1-4b83-87b7-49da66c75800.png"
+          }
+        },
+        "published_at": 1795423920.409951,
+        "created_at": 1795423861.368086,
+        "user_id": "user_fake005",
+        "trace_id": "609c1593-b0a1-4b83-87b7-49da66c75800",
+        "cluster_hash": "6663faf62d53259afc6ad9cbf5341d07",
+        "representation": null,
+        "publication": {
+          "id": "3a93ef7d-d14c-49c0-9cf2-f735dbccbf3d",
+          "views_count": 1399,
+          "likes_count": 7,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_5",
+          "avatar_url": "https://example.invalid/avatar_5.webp",
+          "instagram_handle": null,
+          "twitter_handle": "tw_fake_5",
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "soul_cinematic",
+        "job_set_id": "3ae570b5-ada8-4000-a628-2994b4412bfe",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "prompt": "Cinematic still, a medieval village baker standing off to the side of his own market stall, body turned slightly away, head turned back over his shoulder, staring at the exact spot where he is supposed to be standing. His mouth is completely closed, lips pressed together and slightly trembling, no speaking, no smile. His eyebrows are pulled together and raised at the center in deep anguish, eyes wide, glassy and wet with tears about to fall, pale and drained, the look of a man whose soul is breaking as he realizes he is not real and wonders what he is now. Stunned, motionless, devastated. His hands hang low and limp at his sides, fingers loose, one hand trembling slightly. In that spot behind the wooden stall stands a translucent ghost-like echo of the same baker, faded, desaturated, with a soft double-exposure memory haze and slight horizontal glitch tearing, smiling a blank perfect customer-service smile and holding out a single loaf of bread toward the camera, frozen mid-loop. Hundreds of perfectly identical loaves on the stall and shelves behind. The real baker is fully solid, warm natural color, realistic skin with visible pores, flour dust on his apron. The echo is cold, pale and grainy like a half-remembered dream. Behind the village the world fades into an empty grey wireframe grid void with a flickering half-rendered house. Warm golden hour light on the real baker, cool washed-out blue-grey light on the echo, strong contrast between the two. Wide medium shot, cinema camera, 35mm anamorphic, shallow depth of field, slight chromatic aberration and scanline glitch at the frame edges, eerie, melancholic and quietly funny. Leave clear empty space above the stall for an icon. No text, no logos, no real game IP, original character only.\n",
+          "width": 2048,
+          "height": 1152,
+          "batch_size": 1,
+          "seed": 145875,
+          "enhance_prompt": true,
+          "quality": "1080p",
+          "style_id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+          "style": {
+            "id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+            "name": "General",
+            "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+            "strength": 1.0
+          },
+          "style_strength": null
+        },
+        "meta": {},
+        "id": "411dda95-87d6-49a4-ac46-bd4106f4d0a6",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": {
+          "type": "image",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake006/hf_20261123_213410_411dda95-87d6-49a4-ac46-bd4106f4d0a6.png"
+        },
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake006/hf_20261123_213410_411dda95-87d6-49a4-ac46-bd4106f4d0a6.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake006/hf_20261123_213410_411dda95-87d6-49a4-ac46-bd4106f4d0a6.png"
+          }
+        },
+        "published_at": 1795593341.492505,
+        "created_at": 1795469650.151561,
+        "user_id": "user_fake006",
+        "trace_id": "411dda95-87d6-49a4-ac46-bd4106f4d0a6",
+        "cluster_hash": "a5951ada312bec64659fc2b097dc2ed2",
+        "representation": null,
+        "publication": {
+          "id": "3948369f-c0ed-41de-a32f-1ea6ef234bd9",
+          "views_count": 40,
+          "likes_count": 1,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_6",
+          "avatar_url": "https://example.invalid/avatar_6.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "seedance_2_5",
+        "job_set_id": "cc62a4bc-d0cb-4ad8-bcc7-46e53d749a3e",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 1920,
+          "height": 1080,
+          "prompt": "<<<image_1>>> — Ines\n\nCamera Settings: shot on 35mm film, anamorphic 2x squeeze, 2.39:1, oval bokeh, heavy grain,\nhalation on the bulbs. Focal length: 35mm. Aperture: f/2.0. Camera Style: handheld inside\nthe scuffle — the camera is jostled and knocked by the people restraining her, losing her\nframe and finding her again, shoved sideways twice, then dropping to the duckboards with her\nand ending on its side looking up at her and at the ring of faces standing over her; one\ncontinuous take, no cuts. Light: cold blue dawn through canvas, bare work bulbs swinging on\na cable throwing hard moving shadows, generator flicker. Style & Mood: field hospital at\nfirst light, blue-grey and dirty amber, war-film grain, generator hum, canvas cracking in\nwind, no score. Narrative Summary: a medic breaks down in front of the whole ward while\nreporting her losses. Starting Composition: camera 3ft from her face, handheld, already\nunsteady. Ines (<<<image_1>>>) stands frame-center already mid-shout at an officer\noff-frame, rows of cots and wounded men behind her, covered stretchers deep frame-right,\nbulbs swinging overhead.\n\nDynamic Description: (0s–5s) Handheld tight 35mm, already knocked off balance at frame one,\ncatching her face in snatches. She is screaming before the shot begins, face contorted,\ntendons standing in her neck, tears cutting clean lines through the soot — voice torn open,\nshouting: \"FOUR. There were forty of us and there's FOUR.\" She rips the loose dressing off\nher forearm and hurls it, then drives her fist down onto a folding table so the tin cups\njump. (5s–10s) Two people grab her from behind and she fights them hard, twisting; the\ncamera is shoved sideways by a shoulder, loses her completely for half a second, and finds\nher again mid-struggle, still shouting with no words left in it, the ampoules on her chest\nrattling. (10s–15s) Her legs go. They lower her and the camera goes down to the duckboards\nwith her, ending on its side. From the floor, looking up: she is on her knees, doubled over\nwith both hands in her cropped hair, sobbing at full volume with her forehead almost on the\nboards, a ring of faces standing over her, the bulbs swinging behind their heads.\n\nStatic Description: field hospital tent at dawn, rows of cots, swinging bulbs, canvas,\ncovered stretchers, folding table, tin cups, duckboards. Negative: no subtitles, no\ncaptions, no text overlay, no cross-dissolve, no transparency transitions, no wipes, no\ncuts, no hard cuts, no edits, no shot changes — single uninterrupted take, no mirror\nreflections, no doubled characters, no visible crew, no wound detail, no slow-motion, no\nmusic, no score, no composed crying, no build-up. She is already screaming in the very\nfirst frame and the camera must be physically knocked at least twice.",
+          "genre": "auto",
+          "medias": [
+            {
+              "data": {
+                "id": "727d971e-3a55-4d08-8216-2d9ee3de28fe",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fakex001/727d971e-3a55-4d08-8216-2d9ee3de28fe.png",
+                "type": "media_input"
+              },
+              "role": "image"
+            }
+          ],
+          "duration": 15,
+          "resolution": "1080p",
+          "aspect_ratio": "16:9",
+          "generate_audio": true,
+          "multi_shots": false,
+          "multi_shot_mode": "custom",
+          "multi_prompt": [],
+          "speedramp": "auto",
+          "reference_elements": [],
+          "prompt_language": "zh",
+          "model": "default",
+          "extension_mode": null,
+          "bitrate_mode": "high",
+          "draft": false,
+          "seed": null,
+          "draft_job_id": null
+        },
+        "meta": {},
+        "id": "e02ab22b-6d8e-46bd-874e-8090a8f00799",
+        "status": "completed",
+        "ip_check_finished": true,
+        "ip_detected": false,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fakex001/hf_20260814_041459_e02ab22b-6d8e-46bd-874e-8090a8f00799_wm3.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fakex001/hf_20260814_041459_e02ab22b-6d8e-46bd-874e-8090a8f00799_thumbnail.webp"
+          },
+          "min": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fakex001/hf_20260814_041459_e02ab22b-6d8e-46bd-874e-8090a8f00799_wm3.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fakex001/hf_20260814_041459_e02ab22b-6d8e-46bd-874e-8090a8f00799_thumbnail.webp"
+          },
+          "hls": null,
+          "h264": null
+        },
+        "published_at": 1786700022.197594,
+        "created_at": 1786680899.139247,
+        "user_id": "user_fake007",
+        "trace_id": null,
+        "cluster_hash": null,
+        "representation": null,
+        "can_upgrade_to_4k": false,
+        "upgrade_options": [],
+        "expires_at": null,
+        "publication": {
+          "id": "06f9721a-592b-4f83-ba01-093c804d6610",
+          "views_count": 120901,
+          "likes_count": 289,
+          "is_liked_by_user": null,
+          "approved": true,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_7",
+          "avatar_url": "https://example.invalid/avatar_7.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "soul_cinematic",
+        "job_set_id": "68796736-8011-4366-896e-19e76eeda943",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "prompt": "Shot on 35mm film, a frame from a 1980s studio fantasy film, real film grain and halation around lights. Deep violet night sky packed with dense stars. Seen from behind, a lone figure in a long deep red hooded cloak, all red, holding a burning torch, stands at the foot of an immense castle-city, a dense black silhouette of countless towers and spires covered in thousands upon thousands of tiny pinpoint warm amber windows, densely packed like a vast city skyline at night, the way the city of Blade Runner glows. In front of him, a towering ancient gate stands slightly open, warm golden light spilling out through the gap into drifting mist on the ground around him. Overwhelming scale: the castle-city rises miles above him. Ancient architecture only, no modern buildings, no office windows. Practical lighting, no CGI look, no text.",
+          "width": 1152,
+          "height": 2048,
+          "batch_size": 2,
+          "seed": 232752,
+          "enhance_prompt": true,
+          "quality": "1080p",
+          "style_id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+          "style": {
+            "id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+            "name": "General",
+            "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+            "strength": 1.0
+          },
+          "style_strength": null,
+          "camera_model_id": "b49c8d68-e7b9-4459-aae1-c491319ac291",
+          "camera_model": {
+            "id": "b49c8d68-e7b9-4459-aae1-c491319ac291",
+            "tag": "",
+            "url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/70b1c8ee-2bb4-419e-85c3-aa9ed3c50b05.webp",
+            "name": "35mm Film",
+            "type": "camera_model"
+          },
+          "camera_lens_id": "15f74028-751c-4f0b-8b28-554c51d7582b",
+          "camera_lens": {
+            "id": "15f74028-751c-4f0b-8b28-554c51d7582b",
+            "tag": "",
+            "url": "https://cdn.higgsfield.ai/cinema_studio_40_creative_controls/7a87b046-9c3f-4747-bb38-fcb1f4b219e4.webp",
+            "name": "Vintage Anamorphic",
+            "type": "camera_lens"
+          }
+        },
+        "meta": {},
+        "id": "0396a6d7-776a-42e8-a2ed-bcfbb772d2e6",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": {
+          "type": "image",
+          "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake008/hf_20261124_055830_0396a6d7-776a-42e8-a2ed-bcfbb772d2e6.png"
+        },
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake008/hf_20261124_055830_0396a6d7-776a-42e8-a2ed-bcfbb772d2e6.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake008/hf_20261124_055830_0396a6d7-776a-42e8-a2ed-bcfbb772d2e6.png"
+          }
+        },
+        "published_at": 1795593658.19853,
+        "created_at": 1795499910.313147,
+        "user_id": "user_fake008",
+        "trace_id": "0396a6d7-776a-42e8-a2ed-bcfbb772d2e6",
+        "cluster_hash": "c18fc65f09c5bb0e8cd16a29319b2fc2",
+        "representation": null,
+        "publication": {
+          "id": "5d7c9b8e-3497-4072-8cb3-10666dbfebee",
+          "views_count": 2,
+          "likes_count": 0,
+          "is_liked_by_user": null,
+          "approved": false,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_8",
+          "avatar_url": "https://example.invalid/avatar_8.webp",
+          "instagram_handle": "ig_fake_8",
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      }
+    ],
+    "cursor": 0.04998701263297621,
+    "has_more": true,
+    "total": 78595
+  }
+}

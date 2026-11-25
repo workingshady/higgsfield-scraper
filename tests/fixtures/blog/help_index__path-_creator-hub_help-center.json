@@ -1,0 +1,1290 @@
+{
+    "meta": {
+        "endpoint": "help_index",
+        "url": "https://higgsfield.ai/creator-hub/help-center",
+        "params": {
+            "path": "/creator-hub/help-center"
+        },
+        "fetched_at": "2026-11-25T13:14:27.829028+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "tsr",
+        "path": "/creator-hub/help-center",
+        "sitemap_lastmod": null,
+        "head": {
+            "title": "Higgsfield Help Center: answers, setup, and troubleshooting",
+            "lang": "en",
+            "canonical": "https://higgsfield.ai/creator-hub/help-center",
+            "description": "Find answers, setup guidance, and practical help for using Higgsfield.",
+            "og_title": "Higgsfield Help Center: answers, setup, and troubleshooting",
+            "og_image": "https://static.higgsfield.ai/public/thumbnail/default.jpg",
+            "og_type": "website",
+            "author": "Higgsfield.AI Team",
+            "ld_json": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "Organization",
+                            "name": "Higgsfield",
+                            "url": "https://higgsfield.ai/",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "name": "Higgsfield logo",
+                                "url": "https://higgsfield.ai/icon.png"
+                            },
+                            "sameAs": [
+                                "https://x.com/higgsfield",
+                                "https://www.instagram.com/higgsfield.ai/",
+                                "https://www.tiktok.com/@higgsfield.ai90",
+                                "https://discord.com/invite/higgsfield",
+                                "https://www.linkedin.com/company/higgsfield/",
+                                "https://www.youtube.com/@HiggsfieldAI"
+                            ],
+                            "@id": "https://higgsfield.ai/#organization"
+                        },
+                        {
+                            "@type": "CollectionPage",
+                            "@id": "https://higgsfield.ai/creator-hub/help-center",
+                            "description": "Find answers, setup guidance, and practical help for using Higgsfield.",
+                            "name": "Higgsfield Help Center",
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            },
+                            "url": "https://higgsfield.ai/creator-hub/help-center",
+                            "breadcrumb": {
+                                "@id": "https://higgsfield.ai/creator-hub/help-center#breadcrumb"
+                            }
+                        },
+                        {
+                            "@type": "BreadcrumbList",
+                            "@id": "https://higgsfield.ai/creator-hub/help-center#breadcrumb",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "item": "https://higgsfield.ai/creator-hub/help-center",
+                                    "name": "Higgsfield Help Center",
+                                    "position": 1
+                                }
+                            ]
+                        },
+                        {
+                            "@type": "ItemList",
+                            "@id": "https://higgsfield.ai/creator-hub/help-center#items",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What is Higgsfield?",
+                                    "position": 1,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/getting-started/what-is-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I create an account and sign in?",
+                                    "position": 2,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/getting-started/create-an-account-and-sign-in"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What's in my Higgsfield account?",
+                                    "position": 3,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/getting-started/whats-in-my-higgsfield-account"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I create my first generation?",
+                                    "position": 4,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/getting-started/how-do-i-create-my-first-generation"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I write a good prompt?",
+                                    "position": 5,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/getting-started/how-do-i-write-a-good-prompt"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I join the Higgsfield community on Discord?",
+                                    "position": 6,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/getting-started/higgsfield-community-on-discord"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What are the official Higgsfield platforms?",
+                                    "position": 7,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/getting-started/official-higgsfield-platforms"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do Higgsfield plans work?",
+                                    "position": 8,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/plans/how-do-higgsfield-plans-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I upgrade or downgrade my plan?",
+                                    "position": 9,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/plans/how-do-i-upgrade-or-downgrade-my-plan"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "When does my subscription renew?",
+                                    "position": 10,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/plans/when-does-my-subscription-renew"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Can I switch between monthly and annual billing?",
+                                    "position": 11,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/plans/can-i-switch-between-monthly-and-annual-billing"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do promo prices work?",
+                                    "position": 12,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/plans/how-do-promo-prices-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What are Exclusive Offers?",
+                                    "position": 13,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/plans/what-are-exclusive-offers"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What does the Higgsfield free plan include?",
+                                    "position": 14,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/plans/what-does-the-free-plan-include"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do credits work?",
+                                    "position": 15,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/credits/how-credits-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What uses my credits?",
+                                    "position": 16,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/credits/what-uses-my-credits"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Do my top-up credits expire, and what happens if I cancel?",
+                                    "position": 17,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/credits/top-up-credits-expire"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What are Unlimited models, and which plans include them?",
+                                    "position": 18,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/credits/what-are-unlimited-models-and-which-plans-include-them"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why is there a watermark, and how do I remove it?",
+                                    "position": 19,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/credits/watermark-and-how-to-remove"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How Does Auto-Refill Work?",
+                                    "position": 20,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/credits/how-does-auto-refill-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do Credit Packs work?",
+                                    "position": 21,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/credits/how-credit-packs-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How does Marketplace work?",
+                                    "position": 22,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/credits/how-does-marketplace-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do promocodes work?",
+                                    "position": 23,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/credits/how-promo-codes-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How does billing work?",
+                                    "position": 24,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/billing/how-does-billing-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What should I do if my payment failed?",
+                                    "position": 25,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/billing/what-should-i-do-if-my-payment-failed"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I download my invoice or receipt?",
+                                    "position": 26,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/billing/how-do-i-download-my-invoice-or-receipt"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I add a VAT or tax ID to my invoices?",
+                                    "position": 27,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/billing/how-do-i-add-a-vat-or-tax-id-to-my-invoices"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I cancel my subscription?",
+                                    "position": 28,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/refunds/how-do-i-cancel-my-subscription"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I request a refund?",
+                                    "position": 29,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/refunds/how-do-i-request-a-refund"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why didn’t I receive a refund after canceling my subscription?",
+                                    "position": 30,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/refunds/why-didnt-i-receive-a-refund-after-canceling-my-subscription"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Can I get a refund for a subscription I never used?",
+                                    "position": 31,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/refunds/can-i-get-a-refund-for-a-subscription-i-never-used"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I get a refund for an accidental charge?",
+                                    "position": 32,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/refunds/how-do-i-get-a-refund-for-an-accidental-charge"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Can I get a partial refund for unused annual time?",
+                                    "position": 33,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/refunds/can-i-get-a-partial-refund-for-unused-annual-time"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What is Higgsfield MCP, and how is it different from the web?",
+                                    "position": 34,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-mcp"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I connect Higgsfield to Claude, ChatGPT, or another AI agent?",
+                                    "position": 35,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What external integrations does Higgsfield support?",
+                                    "position": 36,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/integrations/external-integrations-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I access Higgsfield via CLI?",
+                                    "position": 37,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-access-higgsfield-via-cli"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What is the Higgsfield API, and how do I get started?",
+                                    "position": 38,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/integrations/what-is-the-higgsfield-api"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Higgsfield Katana?",
+                                    "position": 39,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-use-katana"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "My generation is stuck or failed. What should I do?",
+                                    "position": 40,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/generation-is-stuck-or-failed"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What should I do if the Higgsfield site won't load?",
+                                    "position": 41,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/higgsfield-site-wont-load"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why was my content flagged as NSFW, and what can I do if it was wrong?",
+                                    "position": 42,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/content-flagged-as-nsfw"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Why was my generation blocked for copyright or IP?",
+                                    "position": 43,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/my-generation-blocked-for-copyright-or-ip"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I report a bug or submit a feature request?",
+                                    "position": 44,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/troubleshooting/how-do-i-report-a-bug-or-submit-a-feature-request"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Which Higgsfield tool should I use?",
+                                    "position": 45,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/tools/which-higgsfield-tool-should-i-use"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Cinema Studio?",
+                                    "position": 46,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-cinema-studio"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Higgsfield Genjutsu?",
+                                    "position": 47,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-genjutsu"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Marketing Studio to create video ads?",
+                                    "position": 48,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-marketing-studio-to-create-video-ads"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Supercomputer?",
+                                    "position": 49,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-supercomputer"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What are Higgsfield Apps, and how do I create my own?",
+                                    "position": 50,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/tools/what-are-higgsfield-apps"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Canvas for multi-node generation?",
+                                    "position": 51,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-canvas"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use AI Influencer?",
+                                    "position": 52,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-ai-influencer"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Upscale?",
+                                    "position": 53,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/tools/how-do-i-use-upscale"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Which AI model should I use?",
+                                    "position": 54,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/which-ai-model-should-i-use"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use lipsync, voiceover, and aspect ratios?",
+                                    "position": 55,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-lipsync-voiceover-and-aspect-ratios"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Soul to generate images?",
+                                    "position": 56,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-soul-to-generate-images"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I create and use a Soul ID character?",
+                                    "position": 57,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-create-and-use-a-soul-id-character"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Soul Cinema?",
+                                    "position": 58,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-soul-cinema"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Seedance?",
+                                    "position": 59,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-seedance"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Kling?",
+                                    "position": 60,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-kling"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Nano Banana?",
+                                    "position": 61,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-nano-banana"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use Popcorn?",
+                                    "position": 62,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-popcorn"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I use DoP?",
+                                    "position": 63,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/ai-models/how-do-i-use-dop"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I recover access to my account?",
+                                    "position": 64,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/account/how-do-i-recover-access-to-my-account"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I permanently delete my account?",
+                                    "position": 65,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/account/how-do-i-permanently-delete-my-account"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I submit a GDPR, CCPA, or privacy request?",
+                                    "position": 66,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/account/how-do-i-submit-a-gdpr-ccpa-or-privacy-request"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Who owns my generations, and can I use them commercially?",
+                                    "position": 67,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/account/who-owns-my-generations-and-can-i-use-them-commercially"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I submit a DMCA notice or legal inquiry?",
+                                    "position": 68,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/business/how-do-i-submit-a-dmca-notice-or-legal-inquiry"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What team and business plans does Higgsfield offer?",
+                                    "position": 69,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/business/team-and-business-higgsfield"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I join a partnership or creator program?",
+                                    "position": 70,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/business/how-do-i-join-a-partnership-or-creator-program"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "What is Higgsfield Community?",
+                                    "position": 71,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/community/what-is-higgsfield-community"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do I set up my creator profile?",
+                                    "position": 72,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/community/how-do-i-set-up-my-profile"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do projects work in Higgsfield Community?",
+                                    "position": 73,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/community/how-do-projects-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do rating and achievements work?",
+                                    "position": 74,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/community/how-do-achievements-work"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "How do Higgsfield contests work?",
+                                    "position": 75,
+                                    "url": "https://higgsfield.ai/creator-hub/help-center/community/how-do-contests-work"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "matches": [
+            {
+                "i": "__root__#",
+                "s": "success",
+                "l": {
+                    "clerkProxyUrl": "https://higgsfield.ai/_clerk",
+                    "initialEnterprise": false
+                }
+            },
+            {
+                "i": "#_creator-hub#creator-hub#help-center##creator-hub#help-center#",
+                "s": "success",
+                "l": {
+                    "homeScreen": {
+                        "popularArticles": [],
+                        "shortcuts": []
+                    },
+                    "navigation": {
+                        "groups": [
+                            {
+                                "category": {
+                                    "description": "Learn the basics of Higgsfield, from creating your account to making your first generation.",
+                                    "icon": "getting-started",
+                                    "id": "4qyYt9ULe6X0TjR2v7cAGr",
+                                    "order": 1,
+                                    "slug": "getting-started",
+                                    "title": "Getting Started"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Learn the basics of Higgsfield, from creating your account to making your first generation.",
+                                            "icon": "getting-started",
+                                            "id": "4qyYt9ULe6X0TjR2v7cAGr",
+                                            "order": 1,
+                                            "slug": "getting-started",
+                                            "title": "Getting Started"
+                                        },
+                                        "dateModified": "2026-09-14T16:22:34Z",
+                                        "description": "Learn what Higgsfield is, what you can create with it, and how its AI tools help bring ideas to life.",
+                                        "homeCardImageUrl": "https://static.higgsfield.ai/help-center/help-center-popular-topic-poster-1.webp",
+                                        "id": "7hidIb3EHeqvlvsHcLbol2",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "Higgsfield",
+                                            "Create",
+                                            "Generate"
+                                        ],
+                                        "slug": "what-is-higgsfield",
+                                        "title": "What is Higgsfield?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Learn the basics of Higgsfield, from creating your account to making your first generation.",
+                                            "icon": "getting-started",
+                                            "id": "4qyYt9ULe6X0TjR2v7cAGr",
+                                            "order": 1,
+                                            "slug": "getting-started",
+                                            "title": "Getting Started"
+                                        },
+                                        "dateModified": "2026-11-11T16:21:01Z",
+                                        "description": "Create a Higgsfield account, sign in securely, and resolve common access issues.",
+                                        "id": "4zEKB1v3guBBThoLUs7XId",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "account",
+                                            "sign in "
+                                        ],
+                                        "slug": "create-an-account-and-sign-in",
+                                        "title": "How do I create an account and sign in?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Understand plans, subscription options, upgrades, and managing your membership.",
+                                    "icon": "plans-subscriptions",
+                                    "id": "1V2gMl23SIbODpmgHEMDqq",
+                                    "order": 2,
+                                    "slug": "plans",
+                                    "title": "Plans"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Understand plans, subscription options, upgrades, and managing your membership.",
+                                            "icon": "plans-subscriptions",
+                                            "id": "1V2gMl23SIbODpmgHEMDqq",
+                                            "order": 2,
+                                            "slug": "plans",
+                                            "title": "Plans"
+                                        },
+                                        "dateModified": "2026-11-11T18:03:28Z",
+                                        "description": "Compare individual and business plans, credits, model access, and how to choose the right one.",
+                                        "id": "3YNgwImHUX2Sp6B5Q1rsVQ",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "higgsfield plans",
+                                            "plan",
+                                            "billing",
+                                            "monthly",
+                                            "annual"
+                                        ],
+                                        "slug": "how-do-higgsfield-plans-work",
+                                        "title": "How do Higgsfield plans work?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Understand plans, subscription options, upgrades, and managing your membership.",
+                                            "icon": "plans-subscriptions",
+                                            "id": "1V2gMl23SIbODpmgHEMDqq",
+                                            "order": 2,
+                                            "slug": "plans",
+                                            "title": "Plans"
+                                        },
+                                        "dateModified": "2026-09-14T17:11:30Z",
+                                        "description": "See how plan upgrades and downgrades work, including timing, billing, and prorated charges.",
+                                        "id": "2o1FtkIOfgxNTuxSWWohdc",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "upgrade",
+                                            "plan",
+                                            "downgrade",
+                                            "billing date",
+                                            "payment",
+                                            "credits",
+                                            "pricing",
+                                            "subscription"
+                                        ],
+                                        "slug": "how-do-i-upgrade-or-downgrade-my-plan",
+                                        "title": "How do I upgrade or downgrade my plan?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Learn how credits work, where they’re used, and how to track your usage.",
+                                    "icon": "credits-usage",
+                                    "id": "16IT6uQECx1W7wReQf3D42",
+                                    "order": 3,
+                                    "slug": "credits",
+                                    "title": "Credits"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Learn how credits work, where they’re used, and how to track your usage.",
+                                            "icon": "credits-usage",
+                                            "id": "16IT6uQECx1W7wReQf3D42",
+                                            "order": 3,
+                                            "slug": "credits",
+                                            "title": "Credits"
+                                        },
+                                        "dateModified": "2026-09-22T19:58:51Z",
+                                        "description": "See what credits are, how they're spent, and why some generations don't use them.",
+                                        "id": "5gV1gfPauZyW5wp4rPJVzV",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "credits",
+                                            "credit",
+                                            "subscription",
+                                            "expire",
+                                            "unlimited",
+                                            "balance"
+                                        ],
+                                        "slug": "how-credits-work",
+                                        "title": "How do credits work?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Learn how credits work, where they’re used, and how to track your usage.",
+                                            "icon": "credits-usage",
+                                            "id": "16IT6uQECx1W7wReQf3D42",
+                                            "order": 3,
+                                            "slug": "credits",
+                                            "title": "Credits"
+                                        },
+                                        "dateModified": "2026-08-28T01:42:39Z",
+                                        "description": "Credits never disappear without a logged reason. Learn the most common causes of credit spend and how to check your usage history.",
+                                        "id": "5sPsw6dauaN3qvb5DhJMlO",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "what uses credits",
+                                            "credits",
+                                            "credit usage",
+                                            "usage history",
+                                            "credits spent",
+                                            "batch generation",
+                                            "MCP credits"
+                                        ],
+                                        "slug": "what-uses-my-credits",
+                                        "title": "What uses my credits?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Get help with payment methods, invoices, charges, and billing details.",
+                                    "icon": "billing-payments",
+                                    "id": "4gO3RoPffWmuwEKo8SZu2r",
+                                    "order": 4,
+                                    "slug": "billing",
+                                    "title": "Billing"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Get help with payment methods, invoices, charges, and billing details.",
+                                            "icon": "billing-payments",
+                                            "id": "4gO3RoPffWmuwEKo8SZu2r",
+                                            "order": 4,
+                                            "slug": "billing",
+                                            "title": "Billing"
+                                        },
+                                        "dateModified": "2026-08-28T01:42:39Z",
+                                        "description": "See accepted payment methods, when you're charged, and how to update billing details.",
+                                        "id": "2nuNiSyjFvlSVhEJL2WqkY",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "billing",
+                                            "payment",
+                                            "tax",
+                                            "invoice"
+                                        ],
+                                        "slug": "how-does-billing-work",
+                                        "title": "How does billing work?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Get help with payment methods, invoices, charges, and billing details.",
+                                            "icon": "billing-payments",
+                                            "id": "4gO3RoPffWmuwEKo8SZu2r",
+                                            "order": 4,
+                                            "slug": "billing",
+                                            "title": "Billing"
+                                        },
+                                        "dateModified": "2026-08-28T01:42:39Z",
+                                        "description": "Fix a failed payment, understand what happens to your subscription, and restore access.",
+                                        "id": "65uDGEEfvIgiKa5GQ14w3D",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "payment",
+                                            "failed",
+                                            "declined",
+                                            "retry",
+                                            "invoice"
+                                        ],
+                                        "slug": "what-should-i-do-if-my-payment-failed",
+                                        "title": "What should I do if my payment failed?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Find out how to cancel a subscription, request a refund, and understand eligibility.",
+                                    "icon": "refunds-cancellations",
+                                    "id": "4FFDD6kOFPMqPdCxjF6kxT",
+                                    "order": 5,
+                                    "slug": "refunds",
+                                    "title": "Refunds"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Find out how to cancel a subscription, request a refund, and understand eligibility.",
+                                            "icon": "refunds-cancellations",
+                                            "id": "4FFDD6kOFPMqPdCxjF6kxT",
+                                            "order": 5,
+                                            "slug": "refunds",
+                                            "title": "Refunds"
+                                        },
+                                        "dateModified": "2026-11-11T18:06:55Z",
+                                        "description": "Cancel auto-renewal, see what happens to credits, and keep your account and content.",
+                                        "id": "Z23f8LGu5ea7BnhF7sDzA",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "subscription",
+                                            "cancel",
+                                            "credits",
+                                            "refund",
+                                            "reactivate",
+                                            "cancellation"
+                                        ],
+                                        "slug": "how-do-i-cancel-my-subscription",
+                                        "title": "How do I cancel my subscription?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Find out how to cancel a subscription, request a refund, and understand eligibility.",
+                                            "icon": "refunds-cancellations",
+                                            "id": "4FFDD6kOFPMqPdCxjF6kxT",
+                                            "order": 5,
+                                            "slug": "refunds",
+                                            "title": "Refunds"
+                                        },
+                                        "dateModified": "2026-10-24T12:20:38Z",
+                                        "description": "See refund eligibility, what's refundable, and how to submit a request.",
+                                        "id": "45PSvFPzrXYaaKtZyCCT34",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "refund",
+                                            "request",
+                                            "credits",
+                                            "payment",
+                                            "fee",
+                                            "service"
+                                        ],
+                                        "slug": "how-do-i-request-a-refund",
+                                        "title": "How do I request a refund?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Set up and use Higgsfield’s MCP and command-line tools in your creative workflow.",
+                                    "icon": "mcp-cli",
+                                    "id": "4Sktslxp0YuLRpa7KzVY2R",
+                                    "order": 6,
+                                    "slug": "integrations",
+                                    "title": "Integrations"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Set up and use Higgsfield’s MCP and command-line tools in your creative workflow.",
+                                            "icon": "mcp-cli",
+                                            "id": "4Sktslxp0YuLRpa7KzVY2R",
+                                            "order": 6,
+                                            "slug": "integrations",
+                                            "title": "Integrations"
+                                        },
+                                        "dateModified": "2026-11-18T21:08:50Z",
+                                        "description": "See how Higgsfield MCP works, and why it always deducts credits unlike the website.",
+                                        "homeCardImageUrl": "https://static.higgsfield.ai/help-center/help-center-popular-topic-poster-8.webp",
+                                        "id": "3SRNtjR74HZFDFTvZiblQU",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "MCP",
+                                            "Unlimited",
+                                            "API",
+                                            "web",
+                                            "open",
+                                            "source",
+                                            "open-source",
+                                            "open-access",
+                                            "access"
+                                        ],
+                                        "slug": "what-is-higgsfield-mcp",
+                                        "title": "What is Higgsfield MCP, and how is it different from the web?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Set up and use Higgsfield’s MCP and command-line tools in your creative workflow.",
+                                            "icon": "mcp-cli",
+                                            "id": "4Sktslxp0YuLRpa7KzVY2R",
+                                            "order": 6,
+                                            "slug": "integrations",
+                                            "title": "Integrations"
+                                        },
+                                        "dateModified": "2026-09-24T22:25:40Z",
+                                        "description": "Connect Higgsfield to Claude, ChatGPT, Cursor, or another AI agent in minutes.",
+                                        "id": "3rEpj0JGCzgoDMWNB1ae4I",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "Claude",
+                                            "MCP",
+                                            "URL",
+                                            "connectors",
+                                            "connect",
+                                            "generate",
+                                            "plugin",
+                                            "Chat GPT",
+                                            "gpt",
+                                            "openai",
+                                            "open",
+                                            "source",
+                                            "open-source"
+                                        ],
+                                        "slug": "how-do-i-connect-higgsfield-to-ai-agent",
+                                        "title": "How do I connect Higgsfield to Claude, ChatGPT, or another AI agent?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Resolve common issues with generations, access, performance, and the Higgsfield app.",
+                                    "icon": "troubleshooting",
+                                    "id": "4wqtqSqOa6dAbEF2AzAHub",
+                                    "order": 7,
+                                    "slug": "troubleshooting",
+                                    "title": "Troubleshooting"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Resolve common issues with generations, access, performance, and the Higgsfield app.",
+                                            "icon": "troubleshooting",
+                                            "id": "4wqtqSqOa6dAbEF2AzAHub",
+                                            "order": 7,
+                                            "slug": "troubleshooting",
+                                            "title": "Troubleshooting"
+                                        },
+                                        "dateModified": "2026-11-20T18:39:52Z",
+                                        "description": "What each generation status and error on Higgsfield means, what to do when a generation is stuck or failed, and when credits are returned.",
+                                        "id": "3eA82YnrQorCUUME4Z4Lt0",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "keywords",
+                                            "generation",
+                                            "stuck",
+                                            "credits",
+                                            "failed",
+                                            "retry"
+                                        ],
+                                        "slug": "generation-is-stuck-or-failed",
+                                        "title": "My generation is stuck or failed. What should I do?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Resolve common issues with generations, access, performance, and the Higgsfield app.",
+                                            "icon": "troubleshooting",
+                                            "id": "4wqtqSqOa6dAbEF2AzAHub",
+                                            "order": 7,
+                                            "slug": "troubleshooting",
+                                            "title": "Troubleshooting"
+                                        },
+                                        "dateModified": "2026-11-19T13:28:15Z",
+                                        "description": "How to fix higgsfield.ai when it won't load, shows a blank page, or the Download button doesn't respond, and what to do if the issue persists in every browser.",
+                                        "id": "2OuQ4hl7CHCDuUtVQfltF5",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "keywords",
+                                            "loading",
+                                            "browser",
+                                            "download",
+                                            "canvas",
+                                            "troubleshoot",
+                                            "refresh",
+                                            "vpn"
+                                        ],
+                                        "slug": "higgsfield-site-wont-load",
+                                        "title": "What should I do if the Higgsfield site won't load?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Explore Higgsfield tools and learn practical workflows for creating content.",
+                                    "icon": "tools-workflows",
+                                    "id": "qNmRcoFLmXzvLYuBSsSeS",
+                                    "order": 8,
+                                    "slug": "tools",
+                                    "title": "Tools"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Explore Higgsfield tools and learn practical workflows for creating content.",
+                                            "icon": "tools-workflows",
+                                            "id": "qNmRcoFLmXzvLYuBSsSeS",
+                                            "order": 8,
+                                            "slug": "tools",
+                                            "title": "Tools"
+                                        },
+                                        "dateModified": "2026-09-01T18:25:23Z",
+                                        "description": "See which Higgsfield tool fits your goal, from Cinema Studio to Supercomputer.",
+                                        "homeCardImageUrl": "https://static.higgsfield.ai/help-center/help-center-popular-topic-poster-2.webp",
+                                        "id": "6LZ8b3kZbgI4Tib16Z3Bjv",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "tool",
+                                            "cinema",
+                                            "marketing",
+                                            "canvas",
+                                            "supercomputer"
+                                        ],
+                                        "slug": "which-higgsfield-tool-should-i-use",
+                                        "title": "Which Higgsfield tool should I use?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Explore Higgsfield tools and learn practical workflows for creating content.",
+                                            "icon": "tools-workflows",
+                                            "id": "qNmRcoFLmXzvLYuBSsSeS",
+                                            "order": 8,
+                                            "slug": "tools",
+                                            "title": "Tools"
+                                        },
+                                        "dateModified": "2026-11-19T12:07:50Z",
+                                        "description": "Compare Cinema Studio 2.0 to 4.0, and pick the right version for your video.",
+                                        "homeCardImageUrl": "https://static.higgsfield.ai/help-center/help-center-popular-topic-poster-4.webp",
+                                        "id": "110wliuQDxNUzVTCsJw9Zl",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "cinema",
+                                            "Cinema Studio",
+                                            "studio",
+                                            "camera",
+                                            "use",
+                                            "tool",
+                                            "feature"
+                                        ],
+                                        "slug": "how-do-i-use-cinema-studio",
+                                        "title": "How do I use Cinema Studio?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Learn about available AI models, their capabilities, and how to choose the right one.",
+                                    "icon": "ai-models",
+                                    "id": "3jlHlSwpTMHGdjOIAkK7iv",
+                                    "order": 9,
+                                    "slug": "ai-models",
+                                    "title": "Models"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Learn about available AI models, their capabilities, and how to choose the right one.",
+                                            "icon": "ai-models",
+                                            "id": "3jlHlSwpTMHGdjOIAkK7iv",
+                                            "order": 9,
+                                            "slug": "ai-models",
+                                            "title": "Models"
+                                        },
+                                        "dateModified": "2026-11-06T17:08:06Z",
+                                        "description": "Compare Higgsfield's image, video, and audio model families to find the right fit.",
+                                        "homeCardImageUrl": "https://static.higgsfield.ai/help-center/help-center-popular-topic-poster-5.webp",
+                                        "id": "5lF67CZh7IUZOgRNuDWM6S",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "model",
+                                            "soul",
+                                            "seedance",
+                                            "kling",
+                                            "family"
+                                        ],
+                                        "slug": "which-ai-model-should-i-use",
+                                        "title": "Which AI model should I use?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Learn about available AI models, their capabilities, and how to choose the right one.",
+                                            "icon": "ai-models",
+                                            "id": "3jlHlSwpTMHGdjOIAkK7iv",
+                                            "order": 9,
+                                            "slug": "ai-models",
+                                            "title": "Models"
+                                        },
+                                        "dateModified": "2026-09-01T22:17:12Z",
+                                        "description": "Add lip sync, voiceover, or translation, and set the right aspect ratio.",
+                                        "id": "3fJNnjiTlBwbZ7ljOHPvom",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "lipsync",
+                                            "voiceover",
+                                            "audio",
+                                            "aspect",
+                                            "translate"
+                                        ],
+                                        "slug": "how-do-i-use-lipsync-voiceover-and-aspect-ratios",
+                                        "title": "How do I use lipsync, voiceover, and aspect ratios?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Manage your account, sign-in settings, personal data, and privacy preferences.",
+                                    "icon": "account-privacy",
+                                    "id": "47EPhVT300OorlwxLkoDhx",
+                                    "order": 10,
+                                    "slug": "account",
+                                    "title": "Account"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Manage your account, sign-in settings, personal data, and privacy preferences.",
+                                            "icon": "account-privacy",
+                                            "id": "47EPhVT300OorlwxLkoDhx",
+                                            "order": 10,
+                                            "slug": "account",
+                                            "title": "Account"
+                                        },
+                                        "dateModified": "2026-09-12T21:17:11Z",
+                                        "description": "Recover access to your Higgsfield account based on how you originally signed up.",
+                                        "id": "2mk5kEaEC6MinRleHLziye",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "recover",
+                                            "account",
+                                            "password",
+                                            "login",
+                                            "support"
+                                        ],
+                                        "slug": "how-do-i-recover-access-to-my-account",
+                                        "title": "How do I recover access to my account?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Manage your account, sign-in settings, personal data, and privacy preferences.",
+                                            "icon": "account-privacy",
+                                            "id": "47EPhVT300OorlwxLkoDhx",
+                                            "order": 10,
+                                            "slug": "account",
+                                            "title": "Account"
+                                        },
+                                        "dateModified": "2026-09-12T22:12:54Z",
+                                        "description": "Delete your account permanently, with a 30-day window to change your mind.",
+                                        "id": "3LuKR7tIhhg7U6Meih4Bd6",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "delete",
+                                            "account",
+                                            "data",
+                                            "recovery",
+                                            "privacy"
+                                        ],
+                                        "slug": "how-do-i-permanently-delete-my-account",
+                                        "title": "How do I permanently delete my account?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Resources for teams, businesses, agencies, and Creator Partners working with Higgsfield.",
+                                    "icon": "business-partners",
+                                    "id": "ZBhJA0ar3PlNMpTJGtd49",
+                                    "order": 11,
+                                    "slug": "business",
+                                    "title": "Business & CPP"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Resources for teams, businesses, agencies, and Creator Partners working with Higgsfield.",
+                                            "icon": "business-partners",
+                                            "id": "ZBhJA0ar3PlNMpTJGtd49",
+                                            "order": 11,
+                                            "slug": "business",
+                                            "title": "Business & CPP"
+                                        },
+                                        "dateModified": "2026-11-17T17:06:43Z",
+                                        "description": "Submit a DMCA notice, report IP infringement, or flag non-consensual content.",
+                                        "id": "4TpiKYuFASyc6eL0E4RDF5",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "DMCA",
+                                            "copyright",
+                                            "legal",
+                                            "IP",
+                                            "consent"
+                                        ],
+                                        "slug": "how-do-i-submit-a-dmca-notice-or-legal-inquiry",
+                                        "title": "How do I submit a DMCA notice or legal inquiry?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Resources for teams, businesses, agencies, and Creator Partners working with Higgsfield.",
+                                            "icon": "business-partners",
+                                            "id": "ZBhJA0ar3PlNMpTJGtd49",
+                                            "order": 11,
+                                            "slug": "business",
+                                            "title": "Business & CPP"
+                                        },
+                                        "dateModified": "2026-09-14T12:08:38Z",
+                                        "description": "Compare Team, Scale, and Enterprise plans, seats, credits, SSO, and compliance.",
+                                        "id": "6ImDYZUJ2J5eFpYt24DnL2",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "team",
+                                            "scale",
+                                            "enterprise",
+                                            "SSO",
+                                            "admin",
+                                            "plan",
+                                            "offer"
+                                        ],
+                                        "slug": "team-and-business-higgsfield",
+                                        "title": "What team and business plans does Higgsfield offer?"
+                                    }
+                                ]
+                            },
+                            {
+                                "category": {
+                                    "description": "Learn how Higgsfield Community works, from setting up your creator profile and sharing projects to earning points and achievements.",
+                                    "icon": "community",
+                                    "id": "14d9cf0f-2875-4db3-9d77-5f8ea81da355",
+                                    "order": 12,
+                                    "slug": "community",
+                                    "title": "Community"
+                                },
+                                "articles": [
+                                    {
+                                        "category": {
+                                            "description": "Learn how Higgsfield Community works, from setting up your creator profile and sharing projects to earning points and achievements.",
+                                            "icon": "community",
+                                            "id": "14d9cf0f-2875-4db3-9d77-5f8ea81da355",
+                                            "order": 12,
+                                            "slug": "community",
+                                            "title": "Community"
+                                        },
+                                        "dateModified": "2026-11-12T20:42:32Z",
+                                        "description": "Higgsfield Community is the public space where creators publish Open Projects, Shots, blogs, and posts, follow each other, join Rooms, and earn Community rating.",
+                                        "id": "05dcbacf-3592-437d-a233-76980793170b",
+                                        "order": 1,
+                                        "searchKeywords": [
+                                            "community",
+                                            "publish",
+                                            "rating",
+                                            "creators",
+                                            "profile",
+                                            "grant",
+                                            "page",
+                                            "rooms",
+                                            "feed",
+                                            "room"
+                                        ],
+                                        "slug": "what-is-higgsfield-community",
+                                        "title": "What is Higgsfield Community?"
+                                    },
+                                    {
+                                        "category": {
+                                            "description": "Learn how Higgsfield Community works, from setting up your creator profile and sharing projects to earning points and achievements.",
+                                            "icon": "community",
+                                            "id": "14d9cf0f-2875-4db3-9d77-5f8ea81da355",
+                                            "order": 12,
+                                            "slug": "community",
+                                            "title": "Community"
+                                        },
+                                        "dateModified": "2026-11-17T21:49:09Z",
+                                        "description": "Your Higgsfield creator profile is your public portfolio in Community: works, bio, specialty, social links, rating, and achievements.",
+                                        "id": "75f3a801-2e09-4e0c-92ab-ccd0599c4c4d",
+                                        "order": 2,
+                                        "searchKeywords": [
+                                            "profile",
+                                            "creator",
+                                            "portfolio",
+                                            "specialty",
+                                            "achievements",
+                                            "bio",
+                                            "community",
+                                            "account",
+                                            "achievement",
+                                            "ranking"
+                                        ],
+                                        "slug": "how-do-i-set-up-my-profile",
+                                        "title": "How do I set up my creator profile?"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

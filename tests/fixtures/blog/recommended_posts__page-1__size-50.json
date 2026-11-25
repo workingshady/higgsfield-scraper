@@ -1,0 +1,125 @@
+{
+    "meta": {
+        "endpoint": "recommended_posts",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/blog/posts/recommended?size=50",
+        "params": {
+            "size": "50",
+            "page": "1"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "2a0faf9a-c298-48ed-a0bd-cb1a080a4d48",
+                "state": "published",
+                "title": "Making OUVERTURE: one man, played twice, on a black stage",
+                "subtitle": null,
+                "slug": "making-ouverture-one-man-played-twice-on-a-black-stage",
+                "cover": {
+                    "id": "795ff752-7fa5-41ef-ba25-08f6d6126956",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH08/hf_20261123_192235_795ff752-7fa5-41ef-ba25-08f6d6126956_min.webp",
+                    "type": "job",
+                    "width": 2688,
+                    "height": 1520
+                },
+                "tags": [],
+                "related_posts": [],
+                "reading_time": "4 minutes",
+                "reading_time_minutes": 5,
+                "breadcrumb_label": null,
+                "pinned_position": null,
+                "likes_count": 0,
+                "views_count": 1,
+                "liked_by_me": null,
+                "folder_id": "b0731108-b6bd-4653-9c1f-744fc281fc73",
+                "content_url": "https://cdn.higgsfield.ai/blog/6f838668-91c1-4501-b458-1f816285b7a8.bin",
+                "draft": null,
+                "published_at": 1795610252.699402,
+                "created_at": 1795609166.993043,
+                "updated_at": 1795610252.991573,
+                "author": {
+                    "id": "user_REDACTEDH08",
+                    "username": "suprematistcake1538",
+                    "avatar_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDH08/d9fad1a2-a468-4fc1-aab2-bb425d9c5b1c.webp"
+                },
+                "review_state": null,
+                "flagged_media": null
+            },
+            {
+                "id": "4ca051d9-af76-42c0-ac1b-fe0a2aa816e4",
+                "state": "published",
+                "title": "How I Made OUT COLD: A Solo Short Film in 7 Days with Higgsfield",
+                "subtitle": null,
+                "slug": "how-i-made-out-cold-a-solo-short-film-in-7-days-with-higgsfield",
+                "cover": {
+                    "id": "97438f32-5299-4277-9bab-4f3069a6ca93",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH02/hf_20261124_175308_97438f32-5299-4277-9bab-4f3069a6ca93_min.webp",
+                    "type": "job",
+                    "width": 2720,
+                    "height": 1536
+                },
+                "tags": [],
+                "related_posts": [],
+                "reading_time": null,
+                "reading_time_minutes": 3,
+                "breadcrumb_label": null,
+                "pinned_position": null,
+                "likes_count": 0,
+                "views_count": 0,
+                "liked_by_me": null,
+                "folder_id": "5b65356a-ce66-462c-83da-138c0702cd63",
+                "content_url": "https://cdn.higgsfield.ai/blog/efa84346-ce63-43b9-98ae-380e8f76e738.bin",
+                "draft": null,
+                "published_at": 1795609923.9321,
+                "created_at": 1795608090.73606,
+                "updated_at": 1795609924.213084,
+                "author": {
+                    "id": "user_REDACTEDH02",
+                    "username": "perzvil",
+                    "avatar_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDH02/68cc567f-2d9a-401c-abd5-18c038988966.webp"
+                },
+                "review_state": null,
+                "flagged_media": null
+            },
+            {
+                "id": "3762a890-8271-4dde-a552-8c102d6ccd76",
+                "state": "published",
+                "title": "The little Knight in Magi-2",
+                "subtitle": null,
+                "slug": "the-little-knight-in-magi-2",
+                "cover": {
+                    "id": "f13c0e03-4d2d-4230-b126-be9229e0bc35",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDH03/f13c0e03-4d2d-4230-b126-be9229e0bc35.png",
+                    "type": "media",
+                    "width": 1456,
+                    "height": 816
+                },
+                "tags": [],
+                "related_posts": [],
+                "reading_time": "15",
+                "reading_time_minutes": 8,
+                "breadcrumb_label": null,
+                "pinned_position": null,
+                "likes_count": 0,
+                "views_count": 9,
+                "liked_by_me": null,
+                "folder_id": "c14e0816-01d9-435a-b107-ecf277690be2",
+                "content_url": "https://cdn.higgsfield.ai/blog/e308474a-6a3d-4526-a528-e95a3393bb55.bin",
+                "draft": null,
+                "published_at": 1795607757.269356,
+                "created_at": 1795607682.055682,
+                "updated_at": 1795607757.652052,
+                "author": {
+                    "id": "user_REDACTEDH03",
+                    "username": "tudormorari",
+                    "avatar_url": "https://d1xarpci4ikg0w.cloudfront.net/profile-avatars/v1/095ed28d4ee9d9d8da6bdbbc3a1e11b6.webp"
+                },
+                "review_state": null,
+                "flagged_media": null
+            }
+        ],
+        "next_cursor": "blog-recommended:eyJhZnRlciI6IFsiMjAyNi0xMS0yNFQxMTozMjoyNi43MjEzOTQrMDA6MDAiLCAiMDk0OTZlZjAtYTJlNi00MzViLTliNzQtNTNhMGNmODlmMzc5Il0sICJjb250ZXh0IjogImQ0OWEzNmQxZmY5NGU5YWUyOTVjOTRkYjgzNzNiNGIxMDE5NGE3ODYyNTJjM2E1MzA1ZjlkY2I1ZjgyMGFhYTcifQ=="
+    }
+}

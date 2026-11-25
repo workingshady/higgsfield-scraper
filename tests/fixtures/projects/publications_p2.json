@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "endpoint": "projects_publications",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/project-publications?limit=50&cursor=39.83:41743115-71a5-4c90-ba28-03ff69794ba2",
+    "params": {
+      "limit": "50",
+      "cursor": "39.83:41743115-71a5-4c90-ba28-03ff69794ba2"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "publication_id": "35e0bd20-4d69-46e4-bf9e-d8adea86700d",
+        "duration_seconds": 55.958333,
+        "state": "published",
+        "type": "film",
+        "is_ongoing": false,
+        "project_id": "35e0bd20-4d69-46e4-bf9e-d8adea86700d",
+        "snapshot_folder_id": "fbf4ced6-48b2-445a-b851-8318b99cfde7",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-11-25T11:52:37.957445+00:00",
+        "final_submitted_at": null,
+        "is_open_source": false,
+        "name": "THE LINE",
+        "slug": "the-line",
+        "description": "A bride is twenty minutes from her own wedding, one eye still bare. The car is fast; her line can't slip. A spec ad for Lahza Limousine, a fictional brand. Made with AI by Lahza Lab.",
+        "cover": {
+          "id": "b5073004-1143-4bb2-8bd2-1dd751d6ae2f",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0006xxxxxxxxxxxxxxxx/b5073004-1143-4bb2-8bd2-1dd751d6ae2f.png",
+          "type": "media",
+          "width": 1920,
+          "height": 1080,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "cedcda23-013d-424c-aa3b-308178dacb14",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0006xxxxxxxxxxxxxxxx/cedcda23-013d-424c-aa3b-308178dacb14.mp4",
+            "name": "THE LINE",
+            "type": "video",
+            "width": 1280,
+            "height": 720,
+            "min_url": null,
+            "duration": 55.958333,
+            "object_fit": "contain",
+            "thumbnail_url": "https://cdn.higgsfield.ai/cedcda23-013d-424c-aa3b-308178dacb14_thumb.webp",
+            "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/cedcda23-013d-424c-aa3b-308178dacb14/compressed.mp4"
+          },
+          {
+            "id": "b5073004-1143-4bb2-8bd2-1dd751d6ae2f",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0006xxxxxxxxxxxxxxxx/b5073004-1143-4bb2-8bd2-1dd751d6ae2f.png",
+            "name": "Cover 16:9",
+            "type": "media",
+            "width": 1920,
+            "height": 1080,
+            "min_url": null,
+            "duration": null,
+            "object_fit": "contain",
+            "thumbnail_url": null
+          },
+          {
+            "id": "3e80ee17-c651-4456-9a0c-677a30b4d254",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0006xxxxxxxxxxxxxxxx/3e80ee17-c651-4456-9a0c-677a30b4d254.png",
+            "name": "Cover 9:16",
+            "type": "media",
+            "width": 1080,
+            "height": 1920,
+            "min_url": null,
+            "duration": null,
+            "object_fit": "contain",
+            "thumbnail_url": null
+          }
+        ],
+        "trailer": null,
+        "author_user_ids": [],
+        "tags": [],
+        "categories": [],
+        "show_prompts": false,
+        "show_canvas": false,
+        "is_discoverable": true,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "created_at": "2026-11-25T11:52:37.089299Z",
+        "authors": [
+          {
+            "id": "user_fake0006xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator6",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": "Filmmaker",
+            "location": "Somewhere",
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 178,
+            "total_projects_likes": 19,
+            "followers_count": 2,
+            "badges": []
+          }
+        ],
+        "team": null,
+        "views": 9,
+        "likes": 4,
+        "comments": 1,
+        "is_liked_by_user": null,
+        "awards": [],
+        "contest_badges": [],
+        "can_receive_audience_choice_votes": false,
+        "is_higgsfield_featured": false,
+        "is_talents_hub": false,
+        "contest_key": null
+      },
+      {
+        "publication_id": "907c0178-77fb-4968-b87f-48cc23a0332f",
+        "duration_seconds": 402.875,
+        "state": "published",
+        "type": "film",
+        "is_ongoing": false,
+        "project_id": "907c0178-77fb-4968-b87f-48cc23a0332f",
+        "snapshot_folder_id": "a0bfdca5-b9bf-4545-81f0-5ddf1fbcdc79",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-11-25T08:18:58.912640+00:00",
+        "final_submitted_at": null,
+        "is_open_source": false,
+        "name": "THE OTHER NINE LIVES",
+        "slug": "the-other-nine-lives",
+        "description": "A warm, sly heist comedy in a painterly feline underworld where clever cats pull off midnight capers beneath amber and plum light.",
+        "cover": {
+          "id": "0ad3ff11-1794-483d-b666-945e67067d96",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0005xxxxxxxxxxxxxxxx/0ad3ff11-1794-483d-b666-945e67067d96.png",
+          "name": null,
+          "type": "media",
+          "width": 2688,
+          "height": 1520,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "0f24978e-f6e1-4768-9f5c-84c79b5f9ffc",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/0f24978e-f6e1-4768-9f5c-84c79b5f9ffc/index.m3u8",
+            "name": "0f24978e-f6e1-4768-9f5c-84c79b5f9ffc.mp4",
+            "type": "video",
+            "width": 1920,
+            "height": 1080,
+            "min_url": null,
+            "duration": 402.875,
+            "object_fit": "contain",
+            "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/0f24978e-f6e1-4768-9f5c-84c79b5f9ffc/thumbnail.webp",
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0005xxxxxxxxxxxxxxxx/0f24978e-f6e1-4768-9f5c-84c79b5f9ffc.mp4",
+            "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/0f24978e-f6e1-4768-9f5c-84c79b5f9ffc/compressed.mp4"
+          }
+        ],
+        "trailer": null,
+        "author_user_ids": [
+          "user_fake0005xxxxxxxxxxxxxxxx"
+        ],
+        "tags": [],
+        "categories": [],
+        "show_prompts": true,
+        "show_canvas": true,
+        "is_discoverable": true,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "created_at": "2026-11-21T22:06:59.204599Z",
+        "authors": [
+          {
+            "id": "user_fake0005xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator7",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": "Filmmaker",
+            "location": "Somewhere",
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 29,
+            "total_projects_likes": 5,
+            "followers_count": 0,
+            "badges": []
+          }
+        ],
+        "team": null,
+        "views": 25,
+        "likes": 4,
+        "comments": 2,
+        "is_liked_by_user": null,
+        "awards": [],
+        "contest_badges": [],
+        "can_receive_audience_choice_votes": false,
+        "is_higgsfield_featured": false,
+        "is_talents_hub": false,
+        "contest_key": null
+      }
+    ],
+    "next_cursor": null
+  }
+}

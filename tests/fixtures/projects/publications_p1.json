@@ -1,0 +1,444 @@
+{
+  "meta": {
+    "endpoint": "projects_publications",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/project-publications?limit=50",
+    "params": {
+      "limit": "50"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "publication_id": "b93872c6-1aa3-4460-b311-4717233ef04c",
+        "duration_seconds": 2252.904717,
+        "state": "published",
+        "type": "series",
+        "is_ongoing": false,
+        "project_id": "b93872c6-1aa3-4460-b311-4717233ef04c",
+        "snapshot_folder_id": "52910edd-076d-4f00-a5ef-5fe92cee3398",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-11-24T19:59:57.775601+00:00",
+        "final_submitted_at": null,
+        "is_open_source": false,
+        "name": "History Stories explained ",
+        "slug": "the-great-wall-of-china",
+        "description": "How the Great Wall of China was built, who built it, and why it took over 2,000 years. An AI history documentary from Everything Explained.",
+        "cover": {
+          "id": "5e21041c-a670-45a0-b62f-7b716f75ed42",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0004xxxxxxxxxxxxxxxx/5e21041c-a670-45a0-b62f-7b716f75ed42.png",
+          "name": null,
+          "type": "media",
+          "width": 1376,
+          "height": 768,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294/index.m3u8",
+            "name": "The GREAT wall of CHINA",
+            "type": "video",
+            "width": 1284,
+            "height": 716,
+            "min_url": null,
+            "duration": 306.04,
+            "object_fit": "contain",
+            "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294/thumbnail.webp",
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0004xxxxxxxxxxxxxxxx/daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294.mp4",
+            "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294/compressed.mp4"
+          },
+          {
+            "id": "cd1c3496-0673-4e7e-ab13-b88b36bb7124",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/cd1c3496-0673-4e7e-ab13-b88b36bb7124/index.m3u8",
+            "name": "Mecca",
+            "type": "video",
+            "width": 1284,
+            "height": 716,
+            "min_url": null,
+            "duration": 404.56,
+            "object_fit": "contain",
+            "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/cd1c3496-0673-4e7e-ab13-b88b36bb7124/thumbnail.webp",
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0004xxxxxxxxxxxxxxxx/cd1c3496-0673-4e7e-ab13-b88b36bb7124.mp4",
+            "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/cd1c3496-0673-4e7e-ab13-b88b36bb7124/compressed.mp4"
+          },
+          {
+            "id": "cbfd6b98-74f6-4f34-bc11-e3531029c3b9",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/cbfd6b98-74f6-4f34-bc11-e3531029c3b9/index.m3u8",
+            "name": "Jerusalem",
+            "type": "video",
+            "width": 1284,
+            "height": 716,
+            "min_url": null,
+            "duration": 443.0,
+            "object_fit": "contain",
+            "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/cbfd6b98-74f6-4f34-bc11-e3531029c3b9/thumbnail.webp",
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0004xxxxxxxxxxxxxxxx/cbfd6b98-74f6-4f34-bc11-e3531029c3b9.mp4",
+            "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/cbfd6b98-74f6-4f34-bc11-e3531029c3b9/compressed.mp4"
+          }
+        ],
+        "trailer": null,
+        "author_user_ids": [
+          "user_fake0004xxxxxxxxxxxxxxxx"
+        ],
+        "tags": [
+          "history",
+          "documentary",
+          "China"
+        ],
+        "categories": [],
+        "show_prompts": true,
+        "show_canvas": true,
+        "is_discoverable": true,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "created_at": "2026-11-07T12:36:10.836080Z",
+        "authors": [
+          {
+            "id": "user_fake0004xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator1",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": "Filmmaker",
+            "location": "Somewhere",
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 939,
+            "total_projects_likes": 31,
+            "followers_count": 10,
+            "badges": []
+          }
+        ],
+        "team": null,
+        "views": 350,
+        "likes": 10,
+        "comments": 3,
+        "is_liked_by_user": null,
+        "awards": [],
+        "contest_badges": [],
+        "can_receive_audience_choice_votes": false,
+        "is_higgsfield_featured": false,
+        "is_talents_hub": false,
+        "contest_key": null
+      },
+      {
+        "publication_id": "8ef4f1a3-07ec-464c-85d2-8d517343cc60",
+        "duration_seconds": null,
+        "state": "published",
+        "type": "carousel",
+        "is_ongoing": true,
+        "project_id": "8ef4f1a3-07ec-464c-85d2-8d517343cc60",
+        "snapshot_folder_id": "9e5dcb93-8cf0-4115-bb07-26b385fdcce7",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-11-25T12:46:37.721634+00:00",
+        "final_submitted_at": null,
+        "is_open_source": false,
+        "name": "ფრილანსერი გმირები",
+        "slug": "supergmirebis-seriali",
+        "description": "სერიალი",
+        "cover": {
+          "id": "7a1ca803-839d-4cc7-9be0-be8eafa34668",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0001xxxxxxxxxxxxxxxx/7a1ca803-839d-4cc7-9be0-be8eafa34668.png",
+          "name": null,
+          "type": "media",
+          "width": 1424,
+          "height": 800,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "7a1ca803-839d-4cc7-9be0-be8eafa34668",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0001xxxxxxxxxxxxxxxx/7a1ca803-839d-4cc7-9be0-be8eafa34668.png",
+            "name": null,
+            "type": "media",
+            "width": 1424,
+            "height": 800,
+            "min_url": null,
+            "duration": null,
+            "object_fit": "contain",
+            "thumbnail_url": null
+          }
+        ],
+        "trailer": null,
+        "author_user_ids": [
+          "user_fake0001xxxxxxxxxxxxxxxx"
+        ],
+        "tags": [
+          "faketag"
+        ],
+        "categories": [],
+        "show_prompts": false,
+        "show_canvas": true,
+        "is_discoverable": true,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "created_at": "2026-11-07T10:34:26.114864Z",
+        "authors": [
+          {
+            "id": "user_fake0001xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator2",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": "Filmmaker",
+            "location": "Somewhere",
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 93,
+            "total_projects_likes": 5,
+            "followers_count": 5,
+            "badges": []
+          }
+        ],
+        "team": null,
+        "views": 93,
+        "likes": 5,
+        "comments": 1,
+        "is_liked_by_user": null,
+        "awards": [],
+        "contest_badges": [],
+        "can_receive_audience_choice_votes": false,
+        "is_higgsfield_featured": false,
+        "is_talents_hub": false,
+        "contest_key": null
+      },
+      {
+        "publication_id": "f179bbaa-d300-4150-85aa-cce7de7eb02c",
+        "duration_seconds": 354.290667,
+        "state": "published",
+        "type": "series",
+        "is_ongoing": true,
+        "project_id": "f179bbaa-d300-4150-85aa-cce7de7eb02c",
+        "snapshot_folder_id": "93fe13a0-e023-47a6-8a1f-dcde681c5e95",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-11-13T17:39:28.636101+00:00",
+        "final_submitted_at": null,
+        "is_open_source": false,
+        "name": "SOUL'S SUPER MODEL",
+        "slug": "soul-s-super-model",
+        "description": "Gritty reality-TV judging: polished glamour, tense accusations and raw handheld moments of pride, panic and fallout.",
+        "cover": {
+          "id": "b27f6fa0-1e5f-4a3a-9f89-fb6cc0be1de7",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0002xxxxxxxxxxxxxxxx/b27f6fa0-1e5f-4a3a-9f89-fb6cc0be1de7.png",
+          "name": null,
+          "type": "media",
+          "width": 3840,
+          "height": 2160,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "76f79ad6-75cb-46e7-9174-e0ebfb48f0ab",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/76f79ad6-75cb-46e7-9174-e0ebfb48f0ab/index.m3u8",
+            "name": "episode 1",
+            "type": "video",
+            "width": 1920,
+            "height": 1440,
+            "min_url": null,
+            "duration": 177.266667,
+            "object_fit": "contain",
+            "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/76f79ad6-75cb-46e7-9174-e0ebfb48f0ab/thumbnail.webp",
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0002xxxxxxxxxxxxxxxx/76f79ad6-75cb-46e7-9174-e0ebfb48f0ab.mp4",
+            "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/76f79ad6-75cb-46e7-9174-e0ebfb48f0ab/compressed.mp4"
+          },
+          {
+            "id": "509cd2f4-f9f3-4870-8b47-20fd1a670ce6",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/509cd2f4-f9f3-4870-8b47-20fd1a670ce6/index.m3u8",
+            "name": "episode 2",
+            "type": "video",
+            "width": 2048,
+            "height": 1536,
+            "min_url": null,
+            "duration": 177.024,
+            "object_fit": "contain",
+            "thumbnail_url": null,
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0002xxxxxxxxxxxxxxxx/509cd2f4-f9f3-4870-8b47-20fd1a670ce6.mp4",
+            "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/509cd2f4-f9f3-4870-8b47-20fd1a670ce6/compressed.mp4"
+          }
+        ],
+        "trailer": null,
+        "author_user_ids": [
+          "user_fake0002xxxxxxxxxxxxxxxx"
+        ],
+        "tags": [],
+        "categories": [],
+        "show_prompts": true,
+        "show_canvas": true,
+        "is_discoverable": true,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "created_at": "2026-11-03T22:16:38.846718Z",
+        "authors": [
+          {
+            "id": "user_fake0002xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator3",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": "",
+            "location": "",
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 0,
+            "total_projects_likes": 0,
+            "followers_count": 12,
+            "badges": []
+          }
+        ],
+        "team": {
+          "id": "77789dbf-5212-4c90-b88c-f26acffebe89",
+          "full_name": "Fake Person",
+          "username": "creator4",
+          "avatar_url": "https://cdn.example.test/avatar.webp",
+          "headline": "",
+          "location": "",
+          "is_owner": true,
+          "is_followed": false,
+          "total_projects_views": 194648,
+          "total_projects_likes": 1642,
+          "followers_count": 692,
+          "badges": [
+            {
+              "id": "eb484085-3595-460a-a2c5-c6a08b7932f4",
+              "name": "Higgsfield Team",
+              "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2576cd81-f6e8-4dcd-afc9-05f9319a463b.png",
+              "description": "One of the people behind Higgsfield. We build the tools. You make the magic."
+            }
+          ]
+        },
+        "views": 293,
+        "likes": 7,
+        "comments": 0,
+        "is_liked_by_user": null,
+        "awards": [],
+        "contest_badges": [],
+        "can_receive_audience_choice_votes": false,
+        "is_higgsfield_featured": false,
+        "is_talents_hub": false,
+        "contest_key": null
+      },
+      {
+        "publication_id": "d34bf2aa-de9f-4302-a4f2-cc4bc8008209",
+        "duration_seconds": 136.298667,
+        "state": "published",
+        "type": "film",
+        "is_ongoing": false,
+        "project_id": "d34bf2aa-de9f-4302-a4f2-cc4bc8008209",
+        "snapshot_folder_id": "89c544b3-d4b5-4fdf-bf49-d6a422a8de06",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-10-26T21:11:08.857564+00:00",
+        "final_submitted_at": null,
+        "is_open_source": false,
+        "name": "Red Flag",
+        "slug": "red-flag",
+        "description": "A pitch-black Hong Kong neo-noir about romance, betrayal and, above all, self-defense. A woman is home alone, still deciding whether her new boyfriend is worth keeping, when a burglar breaks into her flat after midnight: the \"burglar\" turns out to be the boyfriend, Li, letting himself in with a surprise bouquet - the reddest flag of all. What Li doesn't know is that she's a quiet martial-arts champion... and she's just made up her mind.",
+        "cover": {
+          "id": "a1aef2d6-bea6-4853-8918-fd3d114b058b",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0003xxxxxxxxxxxxxxxx/a1aef2d6-bea6-4853-8918-fd3d114b058b.png",
+          "name": null,
+          "type": "media",
+          "width": 1920,
+          "height": 1080,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "1d4995ca-1133-4c0a-8abd-554519e9c260",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/1d4995ca-1133-4c0a-8abd-554519e9c260/index.m3u8",
+            "name": "Red Flag",
+            "type": "video",
+            "width": 1920,
+            "height": 1080,
+            "min_url": null,
+            "duration": 136.298667,
+            "object_fit": "cover",
+            "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/1d4995ca-1133-4c0a-8abd-554519e9c260/thumbnail.webp",
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0003xxxxxxxxxxxxxxxx/1d4995ca-1133-4c0a-8abd-554519e9c260.mp4",
+            "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/1d4995ca-1133-4c0a-8abd-554519e9c260/compressed.mp4"
+          }
+        ],
+        "trailer": null,
+        "author_user_ids": [
+          "user_fake0003xxxxxxxxxxxxxxxx"
+        ],
+        "tags": [],
+        "categories": [
+          "banner",
+          "spotlight"
+        ],
+        "show_prompts": true,
+        "show_canvas": true,
+        "is_discoverable": true,
+        "featured_episode_id": "bd2a3f2d-dc08-4edd-b330-91608f53a709",
+        "is_featured": true,
+        "created_at": "2026-08-19T09:21:03.058133Z",
+        "authors": [
+          {
+            "id": "user_fake0003xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator5",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": "Filmmaker",
+            "location": "",
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 2142241,
+            "total_projects_likes": 14428,
+            "followers_count": 4946,
+            "badges": [
+              {
+                "id": "eb484085-3595-460a-a2c5-c6a08b7932f4",
+                "name": "Higgsfield Team",
+                "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2576cd81-f6e8-4dcd-afc9-05f9319a463b.png",
+                "description": "One of the people behind Higgsfield. We build the tools. You make the magic."
+              }
+            ]
+          }
+        ],
+        "team": {
+          "id": "2cb9677f-352f-4135-8dd7-1d9db550c88f",
+          "full_name": "Fake Person",
+          "username": "creator5",
+          "avatar_url": "https://cdn.example.test/avatar.webp",
+          "headline": "Filmmaker",
+          "location": "",
+          "is_owner": true,
+          "is_followed": false,
+          "total_projects_views": 2142241,
+          "total_projects_likes": 14428,
+          "followers_count": 4946,
+          "badges": [
+            {
+              "id": "eb484085-3595-460a-a2c5-c6a08b7932f4",
+              "name": "Higgsfield Team",
+              "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2576cd81-f6e8-4dcd-afc9-05f9319a463b.png",
+              "description": "One of the people behind Higgsfield. We build the tools. You make the magic."
+            }
+          ]
+        },
+        "views": 71340,
+        "likes": 477,
+        "comments": 86,
+        "is_liked_by_user": null,
+        "awards": [],
+        "contest_badges": [],
+        "can_receive_audience_choice_votes": false,
+        "is_higgsfield_featured": false,
+        "is_talents_hub": false,
+        "contest_key": null
+      }
+    ],
+    "next_cursor": "39.83:41743115-71a5-4c90-ba28-03ff69794ba2"
+  }
+}

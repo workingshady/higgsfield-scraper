@@ -1,0 +1,1151 @@
+{
+    "meta": {
+        "endpoint": "enterprise_index",
+        "url": "https://higgsfield.ai/enterprise-help-center",
+        "params": {
+            "path": "/enterprise-help-center"
+        },
+        "fetched_at": "2026-11-25T13:14:27.280726+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "tsr",
+        "path": "/enterprise-help-center",
+        "sitemap_lastmod": null,
+        "head": {
+            "title": "Higgsfield Enterprise Help Center",
+            "lang": "en",
+            "canonical": "https://higgsfield.ai/enterprise-help-center",
+            "description": "Guides for enterprise onboarding, workspaces, credits, security, and creative workflows.",
+            "og_title": "Higgsfield Enterprise Help Center",
+            "og_image": "https://static.higgsfield.ai/enterprise/og.webp",
+            "og_type": "website",
+            "author": "Higgsfield.AI Team",
+            "ld_json": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "Organization",
+                            "name": "Higgsfield",
+                            "url": "https://higgsfield.ai/",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "name": "Higgsfield logo",
+                                "url": "https://higgsfield.ai/icon.png"
+                            },
+                            "sameAs": [
+                                "https://x.com/higgsfield",
+                                "https://www.instagram.com/higgsfield.ai/",
+                                "https://www.tiktok.com/@higgsfield.ai90",
+                                "https://discord.com/invite/higgsfield",
+                                "https://www.linkedin.com/company/higgsfield/",
+                                "https://www.youtube.com/@HiggsfieldAI"
+                            ],
+                            "@id": "https://higgsfield.ai/#organization"
+                        },
+                        {
+                            "@type": "CollectionPage",
+                            "@id": "https://higgsfield.ai/enterprise-help-center",
+                            "description": "Guides for enterprise onboarding, workspaces, credits, security, and creative workflows.",
+                            "name": "Higgsfield Enterprise Help Center",
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            },
+                            "url": "https://higgsfield.ai/enterprise-help-center",
+                            "breadcrumb": {
+                                "@id": "https://higgsfield.ai/enterprise-help-center#breadcrumb"
+                            }
+                        },
+                        {
+                            "@type": "BreadcrumbList",
+                            "@id": "https://higgsfield.ai/enterprise-help-center#breadcrumb",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "item": "https://higgsfield.ai/enterprise-help-center",
+                                    "name": "Enterprise Help Center",
+                                    "position": 1
+                                }
+                            ]
+                        },
+                        {
+                            "@type": "ItemList",
+                            "@id": "https://higgsfield.ai/enterprise-help-center#items",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Common Issues & Fixes",
+                                    "position": 1,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/support/issues"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Contact Support",
+                                    "position": 2,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/support/contact-support"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Credits & Top-Ups",
+                                    "position": 3,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/buy-credits"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Introducing Ourselves",
+                                    "position": 4,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/getting-started/intro"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "New to Higgsfield? Start here",
+                                    "position": 5,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/tools-creative-workflow"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "MCP, CLI & Plugins",
+                                    "position": 6,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/integrations"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Models & Routing",
+                                    "position": 7,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/ai-models"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Onboarding",
+                                    "position": 8,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/getting-started/onboarding"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Usage Analytics & API",
+                                    "position": 9,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/usage-analytics"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Members & Roles",
+                                    "position": 10,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/members-roles"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Prompting",
+                                    "position": 11,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/prompting"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "User Groups & Sub-Workspaces Comparison",
+                                    "position": 12,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/groups-and-sub-workspaces"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Seedance 2.5 Prompt Guide",
+                                    "position": 13,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/seedance-prompt-guides"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "User Groups",
+                                    "position": 14,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/limits"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "AI Cast · From description to character",
+                                    "position": 15,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/consistent-characters-products"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Getting to know Canvas",
+                                    "position": 16,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/canvas-first-workflow"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Sub-Workspaces",
+                                    "position": 17,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/sub-workspaces"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Assets",
+                                    "position": 18,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/assets"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Product image series in Canvas",
+                                    "position": 19,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/product-image-series"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Projects",
+                                    "position": 20,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/projects"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Billing Terms",
+                                    "position": 21,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/plans-billing"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "First steps in Higgsfield Layers",
+                                    "position": 22,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/layers-image-editing"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Security & Privacy",
+                                    "position": 23,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/security-and-privacy"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Voice first. Then the ad video.",
+                                    "position": 24,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/ugc-consistent-voice"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Set up SSO (SAML)",
+                                    "position": 25,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/set-up-sso-saml"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Tips & Tricks · Product lock",
+                                    "position": 26,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/chocolate-liquid-product-lock"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "From project -> to a finished animated ad",
+                                    "position": 27,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/script-to-finished-video"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Set up Directory Sync (SCIM)",
+                                    "position": 28,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/set-up-directory-sync-scim"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Workflow example",
+                                    "position": 29,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/platform/workflow-example"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "name": "Link your Claude organization",
+                                    "position": 30,
+                                    "url": "https://higgsfield.ai/enterprise-help-center/manage-account/link-your-claude-organization"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "matches": [
+            {
+                "i": "__root__#",
+                "s": "success",
+                "l": {
+                    "clerkProxyUrl": "https://higgsfield.ai/_clerk",
+                    "initialEnterprise": false
+                }
+            },
+            {
+                "i": "#enterprise-help-center#enterprise-help-center",
+                "s": "success",
+                "l": {
+                    "articles": [
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "support",
+                                "id": "enterprise-help-category-support",
+                                "order": 3,
+                                "slug": "support",
+                                "title": "Support"
+                            },
+                            "description": "Start with the symptom. For a generation issue, keep the model name and the job link from Assets.",
+                            "id": "enterprise-help-article-troubleshooting-safety",
+                            "order": 0,
+                            "searchKeywords": [],
+                            "slug": "issues",
+                            "title": "Common Issues & Fixes",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "support",
+                                "id": "enterprise-help-category-support",
+                                "order": 3,
+                                "slug": "support",
+                                "title": "Support"
+                            },
+                            "description": "Email our Enterprise team at enterprise@higgsfield.ai or set up a shared Slack or Microsoft Teams channel for a direct line. Our average response time there is 15 minutes.",
+                            "id": "enterprise-help-article-contact-support",
+                            "order": 1,
+                            "searchKeywords": [],
+                            "slug": "contact-support",
+                            "title": "Contact Support",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "How credits work, renewals, Credit Packs and Auto-Refill - everything about keeping the balance healthy.",
+                            "id": "enterprise-help-article-buy-credits",
+                            "order": 1,
+                            "searchKeywords": [],
+                            "slug": "buy-credits",
+                            "title": "Credits & Top-Ups",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "getting-started",
+                                "id": "enterprise-help-category-getting-started",
+                                "order": 0,
+                                "slug": "getting-started",
+                                "title": "Getting Started"
+                            },
+                            "description": "From your Enterprise Studio contract to an active workspace and your team's first generation.",
+                            "id": "enterprise-help-article-quick-start",
+                            "order": 1,
+                            "searchKeywords": [],
+                            "slug": "intro",
+                            "title": "Introducing Ourselves",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "Cinema Studio, Marketing Studio, Supercomputer, and Canvas - which tool for which job.",
+                            "id": "enterprise-help-article-tools-creative-workflow",
+                            "order": 1,
+                            "searchKeywords": [],
+                            "slug": "tools-creative-workflow",
+                            "title": "New to Higgsfield? Start here",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "Generate from Claude, coding agents, Figma and Adobe apps with your workspace credits. No API key needed.",
+                            "id": "enterprise-help-article-mcp-cli-integrations",
+                            "order": 2,
+                            "searchKeywords": [],
+                            "slug": "integrations",
+                            "title": "MCP, CLI & Plugins",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "Image, video and audio model families - what each is best at and how to keep characters consistent.",
+                            "id": "enterprise-help-article-ai-models",
+                            "order": 2,
+                            "searchKeywords": [],
+                            "slug": "ai-models",
+                            "title": "Models & Routing",
+                            "cardTitle": "Which generation model should I pick?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "getting-started",
+                                "id": "enterprise-help-category-getting-started",
+                                "order": 0,
+                                "slug": "getting-started",
+                                "title": "Getting Started"
+                            },
+                            "description": "Go from an activated workspace to a repeatable production workflow with your team.",
+                            "id": "enterprise-help-article-onboarding",
+                            "order": 2,
+                            "searchKeywords": [],
+                            "slug": "onboarding",
+                            "title": "Onboarding",
+                            "cardTitle": "How does Enterprise onboarding work?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "The Organization dashboard: credit spend by category, per-member stats, exportable reports, and the read-only organization API.",
+                            "id": "enterprise-help-article-usage-analytics",
+                            "order": 2,
+                            "searchKeywords": [],
+                            "slug": "usage-analytics",
+                            "title": "Usage Analytics & API",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Invite people, organize them into groups, and grant admin permissions - all of this is on Manage Account → Members.",
+                            "id": "enterprise-help-article-members-roles",
+                            "order": 3,
+                            "searchKeywords": [],
+                            "slug": "members-roles",
+                            "title": "Members & Roles",
+                            "cardTitle": "How do I invite people to an Enterprise workspace?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "A strong prompt is made of concrete visible things: what the object is, what it does, where it stands, where it looks, how the camera moves, what the light is, how tight the frame is.",
+                            "id": "6c6e3eb7-32a0-4cc2-baf7-d65e5dafafa1",
+                            "order": 4,
+                            "searchKeywords": [],
+                            "slug": "prompting",
+                            "title": "Prompting"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Keep people in one workspace with spending limits, or give a large project its own space and allocated budget.",
+                            "id": "enterprise-help-article-groups-and-sub-workspaces",
+                            "order": 4,
+                            "searchKeywords": [],
+                            "slug": "groups-and-sub-workspaces",
+                            "title": "User Groups & Sub-Workspaces Comparison",
+                            "cardTitle": "What’s the difference between user groups and sub-workspaces?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z",
+                            "hideFromCategory": true
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "The examples in this guide illustrate prompt-writing techniques only.",
+                            "id": "056bae6a-d471-41e8-ba9d-3d4486a65b07",
+                            "order": 5,
+                            "searchKeywords": [],
+                            "slug": "seedance-prompt-guides",
+                            "title": "Seedance 2.5 Prompt Guide"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Set spending limits and model access for people who work in the same Enterprise workspace.",
+                            "id": "enterprise-help-article-user-groups",
+                            "order": 5,
+                            "searchKeywords": [],
+                            "slug": "limits",
+                            "title": "User Groups",
+                            "cardTitle": "How do I limit credit spending and restrict models?",
+                            "cardImageUrl": "https://cdn.sanity.io/images/s479xw3z/production/0d0454a34bbf3e9c8847aa8780a91a3a0d42f48b-864x864.png",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "How to find AI Cast, build a look from filters, get variants and edit the chosen character.",
+                            "id": "1fff0b43-9899-4ea1-9c16-2423e59329ac",
+                            "order": 6,
+                            "searchKeywords": [],
+                            "slug": "consistent-characters-products",
+                            "title": "AI Cast · From description to character"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "Where the tools are, what each interface element means and what the nodes do.",
+                            "id": "ce98ac3e-c1dc-4945-93bd-8eae0b37928c",
+                            "order": 6,
+                            "searchKeywords": [],
+                            "slug": "canvas-first-workflow",
+                            "title": "Getting to know Canvas"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Create separate workspaces for teams, brands or regions under one contract.",
+                            "id": "enterprise-help-article-sub-workspaces",
+                            "order": 6,
+                            "searchKeywords": [],
+                            "slug": "sub-workspaces",
+                            "title": "Sub-Workspaces",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Find, filter and organize your team's work in the new Assets library.",
+                            "id": "enterprise-help-article-assets",
+                            "order": 7,
+                            "searchKeywords": [],
+                            "slug": "assets",
+                            "title": "Assets",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "This is a ready workflow we want to share: it shows how to get a whole series of product images in Canvas — main angles and detail close-ups — with one model and one outfit.",
+                            "id": "97742d4f-14ec-46ad-a816-30138509e538",
+                            "order": 7,
+                            "searchKeywords": [],
+                            "slug": "product-image-series",
+                            "title": "Product image series in Canvas"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Create and manage projects in Cinema Studio, Marketing Studio, and Supercomputer. Keep production work, team access, and agent context organized in the right place.",
+                            "id": "enterprise-help-article-projects",
+                            "order": 8,
+                            "searchKeywords": [],
+                            "slug": "projects",
+                            "title": "Projects",
+                            "cardTitle": "How do I create and set up projects?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "The Enterprise Studio plan, how your contract is set, and exactly how invoicing works.",
+                            "id": "enterprise-help-article-plans-billing",
+                            "order": 9,
+                            "searchKeywords": [],
+                            "slug": "plans-billing",
+                            "title": "Billing Terms",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "Once a frame has turned out well, you can refine individual details in Layers.",
+                            "id": "42f28d67-491f-4c8f-8105-9a47ed0c2cd4",
+                            "order": 9,
+                            "searchKeywords": [],
+                            "slug": "layers-image-editing",
+                            "title": "First steps in Higgsfield Layers"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Manage account security, content policies, tool access, and privacy for your Enterprise workspace. Learn about your data rights and who can access your content.",
+                            "id": "enterprise-help-article-sso-security",
+                            "order": 10,
+                            "searchKeywords": [],
+                            "slug": "security-and-privacy",
+                            "title": "Security & Privacy",
+                            "cardTitle": "How do I manage security and privacy?",
+                            "lastUpdated": "2026-11-20T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "The character's voice is locked before video generation and sounds the same in every clip.",
+                            "id": "530e596e-8391-4280-a7db-bf98f661d5d9",
+                            "order": 10,
+                            "searchKeywords": [],
+                            "slug": "ugc-consistent-voice",
+                            "title": "Voice first. Then the ad video."
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Connect Okta, Google Workspace or Microsoft Entra ID so your team signs in to Higgsfield with their company accounts.",
+                            "id": "enterprise-help-article-set-up-sso-saml",
+                            "order": 11,
+                            "searchKeywords": [
+                                "SSO",
+                                "SAML",
+                                "single sign-on",
+                                "Okta",
+                                "Google Workspace",
+                                "Microsoft Entra ID",
+                                "Azure AD",
+                                "identity provider",
+                                "IdP",
+                                "domain verification",
+                                "DNS",
+                                "TXT record"
+                            ],
+                            "slug": "set-up-sso-saml",
+                            "title": "Set up SSO (SAML)",
+                            "cardTitle": "How do I set up SSO for our organization?",
+                            "cardImageUrl": "https://cdn.sanity.io/images/s479xw3z/production/5c74c079e8389c300a3491e828829f455b8a3419-1000x934.webp",
+                            "lastUpdated": "2026-11-20T07:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "For commercial product work, product identity should be solved before video generation.",
+                            "id": "f07333fa-83fb-4fb3-a3c4-82faad46b14f",
+                            "order": 11,
+                            "searchKeywords": [],
+                            "slug": "chocolate-liquid-product-lock",
+                            "title": "Tips & Tricks · Product lock"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "This page shows a complete, cost-aware production workflow for an animated character ad in Cinema Studio, built on a real case with real credit numbers.",
+                            "id": "c2c055c0-4d62-47e3-bf79-622aae6cd54a",
+                            "order": 12,
+                            "searchKeywords": [],
+                            "slug": "script-to-finished-video",
+                            "title": "From project -> to a finished animated ad"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Let your identity provider add and remove members of your Enterprise workspace automatically.",
+                            "id": "enterprise-help-article-set-up-directory-sync-scim",
+                            "order": 12,
+                            "searchKeywords": [
+                                "SCIM",
+                                "Directory Sync",
+                                "provisioning",
+                                "deprovisioning",
+                                "user lifecycle",
+                                "offboarding",
+                                "Okta",
+                                "Microsoft Entra ID",
+                                "Azure AD",
+                                "identity provider",
+                                "IdP"
+                            ],
+                            "slug": "set-up-directory-sync-scim",
+                            "title": "Set up Directory Sync (SCIM)",
+                            "lastUpdated": "2026-11-20T07:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "This chapter is organized by time: one project, walked from the moment it has no name to the moment finished clips leave the pipeline.",
+                            "id": "991f38ab-9e1d-4a63-971f-17d64c45cf9f",
+                            "order": 13,
+                            "searchKeywords": [],
+                            "slug": "workflow-example",
+                            "title": "Workflow example"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Bill Claude usage in Supercomputer, studio assistants and Playable Ads on Enterprise plans to your own Claude organization instead of Higgsfield credits.",
+                            "id": "8c7eb9f7-5aeb-4b9f-b0ae-fc3af967c832",
+                            "order": 100,
+                            "searchKeywords": [
+                                "Claude",
+                                "Anthropic",
+                                "linked billing",
+                                "Claude organization",
+                                "spend limit",
+                                "Claude Console",
+                                "Supercomputer billing"
+                            ],
+                            "slug": "link-your-claude-organization",
+                            "title": "Link your Claude organization",
+                            "lastUpdated": "2026-11-18T00:00:00Z"
+                        }
+                    ],
+                    "categories": [
+                        {
+                            "description": "",
+                            "icon": "getting-started",
+                            "id": "enterprise-help-category-getting-started",
+                            "order": 0,
+                            "slug": "getting-started",
+                            "title": "Getting Started"
+                        },
+                        {
+                            "description": "",
+                            "icon": "account",
+                            "id": "enterprise-help-category-manage-account",
+                            "order": 1,
+                            "slug": "manage-account",
+                            "title": "Account"
+                        },
+                        {
+                            "description": "",
+                            "icon": "account",
+                            "id": "enterprise-help-category-platform",
+                            "order": 2,
+                            "slug": "platform",
+                            "title": "Models & Workflows"
+                        },
+                        {
+                            "description": "",
+                            "icon": "support",
+                            "id": "enterprise-help-category-support",
+                            "order": 3,
+                            "slug": "support",
+                            "title": "Support"
+                        }
+                    ],
+                    "popularArticles": [
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "getting-started",
+                                "id": "enterprise-help-category-getting-started",
+                                "order": 0,
+                                "slug": "getting-started",
+                                "title": "Getting Started"
+                            },
+                            "description": "Go from an activated workspace to a repeatable production workflow with your team.",
+                            "id": "enterprise-help-article-onboarding",
+                            "order": 2,
+                            "searchKeywords": [],
+                            "slug": "onboarding",
+                            "title": "Onboarding",
+                            "cardTitle": "How does Enterprise onboarding work?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Invite people, organize them into groups, and grant admin permissions - all of this is on Manage Account → Members.",
+                            "id": "enterprise-help-article-members-roles",
+                            "order": 3,
+                            "searchKeywords": [],
+                            "slug": "members-roles",
+                            "title": "Members & Roles",
+                            "cardTitle": "How do I invite people to an Enterprise workspace?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Set spending limits and model access for people who work in the same Enterprise workspace.",
+                            "id": "enterprise-help-article-user-groups",
+                            "order": 5,
+                            "searchKeywords": [],
+                            "slug": "limits",
+                            "title": "User Groups",
+                            "cardTitle": "How do I limit credit spending and restrict models?",
+                            "cardImageUrl": "https://cdn.sanity.io/images/s479xw3z/production/0d0454a34bbf3e9c8847aa8780a91a3a0d42f48b-864x864.png",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Keep people in one workspace with spending limits, or give a large project its own space and allocated budget.",
+                            "id": "enterprise-help-article-groups-and-sub-workspaces",
+                            "order": 4,
+                            "searchKeywords": [],
+                            "slug": "groups-and-sub-workspaces",
+                            "title": "User Groups & Sub-Workspaces Comparison",
+                            "cardTitle": "What’s the difference between user groups and sub-workspaces?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z",
+                            "hideFromCategory": true
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Create and manage projects in Cinema Studio, Marketing Studio, and Supercomputer. Keep production work, team access, and agent context organized in the right place.",
+                            "id": "enterprise-help-article-projects",
+                            "order": 8,
+                            "searchKeywords": [],
+                            "slug": "projects",
+                            "title": "Projects",
+                            "cardTitle": "How do I create and set up projects?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-manage-account",
+                                "order": 1,
+                                "slug": "manage-account",
+                                "title": "Account"
+                            },
+                            "description": "Connect Okta, Google Workspace or Microsoft Entra ID so your team signs in to Higgsfield with their company accounts.",
+                            "id": "enterprise-help-article-set-up-sso-saml",
+                            "order": 11,
+                            "searchKeywords": [
+                                "SSO",
+                                "SAML",
+                                "single sign-on",
+                                "Okta",
+                                "Google Workspace",
+                                "Microsoft Entra ID",
+                                "Azure AD",
+                                "identity provider",
+                                "IdP",
+                                "domain verification",
+                                "DNS",
+                                "TXT record"
+                            ],
+                            "slug": "set-up-sso-saml",
+                            "title": "Set up SSO (SAML)",
+                            "cardTitle": "How do I set up SSO for our organization?",
+                            "cardImageUrl": "https://cdn.sanity.io/images/s479xw3z/production/5c74c079e8389c300a3491e828829f455b8a3419-1000x934.webp",
+                            "lastUpdated": "2026-11-20T07:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "Image, video and audio model families - what each is best at and how to keep characters consistent.",
+                            "id": "enterprise-help-article-ai-models",
+                            "order": 2,
+                            "searchKeywords": [],
+                            "slug": "ai-models",
+                            "title": "Models & Routing",
+                            "cardTitle": "Which generation model should I pick?",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        },
+                        {
+                            "category": {
+                                "description": "",
+                                "icon": "account",
+                                "id": "enterprise-help-category-platform",
+                                "order": 2,
+                                "slug": "platform",
+                                "title": "Models & Workflows"
+                            },
+                            "description": "Cinema Studio, Marketing Studio, Supercomputer, and Canvas - which tool for which job.",
+                            "id": "enterprise-help-article-tools-creative-workflow",
+                            "order": 1,
+                            "searchKeywords": [],
+                            "slug": "tools-creative-workflow",
+                            "title": "New to Higgsfield? Start here",
+                            "lastUpdated": "2026-11-01T00:00:00.000Z"
+                        }
+                    ]
+                }
+            },
+            {
+                "i": "#enterprise-help-center##enterprise-help-center#",
+                "s": "success",
+                "l": {
+                    "name": "Higgsfield Enterprise Help Center",
+                    "description": "Guides for enterprise onboarding, workspaces, credits, security, and creative workflows.",
+                    "items": [
+                        {
+                            "name": "Common Issues & Fixes",
+                            "path": "/enterprise-help-center/support/issues"
+                        },
+                        {
+                            "name": "Contact Support",
+                            "path": "/enterprise-help-center/support/contact-support"
+                        },
+                        {
+                            "name": "Credits & Top-Ups",
+                            "path": "/enterprise-help-center/manage-account/buy-credits"
+                        },
+                        {
+                            "name": "Introducing Ourselves",
+                            "path": "/enterprise-help-center/getting-started/intro"
+                        },
+                        {
+                            "name": "New to Higgsfield? Start here",
+                            "path": "/enterprise-help-center/platform/tools-creative-workflow"
+                        },
+                        {
+                            "name": "MCP, CLI & Plugins",
+                            "path": "/enterprise-help-center/platform/integrations"
+                        },
+                        {
+                            "name": "Models & Routing",
+                            "path": "/enterprise-help-center/platform/ai-models"
+                        },
+                        {
+                            "name": "Onboarding",
+                            "path": "/enterprise-help-center/getting-started/onboarding"
+                        },
+                        {
+                            "name": "Usage Analytics & API",
+                            "path": "/enterprise-help-center/manage-account/usage-analytics"
+                        },
+                        {
+                            "name": "Members & Roles",
+                            "path": "/enterprise-help-center/manage-account/members-roles"
+                        },
+                        {
+                            "name": "Prompting",
+                            "path": "/enterprise-help-center/platform/prompting"
+                        },
+                        {
+                            "name": "User Groups & Sub-Workspaces Comparison",
+                            "path": "/enterprise-help-center/manage-account/groups-and-sub-workspaces"
+                        },
+                        {
+                            "name": "Seedance 2.5 Prompt Guide",
+                            "path": "/enterprise-help-center/platform/seedance-prompt-guides"
+                        },
+                        {
+                            "name": "User Groups",
+                            "path": "/enterprise-help-center/manage-account/limits"
+                        },
+                        {
+                            "name": "AI Cast · From description to character",
+                            "path": "/enterprise-help-center/platform/consistent-characters-products"
+                        },
+                        {
+                            "name": "Getting to know Canvas",
+                            "path": "/enterprise-help-center/platform/canvas-first-workflow"
+                        },
+                        {
+                            "name": "Sub-Workspaces",
+                            "path": "/enterprise-help-center/manage-account/sub-workspaces"
+                        },
+                        {
+                            "name": "Assets",
+                            "path": "/enterprise-help-center/manage-account/assets"
+                        },
+                        {
+                            "name": "Product image series in Canvas",
+                            "path": "/enterprise-help-center/platform/product-image-series"
+                        },
+                        {
+                            "name": "Projects",
+                            "path": "/enterprise-help-center/manage-account/projects"
+                        },
+                        {
+                            "name": "Billing Terms",
+                            "path": "/enterprise-help-center/manage-account/plans-billing"
+                        },
+                        {
+                            "name": "First steps in Higgsfield Layers",
+                            "path": "/enterprise-help-center/platform/layers-image-editing"
+                        },
+                        {
+                            "name": "Security & Privacy",
+                            "path": "/enterprise-help-center/manage-account/security-and-privacy"
+                        },
+                        {
+                            "name": "Voice first. Then the ad video.",
+                            "path": "/enterprise-help-center/platform/ugc-consistent-voice"
+                        },
+                        {
+                            "name": "Set up SSO (SAML)",
+                            "path": "/enterprise-help-center/manage-account/set-up-sso-saml"
+                        },
+                        {
+                            "name": "Tips & Tricks · Product lock",
+                            "path": "/enterprise-help-center/platform/chocolate-liquid-product-lock"
+                        },
+                        {
+                            "name": "From project -> to a finished animated ad",
+                            "path": "/enterprise-help-center/platform/script-to-finished-video"
+                        },
+                        {
+                            "name": "Set up Directory Sync (SCIM)",
+                            "path": "/enterprise-help-center/manage-account/set-up-directory-sync-scim"
+                        },
+                        {
+                            "name": "Workflow example",
+                            "path": "/enterprise-help-center/platform/workflow-example"
+                        },
+                        {
+                            "name": "Link your Claude organization",
+                            "path": "/enterprise-help-center/manage-account/link-your-claude-organization"
+                        }
+                    ],
+                    "cmsLocalization": null
+                }
+            }
+        ]
+    }
+}

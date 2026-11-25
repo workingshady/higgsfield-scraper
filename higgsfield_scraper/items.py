@@ -1,4 +1,4 @@
-"""Scrapy Items, generated from the pydantic schemas so the two never drift.
+"""Scrapy Items, generated from the pydantic schemas of every registered scraper so they never drift.
 
 Each entity kind gets an Item class whose fields == the pydantic model's fields (+ `kind`).
 `RawResponseItem` carries the untouched API response to the raw-archive pipeline.
@@ -6,8 +6,6 @@ Each entity kind gets an Item class whose fields == the pydantic model's fields 
 from __future__ import annotations
 
 import scrapy
-
-from .schemas import MODEL_BY_KIND
 
 
 class RawResponseItem(scrapy.Item):
@@ -20,26 +18,31 @@ class RawResponseItem(scrapy.Item):
     body = scrapy.Field()
 
 
-def _item_class(kind: str) -> type[scrapy.Item]:
-    model = MODEL_BY_KIND[kind]
-    name = "".join(p.title() for p in kind.split("_")) + "Item"
-    fields = {"kind": scrapy.Field(), **{f: scrapy.Field() for f in model.model_fields}}
-    return type(name, (scrapy.Item,), fields)
+_CLASSES: dict[str, type[scrapy.Item]] = {}
 
 
-ITEM_BY_KIND: dict[str, type[scrapy.Item]] = {kind: _item_class(kind) for kind in MODEL_BY_KIND}
+def item_class(kind: str) -> type[scrapy.Item]:
+    if kind not in _CLASSES:
+        from .core.registry import all_models
+        model = all_models()[kind]
+        name = "".join(p.title() for p in kind.split("_")) + "Item"
+        _CLASSES[kind] = type(name, (scrapy.Item,), {"kind": scrapy.Field(),
+                                                     **{f: scrapy.Field() for f in model.model_fields}})
+    return _CLASSES[kind]
 
-PlanSetItem = ITEM_BY_KIND["plan_set"]
-PlanItem = ITEM_BY_KIND["plan"]
-ModelItem = ITEM_BY_KIND["model"]
-BenefitCardItem = ITEM_BY_KIND["benefit_card"]
-ComparisonItem = ITEM_BY_KIND["comparison"]
-MarketingPlanItem = ITEM_BY_KIND["marketing_plan"]
-CreditPackageItem = ITEM_BY_KIND["credit_package"]
-AuthPayloadItem = ITEM_BY_KIND["auth_payload"]
+
+def item_classes(kinds=None) -> dict[str, type[scrapy.Item]]:
+    from .core.registry import all_models
+    return {k: item_class(k) for k in (kinds or all_models())}
+
+
+def __getattr__(name: str):          # backwards compatibility: ITEM_BY_KIND
+    if name == "ITEM_BY_KIND":
+        return item_classes()
+    raise AttributeError(name)
 
 
 def to_item(entity: dict) -> scrapy.Item:
-    cls = ITEM_BY_KIND[entity["kind"]]
+    cls = item_class(entity["kind"])
     allowed = cls.fields
     return cls(**{k: v for k, v in entity.items() if k in allowed})

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "endpoint": "projects_categories",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/project-publications/categories",
+    "params": {},
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "slug": "open-sourced-by-higgsfield",
+        "label": "Open Sourced by Higgsfield"
+      },
+      {
+        "slug": "spotlight",
+        "label": "Spotlight"
+      }
+    ]
+  }
+}

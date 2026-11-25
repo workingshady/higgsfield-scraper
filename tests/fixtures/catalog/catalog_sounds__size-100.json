@@ -1,0 +1,38 @@
+{
+    "meta": {
+        "endpoint": "catalog_sounds",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/sounds?size=100",
+        "params": {
+            "size": "100"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "DwUP9LmFKqHsvvWQkjLE6",
+                "name": "room",
+                "description": "Low hum",
+                "sound_url": "https://d8j0ntlcm91z4.cloudfront.net/voices_preset/room.wav",
+                "waveform_url": "https://d1xarpci4ikg0w.cloudfront.net/bc46457d-e6ee-4468-a4d0-f8d41a4cefb3.json"
+            },
+            {
+                "id": "3pTD65APpnMEIJM9QcV5hQ",
+                "name": "hall",
+                "description": "Distant echo",
+                "sound_url": "https://d8j0ntlcm91z4.cloudfront.net/voices_preset/hall.wav",
+                "waveform_url": "https://d1xarpci4ikg0w.cloudfront.net/9e18e36f-1341-4021-b83d-7ad928dbae66.json"
+            },
+            {
+                "id": "3FIIqLrrMsY9KU84shAHH9",
+                "name": "office",
+                "description": "Work noise",
+                "sound_url": "https://d8j0ntlcm91z4.cloudfront.net/voices_preset/office.wav",
+                "waveform_url": "https://d1xarpci4ikg0w.cloudfront.net/71430ee7-7c42-4c62-a9ec-fa9a8e8866df.json"
+            }
+        ],
+        "total": 11,
+        "cursor": null
+    }
+}

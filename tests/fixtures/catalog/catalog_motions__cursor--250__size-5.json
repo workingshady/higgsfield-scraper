@@ -1,0 +1,57 @@
+{
+    "meta": {
+        "endpoint": "catalog_motions",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/motions?size=5&cursor=-250",
+        "params": {
+            "size": "5",
+            "cursor": "-250"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "66fad309-0d8a-447c-b95e-1e29b6dd864b",
+                "name": "Flame On",
+                "media": {
+                    "width": 0,
+                    "height": 0,
+                    "url": "<placeholder>",
+                    "type": "animated"
+                },
+                "priority": -344,
+                "tags": [],
+                "preset_family": "minimax",
+                "cms_id": "66fad309-0d8a-447c-b95e-1e29b6dd864b",
+                "categories": [
+                    "effects",
+                    "viral"
+                ],
+                "params": {}
+            },
+            {
+                "id": "bc2725cf-4195-4139-881f-f01a71940bea",
+                "name": "Explosion",
+                "media": {
+                    "width": 0,
+                    "height": 0,
+                    "url": "<placeholder>",
+                    "type": "animated"
+                },
+                "priority": -344,
+                "tags": [],
+                "preset_family": "minimax",
+                "cms_id": "bc2725cf-4195-4139-881f-f01a71940bea",
+                "categories": [
+                    "effects",
+                    "viral",
+                    "ugc"
+                ],
+                "params": {}
+            }
+        ],
+        "total": 419,
+        "cursor": null
+    }
+}

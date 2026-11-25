@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "endpoint": "community_model_x",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/publications/community/model-x?size=50&cursor=1763525136.262839",
+    "params": {
+      "size": "50",
+      "cursor": "1763525136.262839"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "job_set_type": "model_x",
+        "job_set_id": "6f72d419-5d81-4d6a-bd93-b2ed16e5b939",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 848,
+          "height": 1264
+        },
+        "meta": {},
+        "id": "5cffd0b5-29ca-49c5-a196-eccb8532032e",
+        "status": "nsfw",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": null,
+        "published_at": 1763515716.680851,
+        "created_at": 1763530493.706644,
+        "user_id": "user_fake015",
+        "trace_id": null,
+        "publication": {
+          "id": "263effe1-75eb-407b-9f6f-30dcdf998212",
+          "views_count": 1059,
+          "likes_count": 15,
+          "is_liked_by_user": null,
+          "approved": true,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_61",
+          "avatar_url": "https://example.invalid/avatar_61.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "model_x",
+        "job_set_id": "e406843d-d310-4ae2-b5c5-fd9a2e0b14ce",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 1280,
+          "height": 698
+        },
+        "meta": {},
+        "id": "a70ac460-5fa0-42c3-bf21-f0e64562d6d6",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://cdn.higgsfield.ai/user_fake016/b14f641d-3dde-4d33-a253-d0e7f469a2b5.jpeg"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://cdn.higgsfield.ai/user_fake016/b14f641d-3dde-4d33-a253-d0e7f469a2b5_min.webp"
+          }
+        },
+        "published_at": 1763524617.847552,
+        "created_at": 1763530502.706644,
+        "user_id": "user_fake016",
+        "trace_id": null,
+        "publication": {
+          "id": "69c6b877-a90c-4c92-ab13-7a06ce57338b",
+          "views_count": 1530,
+          "likes_count": 36,
+          "is_liked_by_user": null,
+          "approved": true,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_62",
+          "avatar_url": "https://example.invalid/avatar_62.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "model_x",
+        "job_set_id": "636eb701-be5a-4303-857c-846bc43c8bcd",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 1408,
+          "height": 768
+        },
+        "meta": {},
+        "id": "e9eaa0a9-2986-4b88-90d8-8f70905165ab",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "image",
+            "url": "https://cdn.higgsfield.ai/user_fake007/9e67681f-ae08-476f-967f-5c523915428e.png"
+          },
+          "min": {
+            "type": "image",
+            "url": "https://cdn.higgsfield.ai/user_fake007/9e67681f-ae08-476f-967f-5c523915428e_min.webp"
+          }
+        },
+        "published_at": 1763523465.053086,
+        "created_at": 1763646712.687436,
+        "user_id": "user_fake007",
+        "trace_id": null,
+        "publication": {
+          "id": "76368739-cbef-4698-9811-5df0bb4a87ad",
+          "views_count": 424,
+          "likes_count": 97,
+          "is_liked_by_user": null,
+          "approved": true,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_63",
+          "avatar_url": "https://example.invalid/avatar_63.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      }
+    ],
+    "cursor": null,
+    "has_more": false,
+    "total": 3
+  }
+}

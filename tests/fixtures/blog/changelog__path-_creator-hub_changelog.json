@@ -1,0 +1,284 @@
+{
+    "meta": {
+        "endpoint": "changelog",
+        "url": "https://higgsfield.ai/creator-hub/changelog",
+        "params": {
+            "path": "/creator-hub/changelog"
+        },
+        "fetched_at": "2026-11-25T13:14:24.705805+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "tsr",
+        "path": "/creator-hub/changelog",
+        "sitemap_lastmod": null,
+        "head": {
+            "title": "What’s new in Higgsfield: releases, improvements, and fixes",
+            "lang": "en",
+            "canonical": "https://higgsfield.ai/creator-hub/changelog",
+            "description": "Follow the latest Higgsfield product updates, improvements, and releases.",
+            "og_title": "What’s new in Higgsfield: releases, improvements, and fixes",
+            "og_image": "https://static.higgsfield.ai/public/thumbnail/default.jpg",
+            "og_type": "website",
+            "author": "Higgsfield.AI Team",
+            "ld_json": []
+        },
+        "matches": [
+            {
+                "i": "__root__#",
+                "s": "success",
+                "l": {
+                    "clerkProxyUrl": "https://higgsfield.ai/_clerk",
+                    "initialEnterprise": false
+                }
+            },
+            {
+                "i": "#_creator-hub#creator-hub#changelog#creator-hub#changelog",
+                "s": "success",
+                "l": {
+                    "categories": [
+                        {
+                            "id": "2703156d-17d7-4a8b-b078-20e7c3555573",
+                            "slug": "announcement",
+                            "title": "Announcement",
+                            "order": 10
+                        },
+                        {
+                            "id": "2UxFQywhtVyhelBFn1K4ox",
+                            "slug": "release",
+                            "title": "Release",
+                            "order": 10
+                        },
+                        {
+                            "id": "5CoaG2srlJrJLCjQ0Xz7D1",
+                            "slug": "feature",
+                            "title": "Feature",
+                            "order": 20
+                        },
+                        {
+                            "id": "7K5aDxwBW8qeezFcg4ZMPV",
+                            "slug": "improvement",
+                            "title": "Improvement",
+                            "order": 30
+                        },
+                        {
+                            "id": "NXW8DBgX9POOlWL4bI5wj",
+                            "slug": "fix",
+                            "title": "Fix",
+                            "order": 40
+                        }
+                    ],
+                    "entries": [
+                        {
+                            "id": "3db86ed0-66d0-4d32-9ce2-f18ba3dc8d6c",
+                            "anchor": "editing-room",
+                            "title": "Editing Room",
+                            "summary": "Higgsfield Editing Room is a video-to-video editor: swap the person, angle, location, camera move, or lighting in any moment of your own footage.",
+                            "content": "<p>A video-to-video editor for your own footage: upload a clip, pick any moment, and swap the person, angle, location, camera move, or lighting in one place.</p><p>Edits apply only to the selected moment and stack on each other, so a new angle can get a camera move and then new lighting without re-uploading. </p><ul><li><strong>Tools:</strong> Swap person, Change angle, Change location, Move camera, Relight, and Edit with brush, where you paint over an area and describe the change.</li><li><strong>Timeline:</strong> split a shot with Cut here, mark a moment on the lane above it and adjust its edges.</li><li><strong>Relight:</strong> presets, custom light sources with direction, color, brightness, and diffusion, or a text description.</li><li><strong>Review:</strong> several edits can run at once; compare each with the original in Split or Compare view, then export the finished video.</li></ul><p><strong>To get started:</strong> open <a href=\"https://higgsfield.ai/editing-room\"><strong><span style=\"text-decoration:underline\">Editing Room</span></strong></a> → Upload your video → mark a moment → choose a tool → Generate.</p>",
+                            "releaseDate": "2026-11-20T18:20:00.000Z",
+                            "dateModified": "2026-11-21T18:21:34Z",
+                            "searchKeywords": [
+                                "editing room"
+                            ],
+                            "category": {
+                                "id": "2UxFQywhtVyhelBFn1K4ox",
+                                "slug": "release",
+                                "title": "Release",
+                                "order": 10
+                            },
+                            "chips": [
+                                {
+                                    "id": "2GHJT1nMCyTLvKBmaAsHqi",
+                                    "slug": "video-tools",
+                                    "title": "Video Tools"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "8891394a-267f-4e38-8f12-da2d080d85a8",
+                            "anchor": "ideogram-4-6",
+                            "title": "Ideogram 4.6",
+                            "summary": "Ideogram 4.6 is now on Higgsfield: step-by-step image edits designed to change only what you ask, up to 5 references, and native 4K output.",
+                            "content": "<p>Ideogram’s new image model is now on Higgsfield, built for precise editing.</p><p>It’s designed to change only what you ask for, so a product color, a material, or a background can be swapped one change at a time while the face, details, and composition stay in place, per Ideogram.</p><ul><li><strong>Step-by-step edits:</strong> each edit builds on the previous one.</li><li><strong>References:</strong> up to 5 per generation.</li><li><strong>Resolution:</strong> 2K or native 4K, without upscaling; Very low quality is limited to 2K.</li><li><strong>Quality:</strong> Very low, Low, Medium, or High.</li></ul><p><strong>To get started:</strong> Image → <a href=\"https://higgsfield.ai/ai/image?model=ideogram-4-6\"><strong><span style=\"text-decoration:underline\">Ideogram 4.6</span></strong></a> → Generate.</p>",
+                            "releaseDate": "2026-11-19T23:17:00.000Z",
+                            "dateModified": "2026-11-21T18:18:10Z",
+                            "searchKeywords": [
+                                "Ideogram"
+                            ],
+                            "category": {
+                                "id": "5CoaG2srlJrJLCjQ0Xz7D1",
+                                "slug": "feature",
+                                "title": "Feature",
+                                "order": 20
+                            },
+                            "chips": [
+                                {
+                                    "id": "7GH0258i4FwVSjqjx78vd6",
+                                    "slug": "models",
+                                    "title": "Models"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "95eb078f-4d0e-48ce-b490-07349a1b8d46",
+                            "anchor": "property-studio",
+                            "title": "Property Studio",
+                            "summary": "Property Studio on Higgsfield turns a floor plan into a furnished 3D layout and a narrated video tour, for real estate agents, developers, and designers.",
+                            "content": "<p>A real estate tool that turns a floor plan into a furnished 3D layout and a narrated video tour you can share.</p><p>It’s built for agents, developers, and interior designers. The result is a visualization based on the plan.</p><ul><li><strong>Floor plan:</strong> rooms are recognized and labeled automatically; add renders or references for each room, or one style for all of them, up to 20 images.</li><li><strong>3D layout:</strong> walls and then furniture are built step by step; walk into any room and describe changes in text.</li><li><strong>Script and voice:</strong> a room-by-room script is written for you to edit, regenerate, or replace, then narrated by a library voice, your own voice from a short sample, or a ready recording.</li><li><strong>Video:</strong> preview the tour, adjust it, and generate the final version.</li></ul><p><strong>To get started:</strong> open <a href=\"https://higgsfield.ai/property-studio\"><strong><span style=\"text-decoration:underline\">Property Studio</span></strong></a> → upload a floor plan → follow the steps through 3D Layout, Script &amp; voice, and Video.</p>",
+                            "releaseDate": "2026-11-19T18:09:00.000Z",
+                            "dateModified": "2026-11-21T18:22:08Z",
+                            "searchKeywords": [
+                                "property",
+                                "studio"
+                            ],
+                            "category": {
+                                "id": "2UxFQywhtVyhelBFn1K4ox",
+                                "slug": "release",
+                                "title": "Release",
+                                "order": 10
+                            },
+                            "chips": [
+                                {
+                                    "id": "2GHJT1nMCyTLvKBmaAsHqi",
+                                    "slug": "video-tools",
+                                    "title": "Video Tools"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "43d9cae4-53a0-43d4-bcdd-d999d4b2f050",
+                            "anchor": "gemini-4-neon",
+                            "title": "Gemini 4 Neon",
+                            "summary": "Gemini 4 Neon from Google is now in Higgsfield Supercomputer: a language model for code, documents, and analysis with a 1M-token context.",
+                            "content": "<p>Google’s new language model for code, documents, and analysis is now in Supercomputer on Higgsfield.</p><p>It fits tasks too complex for Hydrogen, which is built for quick everyday work, that still don’t need Carbon, which handles the most demanding long-running projects.</p><p>Per Google:</p><ul><li><strong>Code:</strong> sites, apps, games, and 3D, with edits across several files in large projects.</li><li><strong>Documents and data:</strong> reads spreadsheets, PDFs, charts, photos, audio, and video, and turns them into reports and summaries, with a context of up to 1M tokens.</li><li><strong>Analysis:</strong> calculations, research, and multi-step math and science tasks.</li><li><strong>Corrections:</strong> adjusts course when you redirect it mid-task.</li></ul><p><strong>To get started:</strong> open <a href=\"https://higgsfield.ai/supercomputer\"><strong><span style=\"text-decoration:underline\">Supercomputer</span></strong></a> → select Gemini 4 Neon.</p>",
+                            "releaseDate": "2026-11-18T23:10:00.000Z",
+                            "dateModified": "2026-11-20T04:11:21Z",
+                            "searchKeywords": [
+                                "gemini",
+                                "neon"
+                            ],
+                            "category": {
+                                "id": "5CoaG2srlJrJLCjQ0Xz7D1",
+                                "slug": "feature",
+                                "title": "Feature",
+                                "order": 20
+                            },
+                            "chips": [
+                                {
+                                    "id": "10JYk3gx72iRV9L8h0JE5X",
+                                    "slug": "supercomputer",
+                                    "title": "Supercomputer"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "15d1b65a-b118-4792-8cf5-8f3ed3aba235",
+                            "anchor": "kling-image-4-0",
+                            "title": "Kling Image 4.0",
+                            "summary": "Kling Image 4.0 is now on Higgsfield: photoreal images up to 8K, up to 2,000 characters of text in 7 languages, and series of 10 images from one prompt.",
+                            "content": "<p>Kling’s new image model is now on Higgsfield, generating from text and references.</p><p>It’s aimed at photoreal portraits and group shots, and at designs with a lot of text, such as posters, infographics, and product cards.</p><p>Per Kling:</p><ul><li><strong>Realism:</strong> designed for natural light and skin and material texture.</li><li><strong>Text:</strong> up to 2,000 characters per image in 7 languages, with 70+ fonts or a font matched from a reference.</li><li><strong>Prompts:</strong> up to 15,000 tokens, enough for a detailed brief on layout and composition.</li><li><strong>Series:</strong> up to 10 images in one style from a single prompt.</li><li><strong>Resolution:</strong> 2K by default, 4K, or 8K.</li></ul><p><strong>To get started:</strong> Image → <a href=\"https://higgsfield.ai/ai/image?model=kling-image-4-0\"><strong><span style=\"text-decoration:underline\">Kling Image 4.0</span></strong></a> → Generate.</p>",
+                            "releaseDate": "2026-11-17T20:00:00.000Z",
+                            "dateModified": "2026-11-20T04:00:53Z",
+                            "searchKeywords": [
+                                "kling",
+                                "image"
+                            ],
+                            "category": {
+                                "id": "5CoaG2srlJrJLCjQ0Xz7D1",
+                                "slug": "feature",
+                                "title": "Feature",
+                                "order": 20
+                            },
+                            "chips": [
+                                {
+                                    "id": "7GH0258i4FwVSjqjx78vd6",
+                                    "slug": "models",
+                                    "title": "Models"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "362ef8a5-3b8a-4480-ae7d-a1921d49c900",
+                            "anchor": "claude-linked-billing",
+                            "title": "Linked billing for Claude in Supercomputer",
+                            "summary": "Claude API usage in Higgsfield Supercomputer can now be billed by Anthropic to your Claude Platform organization. Beta for Team, Scale, and Enterprise.",
+                            "content": "<p>Claude API usage in Supercomputer can now be billed by Anthropic directly to your own Claude Platform organization.</p><p>Linked billing is in beta, with Higgsfield among Anthropic’s launch partners. Image and video generations still use Higgsfield credits.</p><ul><li><strong>No shared keys:</strong> the link is approved on the Claude side by an Owner, Admin, or Billing administrator of the organization.</li><li><strong>Spending control:</strong> usage, monthly limits, and unlinking are managed in Claude Console.</li></ul><p><strong>To get started:</strong> Manage Account → Workspace settings → Claude → Link your Claude organization → approve the connection in Claude → check that the status shows Linked.</p><p><strong>Availability:</strong> Team, Scale, and Enterprise plans. </p>",
+                            "releaseDate": "2026-11-17T18:51:00.000Z",
+                            "dateModified": "2026-11-20T04:11:57Z",
+                            "searchKeywords": [
+                                "claude",
+                                "anthropic",
+                                "linked billing"
+                            ],
+                            "category": {
+                                "id": "2703156d-17d7-4a8b-b078-20e7c3555573",
+                                "slug": "announcement",
+                                "title": "Announcement",
+                                "order": 10
+                            },
+                            "chips": [
+                                {
+                                    "id": "7z9ewYP758xOkMEQVdz4zM",
+                                    "slug": "platform",
+                                    "title": "Platform"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "8c4b6300-c9dc-4cdf-bb94-4fe39be08240",
+                            "anchor": "gpt-6-2-astra-sol",
+                            "title": "GPT-6.2 Astra and GPT-6.2 Sol",
+                            "summary": "GPT-6.2 Astra and GPT-6.2 Sol from OpenAI are now in Higgsfield Supercomputer: a flagship for complex projects and a lower-cost model for everyday work.",
+                            "content": "<p>OpenAI’s two new language models are now in Supercomputer on Higgsfield: a flagship for complex projects and a lower-cost model for everyday work.</p><p>Sol is a good pick for most tasks, while Astra is a better choice for large, demanding work like template-based decks and full builds. </p><p>Per OpenAI:</p><ul><li><strong>Astra:</strong> documents, spreadsheets, and slides that follow a template down to layout, colors, and fonts, plus cleaner code for sites, games, and 3D.</li><li><strong>Sol:</strong> multi-step agentic tasks and natural writing; on FrontierCode 2.0 it scores within 0.5 points of Astra at about a fifth of the cost.</li><li><strong>Efficiency:</strong> better results on complex tasks with fewer tokens than the previous versions.</li></ul><p><strong>To get started:</strong> open <a href=\"https://higgsfield.ai/supercomputer\"><strong><span style=\"text-decoration:underline\">Supercomputer</span></strong></a> → select GPT-6.2 Astra or GPT-6.2 Sol.</p>",
+                            "releaseDate": "2026-11-17T18:02:00.000Z",
+                            "dateModified": "2026-11-20T03:03:17Z",
+                            "searchKeywords": [
+                                "Astra",
+                                "Sol",
+                                "GPT"
+                            ],
+                            "category": {
+                                "id": "5CoaG2srlJrJLCjQ0Xz7D1",
+                                "slug": "feature",
+                                "title": "Feature",
+                                "order": 20
+                            },
+                            "chips": [
+                                {
+                                    "id": "10JYk3gx72iRV9L8h0JE5X",
+                                    "slug": "supercomputer",
+                                    "title": "Supercomputer"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "00e84dc0-d3b4-4ebb-8741-66913f21bff6",
+                            "anchor": "short-drama-studio",
+                            "title": "Short Drama Studio",
+                            "summary": "Higgsfield Short Drama Studio turns a script into a short series: episodes, a consistent cast, and locations generated from your text in 15 styles. Early preview.",
+                            "content": "<p>A studio that turns a script into a short series: it splits the text into episodes, builds the cast, locations, and props, and generates the episodes with the same characters throughout.</p><p>It’s in early preview, available on desktop only for now. </p><ul><li><strong>Script:</strong> PDF, DOCX, FDX, TXT, or MD up to 10 MB; six aspect ratios and 15 styles, from Higgsfield Cinematic and K-Drama to Anime and Classic 3D.</li><li><strong>Cast &amp; World:</strong> characters, locations, and props are generated from the text. </li><li><strong>Episodes:</strong> each one is planned into scenes and clips, then generated at 480p draft, 720p, or 1080p.</li><li><strong>Ways to work:</strong> step by step, Auto-generate all with one set of settings, or through the Agent panel in chat.</li></ul><p><strong>To get started:</strong> open <a href=\"https://higgsfield.ai/short-drama\"><strong><span style=\"text-decoration:underline\">Short Drama</span></strong></a> → upload a script → pick a format and style → Analyze script or Auto-generate all. In Claude, connect <a href=\"https://higgsfield.ai/mcp\"><strong><span style=\"text-decoration:underline\">Higgsfield MCP</span></strong></a> and ask for a short drama.</p><p><strong>Availability:</strong> early preview on the desktop version, and in Claude through Higgsfield MCP.</p>",
+                            "releaseDate": "2026-11-16T17:10:00.000Z",
+                            "dateModified": "2026-11-17T02:45:41Z",
+                            "searchKeywords": [
+                                "short drama"
+                            ],
+                            "category": {
+                                "id": "2UxFQywhtVyhelBFn1K4ox",
+                                "slug": "release",
+                                "title": "Release",
+                                "order": 10
+                            },
+                            "chips": [
+                                {
+                                    "id": "2GHJT1nMCyTLvKBmaAsHqi",
+                                    "slug": "video-tools",
+                                    "title": "Video Tools"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

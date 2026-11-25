@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "endpoint": "catalog_voices",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/voices?size=100",
+        "params": {
+            "size": "100"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "6pBuGbellIksHKibt0je2n",
+                "name": "Marston",
+                "gender": "male",
+                "age": "middle age",
+                "image_url": "https://d1xarpci4ikg0w.cloudfront.net/5503b4b2-6398-4542-ad31-9fa6edb96d7c.webp",
+                "categories": [
+                    "reporter"
+                ],
+                "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/voices_avatar/all/rTOopItG6FIkKMIVxsl5/2.wav",
+                "waveform_url": "https://d1xarpci4ikg0w.cloudfront.net/0673abf6-53e1-4c22-a655-49c1a7d1be2f.json",
+                "is_gpt": false
+            },
+            {
+                "id": "5PQMG2LcT1x9S85IjUxoPI",
+                "name": "Joyful",
+                "gender": "female",
+                "age": "young",
+                "image_url": "https://d1xarpci4ikg0w.cloudfront.net/add905d6-9f50-4ba8-b6a4-be3b15676177.webp",
+                "categories": [
+                    "emotions"
+                ],
+                "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/voices_avatar/all/vGQNBgLaiM3EdZtxIiuY/2.wav",
+                "waveform_url": "https://d1xarpci4ikg0w.cloudfront.net/91495321-df3d-45d3-b731-835c08ba7d1b.json",
+                "is_gpt": false
+            },
+            {
+                "id": "1Stcvn5jwv5sda0Z71hBSx",
+                "name": "Nas",
+                "gender": "male",
+                "age": "middle age",
+                "image_url": "https://d1xarpci4ikg0w.cloudfront.net/ed459492-ac3a-4c8d-a15e-7e1ffcd439ac.webp",
+                "categories": [
+                    "professions"
+                ],
+                "voice_url": "https://d8j0ntlcm91z4.cloudfront.net/voices_avatar/all/repzAAjoKlgcT2oOAIWt/2.wav",
+                "waveform_url": "https://d1xarpci4ikg0w.cloudfront.net/20c68664-bdf2-4067-a81c-43dd7b2bbfd6.json",
+                "is_gpt": false
+            }
+        ],
+        "total": 82,
+        "cursor": null
+    }
+}

@@ -1,0 +1,150 @@
+{
+    "meta": {
+        "endpoint": "catalog_motions",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/motions?size=5",
+        "params": {
+            "size": "5"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "bbab2a35-ccba-45df-8c37-8ea2bd9e395a",
+                "name": "Raven Transition",
+                "media": {
+                    "width": 0,
+                    "height": 0,
+                    "url": "<placeholder>",
+                    "type": "animated"
+                },
+                "priority": -354,
+                "tags": [],
+                "preset_family": "kling",
+                "cms_id": "bbab2a35-ccba-45df-8c37-8ea2bd9e395a",
+                "categories": [],
+                "params": {}
+            },
+            {
+                "id": "c4dd8cc3-79a6-4366-b9a1-071ad848ddd2",
+                "name": "Air Bending",
+                "media": {
+                    "width": 0,
+                    "height": 0,
+                    "url": "<placeholder>",
+                    "type": "animated"
+                },
+                "priority": -353,
+                "tags": [
+                    "new"
+                ],
+                "preset_family": "kling",
+                "cms_id": "c4dd8cc3-79a6-4366-b9a1-071ad848ddd2",
+                "categories": [],
+                "params": {}
+            },
+            {
+                "id": "70e490b9-26b7-4572-8d9c-2ac8dcc9adc0",
+                "name": "Earth Zoom Out",
+                "media": {
+                    "width": 320,
+                    "height": 486,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/60fe4cdc-9baf-4616-a86c-0b0a51b012d8.webp",
+                    "type": "animated"
+                },
+                "priority": -350,
+                "tags": [
+                    "top_choice"
+                ],
+                "preset_family": "higgsfield",
+                "cms_id": null,
+                "categories": [],
+                "params": {
+                    "steps": 20,
+                    "frames": 81,
+                    "strength": 1.0,
+                    "guide_scale": 6.0
+                }
+            },
+            {
+                "id": "7351a8ad-9754-4844-94f1-00baf293d588",
+                "name": "Mouth In",
+                "media": {
+                    "width": 320,
+                    "height": 568,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/de3a76d1-79c8-48c4-89ad-60d540c9dcde.webp",
+                    "type": "animated"
+                },
+                "priority": -341,
+                "tags": [],
+                "preset_family": "higgsfield",
+                "cms_id": null,
+                "categories": [
+                    "vfx",
+                    "epic_camera_control"
+                ],
+                "params": {
+                    "steps": 20,
+                    "frames": 81,
+                    "strength": 1.0,
+                    "guide_scale": 6.0
+                }
+            },
+            {
+                "id": "017ae2b7-bcff-42ef-863e-6e198f96c3ec",
+                "name": "Turning Metal + Melting",
+                "media": {
+                    "width": 320,
+                    "height": 494,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/b3aab188-251e-4f55-a8fa-40620e3c6db6.webp",
+                    "type": "animated"
+                },
+                "priority": -270,
+                "tags": [
+                    "mix"
+                ],
+                "preset_family": "higgsfield",
+                "cms_id": null,
+                "mix": [
+                    {
+                        "id": "46e23a6b-1047-40f1-9cf5-33f5f55ddf2e",
+                        "name": "Turning Metal",
+                        "media": {
+                            "width": 320,
+                            "height": 424,
+                            "url": "https://d1xarpci4ikg0w.cloudfront.net/d44a136d-8b78-49c8-bf3d-889e5f30c547.webp",
+                            "type": "animated"
+                        }
+                    },
+                    {
+                        "id": "d8c13031-7117-4a3d-9a30-6a00d0d408b4",
+                        "name": "Melting",
+                        "media": {
+                            "width": 320,
+                            "height": 182,
+                            "url": "https://d1xarpci4ikg0w.cloudfront.net/208e5e19-956c-48a2-afb7-8ca822c29a23.webp",
+                            "type": "animated"
+                        }
+                    }
+                ],
+                "params": {
+                    "motions": [
+                        {
+                            "id": "46e23a6b-1047-40f1-9cf5-33f5f55ddf2e",
+                            "type": "motion",
+                            "strength": 0.85
+                        },
+                        {
+                            "id": "d8c13031-7117-4a3d-9a30-6a00d0d408b4",
+                            "type": "motion",
+                            "strength": 0.6
+                        }
+                    ]
+                }
+            }
+        ],
+        "total": 419,
+        "cursor": -250
+    }
+}

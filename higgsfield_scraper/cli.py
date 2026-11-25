@@ -1,12 +1,12 @@
 """Command-line entry point.
 
-  python -m higgsfield_scraper scrape   [options]     # fetch live data -> runs/<timestamp>_<label>/
-  python -m higgsfield_scraper normalize --run DIR    # re-parse a run's raw/ offline
-  python -m higgsfield_scraper show plans|models|model <id>|plan-sets|benefits|compare [--run DIR]
-  python -m higgsfield_scraper plan-sets              # known plan_set_keys and presets
-  python -m higgsfield_scraper sections               # what each section fetches
-  python -m higgsfield_scraper runs                   # recent runs
-  python -m higgsfield_scraper schema --out schemas/  # export JSON Schemas
+  python -m higgsfield_scraper scrape [pricing] [options]   # pricing (default scraper) -> runs/<ts>_<label>/
+  python -m higgsfield_scraper scrape community [options]   # any registered scraper: see `scrapers`
+  python -m higgsfield_scraper scrapers                     # list scrapers
+  python -m higgsfield_scraper normalize --run DIR          # re-parse a run's raw/ offline (scraper auto-detected)
+  python -m higgsfield_scraper show plans|models|model <id>|plan-sets|benefits|compare [--run DIR]   (pricing)
+  python -m higgsfield_scraper auth-check                   # is the login/session configured and working?
+  python -m higgsfield_scraper plan-sets | sections | runs | schema
 """
 from __future__ import annotations
 
@@ -17,10 +17,10 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-from .constants import (
-    DEFAULT_SECTIONS, ENDPOINTS, PLAN_SET_KEYS, PLAN_SET_PRESETS, PLAN_SET_TIERS, SECTIONS, US_PLAN_SET,
-)
-from .selection import Selection
+from .constants import DEFAULT_SECTIONS, ENDPOINTS, PLAN_SET_KEYS, PLAN_SET_PRESETS, PLAN_SET_TIERS, SECTIONS, US_PLAN_SET
+from .core import registry
+from .core.base import CommonOptions, resolve
+from .core.cli_common import add_access_args, add_limit_args, add_run_args, common_from_args
 
 
 def _load_dotenv(path: Path = Path(".env")) -> None:
@@ -30,67 +30,50 @@ def _load_dotenv(path: Path = Path(".env")) -> None:
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+            if v.strip():
+                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 
 
+# backwards-compatible names (tests/scripts import these)
 def _selection_args(p: argparse.ArgumentParser) -> None:
-    g = p.add_argument_group("what to scrape")
-    g.add_argument("--sections", default=",".join(DEFAULT_SECTIONS),
-                   help=f"comma list of {sorted(SECTIONS)} or 'all' (default: %(default)s)")
-    g.add_argument("--plan-sets", default="us",
-                   help=f"plan_set_keys or presets {sorted(PLAN_SET_PRESETS)} (default: us = {US_PLAN_SET})")
-    g.add_argument("--billing", default="monthly,annual", help="billing periods for /compare (default: %(default)s)")
-    g.add_argument("--marketing-versions", default="latest",
-                   help="latest | all | comma list like v51,v50 (default: %(default)s)")
-    g.add_argument("--locale", default=os.environ.get("HF_LOCALE", "en"), help="en, de, es, fr, ja, ko, pt-BR, zh-CN")
-    f = p.add_argument_group("filters (applied to output)")
-    f.add_argument("--plan-types", default=None, help="e.g. plus,ultra,team (default: all)")
-    f.add_argument("--models", default=None, help="model patterns, e.g. seedance,kling*,gpt_image_2_6")
-    f.add_argument("--categories", default=None, help="video,image,audio,other")
-    o = p.add_argument_group("output options")
-    o.add_argument("--usd-reference", default="plus:annual",
-                   help="plan_type:billing_period whose after-offer $/credit prices model USD estimates")
-    o.add_argument("--include-hidden-plans", action="store_true", help="keep trial/secret plan types")
-    o.add_argument("--include-raw-cost", action="store_true", help="embed each model's untouched cost JSON")
+    registry.get("pricing").add_args(p)
 
 
 def _run_args(p: argparse.ArgumentParser) -> None:
-    r = p.add_argument_group("run")
-    r.add_argument("--label", default=None, help="run label (folder suffix)")
-    r.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
-    r.add_argument("--log-level", default=os.environ.get("HF_LOG_LEVEL", "INFO"), help="console level")
-    r.add_argument("--file-log-level", default="DEBUG")
-    r.add_argument("--scrapy-log-level", default="INFO")
+    add_run_args(p)
 
 
-def _build_selection(a, has_token: bool) -> Selection:
-    return Selection.build(
-        sections=a.sections, plan_sets=a.plan_sets, billing=a.billing, plan_types=a.plan_types,
-        models=a.models, categories=a.categories, marketing_versions=a.marketing_versions, locale=a.locale,
-        include_hidden_plans=a.include_hidden_plans, include_raw_cost=a.include_raw_cost,
-        usd_reference=a.usd_reference, has_token=has_token,
-    )
+SECRET_ARGS = ("token",)
 
 
 def _public_args(a) -> dict:
-    return {k: v for k, v in vars(a).items() if k not in ("token", "func")} | {"token": "***" if getattr(a, "token", None) else None}
+    return {k: v for k, v in vars(a).items() if k not in (*SECRET_ARGS, "func")} | {
+        "token": "***" if getattr(a, "token", None) else None}
 
 
 # ---------------------------------------------------------------- commands
 def cmd_scrape(a) -> int:
     from .run.manager import RunManager
+    sdef = registry.get(a.scraper)
     token = a.token or os.environ.get("HF_TOKEN") or None
-    sel = _build_selection(a, bool(token))
+    sel = sdef.make_selection(a)
+    common = common_from_args(a)
     if a.dry_run:
-        from .spiders.higgsfield import HiggsfieldSpider
-        sp = HiggsfieldSpider(selection=sel, token=token)
+        spider_cls = resolve(sdef.spider_cls)
+        sp = spider_cls(selection=sel, token=token) if sdef.name == "pricing" else \
+            spider_cls(selection=sel, common=CommonOptions(**{**common.to_dict(), "auth": "off"}), token=None)
         for r in sp.build_requests():
-            print(f"GET {r.url}" + ("   [auth]" if "Authorization" in r.headers else ""))
+            auth = r.meta.get("auth") or "Authorization" in r.headers
+            print(f"GET {r.url}" + ("   [auth]" if auth else ""))
+        if sdef.name != "pricing":
+            print("# (first requests only; pagination/detail requests follow at runtime)", file=sys.stderr)
         return 0
-    label = a.label or ("-".join(sel.sections) if len(sel.sections) < 3 else "full") + f"-{'-'.join(sel.plan_set_keys[:2])}"
+    base_label = sdef.default_label(sel)
+    label = a.label or (base_label if sdef.name == "pricing" else f"{sdef.name}-{base_label}")
     mgr = RunManager(a.runs_dir, label, a.log_level, a.file_log_level, a.scrapy_log_level)
     overrides = {"HIGGS_HTTP_ARCHIVE": not a.no_http_archive, "ROBOTSTXT_OBEY": a.obey_robots}
-    return mgr.scrape(sel, token=token, cache=a.cache, settings_overrides=overrides, args=_public_args(a))
+    return mgr.scrape(sel, token=token, cache=a.cache, settings_overrides=overrides, args=_public_args(a),
+                      scraper=sdef.name, common=common)
 
 
 def cmd_normalize(a) -> int:
@@ -100,13 +83,18 @@ def cmd_normalize(a) -> int:
     if not src or not (src / "raw").exists():
         print(f"no raw/ folder found in {src}", file=sys.stderr)
         return 1
-    sel = _build_selection(a, False)
-    if a.sections == ",".join(DEFAULT_SECTIONS) and (src / "manifest.json").exists():
-        m = json.loads((src / "manifest.json").read_text(encoding="utf-8"))
-        prev = m.get("selection") or {}
-        sel.sections, sel.plan_set_keys = prev.get("sections", sel.sections), prev.get("plan_set_keys", sel.plan_set_keys)
-    return RunManager(a.runs_dir, a.label or "normalize", a.log_level, a.file_log_level, a.scrapy_log_level) \
-        .normalize(src, sel, args=_public_args(a))
+    m = json.loads((src / "manifest.json").read_text(encoding="utf-8")) if (src / "manifest.json").exists() else {}
+    name = a.scraper or m.get("scraper") or registry.DEFAULT_SCRAPER
+    sdef = registry.get(name)
+    mgr = RunManager(a.runs_dir, a.label or "normalize", a.log_level, a.file_log_level, a.scrapy_log_level)
+    if name == "pricing":                     # unchanged pricing behaviour
+        sel = sdef.make_selection(a)
+        if a.sections == ",".join(DEFAULT_SECTIONS) and m:
+            prev = m.get("selection") or {}
+            sel.sections, sel.plan_set_keys = prev.get("sections", sel.sections), prev.get("plan_set_keys", sel.plan_set_keys)
+        return mgr.normalize(src, sel, args=_public_args(a), scraper=name)
+    sel = sdef.selection_from_dict(m.get("selection") or {})
+    return mgr.normalize(src, sel, args=_public_args(a), scraper=name, common=CommonOptions.from_dict(m.get("common")))
 
 
 def _dataset(a) -> Optional[dict]:
@@ -131,6 +119,10 @@ def _table(rows: list[list], header: list[str]) -> None:
 def cmd_show(a) -> int:
     ds = _dataset(a)
     if ds is None:
+        return 1
+    if ds.get("meta", {}).get("scraper") not in (None, "pricing"):
+        print(f"`show` reads pricing datasets; this run is {ds['meta']['scraper']!r} — open output/summary.md",
+              file=sys.stderr)
         return 1
     what, pat = a.what, (a.filter or "").lower()
     if what == "plans":
@@ -209,69 +201,138 @@ def cmd_sections(a) -> int:
     return 0
 
 
+def cmd_scrapers(a) -> int:
+    for name, sdef in registry.available().items():
+        print(f"{name:10} {sdef.description}")
+        for ex in sdef.examples:
+            print(f"           e.g. {ex}")
+    return 0
+
+
+def cmd_auth_check(a) -> int:
+    from .core.auth import TokenProvider
+    prov = TokenProvider.from_env(a.token)
+    if not prov.configured:
+        print("no login configured: set HF_CLERK_CLIENT (or HF_EMAIL/HF_PASSWORD) in .env, or pass --token")
+        return 1
+    st = prov.status()
+    print(json.dumps({k: v for k, v in st.items() if k != "session_id"}, indent=4))
+    return 0 if st.get("ok") else 1
+
+
+def cmd_login(a) -> int:
+    """Two-step login: `login` (password from .env -> Clerk emails a code), then `login --code NNNNNN`.
+    Afterwards the cached session (runs/.auth/clerk_client.json) mints fresh tokens automatically."""
+    from .core.auth import TokenProvider
+    from .core.auth_login import LoginError, finish_login, start_login
+    try:
+        if a.code:
+            finish_login(a.code)
+        else:
+            res = start_login(os.environ.get("HF_EMAIL", ""), os.environ.get("HF_PASSWORD", ""))
+            if res["status"] == "code_sent":
+                print(f"Clerk sent a one-time code to {res['sent_to']}.\n"
+                      f"Finish with:  python -m higgsfield_scraper login --code <6-digit code>   (within 15 min)")
+                return 0
+    except LoginError as e:
+        print(f"login failed: {e}", file=sys.stderr)
+        return 1
+    st = TokenProvider.from_env().status()
+    print("login complete — session cached in runs/.auth/clerk_client.json (gitignored)")
+    print(json.dumps({k: v for k, v in st.items() if k != "session_id"}, indent=4))
+    return 0 if st.get("ok") else 1
+
+
 def cmd_runs(a) -> int:
     idx = Path(a.runs_dir) / "index.jsonl"
     if not idx.exists():
         print("no runs yet")
         return 0
     lines = [json.loads(x) for x in idx.read_text(encoding="utf-8").splitlines() if x.strip()][-a.limit:]
-    _table([[r["run_id"], r["status"], r.get("duration_s"), r.get("country_code"),
+    _table([[r["run_id"], r["status"], r.get("duration_s"), r.get("country_code") or "",
              ", ".join(f"{k}={v}" for k, v in (r.get("counts") or {}).items() if v)] for r in lines],
            ["run_id", "status", "secs", "country", "counts"])
     return 0
 
 
 def cmd_schema(a) -> int:
-    from .schemas import MODEL_BY_KIND, Dataset
+    from .schemas import Dataset
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
+    n = 0
     (out / "dataset.schema.json").write_text(json.dumps(Dataset.model_json_schema(mode="serialization"), indent=4), "utf-8")
-    for kind, model in MODEL_BY_KIND.items():
-        (out / f"{kind}.schema.json").write_text(json.dumps(model.model_json_schema(mode="serialization"), indent=4), "utf-8")
-    print(f"wrote {len(MODEL_BY_KIND) + 1} schemas to {out}")
+    n += 1
+    for name, sdef in registry.available().items():
+        if name != "pricing" and sdef.dataset_model is not None:
+            (out / f"{name}.dataset.schema.json").write_text(
+                json.dumps(sdef.dataset_model.model_json_schema(mode="serialization"), indent=4), "utf-8")
+            n += 1
+        for kind, model in sdef.model_by_kind.items():
+            (out / f"{kind}.schema.json").write_text(json.dumps(model.model_json_schema(mode="serialization"), indent=4), "utf-8")
+            n += 1
+    print(f"wrote {n} schemas to {out}")
     return 0
 
 
 # ------------------------------------------------------------------- parser
 def build_parser() -> argparse.ArgumentParser:
-    ap = argparse.ArgumentParser(prog="higgsfield_scraper", description="Scrape Higgsfield.ai plans, offers and model credit costs")
+    ap = argparse.ArgumentParser(prog="higgsfield_scraper", description="Scrape Higgsfield.ai data (pricing, community, …)")
     sub = ap.add_subparsers(dest="command")
 
-    s = sub.add_parser("scrape", help="fetch live data into a new run folder")
-    _selection_args(s)
-    _run_args(s)
-    s.add_argument("--token", default=None, help="Clerk session JWT for --sections auth (or env HF_TOKEN)")
-    s.add_argument("--cache", action="store_true", help="enable Scrapy HTTP cache (dev)")
-    s.add_argument("--no-http-archive", action="store_true",
-                   help="don't write <run>/http/ (per-request request.json, response.json, body.raw, curl.sh, session.har)")
-    s.add_argument("--obey-robots", action="store_true",
-                   help="check and obey robots.txt (default: off — robots.txt is not obeyed)")
-    s.add_argument("--dry-run", action="store_true", help="print the requests that would be made and exit")
-    s.set_defaults(func=cmd_scrape)
+    s = sub.add_parser("scrape", help="fetch live data into a new run folder (`scrape <scraper> -h`)")
+    ssub = s.add_subparsers(dest="scraper", metavar="<scraper>")
+    for name, sdef in registry.available().items():
+        sp = ssub.add_parser(name, help=sdef.description, description=sdef.description,
+                             epilog="examples:\n  " + "\n  ".join(sdef.examples) if sdef.examples else None,
+                             formatter_class=argparse.RawDescriptionHelpFormatter)
+        sdef.add_args(sp)
+        if name != "pricing":
+            add_limit_args(sp)
+        add_access_args(sp)
+        add_run_args(sp)
+        sp.set_defaults(func=cmd_scrape, scraper=name)
 
     n = sub.add_parser("normalize", help="re-parse a run's raw/ responses offline into a new run")
     n.add_argument("--run", default=None, help="source run folder (default: latest)")
+    n.add_argument("--scraper", default=None, help="override the scraper (default: from the run's manifest)")
     _selection_args(n)
-    _run_args(n)
+    add_run_args(n)
     n.set_defaults(func=cmd_normalize)
 
-    sh = sub.add_parser("show", help="print tables from a run's dataset")
+    sh = sub.add_parser("show", help="print tables from a pricing run's dataset")
     sh.add_argument("what", choices=["plans", "models", "model", "plan-sets", "benefits", "compare"])
     sh.add_argument("filter", nargs="?", default=None, help="substring filter, or model_id for `show model`")
     sh.add_argument("--run", default=None)
     sh.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
     sh.set_defaults(func=cmd_show)
 
+    sub.add_parser("scrapers", help="list available scrapers").set_defaults(func=cmd_scrapers)
+    ac = sub.add_parser("auth-check", help="check login/session configuration (never prints secrets)")
+    ac.add_argument("--token", default=None)
+    ac.set_defaults(func=cmd_auth_check)
+    lg = sub.add_parser("login", help="log in with HF_EMAIL/HF_PASSWORD from .env (step 1), then --code (step 2)")
+    lg.add_argument("--code", default=None, help="the 6-digit code Clerk emailed you")
+    lg.set_defaults(func=cmd_login)
     sub.add_parser("plan-sets", help="list plan_set_keys and presets").set_defaults(func=cmd_plan_sets)
-    sub.add_parser("sections", help="list sections and their endpoints").set_defaults(func=cmd_sections)
+    sub.add_parser("sections", help="list pricing sections and their endpoints").set_defaults(func=cmd_sections)
     r = sub.add_parser("runs", help="list recent runs")
     r.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
     r.add_argument("--limit", type=int, default=20)
     r.set_defaults(func=cmd_runs)
-    sc = sub.add_parser("schema", help="export JSON Schemas")
+    sc = sub.add_parser("schema", help="export JSON Schemas of every scraper")
     sc.add_argument("--out", default="schemas")
     sc.set_defaults(func=cmd_schema)
     return ap
+
+
+def _normalize_argv(argv: list[str]) -> list[str]:
+    """Backwards compatible: `<no args>`, `--sections …` and `scrape --sections …` mean `scrape pricing …`."""
+    names = set(registry.available())
+    if not argv or (argv[0].startswith("-") and argv[0] not in ("-h", "--help")):
+        return ["scrape", registry.DEFAULT_SCRAPER, *argv]
+    if argv[0] == "scrape" and (len(argv) == 1 or (argv[1] not in names and argv[1] not in ("-h", "--help"))):
+        return ["scrape", registry.DEFAULT_SCRAPER, *argv[1:]]
+    return argv
 
 
 def main(argv: Optional[list[str]] = None) -> int:
@@ -281,10 +342,11 @@ def main(argv: Optional[list[str]] = None) -> int:
         except (AttributeError, ValueError):
             pass
     _load_dotenv()
-    argv = list(sys.argv[1:] if argv is None else argv)
-    if not argv or argv[0].startswith("-") and argv[0] not in ("-h", "--help"):
-        argv = ["scrape", *argv]
+    argv = _normalize_argv(list(sys.argv[1:] if argv is None else argv))
     a = build_parser().parse_args(argv)
+    if not hasattr(a, "func"):
+        build_parser().print_help()
+        return 2
     try:
         return a.func(a)
     except ValueError as e:

@@ -1,0 +1,50 @@
+"""Estimated credit (and optional USD) cost of a generation, from the pricing data (/job-sets/costs).
+
+Interface (stable — the community scraper codes against it; implementation in estimator.py):
+
+    est = CostEstimator.from_job_costs_body(body, usd_per_credit=0.025, usd_reference="ps_a3 plus annual")
+    est.estimate(job_set_type="seedance_2_5", params={...generation params...}, media_type="video") -> dict
+        # JSON-mode dict matching EstimatedCost below
+
+`media_type` is "image" | "video" | "audio" | None. Estimation is always OPTIONAL: callers decide per media type
+(e.g. community `--estimate-cost images|videos|all`) and pass status "skipped" otherwise.
+"""
+from __future__ import annotations
+
+from typing import Literal, Optional
+
+from pydantic import Field
+
+from ..schemas.common import Scalar, Strict
+
+EstimateStatus = Literal["exact", "approximate", "unpriced", "skipped"]
+
+
+class EstimatedCost(Strict):
+    status: EstimateStatus = Field(description="exact: every price dimension matched; approximate: some assumed; "
+                                               "unpriced: model/params not in pricing; skipped: estimation off")
+    credits: Optional[float] = Field(None, description="estimated total credits for this generation")
+    credits_before_discount: Optional[float] = None
+    unit: Optional[str] = Field(None, description="price-point unit, e.g. credits_per_second")
+    unit_credits: Optional[float] = Field(None, description="credits per unit after discount")
+    quantity: Optional[float] = Field(None, description="units charged, e.g. 5 (seconds) or 4 (images)")
+    quantity_basis: Optional[str] = Field(None, description="how quantity was derived, e.g. 'duration=5s', 'batch_size=4'")
+    price_point_id: Optional[str] = None
+    matched: dict[str, Scalar] = Field(default_factory=dict, description="price dimensions matched from params")
+    assumed: dict[str, Scalar] = Field(default_factory=dict, description="dimensions not in params -> assumed value")
+    usd: Optional[float] = None
+    usd_per_credit: Optional[float] = None
+    usd_reference: Optional[str] = None
+    notes: list[str] = Field(default_factory=list)
+
+
+def skipped(reason: str = "estimation disabled") -> dict:
+    return EstimatedCost(status="skipped", notes=[reason]).model_dump(mode="json")
+
+
+try:  # implementation provided by estimator.py
+    from .estimator import CostEstimator  # noqa: F401
+except ImportError:  # pragma: no cover - until implemented
+    CostEstimator = None  # type: ignore[assignment]
+
+__all__ = ["EstimatedCost", "EstimateStatus", "CostEstimator", "skipped"]

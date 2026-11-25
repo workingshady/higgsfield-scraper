@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "endpoint": "projects_recommended",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/project-publications/recommended?scope=ai_film_festival&limit=50&cursor=50",
+    "params": {
+      "scope": "ai_film_festival",
+      "limit": "50",
+      "cursor": "50"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "publication_id": "26caf69d-3716-4d7b-a53f-d6e2b086d469",
+        "duration_seconds": 619.083333,
+        "state": "published",
+        "type": "film",
+        "is_ongoing": false,
+        "project_id": "26caf69d-3716-4d7b-a53f-d6e2b086d469",
+        "snapshot_folder_id": "2a03b5dd-e706-4a8b-b653-ee946addade1",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-09-13T13:54:36.224281+00:00",
+        "final_submitted_at": "2026-09-13T13:54:36.185309+00:00",
+        "is_open_source": true,
+        "name": "CONTROL",
+        "slug": "control",
+        "description": "In a near future, world population has reached ten billion — the maximum limit allowed. ",
+        "cover": {
+          "id": "4600b66d-e108-4017-8b66-965a33957751",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0007xxxxxxxxxxxxxxxx/4600b66d-e108-4017-8b66-965a33957751.jpg",
+          "type": "media",
+          "width": 1920,
+          "height": 816,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "d96cda7d-f82c-4077-92e7-24686970e66c",
+            "url": "https://cdn.higgsfield.ai/hls/video_input/d96cda7d-f82c-4077-92e7-24686970e66c/index.m3u8",
+            "type": "video",
+            "width": 1920,
+            "height": 1080,
+            "min_url": null,
+            "duration": 619.083333,
+            "object_fit": "contain",
+            "thumbnail_url": null,
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0007xxxxxxxxxxxxxxxx/d96cda7d-f82c-4077-92e7-24686970e66c.mp4"
+          }
+        ],
+        "trailer": {
+          "id": "7a96120a-953c-4a44-af41-42ec899e03c2",
+          "url": "https://cdn.higgsfield.ai/fa0fed67-4b79-499d-bb7a-db389ae11944.mp4",
+          "type": "video",
+          "width": 1080,
+          "height": 460,
+          "duration": 15.594,
+          "thumbnail_url": "https://cdn.higgsfield.ai/39ca2c9e-f262-4d22-9353-000f5e237522.webp"
+        },
+        "author_user_ids": [
+          "user_fake0007xxxxxxxxxxxxxxxx"
+        ],
+        "tags": [],
+        "categories": [],
+        "show_prompts": true,
+        "show_canvas": true,
+        "is_discoverable": false,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "created_at": "2026-08-25T10:15:47.349036Z",
+        "authors": [
+          {
+            "id": "user_fake0007xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator8",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": "Filmmaker",
+            "location": "Somewhere",
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 0,
+            "total_projects_likes": 0,
+            "followers_count": 209,
+            "badges": [
+              {
+                "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                "name": "Higgsfield Talent",
+                "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                "description": null
+              }
+            ]
+          }
+        ],
+        "team": null,
+        "views": 85721,
+        "likes": 882,
+        "comments": 136,
+        "is_liked_by_user": null,
+        "awards": [],
+        "contest_badges": [
+          {
+            "contest_key": "ai_film_festival",
+            "list_key": "top_50"
+          }
+        ],
+        "can_receive_audience_choice_votes": true,
+        "is_higgsfield_featured": false,
+        "is_talents_hub": false,
+        "contest_key": "ai_film_festival"
+      },
+      {
+        "publication_id": "e97402e3-1c38-4095-9f1d-e7084e2f119c",
+        "duration_seconds": 196.166667,
+        "state": "published",
+        "type": "film",
+        "is_ongoing": false,
+        "project_id": "e97402e3-1c38-4095-9f1d-e7084e2f119c",
+        "snapshot_folder_id": "b811f761-aa68-49de-a4c6-d4cb84f3d29b",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-09-11T09:55:57.290467+00:00",
+        "final_submitted_at": "2026-09-11T09:55:57.286090+00:00",
+        "is_open_source": true,
+        "name": "THIS ISN'T ART",
+        "slug": "this-isn-t-art",
+        "description": "Three eras, one accusation, and the discovery that everyone who says \"this isn't art\" was once told the same thing.",
+        "cover": {
+          "id": "3763c9ed-9a96-4648-aaff-1d2a66178a86",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0008xxxxxxxxxxxxxxxx/3763c9ed-9a96-4648-aaff-1d2a66178a86.webp",
+          "type": "media",
+          "width": 3838,
+          "height": 2160,
+          "min_url": null,
+          "duration": null,
+          "object_fit": "cover",
+          "thumbnail_url": null
+        },
+        "gallery_media": [
+          {
+            "id": "332a2cf4-dfe8-4213-aacc-1d2f72d99791",
+            "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/332a2cf4-dfe8-4213-aacc-1d2f72d99791/8b30b6cd-d04f-48ae-8e9c-8b5df6a77aaf/index.m3u8?v=8b30b6cd-d04f-48ae-8e9c-8b5df6a77aaf",
+            "name": "332a2cf4-dfe8-4213-aacc-1d2f72d99791.mp4",
+            "type": "video",
+            "width": 1920,
+            "height": 1080,
+            "min_url": null,
+            "duration": 196.166667,
+            "object_fit": "contain",
+            "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/332a2cf4-dfe8-4213-aacc-1d2f72d99791/8b30b6cd-d04f-48ae-8e9c-8b5df6a77aaf/thumbnail.webp?v=8b30b6cd-d04f-48ae-8e9c-8b5df6a77aaf",
+            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0008xxxxxxxxxxxxxxxx/332a2cf4-dfe8-4213-aacc-1d2f72d99791.mp4",
+            "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/332a2cf4-dfe8-4213-aacc-1d2f72d99791/8b30b6cd-d04f-48ae-8e9c-8b5df6a77aaf/download.mp4?v=8b30b6cd-d04f-48ae-8e9c-8b5df6a77aaf&download=332a2cf4-dfe8-4213-aacc-1d2f72d99791.mp4"
+          }
+        ],
+        "trailer": null,
+        "author_user_ids": [
+          "user_fake0008xxxxxxxxxxxxxxxx"
+        ],
+        "tags": [],
+        "categories": [],
+        "show_prompts": true,
+        "show_canvas": true,
+        "is_discoverable": false,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "created_at": "2026-08-21T19:48:16.282249Z",
+        "authors": [
+          {
+            "id": "user_fake0008xxxxxxxxxxxxxxxx",
+            "full_name": null,
+            "username": "creator9",
+            "avatar_url": "https://cdn.example.test/avatar.webp",
+            "headline": "Filmmaker",
+            "location": "Somewhere",
+            "is_owner": true,
+            "is_followed": false,
+            "total_projects_views": 0,
+            "total_projects_likes": 0,
+            "followers_count": 75,
+            "badges": []
+          }
+        ],
+        "team": null,
+        "views": 6071,
+        "likes": 209,
+        "comments": 81,
+        "is_liked_by_user": null,
+        "awards": [],
+        "contest_badges": [
+          {
+            "contest_key": "ai_film_festival",
+            "list_key": "top_50"
+          }
+        ],
+        "can_receive_audience_choice_votes": true,
+        "is_higgsfield_featured": false,
+        "is_talents_hub": false,
+        "contest_key": "ai_film_festival"
+      }
+    ],
+    "next_cursor": "52",
+    "feed": {
+      "source": "ranking",
+      "version": null,
+      "snapshot_id": null
+    }
+  }
+}

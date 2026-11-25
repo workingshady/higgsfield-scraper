@@ -1,0 +1,159 @@
+"""Community scraper options: CLI flags, the Selection dataclass, and parsing from CLI args / manifest / `-a k=v`."""
+from __future__ import annotations
+
+import argparse
+import logging
+import sys
+from dataclasses import asdict, dataclass, field
+from typing import Any, Iterable, Optional
+
+from .endpoints import ESTIMATE_MODES, FEEDS, KNOWN_MODELS, TYPES
+
+log = logging.getLogger(__name__)
+
+FEED_ALIASES = {"model_x": "model-x", "modelx": "model-x", "trending_top": "top", "trending-top": "top"}
+
+
+def _split(value: Any) -> list[str]:
+    """'a,b' | ['a,b', 'c'] | None -> ['a', 'b', 'c'] (order kept, duplicates removed)."""
+    if value is None:
+        return []
+    items: Iterable[Any] = value if isinstance(value, (list, tuple)) else [value]
+    out = [p.strip() for v in items for p in str(v).split(",") if p.strip()]
+    return list(dict.fromkeys(out))
+
+
+def _truthy(v: Any) -> bool:
+    return v is True or str(v).strip().lower() in ("1", "true", "yes", "on")
+
+
+@dataclass
+class Selection:
+    feeds: list[str] = field(default_factory=lambda: ["trending"])
+    type: str = "all"
+    models: list[str] = field(default_factory=list)
+    preset_ids: list[str] = field(default_factory=list)
+    resolution: Optional[str] = None
+    publication_ids: list[str] = field(default_factory=list)
+    with_profiles: bool = False
+    with_raw_params: bool = False
+    estimate_cost: str = "off"
+    usd_reference: str = "plus:annual"
+    usd_plan_set: str = "ps_a3"
+    detail: bool = False
+    with_comments: bool = False
+
+    def __post_init__(self) -> None:
+        feeds = [FEED_ALIASES.get(f.lower(), f.lower()) for f in _split(self.feeds)]
+        self.publication_ids = _split(self.publication_ids)
+        if feeds == ["all"]:
+            feeds = list(FEEDS)
+        if feeds == ["none"]:                      # only --publication-ids
+            if not self.publication_ids:
+                raise ValueError("--feeds none needs --publication-ids")
+            feeds = []
+        bad = [f for f in feeds if f not in FEEDS]
+        if bad:
+            raise ValueError(f"unknown feed(s) {bad}; choose from {list(FEEDS)} or 'all'")
+        self.feeds = feeds if (feeds or self.publication_ids) else ["trending"]
+        self.type = (self.type or "all").lower()
+        if self.type not in TYPES:
+            raise ValueError(f"--type must be one of {list(TYPES)}")
+        self.estimate_cost = (self.estimate_cost or "off").lower()
+        if self.estimate_cost not in ESTIMATE_MODES:
+            raise ValueError(f"--estimate-cost must be one of {list(ESTIMATE_MODES)}")
+        self.models = _split(self.models)
+        self.preset_ids = _split(self.preset_ids)
+        if ":" not in (self.usd_reference or ""):
+            raise ValueError("--usd-reference must look like plan_type:billing_period, e.g. plus:annual")
+
+    # ---------------------------------------------------------------- helpers
+    @property
+    def estimating(self) -> bool:
+        return self.estimate_cost != "off"
+
+    def estimate_for(self, media_type: Optional[str]) -> bool:
+        return self.estimate_cost == "all" or (self.estimate_cost == "images" and media_type == "image") or \
+            (self.estimate_cost == "videos" and media_type == "video")
+
+    def unknown_models(self) -> list[str]:
+        return [m for m in self.models if m not in KNOWN_MODELS]
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+def add_args(p: argparse.ArgumentParser) -> None:
+    g = p.add_argument_group("community: what to scrape")
+    g.add_argument("--feeds", default="trending",
+                   help="comma list of feeds: trending (main feed, ~78.6k), approved (curated, ~6.7k, mostly video), "
+                        "top (single page, <=100), model-x (featured model showcase), 'all', or 'none' (only --publication-ids) "
+                        "(default: %(default)s)")
+    g.add_argument("--type", default="all", choices=TYPES,
+                   help="media type filter (API `type`). image|video are also enforced client-side because the "
+                        "approved feed ignores it; speak|upscale are server-side only (default: %(default)s)")
+    g.add_argument("--models", action="append", default=None, metavar="JOB_SET_TYPES",
+                   help="job_set_type filter, comma list and/or repeatable, e.g. --models seedance_2_5,nano_banana_2 "
+                        "(API `model`, trending/approved; enforced client-side for top/model-x)")
+    g.add_argument("--preset-ids", action="append", default=None, metavar="IDS",
+                   help="preset/motion id filter (API `preset_id`, repeatable). Passed through; server effect unverified")
+    g.add_argument("--resolution", default=None,
+                   help="API `resolution` filter (passed through; the trending feed ignores it, approved returned 0 "
+                        "items for 720p in tests — use with care)")
+    g.add_argument("--publication-ids", action="append", default=None, metavar="IDS",
+                   help="also fetch these publications by id (GET /publications/{id}); their feed is 'detail'")
+    d = p.add_argument_group("community: extra data (opt-in)")
+    d.add_argument("--with-profiles", action="store_true",
+                   help="PERSONAL DATA: include creators' username, avatar, social handles and badges (creators table). "
+                        "Default: only the pseudonymous user_id")
+    d.add_argument("--with-raw-params", action="store_true",
+                   help="keep each generation's untouched `params` dict (raw_params) next to the normalized fields")
+    d.add_argument("--detail", action="store_true",
+                   help="fetch GET /publications/{id} for every listed item and use that (1 extra request per item)")
+    d.add_argument("--with-comments", action="store_true",
+                   help="LOGIN ONLY: fetch /publications/{id}/comments per item (needs a session; skipped otherwise)")
+    c = p.add_argument_group("community: cost estimate (optional)")
+    c.add_argument("--estimate-cost", default="off", choices=ESTIMATE_MODES,
+                   help="attach an estimated credit cost per generation from /job-sets/costs: off (default) | images | "
+                        "videos | all. An estimate, not what the creator actually paid")
+    c.add_argument("--usd-reference", default="plus:annual",
+                   help="plan_type:billing_period whose after-offer $/credit converts credits to USD (default: %(default)s)")
+    c.add_argument("--usd-plan-set", default="ps_a3",
+                   help="plan_set_key used for the USD reference plan (default: %(default)s)")
+
+
+def make_selection(a: argparse.Namespace) -> Selection:
+    sel = Selection(feeds=a.feeds, type=a.type, models=a.models, preset_ids=a.preset_ids, resolution=a.resolution,
+                    publication_ids=a.publication_ids, with_profiles=a.with_profiles,
+                    with_raw_params=a.with_raw_params, estimate_cost=a.estimate_cost, usd_reference=a.usd_reference,
+                    usd_plan_set=a.usd_plan_set, detail=a.detail, with_comments=a.with_comments)
+    unknown = sel.unknown_models()
+    if unknown:
+        print(f"warning: --models {unknown} are not in the known job_set_type list; the API may answer 422",
+              file=sys.stderr)
+    return sel
+
+
+def selection_from_dict(d: Optional[dict]) -> Selection:
+    """Accepts Selection.to_dict() (manifest) and string values (`scrapy crawl community -a feeds=approved`)."""
+    d = dict(d or {})
+    kw: dict[str, Any] = {}
+    for k in ("feeds", "models", "preset_ids", "publication_ids"):
+        if k in d:
+            kw[k] = d[k]
+    for k in ("type", "resolution", "estimate_cost", "usd_reference", "usd_plan_set"):
+        if d.get(k) not in (None, ""):
+            kw[k] = str(d[k])
+    for k in ("with_profiles", "with_raw_params", "detail", "with_comments"):
+        if k in d:
+            kw[k] = _truthy(d[k])
+    return Selection(**kw)
+
+
+def default_label(sel: Selection) -> str:
+    parts = ["-".join(sel.feeds) or "detail"]
+    if sel.type != "all":
+        parts.append(sel.type)
+    if sel.models:
+        parts.append(sel.models[0] + (f"+{len(sel.models) - 1}" if len(sel.models) > 1 else ""))
+    return "-".join(parts)

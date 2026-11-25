@@ -1,0 +1,54 @@
+{
+    "meta": {
+        "endpoint": "catalog_motion_samples",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/motion-samples?motion_id=bbab2a35-ccba-45df-8c37-8ea2bd9e395a&size=100",
+        "params": {
+            "motion_id": "bbab2a35-ccba-45df-8c37-8ea2bd9e395a",
+            "size": "100"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "07bc75d4-94ab-4cce-8bb7-0fde1a504beb",
+                "media": {
+                    "width": 1244,
+                    "height": 1660,
+                    "url": "https://cdn.higgsfield.ai/kling_video_sample/07bc75d4-94ab-4cce-8bb7-0fde1a504beb.mp4",
+                    "placeholder": "data:image/webp;base64,UklGRnZzAQBXRUJQVlA4IGpzAQAwywqdASrcB...",
+                    "type": "video"
+                },
+                "priority": 1,
+                "preset_family": "kling"
+            },
+            {
+                "id": "1308a1ac-d626-4178-b6d5-0e2bb676f194",
+                "media": {
+                    "width": 1244,
+                    "height": 1660,
+                    "url": "https://cdn.higgsfield.ai/kling_video_sample/1308a1ac-d626-4178-b6d5-0e2bb676f194.mp4",
+                    "placeholder": "data:image/webp;base64,UklGRghCAABXRUJQVlA4IPxBAABwXgOdASrcB...",
+                    "type": "video"
+                },
+                "priority": 2,
+                "preset_family": "kling"
+            },
+            {
+                "id": "2e8caa4f-9c28-4b92-a9e4-59ee410874c6",
+                "media": {
+                    "width": 1660,
+                    "height": 1244,
+                    "url": "https://cdn.higgsfield.ai/kling_video_sample/2e8caa4f-9c28-4b92-a9e4-59ee410874c6.mp4",
+                    "placeholder": "data:image/webp;base64,UklGRnBgAABXRUJQVlA4IGRgAAAwRASdASp8B...",
+                    "type": "video"
+                },
+                "priority": 3,
+                "preset_family": "kling"
+            }
+        ],
+        "total": 3,
+        "cursor": null
+    }
+}

@@ -1,0 +1,539 @@
+{
+    "meta": {
+        "endpoint": "blog_page",
+        "url": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games",
+        "params": {
+            "path": "/blog/higgsfield-playable-ads-and-games"
+        },
+        "fetched_at": "2026-11-25T13:14:37.690989+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "tsr",
+        "path": "/blog/higgsfield-playable-ads-and-games",
+        "sitemap_lastmod": "2026-10-25",
+        "head": {
+            "title": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+            "lang": "en",
+            "canonical": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games",
+            "description": "Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide.",
+            "og_title": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+            "og_image": "https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102-2580x1457.png",
+            "og_type": "article",
+            "author": "Higgsfield.AI Team",
+            "ld_json": [
+                {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "Organization",
+                            "name": "Higgsfield",
+                            "url": "https://higgsfield.ai/",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "name": "Higgsfield logo",
+                                "url": "https://higgsfield.ai/icon.png"
+                            },
+                            "sameAs": [
+                                "https://x.com/higgsfield",
+                                "https://www.instagram.com/higgsfield.ai/",
+                                "https://www.tiktok.com/@higgsfield.ai90",
+                                "https://discord.com/invite/higgsfield",
+                                "https://www.linkedin.com/company/higgsfield/",
+                                "https://www.youtube.com/@HiggsfieldAI"
+                            ],
+                            "@id": "https://higgsfield.ai/#organization"
+                        },
+                        {
+                            "@type": "WebPage",
+                            "@id": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games",
+                            "url": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games",
+                            "name": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+                            "description": "Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide.",
+                            "breadcrumb": {
+                                "@id": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games#breadcrumb"
+                            },
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            }
+                        },
+                        {
+                            "@type": "BreadcrumbList",
+                            "@id": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games#breadcrumb",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Blog",
+                                    "item": "https://higgsfield.ai/blog"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Editorials",
+                                    "item": "https://higgsfield.ai/blog/editorials"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "Playable Ads and Games"
+                                }
+                            ]
+                        },
+                        {
+                            "@type": "BlogPosting",
+                            "@id": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games#article",
+                            "headline": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+                            "description": "Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide.",
+                            "image": "https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102-2580x1457.png",
+                            "datePublished": "2026-10-25T19:34:00.000Z",
+                            "dateModified": "2026-10-25T19:34:00.000Z",
+                            "mainEntityOfPage": {
+                                "@id": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games"
+                            },
+                            "author": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            },
+                            "publisher": {
+                                "@id": "https://higgsfield.ai/#organization"
+                            }
+                        },
+                        {
+                            "@type": "FAQPage",
+                            "mainEntity": [
+                                {
+                                    "@type": "Question",
+                                    "name": "Do I need an Enterprise plan to create a game?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "No. Playable Games is available on all Higgsfield plans. Enterprise access is required for Playable Ads."
+                                    }
+                                },
+                                {
+                                    "@type": "Question",
+                                    "name": "Can I create a game through Claude?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "Yes. Select Generate in Claude and connect Higgsfield MCP. You can also choose Generate here to create directly on Higgsfield."
+                                    }
+                                },
+                                {
+                                    "@type": "Question",
+                                    "name": "What is the difference between a playable game and a playable ad?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "A playable game is an interactive experience made for people to play. A playable ad uses gameplay as advertising. Higgsfield offers Games across all plans and Ads through Enterprise."
+                                    }
+                                },
+                                {
+                                    "@type": "Question",
+                                    "name": "Can I start without uploading assets?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "Yes. You can begin with a written description. Add references or other supported assets when you need a particular character, visual style, sound, or starting point."
+                                    }
+                                },
+                                {
+                                    "@type": "Question",
+                                    "name": "Are Manual and Auto available in both workflows?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "Manual and Auto are confirmed options in Playable Ads. The Playable Games interface provides generation on Higgsfield or through Claude; those choices describe where generation happens."
+                                    }
+                                }
+                            ],
+                            "@id": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games#faq",
+                            "isPartOf": {
+                                "@id": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "matches": [
+            {
+                "i": "__root__#",
+                "s": "success",
+                "l": {
+                    "clerkProxyUrl": "https://higgsfield.ai/_clerk",
+                    "initialEnterprise": false
+                }
+            },
+            {
+                "i": "#_creator-hub#blog#$id#blog#higgsfield-playable-ads-and-games",
+                "s": "success",
+                "l": {
+                    "entry": {
+                        "type": "post",
+                        "post": {
+                            "id": "08fe7779-3952-4b3f-831c-ac81ab2cd387",
+                            "title": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+                            "breadcrumbTitle": "Playable Ads and Games",
+                            "slug": "higgsfield-playable-ads-and-games",
+                            "description": "",
+                            "seoDescription": "Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide.",
+                            "content": "<p>Higgsfield introduces Playable Ads, a new Enterprise-only workflow for creating interactive ads with AI. Describe a game mechanic, choose a genre and dimension, add creative assets, and generate a playable experience in Manual or Auto mode. Higgsfield also offers Playable Games, a tool for creating mobile games available on all Higgsfield plans. Creators can generate games directly on Higgsfield or through Claude using Higgsfield MCP.</p><h2 id=\"what-are-higgsfield-playable-ads-and-playable-games\">What Are Higgsfield Playable Ads and Playable Games?</h2><p>Higgsfield Playable Ads applies interactive gameplay to advertising. Instead of watching a video, viewers can try a game mechanic as part of the ad experience. The Enterprise workflow includes additional generation controls and options for supplying existing creative assets.</p><p>Playable Games lets you describe a game, choose a genre, add references, and generate a 2D or 3D experience. You can start with a simple concept, such as a cat jumping across rooftops, then define the controls, obstacles, and objective.</p><p>Both are part of Higgsfield, the generative platform for creative production, with 35+ models and tools. </p><!--post-asset-block:%7B%22aspectRatio%22%3A%2216%3A9%22%2C%22url%22%3A%22https%3A%2F%2Fcdn.sanity.io%2Ffiles%2Fs479xw3z%2Fproduction%2F85f0d05cbf8d5aa16783f8589011764162139565.mp4%22%2C%22contentType%22%3A%22video%2Fmp4%22%2C%22description%22%3A%22%22%2C%22filename%22%3A%22PLAYABLE-002_LAUNCH.mp4%22%2C%22width%22%3A800%2C%22height%22%3A600%7D--><table><caption class=\"sr-only\">What Are Higgsfield Playable Ads and Playable Games?</caption><thead><tr><th scope=\"col\"><p>Feature</p></th><th scope=\"col\"><p>Playable Ads</p></th><th scope=\"col\"><p>Playable Games</p></th></tr></thead><tbody><tr><td><p>Primary purpose</p></td><td><p>Create interactive game ads</p></td><td><p>Create playable games</p></td></tr><tr><td><p>Plan access</p></td><td><p>Enterprise only</p></td><td><p>All Higgsfield plans</p></td></tr><tr><td><p>Generation options</p></td><td><p>Enterprise Playable Ads workflow</p></td><td><p>On Higgsfield or through Claude with Higgsfield MCP</p></td></tr><tr><td><p>Dimension options</p></td><td><p>2D, 3D, and 3D Fast</p></td><td><p>2D and 3D</p></td></tr></tbody></table><h2 id=\"how-playable-ads-works-for-enterprise\">How Playable Ads Works for Enterprise</h2><p>Playable Ads is available exclusively on Higgsfield Enterprise plans. Its workflow starts with a game description and supports optional creative assets, genre selection, dimension settings, and stage approvals.</p><table><caption class=\"sr-only\">How Playable Ads Works for Enterprise</caption><thead><tr><th scope=\"col\"><p>Setting</p></th><th scope=\"col\"><p>What It Controls</p></th></tr></thead><tbody><tr><td><p>Game description</p></td><td><p>The concept, player actions, and game mechanic</p></td></tr><tr><td><p>Game genre</p></td><td><p>The type of game</p></td></tr><tr><td><p>Dimension</p></td><td><p>2D, 3D, or 3D Fast</p></td></tr><tr><td><p>Mode</p></td><td><p>Manual or Auto generation</p></td></tr></tbody></table><p><strong>Manual mode</strong> lets you review and approve each stage before proceeding. <strong>Auto mode</strong> generates without intermediate approvals.</p><h2 id=\"which-assets-can-be-uploaded-to-playable-ads\">Which Assets Can Be Uploaded to Playable Ads?</h2><p>All uploads are optional. Start from a description alone or supply assets to guide the look, sound, and game concept.</p><table><caption class=\"sr-only\">Which Assets Can Be Uploaded to Playable Ads?</caption><thead><tr><th scope=\"col\"><p>Asset Type</p></th><th scope=\"col\"><p>Upload Limit</p></th></tr></thead><tbody><tr><td><p>Sprites, textures, and other images</p></td><td><p>Up to 40 images</p></td></tr><tr><td><p>Video</p></td><td><p>One clip, 3–60 seconds, in MP4, MOV, or WebM</p></td></tr><tr><td><p>Sound effects and music</p></td><td><p>Up to 20 audio files</p></td></tr><tr><td><p>An existing game or playable</p></td><td><p>Up to three HTML or ZIP files</p></td></tr></tbody></table><p>These upload limits describe the Playable Ads workflow. They should not be treated as confirmed limits for Playable Games.</p><h2 id=\"creating-your-first-playable-ad\">Creating Your First Playable Ad</h2><p>Describe a short interaction that introduces the game mechanic quickly. Choose a genre and dimension, upload any relevant assets, then select Manual or Auto.</p><p>Test the result for clear controls, readable visuals, and an understandable objective.</p><h2 id=\"how-to-export-your-playable-ad\">How to Export Your Playable Ad</h2><p>Playable Ads exports your finished ad as a single <code>.html</code> file up to 5 MB, formatted for your selected advertising network. Choose the destination network and enter the <strong>Destination URL</strong>, the page users should reach when they click the ad’s call to action, before downloading.</p><p>Nine export options are available: <strong>Generic MRAID, Moloco, AppLovin, Google App Campaigns, Unity Ads, Meta, Pangle (TikTok), Mintegral, and Liftoff</strong>. Once downloaded, upload the file to your advertising platform to set up the campaign.</p><h2 id=\"which-game-genres-are-available\">Which Game Genres Are Available?</h2><p>The genre selector offers eight categories:</p><table><caption class=\"sr-only\">Which Game Genres Are Available?</caption><thead><tr><th scope=\"col\"><p>Genre</p></th><th scope=\"col\"><p>Example Concept</p></th></tr></thead><tbody><tr><td><p>Shooter</p></td><td><p>Aim at targets while avoiding enemies</p></td></tr><tr><td><p>Runner</p></td><td><p>Move through traffic and collect coins</p></td></tr><tr><td><p>Adventure</p></td><td><p>Explore a temple and navigate traps</p></td></tr><tr><td><p>Action</p></td><td><p>Dodge hazards and overcome obstacles</p></td></tr><tr><td><p>Strategy</p></td><td><p>Place defenses to protect a base</p></td></tr><tr><td><p>Maze</p></td><td><p>Guide a ball through a winding route</p></td></tr><tr><td><p>Puzzle</p></td><td><p>Sort colored liquids into matching bottles</p></td></tr><tr><td><p>Simulation</p></td><td><p>Clean a muddy vehicle</p></td></tr></tbody></table><p>Choose the genre that best matches the main action. Your description should explain what the player does, how they control it, and what counts as success or failure.</p><h2 id=\"how-to-create-a-game-with-higgsfield-playable\">How to Create a Game with Higgsfield Playable</h2><p>This example creates a delivery scooter game with three traffic lanes, collectible coins, and a restart option.</p><p><strong>Step 1: Choose where to generate.</strong> Select <strong>Generate here</strong> to work directly on Higgsfield, or <strong>Generate in Claude</strong> to use Higgsfield MCP. For the Claude workflow, connect Higgsfield MCP before generating.</p><p><strong>Step 2: Describe your game.</strong> Write the objective, controls, obstacles, and ending. For example: </p><!--post-prompt-block:%7B%22prompt%22%3A%22Create%20a%20three-lane%20runner%20where%20a%20delivery%20scooter%20moves%20through%20city%20traffic.%20Let%20the%20player%20tap%20left%20or%20right%20to%20switch%20lanes%2C%20collect%20coins%2C%20and%20avoid%20cars.%20Hitting%20a%20car%20ends%20the%20run.%20Display%20the%20score%20and%20a%20restart%20button.%20Use%20a%20bright%20cartoon%20style%20with%20clearly%20visible%20obstacles.%22%2C%22recreateLink%22%3A%22%2Fgenerate%22%7D--><p><strong>Step 3: Choose a dimension.</strong> Select <strong>2D</strong> or <strong>3D</strong> according to the visual style you want. For this example, choose 3D and request a camera positioned behind the scooter.</p><p><strong>Step 4: Select the genre.</strong> Choose <strong>Runner</strong> to match the movement and obstacle-dodging mechanic.</p><p><strong>Step 5: Add references if needed.</strong> Use <strong>Add reference</strong> to supply visual direction. For example, add an image of the scooter or the character you want to use. References are optional.</p><p><strong>Step 6: Generate and test.</strong> Click <strong>Generate</strong>, or <strong>Generate in Claude</strong> if you selected that workflow. Play through the result and check whether the controls, scoring, obstacles, and restart behavior match your description. Use what you learn from testing to refine your next version.</p><h2 id=\"explore-existing-games\"><strong>Explore Existing Games</strong></h2><p>Open <strong>Explore</strong> to browse examples and filter them by genre. Click <strong>Play</strong> to launch an example and try its gameplay. Where available, <strong>Recreate</strong> provides a starting point for your own version.</p><p>The interface also includes <strong>My playables</strong> for accessing your creations.</p><h2 id=\"higgsfield-playable-pricing-and-access\">Higgsfield Playable Pricing and Access</h2><p><strong>Playable Games is available on all plans. Playable Ads requires an Enterprise plan.</strong> Access and generation costs are separate: availability on a plan does not establish a fixed price per game or ad.</p><h2 id=\"tips-for-a-better-first-game-or-ad\">Tips for a Better First Game or Ad</h2><ul><li><strong>Start with one mechanic.</strong> Give players one clear action to learn before introducing more complexity.</li><li><strong>Describe the controls.</strong> Specify tapping, swiping, dragging, or keyboard input rather than leaving the interaction undefined.</li><li><strong>Define the ending.</strong> Explain how the player wins, loses, or restarts.</li><li><strong>Give references a purpose.</strong> Identify which image should guide the character, object, or environment.</li><li><strong>Test the full interaction.</strong> Check the opening, gameplay, scoring, failure state, and restart.</li><li><strong>Use assets you have permission to use.</strong> This includes images, music, footage, and existing game files.</li></ul>",
+                            "mainBannerUrl": "https://cdn.sanity.io/images/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102-2580x1457.png",
+                            "author": {
+                                "id": null,
+                                "slug": "higgsfield",
+                                "fullName": "Higgsfield",
+                                "position": "",
+                                "description": "",
+                                "photoUrl": ""
+                            },
+                            "category": {
+                                "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                "slug": "editorials",
+                                "title": "Editorials",
+                                "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                            },
+                            "cta": {
+                                "title": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+                                "description": "Higgsfield introduces Playable Ads, a new Enterprise-only workflow for creating interactive ads with AI. Describe a game mechanic, choose a genre and dimension, add creative assets, and generate a playable experience with Manual or Auto mode. Higgsfield also offers Playable Games, a game-creation tool available across Higgsfield plans. Creators can generate interactive games directly on Higgsfield or through Claude using Higgsfield MCP.",
+                                "ctaText": "Try Playable",
+                                "ctaLink": "https://higgsfield.ai/playable",
+                                "hubspotGuard": false
+                            },
+                            "hero": {
+                                "title": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+                                "description": "Higgsfield introduces Playable Ads, a new Enterprise-only workflow for creating interactive ads with AI. Describe a game mechanic, choose a genre and dimension, add creative assets, and generate a playable experience with Manual or Auto mode. Higgsfield also offers Playable Games, a game-creation tool available across Higgsfield plans. Creators can generate interactive games directly on Higgsfield or through Claude using Higgsfield MCP.",
+                                "ctaText": "Try Playable",
+                                "ctaLink": "https://higgsfield.ai/playable",
+                                "hubspotGuard": false,
+                                "media": {
+                                    "type": "static",
+                                    "source": "https://cdn.sanity.io/images/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102-2580x1457.png",
+                                    "width": 2580,
+                                    "height": 1457,
+                                    "description": ""
+                                }
+                            },
+                            "headings": [
+                                {
+                                    "id": "what-are-higgsfield-playable-ads-and-playable-games",
+                                    "title": "What Are Higgsfield Playable Ads and Playable Games?",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "how-playable-ads-works-for-enterprise",
+                                    "title": "How Playable Ads Works for Enterprise",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "which-assets-can-be-uploaded-to-playable-ads",
+                                    "title": "Which Assets Can Be Uploaded to Playable Ads?",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "creating-your-first-playable-ad",
+                                    "title": "Creating Your First Playable Ad",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "how-to-export-your-playable-ad",
+                                    "title": "How to Export Your Playable Ad",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "which-game-genres-are-available",
+                                    "title": "Which Game Genres Are Available?",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "how-to-create-a-game-with-higgsfield-playable",
+                                    "title": "How to Create a Game with Higgsfield Playable",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "explore-existing-games",
+                                    "title": "Explore Existing Games",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "higgsfield-playable-pricing-and-access",
+                                    "title": "Higgsfield Playable Pricing and Access",
+                                    "level": 2
+                                },
+                                {
+                                    "id": "tips-for-a-better-first-game-or-ad",
+                                    "title": "Tips for a Better First Game or Ad",
+                                    "level": 2
+                                }
+                            ],
+                            "relatedPosts": [
+                                {
+                                    "id": "0dc2559a-9e55-4b45-91b7-d93bc46a1f97",
+                                    "title": "Higgsfield Introduces Content Factory: Turn “What If” Ideas Into Videos",
+                                    "slug": "higgsfield-introduces-content-factory",
+                                    "href": "/blog/higgsfield-introduces-content-factory",
+                                    "category": {
+                                        "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                        "slug": "editorials",
+                                        "title": "Editorials",
+                                        "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/9ea7d9f005a862cd944e8af705f21eb394216061-2720x1536.png",
+                                    "banner": {
+                                        "title": "Higgsfield Introduces Content Factory: Turn “What If” Ideas Into Videos",
+                                        "description": "Content Factory is a Higgsfield tool that turns a “What if…” idea into a faceless video. Enter a topic, and Higgsfield writes the script scene by scene, selects the characters, generates the visuals and voiceover, and edits the final video. Videos run from 15 seconds to 5 minutes, with one to four episodes per generation.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/9ea7d9f005a862cd944e8af705f21eb394216061.png",
+                                        "link": "https://higgsfield.ai/blog/higgsfield-introduces-content-factory"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Content Factory turns a What if idea into a faceless video: script, characters, scenes, and voiceover. See settings, a step-by-step example, and pricing.",
+                                    "publishDate": "October 23, 2026",
+                                    "seoPublishDateISO": "2026-10-22T22:25:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "751293cc-eb91-419b-9756-628f0e4922b0",
+                                    "title": "Higgsfield Community: Where Your AI Work Goes After You Generate It",
+                                    "slug": "higgsfield-community",
+                                    "href": "/blog/higgsfield-community",
+                                    "category": {
+                                        "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                        "slug": "editorials",
+                                        "title": "Editorials",
+                                        "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/51573d759413f3e1514e07d965834ada9181e30b-2720x1536.png",
+                                    "banner": {
+                                        "title": "Higgsfield Community: Where Your AI Work Goes After You Generate It",
+                                        "description": "Higgsfield introduces Community, the public layer of the platform: Open Projects that keep the brief, folders, and models attached to the result, Shots with a recreate option, a Creators tab, a public rating where specific achievements and milestones add generation credits, and Higgsfield Grants with up to 200,000 credits for a published project.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/51573d759413f3e1514e07d965834ada9181e30b.png",
+                                        "link": "https://higgsfield.ai/blog/higgsfield-community"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Higgsfield Community is the public space for AI creators: Open Projects with briefs and prompts, Shots with recreate, a rating with credit milestones, and Grants.",
+                                    "publishDate": "Oct 17, 2026",
+                                    "seoPublishDateISO": "2026-10-17T15:28:00.000Z",
+                                    "dateModified": "2026-10-17T15:24:00.000Z",
+                                    "readingTime": "9 min"
+                                },
+                                {
+                                    "id": "1e3f8d04-a4bc-4de1-9858-b02ea2fe7d0a",
+                                    "title": "Higgsfield Meets Katana: What It Is and How it Works",
+                                    "slug": "higgsfield-katana",
+                                    "href": "/blog/higgsfield-katana",
+                                    "category": {
+                                        "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                        "slug": "editorials",
+                                        "title": "Editorials",
+                                        "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/425689932af3e67815f4bd66355bc2b38744827e-2720x1530.png",
+                                    "banner": {
+                                        "title": "Higgsfield Meets Katana: What It Is and How it Works",
+                                        "description": "Higgsfield introduces Katana, an editing skill that lives inside a Claude chat: a reference edit supplies the shots, timing, and sound, up to five photos supply your characters or products, and Katana rebuilds the video through MCP, with a preset library, community publishing, and corrections by message.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/425689932af3e67815f4bd66355bc2b38744827e.png",
+                                        "link": "https://higgsfield.ai/blog/higgsfield-katana"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Katana is Higgsfield’s editing skill for Claude: give it a reference edit and up to five photos, and it rebuilds the video with your characters or products via MCP.",
+                                    "publishDate": "Oct 12, 2026",
+                                    "seoPublishDateISO": "2026-10-12T14:31:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "8 min"
+                                },
+                                {
+                                    "id": "3eb5b308-92e2-431c-a4a0-7af7a0a4fbfd",
+                                    "title": "Introducing Ad Multiplier: Turn One Video Ad Into Multiple Variations",
+                                    "slug": "ad-multiplier-ads-studio",
+                                    "href": "/blog/ad-multiplier-ads-studio",
+                                    "category": {
+                                        "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                        "slug": "editorials",
+                                        "title": "Editorials",
+                                        "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/9887d55c5f23c7d02ef2c765f4adcfad2ba0ef15-2720x1530.png",
+                                    "banner": {
+                                        "title": "Introducing Ad Multiplier: Turn One Video Ad Into Multiple Variations",
+                                        "description": "Higgsfield just launched Ad Multiplier in Ads Studio, a tool that creates variations from a reference ad with your characters, products, and locations. Upload one video, add your images, and describe the scene to generate several versions. You can also change the hook, script, or call to action per version. This guide covers how it works and what it costs.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/9887d55c5f23c7d02ef2c765f4adcfad2ba0ef15.png",
+                                        "link": "https://higgsfield.ai/blog/ad-multiplier-ads-studio"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Higgsfield Ad Multiplier creates variations from one reference ad with your characters, products, and locations. See how it works, the steps, and pricing.",
+                                    "publishDate": "October 7, 2026",
+                                    "seoPublishDateISO": "2026-10-06T19:57:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "14333f09-141f-4b9b-a10a-0b7d3f436669",
+                                    "title": "AI Motion Designer: Higgsfield Meets After Effects Through GPT",
+                                    "slug": "ai-motion-designer-after-effects-gpt",
+                                    "href": "/blog/ai-motion-designer-after-effects-gpt",
+                                    "category": {
+                                        "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                        "slug": "editorials",
+                                        "title": "Editorials",
+                                        "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/f5d889f6422508ec6a41603fe7ea6004ed0ef7a7-3840x2160.png",
+                                    "banner": {
+                                        "title": "AI Motion Designer: Higgsfield Meets After Effects Through GPT",
+                                        "description": "Higgsfield just launched AI Motion Designer, a new agent that connects Higgsfield directly to Adobe's After Effects through GPT. Generate visuals with Higgsfield's tools, then describe the motion graphics work you need in plain language, and it builds straight into your open After Effects project. This guide covers how it works, what it can build, and how to get started.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/f5d889f6422508ec6a41603fe7ea6004ed0ef7a7.png",
+                                        "link": "https://higgsfield.ai/blog/ai-motion-designer-after-effects-gpt"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "Higgsfield's AI Motion Designer connects to After Effects through GPT. Describe the motion graphics you need, and it builds straight into your comp.",
+                                    "publishDate": "September 11, 2026 ",
+                                    "seoPublishDateISO": "2026-09-10T20:04:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "10 min"
+                                },
+                                {
+                                    "id": "99e605d6-1a85-4ef4-a6b9-cbc4bb871b7e",
+                                    "title": "Higgsfield MCP on GPT-6 Astra: Introducing Higgsfield Games 2.0",
+                                    "slug": "higgsfield-mcp-gpt6-astra-games-2",
+                                    "href": "/blog/higgsfield-mcp-gpt6-astra-games-2",
+                                    "category": {
+                                        "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                        "slug": "editorials",
+                                        "title": "Editorials",
+                                        "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                    },
+                                    "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/3070c4b394d1e767ddaaa6cf2994749080e018f8-2048x1152.png",
+                                    "banner": {
+                                        "title": "Higgsfield MCP on GPT-6 Astra: Introducing Higgsfield Games 2.0",
+                                        "description": "GPT-6 Astra is now available in Higgsfield workflows, including Games 2.0 and connected MCP experiences. It lets you build games, motion graphics, and interactive 3D experiences directly. Full multiplayer games can be built and deployed from a single prompt. This guide covers what changed and the full workflow.",
+                                        "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/3070c4b394d1e767ddaaa6cf2994749080e018f8.png",
+                                        "link": "https://higgsfield.ai/blog/higgsfield-mcp-gpt6-astra-games-2"
+                                    },
+                                    "author": null,
+                                    "seoDescription": "GPT-6 Astra is now in Higgsfield workflows, powering Games 2.0. Build and deploy multiplayer games, motion graphics, and 3D experiences from a prompt.",
+                                    "publishDate": "September 8, 2026",
+                                    "seoPublishDateISO": "2026-09-07T22:37:00.000Z",
+                                    "dateModified": null,
+                                    "readingTime": "8 min"
+                                }
+                            ],
+                            "readingTime": "10 min",
+                            "dateCreated": "2026-10-26T19:26:35Z",
+                            "dateModified": null,
+                            "publishDate": "October 26, 2026",
+                            "seoPublishDateISO": "2026-10-25T19:34:00.000Z",
+                            "aboutSection": null,
+                            "faqSection": {
+                                "name": "FAQ",
+                                "items": [
+                                    {
+                                        "title": "Do I need an Enterprise plan to create a game?",
+                                        "content": "No. Playable Games is available on all Higgsfield plans. Enterprise access is required for Playable Ads.",
+                                        "contentType": "Text",
+                                        "includeInSeo": false
+                                    },
+                                    {
+                                        "title": "Can I create a game through Claude?",
+                                        "content": "Yes. Select Generate in Claude and connect Higgsfield MCP. You can also choose Generate here to create directly on Higgsfield.",
+                                        "contentType": "Text",
+                                        "includeInSeo": false
+                                    },
+                                    {
+                                        "title": "What is the difference between a playable game and a playable ad?",
+                                        "content": "A playable game is an interactive experience made for people to play. A playable ad uses gameplay as advertising. Higgsfield offers Games across all plans and Ads through Enterprise.",
+                                        "contentType": "Text",
+                                        "includeInSeo": false
+                                    },
+                                    {
+                                        "title": "Can I start without uploading assets?",
+                                        "content": "Yes. You can begin with a written description. Add references or other supported assets when you need a particular character, visual style, sound, or starting point.",
+                                        "contentType": "Text",
+                                        "includeInSeo": false
+                                    },
+                                    {
+                                        "title": "Are Manual and Auto available in both workflows?",
+                                        "content": "Manual and Auto are confirmed options in Playable Ads. The Playable Games interface provides generation on Higgsfield or through Claude; those choices describe where generation happens.",
+                                        "contentType": "Text",
+                                        "includeInSeo": false
+                                    }
+                                ]
+                            },
+                            "banner": {
+                                "title": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI",
+                                "description": "Higgsfield introduces Playable Ads, a new Enterprise-only workflow for creating interactive ads with AI. Describe a game mechanic, choose a genre and dimension, add creative assets, and generate a playable experience with Manual or Auto mode. Higgsfield also offers Playable Games, a game-creation tool available across Higgsfield plans. Creators can generate interactive games directly on Higgsfield or through Claude using Higgsfield MCP.",
+                                "bannerImage": "https://cdn.sanity.io/files/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102.png",
+                                "link": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games"
+                            },
+                            "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102-2580x1457.png"
+                        }
+                    },
+                    "headers": {},
+                    "head": {
+                        "meta": [
+                            {
+                                "title": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI"
+                            },
+                            {
+                                "name": "description",
+                                "content": "Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide."
+                            },
+                            {
+                                "property": "og:title",
+                                "content": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI"
+                            },
+                            {
+                                "property": "og:description",
+                                "content": "Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide."
+                            },
+                            {
+                                "property": "og:site_name",
+                                "content": "Higgsfield"
+                            },
+                            {
+                                "property": "og:type",
+                                "content": "article"
+                            },
+                            {
+                                "property": "og:url",
+                                "content": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games"
+                            },
+                            {
+                                "property": "og:image",
+                                "content": "https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102-2580x1457.png"
+                            },
+                            {
+                                "name": "twitter:card",
+                                "content": "summary_large_image"
+                            },
+                            {
+                                "name": "twitter:site",
+                                "content": "@higgsfield_ai"
+                            },
+                            {
+                                "name": "twitter:title",
+                                "content": "Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI"
+                            },
+                            {
+                                "name": "twitter:description",
+                                "content": "Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide."
+                            },
+                            {
+                                "name": "twitter:image",
+                                "content": "https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102-2580x1457.png"
+                            }
+                        ],
+                        "links": [
+                            {
+                                "rel": "canonical",
+                                "href": "https://higgsfield.ai/blog/higgsfield-playable-ads-and-games"
+                            }
+                        ],
+                        "scripts": [
+                            {
+                                "children": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"name\":\"Higgsfield\",\"url\":\"https://higgsfield.ai/\",\"logo\":{\"@type\":\"ImageObject\",\"name\":\"Higgsfield logo\",\"url\":\"https://higgsfield.ai/icon.png\"},\"sameAs\":[\"https://x.com/higgsfield\",\"https://www.instagram.com/higgsfield.ai/\",\"https://www.tiktok.com/@higgsfield.ai90\",\"https://discord.com/invite/higgsfield\",\"https://www.linkedin.com/company/higgsfield/\",\"https://www.youtube.com/@HiggsfieldAI\"],\"@id\":\"https://higgsfield.ai/#organization\"},{\"@type\":\"WebPage\",\"@id\":\"https://higgsfield.ai/blog/higgsfield-playable-ads-and-games\",\"url\":\"https://higgsfield.ai/blog/higgsfield-playable-ads-and-games\",\"name\":\"Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI\",\"description\":\"Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide.\",\"breadcrumb\":{\"@id\":\"https://higgsfield.ai/blog/higgsfield-playable-ads-and-games#breadcrumb\"},\"publisher\":{\"@id\":\"https://higgsfield.ai/#organization\"}},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://higgsfield.ai/blog/higgsfield-playable-ads-and-games#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Blog\",\"item\":\"https://higgsfield.ai/blog\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Editorials\",\"item\":\"https://higgsfield.ai/blog/editorials\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Playable Ads and Games\"}]},{\"@type\":\"BlogPosting\",\"@id\":\"https://higgsfield.ai/blog/higgsfield-playable-ads-and-games#article\",\"headline\":\"Meet Higgsfield Playable Ads and Games: Create Interactive Experiences with AI\",\"description\":\"Higgsfield Playable Ads (Enterprise) and Playable Games (all plans): settings, assets, genres, export to nine ad networks, and a step-by-step game guide.\",\"image\":\"https://higgsfield.ai/cdn-cgi/image/fit=scale-down,format=jpeg,onerror=redirect,width=1200,quality=85/https://cdn.sanity.io/images/s479xw3z/production/493a5b2ccfc7e35dde6ab1b46e518cd5fed01102-2580x1457.png\",\"datePublished\":\"2026-10-25T19:34:00.000Z\",\"dateModified\":\"2026-10-25T19:34:00.000Z\",\"mainEntityOfPage\":{\"@id\":\"https://higgsfield.ai/blog/higgsfield-playable-ads-and-games\"},\"author\":{\"@id\":\"https://higgsfield.ai/#organization\"},\"publisher\":{\"@id\":\"https://higgsfield.ai/#organization\"}},{\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Do I need an Enterprise plan to create a game?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. Playable Games is available on all Higgsfield plans. Enterprise access is required for Playable Ads.\"}},{\"@type\":\"Question\",\"name\":\"Can I create a game through Claude?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. Select Generate in Claude and connect Higgsfield MCP. You can also choose Generate here to create directly on Higgsfield.\"}},{\"@type\":\"Question\",\"name\":\"What is the difference between a playable game and a playable ad?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"A playable game is an interactive experience made for people to play. A playable ad uses gameplay as advertising. Higgsfield offers Games across all plans and Ads through Enterprise.\"}},{\"@type\":\"Question\",\"name\":\"Can I start without uploading assets?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. You can begin with a written description. Add references or other supported assets when you need a particular character, visual style, sound, or starting point.\"}},{\"@type\":\"Question\",\"name\":\"Are Manual and Auto available in both workflows?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Manual and Auto are confirmed options in Playable Ads. The Playable Games interface provides generation on Higgsfield or through Claude; those choices describe where generation happens.\"}}],\"@id\":\"https://higgsfield.ai/blog/higgsfield-playable-ads-and-games#faq\",\"isPartOf\":{\"@id\":\"https://higgsfield.ai/blog/higgsfield-playable-ads-and-games\"}}]}",
+                                "type": "application/ld+json"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

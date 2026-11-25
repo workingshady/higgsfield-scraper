@@ -25,6 +25,7 @@ TELNETCONSOLE_ENABLED = False
 
 # --- raw HTTP archive (<run>/http/: request.json, response.json, body.raw, curl.sh, session.har)
 DOWNLOADER_MIDDLEWARES = {
+    "higgsfield_scraper.core.auth.AuthMiddleware": 560,            # bearer token + auto refresh (meta auth=True only)
     "higgsfield_scraper.middlewares.HttpArchiveMiddleware": 580,   # below HttpCompression (590): sees decoded bodies
 }
 HIGGS_HTTP_ARCHIVE = True
@@ -33,6 +34,7 @@ HIGGS_HTTP_ARCHIVE = True
 ITEM_PIPELINES = {
     "higgsfield_scraper.pipelines.RawArchivePipeline": 50,
     "higgsfield_scraper.pipelines.ValidationPipeline": 300,
+    "higgsfield_scraper.pipelines.DedupPipeline": 350,                # opt-in per scraper (pricing: none)
     "higgsfield_scraper.pipelines.CollectAndExportPipeline": 800,
 }
 

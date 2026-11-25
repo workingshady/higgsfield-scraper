@@ -1,0 +1,71 @@
+{
+    "meta": {
+        "endpoint": "catalog_avatars",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/avatars?size=100",
+        "params": {
+            "size": "100"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "1QXPMEkChKs4IQ17r8OZTd",
+                "name": "Aamir",
+                "media": {
+                    "type": "static",
+                    "width": 300,
+                    "height": 533,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/04d59502-da6d-40c5-b5b9-13f802a8bca4.webp"
+                },
+                "params": {
+                    "input_image": {
+                        "id": "d08273e4-52ce-4be3-b055-c6ef240ad463",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d08273e4-52ce-4be3-b055-c6ef240ad463.jpeg",
+                        "type": "media_input"
+                    },
+                    "voice_id": "6K5tG30lyn4VYcwPa9Wkw4"
+                }
+            },
+            {
+                "id": "H7IjutNlgLIXD70wupyDB",
+                "name": "Oscar",
+                "media": {
+                    "type": "static",
+                    "width": 300,
+                    "height": 531,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/17a04a59-23bc-487b-a553-cd4f3f54a290.webp"
+                },
+                "params": {
+                    "input_image": {
+                        "id": "593ac4ed-72ce-47bc-aed9-823f7e716212",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/593ac4ed-72ce-47bc-aed9-823f7e716212.jpeg",
+                        "type": "media_input"
+                    },
+                    "voice_id": "44RvRaT8yBQ6CZI9deIced"
+                }
+            },
+            {
+                "id": "3XJpjG68tqRbywwEfmEdTU",
+                "name": "Mila",
+                "media": {
+                    "type": "static",
+                    "width": 300,
+                    "height": 531,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/d92eb06f-aa83-43a4-b78f-76d80ba05eb2.webp"
+                },
+                "params": {
+                    "input_image": {
+                        "id": "feea2797-d7d7-47ae-8bbc-ae12c6ba78e5",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/feea2797-d7d7-47ae-8bbc-ae12c6ba78e5.jpeg",
+                        "type": "media_input"
+                    },
+                    "voice_id": "6y7k0WuCciWfTfSVra893t"
+                }
+            }
+        ],
+        "total": 100,
+        "cursor": null
+    }
+}

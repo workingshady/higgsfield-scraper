@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "endpoint": "projects_publication_detail",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/project-publications/b93872c6-1aa3-4460-b311-4717233ef04c",
+    "params": {},
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "publication_id": "b93872c6-1aa3-4460-b311-4717233ef04c",
+    "duration_seconds": 2252.904717,
+    "state": "published",
+    "type": "series",
+    "is_ongoing": false,
+    "project_id": "b93872c6-1aa3-4460-b311-4717233ef04c",
+    "snapshot_folder_id": "52910edd-076d-4f00-a5ef-5fe92cee3398",
+    "has_changes_since_publish": false,
+    "project_updated_at": "2026-11-24T19:59:57.775601+00:00",
+    "final_submitted_at": null,
+    "is_open_source": false,
+    "name": "History Stories explained ",
+    "slug": "the-great-wall-of-china",
+    "description": "How the Great Wall of China was built, who built it, and why it took over 2,000 years. An AI history documentary from Everything Explained.",
+    "cover": {
+      "id": "5e21041c-a670-45a0-b62f-7b716f75ed42",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0004xxxxxxxxxxxxxxxx/5e21041c-a670-45a0-b62f-7b716f75ed42.png",
+      "name": null,
+      "type": "media",
+      "width": 1376,
+      "height": 768,
+      "min_url": null,
+      "duration": null,
+      "object_fit": "cover",
+      "thumbnail_url": null
+    },
+    "gallery_media": [
+      {
+        "id": "daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294",
+        "url": "https://cdn.higgsfield.ai/hls/video_input/daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294/index.m3u8",
+        "name": "The GREAT wall of CHINA",
+        "type": "video",
+        "width": 1284,
+        "height": 716,
+        "min_url": null,
+        "duration": 306.04,
+        "object_fit": "contain",
+        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294/thumbnail.webp",
+        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0004xxxxxxxxxxxxxxxx/daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294.mp4",
+        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/daa9f5cc-dd9a-44f9-8e37-6cff5f6ad294/compressed.mp4"
+      },
+      {
+        "id": "cd1c3496-0673-4e7e-ab13-b88b36bb7124",
+        "url": "https://cdn.higgsfield.ai/hls/video_input/cd1c3496-0673-4e7e-ab13-b88b36bb7124/index.m3u8",
+        "name": "Mecca",
+        "type": "video",
+        "width": 1284,
+        "height": 716,
+        "min_url": null,
+        "duration": 404.56,
+        "object_fit": "contain",
+        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/cd1c3496-0673-4e7e-ab13-b88b36bb7124/thumbnail.webp",
+        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0004xxxxxxxxxxxxxxxx/cd1c3496-0673-4e7e-ab13-b88b36bb7124.mp4",
+        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/cd1c3496-0673-4e7e-ab13-b88b36bb7124/compressed.mp4"
+      },
+      {
+        "id": "cbfd6b98-74f6-4f34-bc11-e3531029c3b9",
+        "url": "https://cdn.higgsfield.ai/hls/video_input/cbfd6b98-74f6-4f34-bc11-e3531029c3b9/index.m3u8",
+        "name": "Jerusalem",
+        "type": "video",
+        "width": 1284,
+        "height": 716,
+        "min_url": null,
+        "duration": 443.0,
+        "object_fit": "contain",
+        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/cbfd6b98-74f6-4f34-bc11-e3531029c3b9/thumbnail.webp",
+        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake0004xxxxxxxxxxxxxxxx/cbfd6b98-74f6-4f34-bc11-e3531029c3b9.mp4",
+        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/cbfd6b98-74f6-4f34-bc11-e3531029c3b9/compressed.mp4"
+      }
+    ],
+    "trailer": null,
+    "author_user_ids": [
+      "user_fake0004xxxxxxxxxxxxxxxx"
+    ],
+    "tags": [
+      "history",
+      "documentary",
+      "China"
+    ],
+    "categories": [],
+    "show_prompts": true,
+    "show_canvas": true,
+    "is_discoverable": true,
+    "featured_episode_id": null,
+    "is_featured": false,
+    "original_folder_id": null,
+    "created_at": "2026-11-07T12:36:10.836080Z",
+    "stats": {
+      "stack": [
+        {
+          "count": 47,
+          "job_set_type": "nano_banana_2",
+          "credits_spent": 94.0,
+          "display_name": "Judge Studio 30"
+        },
+        {
+          "count": 39,
+          "job_set_type": "kling3_0",
+          "credits_spent": 682.5,
+          "display_name": "Judge Studio 89"
+        },
+        {
+          "count": 7,
+          "job_set_type": "seed_audio",
+          "credits_spent": 28.2,
+          "display_name": "Judge Studio 76"
+        }
+      ],
+      "size_bytes": 737401283,
+      "credits_spent": 804.7,
+      "free_generations": 0,
+      "generations_count": 93
+    },
+    "featured_episode_slug": null,
+    "authors": [
+      {
+        "id": "user_fake0004xxxxxxxxxxxxxxxx",
+        "full_name": null,
+        "username": "creator1",
+        "avatar_url": "https://cdn.example.test/avatar.webp",
+        "headline": "Filmmaker",
+        "location": "Somewhere",
+        "is_owner": true,
+        "is_followed": false,
+        "total_projects_views": 939,
+        "total_projects_likes": 31,
+        "followers_count": 10,
+        "badges": []
+      }
+    ],
+    "team": null,
+    "contest_badges": [],
+    "contest_key": null,
+    "views": 350,
+    "likes": 10,
+    "is_higgsfield_featured": false,
+    "can_receive_audience_choice_votes": false,
+    "watch_required": false,
+    "watch_completed": false,
+    "watched_percent": 0
+  }
+}

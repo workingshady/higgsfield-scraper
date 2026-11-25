@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "endpoint": "projects_contest_detail",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/contests/by-id/4263b5fb-fead-441d-aa37-62f8aa367aa1",
+    "params": {},
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "contest_type": "global",
+    "submissions_close_at": null,
+    "settings": null,
+    "rewards": null,
+    "rules_effective_at": null,
+    "results_published": false,
+    "id": "4263b5fb-fead-441d-aa37-62f8aa367aa1",
+    "slug": "higgsfield-global-film-festival",
+    "title": "Higgsfield Festival",
+    "description": "Higgsfield AI Film Festival — $1,000,000 Prize Pool",
+    "start_at": "2026-07-16T00:00:00Z",
+    "end_at": "2026-07-30T23:59:00Z",
+    "status": "open",
+    "preview_image": "https://static.higgsfield.ai/uploads/contests-movie-v2-festival-inner.mp4",
+    "preview_video": "https://static.higgsfield.ai/contest/festival-hero/higgs_6_fix_v2-optimized-1.mp4",
+    "logo_url": null,
+    "redirect_url": null,
+    "prize_pool": 1000000,
+    "submissions_count": 0,
+    "prizes": [
+      {
+        "label": "Script 1 Track Winner",
+        "type": "usd",
+        "value": 200000,
+        "count": 1
+      },
+      {
+        "label": "Script 2 Track Winner",
+        "type": "usd",
+        "value": 200000,
+        "count": 1
+      },
+      {
+        "label": "Script 3 Track Winner",
+        "type": "usd",
+        "value": 200000,
+        "count": 1
+      },
+      {
+        "label": "Original Track Winner",
+        "type": "usd",
+        "value": 200000,
+        "count": 1
+      },
+      {
+        "label": "Community Choice",
+        "type": "usd",
+        "value": 100000,
+        "count": 1
+      },
+      {
+        "label": "Honorable Mention",
+        "type": "usd",
+        "value": 10000,
+        "count": 10
+      }
+    ],
+    "theme_markdown": "Create a short film entirely within the Higgsfield ecosystem. Adapt one of three official scripts or bring your own original story, then compete across four tracks for a share of a $1,000,000 all-cash prize pool.",
+    "details_markdown": "# Higgsfield Global Film Festival — Official Rules\n\n**Effective:** August 10, 2026 · **Last updated:** September 16, 2026\n\nWelcome, and thank you for making something with us.\n\nThe Higgsfield Global Film Festival is our way of putting real money behind the filmmakers pushing what AI cinema can be. W",
+    "some_contestants": [],
+    "winners": null,
+    "submission_ids": [],
+    "judges": [],
+    "timeline": {
+      "version": 2,
+      "active_key": null,
+      "groups": [
+        {
+          "key": "intro",
+          "title": "Intro"
+        },
+        {
+          "key": "competition",
+          "title": "Competition"
+        }
+      ],
+      "steps": [
+        {
+          "key": "announcement",
+          "group": "intro",
+          "title": "Announcement",
+          "date": "2026-08-03T16:00:00Z",
+          "display_date": null,
+          "marker": {
+            "kind": "icon",
+            "icon": "flag"
+          },
+          "blocks": [
+            {
+              "type": "rich_text",
+              "props": {
+                "markdown": "A $1,000,000 cash competition — and a festival program that gives you everything you need to make a film with AI and join the new generation of filmmakers. . A Hollywood-level jury. And a full program running alongside the contest\n\nLearn from the program. Enter the competition — solo or in a team of up to four. Eligibility, tracks, prizes, and judging are defined in the [rules](/contests/higgsfield-global-film-festival?tab=rules)."
+              }
+            },
+            {
+              "type": "media",
+              "props": {
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/84fe71b6-5592-4a32-856a-3b1f888bc39a.mp4",
+                "kind": "video",
+                "thumbnailUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/dca8ddce-836f-45b2-a2d9-65b348b5ab29.png"
+              }
+            }
+          ],
+          "state": "done"
+        },
+        {
+          "key": "hellgrind-opensource",
+          "group": "intro",
+          "title": "HellGrind OpenSource",
+          "date": "2026-08-04T17:00:00Z",
+          "display_date": "Aug 4",
+          "marker": {
+            "kind": "number",
+            "icon": null
+          },
+          "blocks": [
+            {
+              "type": "rich_text",
+              "props": {
+                "markdown": "Hell Grind is fully open-sourced and completely free. Watch the full movie, then open the project to explore every prompt, asset, and generation behind every scene. Everything we used to make it is yours to learn from — and to build on."
+              }
+            },
+            {
+              "type": "open_source_project",
+              "props": {
+                "author": "Higgsfield Studio",
+                "locked": false,
+                "dateLabel": "Aug 4",
+                "filmAction": {
+                  "url": "https://higgsfield.ai/@studio.example/projects/hell-grind",
+                  "type": "external"
+                },
+                "description": "ROKO, JAXX, LULU and REIN — four street kids with nothing to lose. One day, one museum, one plan — until it all falls apart when, right in the exhibition hall, they find an artifact with no name and no history. One touch — and each receives a power they never asked for, awakening something that was never meant to wake. Now they must face the ancient evil head-on — even if the road leads straight to hell.",
+                "thumbnailUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/cced503f-0f9d-43d1-994a-da2ed3de53ce.png",
+                "projectAction": {
+                  "type": "navigate",
+                  "target": "https://higgsfield.ai/generate?projectId=bfd58817-96cc-4d10-a016-fdbe57af8180&brief=1&from=%2F%40studio.example%2Fprojects%2Fhell-grind"
+                }
+              }
+            }
+          ],
+          "state": "done"
+        }
+      ]
+    },
+    "faq": []
+  }
+}

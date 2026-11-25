@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "endpoint": "catalog_soul_styles",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/soul-styles?size=100&lang=en",
+        "params": {
+            "size": "100",
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 401
+    },
+    "body": {
+        "detail": "Invalid or expired token"
+    }
+}

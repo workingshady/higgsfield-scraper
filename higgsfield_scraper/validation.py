@@ -5,8 +5,6 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from .schemas import MODEL_BY_KIND
-
 
 class EntityInvalid(Exception):
     def __init__(self, kind: str, ident: str, errors: list[dict[str, Any]]):
@@ -16,8 +14,12 @@ class EntityInvalid(Exception):
 
 
 def ident_of(entity: dict) -> str:
+    from .core.registry import all_id_fields
+    key = all_id_fields().get(entity.get("kind", ""))
+    if key and entity.get(key):
+        return str(entity[key])
     for k in ("plan_id", "model_id", "card_id", "comparison_id", "marketing_id", "package_id",
-              "plan_set_key", "endpoint"):
+              "plan_set_key", "endpoint", "id"):
         if entity.get(k):
             return str(entity[k])
     return "?"
@@ -25,10 +27,11 @@ def ident_of(entity: dict) -> str:
 
 def validate_entity(entity: dict) -> dict:
     """Return the JSON-mode dump (Decimal -> str, datetime -> ISO) with `kind` kept; raise EntityInvalid."""
+    from .core.registry import all_models
     kind = entity["kind"]
     data = {k: v for k, v in entity.items() if k != "kind"}
     try:
-        obj = MODEL_BY_KIND[kind].model_validate(data)
+        obj = all_models()[kind].model_validate(data)
     except ValidationError as e:
         raise EntityInvalid(kind, ident_of(entity), e.errors(include_url=False)) from None
     return {"kind": kind, **obj.model_dump(mode="json")}

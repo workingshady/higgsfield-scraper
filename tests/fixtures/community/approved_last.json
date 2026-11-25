@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "endpoint": "community_approved",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/publications/community/approved?size=50",
+    "params": {
+      "size": "50"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "job_set_type": "seedance_2_5",
+        "job_set_id": "4f8c0421-5b89-4e61-b68c-67a9152033d0",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 1080,
+          "height": 1920,
+          "prompt": "SCENE CONTEXT\nA surreal scale-play performance film: on a miniature racing arena floating in an infinite field of soft MAGENTA-PINK light, a tiny race car drifts screaming circles around a giant performer who stands RIGHT OVER the camera — the lens creeping slowly closer as he sinks into a deep slow-motion squat, his face descending huge toward the camera — then time snaps back, he starts rapping, the camera dives after the drifting car, and as it slides to a stop the camera sweeps into an FPV orbit around it while the SAME performer, now miniature, drapes half-lying out of the side window and vibes to the beat, his giant self rapping colossal in the wheeling background. One continuous take, premium music-video energy.\n\nACTIVE REFERENCES\n<<<image_1>>>: the performer — the sole identity source, appearing TWICE at two scales: the giant and the tiny driver are the same person, with identical face, hair and full outfit from the reference in every frame, at both scales. 100% matches the reference. No other people exist in the film.\nThe car: a toy-scale, high-detail low racing coupe with a sleek glossy body in a BLACK-and-CHROME livery with mirror-silver accents and an open side window — the body panels COMPLETELY CLEAN: no decals, no sponsor stickers, no flame graphics, no numbers, no lettering of any kind anywhere on the car.\n\nLOCATION MAP\nTHE BACKGROUND IS MADE OF COLORED LIGHT: behind and around the arena the entire space is a soft, saturated MAGENTA-PINK luminous atmosphere — a soft gradient field of glowing colored haze, brightest in a wide soft pool directly behind the giant and deepening gradually toward the frame edges — reading like an infinite fog of pink light with NO black emptiness, NO spotlight cone, NO walls, NO corners, NO ceiling and NO horizon line anywhere. The color exists as pure glowing atmosphere. At the center of this glow: a miniature circular racing arena — dark asphalt scarred with tire-mark donuts, ringed by a white-and-black striped racing kerb, and NOTHING ELSE on or around it: no LED strips, no neon tubes, no light fixtures, no lamps, no equipment. The giant performer stands at the arena's center, directly over the camera position; the tiny car drifts around him on the asphalt, trailing tire smoke glowing pink in the atmosphere, its arc passing between his feet and the lens. No readable text, no logos, no branding anywhere in the film.\n\nFIRST FRAME AND SPATIAL BLOCKING\nThe first visible frame is an extreme low ultra-wide hero view: the camera sits at asphalt level roughly half a meter from the giant's feet — his boots plant huge in the lower frame at x 40% and x 62%, his body towering upward with strong ultra-wide perspective stretch against the glowing pink field, face angled down toward the lens. The tiny car is already mid-drift, carving its smoking arc through the gap between his feet and the camera. Both scales present from frame one, and the zoom-in is already breathing forward.\n\nFORMAT MODE\nSingle continuous take, 8 seconds, no cuts. Speed ramp: real time from 0.0s to 0.6s, slow motion at roughly 40% speed from 0.6s to 2.8s across the squat, then a smooth snap back to real time from 2.8s to the end.\n\nOPTICS\nUltra-wide rectilinear character, roughly 107-degree class, camera starting half a meter from the foreground subject — the immediate foreground looms large, the giant's body stretches dramatically from huge boots to distant head; straight lines stay rectilinear, no fisheye curve, subtle stretch at the extreme corners only. In the orbit the same ultra-wide reads as macro FPV intimacy — the car's glossy body sweeping close past the lens, the rapping giant huge and soft beyond it.\n\nCAMERA\nOne continuous journey. 0.0s to 2.8s: from the extreme-low hold, a SLOW SMOOTH ZOOM-IN begins on the very first frame — a floating creep forward and slightly up, closing on the giant's descending face through the whole slow-motion squat. 2.8s to 4.5s: on the time snap the camera breaks away and dives low after the drifting car, chasing beside it as it carves its final arc and slides to a smoking stop. 4.5s to 8.0s: THE FPV ORBIT — the camera sweeps into a continuous counterclockwise orbit around the stopped car at toy scale, tight radius, gliding just above the asphalt with a live drone-like breathing mount, never rail-smooth; it circles roughly 270 degrees around the car, rising slightly over the tail and dipping past the windows, keeping the draped-out mini performer the anchor of the frame. The car never rotates and never moves — the orbit is entirely the camera's motion. No cuts, no whips.\n\nACTION TIMING\n0.0s to 0.6s: THE SETUP. The giant towers directly over the lens, nodding once to the beat as the zoom-in starts its creep; the tiny car is already drifting, screaming through the gap between his boots and the camera with a ribbon of pink-glowing tire smoke.\n0.6s to 2.8s: THE SQUAT, slow motion. He sinks into a deep squat facing the camera dead-on — knees spreading past the frame edges, elbows landing on them, hands loose — his face descending to loom large in the tightening frame, eyes locked into the lens with calm swagger; the car howls past in the slowed foreground, smoke unfurling in slow ribbons through the luminous pink atmosphere.\n2.8s to 4.5s: THE SNAP AND THE VERSE. Time snaps to full speed and the giant STARTS RAPPING — lips locked to a tight, confident rap flow, head punching the beat, one hand slicing accents — as the camera drops from his gaze and swoops after the drifting car, tracking beside it while it carves one last arc around him and slides sideways to a smoking stop, and the mini performer is already pushing himself out of the side window.\n4.5s to 8.0s: THE ORBIT AND THE VIBE. As the FPV orbit sweeps around the stopped car, the miniature performer — the same man from <<<image_1>>> — hangs half-lying out of the side window: torso draped back along the door, shoulder against the window frame, one arm hanging loose over the sill and throwing lazy accents on the beat, head bobbing, mouth closed in an easy grin — no lip movement. The orbit carries him from profile to front to the far side while the colossal squatting giant wheels past in the glowing background bokeh, still rapping in sync with the track. The orbit eases as the mini throws one slow confident gesture at the passing lens. The film ends mid-glide on this frame.\n\nPHYSICS\nScale stays absolute and constant: the giant never shrinks, the car and its driver never grow. The drift is honest at toy scale: rear tires break traction and scream, the body rolls on its suspension, smoke pours and drifts, rubber lines are laid; the slide-stop carries real momentum and a suspension settle. In slow motion all physics stay true. The zoom-in is a smooth continuous optical creep. In the orbit the parallax is honest: the car's body sweeps close and fast past the lens while the giant drifts slowly across the glowing background; the mini's draped body rocks the car subtly on its springs, his hanging arm swinging with real pendulum looseness.\n\nLIGHTING & COLOR GRADE\nThe world is lit BY its own colored atmosphere: the soft MAGENTA-PINK luminous field wraps both performers and the arena in a broad soft glow — a clean soft white key from high above adds shape to the giant's face and the car's curves, and the chrome panels of the car throw candy-pink reflections as the orbit sweeps — but the dominant light and color of every frame is the pink atmosphere itself, glowing through the haze, the smoke and the reflections. NOTHING that makes light is ever visible: no LED strips, no neon tubes, no lamps, no softboxes, no stands, no cables, no fixtures on the track or in the void — and no black emptiness either: the frame's background is always the luminous pink gradient, never a dark hole. Grade: creamy magenta-pink field over deep clean blacks in the subjects, natural honest skin held true inside the candy world, filmic grain. Exposure constant through ramp, dive and orbit, no flicker.\n\nAUDIO\nA punchy hip-hop instrumental pulses under the whole film. Through the slow-motion window the drift screams stretch deep and slow; at 2.8s time snaps and the giant's rap vocal enters — rhythmic, confident flow with no intelligible words needed, locked to his lips — riding the beat to the end; the orbit adds a soft moving-air whoosh, the car creaks gently under the mini's draped bounce, the slide-stop lands with a skid and settle. No spoken dialogue, no readable lyrics, no captions.",
+          "genre": "auto",
+          "medias": [
+            {
+              "data": {
+                "id": "ba05030a-7b86-4b40-8248-98774ba4a2c0",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake012/ba05030a-7b86-4b40-8248-98774ba4a2c0.png",
+                "type": "media_input"
+              },
+              "role": "image"
+            }
+          ],
+          "duration": 9,
+          "resolution": "1080p",
+          "aspect_ratio": "9:16",
+          "generate_audio": true,
+          "multi_shots": false,
+          "multi_shot_mode": "custom",
+          "multi_prompt": [],
+          "speedramp": "auto",
+          "reference_elements": [],
+          "prompt_language": "en",
+          "model": "default",
+          "extension_mode": null,
+          "bitrate_mode": "high",
+          "draft": false,
+          "seed": null,
+          "draft_job_id": null
+        },
+        "meta": {},
+        "id": "f265c973-82fe-4f27-83a9-42d913a2289c",
+        "status": "completed",
+        "ip_check_finished": true,
+        "ip_detected": false,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake012/hf_20260828_133607_f265c973-82fe-4f27-83a9-42d913a2289c.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake012/hf_20260828_133607_f265c973-82fe-4f27-83a9-42d913a2289c_thumbnail.webp"
+          },
+          "min": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake012/hf_20260828_133607_f265c973-82fe-4f27-83a9-42d913a2289c.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake012/hf_20260828_133607_f265c973-82fe-4f27-83a9-42d913a2289c_thumbnail.webp"
+          },
+          "hls": null,
+          "h264": null
+        },
+        "published_at": 1788912499.911891,
+        "created_at": 1787924167.850605,
+        "user_id": "user_fake012",
+        "trace_id": "f265c973-82fe-4f27-83a9-42d913a2289c",
+        "cluster_hash": "21b8793d0b05ff5011d3f1c565b2bfa6",
+        "representation": null,
+        "can_upgrade_to_4k": false,
+        "upgrade_options": [],
+        "expires_at": null,
+        "publication": {
+          "id": "32865b02-2730-45c1-831c-32039b702198",
+          "views_count": 75862,
+          "likes_count": 384,
+          "is_liked_by_user": null,
+          "approved": true,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_21",
+          "avatar_url": "https://example.invalid/avatar_21.webp",
+          "instagram_handle": "ig_fake_21",
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "kling3_0",
+        "job_set_id": "c7bfd20a-279b-40d3-a613-eba6c7a068f3",
+        "job_set_parent_id": null,
+        "job_set_client_meta": null,
+        "board_ids": [],
+        "params": {
+          "width": 1920,
+          "height": 1080,
+          "prompt": "Low-angle wide-angle tracking shot focused on a crumpled brown paper bag held tightly in a man’s hand. The camera is rigidly locked to the bag with precise tracking — the bag stays centered and stable while the world rushes past. The man is running away from someone, sprinting forward; his arm pumps hard, aggressive vertical and lateral motion transferred directly to the bag. Strong grip, whitening knuckles, paper creasing and vibrating from speed.",
+          "medias": [
+            {
+              "data": {
+                "id": "5cb3a751-df55-4335-8e8e-b39c77039e9a",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake013/5cb3a751-df55-4335-8e8e-b39c77039e9a.jpg",
+                "type": "media_input"
+              },
+              "role": "start_image"
+            }
+          ],
+          "duration": 6,
+          "aspect_ratio": "16:9",
+          "multi_shots": false,
+          "multi_prompt": [],
+          "sound": "on",
+          "cfg_scale": 0.5,
+          "mode": "pro",
+          "kling_elements": [],
+          "kling_element_ids": [],
+          "multi_shot_mode": "custom",
+          "reference_elements": [],
+          "enhance_prompt": false
+        },
+        "meta": {},
+        "id": "50727a49-430c-42e5-9602-e2d9c60e526a",
+        "status": "completed",
+        "ip_check_finished": null,
+        "ip_detected": null,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake013/hf_20260204_182741_50727a49-430c-42e5-9602-e2d9c60e526a.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake013/hf_20260204_182741_50727a49-430c-42e5-9602-e2d9c60e526a_thumbnail.webp"
+          },
+          "min": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake013/hf_20260204_182741_50727a49-430c-42e5-9602-e2d9c60e526a.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake013/hf_20260204_182741_50727a49-430c-42e5-9602-e2d9c60e526a_thumbnail.webp"
+          },
+          "hls": null,
+          "h264": null
+        },
+        "published_at": 1770229666.300347,
+        "created_at": 1770229665.879373,
+        "user_id": "user_fake013",
+        "trace_id": "50727a49-430c-42e5-9602-e2d9c60e526a",
+        "cluster_hash": null,
+        "representation": null,
+        "publication": {
+          "id": "794da67f-12d8-447e-8197-755f2e2df3e4",
+          "views_count": 139380,
+          "likes_count": 924,
+          "is_liked_by_user": null,
+          "approved": true,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_22",
+          "avatar_url": "https://example.invalid/avatar_22.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "viral_hub_video",
+        "job_set_id": "421daffc-8d3b-4d8e-af0e-c1da6943a149",
+        "job_set_parent_id": null,
+        "job_set_client_meta": {
+          "source": "viral_hub_web"
+        },
+        "board_ids": [],
+        "params": {
+          "width": 1920,
+          "height": 1080,
+          "prompt": "",
+          "medias": [
+            {
+              "role": "start_image",
+              "data": {
+                "id": "ff34e12d-ad89-4df3-964c-8d32f5abfc24",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake012/ff34e12d-ad89-4df3-964c-8d32f5abfc24_resize.jpg",
+                "type": "media_input",
+                "object_key": "user_fake012/ff34e12d-ad89-4df3-964c-8d32f5abfc24_resize.jpg"
+              }
+            }
+          ],
+          "duration": 8,
+          "resolution": "1080p",
+          "aspect_ratio": "16:9",
+          "chain_preset": {
+            "id": "8bca1173-5327-478c-b476-cbdfcaf001a3",
+            "name": "Stop World",
+            "slug": "stop-world",
+            "preview_media": {
+              "id": "8bca1173-5327-478c-b476-cbdfcaf001a3",
+              "name": "Stop World",
+              "main_url": "https://cdn.higgsfield.ai/viral_hub/303cab09-fe91-42c6-995f-3e7aff055e74.mp4",
+              "optimized_url": "https://cdn.higgsfield.ai/viral_hub/1c9cd73a-d4ca-48fe-8762-1aed9d5c182a.webp"
+            }
+          },
+          "chain_preset_id": "8bca1173-5327-478c-b476-cbdfcaf001a3",
+          "preset": {
+            "id": "8bca1173-5327-478c-b476-cbdfcaf001a3",
+            "name": "Stop World",
+            "slug": "stop-world",
+            "preview_media": {
+              "id": "8bca1173-5327-478c-b476-cbdfcaf001a3",
+              "name": "Stop World",
+              "main_url": "https://cdn.higgsfield.ai/viral_hub/303cab09-fe91-42c6-995f-3e7aff055e74.mp4",
+              "optimized_url": "https://cdn.higgsfield.ai/viral_hub/1c9cd73a-d4ca-48fe-8762-1aed9d5c182a.webp"
+            }
+          }
+        },
+        "meta": {},
+        "id": "d772be77-37b9-485f-bedd-bf85b7ffd5da",
+        "status": "completed",
+        "ip_check_finished": true,
+        "ip_detected": false,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake012/hf_20260901_185421_d772be77-37b9-485f-bedd-bf85b7ffd5da.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake012/hf_20260901_185421_d772be77-37b9-485f-bedd-bf85b7ffd5da_thumbnail.webp"
+          },
+          "min": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake012/hf_20260901_185421_d772be77-37b9-485f-bedd-bf85b7ffd5da.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake012/hf_20260901_185421_d772be77-37b9-485f-bedd-bf85b7ffd5da_thumbnail.webp"
+          },
+          "hls": {
+            "type": "video",
+            "url": "https://cdn.higgsfield.ai/hls/job/d772be77-37b9-485f-bedd-bf85b7ffd5da/b9798a70-a4d0-4c44-b86c-d50a79ea404c/index.m3u8",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake012/hf_20260901_185421_d772be77-37b9-485f-bedd-bf85b7ffd5da_thumbnail.webp"
+          },
+          "h264": null
+        },
+        "published_at": 1788912502.370656,
+        "created_at": 1788288861.769546,
+        "user_id": "user_fake012",
+        "trace_id": "d772be77-37b9-485f-bedd-bf85b7ffd5da",
+        "cluster_hash": null,
+        "representation": null,
+        "can_upgrade_to_4k": false,
+        "upgrade_options": [],
+        "expires_at": null,
+        "publication": {
+          "id": "b38f6ec6-01d3-4bee-8150-0dfed7eb5cd2",
+          "views_count": 364,
+          "likes_count": 3,
+          "is_liked_by_user": null,
+          "approved": true,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_23",
+          "avatar_url": "https://example.invalid/avatar_23.webp",
+          "instagram_handle": "ig_fake_23",
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      },
+      {
+        "job_set_type": "viral_hub_video",
+        "job_set_id": "b0db3ffa-1403-471f-a5ff-ba2c97f6d678",
+        "job_set_parent_id": null,
+        "job_set_client_meta": {
+          "source": "viral_hub_web"
+        },
+        "board_ids": [],
+        "params": {
+          "width": 1280,
+          "height": 960,
+          "prompt": "",
+          "medias": [
+            {
+              "role": "start_image",
+              "data": {
+                "id": "f14df7cd-5b2d-4610-9038-1b38f930d682",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_fake014/f14df7cd-5b2d-4610-9038-1b38f930d682.png",
+                "type": "media_input",
+                "object_key": "user_fake014/f14df7cd-5b2d-4610-9038-1b38f930d682.png"
+              }
+            }
+          ],
+          "duration": 7,
+          "resolution": "1080p",
+          "aspect_ratio": "4:3",
+          "chain_preset": {
+            "id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+            "name": "Duplicating",
+            "slug": null,
+            "preview_media": {
+              "id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+              "name": "Duplicating"
+            }
+          },
+          "chain_preset_id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+          "preset": {
+            "id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+            "name": "Duplicating",
+            "slug": null,
+            "preview_media": {
+              "id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+              "name": "Duplicating"
+            }
+          }
+        },
+        "meta": {},
+        "id": "d861ff58-9c76-4b3c-954b-a95b48e62485",
+        "status": "completed",
+        "ip_check_finished": true,
+        "ip_detected": false,
+        "can_bypass_ip": false,
+        "deepfake_consent_required": false,
+        "result": null,
+        "results": {
+          "raw": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake014/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake014/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485_thumbnail.webp"
+          },
+          "min": {
+            "type": "video",
+            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_fake014/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485.mp4",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake014/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485_thumbnail.webp"
+          },
+          "hls": {
+            "type": "video",
+            "url": "https://cdn.higgsfield.ai/hls/job/d861ff58-9c76-4b3c-954b-a95b48e62485/3515e022-7d21-401c-a1b5-19dbb1eb0da0/index.m3u8",
+            "thumbnail_url": "https://cdn.higgsfield.ai/user_fake014/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485_thumbnail.webp"
+          },
+          "h264": null
+        },
+        "published_at": 1788912502.392706,
+        "created_at": 1788468683.576292,
+        "user_id": "user_fake014",
+        "trace_id": "d861ff58-9c76-4b3c-954b-a95b48e62485",
+        "cluster_hash": null,
+        "representation": null,
+        "publication": {
+          "id": "19f0fe81-9f8b-4aef-b62d-d27870dc23e2",
+          "views_count": 36,
+          "likes_count": 0,
+          "is_liked_by_user": null,
+          "approved": true,
+          "pinned_at": null
+        },
+        "profile": {
+          "username": "creator_24",
+          "avatar_url": "https://example.invalid/avatar_24.webp",
+          "instagram_handle": null,
+          "twitter_handle": null,
+          "youtube_handle": null,
+          "tiktok_handle": null,
+          "badge": null,
+          "badges": []
+        },
+        "drama": null
+      }
+    ],
+    "cursor": 1788912500.170149,
+    "has_more": false,
+    "total": 5
+  }
+}

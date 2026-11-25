@@ -1,0 +1,173 @@
+{
+    "meta": {
+        "endpoint": "catalog_soul_samples",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/soul-samples?size=500",
+        "params": {
+            "size": "500"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "165e0767-3f59-46f9-ba4e-fac1c3fa86de",
+                "status": "completed",
+                "can_bypass_ip": false,
+                "result": {
+                    "type": "image",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/content_user_id/165e0767-3f59-46f9-ba4e-fac1c3fa86de.png"
+                },
+                "results": {
+                    "raw": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/content_user_id/165e0767-3f59-46f9-ba4e-fac1c3fa86de.png"
+                    },
+                    "min": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/content_user_id/165e0767-3f59-46f9-ba4e-fac1c3fa86de.png"
+                    }
+                },
+                "board_ids": [],
+                "published_at": null,
+                "meta": {},
+                "created_at": 1754956739.125795,
+                "user_id": "redacted_user",
+                "trace_id": null,
+                "job_set_type": "text2image_soul",
+                "job_set_id": "9fdbbb79-10ab-4d08-89c3-3704d0aee10d",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "params": {
+                    "prompt": "A close-up upper-body shot of a young woman caught mid-movement, on her teeth shining minimalistic, reflective metallic grills only on the upper right canine and lateral incisor, or alternatively on the lower left two premolars, with an open-frame design such as letters, stars, or abstract shapes. The rest of her teeth remain natural and white. The grills are lightweight, cleanly fitted, and realistic, either silver or gold. She wears a flowing ivory slip dress with fine lace along the neckline, the fabric softly textured and gently rippling with her spinning motion. Tiny flowers interwoven in her loosely tousled hair add a delicate touch, some strands escaping to frame her face naturally. Warm daylight streams through the overgrown tropical plants in the humid greenhouse, dust particles visible in the air, casting soft, diffused light that accentuates natural skin textures and fabric grain. The image is framed with a slight tilt and a casual, spontaneous feel, echoing the intimate authenticity and natural imperfection of a candid iPhone snapshot. The lighting, skin texture, and gloss of the lips remain exactly the same as before.",
+                    "width": 1344,
+                    "height": 2016,
+                    "steps": 50,
+                    "batch_size": 4,
+                    "seed": 141591,
+                    "enhance_prompt": false,
+                    "sample_shift": 4.0,
+                    "sample_guide_scale": 4.0,
+                    "use_sage_attention": false,
+                    "quality": "1080p",
+                    "image_reference": null,
+                    "use_relax": false,
+                    "style_id": "255f4045-d68b-42b1-9e4c-f49d3263a9d7",
+                    "style": {
+                        "id": "255f4045-d68b-42b1-9e4c-f49d3263a9d7",
+                        "name": "Grillz Selfie",
+                        "url": "https://cdn.higgsfield.ai/soul-style/09c8a7e3-8194-46e8-807f-15cc03fdbbf7.webp",
+                        "strength": 1.0
+                    },
+                    "style_strength": 1.0
+                }
+            },
+            {
+                "id": "69ffd880-3c1a-4330-8277-f2d3bed98e10",
+                "status": "completed",
+                "can_bypass_ip": false,
+                "result": {
+                    "type": "image",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/content_user_id/69ffd880-3c1a-4330-8277-f2d3bed98e10.png"
+                },
+                "results": {
+                    "raw": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/content_user_id/69ffd880-3c1a-4330-8277-f2d3bed98e10.png"
+                    },
+                    "min": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/content_user_id/69ffd880-3c1a-4330-8277-f2d3bed98e10.png"
+                    }
+                },
+                "board_ids": [],
+                "published_at": null,
+                "meta": {},
+                "created_at": 1754956601.230292,
+                "user_id": "redacted_user",
+                "trace_id": null,
+                "job_set_type": "text2image_soul",
+                "job_set_id": "e988071c-c386-499b-81d8-0a1fec006800",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "params": {
+                    "prompt": "Wide shot taken from about 10 meters away showing a stylish Latina man sitting on sun-warmed, smooth whitewashed stones at the edge of the crystalline Mediterranean sea. He wears tailored swim shorts in a striking dusty lavender with a subtle abstract wavy stripe motif in muted coral and pale peach, crafted from lightweight swim fabric. A loosely draped, unbuttoned blush pink linen shirt adds softness and texture, sleeves rolled casually above the elbow. His sun-kissed skin glows naturally under the soft, clear daylight, complemented by a wide-brimmed boater hat made of woven straw and vintage minimalist gold-rim sunglasses perched slightly down on his nose. He reclines with legs partly submerged in the gently lapping turquoise water, one hand resting on a textured, handwoven canvas tote bag featuring delicate terracotta and sky-blue geometric embroidery. Nearby, a striped pastel towel lies draped over the rocks, while the shimmering sea dominates the foreground and background, reflecting scattered olive tree shadows above. The candid, three-quarter iPhone angle captures tactile textures—wet stone, linen, bronzed skin—and the serene, quietly stylish atmosphere of Mediterranean luxury summer leisure. —hyper-real texture fidelity, natural skin",
+                    "width": 1024,
+                    "height": 768,
+                    "steps": 50,
+                    "batch_size": 4,
+                    "seed": 194809,
+                    "enhance_prompt": true,
+                    "sample_shift": 3.0,
+                    "sample_guide_scale": 4.0,
+                    "use_sage_attention": false,
+                    "quality": "720p",
+                    "image_reference": null,
+                    "use_relax": false,
+                    "style_id": "bc00b419-f8ca-4887-a990-e2760c3cb761",
+                    "style": {
+                        "id": "bc00b419-f8ca-4887-a990-e2760c3cb761",
+                        "name": "Mediterranean summer",
+                        "url": "https://cdn.higgsfield.ai/soul-style/c829d3c3-2b06-4f37-bbbd-e97cf8becc48.webp",
+                        "strength": null
+                    },
+                    "style_strength": null
+                }
+            },
+            {
+                "id": "e4fa398f-d33d-4c0e-972e-8cd051ecacb1",
+                "status": "completed",
+                "can_bypass_ip": false,
+                "result": {
+                    "type": "image",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/content_user_id/e4fa398f-d33d-4c0e-972e-8cd051ecacb1.jpeg"
+                },
+                "results": {
+                    "raw": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/content_user_id/e4fa398f-d33d-4c0e-972e-8cd051ecacb1.jpeg"
+                    },
+                    "min": {
+                        "type": "image",
+                        "url": "https://cdn.higgsfield.ai/4b5787f6-5f20-4ea8-a027-20fc503c8fb9.webp"
+                    }
+                },
+                "board_ids": [],
+                "published_at": null,
+                "meta": {},
+                "created_at": 1754956568.179897,
+                "user_id": "redacted_user",
+                "trace_id": null,
+                "job_set_type": "text2image_soul",
+                "job_set_id": "ca064c2e-30b0-4f28-801a-647e411fa1f0",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "params": {
+                    "prompt": "A spontaneously captured iPhone-styled candid photo of a young woman with platinum hair casually lounging against a textured, slightly weathered Parisian stone wall on a city sidewalk. She wears understated effortless cool conveyed through an ivory silk blouse from COS with soft draping and subtle fabric wrinkles paired with sleek black leather pants by Our Legacy, complemented by classic white Converse sneakers gently scuffed from wear. Over her hair sit minimal black headphones, resting lightly and adding a contemporary casual touch. In one hand, she holds a translucent iced coffee glass showing realistic condensation and subtle reflections. Her hair is styled in a naturally tousled manner, some strands catching soft natural daylight that gently illuminates her neutral makeup and natural skin texture, including faint freckles and fine pores. Surrounding her are authentic urban textures of worn concrete pavement and the rough stone wall with patches of subtle moss. The composition features a slightly tilted overhead angle, off-center framing, and an informal crop that evoke the intuitive spontaneity and genuine intimacy emblematic of everyday Parisian iPhone street photography. Soft shadows and delicate highlights reveal the delicate fabric fibers, realistic leather grain, and glass transparency, completing the true-to-life candid aesthetic.",
+                    "width": 1152,
+                    "height": 2048,
+                    "steps": 50,
+                    "batch_size": 2,
+                    "seed": 683117,
+                    "enhance_prompt": true,
+                    "sample_shift": 4.0,
+                    "sample_guide_scale": 4.0,
+                    "use_sage_attention": false,
+                    "quality": "1080p",
+                    "image_reference": null,
+                    "use_relax": false,
+                    "style_id": "7696fd45-6e67-47d7-b800-096ce21cd449",
+                    "style": {
+                        "id": "7696fd45-6e67-47d7-b800-096ce21cd449",
+                        "name": "Sitting on the Street",
+                        "url": "https://cdn.higgsfield.ai/soul-style/e4cce90c-943a-45be-a324-0a92fe0fcb9d.jpg",
+                        "strength": 1.0
+                    },
+                    "style_strength": null
+                }
+            }
+        ],
+        "total": 1263,
+        "cursor": 1754887483.661422
+    }
+}

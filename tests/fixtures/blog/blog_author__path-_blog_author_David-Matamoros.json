@@ -1,0 +1,562 @@
+{
+    "meta": {
+        "endpoint": "blog_author",
+        "url": "https://higgsfield.ai/blog/author/David-Matamoros",
+        "params": {
+            "path": "/blog/author/David-Matamoros"
+        },
+        "fetched_at": "2026-11-25T13:14:34.734408+00:00",
+        "status": 200
+    },
+    "body": {
+        "format": "tsr",
+        "path": "/blog/author/David-Matamoros",
+        "sitemap_lastmod": "2026-03-26",
+        "head": {
+            "title": "David Matamoros — author at the Higgsfield blog",
+            "lang": "en",
+            "canonical": "https://higgsfield.ai/blog/author/David-Matamoros",
+            "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+            "og_title": "David Matamoros — author at the Higgsfield blog",
+            "og_image": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png",
+            "og_type": "profile",
+            "author": "Higgsfield.AI Team",
+            "ld_json": [
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://higgsfield.ai/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Blog",
+                            "item": "https://higgsfield.ai/blog"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "name": "David Matamoros"
+                        }
+                    ]
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "name": "David Matamoros",
+                    "jobTitle": "Author",
+                    "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png",
+                    "url": "https://higgsfield.ai/blog/author/David-Matamoros"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": "$350.000 AI Commercial - Full Prompts",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/59d7c44c58c1349a8c4f503b5dd218524827390b-1472x828.png",
+                    "url": "https://higgsfield.ai/blog/ai-commercial-youtube-guide",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/blog/ai-commercial-youtube-guide"
+                    },
+                    "description": "In this tutorial, we'll walk through exactly how we made a 6-figure cinematic commercial AD for a perfume brand using AI — from building characters and locations to shooting every scene. For each step you'll find the prompt we used, what it does, and where to run it.",
+                    "author": {
+                        "@type": "Person",
+                        "name": "David Matamoros",
+                        "url": "https://higgsfield.ai/blog/author/David-Matamoros"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-03-26",
+                    "articleSection": "Guides"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": "Higgsfield Chat: A Social Network for Collaborative AI Content Creation",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/8c16330456544a9de83f181bc617f0d800e462f4-1472x828.png",
+                    "url": "https://higgsfield.ai/blog/higgsfield-chat-social-network",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/blog/higgsfield-chat-social-network"
+                    },
+                    "description": "A new collaborative space is now live inside Higgsfield. Shared projects, real-time co-generation, built-in calls, a public community feed, and a karma system that turns engagement into credits. Here’s what’s inside.",
+                    "author": {
+                        "@type": "Person",
+                        "name": "David Matamoros",
+                        "url": "https://higgsfield.ai/blog/author/David-Matamoros"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-03-24",
+                    "articleSection": "Editorials"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": "Cinema Studio 2.5: The Viral AI Film Studio Just Leveled Up",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/3b7db6631e3a4d0ea06b56d033d4ff801fb12e9e-3238x1821.png",
+                    "url": "https://higgsfield.ai/blog/cinema-studio-2-5-ai-video-generator",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/blog/cinema-studio-2-5-ai-video-generator"
+                    },
+                    "description": "Our space for professional AI video generation that is built for structured filmmaking, combining optical camera control, 3D scene access, multi-shot sequencing, genre logic, and character emotion control in one cinematic environment just got an update - it gives you the most sophisticated cinematic keyframes and is paired with Soul Cast now.",
+                    "author": {
+                        "@type": "Person",
+                        "name": "David Matamoros",
+                        "url": "https://higgsfield.ai/blog/author/David-Matamoros"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-03-18",
+                    "articleSection": "Editorials"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": "Soul Cast: How To Make Your Next Award-Worthy AI Movie",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/980e65923fe60deee8016390f9157b167efe1f85-3238x1821.png",
+                    "url": "https://higgsfield.ai/blog/soul-cast-ai-filmmaking",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/blog/soul-cast-ai-filmmaking"
+                    },
+                    "description": "Soul Cast gives you full control over your AI actors — from genre and era to physique, backstory, and personality. Build highly-calibrated characters that stay consistent across every scene in Cinema Studio 2.0.",
+                    "author": {
+                        "@type": "Person",
+                        "name": "David Matamoros",
+                        "url": "https://higgsfield.ai/blog/author/David-Matamoros"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-03-09",
+                    "articleSection": "Editorials"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": "Why You Need Kling Motion Control 3.0 In Your Workflow",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/f62bc21fcec63ffd5c5576c0a4a06c709fc5b2bb-3238x1821.png",
+                    "url": "https://higgsfield.ai/blog/kling-motion-control-3",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/blog/kling-motion-control-3"
+                    },
+                    "description": "On March 5, 2026, Kling upgraded their widely used motion transfer model, Kling Motion Control 2.6, and we are happy to announce it is available on Higgsfield with Day-0 access.",
+                    "author": {
+                        "@type": "Person",
+                        "name": "David Matamoros",
+                        "url": "https://higgsfield.ai/blog/author/David-Matamoros"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-03-05",
+                    "articleSection": "Editorials"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": "Soul Cinema Preview: Cinematic-Grade Visuals In One Click",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/489520776fab45c5c38f4f177ec8d6d9c2ce5178-3238x1821.png",
+                    "url": "https://higgsfield.ai/blog/soul-cinema-preview",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/blog/soul-cinema-preview"
+                    },
+                    "description": "Higgsfield Soul Cinema Preview is another of our proprietary in-house models built for the ultimate creative direction. It was designed in close collaboration with professionals from creative industries to deliver cinematic-grade visuals with strong character consistency (when used with Soul ID) and aesthetic precision.",
+                    "author": {
+                        "@type": "Person",
+                        "name": "David Matamoros",
+                        "url": "https://higgsfield.ai/blog/author/David-Matamoros"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-03-04",
+                    "articleSection": "Editorials"
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": "Higgsfield Audio: A New Feature That Speaks Volumes. The Ultimate AI Text-to-Speech, Voice Swap, and Video Translation Tool",
+                    "image": "https://cdn.sanity.io/images/s479xw3z/production/60dac72eac73f3a9ff9fb9e79e6f74f2656a0bb2-3238x1821.png",
+                    "url": "https://higgsfield.ai/blog/higgsfield-audio-ai-voice-tools",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://higgsfield.ai/blog/higgsfield-audio-ai-voice-tools"
+                    },
+                    "description": "Higgsfield Audio is a breakthrough release that turns Higgsfield into an all-in-one AI content production site. This article explains the new three functions of Higgsfield Audio: Voiceover, Change Voice, and Translate. Discover how this major release will change your entire GenAI workflow.",
+                    "author": {
+                        "@type": "Person",
+                        "name": "David Matamoros",
+                        "url": "https://higgsfield.ai/blog/author/David-Matamoros"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Higgsfield Inc",
+                        "url": "https://higgsfield.ai/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://higgsfield.ai/icon.png"
+                        }
+                    },
+                    "datePublished": "2026-03-02",
+                    "articleSection": "Editorials"
+                }
+            ]
+        },
+        "matches": [
+            {
+                "i": "__root__#",
+                "s": "success",
+                "l": {
+                    "clerkProxyUrl": "https://higgsfield.ai/_clerk",
+                    "initialEnterprise": false
+                }
+            },
+            {
+                "i": "#_creator-hub#blog#author#$authorId#blog#author#David-Matamoros",
+                "s": "success",
+                "l": {
+                    "screen": {
+                        "author": {
+                            "id": "43BEw8Gzktk7XfV1VO47yp",
+                            "slug": "David-Matamoros",
+                            "fullName": "David Matamoros",
+                            "position": "Author",
+                            "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+                            "photoUrl": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                        },
+                        "posts": [
+                            {
+                                "id": "5OOAnZl1k6Jfi11eO0bSCt",
+                                "title": "$350.000 AI Commercial - Full Prompts",
+                                "slug": "ai-commercial-youtube-guide",
+                                "category": {
+                                    "id": "3qG2rVaXlREV8zT2y6WJqG",
+                                    "slug": "guides",
+                                    "title": "Guides",
+                                    "description": "Deep dive into our How-to Guides to master ai generation workflows and advanced control features for creators"
+                                },
+                                "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/59d7c44c58c1349a8c4f503b5dd218524827390b-1472x828.png",
+                                "banner": {
+                                    "title": "$350.000 AI Commercial - Full Prompts",
+                                    "description": "In this tutorial, we'll walk through exactly how we made a 6-figure cinematic commercial AD for a perfume brand using AI — from building characters and locations to shooting every scene. For each step you'll find the prompt we used, what it does, and where to run it.",
+                                    "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/59d7c44c58c1349a8c4f503b5dd218524827390b-1472x828.png",
+                                    "link": "https://higgsfield.ai/blog/ai-commercial-youtube-guide"
+                                },
+                                "author": {
+                                    "id": "43BEw8Gzktk7XfV1VO47yp",
+                                    "slug": "David-Matamoros",
+                                    "fullName": "David Matamoros",
+                                    "position": "Author",
+                                    "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+                                    "photoUrl": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                                },
+                                "seoDescription": "A full AI video commercial tutorial built inside Higgsfield Cinema Studio 2.5, covering cinematic character design, location generation, spy action sequences, laser room effects, and a luxury perfume product reveal with all prompts included.",
+                                "publishDate": "March 27, 2026",
+                                "seoPublishDateISO": "2026-03-26T20:00:00.000Z",
+                                "dateModified": null,
+                                "readingTime": "14 minutes"
+                            },
+                            {
+                                "id": "6YU0M4mH0YS2ZxufoBmEGI",
+                                "title": "Higgsfield Chat: A Social Network for Collaborative AI Content Creation",
+                                "slug": "higgsfield-chat-social-network",
+                                "category": {
+                                    "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                    "slug": "editorials",
+                                    "title": "Editorials",
+                                    "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                },
+                                "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/8c16330456544a9de83f181bc617f0d800e462f4-1472x828.png",
+                                "banner": {
+                                    "title": "Higgsfield Chat: A Social Network for Collaborative AI Content Creation",
+                                    "description": "A new collaborative space is now live inside Higgsfield. Shared projects, real-time co-generation, built-in calls, a public community feed, and a karma system that turns engagement into credits. Here’s what’s inside.",
+                                    "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/8c16330456544a9de83f181bc617f0d800e462f4-1472x828.png",
+                                    "link": "https://higgsfield.ai/blog/higgsfield-chat-social-network"
+                                },
+                                "author": {
+                                    "id": "43BEw8Gzktk7XfV1VO47yp",
+                                    "slug": "David-Matamoros",
+                                    "fullName": "David Matamoros",
+                                    "position": "Author",
+                                    "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+                                    "photoUrl": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                                },
+                                "seoDescription": "Higgsfield Chat lets teams co-generate AI video and images in real time, with shared workspaces, live streaming, community publishing, and a karma-based credit system.",
+                                "publishDate": "March 24, 2026",
+                                "seoPublishDateISO": "2026-03-24T20:00:00.000Z",
+                                "dateModified": null,
+                                "readingTime": "12 minutes"
+                            },
+                            {
+                                "id": "6z7pNkuD1P1TSm7cCnZafG",
+                                "title": "Cinema Studio 2.5: The Viral AI Film Studio Just Leveled Up",
+                                "slug": "cinema-studio-2-5-ai-video-generator",
+                                "category": {
+                                    "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                    "slug": "editorials",
+                                    "title": "Editorials",
+                                    "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                },
+                                "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/3b7db6631e3a4d0ea06b56d033d4ff801fb12e9e-3238x1821.png",
+                                "banner": {
+                                    "title": "Cinema Studio 2.5: The Viral AI Film Studio Just Leveled Up",
+                                    "description": "Our space for professional AI video generation that is built for structured filmmaking, combining optical camera control, 3D scene access, multi-shot sequencing, genre logic, and character emotion control in one cinematic environment just got an update - it gives you the most sophisticated cinematic keyframes and is paired with Soul Cast now.",
+                                    "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/3b7db6631e3a4d0ea06b56d033d4ff801fb12e9e-3238x1821.png",
+                                    "link": "https://higgsfield.ai/blog/cinema-studio-2-5-ai-video-generator"
+                                },
+                                "author": {
+                                    "id": "43BEw8Gzktk7XfV1VO47yp",
+                                    "slug": "David-Matamoros",
+                                    "fullName": "David Matamoros",
+                                    "position": "Author",
+                                    "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+                                    "photoUrl": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                                },
+                                "seoDescription": "Cinema Studio 2.5 is Higgsfield's professional AI filmmaking studio and AI video generator - now with Soul Cast integration and a built-in color grading suite for a full production pipeline in one AI cinema studio.",
+                                "publishDate": "March 18, 2026",
+                                "seoPublishDateISO": "2026-03-18T18:00:00.000Z",
+                                "dateModified": null,
+                                "readingTime": "13 minutes"
+                            },
+                            {
+                                "id": "7GKdyO3317vs3e5MjvFd6b",
+                                "title": "Soul Cast: How To Make Your Next Award-Worthy AI Movie",
+                                "slug": "soul-cast-ai-filmmaking",
+                                "category": {
+                                    "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                    "slug": "editorials",
+                                    "title": "Editorials",
+                                    "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                },
+                                "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/980e65923fe60deee8016390f9157b167efe1f85-3238x1821.png",
+                                "banner": {
+                                    "title": "Soul Cast: How To Make Your Next Award-Worthy AI Movie",
+                                    "description": "Soul Cast gives you full control over your AI actors — from genre and era to physique, backstory, and personality. Build highly-calibrated characters that stay consistent across every scene in Cinema Studio 2.0.",
+                                    "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/980e65923fe60deee8016390f9157b167efe1f85-3238x1821.png",
+                                    "link": "https://higgsfield.ai/blog/soul-cast-ai-filmmaking"
+                                },
+                                "author": {
+                                    "id": "43BEw8Gzktk7XfV1VO47yp",
+                                    "slug": "David-Matamoros",
+                                    "fullName": "David Matamoros",
+                                    "position": "Author",
+                                    "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+                                    "photoUrl": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                                },
+                                "seoDescription": "Create fully customizable AI actors with Higgsfield Soul Cast. Define genre, era, archetype, physical appearance, and personality to generate consistent, cinematic characters for your AI films in Cinema Studio 2.0.",
+                                "publishDate": "March 10, 2026",
+                                "seoPublishDateISO": "2026-03-09T19:00:00.000Z",
+                                "dateModified": null,
+                                "readingTime": "10 minutes"
+                            },
+                            {
+                                "id": "5MozaY1LZhagYYRi9tKBj4",
+                                "title": "Why You Need Kling Motion Control 3.0 In Your Workflow",
+                                "slug": "kling-motion-control-3",
+                                "category": {
+                                    "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                    "slug": "editorials",
+                                    "title": "Editorials",
+                                    "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                },
+                                "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/f62bc21fcec63ffd5c5576c0a4a06c709fc5b2bb-3238x1821.png",
+                                "banner": {
+                                    "title": "Why You Need Kling Motion Control 3.0 In Your Workflow",
+                                    "description": "On March 5, 2026, Kling upgraded their widely used motion transfer model, Kling Motion Control 2.6, and we are happy to announce it is available on Higgsfield with Day-0 access.",
+                                    "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/f62bc21fcec63ffd5c5576c0a4a06c709fc5b2bb-3238x1821.png",
+                                    "link": "https://higgsfield.ai/blog/kling-motion-control-3"
+                                },
+                                "author": {
+                                    "id": "43BEw8Gzktk7XfV1VO47yp",
+                                    "slug": "David-Matamoros",
+                                    "fullName": "David Matamoros",
+                                    "position": "Author",
+                                    "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+                                    "photoUrl": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                                },
+                                "seoDescription": "Kling Motion Control 3.0 is now available on Higgsfield. Learn how this AI motion transfer tool works, how to use it, and what you can create with it.",
+                                "publishDate": "March 6, 2026",
+                                "seoPublishDateISO": "2026-03-05T19:00:00.000Z",
+                                "dateModified": null,
+                                "readingTime": "8 minutes"
+                            },
+                            {
+                                "id": "3dZbt1U19iCS07PDjiACwG",
+                                "title": "Soul Cinema Preview: Cinematic-Grade Visuals In One Click",
+                                "slug": "soul-cinema-preview",
+                                "category": {
+                                    "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                    "slug": "editorials",
+                                    "title": "Editorials",
+                                    "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                },
+                                "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/489520776fab45c5c38f4f177ec8d6d9c2ce5178-3238x1821.png",
+                                "banner": {
+                                    "title": "Soul Cinema Preview: Cinematic-Grade Visuals In One Click\n",
+                                    "description": "Higgsfield Soul Cinema Preview is another of our proprietary in-house models built for the ultimate creative direction. It was designed in close collaboration with professionals from creative industries to deliver cinematic-grade visuals with strong character consistency (when used with Soul ID) and aesthetic precision.",
+                                    "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/489520776fab45c5c38f4f177ec8d6d9c2ce5178-3238x1821.png",
+                                    "link": "https://higgsfield.ai/blog/soul-cinema-preview"
+                                },
+                                "author": {
+                                    "id": "43BEw8Gzktk7XfV1VO47yp",
+                                    "slug": "David-Matamoros",
+                                    "fullName": "David Matamoros",
+                                    "position": "Author",
+                                    "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+                                    "photoUrl": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                                },
+                                "seoDescription": "Soul Cinema Preview is Higgsfield's new AI photo model built for cinematic-grade image generation. Pair it with Soul ID and Soul HEX for full creative control. Try it now.",
+                                "publishDate": "March 5, 2026",
+                                "seoPublishDateISO": "2026-03-04T19:00:00.000Z",
+                                "dateModified": null,
+                                "readingTime": "7 minutes"
+                            },
+                            {
+                                "id": "4I7FDCJijuajnmxjivrjil",
+                                "title": "Higgsfield Audio: A New Feature That Speaks Volumes. The Ultimate AI Text-to-Speech, Voice Swap, and Video Translation Tool",
+                                "slug": "higgsfield-audio-ai-voice-tools",
+                                "category": {
+                                    "id": "ecqzDOP6mOWRpt1AGe6vw",
+                                    "slug": "editorials",
+                                    "title": "Editorials",
+                                    "description": "Trends, opinion, and model breakdowns. Where creative AI is going and what new releases actually mean, minus the step-by-step."
+                                },
+                                "cardUrl": "https://cdn.sanity.io/images/s479xw3z/production/60dac72eac73f3a9ff9fb9e79e6f74f2656a0bb2-3238x1821.png",
+                                "banner": {
+                                    "title": "Higgsfield Audio: A New Feature That Speaks Volumes. The Ultimate AI Text-to-Speech, Voice Swap, and Video Translation Tool.",
+                                    "description": "Higgsfield Audio is a breakthrough release that turns Higgsfield into an all-in-one AI content production site. This article explains the new three functions of Higgsfield Audio: Voiceover, Change Voice, and Translate. Discover how this major release will change your entire GenAI workflow.",
+                                    "bannerImage": "https://cdn.sanity.io/images/s479xw3z/production/60dac72eac73f3a9ff9fb9e79e6f74f2656a0bb2-3238x1821.png",
+                                    "link": "https://higgsfield.ai/blog/higgsfield-audio-ai-voice-tools"
+                                },
+                                "author": {
+                                    "id": "43BEw8Gzktk7XfV1VO47yp",
+                                    "slug": "David-Matamoros",
+                                    "fullName": "David Matamoros",
+                                    "position": "Author",
+                                    "description": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby.",
+                                    "photoUrl": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                                },
+                                "seoDescription": "Discover Higgsfield Audio, the ultimate AI audio tool for creators. Explore text-to-speech, voice swapping, and seamless AI video translation with lip-sync.",
+                                "publishDate": "March 3, 2026",
+                                "seoPublishDateISO": "2026-03-02T19:00:00.000Z",
+                                "dateModified": null,
+                                "readingTime": "12 minutes"
+                            }
+                        ]
+                    },
+                    "head": {
+                        "meta": [
+                            {
+                                "title": "David Matamoros — author at the Higgsfield blog"
+                            },
+                            {
+                                "name": "description",
+                                "content": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby."
+                            },
+                            {
+                                "property": "og:title",
+                                "content": "David Matamoros — author at the Higgsfield blog"
+                            },
+                            {
+                                "property": "og:description",
+                                "content": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby."
+                            },
+                            {
+                                "property": "og:site_name",
+                                "content": "Higgsfield"
+                            },
+                            {
+                                "property": "og:type",
+                                "content": "profile"
+                            },
+                            {
+                                "property": "og:url",
+                                "content": "https://higgsfield.ai/blog/author/David-Matamoros"
+                            },
+                            {
+                                "property": "og:image",
+                                "content": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                            },
+                            {
+                                "name": "twitter:card",
+                                "content": "summary_large_image"
+                            },
+                            {
+                                "name": "twitter:site",
+                                "content": "@higgsfield_ai"
+                            },
+                            {
+                                "name": "twitter:title",
+                                "content": "David Matamoros — author at the Higgsfield blog"
+                            },
+                            {
+                                "name": "twitter:description",
+                                "content": "Biology student turned AI enthusiast. Writing GenAI articles is my hobby."
+                            },
+                            {
+                                "name": "twitter:image",
+                                "content": "https://cdn.sanity.io/images/s479xw3z/production/7435bef053af2a1bf1b5080dbb24635708c82334-1142x1714.png"
+                            }
+                        ],
+                        "links": [
+                            {
+                                "rel": "canonical",
+                                "href": "https://higgsfield.ai/blog/author/David-Matamoros"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

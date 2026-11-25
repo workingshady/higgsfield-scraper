@@ -1,0 +1,65 @@
+{
+    "meta": {
+        "endpoint": "catalog_avatar_presets",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/avatar-presets?size=100",
+        "params": {
+            "size": "100"
+        },
+        "fetched_at": "2026-11-25T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "PZtp2IxeVhglqmfKToaUv",
+                "name": "Static",
+                "media": {
+                    "width": 500,
+                    "height": 870,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/c91d7c5c-51c2-4c10-ab6d-4f626b2c1935.mp4",
+                    "placeholder": "data:image/webp;base64,UklGRvQEAABXRUJQVlA4IOgEAABQLQCdASp4A...",
+                    "thumbnail_url": "https://d1xarpci4ikg0w.cloudfront.net/29db3dce-07be-4d6c-848c-bf689878720f.webp",
+                    "type": "video"
+                },
+                "params": {
+                    "quality": "low",
+                    "chunks_count": 3
+                }
+            },
+            {
+                "id": "7f1xkmlzvtCNncSqUYMTbU",
+                "name": "Selfie",
+                "media": {
+                    "width": 500,
+                    "height": 870,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/876787b1-d93f-4c38-8ec6-16ff2cf7b518.mp4",
+                    "placeholder": "data:image/webp;base64,UklGRgwFAABXRUJQVlA4IAAFAADwMgCdASp4A...",
+                    "thumbnail_url": "https://d1xarpci4ikg0w.cloudfront.net/b20520c1-6f34-4a2b-951e-29a23d179a0f.webp",
+                    "type": "video"
+                },
+                "params": {
+                    "quality": "low",
+                    "chunks_count": 3
+                }
+            },
+            {
+                "id": "3ngVA6meycZppFOaSZoMrF",
+                "name": "General ",
+                "media": {
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/5317fb64-f60b-43b0-8c5a-3b95ade5f500.mp4",
+                    "type": "video",
+                    "width": 500,
+                    "height": 870,
+                    "placeholder": "data:image/webp;base64,UklGRgYGAABXRUJQVlA4IPoFAADwMACdASp4A...",
+                    "thumbnail_url": "https://d1xarpci4ikg0w.cloudfront.net/bb0f5fb0-0c1f-483d-bc9e-0e14e79e184e.webp"
+                },
+                "params": {
+                    "quality": "mid",
+                    "chunks_count": 3
+                }
+            }
+        ],
+        "total": 21,
+        "cursor": null
+    }
+}

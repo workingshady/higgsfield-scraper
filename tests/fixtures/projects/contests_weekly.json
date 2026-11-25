@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "endpoint": "projects_contests",
+    "url": "https://fnf-api-gw.higgsfield.ai/fnf/contests?contest_type=weekly&size=100",
+    "params": {
+      "contest_type": "weekly",
+      "size": "100"
+    },
+    "fetched_at": "2026-11-25T12:00:00+00:00",
+    "status": 200
+  },
+  "body": {
+    "items": [
+      {
+        "contest_type": "weekly",
+        "submissions_close_at": "2026-11-24T17:00:00Z",
+        "id": "ffd7dd83-2978-449d-8be2-1619432165c7",
+        "slug": "wcc-the-escape",
+        "title": "WCC#5: The Escape",
+        "description": "Create a 120-second animated escape: one character, five different worlds, one unbroken run.",
+        "start_at": "2026-11-18T17:00:00Z",
+        "end_at": "2026-11-25T17:00:00Z",
+        "status": "judge",
+        "preview_image": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/5adfd4e3-0a83-4531-8ef0-3e9b7dd83cff.png",
+        "preview_video": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/e515cc57-9734-426d-99b0-bfa365cc90dd.mp4",
+        "logo_url": null,
+        "redirect_url": null,
+        "prize_pool": 100000,
+        "submissions_count": 137,
+        "entries_count": 453,
+        "winner": null,
+        "some_contestants": [
+          {
+            "id": "user_fake0014xxxxxxxxxxxxxxxx",
+            "username": "creator13",
+            "avatar_url": "https://cdn.example.test/avatar.webp"
+          },
+          {
+            "id": "user_fake0015xxxxxxxxxxxxxxxx",
+            "username": "creator14",
+            "avatar_url": "https://cdn.example.test/avatar.webp"
+          }
+        ],
+        "judges": [],
+        "is_trending": false
+      },
+      {
+        "contest_type": "weekly",
+        "submissions_close_at": "2026-11-17T17:00:00Z",
+        "id": "64d7317b-ed8b-4a55-bec9-4f3708a12e3b",
+        "slug": "wcc-without-a-word",
+        "title": "WCC#4: Without a Word",
+        "description": "Create a 120-second animated film that tells a whole story without a single word.",
+        "start_at": "2026-11-11T17:00:00Z",
+        "end_at": "2026-11-18T17:00:00Z",
+        "status": "finished",
+        "preview_image": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/76541cf5-f61b-4d9f-a7e3-0cdc496dfd2f.jpg",
+        "preview_video": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/0d1246b6-b4ba-4a8a-afa4-330dd073374d.mp4",
+        "logo_url": null,
+        "redirect_url": null,
+        "prize_pool": 100000,
+        "submissions_count": 123,
+        "entries_count": 280,
+        "winner": {
+          "id": "user_fake0016xxxxxxxxxxxxxxxx",
+          "username": "creator15",
+          "avatar_url": "https://cdn.example.test/avatar.webp"
+        },
+        "some_contestants": [
+          {
+            "id": "user_fake0012xxxxxxxxxxxxxxxx",
+            "username": "creator16",
+            "avatar_url": "https://cdn.example.test/avatar.webp"
+          },
+          {
+            "id": "user_fake0013xxxxxxxxxxxxxxxx",
+            "username": "creator17",
+            "avatar_url": "https://cdn.example.test/avatar.webp"
+          }
+        ],
+        "judges": [],
+        "is_trending": false
+      }
+    ],
+    "has_more": false,
+    "cursor": null
+  }
+}
