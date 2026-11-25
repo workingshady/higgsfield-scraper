@@ -1,0 +1,315 @@
+{
+ "meta": {
+  "endpoint": "app_page",
+  "url": "https://higgsfield.ai/apps/face-swap",
+  "params": {
+   "path": "/apps/face-swap"
+  },
+  "fetched_at": "2026-11-25T16:04:49.247042+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/apps/face-swap",
+  "page_type": "app",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "Free AI Face Swap for Photos and Videos | Higgsfield",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/apps/face-swap",
+   "description": "Swap faces in photos and videos with Higgsfield’s free AI face swap. Try new looks, explore characters, and create online in a few clicks.",
+   "keywords": "ai face swap, face swap, face swap ai, free face swap, online face swap, realistic face swap, photo face swap, video face swap, ai face generator, swap faces online, how to create face swap, how to do ai swap",
+   "og_title": "Free AI Face Swap for Photos and Videos | Higgsfield",
+   "og_description": "Swap faces in photos and videos with Higgsfield’s free AI face swap. Try new looks, explore characters, and create online in a few clicks.",
+   "og_image": "https://static.higgsfield.ai/keyframes-faceswap-preview.jpg",
+   "og_type": "website",
+   "robots": null,
+   "ld_json": [
+    {
+     "@context": "https://schema.org",
+     "@type": "WebPage",
+     "url": "https://higgsfield.ai/apps/face-swap",
+     "name": "Face Swap | Higgsfield",
+     "description": "Seamlessly integrate new faces into any image. Higgsfield’s face swap is the definitive tool for marketers, artists and content creators.",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     }
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "Home",
+       "item": {
+        "@id": "https://higgsfield.ai/"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Apps",
+       "item": {
+        "@id": "https://higgsfield.ai/apps"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 3,
+       "name": "Face Swap",
+       "item": {
+        "@id": "https://higgsfield.ai/apps/face-swap"
+       }
+      }
+     ]
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "SoftwareApplication",
+     "name": "Face Swap — Higgsfield",
+     "description": "Seamlessly integrate new faces into any image. Higgsfield’s face swap is the definitive tool for marketers, artists and content creators.",
+     "url": "https://higgsfield.ai/apps/face-swap",
+     "applicationCategory": "MultimediaApplication",
+     "operatingSystem": "Web",
+     "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+     },
+     "publisher": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     }
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "FAQPage",
+     "mainEntity": [
+      {
+       "@type": "Question",
+       "name": "What is Face Swap?",
+       "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seamlessly integrate new faces into any image. Higgsfield’s face swap is the definitive tool for marketers, artists and content creators."
+       }
+      },
+      {
+       "@type": "Question",
+       "name": "Is Face Swap free to use?",
+       "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can start using it for free. Paid plans unlock unlimited generations, higher resolution output, and team collaboration features."
+       }
+      },
+      {
+       "@type": "Question",
+       "name": "What devices and browsers are supported?",
+       "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Higgsfield works in any modern web browser on desktop and mobile — no downloads or plugins required."
+       }
+      },
+      {
+       "@type": "Question",
+       "name": "Can I use the results for commercial purposes?",
+       "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All paid plans include commercial usage rights, so you can use generated content for marketing, advertising, social media, or any other business-related purpose."
+       }
+      },
+      {
+       "@type": "Question",
+       "name": "How long does generation take?",
+       "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generation typically takes 30 seconds to 2 minutes depending on your subscription plan and current server load."
+       }
+      }
+     ]
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "VideoObject",
+     "name": "Video Face Swap Demo 2",
+     "description": "AI-generated demo showcasing Video Face Swap feature 2.",
+     "url": "https://higgsfield.ai/",
+     "thumbnailUrl": [
+      "https://static.higgsfield.ai/videofaceswap/showcase-2-v2-thumbnail.webp"
+     ],
+     "uploadDate": "2025-09-26T00:00:00Z",
+     "duration": "PT4S",
+     "contentUrl": "https://static.higgsfield.ai/videofaceswap/showcase-2-v2.mp4",
+     "isFamilyFriendly": true,
+     "encodingFormat": "video/mp4",
+     "keywords": [
+      "AI video generator",
+      "AI art generator",
+      "AI video tool",
+      "AI art tool",
+      "creative AI tools",
+      "AI video creation",
+      "cinematic AI videos",
+      "Wan 2.5",
+      "Wan Video"
+     ],
+     "author": {
+      "@type": "Organization",
+      "name": "Higgsfield Inc."
+     }
+    }
+   ]
+  },
+  "matches": [
+   {
+    "i": "#_private#apps#$slug#apps#face-swap",
+    "l": {
+     "kind": "app",
+     "appPreset": {
+      "id": "c2eca547-d63c-4c30-aa14-dd431d2b1e09",
+      "title": "Instant Face Swap\r\nIn a Single Click",
+      "name": "Face Swap",
+      "description": "Seamlessly integrate new faces into any image. Higgsfield’s face swap is the definitive tool for marketers, artists and content creators.",
+      "shortDescription": "Seamlessly integrate new faces into any image. Higgsfield’s face swap is the definitive tool for marketers, artists and content creators.",
+      "media": {
+       "type": "video",
+       "source": "https://cdn.higgsfield.ai/application_detail/ec2e960e-fe15-451b-a38a-4ab170f806f2.mp4",
+       "width": 1200,
+       "height": 800,
+       "thumbnail": "https://cdn.higgsfield.ai/application_detail/692416c9-3ef7-48a8-930c-d7867db54cb3.webp"
+      },
+      "type": null,
+      "isOnlyVideoAllowed": false,
+      "inputMedia": {
+       "type": "static",
+       "source": "https://cdn.higgsfield.ai/card/42226c4a-5cae-449b-867f-0680147d00a4.webp",
+       "width": 1080,
+       "height": 1093,
+       "thumbnail": null,
+       "placeholder": null
+      },
+      "slug": "face-swap",
+      "imageTemplate": {
+       "slug": "face-swap",
+       "inputs": [
+        {
+         "id": "019a3125-39d6-729e-bdb2-f0e96dbbc1b0",
+         "type": "image",
+         "properties": {
+          "hint": "Photo with face to replace.",
+          "headline": "Original Photo"
+         },
+         "coordinates": null
+        },
+        {
+         "id": "019a3125-486b-717a-bb16-8fd2d8a4c0bb",
+         "type": "image",
+         "properties": {
+          "hint": "Add the face you want to insert.",
+          "headline": "New Face"
+         },
+         "coordinates": null
+        }
+       ],
+       "cost": 2
+      },
+      "videoTemplate": null,
+      "animateTemplate": null,
+      "author": {
+       "name": "",
+       "media": null
+      },
+      "mediaDescription": "",
+      "landingHowToTitle": "",
+      "landingHowTo": [],
+      "landingShowcase": [],
+      "landingInfoTitle": "",
+      "landingInfoDescription": "",
+      "landingInfoItems": [],
+      "landingFaqs": [],
+      "landingCtaTitle": "",
+      "landingCtaDescription": ""
+     },
+     "secondaryAppPreset": {
+      "id": "b47b75c9-ac53-4a97-986a-d85ce3a801e5",
+      "title": "Instant Face Swap\r\nIn a Single Click",
+      "name": "Video Face Swap",
+      "description": "Instantly swap faces in your footage. A powerful tool designed for video editors, social media managers, and digital artists.",
+      "shortDescription": "Seamlessly integrate new faces into any image. Higgsfield’s face swap is the definitive tool for marketers, artists and content creators.",
+      "media": {
+       "type": "video",
+       "source": "https://cdn.higgsfield.ai/application_main/74bacb16-640c-4917-a795-6d23dee78c7b.mp4",
+       "width": 600,
+       "height": 386,
+       "thumbnail": "https://cdn.higgsfield.ai/application_main/93061c78-4d36-4346-a244-14129833fe28.webp"
+      },
+      "type": null,
+      "isOnlyVideoAllowed": false,
+      "inputMedia": {
+       "type": "static",
+       "source": "https://cdn.higgsfield.ai/card/75469997-be40-4ab6-b38d-fc325fd2b336.webp",
+       "width": 1080,
+       "height": 1480,
+       "thumbnail": null,
+       "placeholder": null
+      },
+      "slug": "video-face-swap",
+      "imageTemplate": null,
+      "videoTemplate": {
+       "slug": "video-face-swap",
+       "inputs": [],
+       "cost": 25
+      },
+      "animateTemplate": null,
+      "author": {
+       "name": "",
+       "media": null
+      },
+      "mediaDescription": "Instantly swap faces in your footage. A powerful tool designed for video editors, social media managers, and digital artists.",
+      "landingHowToTitle": "",
+      "landingHowTo": [],
+      "landingShowcase": [],
+      "landingInfoTitle": "",
+      "landingInfoDescription": "",
+      "landingInfoItems": [],
+      "landingFaqs": [],
+      "landingCtaTitle": "",
+      "landingCtaDescription": ""
+     },
+     "slugType": "face-swap"
+    }
+   }
+  ]
+ }
+}

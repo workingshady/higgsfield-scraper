@@ -1,0 +1,178 @@
+{
+ "meta": {
+  "endpoint": "originals_sitemap",
+  "url": "https://higgsfield.ai/original-series/sitemap.xml",
+  "params": {},
+  "fetched_at": "2026-11-25T16:00:31.119361+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "sitemap",
+  "urls": [
+   {
+    "loc": "https://higgsfield.ai/original-series",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/cully-hill-boys/full-film",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/behind-the-scenes-of-mork-the-tale-of-kael/episode-0",
+    "lastmod": "2026-11-25T15:22:05.410464+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/hell-grind/episode-1",
+    "lastmod": "2026-11-25T15:18:05.090152+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1",
+    "lastmod": "2026-11-25T15:22:05.462259+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/bucket-list/episode-1",
+    "lastmod": "2026-11-25T15:24:05.070343+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/buddy/episode-1",
+    "lastmod": "2026-11-25T15:22:05.446648+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/dinoforce/episode-1",
+    "lastmod": "2026-11-25T15:18:05.080947+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/vermin-control-unit/episode-1",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/spit-and-glow/episode-1",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/arena-zero-music-video/episode-1",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/kok-boru/full-film",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/tails-of-steel/episode-1",
+    "lastmod": "2026-11-25T15:20:04.903376+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/the-trigger/full-film",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/passport-rush/full-film",
+    "lastmod": "2026-11-25T15:24:05.086004+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/viking-courier/episode-1",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/frozen-monster/episode-1",
+    "lastmod": "2026-11-25T15:20:06.046939+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/zephyr-special/full-film",
+    "lastmod": "2026-11-25T15:24:04.999913+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/mother-trucker/episode-1",
+    "lastmod": "2026-11-25T15:20:04.915746+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/if-you-stop-loving-me-ill-die/full-film",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/huntress-tale/episode-1",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/misfortune/episode-1",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/peter-pan/episode-1",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/red-flag/full-film",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/anerneq/full-film",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/adiliada/full-film",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/arena-zero/episode-1",
+    "lastmod": "2026-11-25T15:24:04.973493+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/arena-zero/episode-2",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/arena-zero/episode-3",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/arena-zero/episode-4",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/arena-zero/episode-5",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/mork/episode-1",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/mork/episode-2",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/mork/episode-3",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/mork/episode-4",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/mork/episode-5",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/zephyr/episode-1",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/zephyr/episode-2",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/zephyr/episode-3",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/zephyr/episode-4",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/original-series/zephyr/episode-5",
+    "lastmod": "2026-11-25T15:15:04.974964+00:00"
+   }
+  ]
+ }
+}

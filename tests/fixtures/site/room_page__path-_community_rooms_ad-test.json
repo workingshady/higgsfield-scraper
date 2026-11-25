@@ -1,0 +1,91 @@
+{
+ "meta": {
+  "endpoint": "room_page",
+  "url": "https://higgsfield.ai/community/rooms/ad-test",
+  "params": {
+   "path": "/community/rooms/ad-test"
+  },
+  "fetched_at": "2026-11-25T16:06:03.231123+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/community/rooms/ad-test",
+  "page_type": "room",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "AD Test — Rooms • Higgsfield",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/community/rooms/ad-test",
+   "description": "Explore projects, shots, and blogs in AD Test on Higgsfield.",
+   "keywords": null,
+   "og_title": "AD Test — Rooms • Higgsfield",
+   "og_description": "Explore projects, shots, and blogs in AD Test on Higgsfield.",
+   "og_image": "https://static.higgsfield.ai/public/thumbnail/default.jpg",
+   "og_type": "website",
+   "robots": "index, follow",
+   "ld_json": [
+    {
+     "@context": "https://schema.org",
+     "@type": "CollectionPage",
+     "url": "https://higgsfield.ai/community/rooms/ad-test",
+     "name": "AD Test",
+     "description": "",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     },
+     "@id": "https://higgsfield.ai/community/rooms/ad-test#webpage",
+     "isPartOf": {
+      "@id": "https://higgsfield.ai/community/rooms#webpage"
+     }
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "Community",
+       "item": {
+        "@id": "https://higgsfield.ai/community"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Rooms",
+       "item": {
+        "@id": "https://higgsfield.ai/community/rooms"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 3,
+       "name": "AD Test",
+       "item": {
+        "@id": "https://higgsfield.ai/community/rooms/ad-test"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "matches": []
+ }
+}

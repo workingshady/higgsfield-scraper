@@ -36,6 +36,9 @@ from scrapy.downloadermiddlewares.retry import RetryMiddleware
 from scrapy.exceptions import NotConfigured
 
 from .core.redact import SECRET_PARAMS, is_secret_key, redact_text
+
+PRIVACY_WITHHELD = (b"[body withheld: non-JSON response of a scraper that handles personal data; "
+                    b"re-run with --with-profiles to archive it byte-exact]\n")
 from .run.logging_setup import emit
 
 log = logging.getLogger(__name__)
@@ -187,7 +190,11 @@ class HttpArchiveMiddleware:
             from .core.privacy import profiles_opt_in, redact_json_bytes
             from .pipelines import scraper_of
             if sp is not None and scraper_of(sp).personal_data and not profiles_opt_in(getattr(sp, "selection", None)):
-                return redact_json_bytes(body)
+                out = redact_json_bytes(body)
+                if out is body and body:
+                    # Not JSON (e.g. an HTML page): it can't be redacted field by field, so it is not archived.
+                    return PRIVACY_WITHHELD
+                return out
         except Exception:
             pass
         return body

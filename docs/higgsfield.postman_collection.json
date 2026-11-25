@@ -62,6 +62,26 @@
             "value": ""
         },
         {
+            "key": "course",
+            "value": ""
+        },
+        {
+            "key": "lesson",
+            "value": ""
+        },
+        {
+            "key": "series",
+            "value": ""
+        },
+        {
+            "key": "episode",
+            "value": ""
+        },
+        {
+            "key": "preset_id",
+            "value": ""
+        },
+        {
             "key": "token",
             "value": ""
         },
@@ -3856,6 +3876,935 @@
                                     "type": "string"
                                 }
                             ]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "site",
+            "description": "Public site pages not covered elsewhere: apps, academy, MCP skills, original series, mixed-media presets, landing pages (SSR HTML; data embedded as $_TSR loader state, landings = <main> + JSON-LD) and three small promo APIs. docs/scrapers/site.md.",
+            "item": [
+                {
+                    "name": "Apps index (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/apps",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "apps"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "App page (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/apps/{{slug}}",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "apps",
+                                "{{slug}}"
+                            ],
+                            "query": []
+                        },
+                        "description": "appPreset with templates and credit cost.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Apps sitemap",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/apps/sitemap.xml",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "apps",
+                                "sitemap.xml"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Academy courses (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/academy/courses",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "academy",
+                                "courses"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Course page (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/academy/courses/{{course}}",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "academy",
+                                "courses",
+                                "{{course}}"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Lesson page (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/academy/courses/{{course}}/{{lesson}}",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "academy",
+                                "courses",
+                                "{{course}}",
+                                "{{lesson}}"
+                            ],
+                            "query": []
+                        },
+                        "description": "lesson + mdxTree (HAST) body.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Academy sitemap",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/academy/sitemap.xml",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "academy",
+                                "sitemap.xml"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "MCP skills index (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/mcp",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "mcp"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "MCP skill (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/mcp/{{slug}}",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "mcp",
+                                "{{slug}}"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "MCP bundle (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/mcp/bundles/{{slug}}",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "mcp",
+                                "bundles",
+                                "{{slug}}"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Original series index (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/original-series",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "original-series"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Original series episode (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/original-series/{{series}}/{{episode}}",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "original-series",
+                                "{{series}}",
+                                "{{episode}}"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Original series sitemap",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/original-series/sitemap.xml",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "original-series",
+                                "sitemap.xml"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Mixed-media preset (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/mixed-media-presets/preset/{{preset_id}}",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "mixed-media-presets",
+                                "preset",
+                                "{{preset_id}}"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Mixed-media sitemap",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/mixed-media-presets/sitemap.xml",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "mixed-media-presets",
+                                "sitemap.xml"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Marketing sitemap (landings, plugins, MCP, rooms)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/sitemap-marketing.xml",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "sitemap-marketing.xml"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Landing page (SSR HTML)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{site_base}}/ai-image",
+                            "host": [
+                                "{{site_base}}"
+                            ],
+                            "path": [
+                                "ai-image"
+                            ],
+                            "query": []
+                        },
+                        "description": "<main> + JSON-LD (FAQPage, HowTo, SoftwareApplication).",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Promo schedule",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/datetime-settings",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "datetime-settings"
+                            ],
+                            "query": []
+                        },
+                        "description": "Sale / free-gens / release windows.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Business unlimited offers",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/business-unlim/state",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "business-unlim",
+                                "state"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Game gift networks",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{api_base}}/game-gift/networks",
+                            "host": [
+                                "{{api_base}}"
+                            ],
+                            "path": [
+                                "game-gift",
+                                "networks"
+                            ],
+                            "query": []
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
                         }
                     },
                     "event": [

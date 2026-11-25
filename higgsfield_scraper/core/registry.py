@@ -17,6 +17,7 @@ SCRAPER_MODULES: dict[str, str] = {
     "catalog": "higgsfield_scraper.scrapers.catalog",
     "projects": "higgsfield_scraper.scrapers.projects",
     "blog": "higgsfield_scraper.scrapers.blog",
+    "site": "higgsfield_scraper.scrapers.site",
 }
 DEFAULT_SCRAPER = "pricing"
 

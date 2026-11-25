@@ -1,0 +1,406 @@
+{
+ "meta": {
+  "endpoint": "apps_sitemap",
+  "url": "https://higgsfield.ai/apps/sitemap.xml",
+  "params": {},
+  "fetched_at": "2026-11-25T16:00:29.414445+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "sitemap",
+  "urls": [
+   {
+    "loc": "https://higgsfield.ai/apps/angles",
+    "lastmod": "2026-01-27T18:52:41.677033+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/whats-next",
+    "lastmod": "2026-01-09T23:28:27.875810+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/ai-stylist",
+    "lastmod": "2025-12-13T14:12:48.926918+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/relight",
+    "lastmod": "2025-12-16T15:34:47.438591+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/shots",
+    "lastmod": "2026-01-26T21:58:24.387431+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/zooms",
+    "lastmod": "2026-01-26T21:58:48.065691+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/skin-enhancer",
+    "lastmod": "2025-12-09T19:13:39.810717+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/clipcut",
+    "lastmod": "2025-12-05T18:40:01.587033+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/behind-the-scenes",
+    "lastmod": "2025-11-28T23:57:36.909835+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/urban-cuts",
+    "lastmod": "2025-11-27T22:58:53.426875+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/sticker-matchcut",
+    "lastmod": "2025-11-26T16:19:12.902482+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/outfit-swap",
+    "lastmod": "2025-11-26T20:59:36.733986+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/game-dump",
+    "lastmod": "2025-11-26T15:05:54.789790+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/style-snap",
+    "lastmod": "2025-11-24T17:15:19.898638+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/paint-app",
+    "lastmod": "2025-11-24T21:27:06.517717+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/nano-strike",
+    "lastmod": "2025-11-27T15:23:45.486136+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/nano-theft",
+    "lastmod": "2025-11-27T15:14:00.732514+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/breakdown",
+    "lastmod": "2025-11-29T00:20:27.957460+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/simlife",
+    "lastmod": "2025-11-27T14:55:19.347135+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/japanese-show",
+    "lastmod": "2025-11-26T22:54:41.638541+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/vending-machine",
+    "lastmod": "2025-11-26T00:32:42.595752+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/signboard",
+    "lastmod": "2025-11-26T18:46:41.576676+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/glitter-sticker",
+    "lastmod": "2025-11-24T19:46:34.599614+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/plushies",
+    "lastmod": "2025-11-17T16:29:15.031874+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/surrounded-by-animals",
+    "lastmod": "2025-11-13T23:33:19.194871+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/transitions",
+    "lastmod": "2025-11-11T19:05:12.536693+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/recast",
+    "lastmod": "2025-11-06T16:53:55.959685+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/character-swap",
+    "lastmod": "2025-12-13T18:37:59.336165+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/face-swap",
+    "lastmod": "2026-05-18T13:46:43.884525+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/commercial-faces",
+    "lastmod": "2025-10-31T21:07:06.182323+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/asmr-add-on",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/asmr-classic",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/poster",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/3d-render",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/bullet-time-scene",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/chameleon",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/asmr-host",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/3d-figure",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/asmr-promo",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/packshot",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/macroshot-scene",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/magic-button",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/truck-ad",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/giant-product",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/outfit-shot",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/yes-kiss",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/bullet-time-white",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/kick-ad",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/billboard",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/graffiti-ad",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/bullet-time-splash",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/fridge-ad",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/volcano-ad",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/macroshot-product",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/latex",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/pixel-game",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/gtai",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/j-magazine",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/roller-coaster",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/brick-cube",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/60s-cafe",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/victory-card",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/sand-worm",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/skibidi",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/j-poster",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/mascot",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/storm-creature",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/3d-rotation",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/burning-sunset",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/sketch-to-real",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/this-is-fine",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/comic-book",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/cloud-surf",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/mukbang",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/melting-doodle",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/giallo-horror",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/renaissance",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/rapgod",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/mugshot",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/ghoulgao",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/social-media-icon",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/idol",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/banana-eating",
+    "lastmod": "2025-09-18T14:48:17.626315+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/meme-generator",
+    "lastmod": "2026-03-11T02:13:48.666869+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/ai-headshot-generator",
+    "lastmod": "2026-03-13T19:41:35.889086+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/expand-image",
+    "lastmod": "2026-03-21T00:41:42.241548+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/video-background-remover",
+    "lastmod": "2026-03-19T23:47:24.716171+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/image-background-remover",
+    "lastmod": "2026-03-19T19:08:38.448449+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/color-grading",
+    "lastmod": "2026-03-21T20:08:53.524541+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/virality-predictor",
+    "lastmod": "2026-05-09T23:45:39.997590+00:00"
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/camera-motion",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/enhance-style",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/face-identity",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/video-editing",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/ads-products",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/games-characters",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/extras",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/apps/trending-templates",
+    "lastmod": null
+   }
+  ]
+ }
+}

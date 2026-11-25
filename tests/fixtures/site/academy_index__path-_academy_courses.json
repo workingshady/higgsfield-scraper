@@ -1,0 +1,1459 @@
+{
+ "meta": {
+  "endpoint": "academy_index",
+  "url": "https://higgsfield.ai/academy/courses",
+  "params": {
+   "path": "/academy/courses"
+  },
+  "fetched_at": "2026-11-25T16:00:25.713498+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/academy/courses",
+  "page_type": "academy_index",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "Courses | Academy | Higgsfield",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/academy/courses",
+   "description": "Turn ideas into stunning images and videos with Higgsfield Academy — step-by-step courses on AI image, video, and character creation.",
+   "keywords": null,
+   "og_title": "Courses | Academy | Higgsfield",
+   "og_description": "Turn ideas into stunning images and videos with Higgsfield Academy — step-by-step courses on AI image, video, and character creation.",
+   "og_image": "https://static.higgsfield.ai/academy/shared/og-image.webp",
+   "og_type": "website",
+   "robots": null,
+   "ld_json": [
+    {
+     "@context": "https://schema.org",
+     "@type": "WebPage",
+     "url": "https://higgsfield.ai/academy/courses",
+     "name": "Courses | Academy | Higgsfield",
+     "description": "Turn ideas into stunning images and videos with Higgsfield Academy — step-by-step courses on AI image, video, and character creation.",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     }
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "ItemList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "url": "https://higgsfield.ai/academy/courses/blockbuster-4k",
+       "name": "Blockbuster 4K: The AI Filmmaking Pipeline"
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "url": "https://higgsfield.ai/academy/courses/santiago-cinematic",
+       "name": "Build an Ultra-Realistic Short Film in 4K"
+      },
+      {
+       "@type": "ListItem",
+       "position": 3,
+       "url": "https://higgsfield.ai/academy/courses/ai-vfx-real-footage",
+       "name": "Add AI VFX to Real Footage"
+      },
+      {
+       "@type": "ListItem",
+       "position": 4,
+       "url": "https://higgsfield.ai/academy/courses/ai-animated-short",
+       "name": "Make an AI Animated Short"
+      },
+      {
+       "@type": "ListItem",
+       "position": 5,
+       "url": "https://higgsfield.ai/academy/courses/seedance-25-ai-filmmaking",
+       "name": "How to evaluate AI filmmaking demos"
+      },
+      {
+       "@type": "ListItem",
+       "position": 6,
+       "url": "https://higgsfield.ai/academy/courses/ai-ad-3-step",
+       "name": "The 3-Step Realistic AI Ad Workflow"
+      },
+      {
+       "@type": "ListItem",
+       "position": 7,
+       "url": "https://higgsfield.ai/academy/courses/claude-higgsfield-ai-ad-agency",
+       "name": "Build an AI Ad Agency with Claude + Higgsfield"
+      },
+      {
+       "@type": "ListItem",
+       "position": 8,
+       "url": "https://higgsfield.ai/academy/courses/cinematic-realism-4k",
+       "name": "Seedance 4K: Cinematic Realism"
+      },
+      {
+       "@type": "ListItem",
+       "position": 9,
+       "url": "https://higgsfield.ai/academy/courses/brand-visuals-ai",
+       "name": "Build a Brand's Visuals with AI"
+      },
+      {
+       "@type": "ListItem",
+       "position": 10,
+       "url": "https://higgsfield.ai/academy/courses/cinematic-ad-e2e",
+       "name": "Make a Cinematic Ad End-to-End"
+      },
+      {
+       "@type": "ListItem",
+       "position": 11,
+       "url": "https://higgsfield.ai/academy/courses/automate-faceless-niche",
+       "name": "Automate a Faceless Niche Channel"
+      },
+      {
+       "@type": "ListItem",
+       "position": 12,
+       "url": "https://higgsfield.ai/academy/courses/faceless-channel",
+       "name": "Build a Faceless Channel"
+      },
+      {
+       "@type": "ListItem",
+       "position": 13,
+       "url": "https://higgsfield.ai/academy/courses/mix-ai-real-footage",
+       "name": "Mix AI with Real Footage"
+      },
+      {
+       "@type": "ListItem",
+       "position": 14,
+       "url": "https://higgsfield.ai/academy/courses/build-3d-games-mcp",
+       "name": "Build 3D Games with MCP"
+      },
+      {
+       "@type": "ListItem",
+       "position": 15,
+       "url": "https://higgsfield.ai/academy/courses/cinematic-car-commercial",
+       "name": "Direct a cinematic AI car commercial"
+      },
+      {
+       "@type": "ListItem",
+       "position": 16,
+       "url": "https://higgsfield.ai/academy/courses/direct-ai-fight-scenes",
+       "name": "Direct AI fight scenes through controlled iteration"
+      },
+      {
+       "@type": "ListItem",
+       "position": 17,
+       "url": "https://higgsfield.ai/academy/courses/ai-creation",
+       "name": "AI Creation: First Steps"
+      }
+     ]
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "Academy",
+       "item": {
+        "@id": "https://higgsfield.ai/academy"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Courses",
+       "item": {
+        "@id": "https://higgsfield.ai/academy/courses"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "matches": [
+   {
+    "i": "#academy#academy",
+    "l": {
+     "courses": [
+      {
+       "id": "7c614759-9e65-5fb8-90ab-287175068a9b",
+       "slug": "blockbuster-4k",
+       "title": "Blockbuster 4K: The AI Filmmaking Pipeline",
+       "description": "One 40-minute tutorial — scripting, asset creation, and scene-by-scene prompt engineering — chaptered into sections you can follow along with, shot by shot.",
+       "lesson_count": 10,
+       "reading_minutes": 38,
+       "duration_minutes": 40,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__cover__course-thumbnail.d3aeddb8.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__video__lesson-video.f4c9f07a.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__cover.3b23bed5.webp"
+       },
+       "published_at": "2026-07-18",
+       "updated_at": "2026-10-16",
+       "featured_position": 0
+      },
+      {
+       "id": "393a510f-1187-5a76-a56f-1db7df074fd2",
+       "slug": "santiago-cinematic",
+       "title": "Build an Ultra-Realistic Short Film in 4K",
+       "description": "A 33-minute director's masterclass. A football drama built shot by shot with Claude Fable 5 and Seedance 2.0 4K.",
+       "lesson_count": 19,
+       "reading_minutes": 43,
+       "duration_minutes": 33,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__cover__course-thumbnail.789b1f0e.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video__lesson-video.4583f137.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video_poster__cover.10418591.webp"
+       },
+       "published_at": "2026-07-21",
+       "updated_at": "2026-10-07",
+       "featured_position": 1
+      },
+      {
+       "id": "d633d8dd-9afe-5bcd-aae4-451208e682d1",
+       "slug": "ai-vfx-real-footage",
+       "title": "Add AI VFX to Real Footage",
+       "description": "Turn footage you shot on a normal camera into cinematic 4K VFX with Seedance 2.0 — world swaps, creatures, and full handheld showcase shots, one sentence at a time.",
+       "lesson_count": 11,
+       "reading_minutes": 25,
+       "duration_minutes": 12,
+       "difficulty": "Advanced",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__cover__course-thumbnail.3771a5bf.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__the-one-move-video-to-video__video__lesson-video.c74d0c68.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__the-one-move-video-to-video__video_poster__cover.033fdc48.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": 2
+      },
+      {
+       "id": "551e3bde-ec07-5cff-8fc1-9328c44a7ac1",
+       "slug": "ai-animated-short",
+       "title": "Make an AI Animated Short",
+       "description": "Build one animated story across eight distinct visual worlds, from concept and scene design to a finished short.",
+       "lesson_count": 11,
+       "reading_minutes": 23,
+       "duration_minutes": 17,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-animated-short__cover__course-thumbnail.156a9661.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-animated-short__hook-and-launch__video__lesson-video.88f48853.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-animated-short__hook-and-launch__video_poster__cover.954fbb31.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "aca5370f-4923-57d8-9741-57db7b4f6c22",
+       "slug": "seedance-25-ai-filmmaking",
+       "title": "How to evaluate AI filmmaking demos",
+       "description": "Learn to evaluate AI filmmaking demos by examining camera movement, performance, continuity, and delivery constraints.",
+       "lesson_count": 11,
+       "reading_minutes": 14,
+       "duration_minutes": 20,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/seedance-25-ai-filmmaking__cover__course-thumbnail.6edc159e.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/seedance-25-ai-filmmaking__set-the-test__video__lesson-video.07d0aee7.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/seedance-25-ai-filmmaking__set-the-test__video_poster__cover.ede05d5e.webp"
+       },
+       "published_at": "2026-08-07",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "d15b8043-b6f9-500f-9945-5aa7292a0586",
+       "slug": "ai-ad-3-step",
+       "title": "The 3-Step Realistic AI Ad Workflow",
+       "description": "Build a fully AI-generated commercial from scratch — lock every asset, turn a script into a connected shotlist with a Claude skill, then generate and stitch the final scenes.",
+       "lesson_count": 16,
+       "reading_minutes": 40,
+       "duration_minutes": 36,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-ad-3-step__cover__course-thumbnail.62ff5493.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-ad-3-step__the-finished-ad-and-the-3-step-system__video__lesson-video.f8f00dba.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-ad-3-step__the-finished-ad-and-the-3-step-system__video_poster__cover.b1075ba1.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": 3
+      },
+      {
+       "id": "4de92acf-b081-5df8-abdf-c64a89bba986",
+       "slug": "claude-higgsfield-ai-ad-agency",
+       "title": "Build an AI Ad Agency with Claude + Higgsfield",
+       "description": "Research a niche, shape an offer, build a varied ad portfolio, and test a small client pipeline with Claude and Higgsfield.",
+       "lesson_count": 12,
+       "reading_minutes": 25,
+       "duration_minutes": 22,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/claude-higgsfield-ai-ad-agency__cover__course-thumbnail.efcc9ac1.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/claude-higgsfield-ai-ad-agency__find-an-underserved-niche__video__lesson-video.f6b87e9a.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/claude-higgsfield-ai-ad-agency__find-an-underserved-niche__video_poster__cover.12e5bde3.webp"
+       },
+       "published_at": "2026-08-07",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "175ec894-0285-56d4-9807-ccd3dd879d87",
+       "slug": "cinematic-realism-4k",
+       "title": "Seedance 4K: Cinematic Realism",
+       "description": "Test Seedance 4K across hyper-detailed realism, wide crowd shots, real-footage VFX, animation, ads, games, and fast action.",
+       "lesson_count": 8,
+       "reading_minutes": 19,
+       "duration_minutes": 14,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-realism-4k__cover__course-thumbnail.b0cb3096.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-realism-4k__cinematic-realism-and-hyper-detail__video__lesson-video.38d7dea5.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-realism-4k__cinematic-realism-and-hyper-detail__video_poster__cover.33482a7d.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "deb0a13e-184e-595c-8316-04453e246e75",
+       "slug": "brand-visuals-ai",
+       "title": "Build a Brand's Visuals with AI",
+       "description": "Create a complete AI brand visual system, from the brand and products to try-ons, ads, social content, TV spots, and packaging.",
+       "lesson_count": 9,
+       "reading_minutes": 24,
+       "duration_minutes": 26,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/brand-visuals-ai__cover__course-thumbnail.88cd9d62.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/brand-visuals-ai__the-ai-marketing-workflow__video__lesson-video.224485ff.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/brand-visuals-ai__the-ai-marketing-workflow__video_poster__cover.731d8398.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "9a57d0af-3ef5-5729-8dba-5a5fd6b08a43",
+       "slug": "cinematic-ad-e2e",
+       "title": "Make a Cinematic Ad End-to-End",
+       "description": "Build a cinematic AI ad from reusable assets and a prompting framework through a 12-scene story, winning beat, and pack shot.",
+       "lesson_count": 10,
+       "reading_minutes": 32,
+       "duration_minutes": 46,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-ad-e2e__cover__course-thumbnail.947cf14f.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-ad-e2e__intro__video__lesson-video.4e8f707d.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-ad-e2e__intro__video_poster__cover.28ddc84f.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "f02bc095-330b-5fdd-ae6f-b3147d3c95b5",
+       "slug": "automate-faceless-niche",
+       "title": "Automate a Faceless Niche Channel",
+       "description": "Build a faceless explainer channel with live research, monetizable scripts, video generation, localization, voice, packaging, and a release plan.",
+       "lesson_count": 11,
+       "reading_minutes": 17,
+       "duration_minutes": 10,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/automate-faceless-niche__cover__course-thumbnail.1d76d259.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "automate-agents"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/automate-faceless-niche__intro__video__lesson-video.d84afd0c.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/automate-faceless-niche__intro__video_poster__cover.0f2933a9.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "91612fc9-6bd4-5c64-ab4a-ad5154686fbb",
+       "slug": "faceless-channel",
+       "title": "Build a Faceless Channel",
+       "description": "Build and test a faceless AI channel by connecting Claude and Higgsfield, writing a script, generating a video, packaging it, and reading early results.",
+       "lesson_count": 7,
+       "reading_minutes": 15,
+       "duration_minutes": 14,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/faceless-channel__cover__course-thumbnail.f48521f1.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/faceless-channel__why-ai-channels-get-monetized__video__lesson-video.36e30a90.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/faceless-channel__why-ai-channels-get-monetized__video_poster__cover.504220cf.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "ea10f8a7-8c9a-5315-9102-478553759659",
+       "slug": "mix-ai-real-footage",
+       "title": "Mix AI with Real Footage",
+       "description": "Combine AI edits with real footage by removing or adding elements, changing wardrobe and backgrounds, building transitions, reframing, and upscaling.",
+       "lesson_count": 10,
+       "reading_minutes": 12,
+       "duration_minutes": 5,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/mix-ai-real-footage__cover__course-thumbnail.dbdf2682.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/mix-ai-real-footage__the-real-or-ai-challenge__video__lesson-video.0e0c65cf.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/mix-ai-real-footage__the-real-or-ai-challenge__video_poster__cover.568e745d.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "8df71d05-4d3b-542b-8841-2589f6980f1c",
+       "slug": "build-3d-games-mcp",
+       "title": "Build 3D Games with MCP",
+       "description": "Build and publish three no-code 3D game prototypes with an MCP-connected workflow, then compare output, cost, and early marketplace results.",
+       "lesson_count": 10,
+       "reading_minutes": 16,
+       "duration_minutes": 12,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/build-3d-games-mcp__cover__course-thumbnail.464055e4.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "automate-agents"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/build-3d-games-mcp__intro-three-games-no-code__video__lesson-video.0d01d1b7.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/build-3d-games-mcp__intro-three-games-no-code__video_poster__cover.c5f90a07.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "be8d033f-3d1e-5764-a992-986db7c2c103",
+       "slug": "cinematic-car-commercial",
+       "title": "Direct a cinematic AI car commercial",
+       "description": "Build a cinematic car commercial from reusable assets, controlled iterations, and continuity-aware editing.",
+       "lesson_count": 11,
+       "reading_minutes": 22,
+       "duration_minutes": 35,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-car-commercial__cover__course-thumbnail.645f0af3.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-car-commercial__plan-around-reusable-assets__video__lesson-video.35e4e1df.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-car-commercial__plan-around-reusable-assets__video_poster__cover.f7e78b0d.webp"
+       },
+       "published_at": "2026-08-09",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "255c0ba6-6701-5470-8024-f8659ac6cd45",
+       "slug": "direct-ai-fight-scenes",
+       "title": "Direct AI fight scenes through controlled iteration",
+       "description": "Build reusable action assets, diagnose failed generations, and direct scale, transformations, impacts, and cinematic coverage without losing geography or physics.",
+       "lesson_count": 5,
+       "reading_minutes": 18,
+       "duration_minutes": 16,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/direct-ai-fight-scenes__cover__course-thumbnail.66447f69.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/direct-ai-fight-scenes__blueprint-the-fight__video__lesson-video.a3a8314b.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/direct-ai-fight-scenes__blueprint-the-fight__video_poster__cover.e2bd662a.webp"
+       },
+       "published_at": "2026-08-09",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "2356503b-2297-5356-b0e9-5aafc362d1b9",
+       "slug": "ai-creation",
+       "title": "AI Creation: First Steps",
+       "description": "Follow the original seven-lesson course, from your first video and working with an assistant to product ads, asset creation, camera direction, and your own scene.",
+       "lesson_count": 8,
+       "reading_minutes": 8,
+       "duration_minutes": 102,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__cover__cover.b03a6f23.webp",
+       "has_certificate": true,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__introduction__video__lesson-video.738f244e.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__introduction__video_poster__cover.b03a6f23.webp"
+       },
+       "published_at": "2026-10-16",
+       "updated_at": "2026-10-31",
+       "featured_position": null
+      }
+     ]
+    }
+   },
+   {
+    "i": "#academy#_catalog#courses#academy#courses{\"search\":{}}",
+    "l": {
+     "allCourses": [
+      {
+       "id": "7c614759-9e65-5fb8-90ab-287175068a9b",
+       "slug": "blockbuster-4k",
+       "title": "Blockbuster 4K: The AI Filmmaking Pipeline",
+       "description": "One 40-minute tutorial — scripting, asset creation, and scene-by-scene prompt engineering — chaptered into sections you can follow along with, shot by shot.",
+       "lesson_count": 10,
+       "reading_minutes": 38,
+       "duration_minutes": 40,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__cover__course-thumbnail.d3aeddb8.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__video__lesson-video.f4c9f07a.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__cover.3b23bed5.webp"
+       },
+       "published_at": "2026-07-18",
+       "updated_at": "2026-10-16",
+       "featured_position": 0
+      },
+      {
+       "id": "393a510f-1187-5a76-a56f-1db7df074fd2",
+       "slug": "santiago-cinematic",
+       "title": "Build an Ultra-Realistic Short Film in 4K",
+       "description": "A 33-minute director's masterclass. A football drama built shot by shot with Claude Fable 5 and Seedance 2.0 4K.",
+       "lesson_count": 19,
+       "reading_minutes": 43,
+       "duration_minutes": 33,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__cover__course-thumbnail.789b1f0e.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video__lesson-video.4583f137.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video_poster__cover.10418591.webp"
+       },
+       "published_at": "2026-07-21",
+       "updated_at": "2026-10-07",
+       "featured_position": 1
+      },
+      {
+       "id": "d633d8dd-9afe-5bcd-aae4-451208e682d1",
+       "slug": "ai-vfx-real-footage",
+       "title": "Add AI VFX to Real Footage",
+       "description": "Turn footage you shot on a normal camera into cinematic 4K VFX with Seedance 2.0 — world swaps, creatures, and full handheld showcase shots, one sentence at a time.",
+       "lesson_count": 11,
+       "reading_minutes": 25,
+       "duration_minutes": 12,
+       "difficulty": "Advanced",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__cover__course-thumbnail.3771a5bf.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__the-one-move-video-to-video__video__lesson-video.c74d0c68.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__the-one-move-video-to-video__video_poster__cover.033fdc48.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": 2
+      },
+      {
+       "id": "551e3bde-ec07-5cff-8fc1-9328c44a7ac1",
+       "slug": "ai-animated-short",
+       "title": "Make an AI Animated Short",
+       "description": "Build one animated story across eight distinct visual worlds, from concept and scene design to a finished short.",
+       "lesson_count": 11,
+       "reading_minutes": 23,
+       "duration_minutes": 17,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-animated-short__cover__course-thumbnail.156a9661.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-animated-short__hook-and-launch__video__lesson-video.88f48853.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-animated-short__hook-and-launch__video_poster__cover.954fbb31.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "aca5370f-4923-57d8-9741-57db7b4f6c22",
+       "slug": "seedance-25-ai-filmmaking",
+       "title": "How to evaluate AI filmmaking demos",
+       "description": "Learn to evaluate AI filmmaking demos by examining camera movement, performance, continuity, and delivery constraints.",
+       "lesson_count": 11,
+       "reading_minutes": 14,
+       "duration_minutes": 20,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/seedance-25-ai-filmmaking__cover__course-thumbnail.6edc159e.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/seedance-25-ai-filmmaking__set-the-test__video__lesson-video.07d0aee7.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/seedance-25-ai-filmmaking__set-the-test__video_poster__cover.ede05d5e.webp"
+       },
+       "published_at": "2026-08-07",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "d15b8043-b6f9-500f-9945-5aa7292a0586",
+       "slug": "ai-ad-3-step",
+       "title": "The 3-Step Realistic AI Ad Workflow",
+       "description": "Build a fully AI-generated commercial from scratch — lock every asset, turn a script into a connected shotlist with a Claude skill, then generate and stitch the final scenes.",
+       "lesson_count": 16,
+       "reading_minutes": 40,
+       "duration_minutes": 36,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-ad-3-step__cover__course-thumbnail.62ff5493.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-ad-3-step__the-finished-ad-and-the-3-step-system__video__lesson-video.f8f00dba.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-ad-3-step__the-finished-ad-and-the-3-step-system__video_poster__cover.b1075ba1.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": 3
+      },
+      {
+       "id": "4de92acf-b081-5df8-abdf-c64a89bba986",
+       "slug": "claude-higgsfield-ai-ad-agency",
+       "title": "Build an AI Ad Agency with Claude + Higgsfield",
+       "description": "Research a niche, shape an offer, build a varied ad portfolio, and test a small client pipeline with Claude and Higgsfield.",
+       "lesson_count": 12,
+       "reading_minutes": 25,
+       "duration_minutes": 22,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/claude-higgsfield-ai-ad-agency__cover__course-thumbnail.efcc9ac1.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/claude-higgsfield-ai-ad-agency__find-an-underserved-niche__video__lesson-video.f6b87e9a.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/claude-higgsfield-ai-ad-agency__find-an-underserved-niche__video_poster__cover.12e5bde3.webp"
+       },
+       "published_at": "2026-08-07",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "175ec894-0285-56d4-9807-ccd3dd879d87",
+       "slug": "cinematic-realism-4k",
+       "title": "Seedance 4K: Cinematic Realism",
+       "description": "Test Seedance 4K across hyper-detailed realism, wide crowd shots, real-footage VFX, animation, ads, games, and fast action.",
+       "lesson_count": 8,
+       "reading_minutes": 19,
+       "duration_minutes": 14,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-realism-4k__cover__course-thumbnail.b0cb3096.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-realism-4k__cinematic-realism-and-hyper-detail__video__lesson-video.38d7dea5.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-realism-4k__cinematic-realism-and-hyper-detail__video_poster__cover.33482a7d.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "deb0a13e-184e-595c-8316-04453e246e75",
+       "slug": "brand-visuals-ai",
+       "title": "Build a Brand's Visuals with AI",
+       "description": "Create a complete AI brand visual system, from the brand and products to try-ons, ads, social content, TV spots, and packaging.",
+       "lesson_count": 9,
+       "reading_minutes": 24,
+       "duration_minutes": 26,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/brand-visuals-ai__cover__course-thumbnail.88cd9d62.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/brand-visuals-ai__the-ai-marketing-workflow__video__lesson-video.224485ff.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/brand-visuals-ai__the-ai-marketing-workflow__video_poster__cover.731d8398.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "9a57d0af-3ef5-5729-8dba-5a5fd6b08a43",
+       "slug": "cinematic-ad-e2e",
+       "title": "Make a Cinematic Ad End-to-End",
+       "description": "Build a cinematic AI ad from reusable assets and a prompting framework through a 12-scene story, winning beat, and pack shot.",
+       "lesson_count": 10,
+       "reading_minutes": 32,
+       "duration_minutes": 46,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-ad-e2e__cover__course-thumbnail.947cf14f.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-ad-e2e__intro__video__lesson-video.4e8f707d.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-ad-e2e__intro__video_poster__cover.28ddc84f.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "f02bc095-330b-5fdd-ae6f-b3147d3c95b5",
+       "slug": "automate-faceless-niche",
+       "title": "Automate a Faceless Niche Channel",
+       "description": "Build a faceless explainer channel with live research, monetizable scripts, video generation, localization, voice, packaging, and a release plan.",
+       "lesson_count": 11,
+       "reading_minutes": 17,
+       "duration_minutes": 10,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/automate-faceless-niche__cover__course-thumbnail.1d76d259.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "automate-agents"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/automate-faceless-niche__intro__video__lesson-video.d84afd0c.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/automate-faceless-niche__intro__video_poster__cover.0f2933a9.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "91612fc9-6bd4-5c64-ab4a-ad5154686fbb",
+       "slug": "faceless-channel",
+       "title": "Build a Faceless Channel",
+       "description": "Build and test a faceless AI channel by connecting Claude and Higgsfield, writing a script, generating a video, packaging it, and reading early results.",
+       "lesson_count": 7,
+       "reading_minutes": 15,
+       "duration_minutes": 14,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/faceless-channel__cover__course-thumbnail.f48521f1.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/faceless-channel__why-ai-channels-get-monetized__video__lesson-video.36e30a90.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/faceless-channel__why-ai-channels-get-monetized__video_poster__cover.504220cf.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "ea10f8a7-8c9a-5315-9102-478553759659",
+       "slug": "mix-ai-real-footage",
+       "title": "Mix AI with Real Footage",
+       "description": "Combine AI edits with real footage by removing or adding elements, changing wardrobe and backgrounds, building transitions, reframing, and upscaling.",
+       "lesson_count": 10,
+       "reading_minutes": 12,
+       "duration_minutes": 5,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/mix-ai-real-footage__cover__course-thumbnail.dbdf2682.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/mix-ai-real-footage__the-real-or-ai-challenge__video__lesson-video.0e0c65cf.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/mix-ai-real-footage__the-real-or-ai-challenge__video_poster__cover.568e745d.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "8df71d05-4d3b-542b-8841-2589f6980f1c",
+       "slug": "build-3d-games-mcp",
+       "title": "Build 3D Games with MCP",
+       "description": "Build and publish three no-code 3D game prototypes with an MCP-connected workflow, then compare output, cost, and early marketplace results.",
+       "lesson_count": 10,
+       "reading_minutes": 16,
+       "duration_minutes": 12,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/build-3d-games-mcp__cover__course-thumbnail.464055e4.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "automate-agents"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/build-3d-games-mcp__intro-three-games-no-code__video__lesson-video.0d01d1b7.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/build-3d-games-mcp__intro-three-games-no-code__video_poster__cover.c5f90a07.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "be8d033f-3d1e-5764-a992-986db7c2c103",
+       "slug": "cinematic-car-commercial",
+       "title": "Direct a cinematic AI car commercial",
+       "description": "Build a cinematic car commercial from reusable assets, controlled iterations, and continuity-aware editing.",
+       "lesson_count": 11,
+       "reading_minutes": 22,
+       "duration_minutes": 35,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-car-commercial__cover__course-thumbnail.645f0af3.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-car-commercial__plan-around-reusable-assets__video__lesson-video.35e4e1df.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-car-commercial__plan-around-reusable-assets__video_poster__cover.f7e78b0d.webp"
+       },
+       "published_at": "2026-08-09",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "255c0ba6-6701-5470-8024-f8659ac6cd45",
+       "slug": "direct-ai-fight-scenes",
+       "title": "Direct AI fight scenes through controlled iteration",
+       "description": "Build reusable action assets, diagnose failed generations, and direct scale, transformations, impacts, and cinematic coverage without losing geography or physics.",
+       "lesson_count": 5,
+       "reading_minutes": 18,
+       "duration_minutes": 16,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/direct-ai-fight-scenes__cover__course-thumbnail.66447f69.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/direct-ai-fight-scenes__blueprint-the-fight__video__lesson-video.a3a8314b.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/direct-ai-fight-scenes__blueprint-the-fight__video_poster__cover.e2bd662a.webp"
+       },
+       "published_at": "2026-08-09",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "2356503b-2297-5356-b0e9-5aafc362d1b9",
+       "slug": "ai-creation",
+       "title": "AI Creation: First Steps",
+       "description": "Follow the original seven-lesson course, from your first video and working with an assistant to product ads, asset creation, camera direction, and your own scene.",
+       "lesson_count": 8,
+       "reading_minutes": 8,
+       "duration_minutes": 102,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__cover__cover.b03a6f23.webp",
+       "has_certificate": true,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__introduction__video__lesson-video.738f244e.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__introduction__video_poster__cover.b03a6f23.webp"
+       },
+       "published_at": "2026-10-16",
+       "updated_at": "2026-10-31",
+       "featured_position": null
+      }
+     ],
+     "courses": [
+      {
+       "id": "7c614759-9e65-5fb8-90ab-287175068a9b",
+       "slug": "blockbuster-4k",
+       "title": "Blockbuster 4K: The AI Filmmaking Pipeline",
+       "description": "One 40-minute tutorial — scripting, asset creation, and scene-by-scene prompt engineering — chaptered into sections you can follow along with, shot by shot.",
+       "lesson_count": 10,
+       "reading_minutes": 38,
+       "duration_minutes": 40,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__cover__course-thumbnail.d3aeddb8.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__video__lesson-video.f4c9f07a.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__cover.3b23bed5.webp"
+       },
+       "published_at": "2026-07-18",
+       "updated_at": "2026-10-16",
+       "featured_position": 0
+      },
+      {
+       "id": "393a510f-1187-5a76-a56f-1db7df074fd2",
+       "slug": "santiago-cinematic",
+       "title": "Build an Ultra-Realistic Short Film in 4K",
+       "description": "A 33-minute director's masterclass. A football drama built shot by shot with Claude Fable 5 and Seedance 2.0 4K.",
+       "lesson_count": 19,
+       "reading_minutes": 43,
+       "duration_minutes": 33,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__cover__course-thumbnail.789b1f0e.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video__lesson-video.4583f137.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video_poster__cover.10418591.webp"
+       },
+       "published_at": "2026-07-21",
+       "updated_at": "2026-10-07",
+       "featured_position": 1
+      },
+      {
+       "id": "d633d8dd-9afe-5bcd-aae4-451208e682d1",
+       "slug": "ai-vfx-real-footage",
+       "title": "Add AI VFX to Real Footage",
+       "description": "Turn footage you shot on a normal camera into cinematic 4K VFX with Seedance 2.0 — world swaps, creatures, and full handheld showcase shots, one sentence at a time.",
+       "lesson_count": 11,
+       "reading_minutes": 25,
+       "duration_minutes": 12,
+       "difficulty": "Advanced",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__cover__course-thumbnail.3771a5bf.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__the-one-move-video-to-video__video__lesson-video.c74d0c68.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__the-one-move-video-to-video__video_poster__cover.033fdc48.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": 2
+      },
+      {
+       "id": "551e3bde-ec07-5cff-8fc1-9328c44a7ac1",
+       "slug": "ai-animated-short",
+       "title": "Make an AI Animated Short",
+       "description": "Build one animated story across eight distinct visual worlds, from concept and scene design to a finished short.",
+       "lesson_count": 11,
+       "reading_minutes": 23,
+       "duration_minutes": 17,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-animated-short__cover__course-thumbnail.156a9661.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-animated-short__hook-and-launch__video__lesson-video.88f48853.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-animated-short__hook-and-launch__video_poster__cover.954fbb31.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "aca5370f-4923-57d8-9741-57db7b4f6c22",
+       "slug": "seedance-25-ai-filmmaking",
+       "title": "How to evaluate AI filmmaking demos",
+       "description": "Learn to evaluate AI filmmaking demos by examining camera movement, performance, continuity, and delivery constraints.",
+       "lesson_count": 11,
+       "reading_minutes": 14,
+       "duration_minutes": 20,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/seedance-25-ai-filmmaking__cover__course-thumbnail.6edc159e.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/seedance-25-ai-filmmaking__set-the-test__video__lesson-video.07d0aee7.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/seedance-25-ai-filmmaking__set-the-test__video_poster__cover.ede05d5e.webp"
+       },
+       "published_at": "2026-08-07",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "d15b8043-b6f9-500f-9945-5aa7292a0586",
+       "slug": "ai-ad-3-step",
+       "title": "The 3-Step Realistic AI Ad Workflow",
+       "description": "Build a fully AI-generated commercial from scratch — lock every asset, turn a script into a connected shotlist with a Claude skill, then generate and stitch the final scenes.",
+       "lesson_count": 16,
+       "reading_minutes": 40,
+       "duration_minutes": 36,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-ad-3-step__cover__course-thumbnail.62ff5493.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-ad-3-step__the-finished-ad-and-the-3-step-system__video__lesson-video.f8f00dba.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-ad-3-step__the-finished-ad-and-the-3-step-system__video_poster__cover.b1075ba1.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": 3
+      },
+      {
+       "id": "4de92acf-b081-5df8-abdf-c64a89bba986",
+       "slug": "claude-higgsfield-ai-ad-agency",
+       "title": "Build an AI Ad Agency with Claude + Higgsfield",
+       "description": "Research a niche, shape an offer, build a varied ad portfolio, and test a small client pipeline with Claude and Higgsfield.",
+       "lesson_count": 12,
+       "reading_minutes": 25,
+       "duration_minutes": 22,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/claude-higgsfield-ai-ad-agency__cover__course-thumbnail.efcc9ac1.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/claude-higgsfield-ai-ad-agency__find-an-underserved-niche__video__lesson-video.f6b87e9a.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/claude-higgsfield-ai-ad-agency__find-an-underserved-niche__video_poster__cover.12e5bde3.webp"
+       },
+       "published_at": "2026-08-07",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "175ec894-0285-56d4-9807-ccd3dd879d87",
+       "slug": "cinematic-realism-4k",
+       "title": "Seedance 4K: Cinematic Realism",
+       "description": "Test Seedance 4K across hyper-detailed realism, wide crowd shots, real-footage VFX, animation, ads, games, and fast action.",
+       "lesson_count": 8,
+       "reading_minutes": 19,
+       "duration_minutes": 14,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-realism-4k__cover__course-thumbnail.b0cb3096.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-realism-4k__cinematic-realism-and-hyper-detail__video__lesson-video.38d7dea5.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-realism-4k__cinematic-realism-and-hyper-detail__video_poster__cover.33482a7d.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "deb0a13e-184e-595c-8316-04453e246e75",
+       "slug": "brand-visuals-ai",
+       "title": "Build a Brand's Visuals with AI",
+       "description": "Create a complete AI brand visual system, from the brand and products to try-ons, ads, social content, TV spots, and packaging.",
+       "lesson_count": 9,
+       "reading_minutes": 24,
+       "duration_minutes": 26,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/brand-visuals-ai__cover__course-thumbnail.88cd9d62.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/brand-visuals-ai__the-ai-marketing-workflow__video__lesson-video.224485ff.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/brand-visuals-ai__the-ai-marketing-workflow__video_poster__cover.731d8398.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "9a57d0af-3ef5-5729-8dba-5a5fd6b08a43",
+       "slug": "cinematic-ad-e2e",
+       "title": "Make a Cinematic Ad End-to-End",
+       "description": "Build a cinematic AI ad from reusable assets and a prompting framework through a 12-scene story, winning beat, and pack shot.",
+       "lesson_count": 10,
+       "reading_minutes": 32,
+       "duration_minutes": 46,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-ad-e2e__cover__course-thumbnail.947cf14f.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-ad-e2e__intro__video__lesson-video.4e8f707d.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-ad-e2e__intro__video_poster__cover.28ddc84f.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "f02bc095-330b-5fdd-ae6f-b3147d3c95b5",
+       "slug": "automate-faceless-niche",
+       "title": "Automate a Faceless Niche Channel",
+       "description": "Build a faceless explainer channel with live research, monetizable scripts, video generation, localization, voice, packaging, and a release plan.",
+       "lesson_count": 11,
+       "reading_minutes": 17,
+       "duration_minutes": 10,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/automate-faceless-niche__cover__course-thumbnail.1d76d259.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "automate-agents"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/automate-faceless-niche__intro__video__lesson-video.d84afd0c.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/automate-faceless-niche__intro__video_poster__cover.0f2933a9.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "91612fc9-6bd4-5c64-ab4a-ad5154686fbb",
+       "slug": "faceless-channel",
+       "title": "Build a Faceless Channel",
+       "description": "Build and test a faceless AI channel by connecting Claude and Higgsfield, writing a script, generating a video, packaging it, and reading early results.",
+       "lesson_count": 7,
+       "reading_minutes": 15,
+       "duration_minutes": 14,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/faceless-channel__cover__course-thumbnail.f48521f1.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/faceless-channel__why-ai-channels-get-monetized__video__lesson-video.36e30a90.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/faceless-channel__why-ai-channels-get-monetized__video_poster__cover.504220cf.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "ea10f8a7-8c9a-5315-9102-478553759659",
+       "slug": "mix-ai-real-footage",
+       "title": "Mix AI with Real Footage",
+       "description": "Combine AI edits with real footage by removing or adding elements, changing wardrobe and backgrounds, building transitions, reframing, and upscaling.",
+       "lesson_count": 10,
+       "reading_minutes": 12,
+       "duration_minutes": 5,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/mix-ai-real-footage__cover__course-thumbnail.dbdf2682.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/mix-ai-real-footage__the-real-or-ai-challenge__video__lesson-video.0e0c65cf.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/mix-ai-real-footage__the-real-or-ai-challenge__video_poster__cover.568e745d.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "8df71d05-4d3b-542b-8841-2589f6980f1c",
+       "slug": "build-3d-games-mcp",
+       "title": "Build 3D Games with MCP",
+       "description": "Build and publish three no-code 3D game prototypes with an MCP-connected workflow, then compare output, cost, and early marketplace results.",
+       "lesson_count": 10,
+       "reading_minutes": 16,
+       "duration_minutes": 12,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/build-3d-games-mcp__cover__course-thumbnail.464055e4.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "automate-agents"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/build-3d-games-mcp__intro-three-games-no-code__video__lesson-video.0d01d1b7.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/build-3d-games-mcp__intro-three-games-no-code__video_poster__cover.c5f90a07.webp"
+       },
+       "published_at": "2026-07-25",
+       "updated_at": "2026-10-07",
+       "featured_position": null
+      },
+      {
+       "id": "be8d033f-3d1e-5764-a992-986db7c2c103",
+       "slug": "cinematic-car-commercial",
+       "title": "Direct a cinematic AI car commercial",
+       "description": "Build a cinematic car commercial from reusable assets, controlled iterations, and continuity-aware editing.",
+       "lesson_count": 11,
+       "reading_minutes": 22,
+       "duration_minutes": 35,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-car-commercial__cover__course-thumbnail.645f0af3.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "ugc-social-content"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-car-commercial__plan-around-reusable-assets__video__lesson-video.35e4e1df.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/cinematic-car-commercial__plan-around-reusable-assets__video_poster__cover.f7e78b0d.webp"
+       },
+       "published_at": "2026-08-09",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "255c0ba6-6701-5470-8024-f8659ac6cd45",
+       "slug": "direct-ai-fight-scenes",
+       "title": "Direct AI fight scenes through controlled iteration",
+       "description": "Build reusable action assets, diagnose failed generations, and direct scale, transformations, impacts, and cinematic coverage without losing geography or physics.",
+       "lesson_count": 5,
+       "reading_minutes": 18,
+       "duration_minutes": 16,
+       "difficulty": "Intermediate",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/direct-ai-fight-scenes__cover__course-thumbnail.66447f69.webp",
+       "has_certificate": false,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/direct-ai-fight-scenes__blueprint-the-fight__video__lesson-video.a3a8314b.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/direct-ai-fight-scenes__blueprint-the-fight__video_poster__cover.e2bd662a.webp"
+       },
+       "published_at": "2026-08-09",
+       "updated_at": "2026-08-10",
+       "featured_position": null
+      },
+      {
+       "id": "2356503b-2297-5356-b0e9-5aafc362d1b9",
+       "slug": "ai-creation",
+       "title": "AI Creation: First Steps",
+       "description": "Follow the original seven-lesson course, from your first video and working with an assistant to product ads, asset creation, camera direction, and your own scene.",
+       "lesson_count": 8,
+       "reading_minutes": 8,
+       "duration_minutes": 102,
+       "difficulty": "Beginner",
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__cover__cover.b03a6f23.webp",
+       "has_certificate": true,
+       "has_examples": false,
+       "categories": [
+        "movie-making"
+       ],
+       "preview_media": {
+        "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__introduction__video__lesson-video.738f244e.mp4",
+        "kind": "video",
+        "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-creation__introduction__video_poster__cover.b03a6f23.webp"
+       },
+       "published_at": "2026-10-16",
+       "updated_at": "2026-10-31",
+       "featured_position": null
+      }
+     ],
+     "categories": [
+      {
+       "id": "movie-making",
+       "slug": "movie-making",
+       "title": "Movie making",
+       "description": "A short film from idea to a finished reel, shot by shot.",
+       "artwork": "movie"
+      },
+      {
+       "id": "ugc-social-content",
+       "slug": "ugc-social-content",
+       "title": "UGC & Social Content",
+       "description": "Reels, ads, and faceless channels that actually perform on feed.",
+       "artwork": "ugc"
+      },
+      {
+       "id": "automate-agents",
+       "slug": "automate-agents",
+       "title": "Automate & Agents",
+       "description": "Brief an agent in plain words and let it run the whole pipeline.",
+       "artwork": "agents"
+      }
+     ],
+     "filters": {
+      "q": "",
+      "categories": [],
+      "levels": [],
+      "durations": [],
+      "certified": false,
+      "sort": "popular"
+     }
+    }
+   }
+  ]
+ }
+}

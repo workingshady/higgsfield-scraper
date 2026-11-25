@@ -121,6 +121,31 @@ blog = folder("blog", "Written content. Company posts/help/changelog are SSR pag
     req("Public post by uuid", "/blog/public/posts/{{post_id}}", (), "UUID only (slug -> 422)."),
     req("All blog posts", "/blog/posts", auth=True),
 ])
+site = folder("site", "Public site pages not covered elsewhere: apps, academy, MCP skills, original series, mixed-media presets, "
+              "landing pages (SSR HTML; data embedded as $_TSR loader state, landings = <main> + JSON-LD) and three small "
+              "promo APIs. docs/scrapers/site.md.", [
+    req("Apps index (SSR HTML)", "/apps", base="{{site_base}}", tests=OK),
+    req("App page (SSR HTML)", "/apps/{{slug}}", base="{{site_base}}", tests=OK, desc="appPreset with templates and credit cost."),
+    req("Apps sitemap", "/apps/sitemap.xml", base="{{site_base}}", tests=OK),
+    req("Academy courses (SSR HTML)", "/academy/courses", base="{{site_base}}", tests=OK),
+    req("Course page (SSR HTML)", "/academy/courses/{{course}}", base="{{site_base}}", tests=OK),
+    req("Lesson page (SSR HTML)", "/academy/courses/{{course}}/{{lesson}}", base="{{site_base}}", tests=OK,
+        desc="lesson + mdxTree (HAST) body."),
+    req("Academy sitemap", "/academy/sitemap.xml", base="{{site_base}}", tests=OK),
+    req("MCP skills index (SSR HTML)", "/mcp", base="{{site_base}}", tests=OK),
+    req("MCP skill (SSR HTML)", "/mcp/{{slug}}", base="{{site_base}}", tests=OK),
+    req("MCP bundle (SSR HTML)", "/mcp/bundles/{{slug}}", base="{{site_base}}", tests=OK),
+    req("Original series index (SSR HTML)", "/original-series", base="{{site_base}}", tests=OK),
+    req("Original series episode (SSR HTML)", "/original-series/{{series}}/{{episode}}", base="{{site_base}}", tests=OK),
+    req("Original series sitemap", "/original-series/sitemap.xml", base="{{site_base}}", tests=OK),
+    req("Mixed-media preset (SSR HTML)", "/mixed-media-presets/preset/{{preset_id}}", base="{{site_base}}", tests=OK),
+    req("Mixed-media sitemap", "/mixed-media-presets/sitemap.xml", base="{{site_base}}", tests=OK),
+    req("Marketing sitemap (landings, plugins, MCP, rooms)", "/sitemap-marketing.xml", base="{{site_base}}", tests=OK),
+    req("Landing page (SSR HTML)", "/ai-image", base="{{site_base}}", tests=OK, desc="<main> + JSON-LD (FAQPage, HowTo, SoftwareApplication)."),
+    req("Promo schedule", "/datetime-settings", (), "Sale / free-gens / release windows."),
+    req("Business unlimited offers", "/business-unlim/state"),
+    req("Game gift networks", "/game-gift/networks"),
+])
 clerk = folder("Login (Clerk)", "Reproduces `python -m higgsfield_scraper login` (password -> emailed code -> session) and "
                "token minting. Base {{clerk_base}} = https://higgsfield.ai/_clerk. Every call needs the query "
                "params __clerk_api_version=2026-11-18&_clerk_js_version=6.46.3 and a Cookie: __client=... (set "
@@ -153,10 +178,11 @@ col = {
         ("api_base", "https://fnf-api-gw.higgsfield.ai/fnf"), ("pricing_base", "https://pricing.higgsfield.ai"),
         ("site_base", "https://higgsfield.ai"), ("clerk_base", "https://higgsfield.ai/_clerk"), ("locale", "en"),
         ("plan_set_key", "ps_a3"), ("billing_period", "annual"), ("size", "50"), ("cursor", ""),
-        ("publication_id", ""), ("motion_id", ""), ("contest_id", ""), ("slug", ""), ("post_id", ""),
+        ("publication_id", ""), ("motion_id", ""), ("contest_id", ""), ("slug", ""), ("post_id", ""), ("course", ""), ("lesson", ""), ("series", ""), ("episode", ""),
+        ("preset_id", ""),
         ("token", ""), ("client_cookie", ""), ("sign_in_id", ""), ("session_id", ""), ("email", ""), ("password", ""), ("code", "")]]
     + [{"key": "plan_set_keys_reference", "value": ", ".join(PLAN_SET_KEYS)}],
-    "item": [pricing, community, catalog, projects, blog, clerk],
+    "item": [pricing, community, catalog, projects, blog, site, clerk],
 }
 OUT.write_text(json.dumps(col, ensure_ascii=False, indent=4), encoding="utf-8")
 print(f"wrote {OUT} — {sum(len(f['item']) for f in col['item'])} requests in {len(col['item'])} folders")

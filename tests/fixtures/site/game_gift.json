@@ -1,0 +1,208 @@
+{
+ "meta": {
+  "endpoint": "game_gift",
+  "url": "https://fnf-api-gw.higgsfield.ai/fnf/game-gift/networks",
+  "params": {},
+  "fetched_at": "2026-11-25T16:00:26.820695+00:00",
+  "status": 200
+ },
+ "body": {
+  "networks": [
+   {
+    "id": "playstation",
+    "countries": [
+     {
+      "code": "US",
+      "fulfillment_mode": "automatic",
+      "amount_label": "$100"
+     },
+     {
+      "code": "DE",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "GB",
+      "fulfillment_mode": "automatic",
+      "amount_label": "£80"
+     },
+     {
+      "code": "BR",
+      "fulfillment_mode": "automatic",
+      "amount_label": "R$590"
+     },
+     {
+      "code": "CA",
+      "fulfillment_mode": "automatic",
+      "amount_label": "CA$143"
+     },
+     {
+      "code": "AU",
+      "fulfillment_mode": "automatic",
+      "amount_label": "150 AUD"
+     },
+     {
+      "code": "FR",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "IT",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "SA",
+      "fulfillment_mode": "automatic",
+      "amount_label": "400 SAR"
+     },
+     {
+      "code": "MX",
+      "fulfillment_mode": "automatic",
+      "amount_label": "1900 MXN"
+     },
+     {
+      "code": "ES",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€91"
+     },
+     {
+      "code": "PL",
+      "fulfillment_mode": "automatic",
+      "amount_label": "400 zł"
+     },
+     {
+      "code": "NL",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€91"
+     },
+     {
+      "code": "AT",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "BE",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€91"
+     },
+     {
+      "code": "SE",
+      "fulfillment_mode": "automatic",
+      "amount_label": "1012 SEK"
+     },
+     {
+      "code": "RO",
+      "fulfillment_mode": "automatic",
+      "amount_label": "500 RON"
+     },
+     {
+      "code": "DK",
+      "fulfillment_mode": "automatic",
+      "amount_label": "680 DKK"
+     },
+     {
+      "code": "HU",
+      "fulfillment_mode": "automatic",
+      "amount_label": "34000 HUF"
+     },
+     {
+      "code": "NO",
+      "fulfillment_mode": "automatic",
+      "amount_label": "962 NOK"
+     }
+    ]
+   },
+   {
+    "id": "xbox",
+    "countries": [
+     {
+      "code": "US",
+      "fulfillment_mode": "automatic",
+      "amount_label": "$100"
+     },
+     {
+      "code": "DE",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "GB",
+      "fulfillment_mode": "automatic",
+      "amount_label": "£75"
+     },
+     {
+      "code": "BR",
+      "fulfillment_mode": "automatic",
+      "amount_label": "R$570"
+     },
+     {
+      "code": "CA",
+      "fulfillment_mode": "automatic",
+      "amount_label": "CA$140"
+     },
+     {
+      "code": "FR",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "IT",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "MX",
+      "fulfillment_mode": "automatic",
+      "amount_label": "1800 MXN"
+     },
+     {
+      "code": "ES",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "PL",
+      "fulfillment_mode": "automatic",
+      "amount_label": "400 zł"
+     },
+     {
+      "code": "NL",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "AT",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "BE",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "PT",
+      "fulfillment_mode": "automatic",
+      "amount_label": "€90"
+     },
+     {
+      "code": "NZ",
+      "fulfillment_mode": "automatic",
+      "amount_label": "180 NZD"
+     },
+     {
+      "code": "DK",
+      "fulfillment_mode": "automatic",
+      "amount_label": "700 DKK"
+     },
+     {
+      "code": "NO",
+      "fulfillment_mode": "automatic",
+      "amount_label": "950 NOK"
+     }
+    ]
+   }
+  ]
+ }
+}

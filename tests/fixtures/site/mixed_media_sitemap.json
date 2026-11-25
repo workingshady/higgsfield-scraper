@@ -1,0 +1,146 @@
+{
+ "meta": {
+  "endpoint": "mixed_media_sitemap",
+  "url": "https://higgsfield.ai/mixed-media-presets/sitemap.xml",
+  "params": {},
+  "fetched_at": "2026-11-25T16:00:33.324305+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "sitemap",
+  "urls": [
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/6ff15c8c-de78-459e-af32-e7a1266dc075",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/6377b231-5cea-4259-8a6b-0314728c1982",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/1a722581-6ba0-48b2-b990-a177a3f26cc8",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/3fbd5057-50e1-4d1d-9a6f-8655836711b8",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/1c79bffd-0839-42c3-90ab-2cd7e6ff4619",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/f63bf420-f98a-44e6-ba54-3f7eaa599d40",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/c92d1f34-8bc3-410a-99c4-4b8f387140ec",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/386ebb9d-643f-4108-a12f-3f867f18fb36",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/ad8401a0-39a2-4c95-b65e-1634d41378ab",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/fd3ca94d-6c3d-443f-970b-a4e8dd7338da",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/9fa35d36-e5f4-4488-9068-8813bd232a22",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/c9682e42-9891-4118-86bb-f8cf79c84055",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/4f7a1589-c604-44e5-b0ec-bc87d3929906",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/b501a54d-7c2a-42f8-a47d-484cbdace0a6",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/15b97a49-9912-4a58-8424-b4ef1c302a05",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/94cd1315-c820-4314-806d-f1b0936e8a46",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/73f9e01d-eb92-41d6-9119-53cc2686ecfa",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/ac3612ce-b1c9-4034-a04b-b46732c2d7a3",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/c38c2630-3986-4e28-858f-596fd254e5e9",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/525fc0d7-abf1-49e5-a3e6-2f97eb50973c",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/8c88dac7-0314-40b4-b611-5dcd3fda004d",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/f1706661-007e-424b-8734-b755d602d580",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/ee12f76c-ed17-4471-bf2e-52bda1bcae64",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/c90cd302-d409-48fd-8643-36c34d7798e4",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/dacdca94-27b2-417a-bc8c-6d4168e6109a",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/963c3300-8967-4880-b078-c956de4c1e12",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/d6ebc1b1-55b0-4379-8276-b46d47d8b056",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/9196d356-1406-43ef-bc68-cb26e7eaf507",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/c2b241c5-5239-4465-869f-fef60a06822e",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/5d89951e-ac83-4c7f-ac47-4d8db50c835e",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/bb33da96-918c-4754-ba55-6d0dcbaf5173",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/ff617894-b1bc-4931-85b3-1e5b159d2106",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-presets/preset/19115d24-276e-4222-a23f-39cc23d9a326",
+    "lastmod": null
+   }
+  ]
+ }
+}

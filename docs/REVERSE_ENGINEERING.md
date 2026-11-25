@@ -369,3 +369,38 @@ These findings come from the agents that built each scraper. Full details are in
    job_set_types through the plan-benefit labels (approximate).
 3. The viral preset price matrices, keyed by aspect ratio and resolution. On a live sample this priced 79% of
    community generations.
+
+## 14. Third round (2026-11-25): site pages and leftover public APIs (`site` scraper)
+
+Gap analysis against Appendix B of [`HIGGSFIELD_DATA_INVENTORY.md`](HIGGSFIELD_DATA_INVENTORY.md) and the 12 sitemaps:
+every public (200) API path was matched against `scrapers/*/endpoints.py` and `constants.py`, and every sitemap page
+type against the existing scrapers. Probes were polite GETs (≈ 1 req/s, a few pages per type), samples in
+`samples/higgsfield/recon2/` (gitignored). Details and fields: [`scrapers/site.md`](scrapers/site.md).
+
+### Findings
+- **Every content page is TanStack Start SSR** with its loader data in `$_TSR.router` (seroval), exactly like the
+  blog. No JSON API is needed (and the academy/apps APIs are 401 without login): the loaders hold apps
+  (`appPreset` with `imageTemplate/videoTemplate/animateTemplate.cost` = credits per generation), academy courses and
+  lessons (lesson text as an `mdxTree` HAST tree), MCP skills/bundles (agent prompts, example conversations),
+  original-series episodes (views, likes, HLS video) and mixed-media presets (name, description, 6 samples — the
+  `/mixed-media-presets` API is login-only, so the pages are the only public source).
+- **Loader quirks:** blurred `data:image/webp;base64` placeholders (≈ 20 KB each) are embedded in app media and are
+  stripped before archiving; `/apps/<slug>` is shared by apps (`kind: custom|app`) and the 8 category tabs
+  (`kind: category`); `/apps` lists 84 apps but the sitemap has 98 URLs (8 categories + 8 apps not on the index, e.g.
+  `mugshot`, `gtai`); `/apps/click-to-ad` renders the Marketing Studio route (no appPreset). Every academy page repeats
+  the 17-course list in a layout loader (dropped on course/lesson pages).
+- **Landing pages** (`/ai-image`, `/kling-3.0`, `/seedance/2.5`, `/plugins/*`, …) have **no loader data**; the content
+  is SSR HTML. React streaming puts some sections at the end of `<body>` as `<div hidden id="S:n">`, referenced by
+  `<template id="B:n">` placeholders — the extractor moves them back before converting `<main>` to Markdown. JSON-LD
+  on these pages is rich: `SoftwareApplication` (with `offers.price`/`priceCurrency`), `HowTo` steps, `FAQPage`,
+  `BreadcrumbList`, `ItemList`.
+- **Rooms** (`/community/rooms/<slug>`, 73 URLs) render only head tags server-side; the chat is client-side and
+  per-user. Only title/description/JSON-LD are collected, and only with `--what rooms`.
+- **Effects** (`/effects/examples/<preset>`, 87) embed the same preset objects as `catalog`'s
+  `/viral-hub/presets/all` (incl. `price_matrix`) plus a page of community samples: no new data, not built.
+- **Leftover public APIs:** `/datetime-settings` (17 scheduled promo windows, some with per-plan free-generation
+  params), `/business-unlim/state` (unlimited-model trial cards per team plan and billing period) and
+  `/game-gift/networks` (PlayStation/Xbox gift amounts per country) are now scraped (`--what promos`).
+  `/feature`, `/user/meta` (your IP's country/cohort), `/user/features`, `/youtube-faceless/hot-right-now` (empty) and
+  `/contests/trending` (204) carry no catalog data and are skipped.
+- No DataDome/Cloudflare challenge on any page type at ≈ 1 req/s; the framework still stops on a captcha.

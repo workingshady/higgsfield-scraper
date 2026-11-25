@@ -284,7 +284,7 @@ redeem, invite. The full rule is the `MUTATION` regex in `scripts/recon_probe.py
 
 ## 8. Scraper status
 
-**Update 2026-11-25:** the first five scrapers are built (`python -m higgsfield_scraper scrapers`).
+**Update 2026-11-25:** six scrapers are built (`python -m higgsfield_scraper scrapers`); `site` covers the sitemap page types that were left (§4).
 
 | Scraper | Status | Docs |
 |---|---|---|
@@ -293,7 +293,9 @@ redeem, invite. The full rule is the `MUTATION` regex in `scripts/recon_probe.py
 | `catalog` | ✅ built: public catalogs, and login-only ones when a session exists | [`scrapers/catalog.md`](scrapers/catalog.md) |
 | `projects` | ✅ built | [`scrapers/projects.md`](scrapers/projects.md) |
 | `blog` | ✅ built: blog, help centers, case studies, changelog, talent posts | [`scrapers/blog.md`](scrapers/blog.md) |
-| apps, effects, academy, marketing pages, MCP pages | ⏳ not yet (sitemap pages) | this file, §4 |
+| `site` | ✅ built: apps (+ credit cost per template), academy courses + lessons (Markdown), MCP skills + bundles, original-series series + episodes, mixed-media presets, landing/plugin pages (Markdown, FAQ, HowTo), rooms (opt-in, title only), promo APIs (`/datetime-settings`, `/business-unlim/state`, `/game-gift/networks`) | [`scrapers/site.md`](scrapers/site.md) |
+| effects pages | ➖ not built: same presets as `catalog` viral presets; samples = community generations | [`scrapers/site.md`](scrapers/site.md) |
+| `/feature`, `/user/meta`, `/user/features`, `/youtube-faceless/hot-right-now`, `/contests/trending` | ➖ not built: flags / empty | [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) §14 |
 
 The original plan follows.
 

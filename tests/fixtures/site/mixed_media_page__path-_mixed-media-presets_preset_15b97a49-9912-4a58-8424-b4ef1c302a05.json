@@ -1,0 +1,151 @@
+{
+ "meta": {
+  "endpoint": "mixed_media_page",
+  "url": "https://higgsfield.ai/mixed-media-presets/preset/15b97a49-9912-4a58-8424-b4ef1c302a05",
+  "params": {
+   "path": "/mixed-media-presets/preset/15b97a49-9912-4a58-8424-b4ef1c302a05"
+  },
+  "fetched_at": "2026-11-25T16:01:50.547036+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/mixed-media-presets/preset/15b97a49-9912-4a58-8424-b4ef1c302a05",
+  "page_type": "mixed_media",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "Palette - Mixed Media Preset | Higgsfield",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/mixed-media-presets/preset/15b97a49-9912-4a58-8424-b4ef1c302a05",
+   "description": "Try the Palette mixed media preset. Generate unique AI videos and images with creative presets built for creators on Higgsfield.",
+   "keywords": null,
+   "og_title": "Palette - Mixed Media Preset | Higgsfield",
+   "og_description": "Try the Palette mixed media preset. Generate unique AI videos and images with creative presets built for creators on Higgsfield.",
+   "og_image": "https://static.higgsfield.ai/public/thumbnail/default.jpg",
+   "og_type": "website",
+   "robots": null,
+   "ld_json": []
+  },
+  "matches": [
+   {
+    "i": "#(public)#mixed-media-presets#preset#$presetId#mixed-media-presets#preset#15b97a49-9912-4a58-8424-b4ef1c302a05",
+    "l": {
+     "preset": {
+      "id": "15b97a49-9912-4a58-8424-b4ef1c302a05",
+      "name": "Palette",
+      "description": "Hand-painted color composition"
+     },
+     "initialItems": [
+      {
+       "id": "f97c5d3f-f9d6-41e4-baca-dd0982ecac7d",
+       "media": {
+        "type": "video",
+        "description": null,
+        "width": 1928,
+        "height": 1076,
+        "source": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH01/f3601029-ecd3-4956-9888-e888b8a36177.mp4",
+        "thumbnail": "https://cdn.higgsfield.ai/user_REDACTEDH01/f3601029-ecd3-4956-9888-e888b8a36177_thumbnail.webp"
+       },
+       "profile": {
+        "username": "[redacted]",
+        "avatarMedia": {
+         "source": "https://d2ol7oe51mr4n9.cloudfront.net/anon_user_id/2853e9e1-6c80-4c2b-b02c-369ab00c17b1.png",
+         "type": "static",
+         "width": -1,
+         "height": -1
+        },
+        "badge": "higgs_team"
+       },
+       "fetchedAt": 1795622542648,
+       "jobId": "68071144-8e76-4050-b340-c9047609197e",
+       "jobSetId": "a2d00ebc-e74f-45e3-9ce7-820d80bdfce9",
+       "liked": false,
+       "likes": 128,
+       "job": {
+        "id": "68071144-8e76-4050-b340-c9047609197e",
+        "jobSetId": "a2d00ebc-e74f-45e3-9ce7-820d80bdfce9",
+        "jobSetType": "mixed_media",
+        "media": {
+         "assetType": "video",
+         "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH01/f3601029-ecd3-4956-9888-e888b8a36177.mp4",
+         "resultOnlyUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH01/f3601029-ecd3-4956-9888-e888b8a36177.mp4",
+         "hls": {
+          "type": "video",
+          "url": "https://cdn.higgsfield.ai/hls/job/68071144-8e76-4050-b340-c9047609197e/af300ad0-f398-45ff-ae20-65efe33d4592/index.m3u8",
+          "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTEDH01/f3601029-ecd3-4956-9888-e888b8a36177_thumbnail.webp"
+         },
+         "media": {
+          "type": "video",
+          "source": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH01/f3601029-ecd3-4956-9888-e888b8a36177.mp4",
+          "thumbnail": "https://cdn.higgsfield.ai/user_REDACTEDH01/f3601029-ecd3-4956-9888-e888b8a36177_thumbnail.webp",
+          "width": 1928,
+          "height": 1076
+         },
+         "meta": {
+          "width": 1928,
+          "height": 1076,
+          "aspectRatio": "1928:1076"
+         }
+        }
+       }
+      },
+      {
+       "id": "cccd1522-4281-4958-ba6d-dc49aaad056f",
+       "media": {
+        "type": "video",
+        "description": null,
+        "width": 1936,
+        "height": 1072,
+        "source": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH01/3d49bd47-b741-4531-9966-137798824678.mp4",
+        "thumbnail": "https://cdn.higgsfield.ai/user_REDACTEDH01/3d49bd47-b741-4531-9966-137798824678_thumbnail.webp"
+       },
+       "profile": {
+        "username": "[redacted]",
+        "avatarMedia": {
+         "source": "https://d2ol7oe51mr4n9.cloudfront.net/anon_user_id/2853e9e1-6c80-4c2b-b02c-369ab00c17b1.png",
+         "type": "static",
+         "width": -1,
+         "height": -1
+        },
+        "badge": "higgs_team"
+       },
+       "fetchedAt": 1795622542648,
+       "jobId": "bab6477d-597f-4868-8128-83edb541a632",
+       "jobSetId": "b4b2c309-1ca0-4433-9c86-86c63826c678",
+       "liked": false,
+       "likes": 10,
+       "job": {
+        "id": "bab6477d-597f-4868-8128-83edb541a632",
+        "jobSetId": "b4b2c309-1ca0-4433-9c86-86c63826c678",
+        "jobSetType": "mixed_media",
+        "media": {
+         "assetType": "video",
+         "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH01/3d49bd47-b741-4531-9966-137798824678.mp4",
+         "resultOnlyUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH01/3d49bd47-b741-4531-9966-137798824678.mp4",
+         "hls": {
+          "type": "video",
+          "url": "https://cdn.higgsfield.ai/hls/job/bab6477d-597f-4868-8128-83edb541a632/ea183a5d-5254-468c-9e13-6b0e40647e58/index.m3u8",
+          "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTEDH01/3d49bd47-b741-4531-9966-137798824678_thumbnail.webp"
+         },
+         "media": {
+          "type": "video",
+          "source": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDH01/3d49bd47-b741-4531-9966-137798824678.mp4",
+          "thumbnail": "https://cdn.higgsfield.ai/user_REDACTEDH01/3d49bd47-b741-4531-9966-137798824678_thumbnail.webp",
+          "width": 1936,
+          "height": 1072
+         },
+         "meta": {
+          "width": 1936,
+          "height": 1072,
+          "aspectRatio": "1936:1072"
+         }
+        }
+       }
+      }
+     ],
+     "initialCursor": 1768120240.908271
+    }
+   }
+  ]
+ }
+}

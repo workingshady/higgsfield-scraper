@@ -1,0 +1,2074 @@
+{
+ "meta": {
+  "endpoint": "originals_index",
+  "url": "https://higgsfield.ai/community/originals",
+  "params": {
+   "path": "/original-series"
+  },
+  "fetched_at": "2026-11-25T16:00:32.472459+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/original-series",
+  "page_type": "originals_index",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "Higgsfield Original Series - First AI-Native Streaming Platform",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/community/originals",
+   "description": "Watch AI-generated original series across sci-fi, thriller, anime & more. Vote on what gets made next. From Higgsfield's cinematic AI studio.",
+   "keywords": null,
+   "og_title": "Higgsfield Original Series - First AI-Native Streaming Platform",
+   "og_description": "Watch AI-generated original series across sci-fi, thriller, anime & more. Vote on what gets made next. From Higgsfield's cinematic AI studio.",
+   "og_image": "https://static.higgsfield.ai/public/thumbnail/default.jpg",
+   "og_type": "website",
+   "robots": null,
+   "ld_json": []
+  },
+  "matches": [
+   {
+    "i": "#(public)#community#_tabs#originals#community#originals",
+    "l": {
+     "snapshot": {
+      "locale": "en",
+      "hero": {
+       "data": [
+        {
+         "id": "0d9d7a26-233a-40b5-bce3-69128cde625d",
+         "slug": "cully-hill-boys",
+         "title": "The Cully Hill Boys",
+         "description": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+         "shortDescription": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+         "fullDescription": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+         "authorType": "higgsfield_team",
+         "author": null,
+         "isSeries": false,
+         "state": "released",
+         "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/portrait/172960a5-a527-4743-a854-09e61f6c61ea_optimized.webp",
+         "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/landscape/f12b1542-f6f4-4247-a084-d949b2385084_optimized.webp",
+         "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/background/7216ff5d-dd01-46bc-b4cc-926f7a2c4d33_optimized.webp",
+         "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/logo/7e260510-7ff5-492d-82bd-24621d5781bd.png",
+         "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/trailer/e04ebe06-bec1-4303-8aea-cfeea793c230.mp4",
+         "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/0d9d7a26-233a-40b5-bce3-69128cde625d/trailer/e04ebe06-bec1-4303-8aea-cfeea793c230.m3u8",
+         "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/8379c8de-803d-4b40-ae7a-3029142566f6/index.m3u8",
+         "previewVideoHlsUrl": null,
+         "projectUrl": null,
+         "projectPublicationId": "0efa70c1-07ec-410a-813b-8629502a7de3",
+         "durationSeconds": 6889,
+         "engagement": {
+          "likeCount": 1587,
+          "viewCount": 363877,
+          "commentCount": 815
+         },
+         "categorySlugs": [],
+         "projectBannerImages": [],
+         "tags": [],
+         "voteCount": 179,
+         "subscriberCount": 34,
+         "engagementScore": 0.9867914356130623,
+         "isVoteTriggered": false,
+         "isNotifyTriggered": false,
+         "type": "on-our-radar",
+         "firstEpisodeId": "e2f47f51-6893-4770-b8cb-4ef35396eae3",
+         "firstEpisodeSlug": "full-film",
+         "cast": []
+        },
+        {
+         "id": "87fac988-7965-4428-ad90-cfffb5a03541",
+         "slug": "zephyr-special",
+         "title": "ZEPHYR: Special",
+         "description": "With a Zephyr member in dire straits, survival looked impossible - until a mysterious guest character intervened. Her mastery of mech combat surpassed the expectations of even the most elite fighters in the squad.",
+         "shortDescription": "With a Zephyr member in dire straits, survival looked impossible - until a mysterious guest character intervened. Her mastery of mech combat surpassed the expectations of even the most elite fighters in the squad.",
+         "fullDescription": "With a Zephyr member in dire straits, survival looked impossible - until a mysterious guest character intervened. Her mastery of mech combat surpassed the expectations of even the most elite fighters in the squad.",
+         "authorType": "higgsfield_team",
+         "author": null,
+         "isSeries": false,
+         "state": "released",
+         "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/portrait/913170ee-672a-4650-90c8-6dcf263b5964_optimized.webp",
+         "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/landscape/e63b2efa-93e3-4735-9246-3fc645d6476d_optimized.webp",
+         "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/background/628b820c-53a5-4306-b201-e119075bca29.png",
+         "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/logo/a8e9ce73-183c-4aa3-894b-9370dc81e410.png",
+         "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/trailer/cd09ec1f-d7bb-431e-8b6c-e94cf99701bb.mp4",
+         "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/87fac988-7965-4428-ad90-cfffb5a03541/trailer/19ab2546-48d8-4dbe-80bd-5c6737afac84.m3u8",
+         "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/56987630-1f4d-4c34-884f-822aaeac9bd5/index.m3u8",
+         "previewVideoHlsUrl": null,
+         "projectUrl": null,
+         "projectPublicationId": "cee8c1f3-75a0-4722-970d-c78bd1d23bff",
+         "durationSeconds": 308,
+         "engagement": {
+          "likeCount": 887,
+          "viewCount": 148442,
+          "commentCount": 135
+         },
+         "categorySlugs": [
+          "higgsfield-choice"
+         ],
+         "projectBannerImages": [],
+         "tags": [],
+         "voteCount": 28,
+         "subscriberCount": 8,
+         "engagementScore": 0.90818706741616,
+         "isVoteTriggered": false,
+         "isNotifyTriggered": false,
+         "type": "higgsfield-choice",
+         "firstEpisodeId": "00e79604-38b5-4209-87d7-11200b072ca5",
+         "firstEpisodeSlug": "full-film",
+         "cast": []
+        },
+        {
+         "id": "0194a35c-18c4-43f0-842f-373b3b592071",
+         "slug": "the-trigger",
+         "title": "The Trigger",
+         "description": "A hitman's next order carries the name of the man who once saved his life.",
+         "shortDescription": "A hitman's next order carries the name of the man who once saved his life.",
+         "fullDescription": "An ageing hitman takes his orders in a diner, printed under the price of coffee and apple pie. When the new order names the soldier who once dragged him off a roof in Afghanistan, he has to decide which of his two lives he is still living in.",
+         "authorType": "higgsfield_team",
+         "author": null,
+         "isSeries": false,
+         "state": "released",
+         "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/portrait/b35baa1f-c8fe-43d4-99f0-80ea197c7961_optimized.webp",
+         "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/landscape/d15e30fa-1f11-4531-b383-f4ad08383c3c_optimized.webp",
+         "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/background/d2a28b38-1041-4f87-8c67-53332860a987_optimized.webp",
+         "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/logo/546ca500-8eea-4fd6-9a13-c9049e330d5a.png",
+         "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/trailer/d3b21704-a345-4929-a762-dee92541a5cb.mov",
+         "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/0194a35c-18c4-43f0-842f-373b3b592071/trailer/d3b21704-a345-4929-a762-dee92541a5cb.m3u8",
+         "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/c5652366-2a79-46f3-9565-39bacb734781/index.m3u8",
+         "previewVideoHlsUrl": null,
+         "projectUrl": null,
+         "projectPublicationId": "0967df6b-0216-459b-91a4-48495ce4bea3",
+         "durationSeconds": 516,
+         "engagement": {
+          "likeCount": 1152,
+          "viewCount": 143893,
+          "commentCount": 213
+         },
+         "categorySlugs": [
+          "higgsfield-choice"
+         ],
+         "projectBannerImages": [],
+         "tags": [],
+         "voteCount": 3,
+         "subscriberCount": 0,
+         "engagementScore": 0.9441965323292892,
+         "isVoteTriggered": false,
+         "isNotifyTriggered": false,
+         "type": "higgsfield-choice",
+         "firstEpisodeId": "41cc93ed-b65e-40f9-bc33-50d67abead09",
+         "firstEpisodeSlug": "full-film",
+         "cast": []
+        },
+        {
+         "id": "c1306671-1d1b-4b35-9773-105f2993341c",
+         "slug": "kok-boru",
+         "title": "Kok Boru",
+         "description": "When a young nomadic mother is forced to choose which of her two children to save from a wolf pack in a blizzard, she loses her little daughter to the steppe — and years later, when her village rides out to slaughter a \"demon\" child running with the wolves, she must find the feral daughter she lost and decide whether to claim her or set her free.",
+         "shortDescription": "When a young nomadic mother is forced to choose which of her two children to save from a wolf pack in a blizzard, she loses her little daughter to the steppe — and years later, when her village rides out to slaughter a \"demon\" child running with the wolves, she must find the feral daughter she lost and decide whether to claim her or set her free.",
+         "fullDescription": "When a young nomadic mother is forced to choose which of her two children to save from a wolf pack in a blizzard, she loses her little daughter to the steppe — and years later, when her village rides out to slaughter a \"demon\" child running with the wolves, she must find the feral daughter she lost and decide whether to claim her or set her free.",
+         "authorType": "higgsfield_team",
+         "author": null,
+         "isSeries": false,
+         "state": "released",
+         "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/portrait/3ca2b58b-1b49-4114-975d-99f13e9487d8_optimized.webp",
+         "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/landscape/3343dc30-34de-4f04-a11c-2480010c551c_optimized.webp",
+         "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/background/aa8fb0ec-3595-44ed-a545-3f0495bd2bc4_optimized.webp",
+         "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/logo/c963b166-5ff7-47df-af3e-0f0af2160bbf.png",
+         "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/trailer/c3dfa30d-a19f-45c2-9a73-d799e75649db.mp4",
+         "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/c1306671-1d1b-4b35-9773-105f2993341c/trailer/c3dfa30d-a19f-45c2-9a73-d799e75649db.m3u8",
+         "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/1c10c2c5-6096-4d75-8c3f-3125763620c4/index.m3u8",
+         "previewVideoHlsUrl": null,
+         "projectUrl": "https://higgsfield.ai/generate?brief=1&projectId=1999e1a9-e748-4d9d-9d56-ac1e19881897&brief=1&utm_source=os&utm_campaign=kok-boru",
+         "projectPublicationId": "2d64daf4-97e8-468e-947b-20bcf6bf5da1",
+         "durationSeconds": 899,
+         "engagement": {
+          "likeCount": 817,
+          "viewCount": 92817,
+          "commentCount": 150
+         },
+         "categorySlugs": [
+          "higgsfield-choice",
+          "on-our-radar"
+         ],
+         "projectBannerImages": [
+          "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/project_banner_images/c498e3bd-a209-4b74-90e1-3d5a0304ad4c.jpg",
+          "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/project_banner_images/312def46-ba1a-42bd-82a8-0735fc41d78e_optimized.webp",
+          "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/project_banner_images/6bdf5c45-c872-4e03-a502-c8a59062f3da_optimized.webp"
+         ],
+         "tags": [],
+         "voteCount": 2244,
+         "subscriberCount": 265,
+         "engagementScore": 0.9524799113327793,
+         "isVoteTriggered": false,
+         "isNotifyTriggered": false,
+         "type": "higgsfield-choice",
+         "firstEpisodeId": "d5c2e478-7d38-4950-b4d4-c6c05da0671f",
+         "firstEpisodeSlug": "full-film",
+         "cast": []
+        },
+        {
+         "id": "af6e1e33-b457-4e3f-92c2-5b2259320a00",
+         "slug": "hell-grind",
+         "title": "HELL GRIND",
+         "description": "ROKO, JAXX, LULU and REIN — four street kids with nothing to lose. One night, one museum, one plan — until it all falls apart when, right in the exhibition hall, they find an artifact with no name and no history. One touch — and each receives a power they never asked for, awakening something that was never meant to wake. Now they must face the ancient evil head-on — even if the road leads straight to hell. Four children the world wrote off at birth are now its last line of defense.",
+         "shortDescription": "ROKO, JAXX, LULU and REIN — four street kids with nothing to lose. One night, one museum, one plan — until it all falls apart when, right in the exhibition hall, they find an artifact with no name and no history. One touch — and each receives a power they never asked for, awakening something that was never meant to wake. Now they must face the ancient evil head-on — even if the road leads straight to hell. Four children the world wrote off at birth are now its last line of defense.",
+         "fullDescription": "ROKO, JAXX, LULU and REIN — four street kids with nothing to lose. One night, one museum, one plan — until it all falls apart when, right in the exhibition hall, they find an artifact with no name and no history. One touch — and each receives a power they never asked for, awakening something that was never meant to wake. Now they must face the ancient evil head-on — even if the road leads straight to hell. Four children the world wrote off at birth are now its last line of defense.",
+         "authorType": "higgsfield_team",
+         "author": null,
+         "isSeries": false,
+         "state": "released",
+         "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/portrait/305c7822-fe42-449b-b440-4d4389f420e3_optimized.webp",
+         "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/landscape/47ec8080-20a9-4587-8145-6adafcfcf2da_optimized.webp",
+         "backgroundUrl": null,
+         "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/logo/f2f29469-8a9c-4047-b448-313ecda5cde1.png",
+         "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/trailer/52bb4417-4daf-49ad-ab53-f6aee78178f0.mp4",
+         "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/trailer/52bb4417-4daf-49ad-ab53-f6aee78178f0.m3u8",
+         "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/d8bb1fae-a4d8-485b-93aa-5f80fbd41d4d/video/240f0727-ae3e-4025-9a2c-c3e4bdbc8e57.mov",
+         "previewVideoHlsUrl": "https://cdn.higgsfield.ai/hls/video_input/d239c691-6c91-4d46-a498-4adbb4c5f4df/index.m3u8",
+         "projectUrl": null,
+         "projectPublicationId": "b9d83e92-2bc2-49de-8ef2-1b8d6ae259fe",
+         "durationSeconds": null,
+         "engagement": {
+          "likeCount": 4069,
+          "viewCount": 673827,
+          "commentCount": 748
+         },
+         "categorySlugs": [
+          "higgsfield-choice",
+          "first-look"
+         ],
+         "projectBannerImages": [],
+         "tags": [],
+         "voteCount": 8451,
+         "subscriberCount": 2961,
+         "engagementScore": 0.9826218591701432,
+         "isVoteTriggered": false,
+         "isNotifyTriggered": false,
+         "type": "higgsfield-choice",
+         "firstEpisodeId": "d8bb1fae-a4d8-485b-93aa-5f80fbd41d4d",
+         "firstEpisodeSlug": "episode-1",
+         "cast": [
+          {
+           "fullName": "Roko",
+           "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/52c63903-a70f-4cf1-9898-14a77e33328e.png"
+          },
+          {
+           "fullName": "Jaxx",
+           "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/78be95f9-c333-49d1-b247-e29cbad46b33.png"
+          },
+          {
+           "fullName": "Rein",
+           "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/1c3f43f0-b5b6-4a95-8f63-211c12050dc0.png"
+          },
+          {
+           "fullName": "Lulu",
+           "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/cbd60059-73c7-4f62-89a2-b6d427d2b719.png"
+          },
+          {
+           "fullName": "Monster",
+           "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/46937371-fd45-4e01-9b90-dc72eb23b594.png"
+          },
+          {
+           "fullName": "Miss Goldberg",
+           "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/2aa4907a-ed68-4bea-84ec-17bd185b0d75.png"
+          }
+         ]
+        }
+       ],
+       "updatedAt": 1795622439194
+      },
+      "discoveryHeader": null,
+      "discoveryCreators": null,
+      "originals": {
+       "data": {
+        "items": [
+         {
+          "id": "46874256-03f1-4dab-8c50-b8bbd9fc3c4c",
+          "slug": "anerneq",
+          "title": "Anerneq",
+          "description": "An Arctic drama about love, sacrifice and the cost of letting go.",
+          "shortDescription": "An Arctic drama about love, sacrifice and the cost of letting go.",
+          "fullDescription": "An Arctic drama about love, sacrifice and the cost of letting go. Exiled with her father, whose fading mind mistakes her for his dead wife, a young huntress leads him across the frozen wilderness of 1920s Chukotka to the sacred Whale Bone Alley. She believes her own life is the price of saving him—but the journey demands a sacrifice she never imagined.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/46874256-03f1-4dab-8c50-b8bbd9fc3c4c/portrait/56746d70-3db0-41cc-b94d-34d16f290538.jpg",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/46874256-03f1-4dab-8c50-b8bbd9fc3c4c/landscape/b78aeef7-c91a-44c6-bc98-8a490a084db5_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/46874256-03f1-4dab-8c50-b8bbd9fc3c4c/background/d0ab566e-1c5c-41ff-9fec-e51caea61d92_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/46874256-03f1-4dab-8c50-b8bbd9fc3c4c/logo/8f509027-b6e0-489f-b63e-41ce0bd0e0d2.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/46874256-03f1-4dab-8c50-b8bbd9fc3c4c/trailer/345fb8fb-542d-4806-aa5d-7afcdb6d7384.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/46874256-03f1-4dab-8c50-b8bbd9fc3c4c/trailer/345fb8fb-542d-4806-aa5d-7afcdb6d7384.m3u8",
+          "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/0546db86-8808-4818-9bed-7e3ba7ca4fd1/index.m3u8",
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": "561e15d4-57aa-4c99-bccc-97045495008a",
+          "durationSeconds": 1202,
+          "engagement": {
+           "likeCount": 178,
+           "viewCount": 35938,
+           "commentCount": 34
+          },
+          "categorySlugs": [
+           "higgsfield-choice"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 15,
+          "subscriberCount": 7,
+          "engagementScore": 0.8388698745050667,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "61ba3bb6-98f5-4a73-b0d4-c316202c80d3",
+          "firstEpisodeSlug": "full-film",
+          "cast": []
+         },
+         {
+          "id": "b7ab12d0-769e-4420-91d8-f59f9c13c9a1",
+          "slug": "passport-rush",
+          "title": "Passport Rush",
+          "description": "Minutes from boarding, a young woman realizes her passport is across town.",
+          "shortDescription": "Minutes from boarding, a young woman realizes her passport is across town.",
+          "fullDescription": "Minutes from boarding, a young woman realizes her passport is across town. Ahead: a mad dash through an absurd apocalypse to make her flight.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/b7ab12d0-769e-4420-91d8-f59f9c13c9a1/portrait/585ed38b-328b-4075-b006-70c6a2e7f172_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/b7ab12d0-769e-4420-91d8-f59f9c13c9a1/landscape/16a24128-6388-4970-b729-ea693c2cf002_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/b7ab12d0-769e-4420-91d8-f59f9c13c9a1/background/3132b800-78f3-4124-b237-b8d10c8f2058_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/b7ab12d0-769e-4420-91d8-f59f9c13c9a1/logo/09ac6000-7fce-47f9-9923-0f0cd8a3e474.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/b7ab12d0-769e-4420-91d8-f59f9c13c9a1/trailer/13a1d7bc-b555-40fe-b8b9-22df9a385b29.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/b7ab12d0-769e-4420-91d8-f59f9c13c9a1/trailer/13a1d7bc-b555-40fe-b8b9-22df9a385b29.m3u8",
+          "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/29e131bd-0ff6-4edd-ac17-d427c8ef3be7/index.m3u8",
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": "5faf8c98-ab7b-4195-bfb6-073a6e985785",
+          "durationSeconds": 288,
+          "engagement": {
+           "likeCount": 329,
+           "viewCount": 47156,
+           "commentCount": 43
+          },
+          "categorySlugs": [
+           "higgsfield-choice"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 3,
+          "subscriberCount": 0,
+          "engagementScore": 0.9425268096514744,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "ab9099e9-0e9f-4ea8-8735-d098eb811976",
+          "firstEpisodeSlug": "full-film",
+          "cast": []
+         },
+         {
+          "id": "65420da1-b6f1-4b5b-8da9-c244e1d025c2",
+          "slug": "if-you-stop-loving-me-ill-die",
+          "title": "If you stop loving me, I'll die — I don't like dying, but for our love I'm ready to go that far",
+          "description": "If You Stop Loving Me I'll Die...: A deadpan silent animated comedy about love, blackmail and, above all, death. Tolik has exactly one talent: dying. Any refusal, however small, kills him on the spot — and he revives the moment he gets his way. His wife has been resurrecting him for years, until one morning she packs a suitcase and walks out. Now it's just him, a dripping tap nobody's going to fix, and a neighbour knocking at the door.\n",
+          "shortDescription": "If You Stop Loving Me I'll Die...: A deadpan silent animated comedy about love, blackmail and, above all, death. Tolik has exactly one talent: dying. Any refusal, however small, kills him on the spot — and he revives the moment he gets his way. His wife has been resurrecting him for years, until one morning she packs a suitcase and walks out. Now it's just him, a dripping tap nobody's going to fix, and a neighbour knocking at the door.\n",
+          "fullDescription": "If You Stop Loving Me I'll Die...: A deadpan silent animated comedy about love, blackmail and, above all, death. Tolik has exactly one talent: dying. Any refusal, however small, kills him on the spot — and he revives the moment he gets his way. His wife has been resurrecting him for years, until one morning she packs a suitcase and walks out. Now it's just him, a dripping tap nobody's going to fix, and a neighbour knocking at the door.\n",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/65420da1-b6f1-4b5b-8da9-c244e1d025c2/portrait/83c7c970-c84e-46f2-bc21-8962bfbebf18_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/65420da1-b6f1-4b5b-8da9-c244e1d025c2/landscape/b9d0a1be-34ac-4f9a-ab4e-e032c0439df0_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/65420da1-b6f1-4b5b-8da9-c244e1d025c2/background/b6dd32f6-7e4c-4165-9556-ff9c2dfed1c9_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/65420da1-b6f1-4b5b-8da9-c244e1d025c2/logo/48fcfe9d-3bbb-415c-908b-229dc738abd6.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/65420da1-b6f1-4b5b-8da9-c244e1d025c2/trailer/6c7a877c-ce89-4083-8026-db0882c2369f.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/65420da1-b6f1-4b5b-8da9-c244e1d025c2/trailer/6c7a877c-ce89-4083-8026-db0882c2369f.m3u8",
+          "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/8e567c16-28e8-487e-a4be-6059281f5b2e/index.m3u8",
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": "7df43eb6-fae6-4c0d-8f8d-f5b2245e602b",
+          "durationSeconds": 282,
+          "engagement": {
+           "likeCount": 633,
+           "viewCount": 84497,
+           "commentCount": 117
+          },
+          "categorySlugs": [
+           "higgsfield-choice"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 0,
+          "subscriberCount": 0,
+          "engagementScore": 0.9010957324106112,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "baf9a546-fec2-4e68-abe7-5ae297312b98",
+          "firstEpisodeSlug": "full-film",
+          "cast": []
+         },
+         {
+          "id": "0194a35c-18c4-43f0-842f-373b3b592071",
+          "slug": "the-trigger",
+          "title": "The Trigger",
+          "description": "A hitman's next order carries the name of the man who once saved his life.",
+          "shortDescription": "A hitman's next order carries the name of the man who once saved his life.",
+          "fullDescription": "An ageing hitman takes his orders in a diner, printed under the price of coffee and apple pie. When the new order names the soldier who once dragged him off a roof in Afghanistan, he has to decide which of his two lives he is still living in.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/portrait/b35baa1f-c8fe-43d4-99f0-80ea197c7961_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/landscape/d15e30fa-1f11-4531-b383-f4ad08383c3c_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/background/d2a28b38-1041-4f87-8c67-53332860a987_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/logo/546ca500-8eea-4fd6-9a13-c9049e330d5a.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/trailer/d3b21704-a345-4929-a762-dee92541a5cb.mov",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/0194a35c-18c4-43f0-842f-373b3b592071/trailer/d3b21704-a345-4929-a762-dee92541a5cb.m3u8",
+          "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/c5652366-2a79-46f3-9565-39bacb734781/index.m3u8",
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": "0967df6b-0216-459b-91a4-48495ce4bea3",
+          "durationSeconds": 516,
+          "engagement": {
+           "likeCount": 1152,
+           "viewCount": 143893,
+           "commentCount": 213
+          },
+          "categorySlugs": [
+           "higgsfield-choice"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 3,
+          "subscriberCount": 0,
+          "engagementScore": 0.9441965323292892,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "41cc93ed-b65e-40f9-bc33-50d67abead09",
+          "firstEpisodeSlug": "full-film",
+          "cast": []
+         },
+         {
+          "id": "9f194833-1ebf-47cb-9cc9-501fcd28c360",
+          "slug": "adiliada",
+          "title": "Adiliada",
+          "description": "A pitch-black sci-fi comedy about love, betrayal, and, above all, death.",
+          "shortDescription": "A pitch-black sci-fi comedy about love, betrayal, and, above all, death.",
+          "fullDescription": "A pitch-black sci-fi comedy about love, betrayal, and, above all, death. A guy named Adil accidentally stumbles into an impossible superpower: every time he dies, he's reborn in a new universe, as an alternate version of himself. Now he's doomed to hop from world to world, trying to stop the end of them all.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9f194833-1ebf-47cb-9cc9-501fcd28c360/portrait/89fd688a-1a7b-4ef9-bd7b-7cab6d0660a1.jpg",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9f194833-1ebf-47cb-9cc9-501fcd28c360/landscape/fd8209c0-6ba9-4aec-90bb-ec873d329cce.jpg",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9f194833-1ebf-47cb-9cc9-501fcd28c360/background/99a83e3d-6cf5-43e1-bddd-0c3efa134012.jpg",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9f194833-1ebf-47cb-9cc9-501fcd28c360/logo/05770be3-c2c0-4eb9-b5e0-a7610e70b1f1.jpg",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9f194833-1ebf-47cb-9cc9-501fcd28c360/trailer/e1049b01-2839-42b4-bd9f-6eac6d4eca88.mp4",
+          "trailerHlsUrl": null,
+          "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/1e94cae5-2d5c-409e-a504-aef44aae4662/index.m3u8",
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": "bbe6a216-bdde-46eb-a56a-a6b182521ba4",
+          "durationSeconds": 376,
+          "engagement": {
+           "likeCount": 496,
+           "viewCount": 77847,
+           "commentCount": 76
+          },
+          "categorySlugs": [
+           "first-look"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 0,
+          "subscriberCount": 5,
+          "engagementScore": 0.8156763396284354,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "first-look",
+          "firstEpisodeId": "aad64ef5-06a9-4916-add7-00d8ff46a8ed",
+          "firstEpisodeSlug": "full-film",
+          "cast": []
+         },
+         {
+          "id": "87fac988-7965-4428-ad90-cfffb5a03541",
+          "slug": "zephyr-special",
+          "title": "ZEPHYR: Special",
+          "description": "With a Zephyr member in dire straits, survival looked impossible - until a mysterious guest character intervened. Her mastery of mech combat surpassed the expectations of even the most elite fighters in the squad.",
+          "shortDescription": "With a Zephyr member in dire straits, survival looked impossible - until a mysterious guest character intervened. Her mastery of mech combat surpassed the expectations of even the most elite fighters in the squad.",
+          "fullDescription": "With a Zephyr member in dire straits, survival looked impossible - until a mysterious guest character intervened. Her mastery of mech combat surpassed the expectations of even the most elite fighters in the squad.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/portrait/913170ee-672a-4650-90c8-6dcf263b5964_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/landscape/e63b2efa-93e3-4735-9246-3fc645d6476d_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/background/628b820c-53a5-4306-b201-e119075bca29.png",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/logo/a8e9ce73-183c-4aa3-894b-9370dc81e410.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/trailer/cd09ec1f-d7bb-431e-8b6c-e94cf99701bb.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/87fac988-7965-4428-ad90-cfffb5a03541/trailer/19ab2546-48d8-4dbe-80bd-5c6737afac84.m3u8",
+          "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/56987630-1f4d-4c34-884f-822aaeac9bd5/index.m3u8",
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": "cee8c1f3-75a0-4722-970d-c78bd1d23bff",
+          "durationSeconds": 308,
+          "engagement": {
+           "likeCount": 887,
+           "viewCount": 148445,
+           "commentCount": 135
+          },
+          "categorySlugs": [
+           "higgsfield-choice"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 28,
+          "subscriberCount": 8,
+          "engagementScore": 0.90818706741616,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "00e79604-38b5-4209-87d7-11200b072ca5",
+          "firstEpisodeSlug": "full-film",
+          "cast": []
+         },
+         {
+          "id": "c1306671-1d1b-4b35-9773-105f2993341c",
+          "slug": "kok-boru",
+          "title": "Kok Boru",
+          "description": "When a young nomadic mother is forced to choose which of her two children to save from a wolf pack in a blizzard, she loses her little daughter to the steppe — and years later, when her village rides out to slaughter a \"demon\" child running with the wolves, she must find the feral daughter she lost and decide whether to claim her or set her free.",
+          "shortDescription": "When a young nomadic mother is forced to choose which of her two children to save from a wolf pack in a blizzard, she loses her little daughter to the steppe — and years later, when her village rides out to slaughter a \"demon\" child running with the wolves, she must find the feral daughter she lost and decide whether to claim her or set her free.",
+          "fullDescription": "When a young nomadic mother is forced to choose which of her two children to save from a wolf pack in a blizzard, she loses her little daughter to the steppe — and years later, when her village rides out to slaughter a \"demon\" child running with the wolves, she must find the feral daughter she lost and decide whether to claim her or set her free.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/portrait/3ca2b58b-1b49-4114-975d-99f13e9487d8_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/landscape/3343dc30-34de-4f04-a11c-2480010c551c_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/background/aa8fb0ec-3595-44ed-a545-3f0495bd2bc4_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/logo/c963b166-5ff7-47df-af3e-0f0af2160bbf.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/trailer/c3dfa30d-a19f-45c2-9a73-d799e75649db.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/c1306671-1d1b-4b35-9773-105f2993341c/trailer/c3dfa30d-a19f-45c2-9a73-d799e75649db.m3u8",
+          "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/1c10c2c5-6096-4d75-8c3f-3125763620c4/index.m3u8",
+          "previewVideoHlsUrl": null,
+          "projectUrl": "https://higgsfield.ai/generate?brief=1&projectId=1999e1a9-e748-4d9d-9d56-ac1e19881897&brief=1&utm_source=os&utm_campaign=kok-boru",
+          "projectPublicationId": "2d64daf4-97e8-468e-947b-20bcf6bf5da1",
+          "durationSeconds": 899,
+          "engagement": {
+           "likeCount": 817,
+           "viewCount": 92817,
+           "commentCount": 150
+          },
+          "categorySlugs": [
+           "higgsfield-choice",
+           "on-our-radar"
+          ],
+          "projectBannerImages": [
+           "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/project_banner_images/c498e3bd-a209-4b74-90e1-3d5a0304ad4c.jpg",
+           "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/project_banner_images/312def46-ba1a-42bd-82a8-0735fc41d78e_optimized.webp",
+           "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/project_banner_images/6bdf5c45-c872-4e03-a502-c8a59062f3da_optimized.webp"
+          ],
+          "tags": [],
+          "voteCount": 2244,
+          "subscriberCount": 265,
+          "engagementScore": 0.9524799113327793,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "d5c2e478-7d38-4950-b4d4-c6c05da0671f",
+          "firstEpisodeSlug": "full-film",
+          "cast": []
+         },
+         {
+          "id": "af6e1e33-b457-4e3f-92c2-5b2259320a00",
+          "slug": "hell-grind",
+          "title": "HELL GRIND",
+          "description": "ROKO, JAXX, LULU and REIN — four street kids with nothing to lose. One night, one museum, one plan — until it all falls apart when, right in the exhibition hall, they find an artifact with no name and no history. One touch — and each receives a power they never asked for, awakening something that was never meant to wake. Now they must face the ancient evil head-on — even if the road leads straight to hell. Four children the world wrote off at birth are now its last line of defense.",
+          "shortDescription": "ROKO, JAXX, LULU and REIN — four street kids with nothing to lose. One night, one museum, one plan — until it all falls apart when, right in the exhibition hall, they find an artifact with no name and no history. One touch — and each receives a power they never asked for, awakening something that was never meant to wake. Now they must face the ancient evil head-on — even if the road leads straight to hell. Four children the world wrote off at birth are now its last line of defense.",
+          "fullDescription": "ROKO, JAXX, LULU and REIN — four street kids with nothing to lose. One night, one museum, one plan — until it all falls apart when, right in the exhibition hall, they find an artifact with no name and no history. One touch — and each receives a power they never asked for, awakening something that was never meant to wake. Now they must face the ancient evil head-on — even if the road leads straight to hell. Four children the world wrote off at birth are now its last line of defense.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/portrait/305c7822-fe42-449b-b440-4d4389f420e3_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/landscape/47ec8080-20a9-4587-8145-6adafcfcf2da_optimized.webp",
+          "backgroundUrl": null,
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/logo/f2f29469-8a9c-4047-b448-313ecda5cde1.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/trailer/52bb4417-4daf-49ad-ab53-f6aee78178f0.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/trailer/52bb4417-4daf-49ad-ab53-f6aee78178f0.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/d8bb1fae-a4d8-485b-93aa-5f80fbd41d4d/video/240f0727-ae3e-4025-9a2c-c3e4bdbc8e57.mov",
+          "previewVideoHlsUrl": "https://cdn.higgsfield.ai/hls/video_input/d239c691-6c91-4d46-a498-4adbb4c5f4df/index.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": "b9d83e92-2bc2-49de-8ef2-1b8d6ae259fe",
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 4069,
+           "viewCount": 673830,
+           "commentCount": 748
+          },
+          "categorySlugs": [
+           "higgsfield-choice",
+           "first-look"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 8451,
+          "subscriberCount": 2961,
+          "engagementScore": 0.9826218591701432,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "d8bb1fae-a4d8-485b-93aa-5f80fbd41d4d",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Roko",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/52c63903-a70f-4cf1-9898-14a77e33328e.png"
+           },
+           {
+            "fullName": "Jaxx",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/78be95f9-c333-49d1-b247-e29cbad46b33.png"
+           },
+           {
+            "fullName": "Rein",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/1c3f43f0-b5b6-4a95-8f63-211c12050dc0.png"
+           },
+           {
+            "fullName": "Lulu",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/cbd60059-73c7-4f62-89a2-b6d427d2b719.png"
+           },
+           {
+            "fullName": "Monster",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/46937371-fd45-4e01-9b90-dc72eb23b594.png"
+           },
+           {
+            "fullName": "Miss Goldberg",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/cast/2aa4907a-ed68-4bea-84ec-17bd185b0d75.png"
+           }
+          ]
+         },
+         {
+          "id": "3bf2a090-55cc-4a1a-a2ab-949619025bed",
+          "slug": "red-flag",
+          "title": "Red Flag",
+          "description": "A pitch-black Hong Kong neo-noir about romance, betrayal and, above all, self-defense.",
+          "shortDescription": "A pitch-black Hong Kong neo-noir about romance, betrayal and, above all, self-defense.",
+          "fullDescription": "A pitch-black Hong Kong neo-noir about romance, betrayal and, above all, self-defense. A woman is home alone, still deciding whether her new boyfriend is worth keeping, when a burglar breaks into her flat after midnight: the \"burglar\" turns out to be the boyfriend, Li, letting himself in with a surprise bouquet - the reddest flag of all. What Li doesn't know is that she's a quiet martial-arts champion... and she's just made up her mind.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/3bf2a090-55cc-4a1a-a2ab-949619025bed/portrait/25424a5c-b40c-4ee7-8736-5d645afe58c3_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/3bf2a090-55cc-4a1a-a2ab-949619025bed/landscape/0375f808-72ad-426b-b69f-7c70157f39bf_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/3bf2a090-55cc-4a1a-a2ab-949619025bed/background/00f1033f-a9ab-4c74-81c0-c4971345357e_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/3bf2a090-55cc-4a1a-a2ab-949619025bed/logo/197451a3-a385-4342-aa44-e9f60e00d7e7.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/3bf2a090-55cc-4a1a-a2ab-949619025bed/trailer/d13e02c0-4940-4d29-852b-23d85e968443.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/3bf2a090-55cc-4a1a-a2ab-949619025bed/trailer/d13e02c0-4940-4d29-852b-23d85e968443.m3u8",
+          "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/1d4995ca-1133-4c0a-8abd-554519e9c260/index.m3u8",
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": "d34bf2aa-de9f-4302-a4f2-cc4bc8008209",
+          "durationSeconds": 136,
+          "engagement": {
+           "likeCount": 477,
+           "viewCount": 71365,
+           "commentCount": 86
+          },
+          "categorySlugs": [
+           "first-look"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 0,
+          "subscriberCount": 0,
+          "engagementScore": 0.8513404742740388,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "first-look",
+          "firstEpisodeId": "bd2a3f2d-dc08-4edd-b330-91608f53a709",
+          "firstEpisodeSlug": "full-film",
+          "cast": []
+         },
+         {
+          "id": "0d9d7a26-233a-40b5-bce3-69128cde625d",
+          "slug": "cully-hill-boys",
+          "title": "The Cully Hill Boys",
+          "description": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+          "shortDescription": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+          "fullDescription": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/portrait/172960a5-a527-4743-a854-09e61f6c61ea_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/landscape/f12b1542-f6f4-4247-a084-d949b2385084_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/background/7216ff5d-dd01-46bc-b4cc-926f7a2c4d33_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/logo/7e260510-7ff5-492d-82bd-24621d5781bd.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/trailer/e04ebe06-bec1-4303-8aea-cfeea793c230.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/0d9d7a26-233a-40b5-bce3-69128cde625d/trailer/e04ebe06-bec1-4303-8aea-cfeea793c230.m3u8",
+          "previewVideoUrl": "https://cdn.higgsfield.ai/hls/video_input/8379c8de-803d-4b40-ae7a-3029142566f6/index.m3u8",
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": "0efa70c1-07ec-410a-813b-8629502a7de3",
+          "durationSeconds": 6889,
+          "engagement": {
+           "likeCount": 1587,
+           "viewCount": 363887,
+           "commentCount": 815
+          },
+          "categorySlugs": [],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 179,
+          "subscriberCount": 34,
+          "engagementScore": 0.9867914356130623,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "on-our-radar",
+          "firstEpisodeId": "e2f47f51-6893-4770-b8cb-4ef35396eae3",
+          "firstEpisodeSlug": "full-film",
+          "cast": []
+         },
+         {
+          "id": "6522cab5-9998-405b-b1ba-f8deb45d4e96",
+          "slug": "huntress-tale",
+          "title": "Huntress's Tale",
+          "description": "A lone huntress descends into a crumbling gothic ruin to hunt monsters only to be hunted herself by something far older, and betrayed by the one thing that tried to save her....",
+          "shortDescription": "A lone huntress descends into a crumbling gothic ruin to hunt monsters only to be hunted herself by something far older, and betrayed by the one thing that tried to save her....",
+          "fullDescription": "A lone huntress descends into a crumbling gothic ruin to hunt monsters only to be hunted herself by something far older, and betrayed by the one thing that tried to save her....",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/portrait/97303aad-41fb-47ee-b59b-bdab6abfdfe0_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/landscape/04b573cd-925c-4ac8-acd2-337d03bc5b94_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/background/8a0b7890-94d4-4367-b6c2-3358060f0c57_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/logo/c4a79edb-8c40-4985-9c84-336ad8b0cc34.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/trailer/fc7e9af9-70ea-4463-bd0d-e86dca7e38f5.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/trailer/fc7e9af9-70ea-4463-bd0d-e86dca7e38f5.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/7d72198b-910c-4f32-b0f1-f288cf16cd53/video/cab25565-c590-4d62-b94e-6d88bdba3fce.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/7d72198b-910c-4f32-b0f1-f288cf16cd53/video/cab25565-c590-4d62-b94e-6d88bdba3fce.m3u8",
+          "projectUrl": "https://higgsfield.ai/generate?projectId=95a3e934-769b-474c-aa74-7a28bf4f726a&utm_source=os&utm_campaign=huntress-tale",
+          "projectPublicationId": "ddc397e7-f617-40d1-9909-0264469b95eb",
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 310,
+           "viewCount": 58282,
+           "commentCount": 188
+          },
+          "categorySlugs": [
+           "higgsfield-choice",
+           "on-our-radar"
+          ],
+          "projectBannerImages": [
+           "https://du4zrvwy3vtek.cloudfront.net/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/project_banner_images/5e7b58f9-ceaa-4f6d-b6df-73d8cf8d0a32.jpg",
+           "https://du4zrvwy3vtek.cloudfront.net/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/project_banner_images/7b0d629f-2f93-408e-bda8-31f1ece8b11b_optimized.webp",
+           "https://du4zrvwy3vtek.cloudfront.net/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/project_banner_images/ede4c9a6-0f42-41b5-8c55-cbc61c8f28ee_optimized.webp"
+          ],
+          "tags": [],
+          "voteCount": 376,
+          "subscriberCount": 18,
+          "engagementScore": 0.893230991959993,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "7d72198b-910c-4f32-b0f1-f288cf16cd53",
+          "firstEpisodeSlug": "episode-1",
+          "cast": []
+         },
+         {
+          "id": "f11e4476-a1ff-49a9-93a8-e2fd334785e3",
+          "slug": "mork",
+          "title": "MORK ",
+          "description": "A boy loses his mother, his hands, and everything he knew in a single night — when Viking raiders burn his village to ash. Fifteen years later, he returns with iron blades where his hands used to be. He cuts through an army to reach the warlord who destroyed his world. But when the final blade is raised — he discovers that his true enemy was never the man on the throne.",
+          "shortDescription": "A boy loses his mother, his hands, and everything he knew in a single night — when Viking raiders burn his village to ash. Fifteen years later, he returns with iron blades where his hands used to be. He cuts through an army to reach the warlord who destroyed his world. But when the final blade is raised — he discovers that his true enemy was never the man on the throne.",
+          "fullDescription": "A boy loses his mother, his hands, and everything he knew in a single night — when Viking raiders burn his village to ash. Fifteen years later, he returns with iron blades where his hands used to be. He cuts through an army to reach the warlord who destroyed his world. But when the final blade is raised — he discovers that his true enemy was never the man on the throne.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/portrait/35395ccb-8ab9-4bca-926c-939e56601a83.png",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/landscape/2ae976cd-5521-4d0f-9cab-09d98ca12271_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/background/5acbe1e2-9779-43da-ba44-2e84ce5c9d86.png",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/logo/f013c8dd-342f-4a06-b648-3589fe24d7e6.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/trailer/cc0280f3-7da8-4f8e-b5fe-dcfdc3ca7d33.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/trailer/cc0280f3-7da8-4f8e-b5fe-dcfdc3ca7d33.m3u8",
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 2343,
+           "viewCount": 185502,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "higgsfield-choice",
+           "on-our-radar"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 5640,
+          "subscriberCount": 1075,
+          "engagementScore": 0.26462165101121893,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "ae6c3595-e930-487b-bbae-b9bd7e01796f",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Jarl",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/cast/7818135a-d5ce-481b-a0a4-3e8fc30f2891.png"
+           },
+           {
+            "fullName": "Kael",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/cast/b16fdb41-fa7c-401f-91d8-20752f0b764b.png"
+           },
+           {
+            "fullName": "Bjorn",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/cast/5a4a4498-e87c-4608-aee6-f411325adf3e.png"
+           },
+           {
+            "fullName": "Mother",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/cast/f793835e-215c-4320-b9fb-9d929f84a11a.png"
+           },
+           {
+            "fullName": "Edric",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/cast/fb11050b-5314-4696-a784-ced653d8a0b7.png"
+           }
+          ]
+         },
+         {
+          "id": "cf3de949-e1f4-4945-8f48-275f197a18a0",
+          "slug": "zephyr",
+          "title": "ZEPHYR",
+          "description": "A squad of glamorous female heroes is saving their hometown from alien\nbug invasion. As they become city idols and protectors, will they be able to\nsave their friendship, their hearts, and most importantly - their lives?",
+          "shortDescription": "A squad of glamorous female heroes is saving their hometown from alien\nbug invasion. As they become city idols and protectors, will they be able to\nsave their friendship, their hearts, and most importantly - their lives?",
+          "fullDescription": "A squad of glamorous female heroes is saving their hometown from alien\nbug invasion. As they become city idols and protectors, will they be able to\nsave their friendship, their hearts, and most importantly - their lives?",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/portrait/b63bc8e6-11ba-41d6-9f3e-7ec6ea96a206_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/landscape/4e0299dc-fb24-42b9-a0cd-1908f3a3f20d_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/background/343218ad-71a1-41d7-85c0-07e61215d964_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/logo/827abaa4-f131-46e1-b2a1-b13181146ce9.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/trailer/51129240-e1ca-4f77-8427-d9ed1d5dc22f.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/cf3de949-e1f4-4945-8f48-275f197a18a0/trailer/51129240-e1ca-4f77-8427-d9ed1d5dc22f.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/5c65cc53-f4f5-4ef6-860f-3f6431ff2b88/video/9b25daa7-5d7e-4ad7-9838-13fe02ca3780.mp4",
+          "previewVideoHlsUrl": "https://cdn.higgsfield.ai/hls/video_input/803d3f4b-7ff1-4fd9-8557-1831c03e5839/index.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": "aacb79d5-bf9b-4b4f-911c-6570844c200f",
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 1711,
+           "viewCount": 253596,
+           "commentCount": 211
+          },
+          "categorySlugs": [
+           "higgsfield-choice",
+           "on-our-radar"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 13465,
+          "subscriberCount": 2444,
+          "engagementScore": 0.162932632164472,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "5c65cc53-f4f5-4ef6-860f-3f6431ff2b88",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Haru",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/cast/49a4aca2-259a-4827-8079-1c705612c4e1.png"
+           },
+           {
+            "fullName": "Mira",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/cast/4a995135-f66d-45c9-8cca-4ef73bdb4eae.png"
+           },
+           {
+            "fullName": "Naomi",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/cast/9e14bb35-ec82-4eb1-a8ef-be8a17359c8a.png"
+           },
+           {
+            "fullName": "Reina",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/cast/ac477c10-dbbd-4aac-a4e5-54f61f479456.png"
+           },
+           {
+            "fullName": "Zero",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/cast/ffb27cec-8e25-40ce-a3fb-c9213ad0064a.png"
+           }
+          ]
+         },
+         {
+          "id": "a9b9c347-4261-484c-8a3c-76c0efd6c9e1",
+          "slug": "arena-zero",
+          "title": "ARENA ZERO",
+          "description": "A deadbeat gamer hits the wrong button and wakes up in an alien arena - chosen to represent Earth in an intergalactic tournament he never agreed to. The stakes? If he loses, Earth gets wiped. If he wins... Well, first he has to survive the 7-foot Ogre running straight at him.\n",
+          "shortDescription": "A deadbeat gamer hits the wrong button and wakes up in an alien arena - chosen to represent Earth in an intergalactic tournament he never agreed to. The stakes? If he loses, Earth gets wiped. If he wins... Well, first he has to survive the 7-foot Ogre running straight at him.\n",
+          "fullDescription": "A deadbeat gamer hits the wrong button and wakes up in an alien arena - chosen to represent Earth in an intergalactic tournament he never agreed to. The stakes? If he loses, Earth gets wiped. If he wins... Well, first he has to survive the 7-foot Ogre running straight at him.\n",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/portrait/d2a7a5ee-23ab-44f6-96ea-bc51b05bc803_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/landscape/bd054b31-22a5-4486-9591-a0ff8792b66f_optimized.webp",
+          "backgroundUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/e60012fe-7757-4549-8a76-b3ec37ac81ba.png",
+          "logoUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/bd9847c9-a184-4e06-89f2-a3223b02bb34.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/trailer/a8941ceb-a568-4dab-a560-f8a3076bec84.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/trailer/a8941ceb-a568-4dab-a560-f8a3076bec84.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/80a5d891-e550-450c-89e8-de63283ccb39/video/b8865008-0a9f-4d85-bd8e-ead572b80a74.mov",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/80a5d891-e550-450c-89e8-de63283ccb39/video/b8865008-0a9f-4d85-bd8e-ead572b80a74.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 6649,
+           "viewCount": 1287225,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "higgsfield-choice"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 164196,
+          "subscriberCount": 18608,
+          "engagementScore": 0.35471445813470465,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "80a5d891-e550-450c-89e8-de63283ccb39",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Leo",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/cast/7d8c54f0-2221-4f30-b13c-f15da4e45464.png"
+           },
+           {
+            "fullName": "Hoko",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/cast/bf278004-f9bd-40de-b9bf-4e3652ffcc54.png"
+           },
+           {
+            "fullName": "Ogre",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/cast/8fbf03df-5949-476a-a4b9-0a9c9f9d54ed.png"
+           },
+           {
+            "fullName": "Little Orge",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/cast/c1c12842-2456-4962-af5d-1539586d3035.png"
+           },
+           {
+            "fullName": "Zikki",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/cast/cf891b5e-e192-40d1-b9c4-5866d0e53dd8.png"
+           },
+           {
+            "fullName": "Mioma",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/cast/20a1540e-3c86-444c-9c4b-31b181faeeec.png"
+           }
+          ]
+         },
+         {
+          "id": "f94c2ef5-cf7c-4da8-ab50-bc9979c05dc1",
+          "slug": "spit-and-glow",
+          "title": "SPIT & GLOW",
+          "description": "A young woman possesses a biological anomaly: her DNA can reverse aging. When a wealthy visionary turns this miracle into a global brand, \"Elixir\" becomes the world’s most coveted obsession. As she ascends to global superstardom, the line between celebrity and commodity begins to blur. But as the world feasts on her vitality, she must face a terrifying reality: to keep humanity young, she may have to give until there is nothing left.",
+          "shortDescription": "A young woman possesses a biological anomaly: her DNA can reverse aging. When a wealthy visionary turns this miracle into a global brand, \"Elixir\" becomes the world’s most coveted obsession. As she ascends to global superstardom, the line between celebrity and commodity begins to blur. But as the world feasts on her vitality, she must face a terrifying reality: to keep humanity young, she may have to give until there is nothing left.",
+          "fullDescription": "A young woman possesses a biological anomaly: her DNA can reverse aging. When a wealthy visionary turns this miracle into a global brand, \"Elixir\" becomes the world’s most coveted obsession. As she ascends to global superstardom, the line between celebrity and commodity begins to blur. But as the world feasts on her vitality, she must face a terrifying reality: to keep humanity young, she may have to give until there is nothing left.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f94c2ef5-cf7c-4da8-ab50-bc9979c05dc1/portrait/4c9d7fd0-e42c-4fa6-b68d-9fb5ef9a1cf2.png",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/8c093289-0638-451d-8774-bfc98b032ef7.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f94c2ef5-cf7c-4da8-ab50-bc9979c05dc1/trailer/a685aae6-c36b-4150-9bab-3113b35d7fd9.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/f94c2ef5-cf7c-4da8-ab50-bc9979c05dc1/trailer/a685aae6-c36b-4150-9bab-3113b35d7fd9.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/afc7420f-a3dd-4c97-b4ff-1211b46c9f72/video/c37d0077-9612-48c1-93f4-b245b11f022c.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/afc7420f-a3dd-4c97-b4ff-1211b46c9f72/video/c37d0077-9612-48c1-93f4-b245b11f022c.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 930,
+           "viewCount": 66728,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "higgsfield-choice"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 3599,
+          "subscriberCount": 88,
+          "engagementScore": 0.965257869684385,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "afc7420f-a3dd-4c97-b4ff-1211b46c9f72",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Emma",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f94c2ef5-cf7c-4da8-ab50-bc9979c05dc1/cast/f00e0c28-28d3-462b-b5e4-7814a887a72a.png"
+           },
+           {
+            "fullName": "Caroline",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/f94c2ef5-cf7c-4da8-ab50-bc9979c05dc1/cast/de243e03-1140-4759-a788-358f9521c143.png"
+           }
+          ]
+         },
+         {
+          "id": "dd44a758-ba60-4535-bb40-6dbec3454cd3",
+          "slug": "vermin-control-unit",
+          "title": "VERMIN CONTROL UNIT",
+          "description": "Vermin Control Unit launches a precision rescue operation to extract their boss, who’s being transported as a hostage on a moving train. The team hits in perfect sync: a cyborg-armed breacher, a cold-blooded sniper, a drone pilot dropping flash charges, and a wingsuit infiltrator riding the chaos. Surgical, high-stakes, and relentless - every move is planned, timed, and executed like a clockwork strike.",
+          "shortDescription": "Vermin Control Unit launches a precision rescue operation to extract their boss, who’s being transported as a hostage on a moving train. The team hits in perfect sync: a cyborg-armed breacher, a cold-blooded sniper, a drone pilot dropping flash charges, and a wingsuit infiltrator riding the chaos. Surgical, high-stakes, and relentless - every move is planned, timed, and executed like a clockwork strike.",
+          "fullDescription": "Vermin Control Unit launches a precision rescue operation to extract their boss, who’s being transported as a hostage on a moving train. The team hits in perfect sync: a cyborg-armed breacher, a cold-blooded sniper, a drone pilot dropping flash charges, and a wingsuit infiltrator riding the chaos. Surgical, high-stakes, and relentless - every move is planned, timed, and executed like a clockwork strike.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/dd44a758-ba60-4535-bb40-6dbec3454cd3/portrait/d601fe4d-c077-4659-a5f4-13737a955a50_optimized.webp",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/6ec9a154-5f90-40fe-89d0-bd9b66949bf5.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/dd44a758-ba60-4535-bb40-6dbec3454cd3/trailer/20dfe63d-3370-4241-8fe0-3d3491ac1fb3.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/dd44a758-ba60-4535-bb40-6dbec3454cd3/trailer/20dfe63d-3370-4241-8fe0-3d3491ac1fb3.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/9cc4c052-881e-426b-8e55-1f28feaee885/video/d8277287-2a73-4733-a06d-3dfdaff31522.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/9cc4c052-881e-426b-8e55-1f28feaee885/video/d8277287-2a73-4733-a06d-3dfdaff31522.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": 67,
+          "engagement": {
+           "likeCount": 534,
+           "viewCount": 47436,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "higgsfield-choice",
+           "first-look"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 3093,
+          "subscriberCount": 125,
+          "engagementScore": 0.9688025112350486,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "9cc4c052-881e-426b-8e55-1f28feaee885",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Ben",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/dd44a758-ba60-4535-bb40-6dbec3454cd3/cast/d86471a7-44a5-432f-b94d-255d6249c1c5.png"
+           },
+           {
+            "fullName": "Frosty",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/dd44a758-ba60-4535-bb40-6dbec3454cd3/cast/f781cfd4-3cea-4c17-8dd9-18935368404f.png"
+           },
+           {
+            "fullName": "Jackie",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/dd44a758-ba60-4535-bb40-6dbec3454cd3/cast/2a660902-179c-476a-81ce-ec94fbb5fff6.png"
+           },
+           {
+            "fullName": "Baby",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/dd44a758-ba60-4535-bb40-6dbec3454cd3/cast/ce54ef21-d4ac-4fa2-b467-10953014352c.png"
+           },
+           {
+            "fullName": "Soldiers",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/dd44a758-ba60-4535-bb40-6dbec3454cd3/cast/64e73ed9-ef38-4dd6-adc9-aeb3db6b4a56.png"
+           }
+          ]
+         },
+         {
+          "id": "48a22f6f-f4d5-4690-bf34-06746f1df9bf",
+          "slug": "arena-zero-music-video",
+          "title": "DEM - Arena Zero Music Video",
+          "description": "A scavenger crew in a silent wasteland digs up a forbidden relic: a cassette tape. Now, they’re trading their basketballs for bass drops and dodging 20-foot mechs to bring the noise back to a world that forgot how to dance. The anthem of the rebellion has arrived - and it’s loud enough to wake the dead.",
+          "shortDescription": "A scavenger crew in a silent wasteland digs up a forbidden relic: a cassette tape. Now, they’re trading their basketballs for bass drops and dodging 20-foot mechs to bring the noise back to a world that forgot how to dance. The anthem of the rebellion has arrived - and it’s loud enough to wake the dead.",
+          "fullDescription": "A scavenger crew in a silent wasteland digs up a forbidden relic: a cassette tape. Now, they’re trading their basketballs for bass drops and dodging 20-foot mechs to bring the noise back to a world that forgot how to dance. The anthem of the rebellion has arrived - and it’s loud enough to wake the dead.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/portrait/840dc40d-cfba-46fc-a481-fee5e699b1cb_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/landscape/83eccb57-a167-49ea-8175-f185e8521295_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/background/dd9c7d0b-8505-4078-aa59-7c65f0761357_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/logo/ed01b92e-d6db-446e-bc0d-7493806f4add.png",
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/trailer/929bd2ed-c7f7-4e40-82de-63c5e94f6536.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/trailer/929bd2ed-c7f7-4e40-82de-63c5e94f6536.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/a4ca6704-d5de-49f3-8697-8343455581ca/video/e4b1b1d0-b0d6-4222-a6ef-100c9ce00984.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/a4ca6704-d5de-49f3-8697-8343455581ca/video/e4b1b1d0-b0d6-4222-a6ef-100c9ce00984.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 245,
+           "viewCount": 28358,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "first-look",
+           "on-our-radar"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 522,
+          "subscriberCount": 26,
+          "engagementScore": 0.9650437589785901,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "first-look",
+          "firstEpisodeId": "a4ca6704-d5de-49f3-8697-8343455581ca",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Aziz",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/cast/81406cc8-996c-458d-aa97-cdefee757f3a.png"
+           },
+           {
+            "fullName": "Duman",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/cast/f823b473-4d51-4df0-9b4a-7ed1b7be9093.png"
+           },
+           {
+            "fullName": "Meir",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/cast/997f4f77-1548-4353-8f41-c0c7a3d2c821.png"
+           }
+          ]
+         },
+         {
+          "id": "9c99cbba-4dc3-43bf-aa06-465163f15898",
+          "slug": "tails-of-steel",
+          "title": "TAILS OF STEEL",
+          "description": "In a 1990s megacity, criminal gangs unite under the rule of the mysterious supervillain Chrome Cat, who seeks total control over the city and turns the streets into a territory of fear and submission, until three heroes decide to challenge his growing cat empire.",
+          "shortDescription": "In a 1990s megacity, criminal gangs unite under the rule of the mysterious supervillain Chrome Cat, who seeks total control over the city and turns the streets into a territory of fear and submission, until three heroes decide to challenge his growing cat empire.",
+          "fullDescription": "In a 1990s megacity, criminal gangs unite under the rule of the mysterious supervillain Chrome Cat, who seeks total control over the city and turns the streets into a territory of fear and submission, until three heroes decide to challenge his growing cat empire.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": false,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9c99cbba-4dc3-43bf-aa06-465163f15898/portrait/4a0da4d1-d39c-4e85-a68e-5c96b4b4257e_optimized.webp",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2aba7de8-0ea2-48fb-bb7a-ebfd6ba0bef6.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9c99cbba-4dc3-43bf-aa06-465163f15898/trailer/db158fb8-c7f8-47a7-a844-373a62a4fc51.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/9c99cbba-4dc3-43bf-aa06-465163f15898/trailer/db158fb8-c7f8-47a7-a844-373a62a4fc51.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/f9bea53a-f28b-4821-9e19-c559e6d38a03/video/cc618b04-7ff5-48a5-9f6a-29489fd5377d.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/f9bea53a-f28b-4821-9e19-c559e6d38a03/video/cc618b04-7ff5-48a5-9f6a-29489fd5377d.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 383,
+           "viewCount": 40139,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "first-look",
+           "on-our-radar"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 1807,
+          "subscriberCount": 22,
+          "engagementScore": 0.9507049126718282,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "first-look",
+          "firstEpisodeId": "f9bea53a-f28b-4821-9e19-c559e6d38a03",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Miro",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9c99cbba-4dc3-43bf-aa06-465163f15898/cast/96cf9054-df11-419a-9909-dbf5c1eddc06.png"
+           },
+           {
+            "fullName": "Nox",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9c99cbba-4dc3-43bf-aa06-465163f15898/cast/928d898f-dcf3-4cab-9800-a3fd717ab1f6.png"
+           },
+           {
+            "fullName": "Raze",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9c99cbba-4dc3-43bf-aa06-465163f15898/cast/f29dd760-0b32-4917-a0d8-bc4222b622cc.png"
+           },
+           {
+            "fullName": "9 NIne",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/9c99cbba-4dc3-43bf-aa06-465163f15898/cast/17222813-b431-4864-985a-9925d714dd2d.png"
+           }
+          ]
+         },
+         {
+          "id": "e94db9f1-156e-4df5-8601-96190bdbd53e",
+          "slug": "peter-pan",
+          "title": "PETER PAN",
+          "description": "Everyone knows the story of Peter Pan. Now, the classic legend is reborn for the modern age. In a world that forces everyone to grow up, a familiar face returns to defy the rules of time. This is a fresh look at the boy who stayed young, facing a reality he never expected. But in a world this fast, can the legend survive?",
+          "shortDescription": "Everyone knows the story of Peter Pan. Now, the classic legend is reborn for the modern age. In a world that forces everyone to grow up, a familiar face returns to defy the rules of time. This is a fresh look at the boy who stayed young, facing a reality he never expected. But in a world this fast, can the legend survive?",
+          "fullDescription": "Everyone knows the story of Peter Pan. Now, the classic legend is reborn for the modern age. In a world that forces everyone to grow up, a familiar face returns to defy the rules of time. This is a fresh look at the boy who stayed young, facing a reality he never expected. But in a world this fast, can the legend survive?",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e94db9f1-156e-4df5-8601-96190bdbd53e/portrait/ae72f03f-8fed-4918-a766-da8181842356_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e94db9f1-156e-4df5-8601-96190bdbd53e/landscape/8c577410-6458-4bc4-9501-b25f9582aefd_optimized.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e94db9f1-156e-4df5-8601-96190bdbd53e/trailer/b0699f7c-9715-4eab-bda0-ddf4e0f9d13e.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/e94db9f1-156e-4df5-8601-96190bdbd53e/trailer/b0699f7c-9715-4eab-bda0-ddf4e0f9d13e.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/14b71585-0f61-43e6-83ff-dee6dcb8caac/video/68149cc8-e24a-4f21-bf56-479d605a68b0.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/14b71585-0f61-43e6-83ff-dee6dcb8caac/video/68149cc8-e24a-4f21-bf56-479d605a68b0.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 172,
+           "viewCount": 21742,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "on-our-radar"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 977,
+          "subscriberCount": 54,
+          "engagementScore": 0.8718824530294694,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "on-our-radar",
+          "firstEpisodeId": "14b71585-0f61-43e6-83ff-dee6dcb8caac",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Peter",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e94db9f1-156e-4df5-8601-96190bdbd53e/cast/50e5935d-1e68-44ca-b803-ccb3f6b63a0f.png"
+           },
+           {
+            "fullName": "Wendy",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e94db9f1-156e-4df5-8601-96190bdbd53e/cast/3b0dd6c2-e890-4308-86dc-c2ac794d55d6.png"
+           },
+           {
+            "fullName": "Captain Hook",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e94db9f1-156e-4df5-8601-96190bdbd53e/cast/ee3d82c3-8da1-4097-8c37-e4171be91123.png"
+           }
+          ]
+         },
+         {
+          "id": "cb9f9857-a666-4cac-a567-62a940ef84b5",
+          "slug": "misfortune",
+          "title": "MISFORTUNE",
+          "description": "During a massive pirate battle, a live bomb is loose on a ship. While everyone is busy fighting for their lives, the bomb moves through the chaos - by accident or by design. As the fight reaches its peak, the fuse gets shorter, leading to a moment that will decide the fate of every soul on the water.",
+          "shortDescription": "During a massive pirate battle, a live bomb is loose on a ship. While everyone is busy fighting for their lives, the bomb moves through the chaos - by accident or by design. As the fight reaches its peak, the fuse gets shorter, leading to a moment that will decide the fate of every soul on the water.",
+          "fullDescription": "During a massive pirate battle, a live bomb is loose on a ship. While everyone is busy fighting for their lives, the bomb moves through the chaos - by accident or by design. As the fight reaches its peak, the fuse gets shorter, leading to a moment that will decide the fate of every soul on the water.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cb9f9857-a666-4cac-a567-62a940ef84b5/portrait/b2581db5-334d-44c2-94e3-88fc7c62ec23.png",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/0ded135b-2ab6-419c-b9ee-831e402a6f92.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cb9f9857-a666-4cac-a567-62a940ef84b5/trailer/6d5ac3f3-3afd-4457-91b9-06647e37f4f4.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/cb9f9857-a666-4cac-a567-62a940ef84b5/trailer/6d5ac3f3-3afd-4457-91b9-06647e37f4f4.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/78403d3f-f3b8-4497-9583-c7b752de4cce/video/188573ef-7d59-4307-bd37-3ecfbddcb3ae.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/78403d3f-f3b8-4497-9583-c7b752de4cce/video/188573ef-7d59-4307-bd37-3ecfbddcb3ae.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 206,
+           "viewCount": 19560,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "higgsfield-choice"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 913,
+          "subscriberCount": 28,
+          "engagementScore": 0.886143950516902,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "78403d3f-f3b8-4497-9583-c7b752de4cce",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Barbos Smouk",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cb9f9857-a666-4cac-a567-62a940ef84b5/cast/478a368d-3623-48fe-9dfb-db2621ed9d24.png"
+           },
+           {
+            "fullName": "Bobby Shark",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cb9f9857-a666-4cac-a567-62a940ef84b5/cast/c60054dd-6bc6-4580-9728-52e3b4881765.png"
+           },
+           {
+            "fullName": "Julia Red",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cb9f9857-a666-4cac-a567-62a940ef84b5/cast/5b3c69dc-e6dd-4609-b540-5b86fdc3055e.png"
+           },
+           {
+            "fullName": "Ratty Tootie",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cb9f9857-a666-4cac-a567-62a940ef84b5/cast/b6b3fabc-0b29-48b9-a072-7ddaa4b8d2ae.png"
+           }
+          ]
+         },
+         {
+          "id": "d58781a5-fabb-4147-847a-ac6be9f51584",
+          "slug": "frozen-monster",
+          "title": "FROZEN MONSTER",
+          "description": "A massive ice beast abducts a world-class figure skater, but he is moved by her talent instead of hunger. As the girl discovers the gentle heart within the monster, a fearful world gathers to destroy him. This animated tale follows an unlikely bond that proves true beauty is found beneath the surface.",
+          "shortDescription": "A massive ice beast abducts a world-class figure skater, but he is moved by her talent instead of hunger. As the girl discovers the gentle heart within the monster, a fearful world gathers to destroy him. This animated tale follows an unlikely bond that proves true beauty is found beneath the surface.",
+          "fullDescription": "A massive ice beast abducts a world-class figure skater, but he is moved by her talent instead of hunger. As the girl discovers the gentle heart within the monster, a fearful world gathers to destroy him. This animated tale follows an unlikely bond that proves true beauty is found beneath the surface.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/d58781a5-fabb-4147-847a-ac6be9f51584/portrait/34527992-90bf-4e34-a11d-9b5959c40900.png",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2ebba232-a5d0-4598-a659-2327771ce880.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/d58781a5-fabb-4147-847a-ac6be9f51584/trailer/04e4a201-4f3c-4fad-83e7-1b3860c33c4d.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/d58781a5-fabb-4147-847a-ac6be9f51584/trailer/04e4a201-4f3c-4fad-83e7-1b3860c33c4d.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/0bd81f5c-c565-4811-8c25-94eb1ab827a2/video/d533f2af-a2f4-43e3-b522-1125a95f927a.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/0bd81f5c-c565-4811-8c25-94eb1ab827a2/video/d533f2af-a2f4-43e3-b522-1125a95f927a.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 364,
+           "viewCount": 30190,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "on-our-radar"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 1443,
+          "subscriberCount": 44,
+          "engagementScore": 0.918056642541241,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "on-our-radar",
+          "firstEpisodeId": "0bd81f5c-c565-4811-8c25-94eb1ab827a2",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Ava",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/d58781a5-fabb-4147-847a-ac6be9f51584/cast/2e718bff-79e3-46b6-911d-1f38a3d073d0.png"
+           },
+           {
+            "fullName": "Frost",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/d58781a5-fabb-4147-847a-ac6be9f51584/cast/f31af4ef-e4bc-4425-98bd-9062e8c8ea0b.png"
+           },
+           {
+            "fullName": "Walter",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/d58781a5-fabb-4147-847a-ac6be9f51584/cast/198a5878-770e-4dd8-b19d-8e2ec06d37fa.png"
+           }
+          ]
+         },
+         {
+          "id": "2c7bf10f-b583-42f9-9f88-585c4d8d3175",
+          "slug": "buddy",
+          "title": "BUDDY",
+          "description": "What if Punchy and Herzog’s famous penguin became friends? I made this piece to explore emotion first - quiet warmth, growing up, and that soft melancholy that sits in the silence between moments. No big speeches, just looks, pauses, and tiny gestures that carry the whole story.",
+          "shortDescription": "What if Punchy and Herzog’s famous penguin became friends? I made this piece to explore emotion first - quiet warmth, growing up, and that soft melancholy that sits in the silence between moments. No big speeches, just looks, pauses, and tiny gestures that carry the whole story.",
+          "fullDescription": "What if Punchy and Herzog’s famous penguin became friends? I made this piece to explore emotion first - quiet warmth, growing up, and that soft melancholy that sits in the silence between moments. No big speeches, just looks, pauses, and tiny gestures that carry the whole story.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/2c7bf10f-b583-42f9-9f88-585c4d8d3175/portrait/5b58b225-b8b6-40cb-8a43-37acf31a89cc_optimized.webp",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/8078ee75-c394-413e-a4b3-b51c8fb36cfb.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/2c7bf10f-b583-42f9-9f88-585c4d8d3175/trailer/2e02a3fb-3353-4e33-a60f-a4a08f6355dc.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/2c7bf10f-b583-42f9-9f88-585c4d8d3175/trailer/2e02a3fb-3353-4e33-a60f-a4a08f6355dc.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/a14e0e16-8418-44c2-94c2-c29fc22c33ea/video/60704c26-66fa-4813-b721-d4a966cf4ec3.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/a14e0e16-8418-44c2-94c2-c29fc22c33ea/video/60704c26-66fa-4813-b721-d4a966cf4ec3.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 410,
+           "viewCount": 41862,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "first-look"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 1016,
+          "subscriberCount": 41,
+          "engagementScore": 0.972109533478972,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "first-look",
+          "firstEpisodeId": "a14e0e16-8418-44c2-94c2-c29fc22c33ea",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Punchy baby",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/2c7bf10f-b583-42f9-9f88-585c4d8d3175/cast/0bf3bfc1-5c2a-4c5a-88e7-6b64c533319e.png"
+           },
+           {
+            "fullName": "Nihilist penguin",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/2c7bf10f-b583-42f9-9f88-585c4d8d3175/cast/f0db87f4-1a28-4e08-90fa-a614b4089e85.png"
+           },
+           {
+            "fullName": "Monkey girl",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/2c7bf10f-b583-42f9-9f88-585c4d8d3175/cast/6cb4b6eb-4c25-4fd3-b8f1-d4797c84cef1.png"
+           }
+          ]
+         },
+         {
+          "id": "ad6c62a3-5f8e-4cbb-97bf-ef91dc482880",
+          "slug": "dinoforce",
+          "title": "DINOFORCE",
+          "description": "The dinosaurs have returned. Facing a global threat on a planetary scale, humanity is no longer at the top of the food chain. As the ancient world and the modern era collide, the world faces an unprecedented struggle for survival - one that will determine which species is destined to endure.",
+          "shortDescription": "The dinosaurs have returned. Facing a global threat on a planetary scale, humanity is no longer at the top of the food chain. As the ancient world and the modern era collide, the world faces an unprecedented struggle for survival - one that will determine which species is destined to endure.",
+          "fullDescription": "The dinosaurs have returned. Facing a global threat on a planetary scale, humanity is no longer at the top of the food chain. As the ancient world and the modern era collide, the world faces an unprecedented struggle for survival - one that will determine which species is destined to endure.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/ad6c62a3-5f8e-4cbb-97bf-ef91dc482880/portrait/68683e91-bdcb-44d6-bb0a-703f8a6690ab_optimized.webp",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/4570879c-d277-4d9a-94a1-068549797547.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/ad6c62a3-5f8e-4cbb-97bf-ef91dc482880/trailer/29d068dd-fc5e-4d47-95b3-c91434a8cf55.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/ad6c62a3-5f8e-4cbb-97bf-ef91dc482880/trailer/29d068dd-fc5e-4d47-95b3-c91434a8cf55.m3u8",
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 372,
+           "viewCount": 39810,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "first-look"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 2492,
+          "subscriberCount": 106,
+          "engagementScore": 0.9693330843990701,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "first-look",
+          "firstEpisodeId": "280b5bb6-5956-418b-b38f-a3b8b6746a79",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Ultimasaur",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/ad6c62a3-5f8e-4cbb-97bf-ef91dc482880/cast/94c04c13-06a8-4c2b-9615-90ace7131b4b.png"
+           },
+           {
+            "fullName": "T-Rex",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/ad6c62a3-5f8e-4cbb-97bf-ef91dc482880/cast/c7e43fb5-c843-4d58-8f7c-f727e79a5eb6.png"
+           },
+           {
+            "fullName": "James",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/ad6c62a3-5f8e-4cbb-97bf-ef91dc482880/cast/0ff19275-97b8-4ef0-bdca-c5406a851b53.png"
+           }
+          ]
+         },
+         {
+          "id": "1b93ce43-1393-4c75-9405-51c111b5d132",
+          "slug": "alright-alright-alright",
+          "title": "ALRIGHT ALRIGHT ALRIGHT",
+          "description": "Two crypto hustlers are hired by a powerful cartel leader to digitize his massive cash reserves into Bitcoin. Instead of following the plan, they steal the money and trigger a global market collapse. With the cartel closing in and the digital world in ruins, they must survive the chaos of their own making.",
+          "shortDescription": "Two crypto hustlers are hired by a powerful cartel leader to digitize his massive cash reserves into Bitcoin. Instead of following the plan, they steal the money and trigger a global market collapse. With the cartel closing in and the digital world in ruins, they must survive the chaos of their own making.",
+          "fullDescription": "Two crypto hustlers are hired by a powerful cartel leader to digitize his massive cash reserves into Bitcoin. Instead of following the plan, they steal the money and trigger a global market collapse. With the cartel closing in and the digital world in ruins, they must survive the chaos of their own making.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/portrait/36e7dfd3-ea9d-40be-8d3c-cebd7bedd2f1_optimized.webp",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/a2811fd2-ecd9-4310-bd87-b3f1cd37c62c.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/trailer/0dbb443b-ba19-4ed8-aebc-00cb34184125.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/1b93ce43-1393-4c75-9405-51c111b5d132/trailer/0dbb443b-ba19-4ed8-aebc-00cb34184125.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 366,
+           "viewCount": 48539,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "on-our-radar"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 1411,
+          "subscriberCount": 102,
+          "engagementScore": 0.9763724907158297,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "on-our-radar",
+          "firstEpisodeId": "46f5150c-9437-4505-90a0-31832d1add8c",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Tommy",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/cast/8794de43-dc75-49c8-9db5-00dcc4f05758.png"
+           },
+           {
+            "fullName": "Johny",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/cast/df745522-7a9a-4747-9a6c-7b3d936f9382.png"
+           },
+           {
+            "fullName": "El Guapos",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/cast/538d839e-34b2-4d06-8fc7-dfce9aca0931.png"
+           }
+          ]
+         },
+         {
+          "id": "e76357db-e7ec-4ae1-8375-0bb443fdaca7",
+          "slug": "bucket-list",
+          "title": "BUCKET LIST",
+          "description": "After learning about an impending asteroid collision that will destroy Earth, Ash and his adventurous friend decide not to give in to the global panic. Instead, they embark on a wild road trip to complete his bucket list before the world ends. Amidst the chaos and falling meteors, the two teens choose to live their final days to the absolute fullest.",
+          "shortDescription": "After learning about an impending asteroid collision that will destroy Earth, Ash and his adventurous friend decide not to give in to the global panic. Instead, they embark on a wild road trip to complete his bucket list before the world ends. Amidst the chaos and falling meteors, the two teens choose to live their final days to the absolute fullest.",
+          "fullDescription": "After learning about an impending asteroid collision that will destroy Earth, Ash and his adventurous friend decide not to give in to the global panic. Instead, they embark on a wild road trip to complete his bucket list before the world ends. Amidst the chaos and falling meteors, the two teens choose to live their final days to the absolute fullest.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e76357db-e7ec-4ae1-8375-0bb443fdaca7/portrait/9a567f49-d795-48d6-a4cf-c35063817a8f_optimized.webp",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/46801a40-d1be-4605-a755-7a49af34d54e.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e76357db-e7ec-4ae1-8375-0bb443fdaca7/trailer/f4658b64-3386-4d4e-84bc-3299da109ef0.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/e76357db-e7ec-4ae1-8375-0bb443fdaca7/trailer/f4658b64-3386-4d4e-84bc-3299da109ef0.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/729dd3cd-cb5d-44b5-8b4c-c25057d29bee/video/6c711140-fdd6-472f-92f2-266383f630e1.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/729dd3cd-cb5d-44b5-8b4c-c25057d29bee/video/6c711140-fdd6-472f-92f2-266383f630e1.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 972,
+           "viewCount": 67510,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "higgsfield-choice"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 4240,
+          "subscriberCount": 115,
+          "engagementScore": 0.9750767725496554,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "729dd3cd-cb5d-44b5-8b4c-c25057d29bee",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Ash",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e76357db-e7ec-4ae1-8375-0bb443fdaca7/cast/32b48e56-5b9d-4bbd-b341-f89247d79117.png"
+           },
+           {
+            "fullName": "Anna",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/e76357db-e7ec-4ae1-8375-0bb443fdaca7/cast/da098110-4c1e-40a5-93aa-af66069eeb87.png"
+           }
+          ]
+         },
+         {
+          "id": "6a22a2ed-e62a-4cd8-8241-9c304c615062",
+          "slug": "mother-trucker",
+          "title": "Mother Trucker",
+          "description": "A woman’s son is taken away. The only way to get him back is to join a massive battle of war machines. The other drivers have giant robots, but she only has her husband’s old monster truck. She must face the world's most dangerous machines to save her child. It is a battle of life and death where she has nothing to lose.",
+          "shortDescription": "A woman’s son is taken away. The only way to get him back is to join a massive battle of war machines. The other drivers have giant robots, but she only has her husband’s old monster truck. She must face the world's most dangerous machines to save her child. It is a battle of life and death where she has nothing to lose.",
+          "fullDescription": "A woman’s son is taken away. The only way to get him back is to join a massive battle of war machines. The other drivers have giant robots, but she only has her husband’s old monster truck. She must face the world's most dangerous machines to save her child. It is a battle of life and death where she has nothing to lose.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6a22a2ed-e62a-4cd8-8241-9c304c615062/portrait/cfe54f91-9983-4d05-9471-bfff0c3ca95c_optimized.webp",
+          "landscapeUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/5510f5fd-abef-4155-a645-e4c69ba55f9f.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6a22a2ed-e62a-4cd8-8241-9c304c615062/trailer/8271f1d7-01df-4150-a5b8-e48955bf23ac.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/6a22a2ed-e62a-4cd8-8241-9c304c615062/trailer/8271f1d7-01df-4150-a5b8-e48955bf23ac.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/1dbb4187-b3fc-4426-ad17-0fcf408f973a/video/dfce0ec9-a905-4430-8af0-94f743e7ae50.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/1dbb4187-b3fc-4426-ad17-0fcf408f973a/video/dfce0ec9-a905-4430-8af0-94f743e7ae50.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 330,
+           "viewCount": 42597,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "higgsfield-choice",
+           "on-our-radar"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 1882,
+          "subscriberCount": 42,
+          "engagementScore": 0.9011057156880758,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "higgsfield-choice",
+          "firstEpisodeId": "1dbb4187-b3fc-4426-ad17-0fcf408f973a",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Kathy",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6a22a2ed-e62a-4cd8-8241-9c304c615062/cast/78ccdb8d-f114-4d37-8389-e2bd447fdef7.png"
+           },
+           {
+            "fullName": "Texas bot",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6a22a2ed-e62a-4cd8-8241-9c304c615062/cast/3af142fe-5910-4ebe-adc3-fbecc9833778.png"
+           },
+           {
+            "fullName": "Lars Van Larson",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6a22a2ed-e62a-4cd8-8241-9c304c615062/cast/0bfd71b0-0756-49a0-b83c-f914c3bdfe89.png"
+           },
+           {
+            "fullName": "Overpumped warrior",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/6a22a2ed-e62a-4cd8-8241-9c304c615062/cast/1474edc8-2754-453e-b823-4c313e925d6b.png"
+           }
+          ]
+         },
+         {
+          "id": "666001e1-d007-41f7-94e5-ae9f581fbb40",
+          "slug": "viking-courier",
+          "title": "Viking Courier",
+          "description": "A Viking Courier must deliver a secret package. To reach his goal, he must cross a massive battlefield full of deadly trials. He does not have a horse or a ship. He only has an electric scooter. A thrilling story of a hero who will stop at nothing to finish the job, proving that even in a world of war, a simple delivery can change everything.",
+          "shortDescription": "A Viking Courier must deliver a secret package. To reach his goal, he must cross a massive battlefield full of deadly trials. He does not have a horse or a ship. He only has an electric scooter. A thrilling story of a hero who will stop at nothing to finish the job, proving that even in a world of war, a simple delivery can change everything.",
+          "fullDescription": "A Viking Courier must deliver a secret package. To reach his goal, he must cross a massive battlefield full of deadly trials. He does not have a horse or a ship. He only has an electric scooter. A thrilling story of a hero who will stop at nothing to finish the job, proving that even in a world of war, a simple delivery can change everything.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/666001e1-d007-41f7-94e5-ae9f581fbb40/portrait/e6fc8799-1143-495d-a9fb-e2980b51621d_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/666001e1-d007-41f7-94e5-ae9f581fbb40/landscape/9beceb70-6e83-49fd-aaa0-df37af8bd2cc_optimized.webp",
+          "backgroundUrl": null,
+          "logoUrl": null,
+          "trailerUrl": "https://du4zrvwy3vtek.cloudfront.net/series/666001e1-d007-41f7-94e5-ae9f581fbb40/trailer/391db57a-8db9-454c-9ae6-ccfc4d1f50f2.mp4",
+          "trailerHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/series/666001e1-d007-41f7-94e5-ae9f581fbb40/trailer/391db57a-8db9-454c-9ae6-ccfc4d1f50f2.m3u8",
+          "previewVideoUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/05d6963e-1345-4723-b3ce-b27b26ecc69e/video/fc8784b5-a823-4839-ab59-0f5d8afd0d6c.mp4",
+          "previewVideoHlsUrl": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/05d6963e-1345-4723-b3ce-b27b26ecc69e/video/fc8784b5-a823-4839-ab59-0f5d8afd0d6c.m3u8",
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 298,
+           "viewCount": 21070,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "first-look"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 995,
+          "subscriberCount": 28,
+          "engagementScore": 0.9335674256410565,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "first-look",
+          "firstEpisodeId": "05d6963e-1345-4723-b3ce-b27b26ecc69e",
+          "firstEpisodeSlug": "episode-1",
+          "cast": [
+           {
+            "fullName": "Bjorn",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/666001e1-d007-41f7-94e5-ae9f581fbb40/cast/5a6a9818-b712-4640-8824-86844abf194c.png"
+           },
+           {
+            "fullName": "Cyclops",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/666001e1-d007-41f7-94e5-ae9f581fbb40/cast/6beaaa8a-671d-4a6b-9887-fff6860ff5a0.png"
+           },
+           {
+            "fullName": "Spartan military commander",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/666001e1-d007-41f7-94e5-ae9f581fbb40/cast/b6e15fc4-ee42-4260-8d0d-3ffb492508c9.png"
+           }
+          ]
+         },
+         {
+          "id": "d5de09a7-c065-4a81-b871-8cb10772dc2d",
+          "slug": "after-glow",
+          "title": "AFTER GLOW",
+          "description": "A breakout indie band is one night away from everything they ever wanted — until old tensions, secret hookups, and buried betrayals explode backstage. As the afterparty spirals into a night of temptation, confrontation, and impossible choices, the five friends who built the band together are forced to face how far they’ll go for fame. By morning, the music may still be alive, but the people behind it might never be the same.",
+          "shortDescription": "A breakout indie band is one night away from everything they ever wanted — until old tensions, secret hookups, and buried betrayals explode backstage. As the afterparty spirals into a night of temptation, confrontation, and impossible choices, the five friends who built the band together are forced to face how far they’ll go for fame. By morning, the music may still be alive, but the people behind it might never be the same.",
+          "fullDescription": "A breakout indie band is one night away from everything they ever wanted — until old tensions, secret hookups, and buried betrayals explode backstage. As the afterparty spirals into a night of temptation, confrontation, and impossible choices, the five friends who built the band together are forced to face how far they’ll go for fame. By morning, the music may still be alive, but the people behind it might never be the same.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "coming_soon",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/d5de09a7-c065-4a81-b871-8cb10772dc2d/portrait/d1b6fb1f-1ad9-4b1d-8a38-ca1c421120bf.png",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/d5de09a7-c065-4a81-b871-8cb10772dc2d/landscape/fa5f63c0-f384-4e92-b544-acbdc01e8835_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/d5de09a7-c065-4a81-b871-8cb10772dc2d/background/4717e582-6897-4d48-b1fd-0a40c06ee432_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/d5de09a7-c065-4a81-b871-8cb10772dc2d/logo/98d1c849-bf05-4c0f-9e59-f50b3cfe71f6.png",
+          "trailerUrl": null,
+          "trailerHlsUrl": null,
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 0,
+           "viewCount": 0,
+           "commentCount": 0
+          },
+          "categorySlugs": [],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 400,
+          "subscriberCount": 23,
+          "engagementScore": 0,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "coming-soon",
+          "firstEpisodeId": null,
+          "firstEpisodeSlug": null,
+          "cast": []
+         },
+         {
+          "id": "39e3a8ac-78ea-4ed5-afc1-882de34e6f3b",
+          "slug": "before-you-hear-this",
+          "title": "BEFORE YOUR HEAR THIS",
+          "description": "A young woman starts receiving voice messages from herself — only they’re coming from the future. Each warning arrives just in time to stop a tragedy, pulling her deeper into a terrifying chain of events that seems to know every move she hasn’t made yet. But as the messages grow more desperate and the timeline begins to fracture, she realizes the future isn’t trying to protect her — it’s trying to stop her from becoming something far worse.",
+          "shortDescription": "A young woman starts receiving voice messages from herself — only they’re coming from the future. Each warning arrives just in time to stop a tragedy, pulling her deeper into a terrifying chain of events that seems to know every move she hasn’t made yet. But as the messages grow more desperate and the timeline begins to fracture, she realizes the future isn’t trying to protect her — it’s trying to stop her from becoming something far worse.",
+          "fullDescription": "A young woman starts receiving voice messages from herself — only they’re coming from the future. Each warning arrives just in time to stop a tragedy, pulling her deeper into a terrifying chain of events that seems to know every move she hasn’t made yet. But as the messages grow more desperate and the timeline begins to fracture, she realizes the future isn’t trying to protect her — it’s trying to stop her from becoming something far worse.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "coming_soon",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/39e3a8ac-78ea-4ed5-afc1-882de34e6f3b/portrait/0069e628-11f7-4c7a-abb3-9ba105650dcc_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/39e3a8ac-78ea-4ed5-afc1-882de34e6f3b/landscape/a28511c2-0f5a-4e60-abc3-8a7d1979104d.png",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/39e3a8ac-78ea-4ed5-afc1-882de34e6f3b/background/503220da-1977-4f5e-b14c-348203a19905.png",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/39e3a8ac-78ea-4ed5-afc1-882de34e6f3b/logo/374fb626-05c9-4383-b278-c1771da035aa.png",
+          "trailerUrl": null,
+          "trailerHlsUrl": null,
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 0,
+           "viewCount": 0,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "coming-soon"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 679,
+          "subscriberCount": 241,
+          "engagementScore": 0,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "coming-soon",
+          "firstEpisodeId": null,
+          "firstEpisodeSlug": null,
+          "cast": []
+         },
+         {
+          "id": "8e0edaab-e1ba-40a1-8916-67be67c03a53",
+          "slug": "da-groove",
+          "title": "Da Groove",
+          "description": "Four friends from the same neighborhood are convinced one track could change their lives forever. When their raw new sound starts blowing up, ambition, loyalty, and street pressure collide, turning a shot at success into a dangerous fight to hold onto who they are. Over the course of one unforgettable night, the crew must navigate jealousy, violence, and the cost of making it out — before the dream that brought them together tears them apart.\n",
+          "shortDescription": "Four friends from the same neighborhood are convinced one track could change their lives forever. When their raw new sound starts blowing up, ambition, loyalty, and street pressure collide, turning a shot at success into a dangerous fight to hold onto who they are. Over the course of one unforgettable night, the crew must navigate jealousy, violence, and the cost of making it out — before the dream that brought them together tears them apart.\n",
+          "fullDescription": "Four friends from the same neighborhood are convinced one track could change their lives forever. When their raw new sound starts blowing up, ambition, loyalty, and street pressure collide, turning a shot at success into a dangerous fight to hold onto who they are. Over the course of one unforgettable night, the crew must navigate jealousy, violence, and the cost of making it out — before the dream that brought them together tears them apart.\n",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "coming_soon",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/8e0edaab-e1ba-40a1-8916-67be67c03a53/portrait/1b7ff7bb-cb76-40e1-b40b-483cedd6df08_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/8e0edaab-e1ba-40a1-8916-67be67c03a53/landscape/aa5110a2-729b-4728-a448-ac3cb59479c5_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/8e0edaab-e1ba-40a1-8916-67be67c03a53/background/d57b1aca-cdb5-4341-90dc-377c7cec9bcb_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/8e0edaab-e1ba-40a1-8916-67be67c03a53/logo/d62b7a85-4dba-4c32-a7b4-5e45692af749.png",
+          "trailerUrl": null,
+          "trailerHlsUrl": null,
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 0,
+           "viewCount": 0,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "coming-soon"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 692,
+          "subscriberCount": 254,
+          "engagementScore": 0,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "coming-soon",
+          "firstEpisodeId": null,
+          "firstEpisodeSlug": null,
+          "cast": []
+         },
+         {
+          "id": "a657c4dd-bb0a-4a6f-a2e2-2fbb3acce0fd",
+          "slug": "golden-hour",
+          "title": "GOLDEN HOUR",
+          "description": "Every evening, for one brief and mysterious moment, a hidden space is flooded with a golden light that reveals what people want most — and what they fear most. Strangers step into it searching for answers, forgiveness, or one last chance to face the past, only to find themselves changed in ways they never expected. When a grieving soul enters desperate for peace, that single hour becomes a haunting test of love, loss, and whether some truths are too powerful to survive.",
+          "shortDescription": "Every evening, for one brief and mysterious moment, a hidden space is flooded with a golden light that reveals what people want most — and what they fear most. Strangers step into it searching for answers, forgiveness, or one last chance to face the past, only to find themselves changed in ways they never expected. When a grieving soul enters desperate for peace, that single hour becomes a haunting test of love, loss, and whether some truths are too powerful to survive.",
+          "fullDescription": "Every evening, for one brief and mysterious moment, a hidden space is flooded with a golden light that reveals what people want most — and what they fear most. Strangers step into it searching for answers, forgiveness, or one last chance to face the past, only to find themselves changed in ways they never expected. When a grieving soul enters desperate for peace, that single hour becomes a haunting test of love, loss, and whether some truths are too powerful to survive.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "coming_soon",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a657c4dd-bb0a-4a6f-a2e2-2fbb3acce0fd/portrait/8fb32685-c8a0-4b79-a36a-f2e9570c3cd8_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a657c4dd-bb0a-4a6f-a2e2-2fbb3acce0fd/landscape/d274c560-4858-4f5b-b976-ecf52daa4e6a.png",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a657c4dd-bb0a-4a6f-a2e2-2fbb3acce0fd/background/e5833843-54dd-451c-ac07-97d85fc43de7.png",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a657c4dd-bb0a-4a6f-a2e2-2fbb3acce0fd/logo/5bb40d80-5f16-422c-b818-42991f9b7c16.png",
+          "trailerUrl": null,
+          "trailerHlsUrl": null,
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 0,
+           "viewCount": 0,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "coming-soon"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 940,
+          "subscriberCount": 682,
+          "engagementScore": 0,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "coming-soon",
+          "firstEpisodeId": null,
+          "firstEpisodeSlug": null,
+          "cast": []
+         },
+         {
+          "id": "cf9e4269-7df8-40dd-a3f7-329cef8e40cd",
+          "slug": "lost-in-shibuya",
+          "title": "LOST IN SHIBUYA",
+          "description": "After missing the last train home, a young woman disappears into the restless neon maze of Shibuya, where every street corner seems to pull her deeper into a mystery only she can solve. As one sleepless night unfolds, she follows a trail of strangers, memories, and half-hidden clues that seem connected to someone she lost — or maybe to the person she used to be. By dawn, she will have to decide whether she’s searching for a missing soul, or for the version of herself the city never gave back.",
+          "shortDescription": "After missing the last train home, a young woman disappears into the restless neon maze of Shibuya, where every street corner seems to pull her deeper into a mystery only she can solve. As one sleepless night unfolds, she follows a trail of strangers, memories, and half-hidden clues that seem connected to someone she lost — or maybe to the person she used to be. By dawn, she will have to decide whether she’s searching for a missing soul, or for the version of herself the city never gave back.",
+          "fullDescription": "After missing the last train home, a young woman disappears into the restless neon maze of Shibuya, where every street corner seems to pull her deeper into a mystery only she can solve. As one sleepless night unfolds, she follows a trail of strangers, memories, and half-hidden clues that seem connected to someone she lost — or maybe to the person she used to be. By dawn, she will have to decide whether she’s searching for a missing soul, or for the version of herself the city never gave back.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "coming_soon",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf9e4269-7df8-40dd-a3f7-329cef8e40cd/portrait/bf0c9376-0680-48e1-9917-9c3c2f6422e5_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf9e4269-7df8-40dd-a3f7-329cef8e40cd/landscape/a156a956-72de-4194-a686-d34b8f8748ce_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf9e4269-7df8-40dd-a3f7-329cef8e40cd/background/587d931f-dc5b-4a5b-a86d-def23475f0a6_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/cf9e4269-7df8-40dd-a3f7-329cef8e40cd/logo/c6ecd33a-0ac7-46ec-8e4c-04ca061d0bfa.png",
+          "trailerUrl": null,
+          "trailerHlsUrl": null,
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 0,
+           "viewCount": 0,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "coming-soon"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 1381,
+          "subscriberCount": 1058,
+          "engagementScore": 0,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "coming-soon",
+          "firstEpisodeId": null,
+          "firstEpisodeSlug": null,
+          "cast": []
+         },
+         {
+          "id": "a0399c30-f185-4a37-ab74-671f74c9d8bb",
+          "slug": "love-you-sincerely ",
+          "title": "LOVE YOU, SINCERELY",
+          "description": "A lonely young woman begins receiving handwritten letters from someone who seems to understand her better than anyone ever has. What starts as a romantic mystery soon becomes an emotional journey through missed chances, old wounds, and a love story that feels strangely unfinished. As she follows the letters across rain-soaked streets and fleeting encounters, she uncovers a truth that could change everything she believes about fate, memory, and the person who was always meant to find her.",
+          "shortDescription": "A lonely young woman begins receiving handwritten letters from someone who seems to understand her better than anyone ever has. What starts as a romantic mystery soon becomes an emotional journey through missed chances, old wounds, and a love story that feels strangely unfinished. As she follows the letters across rain-soaked streets and fleeting encounters, she uncovers a truth that could change everything she believes about fate, memory, and the person who was always meant to find her.",
+          "fullDescription": "A lonely young woman begins receiving handwritten letters from someone who seems to understand her better than anyone ever has. What starts as a romantic mystery soon becomes an emotional journey through missed chances, old wounds, and a love story that feels strangely unfinished. As she follows the letters across rain-soaked streets and fleeting encounters, she uncovers a truth that could change everything she believes about fate, memory, and the person who was always meant to find her.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "coming_soon",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a0399c30-f185-4a37-ab74-671f74c9d8bb/portrait/64dcb088-a211-4529-9319-724f07dd6725.png",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a0399c30-f185-4a37-ab74-671f74c9d8bb/landscape/ff3f97c4-a219-4650-9d59-dcf1df00f96e_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a0399c30-f185-4a37-ab74-671f74c9d8bb/background/bf69313f-5a60-486a-b055-391aca0972e8_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/a0399c30-f185-4a37-ab74-671f74c9d8bb/logo/8358bea7-3801-4b0b-a54c-fb466235acdb.png",
+          "trailerUrl": null,
+          "trailerHlsUrl": null,
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 0,
+           "viewCount": 0,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "coming-soon"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 263,
+          "subscriberCount": 194,
+          "engagementScore": 0,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "coming-soon",
+          "firstEpisodeId": null,
+          "firstEpisodeSlug": null,
+          "cast": []
+         },
+         {
+          "id": "35b8e195-e674-4843-b090-6155413bb1c6",
+          "slug": "the-loud-void ",
+          "title": "THE LOUD VOID",
+          "description": "A long-abandoned space colony, once celebrated as humanity’s greatest achievement, has been silent for years. When a lone survivor returns to uncover what happened, he finds empty corridors, failing systems, and a presence that seems to live inside the silence itself. As the station begins to distort his memories and prey on his mind, he’s pulled into a terrifying fight to escape a place where the quiet is not just haunting — it’s alive.",
+          "shortDescription": "A long-abandoned space colony, once celebrated as humanity’s greatest achievement, has been silent for years. When a lone survivor returns to uncover what happened, he finds empty corridors, failing systems, and a presence that seems to live inside the silence itself. As the station begins to distort his memories and prey on his mind, he’s pulled into a terrifying fight to escape a place where the quiet is not just haunting — it’s alive.",
+          "fullDescription": "A long-abandoned space colony, once celebrated as humanity’s greatest achievement, has been silent for years. When a lone survivor returns to uncover what happened, he finds empty corridors, failing systems, and a presence that seems to live inside the silence itself. As the station begins to distort his memories and prey on his mind, he’s pulled into a terrifying fight to escape a place where the quiet is not just haunting — it’s alive.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "coming_soon",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/35b8e195-e674-4843-b090-6155413bb1c6/portrait/c07cacc0-ba3c-4c6c-a5a2-2028b2cc75a2.png",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/35b8e195-e674-4843-b090-6155413bb1c6/landscape/e5063c1f-3b50-4e74-9cfe-e38e69b120f1_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/35b8e195-e674-4843-b090-6155413bb1c6/background/75c5ff18-0748-48e7-a025-8dfe08e21fea.png",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/35b8e195-e674-4843-b090-6155413bb1c6/logo/f617b322-ff28-4bd9-bdbf-f8de66ab83c6.png",
+          "trailerUrl": null,
+          "trailerHlsUrl": null,
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 0,
+           "viewCount": 0,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "coming-soon"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 421,
+          "subscriberCount": 399,
+          "engagementScore": 0,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "coming-soon",
+          "firstEpisodeId": null,
+          "firstEpisodeSlug": null,
+          "cast": []
+         },
+         {
+          "id": "c64a2b5f-1a91-4734-8850-e101faf62f5e",
+          "slug": "behind-the-scenes-of-mork-the-tale-of-kael",
+          "title": "Behind The Scenes of “Mork - The Tale of Kael”",
+          "description": "Behind the scenes of \"Mork — The Tale of Kael.\" The most terrifying Vikings on screen turn out to be the nicest people on set.",
+          "shortDescription": "Behind the scenes of \"Mork — The Tale of Kael.\" The most terrifying Vikings on screen turn out to be the nicest people on set.",
+          "fullDescription": "Behind the scenes of \"Mork — The Tale of Kael.\" The most terrifying Vikings on screen turn out to be the nicest people on set.",
+          "authorType": "higgsfield_team",
+          "author": null,
+          "isSeries": true,
+          "state": "released",
+          "portraitUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/portrait/ba8a9751-d824-4186-9821-04d79f2643e7_optimized.webp",
+          "landscapeUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/landscape/dfb18a95-e342-4b7b-b9e0-ef792da93368_optimized.webp",
+          "backgroundUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/background/75f98b1a-2587-4bf1-8a68-798080d3f14f_optimized.webp",
+          "logoUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/logo/965c570d-a66d-4605-8b9f-cc981a11009e.png",
+          "trailerUrl": null,
+          "trailerHlsUrl": null,
+          "previewVideoUrl": null,
+          "previewVideoHlsUrl": null,
+          "projectUrl": null,
+          "projectPublicationId": null,
+          "durationSeconds": null,
+          "engagement": {
+           "likeCount": 547,
+           "viewCount": 49768,
+           "commentCount": 0
+          },
+          "categorySlugs": [
+           "first-look"
+          ],
+          "projectBannerImages": [],
+          "tags": [],
+          "voteCount": 654,
+          "subscriberCount": 49,
+          "engagementScore": 0.9840870002795525,
+          "isVoteTriggered": false,
+          "isNotifyTriggered": false,
+          "type": "first-look",
+          "firstEpisodeId": "40094aaf-a634-43b7-b399-2d9ea4dae52b",
+          "firstEpisodeSlug": "episode-0",
+          "cast": [
+           {
+            "fullName": "JARL",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/6a868b91-dd10-4f10-b7eb-e641f641922a.png"
+           },
+           {
+            "fullName": "KAEL",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/524283f1-b244-400c-bdad-3f754895d062.png"
+           },
+           {
+            "fullName": "BJORN",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/3067b5be-5ce3-4645-a9c5-4db2816b24aa.png"
+           },
+           {
+            "fullName": "MOTHER",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/203db6fc-04fa-462a-8397-13d52031c2ed.png"
+           },
+           {
+            "fullName": "JOANNA",
+            "imageUrl": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/ec746f94-ba03-497b-af5a-0350970840b2.png"
+           }
+          ]
+         }
+        ],
+        "total": 35
+       },
+       "updatedAt": 1795622439361,
+       "limit": 100
+      },
+      "exploreProjects": null,
+      "festival": null
+     }
+    }
+   }
+  ]
+ }
+}

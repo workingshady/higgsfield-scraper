@@ -1,0 +1,914 @@
+{
+ "meta": {
+  "endpoint": "lesson_page",
+  "url": "https://higgsfield.ai/academy/courses/blockbuster-4k/scene-4-the-twist-and-dialogue-scenes",
+  "params": {
+   "path": "/academy/courses/blockbuster-4k/scene-4-the-twist-and-dialogue-scenes"
+  },
+  "fetched_at": "2026-11-25T16:04:00.013598+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/academy/courses/blockbuster-4k/scene-4-the-twist-and-dialogue-scenes",
+  "page_type": "lesson",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "Scene 4: The Twist and Dialogue Scenes | Academy | Higgsfield",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/academy/courses/blockbuster-4k/scene-4-the-twist-and-dialogue-scenes",
+   "description": "Scene 4: The Twist and Dialogue Scenes — a lesson in the Blockbuster 4K: The AI Filmmaking Pipeline course on Higgsfield Academy.",
+   "keywords": null,
+   "og_title": "Scene 4: The Twist and Dialogue Scenes | Academy | Higgsfield",
+   "og_description": "Scene 4: The Twist and Dialogue Scenes — a lesson in the Blockbuster 4K: The AI Filmmaking Pipeline course on Higgsfield Academy.",
+   "og_image": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__cover.62078a58.webp",
+   "og_type": "website",
+   "robots": null,
+   "ld_json": [
+    {
+     "@context": "https://schema.org",
+     "@type": "LearningResource",
+     "name": "Scene 4: The Twist and Dialogue Scenes",
+     "url": "https://higgsfield.ai/academy/courses/blockbuster-4k/scene-4-the-twist-and-dialogue-scenes",
+     "provider": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     },
+     "isPartOf": {
+      "@type": "Course",
+      "name": "Blockbuster 4K: The AI Filmmaking Pipeline",
+      "url": "https://higgsfield.ai/academy/courses/blockbuster-4k"
+     },
+     "timeRequired": "PT4M",
+     "thumbnailUrl": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__cover.62078a58.webp"
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "Academy",
+       "item": {
+        "@id": "https://higgsfield.ai/academy"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Courses",
+       "item": {
+        "@id": "https://higgsfield.ai/academy/courses"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 3,
+       "name": "Blockbuster 4K: The AI Filmmaking Pipeline",
+       "item": {
+        "@id": "https://higgsfield.ai/academy/courses/blockbuster-4k"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 4,
+       "name": "Scene 4: The Twist and Dialogue Scenes",
+       "item": {
+        "@id": "https://higgsfield.ai/academy/courses/blockbuster-4k/scene-4-the-twist-and-dialogue-scenes"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "matches": [
+   {
+    "i": "#academy#courses#$course#$lesson#academy#courses#blockbuster-4k#scene-4-the-twist-and-dialogue-scenes",
+    "l": {
+     "course": {
+      "id": "7c614759-9e65-5fb8-90ab-287175068a9b",
+      "slug": "blockbuster-4k",
+      "title": "Blockbuster 4K: The AI Filmmaking Pipeline",
+      "description": "One 40-minute tutorial — scripting, asset creation, and scene-by-scene prompt engineering — chaptered into sections you can follow along with, shot by shot.",
+      "certificate_unlocked": false,
+      "has_creator_drop": false,
+      "has_certificate": false,
+      "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__cover__course-thumbnail.d3aeddb8.webp",
+      "objectives": [
+       {
+        "title": "Plan a cinematic story as a sequence of producible beats",
+        "description": ""
+       },
+       {
+        "title": "Build reusable character, prop, and location assets, then turn story beats into controlled generations",
+        "description": ""
+       },
+       {
+        "title": "Review and assemble selected takes into a finished short",
+        "description": ""
+       }
+      ],
+      "examples": [],
+      "authors": [
+       {
+        "name": "Adilet Abish",
+        "role": "Director of Hell Grind",
+        "bio": "[redacted]",
+        "avatar_url": "[redacted]"
+       }
+      ],
+      "preview_media": {
+       "url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__video__lesson-video.f4c9f07a.mp4",
+       "kind": "video",
+       "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__cover.3b23bed5.webp"
+      },
+      "metadata": {
+       "skills": [],
+       "models": [],
+       "languages": [],
+       "tools": []
+      },
+      "difficulty": "Intermediate",
+      "duration_minutes": 40,
+      "categories": [
+       "movie-making"
+      ],
+      "published_at": "2026-07-18",
+      "updated_at": "2026-10-16",
+      "lessons": [
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "ccf398a6-5b6b-58a3-8e72-235d6d312e47",
+        "slug": "one-character-many-worlds-watch-the-film",
+        "title": "One Character, Many Worlds: Watch the Film",
+        "position": 1,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__cover.3b23bed5.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__video__lesson-video.f4c9f07a.mp4",
+        "video_poster": null,
+        "reading_minutes": 3
+       },
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "f5173c85-0313-5262-8700-2f277c6fb313",
+        "slug": "stage-1-writing-the-script-with-claude",
+        "title": "Stage 1: Writing the Script with Claude",
+        "position": 2,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-1-writing-the-script-with-claude__cover.2aa9ce3a.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-1-writing-the-script-with-claude__video__lesson-video.8a43535a.mp4",
+        "video_poster": null,
+        "reading_minutes": 3
+       },
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "afd3d7a3-2d88-556e-95b7-23a54008473d",
+        "slug": "stage-2-building-character-location-and-prop-assets",
+        "title": "Stage 2: Building Character, Location, and Prop Assets",
+        "position": 3,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-2-building-character-location-and-prop-assets__cover.9d211c46.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-2-building-character-location-and-prop-assets__video__lesson-video.b8eae65e.mp4",
+        "video_poster": null,
+        "reading_minutes": 3
+       },
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "26669ada-cd4a-5f4c-bea0-c3512249c203",
+        "slug": "stage-3-scene-generation-with-the-prompt-builder-skill",
+        "title": "Stage 3: Scene Generation with the Prompt-Builder Skill",
+        "position": 4,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-3-scene-generation-with-the-prompt-builder-skill__cover.5f10a77a.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-3-scene-generation-with-the-prompt-builder-skill__video__lesson-video.0af9f181.mp4",
+        "video_poster": null,
+        "reading_minutes": 3
+       },
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "c1006821-8b8b-52ce-a317-31491859fea3",
+        "slug": "scene-1-the-cabin-shot-and-the-talking-parrot",
+        "title": "Scene 1: The Cabin Shot and the Talking Parrot",
+        "position": 5,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-1-the-cabin-shot-and-the-talking-parrot__cover.71749890.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-1-the-cabin-shot-and-the-talking-parrot__video__lesson-video.5123c96a.mp4",
+        "video_poster": null,
+        "reading_minutes": 4
+       },
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "a4b15731-f92b-50e7-9646-d69c69f2e000",
+        "slug": "scene-1-the-sea-battle-and-escape-overboard",
+        "title": "Scene 1: The Sea Battle and Escape Overboard",
+        "position": 6,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-1-the-sea-battle-and-escape-overboard__cover.c05cf6a0.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-1-the-sea-battle-and-escape-overboard__video__lesson-video.b609c173.mp4",
+        "video_poster": null,
+        "reading_minutes": 4
+       },
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "2db9120a-e013-5c7f-9cc1-48bf40eae027",
+        "slug": "scene-2-the-desert-chase",
+        "title": "Scene 2: The Desert Chase",
+        "position": 7,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-2-the-desert-chase__cover.3420f025.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-2-the-desert-chase__video__lesson-video.50246239.mp4",
+        "video_poster": null,
+        "reading_minutes": 5
+       },
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "8663bac0-02d6-541c-91be-73a76b91efc9",
+        "slug": "scene-3-the-jungle",
+        "title": "Scene 3: The Jungle",
+        "position": 8,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-3-the-jungle__cover.60cb069d.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-3-the-jungle__video__lesson-video.6d7a9af5.mp4",
+        "video_poster": null,
+        "reading_minutes": 6
+       },
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "2d244091-a2bb-5635-b7d1-dd2b0ac0fa46",
+        "slug": "scene-4-the-twist-and-dialogue-scenes",
+        "title": "Scene 4: The Twist and Dialogue Scenes",
+        "position": 9,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__cover.62078a58.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__video__lesson-video.71140665.mp4",
+        "video_poster": null,
+        "reading_minutes": 4
+       },
+       {
+        "access": {
+         "allowed": true,
+         "reason": null,
+         "blocking_lesson_id": null
+        },
+        "homework_required": false,
+        "homework_submitted": false,
+        "id": "c57358f2-8228-5298-9c8b-1e677948f351",
+        "slug": "full-film-and-workflow-recap",
+        "title": "Full Film and Workflow Recap",
+        "position": 10,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__full-film-and-workflow-recap__cover.e1261cdf.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__full-film-and-workflow-recap__video__lesson-video.61419367.mp4",
+        "video_poster": null,
+        "reading_minutes": 3
+       }
+      ]
+     },
+     "summary": {
+      "access": {
+       "allowed": true,
+       "reason": null,
+       "blocking_lesson_id": null
+      },
+      "homework_required": false,
+      "homework_submitted": false,
+      "id": "2d244091-a2bb-5635-b7d1-dd2b0ac0fa46",
+      "slug": "scene-4-the-twist-and-dialogue-scenes",
+      "title": "Scene 4: The Twist and Dialogue Scenes",
+      "position": 9,
+      "completed": false,
+      "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__cover.62078a58.webp",
+      "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__video__lesson-video.71140665.mp4",
+      "video_poster": null,
+      "reading_minutes": 4
+     },
+     "lesson": {
+      "access": {
+       "allowed": true
+      },
+      "id": "2d244091-a2bb-5635-b7d1-dd2b0ac0fa46",
+      "slug": "scene-4-the-twist-and-dialogue-scenes",
+      "title": "Scene 4: The Twist and Dialogue Scenes",
+      "xp_reward": 20,
+      "progress_pct": 0,
+      "completed": false,
+      "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__cover.62078a58.webp",
+      "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__video__lesson-video.71140665.mp4",
+      "video_subtitles": [],
+      "video_cues": [
+       {
+        "id": "recreate-4-1a",
+        "start_seconds": 36,
+        "end_seconds": 59.5,
+        "title": "Recreate this shot",
+        "horizontal_position": "right",
+        "vertical_position": "top",
+        "type": "prompt",
+        "prompt": "SCENE CONTEXT\nNight. A cozy apartment living room. ADIL crashes down from ceiling height onto the couch and, still tangled in the cushions, immediately yells at his little sister CINDY — who is revealed at the desk, presenting a strange palm-sized green-button device flat on her open palm while he pleads his first offer.\nACTIVE REFERENCES\n@main_character_room — main character: young man, dark curly hair, thin mustache, light-blue striped short-sleeve shirt over a black tee, silver chain; hair mussed, out of breath. Voice: young male, breathless, cracking with panic. 100% matches the reference.\n@cindy — Cindy: 10-year-old girl, dark curly hair with star-shaped clips, thin mustache, purple ribbed tank top, sly grin. Voice: 10-year-old girl, sly giggle. 100% matches the reference.\n@room1 — environment and light reference only: night apartment living room, grey couch center-left, brass birdcage on a stand by the window at frame left, floor lamp behind the couch, bookshelves and vintage posters on the back wall, wooden desk with a monitor and a cognac-leather swivel chair at frame right, warm practical lamps, city night outside the window.\n@parrot_sheet — scarlet macaw, red-yellow-blue plumage, thin leather medallion strap across its chest, perched inside the brass birdcage. 100% matches the reference.\n@button — palm-sized armored gadget box, roughly 8 × 8 × 4 cm, small enough to rest entirely on an open palm: black metal frame, neon-green side panels, brushed-steel top plate with one glowing green square button about 3 cm wide carrying a black four-point star icon. 100% matches the reference.\nLOCATION MAP\nForeground: round coffee table with magazines and binoculars at frame left. Midground: grey couch center-left facing the room; brass birdcage by the window behind it at frame left. Background: bookshelf wall and doorway center, wooden desk with monitor and swivel chair at frame right. Light sources: warm floor lamp behind the couch, small shelf lamp, green monitor glow at the desk, cold city night through the window at left. Adil on the couch faces frame right toward the desk; Cindy sits at frame right facing left toward the couch.\nFIRST FRAME / BLOCKING\nFrame 1: the couch fills the lower half of frame; Adil's falling body already breaks the top edge of frame above it, arms flailing, dropping toward the cushions. Camera at seat-cushion height, 1 meter from the couch, hard 15° Dutch tilt.\nFORMAT MODE\nTimed multishot. Cuts only at the specified points, the camera does not cut on its own.\nOPTICS\n0.0–3.5s: 84° wide, low and close. 3.5–7.0s: 63° medium, low and close. 7.0–10.0s: 47° over-shoulder medium, eye level. No drift mid-segment.\nCAMERA\nShot 1: camera at seat-cushion height, 1 m from the couch, hard 15° Dutch tilt left, locked off; Adil falls into the static frame. Shot 2: camera at knee height, 1 m from the desk chair, hard 15° Dutch tilt right (mirrored), locked off. Shot 3: level horizon, eye level behind Cindy's right shoulder looking left toward the couch, locked off. Camera stays on the shadow side.\nACTION\n0.0s–3.5s — Adil plummets from ceiling height and slams into the couch on his back; cushions compress deep, one throw pillow bounces off, dust motes burst into the lamp beams; in the background left the macaw shrieks and beats its wings inside the cage; at 1.2s a child's sly giggle sounds from off-screen right; Adil, still sprawled and gasping, whips his head toward frame right and yells: \"Cindy! Stop it. I said I'll do it.\"\n3.5s HARD CUT\n3.5s–7.0s — low close at the desk: the cognac swivel chair rotates 180° from facing the desk to facing the camera, revealing Cindy sitting in it with a grin; beside her the monitor glows with a single line of green capital letters: NEXT LOCATION? — the display holds exactly this one line, frozen and identical in every frame; Cindy presents the palm-sized armored green-button box flat on her open left palm like a waiter's tray, the little box covering most of her child-sized palm, then lifts her right index finger high and holds it hovering 5 cm above the small glowing green button, the button surface untouched.\n7.0s HARD CUT\n7.0s–10.0s — over Cindy's right shoulder: her hovering finger and the palm-sized box on her open hand soft in the right foreground; Adil sharp in midground, scrambling upright on the couch edge, palms out, voice climbing: \"Two weeks! I'll do your chores for two weeks. Deal?\" The shot ends on Adil frozen mid-plea, the finger still airborne in the foreground.\nPERFORMANCE\nAdil: pore-level skin realism, sheen of sweat, capillary flush on the cheeks, chest heaving — his lines fired between gasps, panic driving the pitch up; on \"Deal?\" his eyebrows lift and hold, begging. Cindy: silent through the whole piece, slow blink, chin slightly down, grin widening by millimeters, theatrical care in how the palm presents the little box — a magician's flourish; living catch-lights in both characters' eyes.\nPHYSICS\nThe fall carries real mass: the couch frame jolts, cushions compress and rebound, dust motes hang in the lamp beams and settle; his shirt fabric lags his body by a frame; the swivel chair rotates with believable inertia and stops with a small overshoot; the palm-sized box rests centered on her flat palm with the dense weight of a solid metal gadget, her open hand steady beneath it.\nLIGHTING\nWarm 3200K practicals: floor lamp behind the couch as key on Adil, small shelf lamp as fill; cold city-night spill edges the couch from the window at left; at the desk the green monitor glow keys Cindy from the screen side, throwing a soft green rim on her face and the box; the small glowing button adds a faint green kick under her chin.\nAUDIO\nHeavy sofa WHUMP with spring creak, pillow flop, macaw shriek and wing flaps, low city rumble through the glass; at 1.2s a child's sly giggle from off-screen right; Adil's lines delivered breathless and panicked; soft electric hum near the monitor.\nSTYLE\nPhotoreal live-action comedy, cinematic single-location night interior, natural depth of field, subtle fine film grain, real-time speed throughout.\nPOSITIVE LOCKS\nAdil, Cindy, the room, the macaw and the button box stay 100% identical to their references in every shot. The box stays palm-sized in every shot, roughly 8 × 8 × 4 cm, its full footprint resting within Cindy's open palm. The monitor shows exactly one static line — NEXT LOCATION? in glowing green capitals — identical and motionless in every frame. The green button stays untouched: the index finger hovers 5 cm above it through the final frame. Hard 15° Dutch tilt held for the first two shots, level horizon on the third. Cuts only at the specified points. Single night lighting state throughout.",
+        "recreate_url": "/generate/video/seedance_2_0?aspect_ratio=21:9&resolution=4k"
+       },
+       {
+        "id": "use-reverse-angle-blueprints",
+        "start_seconds": 59.9,
+        "end_seconds": 108.9,
+        "title": "Copy this prompt",
+        "horizontal_position": "left",
+        "vertical_position": "bottom",
+        "type": "prompt",
+        "prompt": "Re-write the prompt — use two extra locations, two reference images of the same room: @room2 and @room3. Lock the exact size for the button @button and the parrot @parrot_sheet should sit on top of the cage, not inside it."
+       },
+       {
+        "id": "recreate-4-1b",
+        "start_seconds": 109.5,
+        "end_seconds": 129,
+        "title": "Recreate this shot",
+        "horizontal_position": "left",
+        "vertical_position": "bottom",
+        "type": "prompt",
+        "prompt": "SCENE CONTEXT\nNight. A cozy apartment living room. main character crashes down from ceiling height onto the couch and, still tangled in the cushions, immediately yells at his little sister CINDY — who is revealed at the desk with a soft sly snicker, calmly threatening him with a strange palm-sized green-button device held up in her hand while he scrambles onto his knees and pleads his first offer.\nACTIVE REFERENCES\n@main_character_room — main character: young man, dark curly hair, thin mustache, light-blue striped short-sleeve shirt over a black tee, silver chain; hair mussed, out of breath. Voice: young male, breathless, cracking with panic. 100% matches the reference.\n@cindy — Cindy: 10-year-old girl, dark curly hair with star-shaped clips, thin mustache, purple ribbed tank top, faint amused half-smile, natural relaxed expression. Voice: 10-year-old girl, soft sly giggle. 100% matches the reference.\n@room1 — environment and light reference only, master plate: night apartment living room, grey couch center-left, brass birdcage on a stand by the window at frame left, floor lamp behind the couch, bookshelves and vintage posters on the back wall, wooden desk with a monitor and a cognac-leather swivel chair at frame right, warm practical lamps, city night outside the window. The monitor screen in this plate is the master screen for the whole scene.\n@room2 — environment and light reference only, the reverse angle of the same room at the master plate's low-key night exposure: the fourth wall in dim warm shadow carrying a wall-mounted flat TV switched off — a near-black rectangle with only a faint warm lamp reflection — above a wooden media console with stacked books, open wall shelves on both sides holding books, a globe, small souvenirs and a trailing pothos plant, a tall leafy potted plant near the window corner, patterned rug on the wooden floor mostly in shadow, the grey couch seen from behind with the window and birdcage at frame right, deep blacks matching the master.\n@room3 — environment and light reference only, the frontal angle of the desk wall of the same room at the master plate's low-key night exposure: framed world map and pinned postcards in dim warm shadow over a wooden sideboard stacked with books and a glowing paper lamp at frame left, dark open doorway center-left falling to near-black, wooden desk center-right with the white-framed monitor as the local key, keyboard catching the green screen spill, small ship model, plush monkey toy beside the monitor, PC tower under the desk, cognac-leather swivel chair, desert-caravan and palm-tree prints dim above, open shelves with a vintage camera and trailing pothos at the room corner at frame right, deep blacks matching the master.\n@parrot_sheet — scarlet macaw, red-yellow-blue plumage, thin leather medallion strap across its chest, perched on top of the brass birdcage's dome. 100% matches the reference.\n@button — palm-sized armored gadget box, roughly 8 × 8 × 4 cm: black metal frame, neon-green side panels, brushed-steel top plate with one glowing green square button about 3 cm wide carrying a black four-point star icon. 100% matches the reference.\nLOCATION MAP\nForeground: round coffee table with magazines and binoculars at frame left. Midground: grey couch center-left facing the room; brass birdcage by the window behind it at frame left, the macaw perched on top of its dome. Background: bookshelf wall and doorway center, wooden desk with monitor and swivel chair at frame right — the desk wall composed per @room3. The fourth wall — opposite the bookshelf wall — carries the switched-off TV over the media console per @room2; from any camera near the desk looking at the couch this TV wall lies at frame left. THE 180° AXIS: the action line runs from main character at the couch to Cindy at the desk; every camera sits on the TV-wall side of this line — main character always reads looking toward frame right, Cindy toward frame left. Light sources: warm floor lamp behind the couch, small shelf lamp, paper lamp on the sideboard, green monitor glow at the desk, cold city night through the window at left.\nFIRST FRAME / BLOCKING\nFrame 1: the couch fills the lower half of frame; main character's falling body already breaks the top edge of frame above it, arms flailing, dropping toward the cushions. Camera below the couch seat line, 1 meter from the couch, tilted slightly up at the falling body, hard 15° Dutch tilt.\nFORMAT MODE\nTimed multishot. Cuts only at the specified points, the camera does not cut on its own.\nOPTICS\n0.0–3.5s: 84° wide, low and close. 3.5–7.0s: 63° medium, low and close. 7.0–10.0s: 47° over-shoulder medium, eye level. No drift mid-segment.\nCAMERA\nShot 1: camera below the couch seat line, 1 m from the couch, looking slightly up, hard 15° Dutch tilt left, locked off; main character falls into the static frame. Shot 2: camera at knee height, 1 m from the desk chair, looking slightly up, hard 15° Dutch tilt right (mirrored), locked off; the segment opens on the chair's cognac BACK — it faces the desk, Cindy hidden behind its backrest — and the chair then rotates into frame. Shot 3: level horizon, eye level just behind Cindy's LEFT shoulder, shooting toward main character at the couch, locked off, one fixed framing for the whole segment. Camera stays on the shadow side.\nACTION\n0.0s–3.5s — main character plummets from ceiling height and slams into the couch on his back; cushions compress deep, one throw pillow bounces off, dust motes burst into the lamp beams; in the background left the macaw on top of the cage shrieks, flares its wings and side-steps along the dome to rebalance; at 1.2s a child's soft sly giggle sounds from off-screen right; main character, still sprawled and gasping, whips his head toward frame right and yells: \"Cindy! Stop it. I said I'll do it.\"\n3.5s HARD CUT\n3.5s–7.0s — low close at the desk, the desk wall behind per @room3 — the dark doorway and postcard wall at frame left, the desert-caravan print above, the plush monkey toy beside the monitor: at the cut the cognac swivel chair faces the desk, its tall backrest to the camera, Cindy hidden behind it; the chair then rotates 180° to face the camera, revealing Cindy sitting in it, calm, a faint amused half-smile, her eyes already locked past the camera on main character at the couch, off frame left; as the chair settles she lets out a soft sly snicker — two short giggle-breaths through the nose, shoulders bouncing once; beside her the monitor glows with the master screen from @room1 — a single line of green capital letters: NEXT LOCATION? — the display holds exactly this screen, frozen and identical in every frame; keeping her steady gaze on main character, Cindy raises the palm-sized armored box up in her left hand to chest height, gripped from beneath, elbow bent, the box close to her body, the glowing green button on top angled toward him — showing it off like a prize — then lifts her right index finger high and holds it arched 5 cm above the button, only air between fingertip and button, and gives the airborne fingertip one tiny teasing waggle, the threat living entirely in the gesture; the whole move done blind, by feel, her eyes on main character throughout; the fingertip stays at hover height, airborne, to the end of the shot, the button surface untouched.\n7.0s HARD CUT\n7.0s–10.0s — over Cindy's left shoulder, one fixed framing: her dark head and left shoulder soft in the RIGHT foreground, her left hand holding the glowing box close at her chest, elbow bent, entering from frame right, fingertip arched in the air above the button; main character sharp in midground center-left, scrambling up onto his knees on the couch cushions, turned over the backrest toward the desk, face and eyes toward frame RIGHT at her, both palms rising; behind him the window at frame right where the macaw sits in plain view on top of the cage dome, ruffling its feathers and shifting its grip, its long tail hanging down the cage bars, and the edge of the fourth wall with the switched-off dark TV at frame left; his voice climbing: \"Two weeks! I'll do your chores for two weeks. Deal?\" — the line lands by 9.0s, then a held beat: main character frozen mid-plea on his knees, palms out, mouth slightly open, breath caught, the room silent except the hum of the night; the shot ends on this hold, the fingertip still airborne above the untouched button in the final frame.\nPERFORMANCE\nAll movement follows natural human rhythm — small weight shifts, involuntary micro-adjustments, nothing posed. main character: ragged natural breathing, chest and shoulders visibly heaving, nostrils flaring, a rapid double blink as the dust settles; eyes wet and alive with sharp catch-lights, darting in quick saccades before locking toward frame right; micro-pauses mid-line as he catches his breath, a swallow before \"Deal?\", eyebrows lifting and holding; through the final beat after \"Deal?\" he holds completely still on his knees — the plea frozen on his face, one caught breath, fingers of his raised palms trembling slightly; pore-level skin realism, sheen of sweat, capillary flush on the cheeks. Cindy: wordless apart from the single soft sly snicker at the reveal, otherwise her face natural and understated — a faint amused half-smile that barely moves, one slow natural blink, quiet even breathing, a small settling shift as the chair stops; eyes calm and alive with soft catch-lights, eye-line locked steady on main character in every frame — she raises the box and waggles the finger blind, by feel, gaze fixed on him the whole time, the composure itself reading as confidence; her left arm stays bent, the box held close at her chest, never extended toward main character; the raised fingertip, after its single waggle, holds still in the air, arched 5 cm above the button through the final frame. The macaw stays a living presence on the cage dome in both shots where the cage is visible: it shrieks and rebalances at the crash, then settles — ruffling feathers, small head turns, a slow blink, its tail draped down the bars — never leaving the dome.\nPHYSICS\nThe fall carries real mass: the couch frame jolts, cushions compress and rebound, dust motes hang in the lamp beams and settle; his shirt fabric lags his body by a frame; the cushions dip under his knees as he rises onto them; the macaw's claws grip the cage dome, its wings flare and settle as the cage sways slightly on its stand; the swivel chair rotates with believable inertia and stops with a small overshoot; the palm-sized box sits gripped in her left hand with the dense weight of a solid metal gadget, the hand steady beneath it.\nLIGHTING\nWarm 3200K practicals: floor lamp behind the couch as key on main character, small shelf lamp and the paper lamp on the sideboard as fill; cold city-night spill edges the couch from the window; at the desk the green monitor glow keys Cindy from the screen side, throwing a soft green rim on her face, the keyboard catching the green spill; the glowing button throws a green pool onto her hands and the underside of her chin. Both reverse walls hold the master plate's low-key exposure — dim warm shadow away from the lamp pools, deep blacks matching @room1; the switched-off TV reads as a near-black rectangle with only a faint warm lamp reflection.\nAUDIO\nHeavy sofa WHUMP with spring creak, pillow flop, macaw shriek and wing flaps from the cage top, low city rumble through the glass; at 1.2s a child's soft sly giggle from off-screen right; a soft sly on-camera snicker from Cindy as the chair settles; main character's lines delivered breathless and panicked, natural gasps and inhales audible between words; after \"Deal?\" a full beat of silence — only room tone, the soft electric hum near the monitor and his caught breath.\nSTYLE\nPhotoreal live-action comedy, cinematic single-location night interior, natural depth of field, subtle fine film grain, real-time speed throughout.\nPOSITIVE LOCKS\nmain character, Cindy, the room, the macaw and the button box stay 100% identical to their references in every shot; the room geometry follows @room1, @room2 and @room3 as three angles of one set at one shared low-key night exposure. THE AXIS HOLDS ACROSS EVERY CUT: every camera stays on the TV-wall side of the main character–Cindy line; main character always faces and looks toward frame right; Cindy always faces and looks toward frame left. Each of the three shots holds one fixed locked-off framing from its first frame to its last. The macaw stays perched on top of the birdcage dome — visible, alive, feathers ruffling, never flying off and never absent — in every shot where the cage is visible. The box stays palm-sized, roughly 8 × 8 × 4 cm, held up in Cindy's left hand close at her chest, elbow bent, from the reveal to the final frame — never extended toward main character. Cindy's gesture is a playful threat held in the air: the fingertip's only movement is the single tiny waggle at hover height — it stays arched and airborne 5 cm above the button in every frame including the last, only air between fingertip and button, the button surface untouched for the entire duration. Her expression stays natural and understated — a faint amused half-smile with the single soft sly snicker at the reveal, calm steady gaze locked on main character in every shot where her face is visible; she handles the box blind, by feel. In the second shot the chair starts facing the desk with Cindy hidden behind its backrest and ends facing the camera. main character ends the piece kneeling on the couch cushions facing the desk, palms raised, frozen mid-plea through the held final beat. The monitor shows exactly the master screen from @room1 — one static line NEXT LOCATION? in glowing green capitals — identical and motionless in every frame; the wall-mounted TV stays switched off in every frame, the desk monitor the only lit screen in the room. Performances stay naturalistic and restrained, human-paced. Hard 15° Dutch tilt held for the first two shots, level horizon on the third. Cuts only at the specified points. Single night lighting state throughout.",
+        "recreate_url": "/generate/video/seedance_2_0?aspect_ratio=21:9&resolution=4k"
+       },
+       {
+        "id": "recreate-4-2a",
+        "start_seconds": 130,
+        "end_seconds": 147.5,
+        "title": "Recreate this shot",
+        "horizontal_position": "left",
+        "vertical_position": "bottom",
+        "type": "prompt",
+        "prompt": "SCENE CONTEXT\nNight. An apartment living room. CINDY, sitting in the desk chair, holds a palm-sized green-button device up in her left hand at chest height, her right index finger hovering over it in a quiet threat, and counters her brother main character's offer — he kneels on the couch facing her, palms raised. He balks, she shrugs, drops her finger onto the button without looking at it — and main character dissolves into green light, screaming.\nACTIVE REFERENCES\n@main_character_room — main character: young man, dark curly hair, thin mustache, light-blue striped short-sleeve shirt over a black tee, silver chain; sweaty, disheveled, pleading. Voice: young male, cracking with panic. 100% matches the reference.\n@cindy — Cindy: 10-year-old girl, dark curly hair with star-shaped clips, thin mustache, purple ribbed tank top, faint amused half-smile, natural relaxed expression. Voice: 10-year-old girl, flat unbothered calm. 100% matches the reference.\n@room1 — environment and light reference only, master plate: night apartment living room, grey couch center-left, brass birdcage by the window at frame left, warm practical lamps, wooden desk with monitor and cognac-leather swivel chair at frame right, city night outside the window. The monitor screen in this plate is the master screen for the whole scene.\n@room2 — environment and light reference only, the reverse angle of the same room at the master plate's low-key night exposure: the fourth wall in dim warm shadow carrying a wall-mounted flat TV switched off — a near-black rectangle with only a faint warm lamp reflection — above a wooden media console with stacked books, open wall shelves on both sides holding books, a globe, small souvenirs and a trailing pothos plant, a tall leafy potted plant near the window corner, patterned rug on the wooden floor mostly in shadow, the grey couch seen from behind with the window and birdcage at frame right, deep blacks matching the master.\n@room3 — environment and light reference only, the frontal angle of the desk wall of the same room at the master plate's low-key night exposure: framed world map and pinned postcards in dim warm shadow over a wooden sideboard stacked with books and a glowing paper lamp at frame left, dark open doorway center-left falling to near-black, wooden desk center-right with the white-framed monitor as the local key, keyboard catching the green screen spill, small ship model, plush monkey toy beside the monitor, PC tower under the desk, cognac-leather swivel chair, desert-caravan and palm-tree prints dim above, open shelves with trailing pothos at the room corner at frame right, deep blacks matching the master.\n@parrot_sheet — scarlet macaw, red-yellow-blue plumage, thin leather medallion strap across its chest, perched on top of the brass birdcage's dome. 100% matches the reference.\n@button — palm-sized armored gadget box, roughly 8 × 8 × 4 cm: black metal frame, neon-green side panels, brushed-steel top plate with one glowing green square button about 3 cm wide carrying a black four-point star icon. 100% matches the reference.\nLOCATION MAP\nRoom layout: grey couch center-left facing the room, coffee table before it; brass birdcage by the window far left, the macaw perched on top of its dome; wooden desk with monitor and swivel chair at frame right, chair turned toward the couch — the desk wall composed per @room3; the fourth wall with the switched-off TV over the media console per @room2. THE 180° AXIS: the action line runs from main character at the couch to Cindy at the desk chair; every camera in every shot sits on the bookshelf-and-doorway side of this line. On screen this means: main character always faces and looks toward frame RIGHT, toward the off-screen desk; Cindy always faces and looks toward frame LEFT, toward the off-screen couch; in every shot of Cindy the monitor sits at frame LEFT of her head with the plush monkey and pothos shelves at frame RIGHT; in every shot of main character the switched-off TV wall sits at frame LEFT behind him and the window with the birdcage at frame RIGHT. main character kneels on the couch cushions, turned over the backrest toward the desk, both palms raised; Cindy sits in the chair, the box held up in her left hand at chest height, gripped from beneath, the glowing green button on top, her right index finger hovering above it. Light sources: warm floor lamp behind the couch, shelf lamp, paper lamp on the sideboard, green monitor glow at the desk, green button glow on Cindy's hands, cold city night through the window.\nFIRST FRAME / BLOCKING\nFrame 1: over main character's right shoulder — his dark out-of-focus head and shoulder in the LEFT foreground edge; Cindy sharp in medium close-up at the desk beyond him, the monitor with the frozen master screen NEXT LOCATION? at frame LEFT of her head, the plush monkey at frame right; the armored box up in her left hand, button glowing, her right index finger hovering bent above it, airborne; her eyes aimed off frame LEFT at main character, calm, a faint amused half-smile.\nFORMAT MODE\nTimed multishot. Cuts only at the specified points, the camera does not cut on its own.\nOPTICS\n0.0–2.5s: 29° over-shoulder medium close-up. 2.5–5.0s: 47° over-shoulder medium. 5.0–8.5s: 47° medium. 8.5–15.0s: 47° medium tightening to 29° on the face. No drift mid-segment.\nCAMERA\nLevel horizon throughout, every position on the bookshelf-and-doorway side of the axis. Shot 1: eye level at the couch position, shooting past main character's right shoulder toward Cindy at the desk. Shot 2: the reverse — eye level just behind Cindy's left shoulder, shooting toward main character at the couch, exactly the counter-angle of shot 1. Shot 3: eye level 1.5 m in front of Cindy, same camera side as shot 1, main character's soft dark shoulder just clipping the LEFT edge of frame, the monitor at frame LEFT of her head. Shot 4: eye level starting 2 m from main character, same camera side as shot 2, slow 5 km/h dolly-in ending framed on his screaming face. Camera on the shadow side.\nACTION\n0.0s–2.5s — over main character's blurred right shoulder at frame left: Cindy at the desk, green monitor glow on her cheek, the box up in her left hand, right fingertip airborne above the button, eyes locked off frame LEFT on main character, calm, the faint half-smile barely widening, says flatly: \"Make it two months.\"\n2.5s HARD CUT\n2.5s–5.0s — the reverse angle: Cindy's dark head and left shoulder soft in the RIGHT foreground, her raised left hand with the glowing box entering from frame right; main character sharp in midground center-left, kneeling on the couch cushions, turned over the backrest, face and eyes toward frame RIGHT at Cindy, both palms raised toward her, recoiling, eyes wide, the switched-off dark TV wall at frame left behind him, the window with the macaw on the cage dome at frame right: \"Two months?! HELL NAHHH!\"\n5.0s HARD CUT\n5.0s–8.5s — Cindy medium at the desk, same camera side as the first shot, main character's soft dark shoulder clipping the left frame edge, the monitor with the master screen at frame LEFT of her head, the desert print above and the plush monkey at frame right, the box steady in her raised left hand; eyes still locked off frame LEFT on main character, she gives a small natural one-shoulder shrug: \"Okay.\" A beat. The half-smile widens a touch: \"You said you hate monkeys?\" — at 8.3s her right index finger drops blind onto the small glowing green button of the box in her left hand, her steady gaze staying off frame left on main character through the press, her face staying calm; the 3 cm button clicks in and flares bright green; the monitor keeps the master screen from @room1 with its single frozen line NEXT LOCATION? identical in every frame.\n8.5s HARD CUT\n8.5s–15.0s — main character single at the couch, face and body toward frame RIGHT where Cindy sits off-screen: green light floods over him while he is still kneeling, palms out; he screams \"CINDYYYYY!!!\" toward frame right — a real, raw, terrified scream; his entire body turns translucent ghost-green and fades uniformly, opacity dropping evenly head to toe all at once, the fade stretched slow and even across the entire shot, while tiny green ember particles lift off his silhouette and drift upward; the scream's loudness decays in exact sync with his fading body; the macaw shrieks and beats its wings on top of the cage at frame right; at the final frame his wide-eyed screaming face, still angled toward frame right, is faintly visible as the last readable element while the rest of him has fully dissolved, ember particles still rising over the empty couch.\nPERFORMANCE\nAll movement follows natural human rhythm — small weight shifts, involuntary micro-adjustments, nothing posed. main character: the recoil travels through his whole torso as a natural startle — head jerks back, a sharp blink, an audible breath hitch before \"Two months?!\", raised palms tensing wider, eyes and face committed toward frame right at Cindy in every moment; eyes wet and alive with sharp catch-lights; in the final shot the scream stretches every facial muscle — brows shooting up, jaw dropping, eyes wide with genuine terror, wet catch-lights flaring in the green glow — held to the last frame. Cindy: natural understated calm against his panic — the faint amused half-smile barely moving, one slow natural blink, a soft unhurried exhale through the nose before \"Okay\", the shrug small and loose, quiet even breathing; her eye-line stays off frame left on main character in every frame — the press lands blind, by feel, gaze on him, the stillness itself doing the acting; natural breathing visible in both chests between lines; pore-level skin realism and soft living catch-lights on both.\nPHYSICS\nThe 3 cm button travels 4 mm into its housing with a firm mechanical click; the box stays gripped in her left hand through the press, the hand dipping a few millimeters under the push and steadying. The dissolve behaves like matter turning into light: ember particles rise with slight thermal drift, the couch cushions slowly re-expand as his weight leaves them, and the contact shadow beneath him fades in sync with his body; the macaw's claws grip the cage dome, wings flaring as it shrieks.\nLIGHTING\nWarm 3200K practicals hold the room: floor lamp key on main character, shelf lamp and the paper lamp on the sideboard as fill; green monitor glow keys Cindy from the screen side, the keyboard catching the green spill; the glowing button throws a green pool onto her hands and the underside of her chin. Both reverse walls hold the master plate's low-key exposure — dim warm shadow away from the lamp pools, deep blacks matching @room1. From 8.3s the button flare and the dissolve become a temporary green key light, washing the couch and walls in green that decays together with main character's body; the dark switched-off TV screen at frame left catches a faint green reflection of the dissolve, fading with it, the room returning to warm lamp light by the final frame.\nAUDIO\nDialogue as scripted, tight comedic timing, soft natural breaths audible between lines. Deep mechanical button click at 8.3s followed by a rising green energy hum; shimmering particle hiss during the dissolve; main character's scream \"CINDYYYYY!!!\" starting at full raw volume and decaying in exact sync with his fading body into room-tone quiet; macaw shriek and wing flaps from the cage top; low city rumble through the glass.\nSTYLE\nPhotoreal live-action comedy, cinematic night interior, natural depth of field, subtle fine film grain, real-time speed throughout.\nPOSITIVE LOCKS\nmain character, Cindy, the room, the macaw and the button box stay 100% identical to their references in every shot; the room geometry follows @room1, @room2 and @room3 as three angles of one set at one shared low-key night exposure. THE AXIS HOLDS ACROSS EVERY CUT: every camera stays on the bookshelf-and-doorway side of the main character–Cindy line; main character faces and looks toward frame right in every shot; Cindy faces and looks toward frame left in every shot; the monitor sits at frame left of Cindy's head in every shot of her. The macaw stays perched on top of the birdcage dome in every shot where the cage is visible. The box stays palm-sized, roughly 8 × 8 × 4 cm, held up in Cindy's left hand at chest height in every shot where she is visible; her right hand touches only the button, only at 8.3s. main character stays kneeling on the couch facing the desk with palms raised until the dissolve consumes him. Cindy's expression stays natural and understated — a faint amused half-smile, calm steady gaze. The monitor displays exactly the master screen from @room1 — one static line NEXT LOCATION? in glowing green capitals — identical and motionless in every frame; the wall-mounted TV stays switched off until the dissolve's green reflection, so the desk monitor is the only lit screen in the room. The dissolve is a uniform full-body ghost fade with green ember particles, even opacity loss across the whole body at once, stretched across the full shot. The scream fades in exact sync with the body; his screaming face remains faintly visible in the very last frame. Performances stay naturalistic and restrained, human-paced. Level horizon, cuts only at the specified points, single night lighting state.",
+        "recreate_url": "/generate/video/seedance_2_0?aspect_ratio=21:9&resolution=4k"
+       },
+       {
+        "id": "enforce-the-180-rule",
+        "start_seconds": 148.1,
+        "end_seconds": 192.3,
+        "title": "Copy this prompt",
+        "horizontal_position": "left",
+        "vertical_position": "bottom",
+        "type": "prompt",
+        "prompt": "Re-write the prompt. Lock the camera. On Cindy's @cindy lines, always show her from the same angle — one identical single every time. On main character's @main_character_room lines, show him over Cindy's left shoulder — same framing every time. Fix main character's emotion on 'HELL NAHHH' — right now he's shouting, but it should read as dismissive disbelief, refusal with contempt, not volume. main character must disappear completely — the dissolve has to finish."
+       },
+       {
+        "id": "recreate-2b",
+        "start_seconds": 192.5,
+        "end_seconds": 210,
+        "title": "Recreate this shot",
+        "horizontal_position": "left",
+        "vertical_position": "bottom",
+        "type": "prompt",
+        "prompt": "SCENE CONTEXT\nNight. A cozy apartment living room. CINDY sits in the desk chair turned toward the couch, calmly threatening her brother main character with a palm-sized green-button device held up in her hand — he kneels on the couch facing her, palms raised, mid-plea. She mock-considers, playfully names her price, he deflates in scoffing disbelief, she shrugs and drops her finger onto the button without looking — and main character dissolves completely into green light, screaming.\nACTIVE REFERENCES\n@main_character_room — main character: young man, dark curly hair, thin mustache, light-blue striped short-sleeve shirt over a black tee, silver chain; hair mussed, sweaty, pleading. Voice: young male, breathless, cracking with panic. 100% matches the reference.\n@cindy — Cindy: 10-year-old girl, dark curly hair with star-shaped clips, thin mustache, purple ribbed tank top, playful teasing grin with a glint of gloating. Voice: 10-year-old girl, bright playful sing-song with a hint of gloat. 100% matches the reference.\n@room1 — environment and light reference only, master plate: night apartment living room, grey couch center-left, brass birdcage on a stand by the window at frame left, floor lamp behind the couch, bookshelves and vintage posters on the back wall, wooden desk with a monitor and a cognac-leather swivel chair at frame right, warm practical lamps, city night outside the window. The monitor screen in this plate is the master screen for the whole scene.\n@room2 — environment and light reference only, the reverse angle of the same room at the master plate's low-key night exposure: the fourth wall in dim warm shadow carrying a wall-mounted flat TV switched off — a near-black rectangle with only a faint warm lamp reflection — above a wooden media console with stacked books, open wall shelves on both sides holding books, a globe, small souvenirs and a trailing pothos plant, a tall leafy potted plant near the window corner, patterned rug on the wooden floor mostly in shadow, the grey couch seen from behind with the window and birdcage at frame right, deep blacks matching the master.\n@room3 — environment and light reference only, the frontal angle of the desk wall of the same room at the master plate's low-key night exposure: framed world map and pinned postcards in dim warm shadow over a wooden sideboard stacked with books and a glowing paper lamp at frame left, dark open doorway center-left falling to near-black, wooden desk center-right with the white-framed monitor as the local key, keyboard catching the green screen spill, small ship model, plush monkey toy beside the monitor, PC tower under the desk, cognac-leather swivel chair, desert-caravan and palm-tree prints dim above, open shelves with a vintage camera and trailing pothos at the room corner at frame right, deep blacks matching the master. The plate fixes the wall, desk and dressing only; in this scene the chair is pulled out and turned fully toward the couch.\n@parrot_sheet — scarlet macaw, red-yellow-blue plumage, thin leather medallion strap across its chest, perched on top of the brass birdcage's dome. 100% matches the reference.\n@button — palm-sized armored gadget box, roughly 8 × 8 × 4 cm: black metal frame, neon-green side panels, brushed-steel top plate with one glowing green square button about 3 cm wide carrying a black four-point star icon. 100% matches the reference.\nLOCATION MAP\nMidground: grey couch center-left facing the room, round coffee table before it; brass birdcage by the window behind it at frame left, the macaw perched on top of its dome. Background: bookshelf wall and doorway center, wooden desk with monitor at frame right — the desk wall composed per @room3; the cognac swivel chair pulled 30 cm out from the desk and turned fully toward the couch, its backrest behind Cindy's shoulders, between her and the desk. The fourth wall — opposite the bookshelf wall — carries the switched-off TV over the media console per @room2; from any camera near the desk looking at the couch this TV wall lies at frame left. THE 180° AXIS: the action line runs from main character at the couch to Cindy at the desk; every camera sits on the TV-wall side of this line — main character always reads looking toward frame right, Cindy toward frame left; in Cindy's singles the monitor sits behind her at frame LEFT of her head, the shelves with the vintage camera at frame right. Blocking held from frame one: main character kneels on the couch cushions, turned over the backrest toward the desk, both palms raised; Cindy sits in the turned chair, back to the desk, the armored box held up in her LEFT hand close at her chest, elbow bent, gripped from beneath, glowing button on top, her RIGHT index finger arched 5 cm above it — only air between fingertip and button. Light sources: warm floor lamp behind the couch, small shelf lamp, paper lamp on the sideboard, green monitor glow at the desk, green button glow on her hands, cold city night through the window.\nFIRST FRAME / BLOCKING\nFrame 1: medium close single on Cindy in the turned chair facing the camera, back to the desk, nothing between her and the camera; the monitor with the frozen master screen NEXT LOCATION? behind her at frame left of her head, shelves at frame right; the box up at her chest in her left hand, right fingertip arched in the air above the button; a playful grin forming, eyes on main character off frame left.\nFORMAT MODE\nTimed multishot. Cuts only at the specified points, the camera does not cut on its own.\nOPTICS\n0.0–4.5s: 29° medium close single, eye level. 4.5–7.0s: 47° over-shoulder medium, eye level. 7.0–10.5s: 29° medium close single, eye level. 10.5–15.0s: 47° over-shoulder medium, eye level. No drift mid-segment.\nCAMERA\nShot 1: eye level, 1.2 m in front of Cindy, clean single, foreground empty, locked off. Shot 2: eye level just behind Cindy's LEFT shoulder, shooting toward main character at the couch, locked off, one fixed framing. Shot 3: the same clean single as shot 1, locked off. Shot 4: the same over-shoulder as shot 2, locked off, no camera movement for the entire segment. Camera stays on the shadow side.\nACTION\n0.0s–4.5s — clean single on Cindy: she takes her time — tilts her head, lifts her chin, eyes rolling up to the ceiling in exaggerated mock consideration, a soft sing-song \"Hmm...\", both hands perfectly still, the fingertip arched airborne above the glowing button; then her eyes drop back down onto main character off frame left, the grin curls wide, and she says playfully, savoring every word: \"Make it two months.\"\n4.5s HARD CUT\n4.5s–7.0s — over Cindy's left shoulder, one fixed framing: her dark head and left shoulder soft in the RIGHT foreground, her left hand holding the glowing box close at her chest, elbow bent, entering from frame right, fingertip arched above the button; main character sharp in midground center-left, kneeling on the couch cushions, turned over the backrest, face and eyes toward frame RIGHT at her; behind him the window at frame right where the macaw sits in plain view on top of the cage dome, ruffling its feathers and shifting its grip, its long tail hanging down the cage bars, and the edge of the fourth wall with the switched-off dark TV at frame left; the words land and the air goes out of him — a stunned beat, brows knitting, jaw going slack, a short humorless scoff, a slow head shake: \"Two months?! HELL NAHHH!\" — flat and indignant, pitch dropping, an exasperated refusal rather than a shout, his raised palms loosening at the wrists, shoulders sagging.\n7.0s HARD CUT\n7.0s–10.5s — clean single on Cindy, identical to the opening framing: eyes on main character off frame left, bright with playful mischief, she gives a light teasing one-shoulder shrug and chirps: \"Okay.\" A beat, the grin curling with a glint of gloat: \"You said you hate monkeys?\" — delivered playfully, like the punchline of a game she has already won — at 10.2s her right index finger drops blind onto the small glowing green button, her sparkling gaze staying off frame left on main character through the press, the grin holding; the 3 cm button clicks in and flares bright green; the monitor behind her holds the frozen master screen NEXT LOCATION? identical in every frame.\n10.5s HARD CUT\n10.5s–15.0s — the same over-shoulder toward main character, camera motionless: green light floods over him while he is still kneeling on the couch cushions, palms out, face toward frame RIGHT; he screams \"CINDYYYYY!!!\" — a real, raw, terrified scream; his entire body turns translucent ghost-green and fades uniformly, opacity dropping evenly head to toe all at once, tiny green ember particles lifting off his silhouette and drifting upward over the couch; the scream's loudness decays in exact sync with his fading body; the macaw shrieks and beats its wings on top of the cage dome at frame right, staying perched; his wide-eyed screaming face is the last element to dissolve, thinning to nothing by 14.4s — the dissolve completes above the couch cushions; the final beat holds the empty couch in the same framing, the last embers rising and winking out, the green light decaying back into warm lamp light.\nPERFORMANCE\nAll movement follows natural human rhythm — small weight shifts, involuntary micro-adjustments, nothing posed. main character: the \"HELL NAHHH\" beat plays as deflated disbelief, not volume — stunned micro-pause, knitted brows, slack jaw, one humorless scoff, a slow head shake, shoulders sagging, raised palms loosening at the wrists, the voice dropping in pitch instead of rising; face and eyes committed toward frame right at Cindy in every moment; eyes wet and alive with sharp catch-lights; in the final shot the scream stretches every facial muscle — brows shooting up, jaw dropping, eyes wide with genuine terror, wet catch-lights flaring in the green glow — held until his face itself dissolves away. Cindy: a kid enjoying the game — the mock-thinking beat big and theatrical (head tilt, chin up, eyes to the ceiling, a tiny savoring pause), then eyes snapping back down to main character; every line playful, sing-song, teasing, a glint of gloating underneath rather than open menace; the grin curling by millimeters, one quick amused eyebrow flick, a suppressed giggle behind \"Okay\", quiet even breathing; apart from the mock-thinking glance her eye-line stays locked on main character in every frame where her face is visible — the press lands blind, by feel, gaze on him; her left arm stays bent, the box held close at her chest, never extended toward main character; the arched fingertip stays airborne until 10.2s; natural breathing visible in both chests; pore-level skin realism and living catch-lights on both. The macaw stays a living presence on the cage dome in both over-shoulder shots: ruffling feathers, small head turns, a slow blink, its tail draped down the bars, then shrieking and flapping at the dissolve — never leaving the dome.\nPHYSICS\nThe 3 cm button travels 4 mm into its housing with a firm mechanical click; the box stays gripped in her left hand through the press, the hand dipping a few millimeters and steadying; the swivel chair holds its rotation toward the couch, only a tiny natural sway under her weight. The dissolve behaves like matter turning into light: ember particles rise with slight thermal drift, the couch cushions slowly re-expand as his weight leaves them, the contact shadow beneath him fades in sync with his body, gone entirely by the final beat; the macaw's claws grip the cage dome, wings flaring as it shrieks.\nLIGHTING\nWarm 3200K practicals: floor lamp behind the couch as key on main character, small shelf lamp and the paper lamp on the sideboard as fill; at the desk the green monitor glow keys Cindy from behind-left, rimming her hair, the button glow filling her face from below, the keyboard catching the green spill. Both reverse walls hold the master plate's low-key exposure — dim warm shadow away from the lamp pools, deep blacks matching @room1; the switched-off TV reads as a near-black rectangle with only a faint warm lamp reflection. From 10.2s the button flare and the dissolve become a temporary green key light, washing the couch and walls in green that decays together with main character's body; by the final frame the room stands fully back in warm lamp light, the couch empty.\nAUDIO\nDialogue as scripted, tight comedic timing, soft natural breaths audible between lines; Cindy's soft sing-song \"Hmm...\" in the mock-thinking beat, her lines bright, playful, teasing, a gloating smile audible in the voice; main character's \"Two months?! HELL NAHHH!\" flat, indignant and deflated, dropping in pitch, a short humorless scoff before it. Deep mechanical button click at 10.2s followed by a rising green energy hum; shimmering particle hiss during the dissolve; main character's scream \"CINDYYYYY!!!\" starting at full raw volume and decaying in exact sync with his fading body, fully silent by 14.4s; the final beat is room tone — the macaw settling after its shriek, low city rumble through the glass.\nSTYLE\nPhotoreal live-action comedy, cinematic single-location night interior, natural depth of field, subtle fine film grain, real-time speed throughout.\nPOSITIVE LOCKS\nmain character, Cindy, the room, the macaw and the button box stay 100% identical to their references in every shot; the room geometry follows @room1, @room2 and @room3 as three angles of one set at one shared low-key night exposure. THE AXIS HOLDS ACROSS EVERY CUT: every camera stays on the TV-wall side of the main character–Cindy line; main character always faces and looks toward frame right; Cindy always faces and looks toward frame left. Each shot holds one fixed locked-off framing from its first frame to its last; the third shot repeats the first shot's framing, the fourth repeats the second's. The swivel chair stays turned fully toward the couch in every frame — Cindy sits facing main character, back to the desk, from the first frame to the last. The macaw stays perched on top of the birdcage dome — visible, alive, feathers ruffling, never flying off and never absent — in every shot where the cage is visible. The box stays palm-sized, roughly 8 × 8 × 4 cm, held up in Cindy's left hand close at her chest, elbow bent, in every shot where she is visible — never extended toward main character; her right fingertip stays arched in the air above the button — only air between fingertip and button — until it drops at 10.2s, and touches only the button, only then. main character stays kneeling on the couch cushions facing the desk with palms raised until the dissolve consumes him there — the dissolve happens on the couch, nowhere else, and completes: he vanishes entirely, his screaming face the last element to go, the final frame holding only the empty couch and thinning embers. The monitor shows exactly the master screen from @room1 — one static line NEXT LOCATION? in glowing green capitals — identical and motionless in every frame; the wall-mounted TV stays switched off until the dissolve's faint green reflection, the desk monitor the only lit screen in the room. Cindy's singles stay clean — foreground empty. Performances stay naturalistic and restrained, human-paced. Level horizon, cuts only at the specified points, single night lighting state throughout.",
+        "recreate_url": "/generate/video/seedance_2_0?aspect_ratio=21:9&resolution=4k"
+       }
+      ],
+      "resources": []
+     },
+     "nextLessonTarget": {
+      "courseSlug": "blockbuster-4k",
+      "lesson": {
+       "access": {
+        "allowed": true,
+        "reason": null,
+        "blocking_lesson_id": null
+       },
+       "homework_required": false,
+       "homework_submitted": false,
+       "id": "c57358f2-8228-5298-9c8b-1e677948f351",
+       "slug": "full-film-and-workflow-recap",
+       "title": "Full Film and Workflow Recap",
+       "position": 10,
+       "completed": false,
+       "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__full-film-and-workflow-recap__cover.e1261cdf.webp",
+       "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__full-film-and-workflow-recap__video__lesson-video.61419367.mp4",
+       "video_poster": null,
+       "reading_minutes": 3
+      }
+     },
+     "mdxTree": {
+      "type": "root",
+      "children": [
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "Time for the big twist. Our hero wasn't dropping into all these crazy worlds by accident — his little sister Cindy was intentionally sending him there. In this scene we finally see her and get a dialogue going. Dialogue scenes are incredibly important, and this lesson shows how to shoot a classic over-the-shoulder sequence that won't fall apart or glitch out."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+         "id": "part-1-the-couch-landing-and-the-reveal"
+        },
+        "children": [
+         {
+          "type": "text",
+          "value": "Part 1: the couch landing and the reveal"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "According to the script, the main character drops out of nowhere and slams onto a living-room couch — matching his fall from the cliff, so the two shots stitch together. Then, behind him, a sly giggle. He turns around and finds his sister."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "Send all the scene assets to Claude — the character sheets, the room location, the parrot — and describe the beat: the hero falls in from off-screen onto the couch in "
+         },
+         {
+          "type": "element",
+          "tagName": "code",
+          "properties": {},
+          "children": [
+           {
+            "type": "text",
+            "value": "@room1"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "value": ", the parrot "
+         },
+         {
+          "type": "element",
+          "tagName": "code",
+          "properties": {},
+          "children": [
+           {
+            "type": "text",
+            "value": "@parrot_sheet"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "value": " gets scared and squawks on landing, and over his disorientation comes Cindy's ("
+         },
+         {
+          "type": "element",
+          "tagName": "code",
+          "properties": {},
+          "children": [
+           {
+            "type": "text",
+            "value": "@cindy"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "value": ") sly giggle from behind."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "element",
+          "tagName": "img",
+          "properties": {
+           "src": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__room1-living-room.5bfe6c51.webp",
+           "alt": "Living-room location asset used as @room1"
+          },
+          "children": []
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "element",
+          "tagName": "img",
+          "properties": {
+           "src": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__scene4-asset-sheet.00856cf9.webp",
+           "alt": "Scene 4 asset sheet sent to Claude"
+          },
+          "children": []
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "element",
+          "tagName": "img",
+          "properties": {
+           "src": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__cindy-character-sheet.6c00b1f9.webp",
+           "alt": "Cindy character sheet — the sister behind the twist"
+          },
+          "children": []
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "Watch the first generations and you'll see the problem: Cindy's background changes from generation to generation. If the background shifts when you cut between characters, the scene will never piece together in the edit. The model simply needs more information about the room."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+         "id": "pro-tip-reverse-angle-environment-references"
+        },
+        "children": [
+         {
+          "type": "text",
+          "value": "Pro tip: reverse-angle environment references"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "When making a dialogue scene with reverse angles, you "
+         },
+         {
+          "type": "element",
+          "tagName": "em",
+          "properties": {},
+          "children": [
+           {
+            "type": "text",
+            "value": "must"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "value": " generate reverse-angle environment references of the same room. Feed the model images of what both sides of the room look like — that gives it a blueprint of the set, and the background stops jumping between cuts."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "element",
+          "tagName": "img",
+          "properties": {
+           "src": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__room2-reverse-angle.0c398add.webp",
+           "alt": "@room2 — reverse angle of the same room, the fourth wall"
+          },
+          "children": []
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "element",
+          "tagName": "img",
+          "properties": {
+           "src": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__scene-4-the-twist-and-dialogue-scenes__room3-desk-wall.ea171929.webp",
+           "alt": "@room3 — frontal angle of the desk wall"
+          },
+          "children": []
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "Two smaller fixes go into the same rewrite: the green "
+         },
+         {
+          "type": "element",
+          "tagName": "code",
+          "properties": {},
+          "children": [
+           {
+            "type": "text",
+            "value": "@button"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "value": " device kept changing size, so its exact dimensions get locked, and the parrot kept getting trapped inside its cage — it should sit on top. Use the rewrite request from the video cue: it adds "
+         },
+         {
+          "type": "element",
+          "tagName": "code",
+          "properties": {},
+          "children": [
+           {
+            "type": "text",
+            "value": "@room2"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "value": " and "
+         },
+         {
+          "type": "element",
+          "tagName": "code",
+          "properties": {},
+          "children": [
+           {
+            "type": "text",
+            "value": "@room3"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "value": " as extra references, pins the button at a fixed size, and puts the parrot back on the cage dome."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "The result is night and day. Because the model has both sides of the room, the set stays completely consistent when we cut back and forth, the parrot is right where it needs to be, and the device holds the exact same size. This clip goes into the edit."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+         "id": "part-2-the-dialogue"
+        },
+        "children": [
+         {
+          "type": "text",
+          "value": "Part 2: the dialogue"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "Per the script, the hero and Cindy try to make a deal but can't agree, so Cindy sends him back — he clearly hasn't learned his lesson. The exchange: \"Make it two months.\" He refuses. She shrugs — \"Okay. You said you hate monkeys?\" — and presses the button without looking. He dissolves into green light, screaming. Ask Claude for a shot-reverse-shot between the couch and the desk (the request is in the video cue)."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "The first generations fail in three ways: the camera randomly broke the axis and started zooming in on the hero, he didn't fully disappear, and Cindy's physical position shifted with every single cut."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+         "id": "locking-the-180-degree-rule"
+        },
+        "children": [
+         {
+          "type": "text",
+          "value": "Locking the 180-degree rule"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "The fix is to lock down the rules. Tell Claude to keep the camera completely static: Cindy from the exact same angle on every one of her lines, and the hero over her LEFT shoulder on every one of his — identical framing each time. That's the 180-degree rule: break it, and the audience stops knowing who's standing where. Two more notes go into the rewrite (see the video cue): \"HELL NAHHH\" should read as dismissive, annoyed disbelief — refusal with contempt, not volume — and the dissolve must finish completely."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "Run a couple of batches. The first still drifts — acting is fine, but the camera doesn't lock and Cindy shifts between takes. Then one lands: rock-solid framing, spot-on acting, and it goes into the final edit almost completely intact."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "value": "\n"
+       },
+       {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+         {
+          "type": "text",
+          "value": "And with that, Scene 4 is locked."
+         }
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ }
+}

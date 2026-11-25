@@ -1,0 +1,1602 @@
+{
+ "meta": {
+  "endpoint": "marketing_sitemap",
+  "url": "https://higgsfield.ai/sitemap-marketing.xml",
+  "params": {},
+  "fetched_at": "2026-11-25T16:00:38.045408+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "sitemap",
+  "urls": [
+   {
+    "loc": "https://higgsfield.ai/",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-image",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-video",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-influencer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-motion-design",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/cinematic-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/storyboard-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/image-editing",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/enterprise",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/team-plan",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/nano-banana-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/nano-banana-2-1-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/nano-banana-2-lite",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/nano-banana-pro-prompt-guide",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/pricing",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/apps",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/kling-3.0",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/kling-4-0-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/wan-2.6",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/wan-3-0",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/flux-2-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/gpt-2",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/gpt-image-2.5",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/seedream-5.0",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/grok-imagine",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/grok-imagine-1.5",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/soul-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mixed-media-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/wan-ai-video",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/wan-animate-ai-video",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/seedance-2-5-community",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/seedream-5.0-pro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/seedance",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/seedance-2-5-on-higgsfield-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/seedance-2-5-on-higgsfield-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/seedance-2-5-on-higgsfield-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/seedance-2-5-on-higgsfield-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-ad-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-avatar-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/higgsfield-api",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/higgsfield-layers",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/earn",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/creator-partnership-program",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/marketing-automation",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/marketing-studio-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ads-studio-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/playable-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/drama-ads-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mangaka-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/supercomputer-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/higgsfield-telegram-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/connectors/slack",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/academy-webinar-290926",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/talent-contest",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/magi-2-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/minimax/h3",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/veo3.1",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/chatgpt-image-2-6",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/gemini-omni-flash",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ideogram-4-5-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/genjutsu",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/seedance/2.0",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/seedance/2.5",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/recraft-v4-styles",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/soul-cast-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/soul-cinema",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/soul",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/soul-community",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ad-multiplier",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-motion-designer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-video-reframer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/canvas-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/chat-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/faceless-studio-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/short-drama-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/shorts-studio-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/claude-ai-image-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/claude-ai-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/cli",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/higgsfield-instant",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/cursor",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/manus",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/skills",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/plugins/after-effects",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/plugins/blender",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/plugins/davinci",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/plugins/figma",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/plugins/minecraft",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/plugins/photoshop",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/plugins/premiere-pro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/app-builder-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-voice-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/text-to-speech",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/voice-cloning",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/remove-object-from-video",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-long-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-movie-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-story-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-human-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-explainer-video-maker",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-video-translator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/video-to-video",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/remove-text-from-video",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-presentation-maker",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-talking-avatar",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/url-to-video",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/script-to-video",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/remove-text-from-image",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-animation-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-age-progression",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-unblur-image",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-clothes-changer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-portrait-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-short-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-hairstyle-changer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-video-background-changer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-image-extender",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-prompt-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-business-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-cartoon-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-banner-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-background-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-sketch-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/image-to-video-ai",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-anime-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-voice-changer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-logo-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-background-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-wallpaper-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-object-remover",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-drawing-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-podcast-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-car-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-nature-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-anime-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-event-video-maker",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-profile-picture-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-thumbnail-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-animal-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-product-photography",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-image-enhancer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-video-extender",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-video-sharpener",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-slow-motion-video-maker",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-invitation-video-maker",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-video-editor",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-animal-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-human-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-anniversary-video-maker",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-brand-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-design-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/higgsfield-for-good",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-art-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/explainer-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-video-upscaler",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-image-editor",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/games-intro",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-marketing-video-maker",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-commercial-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/add-text-to-video",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-voice-over",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/sketch-to-video-ai",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/text-to-video-ai",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-image-upscaler",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-product-video-generator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/academy",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/about",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/trust",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/character",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/blog",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/best-5-platforms-seedance-2-5-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/best-5-platforms-seedance-2-5-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/best-5-platforms-seedance-2-5-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/best-5-platforms-seedance-2-5-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/tools-for-consistent-ai-characters",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/tools-for-consistent-ai-characters",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/tools-for-consistent-ai-characters",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/tools-for-consistent-ai-characters",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/best-affordable-ai-video-generators",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/best-affordable-ai-video-generators",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/best-affordable-ai-video-generators",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/best-affordable-ai-video-generators",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/best-ai-video-generators-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/best-ai-video-generators-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/best-ai-video-generators-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/best-ai-video-generators-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/9-best-ai-video-generators-social-media",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/9-best-ai-video-generators-social-media",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/9-best-ai-video-generators-social-media",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/9-best-ai-video-generators-social-media",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/best-ai-video-generators-marketing-ads-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/best-ai-video-generators-marketing-ads-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/best-ai-video-generators-marketing-ads-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/best-ai-video-generators-marketing-ads-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/best-unlimited-ai-video-generators",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/best-unlimited-ai-video-generators",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/best-unlimited-ai-video-generators",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/best-unlimited-ai-video-generators",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/best-ai-video-platforms-agencies",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/best-ai-video-platforms-agencies",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/best-ai-video-platforms-agencies",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/best-ai-video-platforms-agencies",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/annual-unlimited-ai-video-plans",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/annual-unlimited-ai-video-plans",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/annual-unlimited-ai-video-plans",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/annual-unlimited-ai-video-plans",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/higgsfield-vs-runway-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/higgsfield-vs-runway-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/higgsfield-vs-runway-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/higgsfield-vs-runway-2026",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/how-to-create-ai-influencer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/how-to-create-ai-influencer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/how-to-create-ai-influencer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/how-to-create-ai-influencer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/generating-with-seedance-2-0",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/generating-with-seedance-2-0",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/generating-with-seedance-2-0",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/generating-with-seedance-2-0",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/ai-video-camera-control",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/ai-video-camera-control",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/ai-video-camera-control",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/ai-video-camera-control",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/keep-ai-character-consistent",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/keep-ai-character-consistent",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/keep-ai-character-consistent",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/keep-ai-character-consistent",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/es/blog/consistent-characters-locations",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ja/blog/consistent-characters-locations",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ko/blog/consistent-characters-locations",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/de/blog/consistent-characters-locations",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ads-studio/google-ads",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/pricing.md",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/contact",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/effects",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ai-influencer-studio",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/lipsync-studio",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/camera-controls",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/motion",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/viral",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/ugc",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/commercial",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/minimax",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/short-drama",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/monster",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-8df126fa-51d5-44bc-b52e-e987cc6fcd9b",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/katana",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/ugc-flow",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/how-to-model-in-blender-with-claude-and-render-on-higgsfield-gpu",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/how-to-render-houdini-simulations-on-higgsfield-gpu",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/how-to-render-blender-animation-with-claude-on-higgsfield-gpu",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/how-we-rendered-a-3d-modeled-city-in-unreal-engine-on-higgsfield-gpu",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/simulate-growing-flowers-in-houdini-render-on-higgsfield-gpu",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/how-to-build-a-city-in-blender-with-claude-on-higgsfield-gpu",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/localizations",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/ad-adaptation",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/aspect-ratio-formatter",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/link-to-ads",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/performance-marketing-operator",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-2e23ef31-789a-41e4-a3bf-afaba3c5b7ca",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/voc-research-ad",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/headlines-ab",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/ad-hooks",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/illustration-animation",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/localization-motion",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/use-after-effects",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/paper-collage",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/presentation-animation",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/saas-animation",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/destruction-studio",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/whiteboard-animation",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/exploded-view",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/scene-builder",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/vox-mixed-media",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/cartoon-shaders",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/project-sorter",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/shot-composer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/stickman-explainer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/shot-cleanup",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/vectorize",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/image-fixer",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/physical-ugc-skill",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/use-touchdesigner",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/color-grading",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-torqk-launch-film",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/unboxing-ugc-skill",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/try-on-ugc-skill",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/faceless-fairy-tale-myth",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/faceless-paper-diorama",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/faceless-pastel-flat-2d",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-9ca33b42-e80d-4836-a5e5-182d789df2ec",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/faceless-hand-drawn",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/faceless-mannequin",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-browser-mmo",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-17791cbb-4837-45f9-ae8c-812f900eba81",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-1da97db5-fd8f-42a1-96e2-24338b39f2b6",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-957219f0-8898-4175-915a-588bdeb49159",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-fc6c69db-9a26-453e-a0e2-c15ec8b6a1dd",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-iron-bamboo",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-94f4e947-0d30-4f6a-a22a-0c3ae713731d",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-megacity-lightning",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-vowlorn-rpg",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-rainy-tokyo-alley",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-5c6613f9-a944-42c6-b40c-434d13aecee2",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-2fb09e61-56a6-45de-9eef-7028a5bafbab",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-ed9f74f1-62b2-4407-9e9f-97739b41467e",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-14df1a66-c7fd-4877-bf34-b03ae9044462",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-bombay-bazaar",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-nobodys-voice",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-mexico-city-market",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-eaea3997-f1a6-421f-9eaa-21e1fb6f7e75",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-746bf749-bbc6-49e9-85a9-cf1d9206c162",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-28827f4e-fe46-4625-b46b-18ce691fa5a9",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-rim-ring-house",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-photoreal-diner",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-58f5537a-3135-4515-8475-e5973b03f13a",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/new-skill-ad00800f-0521-48c3-9ae5-7895493f68a8",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/fable-5-2-residence-9c",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/bundles/paid-ads-bundle",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/bundles/motion-bundle",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/mcp/bundles/production-skills",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/made-with-magi-2",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/dashuri-si-magji",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/inside-an-ai-agency",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ad-test",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/chat-with-kai",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-cartoon-kids-content-creation",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ecom-mastery",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/the-cycle-animated-short-film",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/emotional-mystic-realistic-films",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/vesper-s-world-dark-fantasy-adventures",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/test",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/soba-room",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/room-f297a2",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/uncomfortable-life",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/angelina",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-girlz-on-white-bg",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ff",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/my-messy-mind",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/yuan-ye",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/serf",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/client-work",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/blaxploitation",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/psychedelic-projects",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/viral-remakes",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-bloopers",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-meme-factory",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-realism",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/explainer-videos",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/world-of-arkaden",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/the-puggsy-show",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/soul-fashion",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/led-screens",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-cinematic-components-of-poih-projects",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/indian-mythology",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/cinematic-essences",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-comedy-film-room",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/fashion-lifestyle",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/found-footage",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/funkylife",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/animation-tales",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/gothic-fantasy",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/cinematic-mysteries",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/turkish-football",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/side-hustle",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/abz",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/sonic-society-the-music-room",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/retro-meets-ai",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/knightcat-universe",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-anime-2d-2-5d-sh-nen",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/yyy-studio-the-filmmaking-room",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/yyy-studio-music-video-lab",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/yyy-studio-experimental-cinema",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/k-heritage-music-society",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/after-dark",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-music-lounge",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-cinematic-mini-series",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ai-freak-and-weirdo",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/epic",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/live-action-ai",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/knight-short-films",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/retro-anime-world",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/cinematic-ad-studio",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/wrong-century",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/higgsfield-fight-club",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/kodoga-animation",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/japanese-anime",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/animation-lab",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/dark-fantasy",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/ao-agency",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/kitty-vibe-club",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/the-fantasy-film-society",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/codeoneshot",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/cinematic-animals",
+    "lastmod": null
+   },
+   {
+    "loc": "https://higgsfield.ai/community/rooms/cinema-cartel",
+    "lastmod": null
+   }
+  ]
+ }
+}

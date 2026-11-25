@@ -9,6 +9,8 @@
   python -m higgsfield_scraper runs [--json] | runs clean --keep-last N [--keep-days D] [--yes]
   python -m higgsfield_scraper show-config [--json]         # resolved settings (flags/env/.env), secrets redacted
   python -m higgsfield_scraper plan-sets | sections | schema
+  python -m higgsfield_scraper diff [--old RUN] [--new RUN] [--json] [--out FILE]   # compare two pricing runs
+  python -m higgsfield_scraper crosscheck [--run RUN] [--json] [--save]            # run vs official pricing.md
   python -m higgsfield_scraper menu                         # interactive menu (also -i; default with no args on a TTY)
 
 Exit codes: 0 success · 1 failure · 2 usage error · 3 partial · 4 blocked (bot protection) · 130 cancelled (Ctrl-C)
@@ -409,6 +411,71 @@ def cmd_schema(a) -> int:
     return 0
 
 
+def cmd_diff(a) -> int:
+    """Compare two pricing runs' output/dataset.json (logic: pricing_diff.py). Exit 0 whether or not prices changed."""
+    from . import pricing_diff as pdiff
+    only = [x.strip() for x in (a.only or "").split(",") if x.strip()] or None
+    bad = [x for x in only or [] if x not in pdiff.CATEGORIES]
+    out = Path(a.out) if a.out else None
+    if bad or (out and out.suffix.lower() not in (".md", ".json")):
+        print(f"error: --only takes {','.join(pdiff.CATEGORIES)}" if bad else "error: --out must end in .md or .json",
+              file=sys.stderr)
+        return 2
+    try:
+        old_dir, new_dir = pdiff.resolve_pair(a.runs_dir, a.old, a.new)
+        load = lambda d: json.loads((d / "output" / "dataset.json").read_text(encoding="utf-8"))  # noqa: E731
+        diff = pdiff.diff_datasets(load(old_dir), load(new_dir), only=only, min_change=a.min_change,
+                                   old_run=str(old_dir), new_run=str(new_dir),
+                                   old_selection=pdiff.run_selection(old_dir), new_selection=pdiff.run_selection(new_dir))
+    except (OSError, ValueError) as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    if out:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(diff, indent=4, ensure_ascii=False, default=str) if out.suffix.lower() == ".json"
+                       else pdiff.render_markdown(diff), encoding="utf-8")
+        print(f"# wrote {out}", file=sys.stderr)
+    if a.json:
+        print(json.dumps(diff, indent=4, ensure_ascii=False, default=str))
+    else:
+        pdiff.render_console(diff)
+    return 0
+
+
+def cmd_crosscheck(a) -> int:
+    """Fetch https://higgsfield.ai/pricing.md (one GET) and compare it with a run's ps_a3 dataset."""
+    from . import pricing_crosscheck as pcc
+    from .pricing_diff import pricing_runs, resolve_run, run_selection
+    try:
+        if a.run:
+            run = resolve_run(a.run, a.runs_dir)
+        else:
+            run = next((d for d in reversed(pricing_runs(a.runs_dir))
+                        if pcc.PLAN_SET in (run_selection(d).get("plan_set_keys") or [])), None)
+            if run is None:
+                raise FileNotFoundError(f"no successful pricing run with the {pcc.PLAN_SET} plan set in {a.runs_dir}")
+        ds = json.loads((run / "output" / "dataset.json").read_text(encoding="utf-8"))
+        text, info = pcc.fetch_pricing_md()
+        rep = pcc.crosscheck(pcc.parse_pricing_md(text), ds)
+    except (OSError, ValueError) as e:                    # urllib errors are OSErrors
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+    rep = {"source": info, **rep}
+    rep["run"]["path"] = str(run)
+    if a.save:
+        d = run / "crosscheck"
+        d.mkdir(exist_ok=True)
+        stamp = info["fetched_at"][:19].replace("-", "").replace(":", "").replace("T", "-")
+        (d / f"pricing_{stamp}.md").write_bytes(text.encode("utf-8"))
+        (d / f"report_{stamp}.json").write_text(json.dumps(rep, indent=4, ensure_ascii=False), encoding="utf-8")
+        print(f"# saved {d / f'pricing_{stamp}.md'} and {d / f'report_{stamp}.json'}", file=sys.stderr)
+    if a.json:
+        print(json.dumps(rep, indent=4, ensure_ascii=False))
+    else:
+        pcc.render_console(rep)
+    return 0
+
+
 # ------------------------------------------------------------------- parser
 def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(prog="higgsfield_scraper", description="Scrape Higgsfield.ai data (pricing, community, …)",
@@ -476,6 +543,27 @@ def build_parser() -> argparse.ArgumentParser:
     sc = sub.add_parser("schema", help="export JSON Schemas of every scraper")
     sc.add_argument("--out", default="schemas")
     sc.set_defaults(func=cmd_schema)
+    df = sub.add_parser("diff", help="compare two pricing runs (plans, offers, model credits, benefits)",
+                        description="Compare two pricing runs' output/dataset.json. Default: the latest successful "
+                                    "pricing run vs the previous one with the same plan sets. Exit 0 whether or not "
+                                    "anything changed (see `changed` in --json).")
+    df.add_argument("--old", default=None, metavar="RUN", help="older run folder or run id (default: previous compatible run)")
+    df.add_argument("--new", default=None, metavar="RUN", help="newer run folder or run id (default: latest pricing run)")
+    df.add_argument("--json", action="store_true", help="print the structured diff as JSON")
+    df.add_argument("--out", default=None, metavar="FILE", help="also write a report: FILE.md or FILE.json")
+    df.add_argument("--only", default=None, metavar="LIST", help="plans,models,benefits,offers (default: all)")
+    df.add_argument("--min-change", type=float, default=0.0, metavar="PCT",
+                    help="hide price/credit changes smaller than PCT percent")
+    df.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
+    df.set_defaults(func=cmd_diff)
+    cc = sub.add_parser("crosscheck", help="compare a run's ps_a3 prices with the official higgsfield.ai/pricing.md",
+                        description="Fetch https://higgsfield.ai/pricing.md (one GET) and compare its plan prices, "
+                                    "model credits and plan benefits with a run's ps_a3 (US) dataset.")
+    cc.add_argument("--run", default=None, metavar="RUN", help="run folder or run id (default: latest ps_a3 pricing run)")
+    cc.add_argument("--json", action="store_true", help="print the report as JSON")
+    cc.add_argument("--save", action="store_true", help="store pricing.md + the report in <run>/crosscheck/")
+    cc.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
+    cc.set_defaults(func=cmd_crosscheck)
     sub.add_parser("menu", help="interactive menu (alias -i/--interactive; the default with no args on a terminal; "
                                 "needs the `interactive` extra)").set_defaults(func=cmd_menu)
     return ap

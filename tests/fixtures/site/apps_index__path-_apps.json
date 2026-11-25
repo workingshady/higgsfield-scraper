@@ -1,0 +1,1864 @@
+{
+ "meta": {
+  "endpoint": "apps_index",
+  "url": "https://higgsfield.ai/apps",
+  "params": {
+   "path": "/apps"
+  },
+  "fetched_at": "2026-11-25T16:00:25.331796+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/apps",
+  "page_type": "apps_index",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "AI Tools for Creators & Marketers | Higgsfield Apps",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/apps",
+   "description": "Get viral effects for your videos with Higgsfield's creative AI tools. Generate & edit commercial-ready content with cinematic presets.",
+   "keywords": "AI tools, creative AI tools, AI video tools, AI for creators, AI for marketers, AI video generator, AI video editor, AI video effects, viral effects, face swap AI, character swap AI, AI presets, cinematic AI video, commercial-ready AI, Higgsfield Apps",
+   "og_title": "AI Tools for Creators & Marketers | Higgsfield Apps",
+   "og_description": "Get viral effects for your videos with Higgsfield's creative AI tools. Generate & edit commercial-ready content with cinematic presets.",
+   "og_image": "https://static.higgsfield.ai/public/supercomputer/og-image-supercomputer-apps.webp",
+   "og_type": "website",
+   "robots": null,
+   "ld_json": [
+    {
+     "@context": "https://schema.org",
+     "@type": "WebPage",
+     "url": "https://higgsfield.ai/apps",
+     "name": "Higgsfield Apps | AI Tools for Creators & Marketers",
+     "description": "Get viral effects for your videos with Higgsfield's creative AI tools. Generate and edit commercial-ready content with cinematic presets.",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     }
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "Home",
+       "item": {
+        "@id": "https://higgsfield.ai/"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Apps",
+       "item": {
+        "@id": "https://higgsfield.ai/apps"
+       }
+      }
+     ]
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "ItemList",
+     "name": "Popular Higgsfield apps",
+     "url": "https://higgsfield.ai/apps",
+     "numberOfItems": 21,
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "Face Swap",
+       "url": "https://higgsfield.ai/apps/face-swap"
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Transitions",
+       "url": "https://higgsfield.ai/apps/transitions"
+      },
+      {
+       "@type": "ListItem",
+       "position": 3,
+       "name": "Video Face Swap",
+       "url": "https://higgsfield.ai/apps/video-face-swap"
+      },
+      {
+       "@type": "ListItem",
+       "position": 4,
+       "name": "Angles 2.0",
+       "url": "https://higgsfield.ai/apps/angles"
+      },
+      {
+       "@type": "ListItem",
+       "position": 5,
+       "name": "Recast",
+       "url": "https://higgsfield.ai/apps/recast"
+      },
+      {
+       "@type": "ListItem",
+       "position": 6,
+       "name": "Character Swap 2.0",
+       "url": "https://higgsfield.ai/apps/character-swap"
+      },
+      {
+       "@type": "ListItem",
+       "position": 7,
+       "name": "Relight",
+       "url": "https://higgsfield.ai/apps/relight"
+      },
+      {
+       "@type": "ListItem",
+       "position": 8,
+       "name": "Shots",
+       "url": "https://higgsfield.ai/apps/shots"
+      },
+      {
+       "@type": "ListItem",
+       "position": 9,
+       "name": "3d Rotation",
+       "url": "https://higgsfield.ai/apps/3d-rotation"
+      },
+      {
+       "@type": "ListItem",
+       "position": 10,
+       "name": "Outfit Swap",
+       "url": "https://higgsfield.ai/apps/outfit-swap"
+      },
+      {
+       "@type": "ListItem",
+       "position": 11,
+       "name": "Skin Enhancer",
+       "url": "https://higgsfield.ai/apps/skin-enhancer"
+      },
+      {
+       "@type": "ListItem",
+       "position": 12,
+       "name": "3D Render",
+       "url": "https://higgsfield.ai/apps/3d-render"
+      },
+      {
+       "@type": "ListItem",
+       "position": 13,
+       "name": "AI Stylist",
+       "url": "https://higgsfield.ai/apps/ai-stylist"
+      },
+      {
+       "@type": "ListItem",
+       "position": 14,
+       "name": "Mugshot",
+       "url": "https://higgsfield.ai/apps/mugshot"
+      },
+      {
+       "@type": "ListItem",
+       "position": 15,
+       "name": "Sticker Match Cut",
+       "url": "https://higgsfield.ai/apps/sticker-matchcut"
+      },
+      {
+       "@type": "ListItem",
+       "position": 16,
+       "name": "Plushies",
+       "url": "https://higgsfield.ai/apps/plushies"
+      },
+      {
+       "@type": "ListItem",
+       "position": 17,
+       "name": "3D Figure",
+       "url": "https://higgsfield.ai/apps/3d-figure"
+      },
+      {
+       "@type": "ListItem",
+       "position": 18,
+       "name": "Link To Video Ad",
+       "url": "https://higgsfield.ai/apps/link-to-video-ad"
+      },
+      {
+       "@type": "ListItem",
+       "position": 19,
+       "name": "Behind the Scenes",
+       "url": "https://higgsfield.ai/apps/behind-the-scenes"
+      },
+      {
+       "@type": "ListItem",
+       "position": 20,
+       "name": "Expand image",
+       "url": "https://higgsfield.ai/apps/expand-image"
+      },
+      {
+       "@type": "ListItem",
+       "position": 21,
+       "name": "Click to Ad",
+       "url": "https://higgsfield.ai/apps/click-to-ad"
+      }
+     ]
+    }
+   ]
+  },
+  "matches": [
+   {
+    "i": "#_private#apps##apps#",
+    "l": {
+     "categories": [
+      {
+       "id": "f7a38122-8052-47a6-8bdc-a5412e2561d5",
+       "name": "Professional",
+       "priority": 0,
+       "description": "Generate shots, angles, and seamless transitions",
+       "slug": "camera-motion",
+       "icon": "clapperboard",
+       "apps": [
+        {
+         "name": [
+          "Virality Predictor"
+         ],
+         "tags": [],
+         "id": "525798b3-6776-4b3a-9b8f-667d8ab1b06c",
+         "slug": "virality-predictor",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/1b47c261-e40d-4aad-8ef7-5e195af7626d.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/07eaf8dd-f9fd-474e-b33c-2fe989acdc9e.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Predict how viral your video hook is before you post",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Expand image"
+         ],
+         "tags": [],
+         "id": "78e05292-45bf-41ef-a31c-a656daa2ae33",
+         "slug": "expand-image",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/18f1d529-5a2d-4f60-9a9a-a7d012464d40.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/9a105402-f355-4fca-b47b-1ce5026f2b9f.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Expand any image beyond its edges",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Angles 2.0"
+         ],
+         "tags": [
+          {
+           "text": "Pro",
+           "color": "#ffffff",
+           "backgroundColor": "#9D4EDD"
+          }
+         ],
+         "id": "013638d2-da6d-4142-a5dd-c8dbbb9188fb",
+         "slug": "angles",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/29dc499c-84a0-43c3-8c6b-1e278a6cc474.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/87357c00-b9ff-41e2-8016-d37db2b31dda.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Generate any angle view for any image in seconds",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Shots"
+         ],
+         "tags": [],
+         "id": "c8614b8a-d4c9-4cbc-9da2-f6b64563948b",
+         "slug": "shots",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/3ca44a57-7d68-4956-9ae9-d05dd6d233b7.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/8345d971-f97f-48c1-9ce6-2e600303d4c6.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "9 unique shots from one image",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Transitions"
+         ],
+         "tags": [
+          {
+           "text": "Trending",
+           "color": "#000000",
+           "backgroundColor": "#D1FE17"
+          }
+         ],
+         "id": "8a21ce1a-a907-4893-a6c6-d7df04b56d88",
+         "slug": "transitions",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/e4c366d4-f237-4f07-bd86-5b77808fafe6.mp4",
+          "width": 600,
+          "height": 450,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/e69b0e22-a7ea-4f3b-ab81-f90be470a376.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Create seamless transitions between any shots effortlessly",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Color grading"
+         ],
+         "tags": [],
+         "id": "0d67b798-1449-4683-b6e2-d50c21af6f63",
+         "slug": "color-grading",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/39343c0b-3a9c-4dce-b5f5-97033a4e19cd.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/4cfac553-b45c-42b6-a87a-d4b6f7be3ac0.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Professional color controls for any image - adjust temperature, contrast, grain, and mood in seconds for free",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "What's Next?"
+         ],
+         "tags": [
+          {
+           "text": "New",
+           "color": "#000000",
+           "backgroundColor": "#D1FE17"
+          }
+         ],
+         "id": "be3224b6-9c44-4523-b723-a5fe4c7101bf",
+         "slug": "whats-next",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/5600ef95-0305-4b8a-b407-dfa6f5d1f73d.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/8d0d5b70-1e19-45d8-a08a-607df8143b4e.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Explore 8 narrative possibilities from 1 scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Behind the Scenes"
+         ],
+         "tags": [],
+         "id": "759cc024-5316-48e2-bd13-3fcf7c362e0f",
+         "slug": "behind-the-scenes",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/7655f6d8-6f18-493f-9990-488c447b42de.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/ea06ae2c-f931-49f6-bc17-0e5c95660cff.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn photos into behind-the-scenes videos",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Zooms"
+         ],
+         "tags": [],
+         "id": "fffeb02d-cfb7-4d45-81e4-82d7aa97d043",
+         "slug": "zooms",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/6236dfe1-af1f-4849-a23d-1eb8c4f0bc86.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/c7c95b3d-84ea-4114-9307-72ae6651db4f.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "9 zoom levels from one image",
+         "uploadDate": null
+        }
+       ]
+      },
+      {
+       "id": "191c8006-756d-4fb2-8b53-f11232fc685a",
+       "name": "Enhance & Style",
+       "priority": 1,
+       "description": "Perfect your photos with AI enhancement",
+       "slug": "enhance-style",
+       "icon": "sparkles",
+       "apps": [
+        {
+         "name": [
+          "Skin Enhancer"
+         ],
+         "tags": [
+          {
+           "text": "Pro",
+           "color": "#ffffff",
+           "backgroundColor": "#9D4EDD"
+          }
+         ],
+         "id": "1040d960-6bc1-4435-a8e1-a42566c55443",
+         "slug": "skin-enhancer",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/fb84f803-64b0-4259-b9a3-b2fc57073da4.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/8223c0ec-6b92-42d0-832b-9b4ed00fb046.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Natural, realistic skin textures",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "AI Stylist"
+         ],
+         "tags": [
+          {
+           "text": "New",
+           "color": "#000000",
+           "backgroundColor": "#D1FE17"
+          }
+         ],
+         "id": "495e1138-f481-4f5b-9fce-843ac31fc501",
+         "slug": "ai-stylist",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/bb9d59e1-0493-4031-a97d-27fc7f660c89.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/94bc1825-8bcc-4355-be98-1efd1b11773a.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Your AI fitting room. Try everything on — instantly",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Relight"
+         ],
+         "tags": [
+          {
+           "text": "Pro",
+           "color": "#ffffff",
+           "backgroundColor": "#9D4EDD"
+          }
+         ],
+         "id": "8e0c4fbf-821d-4773-ae89-c71a74c0799a",
+         "slug": "relight",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/ff6c6ba0-3c47-416a-a473-e2b2bd425160.mp4",
+          "width": 600,
+          "height": 400,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/a838d9d6-5840-4d8c-a66b-b6deb090be56.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Adjust lighting position, color, and brightness",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Outfit Swap"
+         ],
+         "tags": [],
+         "id": "cc30b94c-ee3d-45f3-a43e-7c721ea4f7a8",
+         "slug": "outfit-swap",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/da91da29-9fc7-41fd-a99d-b07e4bb010b6.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/dcafc3f9-a87a-41ec-8ef8-f5443a0a7315.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Try on any outfit with a single photo upload",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Style Snap"
+         ],
+         "tags": [],
+         "id": "430bb51c-03a2-4f07-a269-28852865f803",
+         "slug": "style-snap",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/979a9eda-8eb0-4d0f-9a45-b44d2fca9088.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/9dfbd5d1-95a2-4308-bedf-795d1bcdac3c.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your look with instant style variations",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Outfit Vending"
+         ],
+         "tags": [],
+         "id": "fb37146c-bb0d-4e13-917f-621224a7ced5",
+         "slug": "vending-machine",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/a04a7292-a675-4fa9-a16c-0d0ab5300e03.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/9da6465b-0a5b-41ea-ab26-e051fe7ee0b0.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Display your outfit breakdown in an illuminated vending machine",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Glitter Sticker"
+         ],
+         "tags": [],
+         "id": "4c0c16c7-8f99-4728-a344-f08327e7566f",
+         "slug": "glitter-sticker",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/a30aa5fd-9a9e-4c07-920d-480e586b04b1.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/bd8762a0-d46a-47ec-be06-796b4d9a5d00.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Create a sparkling sticker version of yourself",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Outfit Shot"
+         ],
+         "tags": [],
+         "id": "61aaa632-6ff4-4b9a-8bee-074433907bcc",
+         "slug": "outfit-shot",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/dce87843-a59f-4ac1-a44a-44975757b323.mp4",
+          "width": 600,
+          "height": 450,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/cc5dd3c9-281f-4d6c-8d25-d9062b15aaf7.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform outfits into a professional avatar photoshoot",
+         "uploadDate": null
+        }
+       ]
+      },
+      {
+       "id": "85bd9372-4dae-48e2-8317-0d6e255e42a3",
+       "name": "Face & Identity",
+       "priority": 2,
+       "description": "Swap faces, characters, and transform your look",
+       "slug": "face-identity",
+       "icon": "user-scan",
+       "apps": [
+        {
+         "name": [
+          "Face Swap"
+         ],
+         "tags": [],
+         "id": "c2eca547-d63c-4c30-aa14-dd431d2b1e09",
+         "slug": "face-swap",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/8de230cb-4558-44e5-aa09-78ab4e74802d.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/04fbe06b-6c13-40cd-a85d-0bbf5ca914b0.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "The best instant AI face swap technology for photos",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Headshot Generator"
+         ],
+         "tags": [],
+         "id": "0034785b-c4bf-48a0-9997-40ddab5125c0",
+         "slug": "ai-headshot-generator",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/32eb6e01-7cdc-4e0e-b181-9a81672235b8.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/f4d5bd00-a028-4ca0-9a99-7536ff404619.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Get studio-quality professional headshots in seconds",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Character Swap 2.0"
+         ],
+         "tags": [],
+         "id": "8bd12b84-dfdd-4a95-bf83-5fcf73e21d47",
+         "slug": "character-swap",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/5a17fdb6-88b3-4588-809c-0b7af087ca1c.mp4",
+          "width": 600,
+          "height": 400,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/7a71628b-3cb3-443b-bd96-5f0a75425575.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Swap characters in your image with a single click",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Recast"
+         ],
+         "tags": [
+          {
+           "text": "Pro",
+           "color": "#ffffff",
+           "backgroundColor": "#9D4EDD"
+          }
+         ],
+         "id": "2cc6568c-5314-4710-8a03-2f95509be5cb",
+         "slug": "recast",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/16af5e9e-270f-4b0f-b1c2-0c448c5d31ef.mp4",
+          "width": 600,
+          "height": 432,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/e184f451-2a79-443f-8e17-d7b24e0d2e21.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Industry-leading character swap for any video in seconds",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Video Face Swap"
+         ],
+         "tags": [],
+         "id": "b47b75c9-ac53-4a97-986a-d85ce3a801e5",
+         "slug": "video-face-swap",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/74bacb16-640c-4917-a795-6d23dee78c7b.mp4",
+          "width": 600,
+          "height": 386,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/93061c78-4d36-4346-a244-14129833fe28.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Best-in-class face swapping technology for any video",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Commercial Faces"
+         ],
+         "tags": [],
+         "id": "1f91a7e6-7857-478f-9492-624f96af49ba",
+         "slug": "commercial-faces",
+         "preview": {
+          "type": "static",
+          "source": "https://cdn.higgsfield.ai/card/80ab567c-104c-4724-99aa-3cea5114e64c.webp",
+          "width": 1080,
+          "height": 810,
+          "thumbnail": null,
+          "placeholder": null
+         },
+         "mediaDescription": "Empower your digital identity with professional face transformations",
+         "uploadDate": null
+        }
+       ]
+      },
+      {
+       "id": "9628c6de-057b-4993-a35b-8a275461bd7c",
+       "name": "Video Editing",
+       "priority": 3,
+       "description": "Cut, sync, and edit your videos",
+       "slug": "video-editing",
+       "icon": "scissors",
+       "apps": [
+        {
+         "name": [
+          "ClipCut"
+         ],
+         "tags": [],
+         "id": "a21da73d-b05c-4791-84f2-4ae6882e4d09",
+         "slug": "clipcut",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/6cb9d72c-1661-4d51-8968-9d6420ef4a54.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/d2f82a7a-e475-4e7d-9ab3-2880f5187e11.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn One Selfie Into an Instant Outfit Reel",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Urban Cuts"
+         ],
+         "tags": [],
+         "id": "606639ca-d2a5-4291-9b35-1111844469cf",
+         "slug": "urban-cuts",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/57b32b6b-93e0-4d47-976a-e698b3e99933.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/95457a9a-e2e7-4c7f-a9b9-f0ef0e8ea38e.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Next-gen beat-synced AI outfit videos",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Video Background Remover"
+         ],
+         "tags": [],
+         "id": "6c38a515-4db9-4581-a752-7a5fbf12ccbb",
+         "slug": "video-background-remover",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/6f93883b-e8e3-4c77-9f50-3d20090f8ec3.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/976cbd38-0fbe-40da-a37d-79d9d9faf410.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Upload any video and instantly strip the background - clean, frame-perfect results powered by AI",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Breakdown"
+         ],
+         "tags": [],
+         "id": "73feac48-0976-4e40-99b4-be83677698d6",
+         "slug": "breakdown",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/776a0c62-9450-48d6-84e5-cffa5ae71944.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/4e59cfff-ccde-4435-80bf-47c3dc6fa4b5.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Split any image into its individual components",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Japanese Show"
+         ],
+         "tags": [],
+         "id": "c9ba57f9-613e-42f4-baa2-a90c652b9538",
+         "slug": "japanese-show",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/ed80a540-7797-48e1-9b51-1e6f2b065f03.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/c60898bf-4df1-45be-971f-a18cfbac06dc.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into a retro 4-panel TV show scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Sticker Match Cut"
+         ],
+         "tags": [],
+         "id": "7d9d82e7-3206-4abd-b32b-4b375ea2d38c",
+         "slug": "sticker-matchcut",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/d147f5e2-0c9f-465c-9f5e-9edd142d1408.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/3e73bdb5-e380-4058-9f66-f77161bf363b.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn any clip into a sparkling sticker animation",
+         "uploadDate": null
+        }
+       ]
+      },
+      {
+       "id": "dedf963c-4914-4d0a-b75c-3678a4405c73",
+       "name": "Ads & Products",
+       "priority": 4,
+       "description": "Create professional video ads instantly",
+       "slug": "ads-products",
+       "icon": "megaphone",
+       "apps": [
+        {
+         "name": [
+          "Click to Ad"
+         ],
+         "tags": [
+          {
+           "text": "PRO",
+           "color": "#ffffff",
+           "backgroundColor": "#9D4EDD"
+          }
+         ],
+         "id": "b1f8af36-ecd6-4a21-8717-20e17aa7be7e",
+         "slug": "click-to-ad",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/c75be66a-b6a9-4cfb-add1-d2a98fa78080.mp4",
+          "width": 600,
+          "height": 450,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/f2fca274-d36e-42cf-aff7-dcf787031553.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn product links into UGC and professional video ads",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Billboard Ad"
+         ],
+         "tags": [],
+         "id": "cc14757e-3afa-45c8-b316-83a25fc77b3f",
+         "slug": "billboard",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/a5928bf1-8cca-4f11-80c1-d48602facf5a.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/552a98ef-7b13-4cbb-8263-6de84addff79.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into a massive billboard takeover",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Bullet Time Scene"
+         ],
+         "tags": [],
+         "id": "d0c5a122-e28c-42a7-a3c9-c2a31e596cf7",
+         "slug": "bullet-time-scene",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/5182d536-02e5-44bb-9444-d947fa4df234.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/0adbc3f9-335c-4c64-8d9e-14b5fa8de146.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Spin around your product with dynamic adaptive backgrounds",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Truck Ad"
+         ],
+         "tags": [],
+         "id": "0cb923fc-4ff6-4216-a0c1-943c3d453fb6",
+         "slug": "truck-ad",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/030c784c-6618-430b-a4d6-e024e9f7973e.mp4",
+          "width": 600,
+          "height": 450,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/8e7cb94c-df6b-4bb4-b5c7-18c0a390b7be.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Showcase your brand on a moving truck billboard",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Bullet Time White"
+         ],
+         "tags": [],
+         "id": "1be0755f-c25f-4199-92a7-cae113de4e81",
+         "slug": "bullet-time-white",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/ecb5c476-ea40-4c4e-acf6-ac582456c665.mp4",
+          "width": 600,
+          "height": 824,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/0d73cdbc-4922-42b7-af70-1f43476594f5.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Spin around your product on a clean white background",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Giant Product"
+         ],
+         "tags": [],
+         "id": "a2de1b40-953d-4f6e-97c0-71f9c0dcd1de",
+         "slug": "giant-product",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/77335af7-3bf5-4491-bf12-4b695ec524b1.mp4",
+          "width": 600,
+          "height": 450,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/a44d0e36-1079-4b7d-a597-9628ae3f1c84.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Place your product as a giant in the city skyline",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Packshot"
+         ],
+         "tags": [],
+         "id": "49e7cfe0-c07f-4a25-a1f8-f532cd6d6f6d",
+         "slug": "packshot",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/a069269c-49e5-4068-a750-007e54a3d580.mp4",
+          "width": 600,
+          "height": 450,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/7d71ddb1-65cc-47ca-809a-e836a15210bc.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Create a polished closing frame for your product ad",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Fridge Ad"
+         ],
+         "tags": [],
+         "id": "ad01ed24-7330-4ee2-a869-b70eb53eb67e",
+         "slug": "fridge-ad",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/97358d2e-81a7-462d-a687-d02b1a18ae04.mp4",
+          "width": 600,
+          "height": 824,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/ef49acb8-abc8-4199-8239-1d25414e9ab3.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Showcase your product inside a refrigerator display",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Graffiti Ad"
+         ],
+         "tags": [],
+         "id": "302b5cba-9d23-4d6c-a152-4f94f0b81ce6",
+         "slug": "graffiti-ad",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/0b49e0da-b5c1-4555-830d-8658b181e73a.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/96fb6204-4d35-4241-a371-9fae09406a44.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your product into vibrant street graffiti art",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Volcano Ad"
+         ],
+         "tags": [],
+         "id": "373b6043-3216-4a06-bc05-da07fbc61a2b",
+         "slug": "volcano-ad",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/61c1d461-d715-4218-a0f7-62cd41f1e3dc.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/fbbfeeb5-04a1-4dcf-bf95-444c000f26ea.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Place your product in front of an erupting volcano",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Poster"
+         ],
+         "tags": [],
+         "id": "1de41bfe-d378-4b47-a196-19bfb53e6546",
+         "slug": "poster",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/671ad399-b52f-4089-819a-25f7d88822ae.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/a2c2be12-6c4c-42b3-b918-aa4307d90f6e.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your product into a bold poster design",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Bullet Time Splash"
+         ],
+         "tags": [],
+         "id": "f548f143-2a2d-44be-adf8-ce78153743bb",
+         "slug": "bullet-time-splash",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/f9da23d8-ac62-42fe-a2ca-be50b5e9c72d.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/9238616a-dc1e-46d5-add3-2a43d02b6d74.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Explode your product in cinematic bullet time action",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Macroshot product"
+         ],
+         "tags": [],
+         "id": "4726b9ef-4eaa-42f5-8717-fdefc173f19e",
+         "slug": "macroshot-product",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/fe4452df-cded-4523-a5e4-bf3a3ea700f3.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/95e1514b-ec79-47f8-8807-08da7414fe57.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Capture stunning macro details of your product",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Macro Scene"
+         ],
+         "tags": [],
+         "id": "22055961-1adb-4abe-9456-41eb0210660f",
+         "slug": "macroshot-scene",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/6359cba2-3e14-4e2a-bba0-567501c750f9.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/b86f40bd-fe28-4c1a-88f2-0ccf2d1a0a95.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Showcase product details in an adaptive macro environment",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Chameleon"
+         ],
+         "tags": [],
+         "id": "6f071683-29c1-4bac-934f-ad540134e7a6",
+         "slug": "chameleon",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/b45b2243-c01d-4719-a6d7-4aec7dfac4e5.mp4",
+          "width": 600,
+          "height": 822,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/df507832-ffa5-47e6-b601-e2207c7a1bee.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Watch a chameleon shift colors to match your product",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Magic button"
+         ],
+         "tags": [],
+         "id": "2ac97b5a-2edd-4dbc-917d-025dc0927313",
+         "slug": "magic-button",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/993530cb-6c9d-4f0d-a822-cd511fe45104.mp4",
+          "width": 600,
+          "height": 822,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/8404abbd-a975-4a5f-bd87-f8a6e606c9a0.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Place your product in a whimsical magical scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Kick Ad"
+         ],
+         "tags": [],
+         "id": "eccec3d9-0bcb-40ee-b3d2-a8b0dabef79f",
+         "slug": "kick-ad",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/a7aa648c-6d7b-463a-8c47-998e25342aaa.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/e8dbd1a5-aad9-4a6c-8c99-eab3b7238580.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Show your product beating the competition with a kick",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "ASMR Add-On"
+         ],
+         "tags": [],
+         "id": "dc5f5cb6-01fd-44e3-a741-af762d261070",
+         "slug": "asmr-add-on",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/dfe1b41b-2b58-4cf3-aa0d-fda4ebbaae19.mp4",
+          "width": 600,
+          "height": 800,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/0a7885d1-9584-4a31-b3eb-edc37b303ecb.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Seamlessly insert your product into an ASMR video",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "ASMR Classic"
+         ],
+         "tags": [],
+         "id": "a422ed7a-c6a5-4511-a067-e9958fdce10d",
+         "slug": "asmr-classic",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/67a4ec0e-c4cc-42a1-8ed9-64f55864cfbe.mp4",
+          "width": 600,
+          "height": 800,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/6886cc19-c5c4-4f1a-ad1e-37aa4418be55.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Generate a traditional ASMR video with whispering ambiance",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "ASMR Host"
+         ],
+         "tags": [],
+         "id": "f3396534-32d5-4faf-8a22-3018e522fbff",
+         "slug": "asmr-host",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/123875fc-5bdb-49f6-a46a-f4bfd5fac847.mp4",
+          "width": 600,
+          "height": 800,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/ef1cd9c2-ae03-4f0f-b173-b4fdd3b605a0.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into an immersive ASMR studio scene",
+         "uploadDate": null
+        }
+       ]
+      },
+      {
+       "id": "24ca4649-71a0-4449-84f9-b9aadab795c8",
+       "name": "Games & Characters",
+       "priority": 5,
+       "description": "Game avatars and character transformations",
+       "slug": "games-characters",
+       "icon": "gamepad-2",
+       "apps": [
+        {
+         "name": [
+          "Game Dump"
+         ],
+         "tags": [],
+         "id": "80751632-129f-442d-a6f1-a3bc10d2400a",
+         "slug": "game-dump",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/0ad89b45-e725-4bba-8a78-f81d22be4a65.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/adb6ff61-c833-4cbf-bc5b-bae5319cdefc.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform yourself into 12 iconic video game styles",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Nano Strike"
+         ],
+         "tags": [],
+         "id": "bd31c51d-50bd-47bf-93fa-f89e746f56a5",
+         "slug": "nano-strike",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/d22585d2-2f1b-4819-af1b-778e734596d8.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/f8f91834-382e-4ed7-8792-f2f723e84b1a.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Nano Strike: AI Tactical Shooter Character | Higgsfield",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Nano Theft"
+         ],
+         "tags": [],
+         "id": "08503db2-e0d8-4d27-81f5-48cd826d44a6",
+         "slug": "nano-theft",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/00529da2-6509-4ad8-a51d-f4000e819fc5.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/5482ff45-5db7-458d-825a-5098b0ae3c75.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "See yourself in a realistic open-world game style",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Simlife"
+         ],
+         "tags": [],
+         "id": "4e28b2cb-006d-44bc-898d-5088fac3189d",
+         "slug": "simlife",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/eeb5eb4f-f5a1-4462-8b10-a65e95c1332c.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/edf8e6b6-0ed3-46dc-bf49-075f2799ac3f.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform yourself into a stylized life simulation character",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Plushies"
+         ],
+         "tags": [],
+         "id": "cad231c1-09e6-4dd8-be1b-0dbc12b152f9",
+         "slug": "plushies",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/206ff054-fbe2-4edd-b5d2-60d60cfe4698.mp4",
+          "width": 600,
+          "height": 798,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/3e84cb70-1e38-4780-ba30-b1ffb05cea9b.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform any photo into an adorable plushie-style animation",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Brick Cube"
+         ],
+         "tags": [],
+         "id": "037c20d7-1236-4c76-8cb3-eb4674da29cc",
+         "slug": "brick-cube",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/5acf2cd4-c82f-4d22-b393-efd8fe7f28ae.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/6b495ea3-21fd-4399-b18d-e7bf8b71e4ee.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into a brick cube toy",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "3D Figure"
+         ],
+         "tags": [],
+         "id": "21fb8ae0-9033-4e9b-949d-d88b90898fd9",
+         "slug": "3d-figure",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/031454c8-9def-4a95-a91a-c053134ad33b.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/7f5ec54c-ae22-4ab5-9f8b-52411d1c749c.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into a detailed 3D figure",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "3D Render"
+         ],
+         "tags": [],
+         "id": "079e3e4c-0394-4528-99b7-c27977c8952c",
+         "slug": "3d-render",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/830dc2ae-9cd1-469d-849f-71d64856678a.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/4b29688e-23ae-4265-a292-5bed41b6694a.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn any photo into a stunning 3D rendered object",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Sketch-to-Real"
+         ],
+         "tags": [],
+         "id": "55d18bd3-6fa8-46dc-b4df-4cd1d305bc67",
+         "slug": "sketch-to-real",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/4a9bbc01-ba3c-46ed-aa9d-2fb91e69ae93.mp4",
+          "width": 600,
+          "height": 400,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/45c52d97-ec54-41c3-bf6b-5bcb26d2a06a.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your sketch into a realistic video scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Pixel Game"
+         ],
+         "tags": [],
+         "id": "34e3b1ab-5fa5-44b3-a7fd-5935d2cb1fc3",
+         "slug": "pixel-game",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/650f798e-a22e-483d-b875-b0d94ae96525.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/8940a3df-203f-4fcc-ae19-7c856a45bae0.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into retro pixel game graphics",
+         "uploadDate": null
+        }
+       ]
+      },
+      {
+       "id": "e7b4052c-f806-4e7d-a068-16da32013527",
+       "name": "Extras",
+       "priority": 6,
+       "description": "More creative tools to explore",
+       "slug": "extras",
+       "icon": "grid-2x2",
+       "apps": [
+        {
+         "name": [
+          "AI Meme Generator"
+         ],
+         "tags": [],
+         "id": "911f5398-4460-4122-8c46-7371174153c8",
+         "slug": "meme-generator",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/387a406c-330e-4651-89e3-c15b6b1af6fe.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/f83612de-8b94-4fe3-bb7e-19c0851def42.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Create viral memes using AI characters",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Background Remover"
+         ],
+         "tags": [],
+         "id": "ccf739fa-78d1-4c85-84a5-035f4ce1e4ff",
+         "slug": "image-background-remover",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/25344676-c693-48e7-8b7e-3db81ae62379.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/425fd0f6-52e4-4bdb-ba55-8b8912ad98fc.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Upload a selfie and get studio-quality professional headshots in seconds - no photoshoot needed",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Micro-Beasts"
+         ],
+         "tags": [],
+         "id": "af08b948-cb2c-4ac5-b492-a614ea0faa49",
+         "slug": "surrounded-by-animals",
+         "preview": {
+          "type": "static",
+          "source": "https://cdn.higgsfield.ai/card/c0649640-6780-4c73-bd3c-89174cb43f1a.webp",
+          "width": 1080,
+          "height": 810,
+          "thumbnail": null,
+          "placeholder": null
+         },
+         "mediaDescription": "Surround yourself with cute animals",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Signboard"
+         ],
+         "tags": [],
+         "id": "d6876e9e-87e2-4b67-8857-3f1945c9ded6",
+         "slug": "signboard",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/1d3aaf49-8cfd-4f17-b562-80b2fd460ee2.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/dc08c526-a36c-45de-93c7-2a2595e4551c.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "See yourself on a stylish mural",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Paint App"
+         ],
+         "tags": [],
+         "id": "0b343a53-4d64-4511-b74d-cd6adb9f29f1",
+         "slug": "paint-app",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/8d075a6e-8ff9-4286-8aad-40560a11c033.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/b7db644e-9e07-4a05-9887-501ddc9e8291.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into retro paint app art",
+         "uploadDate": null
+        }
+       ]
+      },
+      {
+       "id": "310f4863-0659-4b6e-bebc-c4f2c8138d06",
+       "name": "Trending Templates",
+       "priority": 7,
+       "description": "Create viral content with AI templates",
+       "slug": "trending-templates",
+       "icon": "flame",
+       "apps": [
+        {
+         "name": [
+          "On Fire"
+         ],
+         "tags": [],
+         "id": "e528cbb3-a61c-43b3-80e2-5f5b77073d79",
+         "slug": "this-is-fine",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/bb46db2f-2fd7-4095-8bd8-743e29822ae2.mp4",
+          "width": 600,
+          "height": 800,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/57d3f049-a913-49e0-b672-a13852db4666.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into the iconic \"This is Fine\" meme",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Skibidi"
+         ],
+         "tags": [],
+         "id": "3d6a47df-d0cd-4d12-a214-f45fa1374af1",
+         "slug": "skibidi",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/203e9f9c-2fb9-4e08-bc29-e7a749018f31.mp4",
+          "width": 600,
+          "height": 338,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/9b8ac314-f6dc-4eaf-848d-404b632fdb22.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into the Skibidi toilet meme",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Mukbang"
+         ],
+         "tags": [],
+         "id": "759b1c2e-e803-4a1d-b37d-a3e54c93e1f2",
+         "slug": "mukbang",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/489c8e06-2943-4cfe-a235-d50e75d6a753.mp4",
+          "width": 600,
+          "height": 822,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/4914bcb2-1c53-487a-967b-f47fcc424ce7.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into a viral eating show",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Cloud Surf"
+         ],
+         "tags": [],
+         "id": "f5aa8528-91fd-4f6c-9ba2-2783f9086ce2",
+         "slug": "cloud-surf",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/b6534cb6-7828-4797-bd31-987486aa1699.mp4",
+          "width": 600,
+          "height": 822,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/21a972a7-0c4b-4e70-9a8c-941ac6c756d1.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into a dreamy pink cloud surfing scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Idol"
+         ],
+         "tags": [],
+         "id": "ebca2586-1a27-406d-a1c0-a51b40f20316",
+         "slug": "idol",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/09f4b2b8-52c1-4faa-87b4-9d92671b4838.mp4",
+          "width": 600,
+          "height": 342,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/b42bbe3a-a646-41d0-b481-3dc97c221c8a.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into a K-pop idol moment",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Rap God"
+         ],
+         "tags": [],
+         "id": "5bcadee0-c5b3-4a66-83ad-978203d42e0c",
+         "slug": "rapgod",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/f2caef15-15cf-4206-92dc-a525f9480acc.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/efb5f46b-cfd2-4bbe-8428-45483ba2b9d1.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into a rap video clip",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Yes Kiss"
+         ],
+         "tags": [],
+         "id": "a9e86d3d-ab08-4f89-8366-9a9fd87a63eb",
+         "slug": "yes-kiss",
+         "preview": {
+          "type": "static",
+          "source": "https://cdn.higgsfield.ai/card/808448a5-2e41-4796-960f-48a2728dc0b7.webp",
+          "width": 1080,
+          "height": 1080,
+          "thumbnail": null,
+          "placeholder": null
+         },
+         "mediaDescription": "Person in your image kissed in a surreal, meme-style moment",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Comic Book"
+         ],
+         "tags": [],
+         "id": "ab554bef-bd50-4a9a-90f3-ce3307262cd8",
+         "slug": "comic-book",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/512cd5e2-cc0e-492c-a82e-1488414c55ba.mp4",
+          "width": 600,
+          "height": 824,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/f50054a5-b770-41c7-823c-33cc43a1fb56.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into comic book art style",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Renaissance"
+         ],
+         "tags": [],
+         "id": "9b7deaa1-3dc0-4a5a-8e2c-0ae5d23eae18",
+         "slug": "renaissance",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/a16ff250-6e84-43f4-9fdc-35c8682d1f89.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/f4eba9dc-7daa-4dc7-932d-34269e3c05a0.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into a classical gallery painting",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "J-Magazine"
+         ],
+         "tags": [],
+         "id": "7068b0f4-8709-42db-8c6a-c0cd6ec1a2a5",
+         "slug": "j-magazine",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/273d8c05-b3bb-4318-930e-1092d540c207.mp4",
+          "width": 600,
+          "height": 822,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/93862f53-003c-4a51-894d-807daf3d2473.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into a Japanese magazine cover",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "J-Poster"
+         ],
+         "tags": [],
+         "id": "ce4d5e66-e122-4327-bfee-b6f5fb6fa28d",
+         "slug": "j-poster",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/6646b203-91d5-4c21-82a1-a41597d53ab0.mp4",
+          "width": 600,
+          "height": 822,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/6f5db9b1-72df-4010-b008-f004f68f8ece.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into a Japanese style poster",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Roller Coaster"
+         ],
+         "tags": [],
+         "id": "c417831b-8b9e-452c-9ff5-6299f071b3d5",
+         "slug": "roller-coaster",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/9a1eb9b3-9ca7-48c9-9d38-aede1045358f.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/755181ed-76fe-4d48-8b9f-74de325f7791.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Put your photo on a thrilling roller coaster ride",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "60s Cafe"
+         ],
+         "tags": [],
+         "id": "c377f82a-ecbb-4f24-937c-07f85c453e40",
+         "slug": "60s-cafe",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/1ef6d49e-3f3c-4de9-8feb-fbfbf57a377b.mp4",
+          "width": 600,
+          "height": 822,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/0a4a684e-c433-495e-98e5-25de971449e0.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into a vintage 60s cafe scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Burning Sunset"
+         ],
+         "tags": [],
+         "id": "50130813-e3fe-4695-a6f9-61b7d845714f",
+         "slug": "burning-sunset",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/9f695988-6690-456e-8868-253c8139a407.mp4",
+          "width": 600,
+          "height": 900,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/ca51582d-6eb1-4bae-868f-143a6ac9c6d8.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into an epic burning sunset scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Giallo Horror"
+         ],
+         "tags": [],
+         "id": "62892a4e-a822-4d99-9b11-a1859f86c022",
+         "slug": "giallo-horror",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/efb37b6b-0861-4b13-8584-7e81edc13dbd.mp4",
+          "width": 600,
+          "height": 800,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/7770a6b6-0fb4-48d0-9959-3286afd8ef8c.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into a giallo horror scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Latex"
+         ],
+         "tags": [],
+         "id": "0f4e5596-647c-48d0-b18a-b965361249b0",
+         "slug": "latex",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/b1896679-3fac-4bde-a268-909ea0e42c72.mp4",
+          "width": 600,
+          "height": 340,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/c9b60ad1-eec5-42cc-a3a1-f92c72a7968b.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform your photo into sleek black latex style",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Victory Card"
+         ],
+         "tags": [],
+         "id": "9010a3aa-3416-459a-b02f-51c7cf7ddeda",
+         "slug": "victory-card",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/5b3cc31b-c241-4ac6-b872-3ec6e215301a.mp4",
+          "width": 600,
+          "height": 600,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/1781bf7b-6da2-4c83-a2ac-f0110239fa42.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into a poker winning card",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Sand Worm"
+         ],
+         "tags": [],
+         "id": "d4ac23f6-7d7a-4b8c-97b6-307632a9d6bf",
+         "slug": "sand-worm",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/62485299-012e-4f5f-ab92-cfbf8447b99d.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/6153d0d1-b9ba-4582-a115-40e9f52b7fac.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Transform into a sand world character scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Storm Creature"
+         ],
+         "tags": [],
+         "id": "f838ff8b-0523-4b14-8bef-b10999c04756",
+         "slug": "storm-creature",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/88634c49-3496-4b4f-ba93-4ad95425d59b.mp4",
+          "width": 600,
+          "height": 438,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/8d4d7d80-bf79-44ad-a2c5-2dee18a9506c.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into an epic storm creature scene",
+         "uploadDate": null
+        },
+        {
+         "name": [
+          "Melting Doodle"
+         ],
+         "tags": [],
+         "id": "14cd6c07-fcbe-48ba-b0d1-b33a06c35e92",
+         "slug": "melting-doodle",
+         "preview": {
+          "type": "video",
+          "source": "https://cdn.higgsfield.ai/application_main/0440a88f-e23c-4603-9fb3-ba220d3a6f38.mp4",
+          "width": 600,
+          "height": 1050,
+          "thumbnail": "https://cdn.higgsfield.ai/application_main/eb7f4af0-4668-4407-8d6d-050c92d07b36.webp",
+          "placeholder": null
+         },
+         "mediaDescription": "Turn your photo into mesmerizing melting doodle art",
+         "uploadDate": null
+        }
+       ]
+      }
+     ],
+     "activeCategory": "all",
+     "initialCategoryData": null
+    }
+   }
+  ]
+ }
+}

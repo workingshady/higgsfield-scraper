@@ -31,7 +31,7 @@ option editing, login with emailed code, a test request and a live progress pane
 | Doc | Contents |
 |---|---|
 | [`CLI.md`](CLI.md) | **Every command and option**, interactive mode, recipes, exit codes |
-| [`docs/scrapers/`](docs/scrapers/) | One page per scraper: [community](docs/scrapers/community.md) · [catalog](docs/scrapers/catalog.md) · [projects](docs/scrapers/projects.md) · [blog](docs/scrapers/blog.md) · [cost estimate](docs/scrapers/cost-estimate.md) |
+| [`docs/scrapers/`](docs/scrapers/) | One page per scraper: [community](docs/scrapers/community.md) · [catalog](docs/scrapers/catalog.md) · [projects](docs/scrapers/projects.md) · [blog](docs/scrapers/blog.md) · [site](docs/scrapers/site.md) · [cost estimate](docs/scrapers/cost-estimate.md) |
 | [`docs/ENDPOINTS.md`](docs/ENDPOINTS.md) · [`docs/ENDPOINT_FIELDS.md`](docs/ENDPOINT_FIELDS.md) | Pricing endpoints, params, field meanings (generated field list) |
 | [`docs/REVERSE_ENGINEERING.md`](docs/REVERSE_ENGINEERING.md) | How every endpoint was found, the Clerk login flow, evidence |
 | [`docs/HIGGSFIELD_DATA_INVENTORY.md`](docs/HIGGSFIELD_DATA_INVENTORY.md) | Everything on Higgsfield: features, routes, APIs, public vs login |
@@ -57,6 +57,7 @@ option editing, login with emailed code, a test request and a live progress pane
 | **`catalog`** | Presets & assets: motions (+ samples, details), avatars, voices, reference voices, sounds, styles, soul samples, viral-hub types & presets (with price matrices); login-only soul styles, per-model motions, mixed media, katana, color, faceless, camera, marketing presets | Partly |
 | **`projects`** | Community projects (films / series / carousels), recommended feeds, contests (rules, rewards, judges, winners) and contest submissions | No |
 | **`blog`** | Blog posts + authors, talent/community posts, Creator Hub help center, case studies, changelog, Enterprise help — metadata **and full article text** (Markdown + plain text) | No |
+| **`site`** | Site pages nothing else covers: **apps** (templates + **credit cost per generation**), **academy** courses + lessons (Markdown), **MCP** skills + bundles (agent prompts, example conversations), **original-series** films/episodes (views, likes), mixed-media presets, ~165 model/feature/plugin **landing pages** (Markdown, FAQ, HowTo), optional community rooms; plus the public promo APIs (sale schedule, business unlimited offers, game-gift networks) | No |
 
 Run `python -m higgsfield_scraper scrapers` to list them with examples.
 
@@ -96,9 +97,10 @@ python -m higgsfield_scraper scrape community --max-items 300 --estimate-cost al
 python -m higgsfield_scraper scrape catalog --kinds motion,voice,sound
 python -m higgsfield_scraper scrape projects --what contests --with-details --with-submissions
 python -m higgsfield_scraper scrape blog --what help,changelog
+python -m higgsfield_scraper scrape site --what apps,academy      # apps (+ credit cost), courses + lessons
 
 # Everything public, one run folder per scraper
-for s in pricing community catalog projects blog; do python -m higgsfield_scraper scrape $s --label all-$s; done
+for s in pricing community catalog projects blog site; do python -m higgsfield_scraper scrape $s --label all-$s; done
 
 # Past runs
 python -m higgsfield_scraper runs
@@ -190,6 +192,8 @@ Full reference with every choice and default: **[`CLI.md`](CLI.md)**. Summary:
 | `login` / `login --code N` · `auth-check [--json]` | Session management |
 | `runs [--json]` · `runs clean --keep-last N --keep-days D [--yes]` | List / prune run folders (clean is a dry run unless `--yes`) |
 | `show-config [--json]` · `schema --out DIR` | Resolved configuration · JSON Schemas of every scraper |
+| `diff [--old RUN] [--new RUN] [--json] [--out F.md\|.json] [--only …] [--min-change PCT]` | Compare two pricing runs: plan prices/credits, offers, model credits, benefits (exit 0 either way; `changed` in JSON) |
+| `crosscheck [--run RUN] [--json] [--save]` | Compare a run's `ps_a3` prices and plan benefits with the official `higgsfield.ai/pricing.md` |
 
 **Shared by every scraper**
 
@@ -211,6 +215,7 @@ Full reference with every choice and default: **[`CLI.md`](CLI.md)**. Summary:
 | catalog | `--kinds public\|login\|all\|<list>`, `--with-samples`, `--with-details`, `--lang`, `--include-login-only auto\|yes\|no`, `--keep-placeholders` |
 | projects | `--what`, `--categories`, `--featured`, `--scope`, `--with-details`, `--with-submissions`, `--contest-status`, `--contest-types`, `--entry-keys`, `--entry-tab`, `--submission-ordering`, `--max-submissions`, `--with-profiles` |
 | blog | `--what`, `--with-content`/`--no-content`, `--locale`, `--tags`, `--since`, `--include-author-avatars`, `--no-markdown` |
+| site | `--what`, `--with-content`/`--no-content`, `--only`, `--with-profiles`, `--no-markdown` |
 
 **Exit codes:** `0` success · `1` failure · `2` usage error · `3` partial (some non-200s / invalid items / limit hit
 with errors) · `4` blocked (bot protection) · `130` cancelled (Ctrl-C).
@@ -236,7 +241,7 @@ runs/20261125-141237_full/
     csv/               COMPLETE flat copy: every JSON field is a column (UTF-8 BOM for Excel)
     items/             Scrapy JSONL feeds (one object per line)
     schema/            JSON Schema of the dataset
-    articles/          blog only: <collection>/<slug>.md
+    articles/          blog and site only: <collection>/<slug>.md
 runs/LATEST · runs/latest.json · runs/index.jsonl     newest successful run, one line per run
 ```
 
@@ -284,7 +289,7 @@ higgsfield_scraper/
   interactive/               menu mode (Rich + questionary), built dynamically from the registry
   core/                      ScraperDef + registry, BaseApiSpider, CommonOptions, auth (Clerk), privacy,
                              redaction, exporting (JSON/CSV), dataset meta
-  scrapers/<name>/           community · catalog · projects · blog — endpoints, options, parsers, schemas,
+  scrapers/<name>/           community · catalog · projects · blog · site — endpoints, options, parsers, schemas,
                              dataset, spider (pricing adapts the original modules below)
   spiders/ parsers/ schemas/ assemble.py exporters.py   the pricing scraper
   estimate/                  cost estimator (+ comparison-table and viral-preset fallbacks)

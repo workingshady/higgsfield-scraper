@@ -1,0 +1,1027 @@
+{
+ "meta": {
+  "endpoint": "mcp_bundle_page",
+  "url": "https://higgsfield.ai/mcp/bundles/motion-bundle",
+  "params": {
+   "path": "/mcp/bundles/motion-bundle"
+  },
+  "fetched_at": "2026-11-25T16:04:11.772081+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/mcp/bundles/motion-bundle",
+  "page_type": "mcp_bundle",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "Motion Design Bundle | Higgsfield",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/mcp/bundles/motion-bundle",
+   "description": "Create editable animations with Higgsfield workflows.",
+   "keywords": null,
+   "og_title": "Motion Design Bundle | Higgsfield",
+   "og_description": "Create editable animations with Higgsfield workflows.",
+   "og_image": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/7594b287-7360-444b-8c76-1781faa6ef26.webp",
+   "og_type": "website",
+   "robots": "index, follow",
+   "ld_json": [
+    {
+     "@context": "https://schema.org",
+     "@type": "CollectionPage",
+     "@id": "https://higgsfield.ai/mcp/bundles/motion-bundle#webpage",
+     "url": "https://higgsfield.ai/mcp/bundles/motion-bundle",
+     "name": "Motion design bundle",
+     "description": "Bring your ideas to life with editable animation workflows.",
+     "inLanguage": "en",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     },
+     "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "/use-after-effects",
+        "url": "https://higgsfield.ai/mcp/use-after-effects",
+        "description": "Create and refine editable motion design in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "/illustration-animation",
+        "url": "https://higgsfield.ai/mcp/illustration-animation",
+        "description": "Bring illustrated characters to life in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "/paper-collage",
+        "url": "https://higgsfield.ai/mcp/paper-collage",
+        "description": "Turn paper cutouts into editable motion in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "/localization-motion",
+        "url": "https://higgsfield.ai/mcp/localization-motion",
+        "description": "Adapt animated designs for multiple languages in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "/saas-animation",
+        "url": "https://higgsfield.ai/mcp/saas-animation",
+        "description": "Bring SaaS interfaces and product stories to life in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "/presentation-animation",
+        "url": "https://higgsfield.ai/mcp/presentation-animation",
+        "description": "Turn presentation slides into editable motion in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "/whiteboard-animation",
+        "url": "https://higgsfield.ai/mcp/whiteboard-animation",
+        "description": "Turn whiteboard ideas into editable animation in After Effects."
+       }
+      ],
+      "numberOfItems": 7
+     }
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "MCP presets",
+       "item": {
+        "@id": "https://higgsfield.ai/mcp"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Motion design bundle",
+       "item": {
+        "@id": "https://higgsfield.ai/mcp/bundles/motion-bundle"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "matches": [
+   {
+    "i": "#mcp_#bundles#$id#mcp#bundles#motion-bundle",
+    "l": {
+     "bundle": {
+      "agents": [
+       {
+        "id": "chatgpt",
+        "destination": "chatgpt-web",
+        "installations": []
+       },
+       {
+        "id": "claude",
+        "destination": "claude-web",
+        "prompt": "Use Higgsfield to run /use-after-effects.\n\nHelp me turn my ideas into an editable animation. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping layers, text, and keyframes editable wherever possible.",
+        "label": "Try in Claude",
+        "installations": []
+       },
+       {
+        "id": "claude-code",
+        "destination": "copy-prompt"
+       },
+       {
+        "id": "cli",
+        "destination": "copy-prompt"
+       },
+       {
+        "id": "other",
+        "destination": "copy-prompt"
+       }
+      ],
+      "seo_title": "Motion Design Bundle | Higgsfield",
+      "seo_description": "Create editable animations with Higgsfield workflows.",
+      "seo_image_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/7594b287-7360-444b-8c76-1781faa6ef26.webp",
+      "is_indexable": true,
+      "all_presets_order": 3,
+      "id": "0e43e251-c6ab-4e6b-8117-b1cc3d39c307",
+      "slug": "motion-bundle",
+      "skill_slugs": [
+       "use-after-effects",
+       "illustration-animation",
+       "paper-collage",
+       "localization-motion",
+       "saas-animation",
+       "presentation-animation",
+       "whiteboard-animation"
+      ],
+      "title": "Motion design bundle",
+      "description": "Bring your ideas to life with editable animation workflows.",
+      "badge_label": "Bundle",
+      "download_label": "Download bundle",
+      "cover_alt": "A preview of Higgsfield motion design workflows.",
+      "cover_media": {
+       "title": "Motion design bundle",
+       "type": "video",
+       "url": "https://static.higgsfield.ai/skills/motion-bundle/fly-banner-v1/FLY%20MOTION%20BANNER.mp4",
+       "poster_url": "https://static.higgsfield.ai/skills/motion-bundle/fly-banner-v1/FLY%20MOTION%20BANNER-poster.webp",
+       "width": 1920,
+       "height": 1080
+      },
+      "download_url": "",
+      "prompt": "/use-after-effects Help me turn my ideas into an editable animation. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping layers, text, and keyframes editable wherever possible.",
+      "reference_medias": [],
+      "chatgpt_url": "",
+      "chatgpt_label": "Try in ChatGPT",
+      "hide_chatgpt": false,
+      "hide_copy": false,
+      "copy_label": "Copy prompt",
+      "copied_label": "Copied",
+      "copy_success_text": "Prompt copied.",
+      "copy_error_text": "Could not copy the prompt. Please try again.",
+      "tag": {
+       "key": "motion-design",
+       "name": "Motion Design",
+       "show_on_card": true,
+       "show_on_detail": true
+      },
+      "tags": [
+       {
+        "key": "motion-design",
+        "name": "Motion Design",
+        "show_on_card": true,
+        "show_on_detail": true
+       }
+      ]
+     },
+     "skills": [
+      {
+       "installations": [
+        {
+         "id": "chatgpt",
+         "title": "Download ChatGPT Desktop",
+         "description": "Install the ChatGPT desktop app on your computer.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "auto",
+         "action_label": "Download ChatGPT",
+         "action_url": "https://chatgpt.com/download/",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "secondary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "higgsfield-plugin",
+         "title": "Install the Higgsfield plugin",
+         "description": "Add Higgsfield to ChatGPT to use the animation workflow.",
+         "icon_key": "higgsfield",
+         "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+         "action": "auto",
+         "action_label": "Install plugin",
+         "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "after-effects",
+         "title": "Install After Effects",
+         "description": "Install Adobe After Effects on the same computer.",
+         "icon_key": "after-effects",
+         "icon_url": "https://static.higgsfield.ai/skills/shared/after-effects-gray-20260915/logoae.webp",
+         "action": "auto",
+         "action_label": "Get After Effects",
+         "action_url": "https://www.adobe.com/products/aftereffects.html",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "start-in-chatgpt",
+         "title": "Run your first animation",
+         "description": "Open ChatGPT with the prompt ready to send. Add your brief and reference assets when asked to start the animation.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "link",
+         "action_label": "Try in ChatGPT",
+         "action_url": "codex://new?prompt=%5B%40Higgsfield%5D(plugin%3A%2F%2Fapp-6a3293e129088191abf0875820e839da%40openai-curated-remote)%0A%2Fuse-after-effects%0AHelp%20me%20create%20an%20editable%20animation%20in%20Adobe%20After%20Effects.%20Check%20the%20connection%20to%20After%20Effects%2C%20then%20ask%20for%20my%20brief%2C%20reference%20assets%2C%20duration%2C%20and%20output%20format.%20Use%20my%20answers%20to%20build%20and%20preview%20the%20animation.%20Preserve%20any%20existing%20work%20in%20my%20open%20project.%0A%0AIf%20the%20Higgsfield%20plugin%20is%20not%20installed%2C%20ask%20me%20to%20%5Binstall%20the%20Higgsfield%20plugin%5D(https%3A%2F%2Fchatgpt.com%2Fplugins%2Fhiggsfield%3Fopen_in_app)%20before%20continuing.",
+         "action_icon": "none",
+         "action_icon_url": "",
+         "prompt": "@Higgsfield /use-after-effects\nHelp me create an editable animation in Adobe After Effects. Check the connection to After Effects, then ask for my brief, reference assets, duration, and output format. Use my answers to build and preview the animation. Preserve any existing work in my open project.",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        }
+       ],
+       "main_conversation": {
+        "result": {
+         "source": "example",
+         "example_id": "33a25ca3-378d-4fce-a34e-dd64e8e042dd"
+        },
+        "messages": [
+         {
+          "id": "main-user-1",
+          "role": "user",
+          "text": "Animate these illustrated characters in After Effects with expressive gestures, blinking eyes, and flowing hair. Preserve the artwork, colors, and textures, and keep the character layers and keyframes editable.",
+          "attachments": [
+           {
+            "title": "Motion Design in After Effects",
+            "type": "image",
+            "url": "https://static.higgsfield.ai/skills/illustation-animation/last-frames-20260914/shapes_animation-last-frame.webp",
+            "width": 3840,
+            "height": 2160
+           }
+          ]
+         },
+         {
+          "id": "main-assistant-1",
+          "role": "assistant",
+          "text": "I’ll animate the gestures, eyes, and hair as separate elements, keeping the movement expressive without changing the artwork’s character."
+         }
+        ]
+       },
+       "conversation_media": {
+        "title": "Motion Design in After Effects",
+        "prompt": "/use-after-effects\nApply my requested changes to the open After Effects project. Inspect the relevant composition, layers, and expressions, then update the animation while preserving the existing design and editable structure. Preview the result and check for errors.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/skills/use-after-effects/astra-ae-banner-v1-20260914/AstraAE_BANNER_V1.mp4",
+        "poster_url": "https://static.higgsfield.ai/skills/use-after-effects/updated-20260914/ae-motion-last-frame.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /use-after-effects.\nCreate a motion design sequence in After Effects using my brief and visual assets. Animate the key elements with clear timing, smooth transitions, and expressive typography. Keep the layers, keyframes, and controls editable.",
+        "reference_medias": [
+         {
+          "title": "Motion Design in After Effects",
+          "type": "image",
+          "url": "https://static.higgsfield.ai/skills/use-after-effects/updated-20260914/ae-motion-last-frame.webp",
+          "width": 1920,
+          "height": 1080
+         }
+        ],
+        "show_chatgpt": false,
+        "show_copy": true
+       },
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "installations": [
+          {
+           "id": "chatgpt",
+           "title": "Download ChatGPT Desktop",
+           "description": "Install the ChatGPT desktop app on your computer.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "auto",
+           "action_label": "Download ChatGPT",
+           "action_url": "https://chatgpt.com/download/",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "secondary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "higgsfield-plugin",
+           "title": "Install the Higgsfield plugin",
+           "description": "Add Higgsfield to ChatGPT to use the animation workflow.",
+           "icon_key": "higgsfield",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+           "action": "auto",
+           "action_label": "Install plugin",
+           "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "after-effects",
+           "title": "Install After Effects",
+           "description": "Install Adobe After Effects on the same computer.",
+           "icon_key": "after-effects",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/after-effects-gray-20260915/logoae.webp",
+           "action": "auto",
+           "action_label": "Get After Effects",
+           "action_url": "https://www.adobe.com/products/aftereffects.html",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-in-chatgpt",
+           "title": "Run your first animation",
+           "description": "Open ChatGPT with the prompt ready to send. Add your brief and reference assets when asked to start the animation.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "link",
+           "action_label": "Try in ChatGPT",
+           "action_url": "codex://new?prompt=%5B%40Higgsfield%5D(plugin%3A%2F%2Fapp-6a3293e129088191abf0875820e839da%40openai-curated-remote)%0A%2Fuse-after-effects%0AHelp%20me%20create%20an%20editable%20animation%20in%20Adobe%20After%20Effects.%20Check%20the%20connection%20to%20After%20Effects%2C%20then%20ask%20for%20my%20brief%2C%20reference%20assets%2C%20duration%2C%20and%20output%20format.%20Use%20my%20answers%20to%20build%20and%20preview%20the%20animation.%20Preserve%20any%20existing%20work%20in%20my%20open%20project.%0A%0AIf%20the%20Higgsfield%20plugin%20is%20not%20installed%2C%20ask%20me%20to%20%5Binstall%20the%20Higgsfield%20plugin%5D(https%3A%2F%2Fchatgpt.com%2Fplugins%2Fhiggsfield%3Fopen_in_app)%20before%20continuing.",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "@Higgsfield /use-after-effects\nHelp me create an editable animation in Adobe After Effects. Check the connection to After Effects, then ask for my brief, reference assets, duration, and output format. Use my answers to build and preview the animation. Preserve any existing work in my open project.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use @Higgsfield to run /use-after-effects.\nCreate a motion design sequence in After Effects using my brief and visual assets. Animate the key elements with clear timing, smooth transitions, and expressive typography. Keep the layers, keyframes, and controls editable.",
+         "label": "Try in Claude",
+         "installations": []
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt"
+        }
+       ],
+       "id": "cd050425-6a3f-4818-b093-eeaecdb4efa1",
+       "slug": "use-after-effects",
+       "title": "Motion Design in After Effects",
+       "is_indexable": false,
+       "description": "Create and refine motion design in After Effects with animated typography, expressive motion, and editable layers.",
+       "skill_label": "use-after-effects",
+       "short_description": "Create and refine editable motion design in After Effects.",
+       "apps": [
+        {
+         "key": "after-effects",
+         "name": "After Effects",
+         "icon_key": "after-effects",
+         "icon_url": "https://static.higgsfield.ai/skills/shared/after-effects-gray-20260915/logoae.webp"
+        }
+       ],
+       "cover_media": {
+        "title": "Motion Design in After Effects",
+        "prompt": "/use-after-effects\nCreate a motion design sequence in After Effects using my brief and visual assets. Animate the key elements with clear timing, smooth transitions, and expressive typography. Keep the layers, keyframes, and controls editable.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/skills/use-after-effects/astra-ae-banner-v1-20260914/AstraAE_BANNER_V1.mp4",
+        "poster_url": "https://static.higgsfield.ai/skills/use-after-effects/updated-20260914/ae-motion-last-frame.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "cover_alt": "Motion graphics created as editable layers in After Effects",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "motion-design",
+         "name": "Motion Design",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "installations": [
+        {
+         "id": "chatgpt",
+         "title": "Download ChatGPT Desktop",
+         "description": "Install the ChatGPT desktop app on your computer.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "auto",
+         "action_label": "Download ChatGPT",
+         "action_url": "https://chatgpt.com/download/",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "secondary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "higgsfield-plugin",
+         "title": "Install the Higgsfield plugin",
+         "description": "Add Higgsfield to ChatGPT to use the animation workflow.",
+         "icon_key": "higgsfield",
+         "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+         "action": "auto",
+         "action_label": "Install plugin",
+         "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "after-effects",
+         "title": "Install After Effects",
+         "description": "Install Adobe After Effects on the same computer.",
+         "icon_key": "after-effects",
+         "icon_url": "https://static.higgsfield.ai/skills/shared/after-effects-gray-20260915/logoae.webp",
+         "action": "auto",
+         "action_label": "Get After Effects",
+         "action_url": "https://www.adobe.com/products/aftereffects.html",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "start-in-chatgpt",
+         "title": "Run your first animation",
+         "description": "Open ChatGPT with the prompt ready to send. Add your brief and reference assets when asked to start the animation.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "link",
+         "action_label": "Try in ChatGPT",
+         "action_url": "codex://new?prompt=%5B%40Higgsfield%5D(plugin%3A%2F%2Fapp-6a3293e129088191abf0875820e839da%40openai-curated-remote)%0A%2Fillustration-animation%0AHelp%20me%20animate%20my%20illustrations%20in%20Adobe%20After%20Effects%20while%20preserving%20their%20design%20and%20editable%20layers.%20Check%20the%20connection%20to%20After%20Effects%2C%20then%20ask%20for%20my%20brief%2C%20reference%20assets%2C%20duration%2C%20and%20output%20format.%20Use%20my%20answers%20to%20build%20and%20preview%20the%20animation.%20Preserve%20any%20existing%20work%20in%20my%20open%20project.%0A%0AIf%20the%20Higgsfield%20plugin%20is%20not%20installed%2C%20ask%20me%20to%20%5Binstall%20the%20Higgsfield%20plugin%5D(https%3A%2F%2Fchatgpt.com%2Fplugins%2Fhiggsfield%3Fopen_in_app)%20before%20continuing.",
+         "action_icon": "none",
+         "action_icon_url": "",
+         "prompt": "@Higgsfield /illustration-animation\nHelp me animate my illustrations in Adobe After Effects while preserving their design and editable layers. Check the connection to After Effects, then ask for my brief, reference assets, duration, and output format. Use my answers to build and preview the animation. Preserve any existing work in my open project.",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        }
+       ],
+       "main_conversation": {
+        "result": {
+         "source": "first-example"
+        },
+        "messages": [
+         {
+          "id": "main-user-1",
+          "role": "user",
+          "text": "Animate these characters in After Effects with gentle motion, blinks, and editable layers.",
+          "attachments": [
+           {
+            "type": "image",
+            "url": "https://static.higgsfield.ai/skills/illustation-animation/last-frames-20260914/shape_animation-last-frame.webp",
+            "width": 3840,
+            "height": 2160
+           }
+          ]
+         },
+         {
+          "id": "main-assistant-1",
+          "role": "assistant",
+          "text": "I’ll add gentle movement and blinks that follow the characters’ shapes and personality, while preserving the illustration’s colors and textures."
+         }
+        ]
+       },
+       "conversation_media": {
+        "title": "Illustration Animation in After Effects",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/skills/use-after-effects/illustration-animation-20260914/illustration-animation.mp4",
+        "poster_url": "https://static.higgsfield.ai/skills/use-after-effects/illustration-animation-20260914/preview/illustration-animation-poster.webp",
+        "width": 3840,
+        "height": 2160
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /illustration-animation.\nAnimate these illustrations in After Effects with drifting cards, circling koi, and rotating shapes. Preserve the colors and editable layers.",
+        "reference_medias": [
+         {
+          "type": "image",
+          "url": "https://static.higgsfield.ai/skills/illustation-animation/last-frames-20260914/shape_animation-last-frame.webp",
+          "width": 3840,
+          "height": 2160
+         }
+        ],
+        "show_chatgpt": false,
+        "show_copy": true
+       },
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "installations": [
+          {
+           "id": "chatgpt",
+           "title": "Download ChatGPT Desktop",
+           "description": "Install the ChatGPT desktop app on your computer.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "auto",
+           "action_label": "Download ChatGPT",
+           "action_url": "https://chatgpt.com/download/",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "secondary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "higgsfield-plugin",
+           "title": "Install the Higgsfield plugin",
+           "description": "Add Higgsfield to ChatGPT to use the animation workflow.",
+           "icon_key": "higgsfield",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+           "action": "auto",
+           "action_label": "Install plugin",
+           "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "after-effects",
+           "title": "Install After Effects",
+           "description": "Install Adobe After Effects on the same computer.",
+           "icon_key": "after-effects",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/after-effects-gray-20260915/logoae.webp",
+           "action": "auto",
+           "action_label": "Get After Effects",
+           "action_url": "https://www.adobe.com/products/aftereffects.html",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-in-chatgpt",
+           "title": "Run your first animation",
+           "description": "Open ChatGPT with the prompt ready to send. Add your brief and reference assets when asked to start the animation.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "link",
+           "action_label": "Try in ChatGPT",
+           "action_url": "codex://new?prompt=%5B%40Higgsfield%5D(plugin%3A%2F%2Fapp-6a3293e129088191abf0875820e839da%40openai-curated-remote)%0A%2Fillustration-animation%0AHelp%20me%20animate%20my%20illustrations%20in%20Adobe%20After%20Effects%20while%20preserving%20their%20design%20and%20editable%20layers.%20Check%20the%20connection%20to%20After%20Effects%2C%20then%20ask%20for%20my%20brief%2C%20reference%20assets%2C%20duration%2C%20and%20output%20format.%20Use%20my%20answers%20to%20build%20and%20preview%20the%20animation.%20Preserve%20any%20existing%20work%20in%20my%20open%20project.%0A%0AIf%20the%20Higgsfield%20plugin%20is%20not%20installed%2C%20ask%20me%20to%20%5Binstall%20the%20Higgsfield%20plugin%5D(https%3A%2F%2Fchatgpt.com%2Fplugins%2Fhiggsfield%3Fopen_in_app)%20before%20continuing.",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "@Higgsfield /illustration-animation\nHelp me animate my illustrations in Adobe After Effects while preserving their design and editable layers. Check the connection to After Effects, then ask for my brief, reference assets, duration, and output format. Use my answers to build and preview the animation. Preserve any existing work in my open project.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "label": "Try in Claude",
+         "installations": []
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt"
+        }
+       ],
+       "id": "fc0cfdb4-2fd2-4b50-92e0-d98febb7abd6",
+       "slug": "illustration-animation",
+       "title": "Illustration Animation in After Effects",
+       "is_indexable": false,
+       "description": "Animate illustrations in After Effects with expressive motion and editable layers.",
+       "skill_label": "illustration-animation",
+       "short_description": "Bring illustrated characters to life in After Effects.",
+       "apps": [
+        {
+         "key": "after-effects",
+         "name": "After Effects",
+         "icon_key": "after-effects",
+         "icon_url": "https://static.higgsfield.ai/skills/shared/after-effects-gray-20260915/logoae.webp"
+        }
+       ],
+       "cover_media": {
+        "title": "Illustration Animation in After Effects",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/skills/use-after-effects/illustration-animation-20260914/illustration-animation.mp4",
+        "poster_url": "https://static.higgsfield.ai/skills/use-after-effects/illustration-animation-20260914/preview/illustration-animation-poster.webp",
+        "width": 3840,
+        "height": 2160
+       },
+       "cover_alt": "Illustrated characters animated in After Effects",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "motion-design",
+         "name": "Motion Design",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "installations": [
+        {
+         "id": "chatgpt",
+         "title": "Download ChatGPT Desktop",
+         "description": "Install the ChatGPT desktop app on your computer.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "auto",
+         "action_label": "Download ChatGPT",
+         "action_url": "https://chatgpt.com/download/",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "secondary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "higgsfield-plugin",
+         "title": "Install the Higgsfield plugin",
+         "description": "Add Higgsfield to ChatGPT to use the animation workflow.",
+         "icon_key": "higgsfield",
+         "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+         "action": "auto",
+         "action_label": "Install plugin",
+         "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "after-effects",
+         "title": "Install After Effects",
+         "description": "Install Adobe After Effects on the same computer.",
+         "icon_key": "after-effects",
+         "icon_url": "https://static.higgsfield.ai/skills/shared/after-effects-gray-20260915/logoae.webp",
+         "action": "auto",
+         "action_label": "Get After Effects",
+         "action_url": "https://www.adobe.com/products/aftereffects.html",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "start-in-chatgpt",
+         "title": "Run your first animation",
+         "description": "Open ChatGPT with the prompt ready to send. Add your brief and reference assets when asked to start the animation.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "link",
+         "action_label": "Try in ChatGPT",
+         "action_url": "https://chatgpt.com/?q=%40Higgsfield+%2Fuse-after-effects%0AHelp+me+create+an+editable+paper-collage+animation+in+Adobe+After+Effects.+Check+the+connection+to+After+Effects%2C+then+ask+for+my+brief%2C+reference+assets%2C+duration%2C+and+output+format.+Use+my+answers+to+build+and+preview+the+animation.+Preserve+any+existing+work+in+my+open+project.",
+         "action_icon": "none",
+         "action_icon_url": "",
+         "prompt": "@Higgsfield /use-after-effects\nHelp me create an editable paper-collage animation in Adobe After Effects. Check the connection to After Effects, then ask for my brief, reference assets, duration, and output format. Use my answers to build and preview the animation. Preserve any existing work in my open project.",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        }
+       ],
+       "main_conversation": {
+        "result": {
+         "source": "first-example"
+        },
+        "messages": [
+         {
+          "id": "main-user-1",
+          "role": "user",
+          "text": "Create a 10-second paper-collage animation in After Effects: a courier crosses a postage-stamp bridge, falls through torn paper, and escapes on a paper plane above retro Los Angeles. Generate the assets with Higgsfield, then add layered parallax and stepped motion. Keep the layers, rig, and keyframes editable.",
+          "attachments": [
+           {
+            "title": "Paper Collage in After Effects",
+            "type": "image",
+            "url": "https://static.higgsfield.ai/skills/paper-collage/20260914/THE_DETOUR_LA_v2_1080p-last.webp",
+            "width": 1920,
+            "height": 1080
+           }
+          ]
+         },
+         {
+          "id": "main-assistant-1",
+          "role": "assistant",
+          "text": "I’ll build the courier’s journey as a layered paper scene, using torn edges, stepped motion, and parallax to connect the bridge, fall, and paper-plane escape."
+         }
+        ]
+       },
+       "conversation_media": {
+        "title": "Paper Collage in After Effects",
+        "prompt": "/paper-collage\nCreate a 10-second paper-collage animation in After Effects: a courier crosses a postage-stamp bridge, falls through torn paper, and escapes on a paper plane above retro Los Angeles. Generate the assets with Higgsfield, then add layered parallax and stepped motion. Keep the layers, rig, and keyframes editable.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/skills/paper-collage/20260914/THE_DETOUR_LA_v2_1080p.mp4",
+        "poster_url": "https://static.higgsfield.ai/skills/paper-collage/20260914/THE_DETOUR_LA_v2_1080p-last.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /paper-collage.\nCreate a 10-second paper-collage animation in After Effects: a courier crosses a postage-stamp bridge, falls through torn paper, and escapes on a paper plane above retro Los Angeles. Generate the assets with Higgsfield, then add layered parallax and stepped motion. Keep the layers, rig, and keyframes editable.",
+        "reference_medias": [
+         {
+          "title": "Paper Collage in After Effects",
+          "type": "image",
+          "url": "https://static.higgsfield.ai/skills/paper-collage/20260914/THE_DETOUR_LA_v2_1080p-last.webp",
+          "width": 1920,
+          "height": 1080
+         }
+        ],
+        "show_chatgpt": false,
+        "show_copy": true
+       },
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "installations": [
+          {
+           "id": "chatgpt",
+           "title": "Download ChatGPT Desktop",
+           "description": "Install the ChatGPT desktop app on your computer.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "auto",
+           "action_label": "Download ChatGPT",
+           "action_url": "https://chatgpt.com/download/",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "secondary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "higgsfield-plugin",
+           "title": "Install the Higgsfield plugin",
+           "description": "Add Higgsfield to ChatGPT to use the animation workflow.",
+           "icon_key": "higgsfield",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+           "action": "auto",
+           "action_label": "Install plugin",
+           "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "after-effects",
+           "title": "Install After Effects",
+           "description": "Install Adobe After Effects on the same computer.",
+           "icon_key": "after-effects",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/after-effects-gray-20260915/logoae.webp",
+           "action": "auto",
+           "action_label": "Get After Effects",
+           "action_url": "https://www.adobe.com/products/aftereffects.html",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-in-chatgpt",
+           "title": "Run your first animation",
+           "description": "Open ChatGPT with the prompt ready to send. Add your brief and reference assets when asked to start the animation.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "link",
+           "action_label": "Try in ChatGPT",
+           "action_url": "https://chatgpt.com/?q=%40Higgsfield+%2Fuse-after-effects%0AHelp+me+create+an+editable+paper-collage+animation+in+Adobe+After+Effects.+Check+the+connection+to+After+Effects%2C+then+ask+for+my+brief%2C+reference+assets%2C+duration%2C+and+output+format.+Use+my+answers+to+build+and+preview+the+animation.+Preserve+any+existing+work+in+my+open+project.",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "@Higgsfield /use-after-effects\nHelp me create an editable paper-collage animation in Adobe After Effects. Check the connection to After Effects, then ask for my brief, reference assets, duration, and output format. Use my answers to build and preview the animation. Preserve any existing work in my open project.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "label": "Try in Claude",
+         "installations": []
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt"
+        }
+       ],
+       "id": "05376119-4130-4822-90a6-ba5117e12918",
+       "slug": "paper-collage",
+       "title": "Paper Collage in After Effects",
+       "is_indexable": false,
+       "description": "Animate paper collages in After Effects with textured cutouts, layered depth, and editable motion.",
+       "skill_label": "paper-collage",
+       "short_description": "Turn paper cutouts into editable motion in After Effects.",
+       "apps": [
+        {
+         "key": "after-effects",
+         "name": "After Effects",
+         "icon_key": "after-effects",
+         "icon_url": "https://static.higgsfield.ai/skills/shared/after-effects-gray-20260915/logoae.webp"
+        }
+       ],
+       "cover_media": {
+        "title": "Paper Collage in After Effects",
+        "prompt": "/paper-collage\nCreate a 10-second paper-collage animation in After Effects: a courier crosses a postage-stamp bridge, falls through torn paper, and escapes on a paper plane above retro Los Angeles. Generate the assets with Higgsfield, then add layered parallax and stepped motion. Keep the layers, rig, and keyframes editable.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/skills/paper-collage/20260914/THE_DETOUR_LA_v2_1080p.mp4",
+        "poster_url": "https://static.higgsfield.ai/skills/paper-collage/20260914/THE_DETOUR_LA_v2_1080p-last.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "cover_alt": "A paper courier flies above retro Los Angeles on a folded paper plane.",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "motion-design",
+         "name": "Motion Design",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      }
+     ],
+     "settings": {
+      "id": "hub-settings",
+      "agents": [
+       {
+        "id": "chatgpt"
+       },
+       {
+        "id": "claude"
+       },
+       {
+        "id": "claude-code"
+       },
+       {
+        "id": "telegram"
+       },
+       {
+        "id": "slack"
+       },
+       {
+        "id": "cli"
+       },
+       {
+        "id": "other"
+       }
+      ],
+      "default_agent": "chatgpt",
+      "all_presets_bundle_ids": [
+       "546f183a-26d2-53ae-a889-62fd1de3f507",
+       "abf118a1-53b9-4179-b3b9-f4d54a6db52c",
+       "0e43e251-c6ab-4e6b-8117-b1cc3d39c307"
+      ]
+     }
+    }
+   }
+  ]
+ }
+}

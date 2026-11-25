@@ -68,7 +68,7 @@ run label, review a summary showing the **equivalent flag command**, and choose 
 3. [Recipes: common combinations](#3-recipes)
 4. [`normalize`](#4-normalize)
 5. [`show`](#5-show)
-6. [`scrapers`, `login`, `auth-check`, `runs`, `runs clean`, `show-config`, `plan-sets`, `sections`, `schema`](#6-info-commands)
+6. [`scrapers`, `login`, `auth-check`, `runs`, `runs clean`, `show-config`, `diff`, `crosscheck`, `plan-sets`, `sections`, `schema`](#6-info-commands)
 7. [Output: what a run produces](#7-output)
 8. [Exit codes, environment variables, `.env`](#8-exit-codes-and-environment)
 9. [Plain Scrapy (`scrapy crawl higgsfield -a …`)](#9-plain-scrapy)
@@ -163,7 +163,7 @@ community, catalog, projects and blog also take the limit/media options. Per-scr
 | `--scrapy-log-level` | — | SCRAPY_LOG_LEVEL | Scrapy's own loggers (default INFO, -vv: DEBUG) |
 | `--split-logs` | off | flag | also write logs/app.log and logs/scrapy.log |
 
-### Limits and media (community, catalog, projects, blog)
+### Limits and media (community, catalog, projects, blog, site)
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
@@ -292,6 +292,29 @@ python -m higgsfield_scraper scrape blog --what blog --since 2026-10-01 --tags g
 python -m higgsfield_scraper scrape blog --no-content --label metadata-only
 python -m higgsfield_scraper scrape blog --what talents,community --max-pages 3
 python -m higgsfield_scraper scrape blog --what blog --download-media thumbs
+```
+
+### `scrape site`
+
+Site pages: apps (+ credit cost), academy courses & lessons (Markdown), MCP skills & bundles, original-series episodes, mixed-media presets, landing/plugin pages, rooms (opt-in), promo APIs
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--what` | `apps,academy,mcp,originals,mixed-media,landings,promos` | WHAT | comma list of ['apps', 'academy', 'mcp', 'originals', 'mixed-media', 'landings', 'rooms', 'promos'] or 'all' (default: apps,academy,mcp,originals,mixed-media,landings,promos; 'rooms' = community room pages, title/description only, opt-in) |
+| `--with-content` | off | flag | fetch every detail page (apps, courses, lessons, MCP skills, episodes) and convert bodies to Markdown (default: on) |
+| `--no-content` | off | flag | index pages only where an index exists (apps, academy, mcp, originals): fewer requests, no lesson/landing text |
+| `--only` | — | ONLY | keep only detail pages whose URL path contains one of these strings (comma list), e.g. 'kling,/plugins/,blockbuster-4k' |
+| `--with-profiles` | off | flag | keep creators' usernames/avatars (app authors, episode uploaders, mixed-media sample creators). Personal data: off by default |
+| `--no-markdown` | off | flag | don't write output/articles/&lt;collection&gt;/&lt;slug&gt;.md |
+
+```bash
+python -m higgsfield_scraper scrape site
+python -m higgsfield_scraper scrape site --what apps --label apps
+python -m higgsfield_scraper scrape site --what academy --only blockbuster-4k
+python -m higgsfield_scraper scrape site --what mcp,promos --no-content
+python -m higgsfield_scraper scrape site --what landings --only /plugins/,kling --max-items 10
+python -m higgsfield_scraper scrape site --what originals,mixed-media --download-media thumbs
+python -m higgsfield_scraper scrape site --what all,rooms --max-items 20 --label smoke-site
 ```
 <!-- END scraper-options -->
 
@@ -710,6 +733,110 @@ python -m higgsfield_scraper runs clean --keep-last 20 --keep-days 14 --yes    #
 
 **`show-config [--json]`**: the resolved configuration (flags, environment, `.env`, defaults) and where each value
 came from. Secrets are shown as `set`/`unset`, never their value.
+
+**`diff [--old RUN] [--new RUN] [--json] [--out FILE.md|.json] [--only plans,models,benefits,offers] [--min-change PCT]`**:
+compare two pricing runs' `output/dataset.json`. No network. `RUN` is a run folder or a run id under `--runs-dir`.
+
+- Defaults: `--new` = the latest successful pricing run (from `runs/index.jsonl` + manifests; other scrapers are
+  ignored), `--old` = the previous successful pricing run with a **compatible selection**: same plan sets, billing
+  periods, filters and `--include-hidden-plans`, and at least the new run's plans/benefits/models sections.
+- **plans**: added/removed plans; `before_offer` / `after_offer` / `renewal` price changes (`per_month` and `total`,
+  per billing period) with absolute and % change; `credits_per_month` changes (a plan whose credits changed is
+  paired with its old self, not reported as removed + added); seats/name changes.
+- **offers**: plan-set `special_offer`, per-plan `discount` (`percent_off`, `duration`, `applies_to`), raw `offer`
+  objects and benefit-card campaigns (`ends_at`).
+- **models**: added/removed models; credit changes per price point, keyed by `model_id` + component + dimensions +
+  unit (`credits` and `original_credits`); price points and option values added/removed.
+- **benefits**: unlimited models and free gens per benefit card (plan type / billing / tab), added/removed/changed.
+- **meta**: `costs_version` and `country_code`. A country difference is a warning: prices come from the IP's country
+  and are not comparable. Runs with different plan sets are compared on the plan sets they share (with a warning).
+- `--min-change PCT` hides price/credit changes smaller than PCT % (changes from 0 are always shown).
+- `--json` prints the structured diff (`changed: true|false`, `summary`, `warnings`, one block per category) to
+  stdout; `--out` also writes it as Markdown (`.md`) or indent-4 JSON (`.json`).
+- Exit `0` whether or not anything changed (read `changed`), `1` on errors (no runs, unreadable dataset),
+  `2` on usage errors (unknown `--only` value, `--out` not `.md`/`.json`).
+
+```bash
+python -m higgsfield_scraper diff                                         # latest vs previous compatible run
+python -m higgsfield_scraper diff --old 20261125-111348_everything --new 20261125-141237_verify-logging-live
+python -m higgsfield_scraper diff --only plans,offers --min-change 5 --out reports/prices.md
+python -m higgsfield_scraper diff --json | jq '.changed, .summary'
+```
+
+```
+pricing diff 20261201-090000_old -> 20261202-090000_new
+┌──────────┬───────────────────────┬──────────────────────────────────────────┬──────────┬────────────────┬────────────────┐
+│ category │ change                │ item                                     │ old      │ new            │ Δ              │
+├──────────┼───────────────────────┼──────────────────────────────────────────┼──────────┼────────────────┼────────────────┤
+│ meta     │ costs_version         │                                          │ 362779fa │ a1b2c3fa       │                │
+│ plans    │ after_offer.per_month │ ps_a3/plus/monthly/1200cr                │ $40.00   │ $45.00         │ 5.00 (+12.50%) │
+│ plans    │ after_offer.total     │ ps_a3/plus/monthly/1200cr                │ $40.00   │ $45.00         │ 5.00 (+12.50%) │
+│ offers   │ percent_off           │ ps_a3/plus/monthly/1200cr                │ 33.0     │ 24.0           │                │
+│ models   │ credits               │ seedance_2_5 resolution=480p video_in... │ 3.0      │ 3.6            │ 0.6 (+20.00%)  │
+│ benefits │ unlimited             │ plus/monthly/individual                  │          │ +nano_banana_2 │                │
+└──────────┴───────────────────────┴──────────────────────────────────────────┴──────────┴────────────────┴────────────────┘
+summary: plans.price_changes=2, models.credit_changes=1, benefits.unlimited_changes=1, offers.discount_changes=1
+```
+
+When the plan sets differ (e.g. a `--plan-sets all` run vs a `us` run):
+
+```
+pricing diff 20261125-111348_everything -> 20261125-141237_verify-logging-live
+warning: selection differs: include_hidden_plans True -> False
+warning: plan sets differ ([default, default_basic, default_q, … (25 keys)] vs [ps_a3]); plans and offers compared only for [ps_a3]
+no changes
+```
+
+**`crosscheck [--run RUN] [--json] [--save]`**: fetch the official `https://higgsfield.ai/pricing.md` (one plain GET
+with the project's User-Agent; not a Scrapy crawl) and compare it with the run's **`ps_a3`** (US) dataset. Default
+run: the latest successful pricing run that includes `ps_a3`.
+
+- **plans**: matched on plan type + billing + credits per month. Only values the text states are compared:
+  `$19/mo` (all stages 19), `$40 first month, then $59/mo` (after offer 40, renewal and list 59),
+  `$55/mo (list price $79/mo)`, `$30/mo, billed $360 yearly` (annual `per_month` and `total`). Business plans are per
+  seat, as in the dataset. Enterprise ("custom pricing") and the Free row are listed as pricing.md-only.
+- **models**: pricing.md currently lists **no per-model credit costs**, so this section is empty (`note` says so).
+  If a table with a "Model" and a "Credits" column appears, rows are matched conservatively (exact display name,
+  credits must equal one of the model's price-point values).
+- **benefits**: the per-plan "Unlimited & free gens" / "Free generations" / "Unlimited models" bullets, matched by
+  exact row label against the dataset's benefit cards: unlimited vs none, free-gen counts, N-day windows, max
+  resolution.
+- Reports matches, mismatches, items only in pricing.md and items only in the dataset. Warns when the run was fetched
+  from a non-US IP (ps_a3 prices are still comparable).
+- `--save` writes `<run>/crosscheck/pricing_<UTC ts>.md` (the fetched file) and `report_<UTC ts>.json` (indent 4).
+  `<run>/output/` is never touched.
+- Exit `0` when the comparison ran (mismatches or not: read `ok` / `mismatch_count`), `1` on errors (network, no run,
+  no `ps_a3` plan set in the run).
+
+```bash
+python -m higgsfield_scraper crosscheck                       # latest ps_a3 run
+python -m higgsfield_scraper crosscheck --run 20261125-141237_verify-logging-live --save
+python -m higgsfield_scraper crosscheck --json | jq '.ok, .summary'
+```
+
+```
+pricing.md crosscheck (2026-11-25) vs 20261125-142650_verify-menu-normalize3 / ps_a3
+offer: Black Friday sale: up to 70% off, ends 2026-11-26 00:00 UTC.
+warning: run fetched from country EG; ps_a3 is the US price list, so plan prices are comparable, but other
+country-dependent fields may not be
+┌──────────┬───────┬──────────┬─────────────────┬──────────────┐
+│ section  │ match │ mismatch │ only pricing.md │ only dataset │
+├──────────┼───────┼──────────┼─────────────────┼──────────────┤
+│ plans    │ 57    │ 0        │ 3               │ 0            │
+│ models   │ 0     │ 0        │ 0               │ 0            │
+│ benefits │ 76    │ 0        │ 0               │ 0            │
+└──────────┴───────┴──────────┴─────────────────┴──────────────┘
+models: pricing.md lists no per-model credit costs
+                                           differences
+┌─────────┬─────────────────┬──────────────────┬───────┬───────────────────────────────┬─────────┐
+│ section │ kind            │ item             │ field │ pricing.md                    │ dataset │
+├─────────┼─────────────────┼──────────────────┼───────┼───────────────────────────────┼─────────┤
+│ plans   │ only pricing.md │ free/monthly/0cr │       │ Free                          │         │
+│ plans   │ only pricing.md │ free/annual/0cr  │       │ Free                          │         │
+│ plans   │ only pricing.md │ enterprise       │       │ custom pricing (not compared) │         │
+└─────────┴─────────────────┴──────────────────┴───────┴───────────────────────────────┴─────────┘
+all compared values match
+```
 
 **`menu`** / **`-i`** / **`--interactive`**: interactive mode (see [Interactive mode](#interactive-mode)).
 

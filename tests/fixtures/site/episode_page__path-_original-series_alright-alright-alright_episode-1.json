@@ -1,0 +1,474 @@
+{
+ "meta": {
+  "endpoint": "episode_page",
+  "url": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1",
+  "params": {
+   "path": "/original-series/alright-alright-alright/episode-1"
+  },
+  "fetched_at": "2026-11-25T16:03:33.357163+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/original-series/alright-alright-alright/episode-1",
+  "page_type": "episode",
+  "sitemap_lastmod": "2026-11-25T15:22:05.462259+00:00",
+  "head": {
+   "title": "Trailer",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1",
+   "description": "Two crypto hustlers are hired by a powerful cartel leader to digitize his massive cash reserves into Bitcoin. Instead of following the plan, they steal the money and trigger a global market collapse. With the cartel closing in and the digital world in ruins, they must survive the chaos of their own making.",
+   "keywords": null,
+   "og_title": "Trailer",
+   "og_description": "Two crypto hustlers are hired by a powerful cartel leader to digitize his massive cash reserves into Bitcoin. Instead of following the plan, they steal the money and trigger a global market collapse. With the cartel closing in and the digital world in ruins, they must survive the chaos of their own making.",
+   "og_image": "https://higgsfield.ai/cdn-cgi/image/fit=cover,format=webp,onerror=redirect,width=1200,height=630,quality=85/https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/3aa5361f-4315-4039-ba08-ed30ccd4a57e.webp",
+   "og_type": "website",
+   "robots": "index, follow",
+   "ld_json": [
+    {
+     "@context": "https://schema.org",
+     "@type": "WebPage",
+     "url": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1",
+     "name": "Trailer | ALRIGHT ALRIGHT ALRIGHT | Higgsfield",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     }
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "Home",
+       "item": {
+        "@id": "https://higgsfield.ai/"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Original Series",
+       "item": {
+        "@id": "https://higgsfield.ai/original-series"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 3,
+       "name": "Trailer",
+       "item": {
+        "@id": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1"
+       }
+      }
+     ]
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "TVSeries",
+     "@id": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1#series",
+     "name": "ALRIGHT ALRIGHT ALRIGHT",
+     "episode": [
+      {
+       "@id": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1#episode"
+      }
+     ]
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "TVEpisode",
+     "@id": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1#episode",
+     "name": "Trailer",
+     "url": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1",
+     "episodeNumber": 1,
+     "mainEntityOfPage": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1",
+     "partOfSeries": {
+      "@id": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1#series"
+     },
+     "image": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/3aa5361f-4315-4039-ba08-ed30ccd4a57e.webp",
+     "video": {
+      "@type": "VideoObject",
+      "@id": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1#video",
+      "name": "Trailer",
+      "description": "Trailer — ALRIGHT ALRIGHT ALRIGHT",
+      "url": "https://higgsfield.ai/original-series/alright-alright-alright/episode-1",
+      "thumbnailUrl": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/3aa5361f-4315-4039-ba08-ed30ccd4a57e.webp",
+      "contentUrl": "https://du4zrvwy3vtek.cloudfront.net/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d.mp4",
+      "uploadDate": "2026-03-18T17:49:08.325213+00:00",
+      "isFamilyFriendly": true,
+      "publisher": {
+       "@type": "Organization",
+       "name": "Higgsfield",
+       "url": "https://higgsfield.ai/",
+       "logo": {
+        "@type": "ImageObject",
+        "name": "Higgsfield logo",
+        "url": "https://higgsfield.ai/icon.png"
+       },
+       "sameAs": [
+        "https://x.com/higgsfield",
+        "https://www.instagram.com/higgsfield.ai/",
+        "https://www.tiktok.com/@higgsfield.ai90",
+        "https://discord.com/invite/higgsfield",
+        "https://www.linkedin.com/company/higgsfield/",
+        "https://www.youtube.com/@HiggsfieldAI"
+       ]
+      },
+      "interactionStatistic": [
+       {
+        "@type": "InteractionCounter",
+        "interactionType": {
+         "@type": "WatchAction"
+        },
+        "userInteractionCount": 48540
+       },
+       {
+        "@type": "InteractionCounter",
+        "interactionType": {
+         "@type": "LikeAction"
+        },
+        "userInteractionCount": 366
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "matches": [
+   {
+    "i": "#(public)#original-series#$serialSlug#$episodeSlug#original-series#alright-alright-alright#episode-1",
+    "l": {
+     "episode": {
+      "id": "46f5150c-9437-4505-90a0-31832d1add8c",
+      "slug": "episode-1",
+      "user": {
+       "id": "higgsfield_team",
+       "avatarUrl": "https://static.higgsfield.ai/public/profile/profile-pic-3.png",
+       "username": "[redacted]"
+      },
+      "title": "Trailer",
+      "description": "",
+      "type": "episode",
+      "likesCount": 366,
+      "dislikesCount": 3,
+      "viewsCount": 48540,
+      "likeMark": null,
+      "totalViews": 48540,
+      "postUrls": [],
+      "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/3aa5361f-4315-4039-ba08-ed30ccd4a57e.webp",
+      "youtubeUrl": null,
+      "isAdultsOnly": false,
+      "videoSrc": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d.m3u8",
+      "badges": [],
+      "allEpisodes": [
+       {
+        "id": "46f5150c-9437-4505-90a0-31832d1add8c",
+        "slug": "episode-1",
+        "title": "Trailer",
+        "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/3aa5361f-4315-4039-ba08-ed30ccd4a57e.webp",
+        "videoSrc": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d.m3u8",
+        "duration": null,
+        "description": null
+       }
+      ],
+      "shimmerSrc": "https://du4zrvwy3vtek.cloudfront.net/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d_shimmer.webp",
+      "createdAt": "2026-03-18T17:49:08.325213+00:00"
+     },
+     "recommended": [
+      {
+       "kind": "series",
+       "id": "e2f47f51-6893-4770-b8cb-4ef35396eae3",
+       "slug": "cully-hill-boys",
+       "firstEpisodeSlug": "full-film",
+       "title": "The Cully Hill Boys",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/landscape/f12b1542-f6f4-4247-a084-d949b2385084_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "40094aaf-a634-43b7-b399-2d9ea4dae52b",
+       "slug": "behind-the-scenes-of-mork-the-tale-of-kael",
+       "firstEpisodeSlug": "episode-0",
+       "title": "Behind The Scenes of “Mork - The Tale of Kael”",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/landscape/dfb18a95-e342-4b7b-b9e0-ef792da93368_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "d8bb1fae-a4d8-485b-93aa-5f80fbd41d4d",
+       "slug": "hell-grind",
+       "firstEpisodeSlug": "episode-1",
+       "title": "HELL GRIND",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/af6e1e33-b457-4e3f-92c2-5b2259320a00/landscape/47ec8080-20a9-4587-8145-6adafcfcf2da_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "729dd3cd-cb5d-44b5-8b4c-c25057d29bee",
+       "slug": "bucket-list",
+       "firstEpisodeSlug": "episode-1",
+       "title": "BUCKET LIST",
+       "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/46801a40-d1be-4605-a755-7a49af34d54e.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "a14e0e16-8418-44c2-94c2-c29fc22c33ea",
+       "slug": "buddy",
+       "firstEpisodeSlug": "episode-1",
+       "title": "BUDDY",
+       "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/8078ee75-c394-413e-a4b3-b51c8fb36cfb.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "280b5bb6-5956-418b-b38f-a3b8b6746a79",
+       "slug": "dinoforce",
+       "firstEpisodeSlug": "episode-1",
+       "title": "DINOFORCE",
+       "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/4570879c-d277-4d9a-94a1-068549797547.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "9cc4c052-881e-426b-8e55-1f28feaee885",
+       "slug": "vermin-control-unit",
+       "firstEpisodeSlug": "episode-1",
+       "title": "VERMIN CONTROL UNIT",
+       "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/6ec9a154-5f90-40fe-89d0-bd9b66949bf5.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "afc7420f-a3dd-4c97-b4ff-1211b46c9f72",
+       "slug": "spit-and-glow",
+       "firstEpisodeSlug": "episode-1",
+       "title": "SPIT & GLOW",
+       "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/8c093289-0638-451d-8774-bfc98b032ef7.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "a4ca6704-d5de-49f3-8697-8343455581ca",
+       "slug": "arena-zero-music-video",
+       "firstEpisodeSlug": "episode-1",
+       "title": "DEM - Arena Zero Music Video",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/48a22f6f-f4d5-4690-bf34-06746f1df9bf/landscape/83eccb57-a167-49ea-8175-f185e8521295_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "d5c2e478-7d38-4950-b4d4-c6c05da0671f",
+       "slug": "kok-boru",
+       "firstEpisodeSlug": "full-film",
+       "title": "Kok Boru",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/c1306671-1d1b-4b35-9773-105f2993341c/landscape/3343dc30-34de-4f04-a11c-2480010c551c_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "f9bea53a-f28b-4821-9e19-c559e6d38a03",
+       "slug": "tails-of-steel",
+       "firstEpisodeSlug": "episode-1",
+       "title": "TAILS OF STEEL",
+       "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2aba7de8-0ea2-48fb-bb7a-ebfd6ba0bef6.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "41cc93ed-b65e-40f9-bc33-50d67abead09",
+       "slug": "the-trigger",
+       "firstEpisodeSlug": "full-film",
+       "title": "The Trigger",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/0194a35c-18c4-43f0-842f-373b3b592071/landscape/d15e30fa-1f11-4531-b383-f4ad08383c3c_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "ab9099e9-0e9f-4ea8-8735-d098eb811976",
+       "slug": "passport-rush",
+       "firstEpisodeSlug": "full-film",
+       "title": "Passport Rush",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/b7ab12d0-769e-4420-91d8-f59f9c13c9a1/landscape/16a24128-6388-4970-b729-ea693c2cf002_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "05d6963e-1345-4723-b3ce-b27b26ecc69e",
+       "slug": "viking-courier",
+       "firstEpisodeSlug": "episode-1",
+       "title": "Viking Courier",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/666001e1-d007-41f7-94e5-ae9f581fbb40/landscape/9beceb70-6e83-49fd-aaa0-df37af8bd2cc_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "0bd81f5c-c565-4811-8c25-94eb1ab827a2",
+       "slug": "frozen-monster",
+       "firstEpisodeSlug": "episode-1",
+       "title": "FROZEN MONSTER",
+       "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2ebba232-a5d0-4598-a659-2327771ce880.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "00e79604-38b5-4209-87d7-11200b072ca5",
+       "slug": "zephyr-special",
+       "firstEpisodeSlug": "full-film",
+       "title": "ZEPHYR: Special",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/87fac988-7965-4428-ad90-cfffb5a03541/landscape/e63b2efa-93e3-4735-9246-3fc645d6476d_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "1dbb4187-b3fc-4426-ad17-0fcf408f973a",
+       "slug": "mother-trucker",
+       "firstEpisodeSlug": "episode-1",
+       "title": "Mother Trucker",
+       "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/5510f5fd-abef-4155-a645-e4c69ba55f9f.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "baf9a546-fec2-4e68-abe7-5ae297312b98",
+       "slug": "if-you-stop-loving-me-ill-die",
+       "firstEpisodeSlug": "full-film",
+       "title": "If you stop loving me, I'll die — I don't like dying, but for our love I'm ready to go that far",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/65420da1-b6f1-4b5b-8da9-c244e1d025c2/landscape/b9d0a1be-34ac-4f9a-ab4e-e032c0439df0_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "7d72198b-910c-4f32-b0f1-f288cf16cd53",
+       "slug": "huntress-tale",
+       "firstEpisodeSlug": "episode-1",
+       "title": "Huntress's Tale",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/6522cab5-9998-405b-b1ba-f8deb45d4e96/landscape/04b573cd-925c-4ac8-acd2-337d03bc5b94_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "78403d3f-f3b8-4497-9583-c7b752de4cce",
+       "slug": "misfortune",
+       "firstEpisodeSlug": "episode-1",
+       "title": "MISFORTUNE",
+       "thumbnailSrc": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/0ded135b-2ab6-419c-b9ee-831e402a6f92.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "14b71585-0f61-43e6-83ff-dee6dcb8caac",
+       "slug": "peter-pan",
+       "firstEpisodeSlug": "episode-1",
+       "title": "PETER PAN",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/e94db9f1-156e-4df5-8601-96190bdbd53e/landscape/8c577410-6458-4bc4-9501-b25f9582aefd_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "bd2a3f2d-dc08-4edd-b330-91608f53a709",
+       "slug": "red-flag",
+       "firstEpisodeSlug": "full-film",
+       "title": "Red Flag",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/3bf2a090-55cc-4a1a-a2ab-949619025bed/landscape/0375f808-72ad-426b-b69f-7c70157f39bf_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "61ba3bb6-98f5-4a73-b0d4-c316202c80d3",
+       "slug": "anerneq",
+       "firstEpisodeSlug": "full-film",
+       "title": "Anerneq",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/46874256-03f1-4dab-8c50-b8bbd9fc3c4c/landscape/b78aeef7-c91a-44c6-bc98-8a490a084db5_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "aad64ef5-06a9-4916-add7-00d8ff46a8ed",
+       "slug": "adiliada",
+       "firstEpisodeSlug": "full-film",
+       "title": "Adiliada",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/9f194833-1ebf-47cb-9cc9-501fcd28c360/landscape/fd8209c0-6ba9-4aec-90bb-ec873d329cce.jpg",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "80a5d891-e550-450c-89e8-de63283ccb39",
+       "slug": "arena-zero",
+       "firstEpisodeSlug": "episode-1",
+       "title": "ARENA ZERO",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/a9b9c347-4261-484c-8a3c-76c0efd6c9e1/landscape/bd054b31-22a5-4486-9591-a0ff8792b66f_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "ae6c3595-e930-487b-bbae-b9bd7e01796f",
+       "slug": "mork",
+       "firstEpisodeSlug": "episode-1",
+       "title": "MORK ",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/f11e4476-a1ff-49a9-93a8-e2fd334785e3/landscape/2ae976cd-5521-4d0f-9cab-09d98ca12271_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      },
+      {
+       "kind": "series",
+       "id": "5c65cc53-f4f5-4ef6-860f-3f6431ff2b88",
+       "slug": "zephyr",
+       "firstEpisodeSlug": "episode-1",
+       "title": "ZEPHYR",
+       "thumbnailSrc": "https://du4zrvwy3vtek.cloudfront.net/series/cf3de949-e1f4-4945-8f48-275f197a18a0/landscape/4e0299dc-fb24-42b9-a0cd-1908f3a3f20d_optimized.webp",
+       "author": "Higgsfield",
+       "viewsCount": 0
+      }
+     ],
+     "seriesId": "1b93ce43-1393-4c75-9405-51c111b5d132",
+     "seriesTitle": "ALRIGHT ALRIGHT ALRIGHT",
+     "seriesSlug": "alright-alright-alright",
+     "isSeries": true,
+     "project": null
+    }
+   }
+  ]
+ }
+}

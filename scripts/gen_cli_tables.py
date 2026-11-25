@@ -31,7 +31,7 @@ out += ["### Shared options (every scraper)", "", "| Option | Default | Accepts 
 seen=set()
 for a in rows(pars["community"]):
     if a.dest in common and a.dest not in seen: seen.add(a.dest); out.append(fmt(a))
-out += ["", "### Limits and media (community, catalog, projects, blog)", "", "| Option | Default | Accepts | Meaning |", "|---|---|---|---|"]
+out += ["", "### Limits and media (" + ", ".join(n for n in order if n != "pricing") + ")", "", "| Option | Default | Accepts | Meaning |", "|---|---|---|---|"]
 for a in rows(pars["community"]):
     if a.dest in limits and a.dest not in seen: seen.add(a.dest); out.append(fmt(a))
 for n in order:

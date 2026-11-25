@@ -1,0 +1,2961 @@
+{
+ "meta": {
+  "endpoint": "mcp_index",
+  "url": "https://higgsfield.ai/mcp",
+  "params": {
+   "path": "/mcp"
+  },
+  "fetched_at": "2026-11-25T16:00:27.676489+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/mcp",
+  "page_type": "mcp_index",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "Higgsfield MCP | AI Image & Video Generation for Any Agent",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/mcp",
+   "description": "Add the Higgsfield MCP server to Claude, OpenClaw, Hermes Agent, NemoClaw, or any MCP-compatible client. 35+ models and tools for image and video generation, no API key required.",
+   "keywords": null,
+   "og_title": "Higgsfield MCP | AI Image & Video Generation for Any Agent",
+   "og_description": "Add the Higgsfield MCP server to Claude, OpenClaw, Hermes Agent, NemoClaw, or any MCP-compatible client. 35+ models and tools for image and video generation, no API key required.",
+   "og_image": "https://static.higgsfield.ai/mcp/mcp-og-chatgpt-claude-20260925.webp",
+   "og_type": "website",
+   "robots": "index, follow",
+   "ld_json": [
+    {
+     "@context": "https://schema.org",
+     "@type": "CollectionPage",
+     "@id": "https://higgsfield.ai/mcp#webpage",
+     "url": "https://higgsfield.ai/mcp",
+     "name": "Higgsfield MCP",
+     "description": "Add the Higgsfield MCP server to Claude, OpenClaw, Hermes Agent, NemoClaw, or any MCP-compatible client. 35+ models and tools for image and video generation, no API key required.",
+     "inLanguage": "en",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     },
+     "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+       {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Paid Ads bundle",
+        "description": "Research your market, create static and video ads, and plan your next campaign test.",
+        "url": "https://higgsfield.ai/mcp/bundles/paid-ads-bundle"
+       },
+       {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Motion design bundle",
+        "description": "Bring your ideas to life with editable animation workflows.",
+        "url": "https://higgsfield.ai/mcp/bundles/motion-bundle"
+       },
+       {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Production skills bundle",
+        "description": "Turn creative ideas into finished visuals with 11 workflows for 3D, VFX, editing, and design.",
+        "url": "https://higgsfield.ai/mcp/bundles/production-skills"
+       },
+       {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Short Drama",
+        "url": "https://higgsfield.ai/mcp/short-drama",
+        "description": "Turn your script into a series worth bingeing. Build your cast, shape each episode, and bring every scene to life."
+       },
+       {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Monster",
+        "url": "https://higgsfield.ai/mcp/monster",
+        "description": "Create photoreal monsters from an idea or a reference photo."
+       },
+       {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Editing Room",
+        "url": "https://higgsfield.ai/mcp/new-skill-8df126fa-51d5-44bc-b52e-e987cc6fcd9b",
+        "description": "Edit a video shot by shot on the timeline."
+       },
+       {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "Recreate aura edits",
+        "url": "https://higgsfield.ai/mcp/katana",
+        "description": "Turn your footage into an aura edit, or recreate a reference with your own subject, pacing, transitions, and visual effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 8,
+        "name": "Product review UGC",
+        "url": "https://higgsfield.ai/mcp/ugc-flow",
+        "description": "Create a creator-style product review from your product brief and reference images."
+       },
+       {
+        "@type": "ListItem",
+        "position": 9,
+        "name": "Model and render in Blender with Claude",
+        "url": "https://higgsfield.ai/mcp/how-to-model-in-blender-with-claude-and-render-on-higgsfield-gpu",
+        "description": "Use Claude to model in Blender and render the result on Higgsfield GPU."
+       },
+       {
+        "@type": "ListItem",
+        "position": 10,
+        "name": "Render Houdini simulations",
+        "url": "https://higgsfield.ai/mcp/how-to-render-houdini-simulations-on-higgsfield-gpu",
+        "description": "Render Houdini simulations on a Higgsfield cloud GPU."
+       },
+       {
+        "@type": "ListItem",
+        "position": 11,
+        "name": "Render Blender animations with Claude",
+        "url": "https://higgsfield.ai/mcp/how-to-render-blender-animation-with-claude-on-higgsfield-gpu",
+        "description": "Use Claude and Blender to render an animation on Higgsfield GPU."
+       },
+       {
+        "@type": "ListItem",
+        "position": 12,
+        "name": "Render a city in Unreal Engine",
+        "url": "https://higgsfield.ai/mcp/how-we-rendered-a-3d-modeled-city-in-unreal-engine-on-higgsfield-gpu",
+        "description": "See how a 3D city was rendered in Unreal Engine on Higgsfield GPU."
+       },
+       {
+        "@type": "ListItem",
+        "position": 13,
+        "name": "Simulate flower growth in Houdini",
+        "url": "https://higgsfield.ai/mcp/simulate-growing-flowers-in-houdini-render-on-higgsfield-gpu",
+        "description": "Simulate growing flowers in Houdini and render the result on Higgsfield GPU."
+       },
+       {
+        "@type": "ListItem",
+        "position": 14,
+        "name": "Build a city in Blender with Claude",
+        "url": "https://higgsfield.ai/mcp/how-to-build-a-city-in-blender-with-claude-on-higgsfield-gpu",
+        "description": "Use Claude to build a city in Blender on a Higgsfield cloud GPU."
+       },
+       {
+        "@type": "ListItem",
+        "position": 15,
+        "name": "Ad Localizer",
+        "url": "https://higgsfield.ai/mcp/localizations",
+        "description": "Translate and adapt your ads for new languages and markets. Keep your brand’s message consistent while making the copy feel natural."
+       },
+       {
+        "@type": "ListItem",
+        "position": 16,
+        "name": "Ad Recreator",
+        "url": "https://higgsfield.ai/mcp/ad-adaptation",
+        "description": "Turn a reference video’s storytelling and sales structure into an original video ad for your product."
+       },
+       {
+        "@type": "ListItem",
+        "position": 17,
+        "name": "Ad Resizer",
+        "url": "https://higgsfield.ai/mcp/aspect-ratio-formatter",
+        "description": "Adapt your static ads for different placements and aspect ratios. Adjust the layout to keep your product and message in focus."
+       },
+       {
+        "@type": "ListItem",
+        "position": 18,
+        "name": "Ad Strategist",
+        "url": "https://higgsfield.ai/mcp/link-to-ads",
+        "description": "Turn product and competitor research into static ads tailored to your market. Explore different angles grounded in what your product offers."
+       },
+       {
+        "@type": "ListItem",
+        "position": 19,
+        "name": "Campaign Analyst",
+        "url": "https://higgsfield.ai/mcp/performance-marketing-operator",
+        "description": "Analyze campaign results to find what needs improvement. Get practical recommendations and a clear plan for what to test next."
+       },
+       {
+        "@type": "ListItem",
+        "position": 20,
+        "name": "Build a dragon-riding game",
+        "url": "https://higgsfield.ai/mcp/new-skill-2e23ef31-789a-41e4-a3bf-afaba3c5b7ca",
+        "description": "Build Skyfire, a dragon-riding game with aerial combat, a titan boss and procedural sound."
+       },
+       {
+        "@type": "ListItem",
+        "position": 21,
+        "name": "Customer Voice Ads",
+        "url": "https://higgsfield.ai/mcp/voc-research-ad",
+        "description": "Create static ads from real customer feedback. Build your message around the needs, concerns, and language of your audience."
+       },
+       {
+        "@type": "ListItem",
+        "position": 22,
+        "name": "Headline Multiplier",
+        "url": "https://higgsfield.ai/mcp/headlines-ab",
+        "description": "Turn one static ad into multiple headline variations. Keep the visuals consistent so you can test different messages."
+       },
+       {
+        "@type": "ListItem",
+        "position": 23,
+        "name": "Hook Multiplier",
+        "url": "https://higgsfield.ai/mcp/ad-hooks",
+        "description": "Give one video multiple opening hooks. Get complete edited versions ready to test different ways of grabbing attention."
+       },
+       {
+        "@type": "ListItem",
+        "position": 24,
+        "name": "/illustration-animation",
+        "url": "https://higgsfield.ai/mcp/illustration-animation",
+        "description": "Bring illustrated characters to life in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 25,
+        "name": "/localization-motion",
+        "url": "https://higgsfield.ai/mcp/localization-motion",
+        "description": "Adapt animated designs for multiple languages in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 26,
+        "name": "/use-after-effects",
+        "url": "https://higgsfield.ai/mcp/use-after-effects",
+        "description": "Create and refine editable motion design in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 27,
+        "name": "/paper-collage",
+        "url": "https://higgsfield.ai/mcp/paper-collage",
+        "description": "Turn paper cutouts into editable motion in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 28,
+        "name": "/presentation-animation",
+        "url": "https://higgsfield.ai/mcp/presentation-animation",
+        "description": "Turn presentation slides into editable motion in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 29,
+        "name": "/saas-animation",
+        "url": "https://higgsfield.ai/mcp/saas-animation",
+        "description": "Bring SaaS interfaces and product stories to life in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 30,
+        "name": "/destruction-studio",
+        "url": "https://higgsfield.ai/mcp/destruction-studio",
+        "description": "Create cinematic destruction in Blender with fractured structures, simulated debris, dust, and editable scenes."
+       },
+       {
+        "@type": "ListItem",
+        "position": 31,
+        "name": "/whiteboard-animation",
+        "url": "https://higgsfield.ai/mcp/whiteboard-animation",
+        "description": "Turn whiteboard ideas into editable animation in After Effects."
+       },
+       {
+        "@type": "ListItem",
+        "position": 32,
+        "name": "/exploded-view",
+        "url": "https://higgsfield.ai/mcp/exploded-view",
+        "description": "Animate objects assembling in Blender with coordinated parts, clear camera staging, and an editable final scene."
+       },
+       {
+        "@type": "ListItem",
+        "position": 33,
+        "name": "/scene-builder",
+        "url": "https://higgsfield.ai/mcp/scene-builder",
+        "description": "Build editable Blender scenes from characters, architecture, and props, with room to refine poses and camera angles."
+       },
+       {
+        "@type": "ListItem",
+        "position": 34,
+        "name": "Editorial Motion Graphics",
+        "url": "https://higgsfield.ai/mcp/vox-mixed-media",
+        "description": "Explain a story using editorial motion graphics and mixed visual media."
+       },
+       {
+        "@type": "ListItem",
+        "position": 35,
+        "name": "/cartoon-shaders",
+        "url": "https://higgsfield.ai/mcp/cartoon-shaders",
+        "description": "Create stylized Blender materials with toon shading, expressive outlines, and adjustable textures."
+       },
+       {
+        "@type": "ListItem",
+        "position": 36,
+        "name": "/project-sorter",
+        "url": "https://higgsfield.ai/mcp/project-sorter",
+        "description": "Organize footage, synchronize sound, and prepare editable sequences in Adobe Premiere Pro."
+       },
+       {
+        "@type": "ListItem",
+        "position": 37,
+        "name": "/shot-composer",
+        "url": "https://higgsfield.ai/mcp/shot-composer",
+        "description": "Combine footage and visual layers into editable VFX shots in After Effects, with matched lighting, depth, and grain."
+       },
+       {
+        "@type": "ListItem",
+        "position": 38,
+        "name": "Stickman cartoon",
+        "url": "https://higgsfield.ai/mcp/stickman-explainer",
+        "description": "Turn a story or concept into an animated explainer with simple stickman characters."
+       },
+       {
+        "@type": "ListItem",
+        "position": 39,
+        "name": "/shot-cleanup",
+        "url": "https://higgsfield.ai/mcp/shot-cleanup",
+        "description": "Clean up unwanted elements in After Effects while preserving the shot’s movement, texture, and editable layers."
+       },
+       {
+        "@type": "ListItem",
+        "position": 40,
+        "name": "/vectorize",
+        "url": "https://higgsfield.ai/mcp/vectorize",
+        "description": "Turn raster illustrations into editable Illustrator artwork with organized paths, groups, and layers."
+       },
+       {
+        "@type": "ListItem",
+        "position": 41,
+        "name": "/image-fixer",
+        "url": "https://higgsfield.ai/mcp/image-fixer",
+        "description": "Refine generated locations in Photoshop by fixing textures, removing unwanted objects, and preserving editable masks."
+       },
+       {
+        "@type": "ListItem",
+        "position": 42,
+        "name": "Physical UGC video",
+        "url": "https://higgsfield.ai/mcp/physical-ugc-skill",
+        "description": "Create a creator-style tutorial that demonstrates how a physical product works."
+       },
+       {
+        "@type": "ListItem",
+        "position": 43,
+        "name": "/use-touchdesigner",
+        "url": "https://higgsfield.ai/mcp/use-touchdesigner",
+        "description": "Build visual effects for images and video in TouchDesigner, then preview, refine, and export the result."
+       },
+       {
+        "@type": "ListItem",
+        "position": 44,
+        "name": "/color-grading",
+        "url": "https://higgsfield.ai/mcp/color-grading",
+        "description": "Grade footage in DaVinci Resolve Studio with balanced shots, natural skin tones, and an editable node structure."
+       },
+       {
+        "@type": "ListItem",
+        "position": 45,
+        "name": "Create the TORQK launch film with Claude",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-torqk-launch-film",
+        "description": "Explore how one Claude operator and ten helpers created the TORQK launch film."
+       },
+       {
+        "@type": "ListItem",
+        "position": 46,
+        "name": "Unboxing UGC",
+        "url": "https://higgsfield.ai/mcp/unboxing-ugc-skill",
+        "description": "Create a creator-style unboxing video with a product reveal and close-up details."
+       },
+       {
+        "@type": "ListItem",
+        "position": 47,
+        "name": "Try-on UGC",
+        "url": "https://higgsfield.ai/mcp/try-on-ugc-skill",
+        "description": "Create a creator-style try-on video that shows how a product looks and fits."
+       },
+       {
+        "@type": "ListItem",
+        "position": 48,
+        "name": "Fairy Tale & Myth",
+        "url": "https://higgsfield.ai/mcp/faceless-fairy-tale-myth",
+        "description": "Explain a subject through imaginative scenes inspired by fairy tales and mythology."
+       },
+       {
+        "@type": "ListItem",
+        "position": 49,
+        "name": "Paper Diorama",
+        "url": "https://higgsfield.ai/mcp/faceless-paper-diorama",
+        "description": "Tell a story through layered paper-like scenes and cutout characters."
+       },
+       {
+        "@type": "ListItem",
+        "position": 50,
+        "name": "Pastel Flat 2D",
+        "url": "https://higgsfield.ai/mcp/faceless-pastel-flat-2d",
+        "description": "Create a faceless explainer with soft pastel colors and simple flat illustrations."
+       },
+       {
+        "@type": "ListItem",
+        "position": 51,
+        "name": "Build a transparent glass head from a 360° video",
+        "url": "https://higgsfield.ai/mcp/new-skill-9ca33b42-e80d-4836-a5e5-182d789df2ec",
+        "description": "Create a transparent glass head from a 360° video reference."
+       },
+       {
+        "@type": "ListItem",
+        "position": 52,
+        "name": "Hand Drawn",
+        "url": "https://higgsfield.ai/mcp/faceless-hand-drawn",
+        "description": "Explain an idea through hand-drawn illustrations and animated scenes."
+       },
+       {
+        "@type": "ListItem",
+        "position": 53,
+        "name": "Mannequin",
+        "url": "https://higgsfield.ai/mcp/faceless-mannequin",
+        "description": "Tell a story with stylized mannequin figures instead of an on-camera presenter."
+       },
+       {
+        "@type": "ListItem",
+        "position": 54,
+        "name": "Build a fantasy browser MMO",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-browser-mmo",
+        "description": "Build a playable fantasy browser MMO with a custom world, characters and combat."
+       },
+       {
+        "@type": "ListItem",
+        "position": 55,
+        "name": "Build a 931-part jet entirely in code",
+        "url": "https://higgsfield.ai/mcp/new-skill-17791cbb-4837-45f9-ae8c-812f900eba81",
+        "description": "A photoreal jet assembly built in Blender with code."
+       },
+       {
+        "@type": "ListItem",
+        "position": 56,
+        "name": "Houndkeeper: an animated short made in code",
+        "url": "https://higgsfield.ai/mcp/new-skill-1da97db5-fd8f-42a1-96e2-24338b39f2b6",
+        "description": "An animated short written entirely in code."
+       },
+       {
+        "@type": "ListItem",
+        "position": 57,
+        "name": "The Three Little Pigs",
+        "url": "https://higgsfield.ai/mcp/new-skill-957219f0-8898-4175-915a-588bdeb49159",
+        "description": "The Three Little Pigs, animated with code."
+       },
+       {
+        "@type": "ListItem",
+        "position": 58,
+        "name": "Build a playable shooter in 3.5 hours",
+        "url": "https://higgsfield.ai/mcp/new-skill-fc6c69db-9a26-453e-a0e2-c15ec8b6a1dd",
+        "description": "A playable FPS built with Fable 5.2, Blender, and Unreal Engine."
+       },
+       {
+        "@type": "ListItem",
+        "position": 59,
+        "name": "Build Iron Bamboo, a browser action game",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-iron-bamboo",
+        "description": "Build Iron Bamboo, a browser action game with Higgsfield-generated 3D characters."
+       },
+       {
+        "@type": "ListItem",
+        "position": 60,
+        "name": "Turn one drawing into a horror game",
+        "url": "https://higgsfield.ai/mcp/new-skill-94f4e947-0d30-4f6a-a22a-0c3ae713731d",
+        "description": "Create a cohesive horror game from one key-art drawing, with generated characters, animations, textures and voices."
+       },
+       {
+        "@type": "ListItem",
+        "position": 61,
+        "name": "Render a lightning strike over a megacity",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-megacity-lightning",
+        "description": "Create a cinematic lightning strike over a procedural megacity using three.js and GLSL."
+       },
+       {
+        "@type": "ListItem",
+        "position": 62,
+        "name": "Build a dark-fantasy RPG entirely in code",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-vowlorn-rpg",
+        "description": "Build VOWLORN, a dark-fantasy browser RPG with worlds, characters, music and voices generated in code."
+       },
+       {
+        "@type": "ListItem",
+        "position": 63,
+        "name": "Render a rainy Tokyo alley at night",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-rainy-tokyo-alley",
+        "description": "Build and render a rainy Tokyo alley at night entirely in code."
+       },
+       {
+        "@type": "ListItem",
+        "position": 64,
+        "name": "One scene, three hand-painted looks",
+        "url": "https://higgsfield.ai/mcp/new-skill-5c6613f9-a944-42c6-b40c-434d13aecee2",
+        "description": "Three animated looks from the same coded scene."
+       },
+       {
+        "@type": "ListItem",
+        "position": 65,
+        "name": "Build a 3D browser action-adventure",
+        "url": "https://higgsfield.ai/mcp/new-skill-2fb09e61-56a6-45de-9eef-7028a5bafbab",
+        "description": "Build Sunwarden, a browser action-adventure with an open world, temple puzzles and a boss battle."
+       },
+       {
+        "@type": "ListItem",
+        "position": 66,
+        "name": "Build an axolotl from 4,194,304 particles",
+        "url": "https://higgsfield.ai/mcp/new-skill-ed9f74f1-62b2-4407-9e9f-97739b41467e",
+        "description": "A particle-built axolotl, animated entirely with code."
+       },
+       {
+        "@type": "ListItem",
+        "position": 67,
+        "name": "Turn a news question into a sourced explainer",
+        "url": "https://higgsfield.ai/mcp/new-skill-14df1a66-c7fd-4877-bf34-b03ae9044462",
+        "description": "A sourced motion explainer built from a news question."
+       },
+       {
+        "@type": "ListItem",
+        "position": 68,
+        "name": "Render a Bombay bazaar entirely in code",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-bombay-bazaar",
+        "description": "Build and render a sunset Bombay bazaar, its crowds and sound entirely in code."
+       },
+       {
+        "@type": "ListItem",
+        "position": 69,
+        "name": "Synthesize a song and voice entirely in code",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-nobodys-voice",
+        "description": "Synthesize an original song, lead vocal, choir and lyric video entirely in code."
+       },
+       {
+        "@type": "ListItem",
+        "position": 70,
+        "name": "Render a Mexico City morning market",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-mexico-city-market",
+        "description": "Render a colorful Mexico City morning market in a short film made entirely in code."
+       },
+       {
+        "@type": "ListItem",
+        "position": 71,
+        "name": "Build a cinematic city with 10 AI agents",
+        "url": "https://higgsfield.ai/mcp/new-skill-eaea3997-f1a6-421f-9eaa-21e1fb6f7e75",
+        "description": "Claude + Blender city-building walkthrough"
+       },
+       {
+        "@type": "ListItem",
+        "position": 72,
+        "name": "Turn a 15-second video into a game character",
+        "url": "https://higgsfield.ai/mcp/new-skill-746bf749-bbc6-49e9-85a9-cf1d9206c162",
+        "description": "Turn a fight scene into a rigged, textured 3D heroine for Unity."
+       },
+       {
+        "@type": "ListItem",
+        "position": 73,
+        "name": "Bring a zombie hand to life",
+        "url": "https://higgsfield.ai/mcp/new-skill-28827f4e-fe46-4625-b46b-18ce691fa5a9",
+        "description": "Fable 5.2 + Blender walkthrough"
+       },
+       {
+        "@type": "ListItem",
+        "position": 74,
+        "name": "Build a cantilevered ring house in code",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-rim-ring-house",
+        "description": "Design a cantilevered ring house in code and show its construction beside the finished render."
+       },
+       {
+        "@type": "ListItem",
+        "position": 75,
+        "name": "Build a photoreal diner entirely in code",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-photoreal-diner",
+        "description": "Build a photoreal diner in code and reveal its triangle mesh beside the finished render."
+       },
+       {
+        "@type": "ListItem",
+        "position": 76,
+        "name": "Robot Pop: a dancing Blender rig",
+        "url": "https://higgsfield.ai/mcp/new-skill-58f5537a-3135-4515-8475-e5973b03f13a",
+        "description": "A rigged robot, a dance, and a film scripted in Blender."
+       },
+       {
+        "@type": "ListItem",
+        "position": 77,
+        "name": "Build an android head from a 12-second video",
+        "url": "https://higgsfield.ai/mcp/new-skill-ad00800f-0521-48c3-9ae5-7895493f68a8",
+        "description": "Turn a 12-second orbit video into a layered Blender model."
+       },
+       {
+        "@type": "ListItem",
+        "position": 78,
+        "name": "Turn an apartment plan into 3D",
+        "url": "https://higgsfield.ai/mcp/fable-5-2-residence-9c",
+        "description": "Turn an apartment floor plan into a rendered interior and a synchronized cursor-build film."
+       }
+      ],
+      "numberOfItems": 78
+     }
+    }
+   ]
+  },
+  "matches": [
+   {
+    "i": "#mcp#mcp",
+    "l": {
+     "items": [
+      {
+       "installations": [
+        {
+         "id": "chatgpt",
+         "title": "Download ChatGPT Desktop",
+         "description": "Install the ChatGPT desktop app on your computer.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "auto",
+         "action_label": "Download ChatGPT",
+         "action_url": "https://chatgpt.com/download/",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "secondary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "higgsfield-plugin",
+         "title": "Install the Higgsfield plugin",
+         "description": "Add Higgsfield to ChatGPT to use this workflow.",
+         "icon_key": "higgsfield",
+         "icon_url": "",
+         "action": "auto",
+         "action_label": "Install plugin",
+         "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "start-in-chatgpt",
+         "title": "Run the workflow",
+         "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "copy",
+         "action_label": "Copy prompt",
+         "action_url": "",
+         "action_icon": "none",
+         "action_icon_url": "",
+         "prompt": "/marketing-research-to-ads\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        }
+       ],
+       "main_conversation": {
+        "result": {
+         "source": "first-example"
+        },
+        "messages": [
+         {
+          "id": "main-user-1",
+          "role": "user",
+          "text": "Research this product and its competitors, then create 5 static Meta ads with distinct angles.",
+          "attachments": [
+           {
+            "title": "Sorbet soda product",
+            "type": "image",
+            "url": "https://static.higgsfield.ai/gpt-astra/sorbet-soda-link-to-ads.webp",
+            "width": 1080,
+            "height": 1080
+           }
+          ]
+         },
+         {
+          "id": "main-assistant-1",
+          "role": "assistant",
+          "text": "I’ll review the product and competitor positioning, then turn the strongest supported benefits into five distinct creative angles. Each ad will have its own headline and visual direction."
+         },
+         {
+          "id": "main-generation-1",
+          "role": "generation",
+          "title": "Higgsfield",
+          "prompt": "Create five static Meta ad concepts for the supplied product. Give each a distinct customer angle, headline, visual composition, and call to action. Ground all product claims in the supplied evidence and avoid unsupported promises.",
+          "icon_key": "higgsfield",
+          "attachments": [
+           {
+            "title": "Sorbet soda product",
+            "type": "image",
+            "url": "https://static.higgsfield.ai/gpt-astra/sorbet-soda-link-to-ads.webp",
+            "width": 1080,
+            "height": 1080
+           }
+          ],
+          "tags": [
+           {
+            "id": "main-tag-1",
+            "type": "custom",
+            "label": "5 ad concepts",
+            "icon_key": "image"
+           },
+           {
+            "id": "main-tag-2",
+            "type": "custom",
+            "label": "Distinct angles",
+            "icon_key": "skill"
+           }
+          ]
+         }
+        ]
+       },
+       "conversation_media": {
+        "title": "Ad Strategist",
+        "prompt": "/marketing-research-to-ads\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/link-to-ads/1.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/link-to-ads/1-poster.webp",
+        "width": 600,
+        "height": 338
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /marketing-research-to-ads.\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+        "reference_medias": [
+         {
+          "title": "Sorbet soda product",
+          "type": "image",
+          "url": "https://static.higgsfield.ai/gpt-astra/sorbet-soda-link-to-ads.webp",
+          "width": 1080,
+          "height": 1080
+         }
+        ],
+        "show_chatgpt": false,
+        "show_copy": true
+       },
+       "agents": [
+        {
+         "id": "telegram",
+         "destination": "copy-prompt",
+         "installations": []
+        },
+        {
+         "id": "slack",
+         "destination": "copy-prompt",
+         "installations": []
+        },
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "installations": [
+          {
+           "id": "chatgpt",
+           "title": "Download ChatGPT Desktop",
+           "description": "Install the ChatGPT desktop app on your computer.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "auto",
+           "action_label": "Download ChatGPT",
+           "action_url": "https://chatgpt.com/download/",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "secondary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "higgsfield-plugin",
+           "title": "Install the Higgsfield plugin",
+           "description": "Add Higgsfield to ChatGPT to use this workflow.",
+           "icon_key": "higgsfield",
+           "icon_url": "",
+           "action": "auto",
+           "action_label": "Install plugin",
+           "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-in-chatgpt",
+           "title": "Run the workflow",
+           "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "/marketing-research-to-ads\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use @Higgsfield to run /marketing-research-to-ads.\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+         "label": "Try in Claude",
+         "installations": []
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt"
+        }
+       ],
+       "id": "3bb04684-c964-4289-8114-000000000004",
+       "slug": "link-to-ads",
+       "title": "Ad Strategist",
+       "card_title": "Ad Strategist",
+       "is_indexable": false,
+       "description": "Turn product and competitor research into static ads tailored to your market. Explore different angles grounded in what your product offers.",
+       "skill_label": "marketing-research-to-ads",
+       "short_description": "Turn product and competitor research into static ads tailored to your market. Explore different angles grounded in what your product offers.",
+       "apps": [],
+       "cover_media": {
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/link-to-ads/cover.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/link-to-ads/cover-poster.webp",
+        "width": 600,
+        "height": 338
+       },
+       "cover_alt": "Ad Strategist",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "paid-ads",
+         "name": "Paid Ads",
+         "show_on_card": true,
+         "show_on_detail": true
+        },
+        {
+         "key": "featured",
+         "name": "Popular",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "installations": [
+        {
+         "id": "chatgpt",
+         "title": "Download ChatGPT Desktop",
+         "description": "Install the ChatGPT desktop app on your computer.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "auto",
+         "action_label": "Download ChatGPT",
+         "action_url": "https://chatgpt.com/download/",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "secondary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "higgsfield-plugin",
+         "title": "Install the Higgsfield plugin",
+         "description": "Add Higgsfield to ChatGPT to use this workflow.",
+         "icon_key": "higgsfield",
+         "icon_url": "",
+         "action": "auto",
+         "action_label": "Install plugin",
+         "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "start-in-chatgpt",
+         "title": "Run the workflow",
+         "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "copy",
+         "action_label": "Copy prompt",
+         "action_url": "",
+         "action_icon": "none",
+         "action_icon_url": "",
+         "prompt": "/marketing-campaign-manager\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        }
+       ],
+       "main_conversation": {
+        "result": {
+         "source": "first-example"
+        },
+        "messages": [
+         {
+          "id": "main-user-1",
+          "role": "user",
+          "text": "Review 14 days of campaign data and recommend what to scale, pause, and test next.",
+          "attachments": []
+         },
+         {
+          "id": "main-assistant-1",
+          "role": "assistant",
+          "text": "I’ll compare spend, conversions, acquisition cost, and creative trends across the 14-day window. I’ll separate strong signals from low-volume results before recommending changes."
+         },
+         {
+          "id": "main-generation-1",
+          "role": "generation",
+          "title": "Higgsfield",
+          "prompt": "Review the supplied 14 days of campaign data. Group recommendations into scale, pause, and test next. Explain each decision using the actual metrics, flag missing data, and distinguish observed results from hypotheses.",
+          "icon_key": "higgsfield",
+          "attachments": [],
+          "tags": [
+           {
+            "id": "main-tag-1",
+            "type": "custom",
+            "label": "14-day review",
+            "icon_key": "duration"
+           },
+           {
+            "id": "main-tag-2",
+            "type": "custom",
+            "label": "Scale · Pause · Test",
+            "icon_key": "settings"
+           }
+          ]
+         }
+        ]
+       },
+       "conversation_media": {
+        "title": "Campaign Analyst",
+        "prompt": "/marketing-campaign-manager\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/performance-marketing.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/performance-marketing-poster.webp",
+        "width": 600,
+        "height": 338
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /marketing-campaign-manager.\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+        "reference_medias": [],
+        "show_chatgpt": false,
+        "show_copy": true
+       },
+       "agents": [
+        {
+         "id": "telegram",
+         "destination": "copy-prompt",
+         "installations": []
+        },
+        {
+         "id": "slack",
+         "destination": "copy-prompt",
+         "installations": []
+        },
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "installations": [
+          {
+           "id": "chatgpt",
+           "title": "Download ChatGPT Desktop",
+           "description": "Install the ChatGPT desktop app on your computer.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "auto",
+           "action_label": "Download ChatGPT",
+           "action_url": "https://chatgpt.com/download/",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "secondary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "higgsfield-plugin",
+           "title": "Install the Higgsfield plugin",
+           "description": "Add Higgsfield to ChatGPT to use this workflow.",
+           "icon_key": "higgsfield",
+           "icon_url": "",
+           "action": "auto",
+           "action_label": "Install plugin",
+           "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-in-chatgpt",
+           "title": "Run the workflow",
+           "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "/marketing-campaign-manager\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use @Higgsfield to run /marketing-campaign-manager.\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+         "label": "Try in Claude",
+         "installations": []
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt"
+        }
+       ],
+       "id": "3bb04684-c964-4289-8114-000000000002",
+       "slug": "performance-marketing-operator",
+       "title": "Campaign Analyst",
+       "card_title": "Campaign Analyst",
+       "is_indexable": false,
+       "description": "Analyze campaign results to find what needs improvement. Get practical recommendations and a clear plan for what to test next.",
+       "skill_label": "marketing-campaign-manager",
+       "short_description": "Analyze campaign results to find what needs improvement. Get practical recommendations and a clear plan for what to test next.",
+       "apps": [],
+       "cover_media": {
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/performance-marketing.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/performance-marketing-poster.webp",
+        "width": 600,
+        "height": 338
+       },
+       "cover_alt": "Campaign Analyst",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "paid-ads",
+         "name": "Paid Ads",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "installations": [
+        {
+         "id": "chatgpt",
+         "title": "Download ChatGPT Desktop",
+         "description": "Install the ChatGPT desktop app on your computer.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "auto",
+         "action_label": "Download ChatGPT",
+         "action_url": "https://chatgpt.com/download/",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "secondary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "higgsfield-plugin",
+         "title": "Install the Higgsfield plugin",
+         "description": "Add Higgsfield to ChatGPT to use this workflow.",
+         "icon_key": "higgsfield",
+         "icon_url": "",
+         "action": "auto",
+         "action_label": "Install plugin",
+         "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+         "action_icon": "download",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "start-in-chatgpt",
+         "title": "Run the workflow",
+         "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+         "icon_key": "chatgpt",
+         "icon_url": "",
+         "action": "copy",
+         "action_label": "Copy prompt",
+         "action_url": "",
+         "action_icon": "none",
+         "action_icon_url": "",
+         "prompt": "/marketing-feedback-to-ads\nTurn my customer reviews and product evidence into 5 static Meta ads with distinct angles.",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        }
+       ],
+       "main_conversation": {
+        "result": {
+         "source": "first-example"
+        },
+        "messages": [
+         {
+          "id": "main-user-1",
+          "role": "user",
+          "text": "Turn my customer reviews and product evidence into 5 static Meta ads with distinct angles.",
+          "attachments": [
+           {
+            "title": "Pool Day product",
+            "type": "image",
+            "url": "https://static.higgsfield.ai/gpt-astra/pool-day-voice-of-customer.webp",
+            "width": 1080,
+            "height": 1080
+           }
+          ]
+         },
+         {
+          "id": "main-assistant-1",
+          "role": "assistant",
+          "text": "I’ll look for recurring customer needs, objections, and phrases in the reviews, then pair them with supported product benefits to create five different ad angles."
+         },
+         {
+          "id": "main-generation-1",
+          "role": "generation",
+          "title": "Higgsfield",
+          "prompt": "Create five static Meta ad concepts from the supplied customer reviews and product evidence. Use distinct customer needs and objections for each angle. Preserve the meaning of customer feedback and do not invent testimonials or unsupported claims.",
+          "icon_key": "higgsfield",
+          "attachments": [
+           {
+            "title": "Pool Day product",
+            "type": "image",
+            "url": "https://static.higgsfield.ai/gpt-astra/pool-day-voice-of-customer.webp",
+            "width": 1080,
+            "height": 1080
+           }
+          ],
+          "tags": [
+           {
+            "id": "main-tag-1",
+            "type": "custom",
+            "label": "5 ad concepts",
+            "icon_key": "image"
+           },
+           {
+            "id": "main-tag-2",
+            "type": "custom",
+            "label": "Customer insights",
+            "icon_key": "skill"
+           }
+          ]
+         }
+        ]
+       },
+       "conversation_media": {
+        "title": "Customer Voice Ads",
+        "prompt": "/marketing-feedback-to-ads\nTurn my customer reviews and product evidence into 5 static Meta ads with distinct angles.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/voc-research-ad.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/voc-research-ad-poster.webp",
+        "width": 600,
+        "height": 338
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /marketing-feedback-to-ads.\nTurn my customer reviews and product evidence into 5 static Meta ads with distinct angles.",
+        "reference_medias": [
+         {
+          "title": "Pool Day product",
+          "type": "image",
+          "url": "https://static.higgsfield.ai/gpt-astra/pool-day-voice-of-customer.webp",
+          "width": 1080,
+          "height": 1080
+         }
+        ],
+        "show_chatgpt": false,
+        "show_copy": true
+       },
+       "agents": [
+        {
+         "id": "telegram",
+         "destination": "copy-prompt",
+         "installations": []
+        },
+        {
+         "id": "slack",
+         "destination": "copy-prompt",
+         "installations": []
+        },
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "installations": [
+          {
+           "id": "chatgpt",
+           "title": "Download ChatGPT Desktop",
+           "description": "Install the ChatGPT desktop app on your computer.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "auto",
+           "action_label": "Download ChatGPT",
+           "action_url": "https://chatgpt.com/download/",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "secondary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "higgsfield-plugin",
+           "title": "Install the Higgsfield plugin",
+           "description": "Add Higgsfield to ChatGPT to use this workflow.",
+           "icon_key": "higgsfield",
+           "icon_url": "",
+           "action": "auto",
+           "action_label": "Install plugin",
+           "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+           "action_icon": "download",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-in-chatgpt",
+           "title": "Run the workflow",
+           "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "/marketing-feedback-to-ads\nTurn my customer reviews and product evidence into 5 static Meta ads with distinct angles.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use @Higgsfield to run /marketing-feedback-to-ads.\nTurn my customer reviews and product evidence into 5 static Meta ads with distinct angles.",
+         "label": "Try in Claude",
+         "installations": []
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt"
+        }
+       ],
+       "id": "3bb04684-c964-4289-8114-000000000001",
+       "slug": "voc-research-ad",
+       "title": "Customer Voice Ads",
+       "card_title": "Customer Voice Ads",
+       "is_indexable": false,
+       "description": "Create static ads from real customer feedback. Build your message around the needs, concerns, and language of your audience.",
+       "skill_label": "marketing-feedback-to-ads",
+       "short_description": "Create static ads from real customer feedback. Build your message around the needs, concerns, and language of your audience.",
+       "apps": [],
+       "cover_media": {
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/voc-research-ad.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/voc-research-ad-poster.webp",
+        "width": 600,
+        "height": 338
+       },
+       "cover_alt": "Customer Voice Ads",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "paid-ads",
+         "name": "Paid Ads",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "installations": [],
+       "main_conversation": {
+        "messages": [
+         {
+          "id": "bs-script-intake",
+          "role": "user",
+          "text": "I have a two-scene script called Bloodline Secrets. Can we make episode one for phones? I’d like to go step by step.",
+          "attachments": []
+         },
+         {
+          "id": "bs-intake-reply",
+          "role": "assistant",
+          "text": "Paste the script here. What look do you have in mind, and do you want a quick 480p draft, a 720p episode, or a 1080p finish? At 1080p you’ll get to watch a draft first."
+         }
+        ]
+       },
+       "conversation_media": {
+        "title": "Bloodline Secrets · Episode 1",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/short-drama-intro/hero/Grandson%20-1.mp4",
+        "poster_url": "https://static.higgsfield.ai/short-drama-intro/hero/Grandson%20-1-poster.webp",
+        "width": 1080,
+        "height": 1920
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /short-drama.\nTurn my story into a short drama episode with a consistent cast, locations, and visual style, and dialogue performed on screen. Keep my characters and plot recognizable from scene to scene. Ask me what I have before starting: a script, an idea, or nothing yet. Show me the plan and its price for approval before generating anything.",
+        "reference_medias": [],
+        "show_chatgpt": true,
+        "show_copy": true
+       },
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "prompt": "Use @Higgsfield to run /short-drama.\nTurn my story into a short drama episode with a consistent cast, locations, and visual style, and dialogue performed on screen. Keep my characters and plot recognizable from scene to scene. Ask me what I have before starting: a script, an idea, or nothing yet. Show me the plan and its price for approval before generating anything."
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use @Higgsfield to run /short-drama.\nTurn my story into a short drama episode with a consistent cast, locations, and visual style, and dialogue performed on screen. Keep my characters and plot recognizable from scene to scene. Ask me what I have before starting: a script, an idea, or nothing yet. Show me the plan and its price for approval before generating anything."
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /short-drama.\nTurn my story into a short drama episode with a consistent cast, locations, and visual style, and dialogue performed on screen. Keep my characters and plot recognizable from scene to scene. Ask me what I have before starting: a script, an idea, or nothing yet. Show me the plan and its price for approval before generating anything."
+        },
+        {
+         "id": "telegram",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /short-drama.\nTurn my story into a short drama episode with a consistent cast, locations, and visual style, and dialogue performed on screen. Keep my characters and plot recognizable from scene to scene. Ask me what I have before starting: a script, an idea, or nothing yet. Show me the plan and its price for approval before generating anything."
+        },
+        {
+         "id": "slack",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /short-drama.\nTurn my story into a short drama episode with a consistent cast, locations, and visual style, and dialogue performed on screen. Keep my characters and plot recognizable from scene to scene. Ask me what I have before starting: a script, an idea, or nothing yet. Show me the plan and its price for approval before generating anything."
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /short-drama.\nTurn my story into a short drama episode with a consistent cast, locations, and visual style, and dialogue performed on screen. Keep my characters and plot recognizable from scene to scene. Ask me what I have before starting: a script, an idea, or nothing yet. Show me the plan and its price for approval before generating anything."
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /short-drama.\nTurn my story into a short drama episode with a consistent cast, locations, and visual style, and dialogue performed on screen. Keep my characters and plot recognizable from scene to scene. Ask me what I have before starting: a script, an idea, or nothing yet. Show me the plan and its price for approval before generating anything."
+        }
+       ],
+       "external_url": "https://higgsfield.ai/short-drama",
+       "id": "749ee480-e8d8-43af-af14-edd783eee0d6",
+       "slug": "short-drama",
+       "title": "Short Drama",
+       "card_title": "Short Drama",
+       "is_indexable": false,
+       "description": "Turn your script into a series worth bingeing. Build your cast, shape each episode, and bring every scene to life.",
+       "skill_label": "short-drama",
+       "short_description": "Turn your script into a series worth bingeing. Build your cast, shape each episode, and bring every scene to life.",
+       "apps": [],
+       "cover_media": {
+        "type": "video",
+        "url": "https://static.higgsfield.ai/landing/gpt-skills/demos/short-drama-20261116/SHORTDRAMAS_1.mp4",
+        "poster_url": "https://static.higgsfield.ai/landing/gpt-skills/demos/short-drama-20261116/SHORTDRAMAS_1-poster.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "cover_alt": "Short Drama preview with fantasy action and dramatic reactions",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "new",
+         "name": "New",
+         "show_on_card": true,
+         "show_on_detail": true
+        },
+        {
+         "key": "featured",
+         "name": "Popular",
+         "show_on_card": false,
+         "show_on_detail": false
+        },
+        {
+         "key": "index-1",
+         "name": "index-1",
+         "show_on_card": false,
+         "show_on_detail": false
+        },
+        {
+         "key": "production",
+         "name": "Production",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "installations": [],
+       "main_conversation": {
+        "messages": [
+         {
+          "id": "monster-brief",
+          "role": "user",
+          "text": "/monsters\nMake me a photoreal monster with a wide jaw, mottled green skin, and red quills. Put it in a city alley.",
+          "attachments": []
+         },
+         {
+          "id": "monster-sculpt",
+          "role": "assistant",
+          "text": "I’ll make it low to the ground, with a wide jaw, mottled green skin, and red quills."
+         }
+        ]
+       },
+       "conversation_media": {
+        "title": "Monster in the City Alley",
+        "download_url": "https://cdn.higgsfield.ai/gpt-skills/downloads/984803b3-e827-4f6c-a8f1-2d4b2eb33556/layers_3_highpoly_4k.mp4",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/landing/gpt-skills/demos/monster-20261125-1080p/layers_3_highpoly_4k.mp4",
+        "poster_url": "https://static.higgsfield.ai/landing/gpt-skills/demos/monster-20261125-first-frame/layers_3_highpoly_4k-poster.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /monsters.\nMake me a photoreal monster with a wide jaw, mottled green skin, and red quills. Put it in a city alley.",
+        "reference_medias": [],
+        "show_chatgpt": true,
+        "show_copy": true
+       },
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "prompt": "Use @Higgsfield to run /monsters.\nMake me a photoreal monster with a wide jaw, mottled green skin, and red quills. Put it in a city alley."
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use @Higgsfield to run /monsters.\nMake me a photoreal monster with a wide jaw, mottled green skin, and red quills. Put it in a city alley."
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /monsters.\nMake me a photoreal monster with a wide jaw, mottled green skin, and red quills. Put it in a city alley."
+        },
+        {
+         "id": "telegram",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /monsters.\nMake me a photoreal monster with a wide jaw, mottled green skin, and red quills. Put it in a city alley."
+        },
+        {
+         "id": "slack",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /monsters.\nMake me a photoreal monster with a wide jaw, mottled green skin, and red quills. Put it in a city alley."
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /monsters.\nMake me a photoreal monster with a wide jaw, mottled green skin, and red quills. Put it in a city alley."
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt",
+         "prompt": "Use @Higgsfield to run /monsters.\nMake me a photoreal monster with a wide jaw, mottled green skin, and red quills. Put it in a city alley."
+        }
+       ],
+       "id": "43047f0f-9e17-40e8-a05f-b5f169e8b689",
+       "slug": "monster",
+       "title": "Monster",
+       "card_title": "Monster",
+       "is_indexable": false,
+       "description": "Create photoreal monsters from an idea or a reference photo.",
+       "skill_label": "monsters",
+       "short_description": "Create photoreal monsters from an idea or a reference photo.",
+       "apps": [],
+       "cover_media": {
+        "title": "Monster in the City Alley",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/landing/gpt-skills/demos/monster-20261125-1080p/layers_3_highpoly_4k.mp4",
+        "poster_url": "https://static.higgsfield.ai/landing/gpt-skills/demos/monster-20261125-first-frame/layers_3_highpoly_4k-poster.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "cover_alt": "A green monster with red quills in a city alley",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "new",
+         "name": "New",
+         "show_on_card": true,
+         "show_on_detail": true
+        },
+        {
+         "key": "featured",
+         "name": "Popular",
+         "show_on_card": false,
+         "show_on_detail": false
+        },
+        {
+         "key": "index-1",
+         "name": "index-1",
+         "show_on_card": false,
+         "show_on_detail": false
+        },
+        {
+         "key": "production",
+         "name": "Production",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "installations": [],
+       "main_conversation": {
+        "messages": [
+         {
+          "id": "editing-room-city-user",
+          "role": "user",
+          "text": "/editing-room Turn this take into a 15-second edit. Start with the woman at the table, cut to a close-up, then move her into a room with colored glass. Finish with her in pink.",
+          "attachments": [
+           {
+            "title": "Input video",
+            "type": "video",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/7e8fb3d7-0ce5-4b30-a814-aab1dd1ba52a.mp4",
+            "poster_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/4859261d-9921-4818-baf4-247b117de8bb.webp",
+            "width": 600,
+            "height": 338
+           }
+          ]
+         },
+         {
+          "id": "editing-room-city-plan",
+          "role": "assistant",
+          "text": "I’ll keep the opening wide, darken the light across the table, then cut to her profile before the room changes."
+         }
+        ]
+       },
+       "conversation_media": {
+        "title": "My Corners of the City",
+        "type": "video",
+        "url": "https://cdn.higgsfield.ai/gpt-skills/downloads/f8dd7848-24ea-4159-80ff-8d92b4dca6a9/my-corners-of-the-city.mp4",
+        "poster_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/833aece0-65cb-4525-9eef-c23e89f8a4e2.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /editing-room.\nTurn this take into a 15-second edit. Start with the woman at the table, cut to a close-up, then move her into a room with colored glass. Finish with her in pink.",
+        "reference_medias": [
+         {
+          "title": "Input video",
+          "type": "video",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/7e8fb3d7-0ce5-4b30-a814-aab1dd1ba52a.mp4",
+          "poster_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/4859261d-9921-4818-baf4-247b117de8bb.webp",
+          "width": 600,
+          "height": 338
+         }
+        ],
+        "show_chatgpt": true,
+        "show_copy": true
+       },
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "prompt": "Use @Higgsfield to run /editing-room.\nTurn this take into a 15-second edit. Start with the woman at the table, cut to a close-up, then move her into a room with colored glass. Finish with her in pink."
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use @Higgsfield to run /editing-room.\nTurn this take into a 15-second edit. Start with the woman at the table, cut to a close-up, then move her into a room with colored glass. Finish with her in pink.",
+         "installations": []
+        }
+       ],
+       "id": "8df126fa-51d5-44bc-b52e-e987cc6fcd9b",
+       "slug": "new-skill-8df126fa-51d5-44bc-b52e-e987cc6fcd9b",
+       "title": "Editing Room",
+       "card_title": "Editing Room",
+       "is_indexable": false,
+       "description": "Browse your video projects and edit a sequence shot by shot on the timeline.",
+       "skill_label": "editing-room",
+       "short_description": "Edit a video shot by shot on the timeline.",
+       "apps": [],
+       "cover_media": {
+        "type": "video",
+        "url": "https://cdn.higgsfield.ai/gpt-skills/downloads/d45c01c9-49c5-4773-ba53-2caaaa27f86a/editing-room-card-1080p.mp4",
+        "poster_url": "https://cdn.higgsfield.ai/gpt-skills/downloads/2669d86e-26ac-4588-93be-277a375e0f8c/editing-room-card-poster.jpg",
+        "width": 1920,
+        "height": 1080
+       },
+       "cover_alt": "Editing Room preview with video clips stacked on a timeline.",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "featured",
+         "name": "Popular",
+         "show_on_card": false,
+         "show_on_detail": false
+        },
+        {
+         "key": "index-1",
+         "name": "index-1",
+         "show_on_card": false,
+         "show_on_detail": false
+        },
+        {
+         "key": "new",
+         "name": "New",
+         "show_on_card": true,
+         "show_on_detail": true
+        },
+        {
+         "key": "production",
+         "name": "Production",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "installations": [
+        {
+         "id": "higgsfield-katana",
+         "title": "Open Katana",
+         "description": "Explore reference videos and start a remix on Higgsfield.",
+         "icon_key": "higgsfield",
+         "icon_url": "",
+         "action": "link",
+         "action_label": "Open Katana",
+         "action_url": "https://higgsfield.ai/katana",
+         "action_icon": "none",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "secondary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        },
+        {
+         "id": "connect-higgsfield",
+         "title": "Connect Higgsfield",
+         "description": "Connect Higgsfield tools to your assistant before using /katana.",
+         "icon_key": "higgsfield",
+         "icon_url": "",
+         "action": "link",
+         "action_label": "Connect Higgsfield",
+         "action_url": "https://mcp.higgsfield.ai/mcp",
+         "action_icon": "none",
+         "action_icon_url": "",
+         "prompt": "",
+         "variant": "tertiary",
+         "copied_label": "Copied",
+         "copy_success_text": "Prompt copied.",
+         "copy_error_text": "Could not copy the prompt. Please try again.",
+         "is_hidden": false
+        }
+       ],
+       "main_conversation": {
+        "messages": [
+         {
+          "id": "katana-main-user-1",
+          "role": "user",
+          "text": "/katana Create a cinematic aura edit with green-tinted lighting, bold transitions, split-screen comparisons, and hand-drawn graphic accents.",
+          "attachments": [
+           {
+            "title": "Subject reference",
+            "type": "image",
+            "url": "https://static.higgsfield.ai/landing/gpt-skills/katana/20261017-inputs/subject-reference.webp",
+            "width": 1600,
+            "height": 1198
+           },
+           {
+            "title": "Style reference",
+            "type": "image",
+            "url": "https://static.higgsfield.ai/landing/gpt-skills/katana/20261017-inputs/style-reference.webp",
+            "width": 1600,
+            "height": 1198
+           }
+          ]
+         },
+         {
+          "id": "katana-main-assistant-1",
+          "role": "assistant",
+          "text": "I’ll create a 4:3 aura edit with a green color grade, rhythmic cuts, split-screen transitions, and hand-drawn accents synced to the soundtrack."
+         }
+        ]
+       },
+       "conversation_media": {
+        "type": "video",
+        "url": "https://static.higgsfield.ai/landing/gpt-skills/katana/20261016/test_v2.mp4",
+        "poster_url": "https://static.higgsfield.ai/landing/gpt-skills/katana/20261016/test_v2-poster.webp",
+        "width": 1280,
+        "height": 960
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /katana.\nRecreate this aura edit using my subject. Match the reference’s pacing, camera movement, transitions, color grade, and graphic effects, and adapt the scenes and on-screen text to my subject. Keep the reference soundtrack unless I request a different track. Ask me for the reference video and a photo or clip of my subject before starting.",
+        "reference_medias": [
+         {
+          "title": "Subject reference",
+          "type": "image",
+          "url": "https://static.higgsfield.ai/landing/gpt-skills/katana/20261017-inputs/subject-reference.webp",
+          "width": 1600,
+          "height": 1198
+         },
+         {
+          "title": "Style reference",
+          "type": "image",
+          "url": "https://static.higgsfield.ai/landing/gpt-skills/katana/20261017-inputs/style-reference.webp",
+          "width": 1600,
+          "height": 1198
+         }
+        ],
+        "show_chatgpt": true,
+        "show_copy": true
+       },
+       "device_visibility": "both",
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web"
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use @Higgsfield to run /katana.\nRecreate this aura edit using my subject. Match the reference’s pacing, camera movement, transitions, color grade, and graphic effects, and adapt the scenes and on-screen text to my subject. Keep the reference soundtrack unless I request a different track. Ask me for the reference video and a photo or clip of my subject before starting."
+        },
+        {
+         "id": "telegram",
+         "destination": "copy-prompt",
+         "label": "Try in Telegram",
+         "installations": []
+        }
+       ],
+       "source_id": "katana",
+       "external_url": "https://higgsfield.ai/katana",
+       "id": "katana",
+       "slug": "katana",
+       "title": "Katana",
+       "card_title": "Recreate aura edits",
+       "is_indexable": false,
+       "description": "Recreate aura edits with your own subject. Start with a reference video or your own footage, then use Katana to shape the pacing, transitions, color grade, and visual effects.",
+       "skill_label": "katana",
+       "short_description": "Turn your footage into an aura edit, or recreate a reference with your own subject, pacing, transitions, and visual effects.",
+       "apps": [],
+       "cover_media": {
+        "type": "video",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/e860611f-a4ae-4962-ae59-ed5abec66f96.mp4",
+        "poster_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/441426b5-9e88-4030-a03d-871a9c3fe107.webp",
+        "width": 600,
+        "height": 450
+       },
+       "cover_alt": "Katana demo showing a cinematic performer remix with split-screen comparisons and graphic effects.",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "production",
+         "name": "Production",
+         "show_on_card": true,
+         "show_on_detail": true
+        },
+        {
+         "key": "motion-design",
+         "name": "Motion Design",
+         "show_on_card": true,
+         "show_on_detail": true
+        },
+        {
+         "key": "featured",
+         "name": "Popular",
+         "show_on_card": false,
+         "show_on_detail": false
+        },
+        {
+         "key": "index-1",
+         "name": "index-1",
+         "show_on_card": false,
+         "show_on_detail": false
+        },
+        {
+         "key": "new",
+         "name": "New",
+         "show_on_card": false,
+         "show_on_detail": false
+        }
+       ]
+      },
+      {
+       "installations": [],
+       "main_conversation": {
+        "messages": [
+         {
+          "id": "main-user-1",
+          "role": "user",
+          "text": "Create a complete UGC flow for this tumbler using the attached creator, from concept and script to a finished 9:16 video.",
+          "attachments": [
+           {
+            "title": "Creator avatar",
+            "type": "image",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/804cd979-090a-47d0-aa18-1a052f130a73.webp",
+            "width": 1360,
+            "height": 2048
+           },
+           {
+            "title": "Soda bottle",
+            "type": "image",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/1df6d4ab-c9e0-440a-a039-e7faeff060c3.webp",
+            "width": 1360,
+            "height": 2048
+           }
+          ]
+         },
+         {
+          "id": "main-assistant-1",
+          "role": "assistant",
+          "text": "I’ll build a creator-style review around the tumbler, starting with a clear hook, followed by a product demonstration and a short closing line. I’ll keep the creator and the tumbler’s purple gradient consistent with your references."
+         }
+        ]
+       },
+       "conversation_media": {
+        "type": "video",
+        "url": "https://static.higgsfield.ai/mcp-landing/skills/product-review-ugc.mp4",
+        "poster_url": "https://static.higgsfield.ai/mcp-landing/skills/product-review-ugc-thumbnail.webp",
+        "width": 1080,
+        "height": 1920
+       },
+       "card_example": {
+        "prompt": "Use @Higgsfield to run /ugc-flow.\nCreate a complete UGC flow for this tumbler using the attached creator, from concept and script to a finished 9:16 video.",
+        "reference_medias": [
+         {
+          "title": "Creator avatar",
+          "type": "image",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/804cd979-090a-47d0-aa18-1a052f130a73.webp",
+          "width": 1360,
+          "height": 2048
+         },
+         {
+          "title": "Soda bottle",
+          "type": "image",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/1df6d4ab-c9e0-440a-a039-e7faeff060c3.webp",
+          "width": 1360,
+          "height": 2048
+         }
+        ],
+        "show_chatgpt": true,
+        "show_copy": true
+       },
+       "device_visibility": "both",
+       "agents": [
+        {
+         "id": "telegram",
+         "destination": "copy-prompt",
+         "installations": []
+        },
+        {
+         "id": "slack",
+         "destination": "copy-prompt",
+         "installations": []
+        },
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "installations": [
+          {
+           "id": "connect-chatgpt",
+           "title": "Install Higgsfield plugin",
+           "description": "Open the plugin page, install Higgsfield, and sign in to your account.",
+           "icon_key": "higgsfield",
+           "icon_url": "",
+           "action": "link",
+           "action_label": "Install Higgsfield plugin",
+           "action_url": "https://chatgpt.com/plugins/plugin_asdk_app_6a3293e129088191abf0875820e839da",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "prepare-brief",
+           "title": "Prepare your brief",
+           "description": "Decide what you want to create and gather any reference images, videos, or text you want to use.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "run-prompt",
+           "title": "Run your first prompt",
+           "description": "Copy the example prompt, open ChatGPT with Higgsfield, and adapt the prompt to your brief. Attach your references before sending it.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "Create a complete UGC flow for this tumbler using the attached creator, from concept and script to a finished 9:16 video.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "installations": [
+          {
+           "id": "copy-connector",
+           "title": "Copy the Higgsfield connector URL",
+           "description": "You will paste this URL into Claude in the next step.",
+           "icon_key": "higgsfield",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy connector URL",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "https://mcp.higgsfield.ai/mcp",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "connect-claude",
+           "title": "Connect Higgsfield in Claude",
+           "description": "Open Customize → Connectors, add a custom connector named Higgsfield, paste the URL, and sign in.",
+           "icon_key": "none",
+           "icon_url": "https://static.higgsfield.ai/mcp/v2/claude.svg",
+           "action": "link",
+           "action_label": "Open Claude settings",
+           "action_url": "https://claude.ai/customize/connectors?modal=add-custom-connector",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "run-prompt",
+           "title": "Run your first prompt",
+           "description": "Copy the example prompt into a new Claude chat with Higgsfield enabled. Adapt it to your brief and attach any references before sending it.",
+           "icon_key": "none",
+           "icon_url": "https://static.higgsfield.ai/mcp/v2/claude.svg",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "Create a complete UGC flow for this tumbler using the attached creator, from concept and script to a finished 9:16 video.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt",
+         "installations": [
+          {
+           "id": "setup",
+           "title": "Set up Higgsfield in Claude Code",
+           "description": "Copy this setup request into Claude Code. Review the commands it proposes before running them.",
+           "icon_key": "claude",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy setup prompt",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "Set up Higgsfield so I can generate images and videos. Install the CLI with npm i -g @higgsfield/cli, run higgsfield auth login and let me complete sign-in, then install the companion skills with npx skills add higgsfield-ai/skills. Tell me when it is ready.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "sign-in",
+           "title": "Sign in to Higgsfield",
+           "description": "Complete sign-in in the browser opened by the CLI, then return to Claude Code.",
+           "icon_key": "higgsfield",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "run-prompt",
+           "title": "Run your preset",
+           "description": "Paste the prompt into your connected agent and attach the reference files before sending it.",
+           "icon_key": "copy",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "Create a complete UGC flow for this tumbler using the attached creator, from concept and script to a finished 9:16 video.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt",
+         "installations": [
+          {
+           "id": "install",
+           "title": "Install the Higgsfield CLI",
+           "description": "Run this command in your terminal. Node.js and npm must be installed.",
+           "icon_key": "download",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy install command",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "npm i -g @higgsfield/cli",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "sign-in",
+           "title": "Sign in to Higgsfield",
+           "description": "Run this command and complete sign-in in the browser that opens.",
+           "icon_key": "higgsfield",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy sign-in command",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "higgsfield auth login",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "skills",
+           "title": "Install companion skills",
+           "description": "Install the skills in your coding agent, then use the preset prompt there. A natural-language prompt is not a shell command.",
+           "icon_key": "plugin",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy skills command",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "npx skills add higgsfield-ai/skills",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "run-prompt",
+           "title": "Run your preset",
+           "description": "Paste the prompt into your connected agent and attach the reference files before sending it.",
+           "icon_key": "copy",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "Create a complete UGC flow for this tumbler using the attached creator, from concept and script to a finished 9:16 video.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt",
+         "installations": [
+          {
+           "id": "connector",
+           "title": "Copy the Higgsfield MCP URL",
+           "description": "Use an agent that supports remote MCP servers with authentication.",
+           "icon_key": "higgsfield",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy connector URL",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "https://mcp.higgsfield.ai/mcp",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "connect",
+           "title": "Add Higgsfield to your agent",
+           "description": "Open your agent’s MCP settings, add a remote server named Higgsfield with the copied URL, and complete sign-in. The setup controls depend on your agent.",
+           "icon_key": "settings",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "run-prompt",
+           "title": "Run your preset",
+           "description": "Paste the prompt into your connected agent and attach the reference files before sending it.",
+           "icon_key": "copy",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "Create a complete UGC flow for this tumbler using the attached creator, from concept and script to a finished 9:16 video.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Copied.",
+           "copy_error_text": "Could not copy. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        }
+       ],
+       "source_id": "mcp-showcase:ugc-flow",
+       "external_url": "",
+       "id": "65e4d219-8ab0-2f83-256e-6640d74a9462",
+       "slug": "ugc-flow",
+       "title": "Product review UGC",
+       "card_title": "Product review UGC",
+       "is_indexable": false,
+       "description": "Create a creator-style product review from your product brief and reference images. Develop the concept and script, then show the product in use with a clear message for your audience.",
+       "skill_label": "",
+       "short_description": "Create a creator-style product review from your product brief and reference images.",
+       "apps": [],
+       "cover_media": {
+        "type": "video",
+        "url": "https://static.higgsfield.ai/mcp/v2/ugc-content.mp4",
+        "poster_url": "https://static.higgsfield.ai/sc-videos-thumbnails/ugc-content-thumbnail.webp",
+        "width": 1280,
+        "height": 720
+       },
+       "cover_alt": "Product review UGC",
+       "view_label": "View",
+       "tags": [
+        {
+         "key": "ugc",
+         "name": "UGC",
+         "show_on_card": true,
+         "show_on_detail": true
+        },
+        {
+         "key": "featured",
+         "name": "Popular",
+         "show_on_card": true,
+         "show_on_detail": true
+        },
+        {
+         "key": "index-1",
+         "name": "index-1",
+         "show_on_card": false,
+         "show_on_detail": false
+        }
+       ]
+      }
+     ],
+     "bundles": [
+      {
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "installations": []
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use Higgsfield to run /marketing.\n\nHelp me plan, create, or improve my ads. Choose a workflow based on my product, audience, goals, and assets.",
+         "label": "Try in Claude",
+         "installations": []
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt"
+        }
+       ],
+       "seo_title": "Paid Ads Bundle | Higgsfield",
+       "seo_description": "Plan your next campaign test with 8 workflows for research, static and video ads, headline variations, resizing, and localization.",
+       "seo_image_url": "https://static.higgsfield.ai/gpt-skills/media/main-page-banner-poster.webp",
+       "is_indexable": false,
+       "all_presets_order": 2,
+       "id": "abf118a1-53b9-4179-b3b9-f4d54a6db52c",
+       "slug": "paid-ads-bundle",
+       "skill_slugs": [
+        "performance-marketing-operator",
+        "link-to-ads",
+        "voc-research-ad",
+        "headlines-ab",
+        "aspect-ratio-formatter",
+        "localizations",
+        "ad-adaptation",
+        "ad-hooks"
+       ],
+       "title": "Paid Ads bundle",
+       "description": "Research your market, create static and video ads, and plan your next campaign test.",
+       "badge_label": "Bundle",
+       "download_label": "Download bundle",
+       "cover_alt": "A preview of Higgsfield Paid Ads workflows.",
+       "cover_media": {
+        "title": "Paid Ads bundle",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-astra/astra-paid-ad-banner.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/main-page-banner-poster.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "download_url": "",
+       "prompt": "/marketing Help me plan, create, or improve my ads. Choose a workflow based on my product, audience, goals, and assets.",
+       "reference_medias": [],
+       "chatgpt_url": "",
+       "chatgpt_label": "Try in ChatGPT",
+       "hide_chatgpt": false,
+       "hide_copy": false,
+       "copy_label": "Copy prompt",
+       "copied_label": "Copied",
+       "copy_success_text": "Prompt copied.",
+       "copy_error_text": "Could not copy the prompt. Please try again.",
+       "tag": {
+        "key": "paid-ads",
+        "name": "Paid Ads",
+        "show_on_card": true,
+        "show_on_detail": true
+       },
+       "tags": [
+        {
+         "key": "paid-ads",
+         "name": "Paid Ads",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "chatgpt-web",
+         "installations": []
+        },
+        {
+         "id": "claude",
+         "destination": "claude-web",
+         "prompt": "Use Higgsfield to run /use-after-effects.\n\nHelp me turn my ideas into an editable animation. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping layers, text, and keyframes editable wherever possible.",
+         "label": "Try in Claude",
+         "installations": []
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt"
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt"
+        }
+       ],
+       "seo_title": "Motion Design Bundle | Higgsfield",
+       "seo_description": "Create editable animations with Higgsfield workflows.",
+       "seo_image_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/7594b287-7360-444b-8c76-1781faa6ef26.webp",
+       "is_indexable": true,
+       "all_presets_order": 3,
+       "id": "0e43e251-c6ab-4e6b-8117-b1cc3d39c307",
+       "slug": "motion-bundle",
+       "skill_slugs": [
+        "use-after-effects",
+        "illustration-animation",
+        "paper-collage",
+        "localization-motion",
+        "saas-animation",
+        "presentation-animation",
+        "whiteboard-animation"
+       ],
+       "title": "Motion design bundle",
+       "description": "Bring your ideas to life with editable animation workflows.",
+       "badge_label": "Bundle",
+       "download_label": "Download bundle",
+       "cover_alt": "A preview of Higgsfield motion design workflows.",
+       "cover_media": {
+        "title": "Motion design bundle",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/skills/motion-bundle/fly-banner-v1/FLY%20MOTION%20BANNER.mp4",
+        "poster_url": "https://static.higgsfield.ai/skills/motion-bundle/fly-banner-v1/FLY%20MOTION%20BANNER-poster.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "download_url": "",
+       "prompt": "/use-after-effects Help me turn my ideas into an editable animation. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping layers, text, and keyframes editable wherever possible.",
+       "reference_medias": [],
+       "chatgpt_url": "",
+       "chatgpt_label": "Try in ChatGPT",
+       "hide_chatgpt": false,
+       "hide_copy": false,
+       "copy_label": "Copy prompt",
+       "copied_label": "Copied",
+       "copy_success_text": "Prompt copied.",
+       "copy_error_text": "Could not copy the prompt. Please try again.",
+       "tag": {
+        "key": "motion-design",
+        "name": "Motion Design",
+        "show_on_card": true,
+        "show_on_detail": true
+       },
+       "tags": [
+        {
+         "key": "motion-design",
+         "name": "Motion Design",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      },
+      {
+       "agents": [
+        {
+         "id": "chatgpt",
+         "destination": "codex-app",
+         "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+         "label": "Open in Codex",
+         "installations": [
+          {
+           "id": "open-chatgpt",
+           "title": "Open Codex",
+           "description": "Use Codex to describe your project. Local editing requires access to the computer running your creative application.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "connect-higgsfield",
+           "title": "Connect Higgsfield",
+           "description": "Enable Higgsfield in your selected client and check that its tools are available.",
+           "icon_key": "higgsfield",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "choose-workflow",
+           "title": "Choose your production workflow",
+           "description": "Describe your goal and choose the matching application: Blender, Premiere Pro, After Effects, Illustrator, Photoshop, TouchDesigner, or DaVinci Resolve Studio.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-chatgpt",
+           "title": "Start your production project",
+           "description": "Use the Open in Codex action, then add your brief and source assets. Verify the local connection before editing.",
+           "icon_key": "chatgpt",
+           "icon_url": "",
+           "action": "link",
+           "action_label": "Open in Codex",
+           "action_url": "codex://new?prompt=%40Higgsfield+Help+me+turn+my+ideas+into+an+editable+production+project.+Choose+a+workflow+from+this+bundle+that+fits+my+brief.+Ask+about+my+goals%2C+reference+assets%2C+preferred+tools%2C+output+format%2C+and+duration.+Then+guide+me+through+the+process%2C+keeping+scenes%2C+layers%2C+paths%2C+timelines%2C+and+grades+editable+wherever+possible.%0A%0AAvailable+workflows%3A%0A%2FDestruction-Studio+%E2%80%94+Blender%0A%2FExploded-view+%E2%80%94+Blender%0A%2FScene-Builder+%E2%80%94+Blender%0A%2FCartoon-shaders+%E2%80%94+Blender%0A%2FProject-sorter+%E2%80%94+Adobe+Premiere+Pro%0A%2FShot-Composer+%E2%80%94+Adobe+After+Effects%0A%2FShot-Cleanup+%E2%80%94+Adobe+After+Effects%0A%2FVectorize+%E2%80%94+Adobe+Illustrator%0A%2FImage-fixer+%E2%80%94+Adobe+Photoshop%0A%2Fuse-touchdesigner+%E2%80%94+TouchDesigner%0A%2Fcolor-grading+%E2%80%94+DaVinci+Resolve+Studio%0A%0AAsk+me+for+the+source+assets+and+project+files.+Verify+the+required+local+tools+before+editing.+Use+%2Fuse-blender%2C+%2Fuse-premiere%2C+%2Fuse-after-effects%2C+%2Fuse-illustrator%2C+or+%2Fuse-photoshop+for+the+chosen+application+when+setup+is+needed.+Check+available+workflow+instructions+for+TouchDesigner+and+DaVinci+Resolve.+Do+not+treat+the+bundle+banner+as+source+artwork.",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude",
+         "destination": "claude-app",
+         "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+         "label": "Try in Claude",
+         "installations": [
+          {
+           "id": "open-claude",
+           "title": "Open Claude",
+           "description": "Use Claude to describe your project. Local editing requires access to the computer running your creative application.",
+           "icon_key": "claude",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "connect-higgsfield",
+           "title": "Connect Higgsfield",
+           "description": "Enable Higgsfield in your selected client and check that its tools are available.",
+           "icon_key": "higgsfield",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "choose-workflow",
+           "title": "Choose your production workflow",
+           "description": "Describe your goal and choose the matching application: Blender, Premiere Pro, After Effects, Illustrator, Photoshop, TouchDesigner, or DaVinci Resolve Studio.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-claude",
+           "title": "Start your production project",
+           "description": "Use the Try in Claude action, then add your brief and source assets. Verify the local connection before editing.",
+           "icon_key": "claude",
+           "icon_url": "",
+           "action": "link",
+           "action_label": "Try in Claude",
+           "action_url": "https://claude.ai/new?q=%40Higgsfield+Help+me+turn+my+ideas+into+an+editable+production+project.+Choose+a+workflow+from+this+bundle+that+fits+my+brief.+Ask+about+my+goals%2C+reference+assets%2C+preferred+tools%2C+output+format%2C+and+duration.+Then+guide+me+through+the+process%2C+keeping+scenes%2C+layers%2C+paths%2C+timelines%2C+and+grades+editable+wherever+possible.%0A%0AAvailable+workflows%3A%0A%2FDestruction-Studio+%E2%80%94+Blender%0A%2FExploded-view+%E2%80%94+Blender%0A%2FScene-Builder+%E2%80%94+Blender%0A%2FCartoon-shaders+%E2%80%94+Blender%0A%2FProject-sorter+%E2%80%94+Adobe+Premiere+Pro%0A%2FShot-Composer+%E2%80%94+Adobe+After+Effects%0A%2FShot-Cleanup+%E2%80%94+Adobe+After+Effects%0A%2FVectorize+%E2%80%94+Adobe+Illustrator%0A%2FImage-fixer+%E2%80%94+Adobe+Photoshop%0A%2Fuse-touchdesigner+%E2%80%94+TouchDesigner%0A%2Fcolor-grading+%E2%80%94+DaVinci+Resolve+Studio%0A%0AAsk+me+for+the+source+assets+and+project+files.+Verify+the+required+local+tools+before+editing.+Use+%2Fuse-blender%2C+%2Fuse-premiere%2C+%2Fuse-after-effects%2C+%2Fuse-illustrator%2C+or+%2Fuse-photoshop+for+the+chosen+application+when+setup+is+needed.+Check+available+workflow+instructions+for+TouchDesigner+and+DaVinci+Resolve.+Do+not+treat+the+bundle+banner+as+source+artwork.",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "claude-code",
+         "destination": "copy-prompt",
+         "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+         "label": "Copy for Claude Code",
+         "installations": [
+          {
+           "id": "open-claude-code",
+           "title": "Open Claude Code",
+           "description": "Use Claude Code to describe your project. Local editing requires access to the computer running your creative application.",
+           "icon_key": "claude",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "connect-higgsfield",
+           "title": "Connect Higgsfield",
+           "description": "Enable Higgsfield in your selected client and check that its tools are available.",
+           "icon_key": "higgsfield",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "choose-workflow",
+           "title": "Choose your production workflow",
+           "description": "Describe your goal and choose the matching application: Blender, Premiere Pro, After Effects, Illustrator, Photoshop, TouchDesigner, or DaVinci Resolve Studio.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-claude-code",
+           "title": "Start your production project",
+           "description": "Copy this prompt into Claude Code, then provide your brief and source assets.",
+           "icon_key": "claude",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy for Claude Code",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "cli",
+         "destination": "copy-prompt",
+         "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+         "label": "Copy prompt",
+         "installations": [
+          {
+           "id": "open-cli",
+           "title": "Open your CLI agent",
+           "description": "Use your CLI agent to describe your project. Local editing requires access to the computer running your creative application.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "connect-higgsfield",
+           "title": "Connect Higgsfield",
+           "description": "Enable Higgsfield in your selected client and check that its tools are available.",
+           "icon_key": "higgsfield",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "choose-workflow",
+           "title": "Choose your production workflow",
+           "description": "Describe your goal and choose the matching application: Blender, Premiere Pro, After Effects, Illustrator, Photoshop, TouchDesigner, or DaVinci Resolve Studio.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-cli",
+           "title": "Start your production project",
+           "description": "Copy this prompt into your CLI agent, then provide your brief and source assets.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        },
+        {
+         "id": "other",
+         "destination": "copy-prompt",
+         "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+         "label": "Copy prompt",
+         "installations": [
+          {
+           "id": "open-other",
+           "title": "Open your AI client",
+           "description": "Use your AI client to describe your project. Local editing requires access to the computer running your creative application.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "connect-higgsfield",
+           "title": "Connect Higgsfield",
+           "description": "Enable Higgsfield in your selected client and check that its tools are available.",
+           "icon_key": "higgsfield",
+           "icon_url": "https://static.higgsfield.ai/skills/shared/higgsfield-20260915/higgsfield-icon.webp",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "choose-workflow",
+           "title": "Choose your production workflow",
+           "description": "Describe your goal and choose the matching application: Blender, Premiere Pro, After Effects, Illustrator, Photoshop, TouchDesigner, or DaVinci Resolve Studio.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "none",
+           "action_label": "",
+           "action_url": "",
+           "action_icon": "none",
+           "action_icon_url": "",
+           "prompt": "",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          },
+          {
+           "id": "start-other",
+           "title": "Start your production project",
+           "description": "Copy this prompt into your AI client, then provide your brief and source assets.",
+           "icon_key": "computer-use",
+           "icon_url": "",
+           "action": "copy",
+           "action_label": "Copy prompt",
+           "action_url": "",
+           "action_icon": "copy",
+           "action_icon_url": "",
+           "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.\n\nAvailable workflows:\n/Destruction-Studio — Blender\n/Exploded-view — Blender\n/Scene-Builder — Blender\n/Cartoon-shaders — Blender\n/Project-sorter — Adobe Premiere Pro\n/Shot-Composer — Adobe After Effects\n/Shot-Cleanup — Adobe After Effects\n/Vectorize — Adobe Illustrator\n/Image-fixer — Adobe Photoshop\n/use-touchdesigner — TouchDesigner\n/color-grading — DaVinci Resolve Studio\n\nAsk me for the source assets and project files. Verify the required local tools before editing. Use /use-blender, /use-premiere, /use-after-effects, /use-illustrator, or /use-photoshop for the chosen application when setup is needed. Check available workflow instructions for TouchDesigner and DaVinci Resolve. Do not treat the bundle banner as source artwork.",
+           "variant": "tertiary",
+           "copied_label": "Copied",
+           "copy_success_text": "Prompt copied.",
+           "copy_error_text": "Could not copy the prompt. Please try again.",
+           "is_hidden": false
+          }
+         ]
+        }
+       ],
+       "seo_title": "Production Skills Bundle | Higgsfield",
+       "seo_description": "Explore 11 Higgsfield workflows for 3D scenes, VFX, video editing, vector artwork, image cleanup, visual effects, and color grading.",
+       "seo_image_url": "https://static.higgsfield.ai/skills/production-bundle/20260924/ProductionSkillsBundle_banner-poster.webp",
+       "is_indexable": true,
+       "all_presets_order": 1,
+       "id": "546f183a-26d2-53ae-a889-62fd1de3f507",
+       "slug": "production-skills",
+       "skill_slugs": [
+        "destruction-studio",
+        "exploded-view",
+        "scene-builder",
+        "cartoon-shaders",
+        "project-sorter",
+        "shot-composer",
+        "shot-cleanup",
+        "vectorize",
+        "image-fixer",
+        "use-touchdesigner",
+        "color-grading"
+       ],
+       "title": "Production skills bundle",
+       "description": "Turn creative ideas into finished visuals with 11 workflows for 3D, VFX, editing, and design.",
+       "badge_label": "Bundle",
+       "download_label": "Download prompts",
+       "cover_alt": "Higgsfield Production Skills Bundle banner.",
+       "cover_media": {
+        "title": "Production skills bundle",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/skills/production-bundle/20260924/ProductionSkillsBundle_banner.mp4",
+        "poster_url": "https://static.higgsfield.ai/skills/production-bundle/20260924/ProductionSkillsBundle_banner-poster.webp",
+        "width": 1920,
+        "height": 1080
+       },
+       "download_url": "https://static.higgsfield.ai/skills/production-bundle/20260924/prompts/production-skills-prompts.txt",
+       "prompt": "@Higgsfield Help me turn my ideas into an editable production project. Choose a workflow from this bundle that fits my brief. Ask about my goals, reference assets, preferred tools, output format, and duration. Then guide me through the process, keeping scenes, layers, paths, timelines, and grades editable wherever possible.",
+       "reference_medias": [],
+       "chatgpt_url": "https://chatgpt.com/?q=%40Higgsfield+Help+me+turn+my+ideas+into+an+editable+production+project.+Choose+a+workflow+from+this+bundle+that+fits+my+brief.+Ask+about+my+goals%2C+reference+assets%2C+preferred+tools%2C+output+format%2C+and+duration.+Then+guide+me+through+the+process%2C+keeping+scenes%2C+layers%2C+paths%2C+timelines%2C+and+grades+editable+wherever+possible.%0A%0AAvailable+workflows%3A%0A%2FDestruction-Studio+%E2%80%94+Blender%0A%2FExploded-view+%E2%80%94+Blender%0A%2FScene-Builder+%E2%80%94+Blender%0A%2FCartoon-shaders+%E2%80%94+Blender%0A%2FProject-sorter+%E2%80%94+Adobe+Premiere+Pro%0A%2FShot-Composer+%E2%80%94+Adobe+After+Effects%0A%2FShot-Cleanup+%E2%80%94+Adobe+After+Effects%0A%2FVectorize+%E2%80%94+Adobe+Illustrator%0A%2FImage-fixer+%E2%80%94+Adobe+Photoshop%0A%2Fuse-touchdesigner+%E2%80%94+TouchDesigner%0A%2Fcolor-grading+%E2%80%94+DaVinci+Resolve+Studio%0A%0AAsk+me+for+the+source+assets+and+project+files.+Verify+the+required+local+tools+before+editing.+Use+%2Fuse-blender%2C+%2Fuse-premiere%2C+%2Fuse-after-effects%2C+%2Fuse-illustrator%2C+or+%2Fuse-photoshop+for+the+chosen+application+when+setup+is+needed.+Check+available+workflow+instructions+for+TouchDesigner+and+DaVinci+Resolve.+Do+not+treat+the+bundle+banner+as+source+artwork.",
+       "chatgpt_label": "Try in ChatGPT",
+       "hide_chatgpt": false,
+       "hide_copy": false,
+       "copy_label": "Copy prompt",
+       "copied_label": "Copied",
+       "copy_success_text": "Prompt copied.",
+       "copy_error_text": "Could not copy the prompt. Please try again.",
+       "tag": {
+        "key": "production",
+        "name": "Production",
+        "show_on_card": true,
+        "show_on_detail": true
+       },
+       "tags": [
+        {
+         "key": "production",
+         "name": "Production",
+         "show_on_card": true,
+         "show_on_detail": true
+        }
+       ]
+      }
+     ],
+     "settings": {
+      "id": "hub-settings",
+      "agents": [
+       {
+        "id": "chatgpt"
+       },
+       {
+        "id": "claude"
+       },
+       {
+        "id": "claude-code"
+       },
+       {
+        "id": "telegram"
+       },
+       {
+        "id": "slack"
+       },
+       {
+        "id": "cli"
+       },
+       {
+        "id": "other"
+       }
+      ],
+      "default_agent": "chatgpt",
+      "all_presets_bundle_ids": [
+       "546f183a-26d2-53ae-a889-62fd1de3f507",
+       "abf118a1-53b9-4179-b3b9-f4d54a6db52c",
+       "0e43e251-c6ab-4e6b-8117-b1cc3d39c307"
+      ]
+     },
+     "locale": "en"
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,1310 @@
+{
+ "meta": {
+  "endpoint": "mcp_skill_page",
+  "url": "https://higgsfield.ai/mcp/ad-adaptation",
+  "params": {
+   "path": "/mcp/ad-adaptation"
+  },
+  "fetched_at": "2026-11-25T16:04:22.284901+00:00",
+  "status": 200
+ },
+ "body": {
+  "format": "tsr",
+  "path": "/mcp/ad-adaptation",
+  "page_type": "mcp_skill",
+  "sitemap_lastmod": null,
+  "head": {
+   "title": "Ad Recreator | Higgsfield",
+   "lang": "en",
+   "canonical": "https://higgsfield.ai/mcp/ad-adaptation",
+   "description": "Turn a reference video’s storytelling and sales structure into an original video ad for your product.",
+   "keywords": null,
+   "og_title": "Ad Recreator | Higgsfield",
+   "og_description": "Turn a reference video’s storytelling and sales structure into an original video ad for your product.",
+   "og_image": "https://static.higgsfield.ai/gpt-astra/ad-adaptation-cover-poster.webp",
+   "og_type": "website",
+   "robots": "index, follow",
+   "ld_json": [
+    {
+     "@context": "https://schema.org",
+     "@type": "WebPage",
+     "url": "https://higgsfield.ai/mcp/ad-adaptation",
+     "name": "Ad Recreator",
+     "description": "Turn a reference video’s storytelling and sales structure into an original video ad for your product.",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/",
+      "logo": {
+       "@type": "ImageObject",
+       "name": "Higgsfield logo",
+       "url": "https://higgsfield.ai/icon.png"
+      },
+      "sameAs": [
+       "https://x.com/higgsfield",
+       "https://www.instagram.com/higgsfield.ai/",
+       "https://www.tiktok.com/@higgsfield.ai90",
+       "https://discord.com/invite/higgsfield",
+       "https://www.linkedin.com/company/higgsfield/",
+       "https://www.youtube.com/@HiggsfieldAI"
+      ]
+     },
+     "@id": "https://higgsfield.ai/mcp/ad-adaptation#webpage",
+     "inLanguage": "en",
+     "mainEntity": {
+      "@type": "CreativeWork",
+      "@id": "https://higgsfield.ai/mcp/ad-adaptation#skill",
+      "name": "Ad Recreator",
+      "description": "Turn a reference video’s storytelling and sales structure into an original video ad for your product.",
+      "url": "https://higgsfield.ai/mcp/ad-adaptation",
+      "inLanguage": "en",
+      "image": "https://static.higgsfield.ai/gpt-astra/ad-adaptation-cover-poster.webp",
+      "publisher": {
+       "@type": "Organization",
+       "name": "Higgsfield",
+       "url": "https://higgsfield.ai/",
+       "logo": {
+        "@type": "ImageObject",
+        "name": "Higgsfield logo",
+        "url": "https://higgsfield.ai/icon.png"
+       },
+       "sameAs": [
+        "https://x.com/higgsfield",
+        "https://www.instagram.com/higgsfield.ai/",
+        "https://www.tiktok.com/@higgsfield.ai90",
+        "https://discord.com/invite/higgsfield",
+        "https://www.linkedin.com/company/higgsfield/",
+        "https://www.youtube.com/@HiggsfieldAI"
+       ]
+      }
+     }
+    },
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "name": "MCP presets",
+       "item": {
+        "@id": "https://higgsfield.ai/mcp"
+       }
+      },
+      {
+       "@type": "ListItem",
+       "position": 2,
+       "name": "Ad Recreator",
+       "item": {
+        "@id": "https://higgsfield.ai/mcp/ad-adaptation"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "matches": [
+   {
+    "i": "#mcp_#$slug#mcp#ad-adaptation",
+    "l": {
+     "skill": {
+      "installations": [
+       {
+        "id": "chatgpt",
+        "title": "Download ChatGPT Desktop",
+        "description": "Install the ChatGPT desktop app on your computer.",
+        "icon_key": "chatgpt",
+        "icon_url": "",
+        "action": "auto",
+        "action_label": "Download ChatGPT",
+        "action_url": "https://chatgpt.com/download/",
+        "action_icon": "download",
+        "action_icon_url": "",
+        "prompt": "",
+        "variant": "secondary",
+        "copied_label": "Copied",
+        "copy_success_text": "Prompt copied.",
+        "copy_error_text": "Could not copy the prompt. Please try again.",
+        "is_hidden": false
+       },
+       {
+        "id": "higgsfield-plugin",
+        "title": "Install the Higgsfield plugin",
+        "description": "Add Higgsfield to ChatGPT to use this workflow.",
+        "icon_key": "higgsfield",
+        "icon_url": "",
+        "action": "auto",
+        "action_label": "Install plugin",
+        "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+        "action_icon": "download",
+        "action_icon_url": "",
+        "prompt": "",
+        "variant": "tertiary",
+        "copied_label": "Copied",
+        "copy_success_text": "Prompt copied.",
+        "copy_error_text": "Could not copy the prompt. Please try again.",
+        "is_hidden": false
+       },
+       {
+        "id": "start-in-chatgpt",
+        "title": "Run the workflow",
+        "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+        "icon_key": "chatgpt",
+        "icon_url": "",
+        "action": "copy",
+        "action_label": "Copy prompt",
+        "action_url": "",
+        "action_icon": "none",
+        "action_icon_url": "",
+        "prompt": "/marketing-adapt-video\nCreate an original ad for my product using this reference video’s persuasion structure.",
+        "variant": "tertiary",
+        "copied_label": "Copied",
+        "copy_success_text": "Prompt copied.",
+        "copy_error_text": "Could not copy the prompt. Please try again.",
+        "is_hidden": false
+       }
+      ],
+      "main_conversation": {
+       "result": {
+        "source": "first-example"
+       },
+       "messages": [
+        {
+         "id": "main-user-1",
+         "role": "user",
+         "text": "Create an original ad for my product using this reference video’s persuasion structure.",
+         "attachments": [
+          {
+           "title": "Gulpo reference video",
+           "type": "video",
+           "url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input.mp4",
+           "poster_url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input-poster.webp",
+           "width": 1920,
+           "height": 1080
+          }
+         ]
+        },
+        {
+         "id": "main-assistant-1",
+         "role": "assistant",
+         "text": "I’ll break down the reference into its hook, product demonstration, proof, and call to action, then use that structure to create an original concept for your product."
+        },
+        {
+         "id": "main-generation-1",
+         "role": "generation",
+         "title": "Higgsfield",
+         "prompt": "Create an original product ad inspired by the reference video’s persuasion structure. Build a distinct hook, demonstration, and call to action. Use the supplied product details and avoid copying the reference’s exact wording or branding.",
+         "icon_key": "higgsfield",
+         "attachments": [
+          {
+           "title": "Gulpo reference video",
+           "type": "video",
+           "url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input.mp4",
+           "poster_url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input-poster.webp",
+           "width": 1920,
+           "height": 1080
+          }
+         ],
+         "tags": [
+          {
+           "id": "main-tag-1",
+           "type": "custom",
+           "label": "Reference-led concept",
+           "icon_key": "image"
+          },
+          {
+           "id": "main-tag-2",
+           "type": "custom",
+           "label": "Original creative",
+           "icon_key": "skill"
+          }
+         ]
+        },
+        {
+         "id": "main-assistant-2",
+         "role": "assistant",
+         "text": "Here is the new ad concept, organized around a clear hook, product demonstration, and call to action. You can refine the opening or offer for your campaign."
+        }
+       ]
+      },
+      "agents": [
+       {
+        "id": "telegram",
+        "destination": "copy-prompt",
+        "installations": []
+       },
+       {
+        "id": "slack",
+        "destination": "copy-prompt",
+        "installations": []
+       },
+       {
+        "id": "chatgpt",
+        "destination": "chatgpt-web",
+        "installations": [
+         {
+          "id": "chatgpt",
+          "title": "Download ChatGPT Desktop",
+          "description": "Install the ChatGPT desktop app on your computer.",
+          "icon_key": "chatgpt",
+          "icon_url": "",
+          "action": "auto",
+          "action_label": "Download ChatGPT",
+          "action_url": "https://chatgpt.com/download/",
+          "action_icon": "download",
+          "action_icon_url": "",
+          "prompt": "",
+          "variant": "secondary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         },
+         {
+          "id": "higgsfield-plugin",
+          "title": "Install the Higgsfield plugin",
+          "description": "Add Higgsfield to ChatGPT to use this workflow.",
+          "icon_key": "higgsfield",
+          "icon_url": "",
+          "action": "auto",
+          "action_label": "Install plugin",
+          "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+          "action_icon": "download",
+          "action_icon_url": "",
+          "prompt": "",
+          "variant": "tertiary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         },
+         {
+          "id": "start-in-chatgpt",
+          "title": "Run the workflow",
+          "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+          "icon_key": "chatgpt",
+          "icon_url": "",
+          "action": "copy",
+          "action_label": "Copy prompt",
+          "action_url": "",
+          "action_icon": "none",
+          "action_icon_url": "",
+          "prompt": "/marketing-adapt-video\nCreate an original ad for my product using this reference video’s persuasion structure.",
+          "variant": "tertiary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         }
+        ]
+       },
+       {
+        "id": "claude",
+        "destination": "claude-web",
+        "prompt": "Use @Higgsfield to run /marketing-adapt-video.\nCreate an original ad for my product using this reference video’s persuasion structure.",
+        "label": "Try in Claude",
+        "installations": []
+       },
+       {
+        "id": "claude-code",
+        "destination": "copy-prompt"
+       },
+       {
+        "id": "cli",
+        "destination": "copy-prompt"
+       },
+       {
+        "id": "other",
+        "destination": "copy-prompt"
+       }
+      ],
+      "id": "3bb04684-c964-4289-8114-000000000008",
+      "slug": "ad-adaptation",
+      "title": "Ad Recreator",
+      "card_title": "Ad Recreator",
+      "is_indexable": false,
+      "description": "Turn a reference video’s storytelling and sales structure into an original video ad for your product.",
+      "skill_label": "marketing-adapt-video",
+      "short_description": "Turn a reference video’s storytelling and sales structure into an original video ad for your product.",
+      "apps": [],
+      "cover_media": {
+       "type": "video",
+       "url": "https://static.higgsfield.ai/gpt-astra/ad-adaptation-cover.mp4",
+       "poster_url": "https://static.higgsfield.ai/gpt-astra/ad-adaptation-cover-poster.webp",
+       "width": 1920,
+       "height": 1080
+      },
+      "cover_alt": "Ad Recreator",
+      "view_label": "View",
+      "tags": [
+       {
+        "key": "paid-ads",
+        "name": "Paid Ads",
+        "show_on_card": true,
+        "show_on_detail": true
+       },
+       {
+        "key": "featured",
+        "name": "Popular",
+        "show_on_card": true,
+        "show_on_detail": true
+       }
+      ],
+      "overview_description": "Turn a reference video’s storytelling and sales structure into an original video ad for your product.",
+      "medias": [
+       {
+        "title": "Ad Recreator",
+        "prompt": "Use @Higgsfield to run /marketing-adapt-video.\nCreate an original ad for my product using this reference video’s persuasion structure.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/1.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/1-poster.webp",
+        "width": 600,
+        "height": 338
+       },
+       {
+        "title": "Ad Recreator",
+        "prompt": "Use @Higgsfield to run /marketing-adapt-video.\nCreate an original ad for my product using this reference video’s persuasion structure.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/2.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/2-poster.webp",
+        "width": 600,
+        "height": 338
+       },
+       {
+        "title": "Ad Recreator",
+        "prompt": "Use @Higgsfield to run /marketing-adapt-video.\nCreate an original ad for my product using this reference video’s persuasion structure.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/3.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/3-poster.webp",
+        "width": 600,
+        "height": 338
+       },
+       {
+        "title": "Ad Recreator",
+        "prompt": "Use @Higgsfield to run /marketing-adapt-video.\nCreate an original ad for my product using this reference video’s persuasion structure.",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/4.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/4-poster.webp",
+        "width": 600,
+        "height": 338
+       }
+      ],
+      "reference_medias": [
+       {
+        "title": "Gulpo reference video",
+        "type": "video",
+        "url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input.mp4",
+        "poster_url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input-poster.webp",
+        "width": 1920,
+        "height": 1080
+       }
+      ],
+      "tutorial_media": null,
+      "tutorial_title": "",
+      "tutorial_description": "",
+      "detail_title": "Ad Recreator",
+      "breadcrumb_label": "Ad Recreator",
+      "hub_label": "Skill hub",
+      "requirements_title": "What you need",
+      "start_title": "Start in 3 steps",
+      "chatgpt_label": "ChatGPT",
+      "plugin_label": "Higgsfield",
+      "install_chatgpt_label": "Download ChatGPT Desktop",
+      "install_plugin_label": "Install Higgsfield",
+      "paste_prompt_label": "Describe what you want to create or change",
+      "related_title": "Recommended skills",
+      "related_description": "Explore more workflows for planning, creating, and adapting your ads.",
+      "seo_title": "Ad Recreator | Higgsfield",
+      "seo_description": "Turn a reference video’s storytelling and sales structure into an original video ad for your product.",
+      "chatgpt_download_url": "https://chatgpt.com/download/",
+      "plugin_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+      "seo_image_url": "https://static.higgsfield.ai/gpt-astra/ad-adaptation-cover-poster.webp",
+      "tabs": [
+       {
+        "id": "3bb04684-c964-4289-8115-000000000008",
+        "preview_media": {
+         "title": "Ad Recreator",
+         "prompt": "/marketing-adapt-video\nCreate an original ad for my product using this reference video’s persuasion structure.",
+         "type": "video",
+         "url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/1.mp4",
+         "poster_url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/1-poster.webp",
+         "width": 600,
+         "height": 338
+        },
+        "reference_medias": [
+         {
+          "title": "Gulpo reference video",
+          "type": "video",
+          "url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input.mp4",
+          "poster_url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input-poster.webp",
+          "width": 1920,
+          "height": 1080
+         }
+        ],
+        "example_download_url": "",
+        "example_caption": "/marketing-adapt-video\nCreate an original ad for my product using this reference video’s persuasion structure.",
+        "example_chatgpt_label": "Use in ChatGPT",
+        "example_download_label": "",
+        "messages": [],
+        "requirements": [],
+        "label": "Adapt a reference ad",
+        "preview_alt": "Ad Recreator",
+        "prompt_heading": "Prompt",
+        "prompt": "Use @Higgsfield to run /marketing-adapt-video.\nCreate an original ad for my product using this reference video’s persuasion structure.",
+        "prompt_mention": "Higgsfield",
+        "setup_heading": "Get ready to create",
+        "setup_prompt": "",
+        "setup_unavailable_text": "Install ChatGPT Desktop and the Higgsfield plugin to get started.",
+        "copy_label": "Copy prompt",
+        "copied_label": "Copied",
+        "copy_success_text": "Prompt copied.",
+        "copy_error_text": "Could not copy the prompt. Select the text and copy it manually.",
+        "chatgpt_label": "Use in ChatGPT",
+        "download_skill_label": "Download skill",
+        "chatgpt_url": "",
+        "setup_chatgpt_url": "",
+        "skill_download_url": "",
+        "show_copy": true,
+        "show_chatgpt": false,
+        "show_skill_download": false,
+        "show_setup": false
+       }
+      ],
+      "related_skills": [
+       {
+        "installations": [
+         {
+          "id": "chatgpt",
+          "title": "Download ChatGPT Desktop",
+          "description": "Install the ChatGPT desktop app on your computer.",
+          "icon_key": "chatgpt",
+          "icon_url": "",
+          "action": "auto",
+          "action_label": "Download ChatGPT",
+          "action_url": "https://chatgpt.com/download/",
+          "action_icon": "download",
+          "action_icon_url": "",
+          "prompt": "",
+          "variant": "secondary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         },
+         {
+          "id": "higgsfield-plugin",
+          "title": "Install the Higgsfield plugin",
+          "description": "Add Higgsfield to ChatGPT to use this workflow.",
+          "icon_key": "higgsfield",
+          "icon_url": "",
+          "action": "auto",
+          "action_label": "Install plugin",
+          "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+          "action_icon": "download",
+          "action_icon_url": "",
+          "prompt": "",
+          "variant": "tertiary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         },
+         {
+          "id": "start-in-chatgpt",
+          "title": "Run the workflow",
+          "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+          "icon_key": "chatgpt",
+          "icon_url": "",
+          "action": "copy",
+          "action_label": "Copy prompt",
+          "action_url": "",
+          "action_icon": "none",
+          "action_icon_url": "",
+          "prompt": "/marketing-hook-variants\nCreate 3 complete versions of this video with new opening hooks. Keep the rest unchanged.",
+          "variant": "tertiary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         }
+        ],
+        "main_conversation": {
+         "result": {
+          "source": "first-example"
+         },
+         "messages": [
+          {
+           "id": "hook-main-user-1",
+           "role": "user",
+           "text": "Create 3 complete versions of this video with new opening hooks. Keep the rest unchanged.",
+           "attachments": [
+            {
+             "title": "Original dog ad",
+             "type": "video",
+             "url": "https://static.higgsfield.ai/gpt-astra/dog-ad-hook-original.mp4",
+             "poster_url": "https://static.higgsfield.ai/gpt-astra/dog-ad-hook-original-poster.webp",
+             "width": 1080,
+             "height": 1920
+            }
+           ]
+          },
+          {
+           "id": "hook-main-assistant-1",
+           "role": "assistant",
+           "text": "I’ll create three different openings: a surprising moment, a curiosity-driven reveal, and a direct question. I’ll keep the rest of the video unchanged so you can compare the hooks."
+          },
+          {
+           "id": "hook-main-generation-1",
+           "role": "generation",
+           "title": "Higgsfield",
+           "prompt": "Create three complete edits of the reference video. Give each version a distinct opening hook, then continue with the original video. Preserve the remaining footage, pacing, audio, and call to action.",
+           "icon_key": "higgsfield",
+           "attachments": [
+            {
+             "title": "Original dog ad",
+             "type": "video",
+             "url": "https://static.higgsfield.ai/gpt-astra/dog-ad-hook-original.mp4",
+             "poster_url": "https://static.higgsfield.ai/gpt-astra/dog-ad-hook-original-poster.webp",
+             "width": 1080,
+             "height": 1920
+            }
+           ],
+           "tags": [
+            {
+             "id": "hook-main-tag-versions",
+             "type": "custom",
+             "label": "3 hook variants",
+             "icon_key": "image"
+            },
+            {
+             "id": "hook-main-tag-ratio",
+             "type": "aspect-ratio",
+             "label": "9:16",
+             "icon_key": "aspect-ratio"
+            },
+            {
+             "id": "hook-main-tag-audio",
+             "type": "audio",
+             "label": "Original audio",
+             "icon_key": "audio"
+            }
+           ]
+          },
+          {
+           "id": "hook-main-assistant-2",
+           "role": "assistant",
+           "text": "Here are three opening-hook variations. Compare how each one introduces the same ad, then test them with the same audience and placement."
+          }
+         ]
+        },
+        "conversation_media": {
+         "title": "Hook Multiplier",
+         "prompt": "/marketing-hook-variants\nCreate 3 complete versions of this video with new opening hooks. Keep the rest unchanged.",
+         "type": "video",
+         "url": "https://static.higgsfield.ai/gpt-skills/media/ad-hooks/1.mp4",
+         "poster_url": "https://static.higgsfield.ai/gpt-astra/volcano-hook-variations.webp",
+         "width": 600,
+         "height": 338
+        },
+        "card_example": {
+         "prompt": "Use @Higgsfield to run /marketing-hook-variants.\nCreate 3 complete versions of this video with new opening hooks. Keep the rest unchanged.",
+         "reference_medias": [
+          {
+           "title": "Original dog ad",
+           "type": "video",
+           "url": "https://static.higgsfield.ai/gpt-astra/dog-ad-hook-original.mp4",
+           "poster_url": "https://static.higgsfield.ai/gpt-astra/dog-ad-hook-original-poster.webp",
+           "width": 1080,
+           "height": 1920
+          }
+         ],
+         "show_chatgpt": false,
+         "show_copy": true
+        },
+        "agents": [
+         {
+          "id": "telegram",
+          "destination": "copy-prompt",
+          "installations": []
+         },
+         {
+          "id": "slack",
+          "destination": "copy-prompt",
+          "installations": []
+         },
+         {
+          "id": "chatgpt",
+          "destination": "chatgpt-web",
+          "installations": [
+           {
+            "id": "chatgpt",
+            "title": "Download ChatGPT Desktop",
+            "description": "Install the ChatGPT desktop app on your computer.",
+            "icon_key": "chatgpt",
+            "icon_url": "",
+            "action": "auto",
+            "action_label": "Download ChatGPT",
+            "action_url": "https://chatgpt.com/download/",
+            "action_icon": "download",
+            "action_icon_url": "",
+            "prompt": "",
+            "variant": "secondary",
+            "copied_label": "Copied",
+            "copy_success_text": "Prompt copied.",
+            "copy_error_text": "Could not copy the prompt. Please try again.",
+            "is_hidden": false
+           },
+           {
+            "id": "higgsfield-plugin",
+            "title": "Install the Higgsfield plugin",
+            "description": "Add Higgsfield to ChatGPT to use this workflow.",
+            "icon_key": "higgsfield",
+            "icon_url": "",
+            "action": "auto",
+            "action_label": "Install plugin",
+            "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+            "action_icon": "download",
+            "action_icon_url": "",
+            "prompt": "",
+            "variant": "tertiary",
+            "copied_label": "Copied",
+            "copy_success_text": "Prompt copied.",
+            "copy_error_text": "Could not copy the prompt. Please try again.",
+            "is_hidden": false
+           },
+           {
+            "id": "start-in-chatgpt",
+            "title": "Run the workflow",
+            "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+            "icon_key": "chatgpt",
+            "icon_url": "",
+            "action": "copy",
+            "action_label": "Copy prompt",
+            "action_url": "",
+            "action_icon": "none",
+            "action_icon_url": "",
+            "prompt": "/marketing-hook-variants\nCreate 3 complete versions of this video with new opening hooks. Keep the rest unchanged.",
+            "variant": "tertiary",
+            "copied_label": "Copied",
+            "copy_success_text": "Prompt copied.",
+            "copy_error_text": "Could not copy the prompt. Please try again.",
+            "is_hidden": false
+           }
+          ]
+         },
+         {
+          "id": "claude",
+          "destination": "claude-web",
+          "prompt": "Use @Higgsfield to run /marketing-hook-variants.\nCreate 3 complete versions of this video with new opening hooks. Keep the rest unchanged.",
+          "label": "Try in Claude",
+          "installations": []
+         },
+         {
+          "id": "claude-code",
+          "destination": "copy-prompt"
+         },
+         {
+          "id": "cli",
+          "destination": "copy-prompt"
+         },
+         {
+          "id": "other",
+          "destination": "copy-prompt"
+         }
+        ],
+        "id": "3bb04684-c964-4289-8114-000000000007",
+        "slug": "ad-hooks",
+        "title": "Hook Multiplier",
+        "card_title": "Hook Multiplier",
+        "is_indexable": false,
+        "description": "Give one video multiple opening hooks. Get complete edited versions ready to test different ways of grabbing attention.",
+        "skill_label": "marketing-hook-variants",
+        "short_description": "Give one video multiple opening hooks. Get complete edited versions ready to test different ways of grabbing attention.",
+        "apps": [],
+        "cover_media": {
+         "type": "video",
+         "url": "https://static.higgsfield.ai/gpt-skills/media/ad-hooks/cover.mp4",
+         "poster_url": "https://static.higgsfield.ai/gpt-skills/media/ad-hooks/cover-poster.webp",
+         "width": 600,
+         "height": 338
+        },
+        "cover_alt": "Hook Multiplier",
+        "view_label": "View",
+        "tags": [
+         {
+          "key": "paid-ads",
+          "name": "Paid Ads",
+          "show_on_card": true,
+          "show_on_detail": true
+         },
+         {
+          "key": "featured",
+          "name": "Popular",
+          "show_on_card": true,
+          "show_on_detail": true
+         }
+        ]
+       },
+       {
+        "installations": [
+         {
+          "id": "chatgpt",
+          "title": "Download ChatGPT Desktop",
+          "description": "Install the ChatGPT desktop app on your computer.",
+          "icon_key": "chatgpt",
+          "icon_url": "",
+          "action": "auto",
+          "action_label": "Download ChatGPT",
+          "action_url": "https://chatgpt.com/download/",
+          "action_icon": "download",
+          "action_icon_url": "",
+          "prompt": "",
+          "variant": "secondary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         },
+         {
+          "id": "higgsfield-plugin",
+          "title": "Install the Higgsfield plugin",
+          "description": "Add Higgsfield to ChatGPT to use this workflow.",
+          "icon_key": "higgsfield",
+          "icon_url": "",
+          "action": "auto",
+          "action_label": "Install plugin",
+          "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+          "action_icon": "download",
+          "action_icon_url": "",
+          "prompt": "",
+          "variant": "tertiary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         },
+         {
+          "id": "start-in-chatgpt",
+          "title": "Run the workflow",
+          "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+          "icon_key": "chatgpt",
+          "icon_url": "",
+          "action": "copy",
+          "action_label": "Copy prompt",
+          "action_url": "",
+          "action_icon": "none",
+          "action_icon_url": "",
+          "prompt": "/marketing-research-to-ads\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+          "variant": "tertiary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         }
+        ],
+        "main_conversation": {
+         "result": {
+          "source": "first-example"
+         },
+         "messages": [
+          {
+           "id": "main-user-1",
+           "role": "user",
+           "text": "Research this product and its competitors, then create 5 static Meta ads with distinct angles.",
+           "attachments": [
+            {
+             "title": "Sorbet soda product",
+             "type": "image",
+             "url": "https://static.higgsfield.ai/gpt-astra/sorbet-soda-link-to-ads.webp",
+             "width": 1080,
+             "height": 1080
+            }
+           ]
+          },
+          {
+           "id": "main-assistant-1",
+           "role": "assistant",
+           "text": "I’ll review the product and competitor positioning, then turn the strongest supported benefits into five distinct creative angles. Each ad will have its own headline and visual direction."
+          },
+          {
+           "id": "main-generation-1",
+           "role": "generation",
+           "title": "Higgsfield",
+           "prompt": "Create five static Meta ad concepts for the supplied product. Give each a distinct customer angle, headline, visual composition, and call to action. Ground all product claims in the supplied evidence and avoid unsupported promises.",
+           "icon_key": "higgsfield",
+           "attachments": [
+            {
+             "title": "Sorbet soda product",
+             "type": "image",
+             "url": "https://static.higgsfield.ai/gpt-astra/sorbet-soda-link-to-ads.webp",
+             "width": 1080,
+             "height": 1080
+            }
+           ],
+           "tags": [
+            {
+             "id": "main-tag-1",
+             "type": "custom",
+             "label": "5 ad concepts",
+             "icon_key": "image"
+            },
+            {
+             "id": "main-tag-2",
+             "type": "custom",
+             "label": "Distinct angles",
+             "icon_key": "skill"
+            }
+           ]
+          },
+          {
+           "id": "main-assistant-2",
+           "role": "assistant",
+           "text": "Here are five creative directions to test. Compare the angles using the same audience and offer so you can see which message resonates."
+          }
+         ]
+        },
+        "conversation_media": {
+         "title": "Ad Strategist",
+         "prompt": "/marketing-research-to-ads\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+         "type": "video",
+         "url": "https://static.higgsfield.ai/gpt-skills/media/link-to-ads/1.mp4",
+         "poster_url": "https://static.higgsfield.ai/gpt-skills/media/link-to-ads/1-poster.webp",
+         "width": 600,
+         "height": 338
+        },
+        "card_example": {
+         "prompt": "Use @Higgsfield to run /marketing-research-to-ads.\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+         "reference_medias": [
+          {
+           "title": "Sorbet soda product",
+           "type": "image",
+           "url": "https://static.higgsfield.ai/gpt-astra/sorbet-soda-link-to-ads.webp",
+           "width": 1080,
+           "height": 1080
+          }
+         ],
+         "show_chatgpt": false,
+         "show_copy": true
+        },
+        "agents": [
+         {
+          "id": "telegram",
+          "destination": "copy-prompt",
+          "installations": []
+         },
+         {
+          "id": "slack",
+          "destination": "copy-prompt",
+          "installations": []
+         },
+         {
+          "id": "chatgpt",
+          "destination": "chatgpt-web",
+          "installations": [
+           {
+            "id": "chatgpt",
+            "title": "Download ChatGPT Desktop",
+            "description": "Install the ChatGPT desktop app on your computer.",
+            "icon_key": "chatgpt",
+            "icon_url": "",
+            "action": "auto",
+            "action_label": "Download ChatGPT",
+            "action_url": "https://chatgpt.com/download/",
+            "action_icon": "download",
+            "action_icon_url": "",
+            "prompt": "",
+            "variant": "secondary",
+            "copied_label": "Copied",
+            "copy_success_text": "Prompt copied.",
+            "copy_error_text": "Could not copy the prompt. Please try again.",
+            "is_hidden": false
+           },
+           {
+            "id": "higgsfield-plugin",
+            "title": "Install the Higgsfield plugin",
+            "description": "Add Higgsfield to ChatGPT to use this workflow.",
+            "icon_key": "higgsfield",
+            "icon_url": "",
+            "action": "auto",
+            "action_label": "Install plugin",
+            "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+            "action_icon": "download",
+            "action_icon_url": "",
+            "prompt": "",
+            "variant": "tertiary",
+            "copied_label": "Copied",
+            "copy_success_text": "Prompt copied.",
+            "copy_error_text": "Could not copy the prompt. Please try again.",
+            "is_hidden": false
+           },
+           {
+            "id": "start-in-chatgpt",
+            "title": "Run the workflow",
+            "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+            "icon_key": "chatgpt",
+            "icon_url": "",
+            "action": "copy",
+            "action_label": "Copy prompt",
+            "action_url": "",
+            "action_icon": "none",
+            "action_icon_url": "",
+            "prompt": "/marketing-research-to-ads\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+            "variant": "tertiary",
+            "copied_label": "Copied",
+            "copy_success_text": "Prompt copied.",
+            "copy_error_text": "Could not copy the prompt. Please try again.",
+            "is_hidden": false
+           }
+          ]
+         },
+         {
+          "id": "claude",
+          "destination": "claude-web",
+          "prompt": "Use @Higgsfield to run /marketing-research-to-ads.\nResearch this product and its competitors, then create 5 static Meta ads with distinct angles.",
+          "label": "Try in Claude",
+          "installations": []
+         },
+         {
+          "id": "claude-code",
+          "destination": "copy-prompt"
+         },
+         {
+          "id": "cli",
+          "destination": "copy-prompt"
+         },
+         {
+          "id": "other",
+          "destination": "copy-prompt"
+         }
+        ],
+        "id": "3bb04684-c964-4289-8114-000000000004",
+        "slug": "link-to-ads",
+        "title": "Ad Strategist",
+        "card_title": "Ad Strategist",
+        "is_indexable": false,
+        "description": "Turn product and competitor research into static ads tailored to your market. Explore different angles grounded in what your product offers.",
+        "skill_label": "marketing-research-to-ads",
+        "short_description": "Turn product and competitor research into static ads tailored to your market. Explore different angles grounded in what your product offers.",
+        "apps": [],
+        "cover_media": {
+         "type": "video",
+         "url": "https://static.higgsfield.ai/gpt-skills/media/link-to-ads/cover.mp4",
+         "poster_url": "https://static.higgsfield.ai/gpt-skills/media/link-to-ads/cover-poster.webp",
+         "width": 600,
+         "height": 338
+        },
+        "cover_alt": "Ad Strategist",
+        "view_label": "View",
+        "tags": [
+         {
+          "key": "paid-ads",
+          "name": "Paid Ads",
+          "show_on_card": true,
+          "show_on_detail": true
+         },
+         {
+          "key": "featured",
+          "name": "Popular",
+          "show_on_card": true,
+          "show_on_detail": true
+         }
+        ]
+       },
+       {
+        "installations": [
+         {
+          "id": "chatgpt",
+          "title": "Download ChatGPT Desktop",
+          "description": "Install the ChatGPT desktop app on your computer.",
+          "icon_key": "chatgpt",
+          "icon_url": "",
+          "action": "auto",
+          "action_label": "Download ChatGPT",
+          "action_url": "https://chatgpt.com/download/",
+          "action_icon": "download",
+          "action_icon_url": "",
+          "prompt": "",
+          "variant": "secondary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         },
+         {
+          "id": "higgsfield-plugin",
+          "title": "Install the Higgsfield plugin",
+          "description": "Add Higgsfield to ChatGPT to use this workflow.",
+          "icon_key": "higgsfield",
+          "icon_url": "",
+          "action": "auto",
+          "action_label": "Install plugin",
+          "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+          "action_icon": "download",
+          "action_icon_url": "",
+          "prompt": "",
+          "variant": "tertiary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         },
+         {
+          "id": "start-in-chatgpt",
+          "title": "Run the workflow",
+          "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+          "icon_key": "chatgpt",
+          "icon_url": "",
+          "action": "copy",
+          "action_label": "Copy prompt",
+          "action_url": "",
+          "action_icon": "none",
+          "action_icon_url": "",
+          "prompt": "/marketing-campaign-manager\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+          "variant": "tertiary",
+          "copied_label": "Copied",
+          "copy_success_text": "Prompt copied.",
+          "copy_error_text": "Could not copy the prompt. Please try again.",
+          "is_hidden": false
+         }
+        ],
+        "main_conversation": {
+         "result": {
+          "source": "first-example"
+         },
+         "messages": [
+          {
+           "id": "main-user-1",
+           "role": "user",
+           "text": "Review 14 days of campaign data and recommend what to scale, pause, and test next.",
+           "attachments": []
+          },
+          {
+           "id": "main-assistant-1",
+           "role": "assistant",
+           "text": "I’ll compare spend, conversions, acquisition cost, and creative trends across the 14-day window. I’ll separate strong signals from low-volume results before recommending changes."
+          },
+          {
+           "id": "main-generation-1",
+           "role": "generation",
+           "title": "Higgsfield",
+           "prompt": "Review the supplied 14 days of campaign data. Group recommendations into scale, pause, and test next. Explain each decision using the actual metrics, flag missing data, and distinguish observed results from hypotheses.",
+           "icon_key": "higgsfield",
+           "attachments": [],
+           "tags": [
+            {
+             "id": "main-tag-1",
+             "type": "custom",
+             "label": "14-day review",
+             "icon_key": "duration"
+            },
+            {
+             "id": "main-tag-2",
+             "type": "custom",
+             "label": "Scale · Pause · Test",
+             "icon_key": "settings"
+            }
+           ]
+          },
+          {
+           "id": "main-assistant-2",
+           "role": "assistant",
+           "text": "The review is organized into scaling opportunities, candidates to pause, and the next creative tests. Use the supporting metrics and confidence notes to prioritize changes."
+          }
+         ]
+        },
+        "conversation_media": {
+         "title": "Campaign Analyst",
+         "prompt": "/marketing-campaign-manager\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+         "type": "video",
+         "url": "https://static.higgsfield.ai/gpt-skills/media/performance-marketing.mp4",
+         "poster_url": "https://static.higgsfield.ai/gpt-skills/media/performance-marketing-poster.webp",
+         "width": 600,
+         "height": 338
+        },
+        "card_example": {
+         "prompt": "Use @Higgsfield to run /marketing-campaign-manager.\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+         "reference_medias": [],
+         "show_chatgpt": false,
+         "show_copy": true
+        },
+        "agents": [
+         {
+          "id": "telegram",
+          "destination": "copy-prompt",
+          "installations": []
+         },
+         {
+          "id": "slack",
+          "destination": "copy-prompt",
+          "installations": []
+         },
+         {
+          "id": "chatgpt",
+          "destination": "chatgpt-web",
+          "installations": [
+           {
+            "id": "chatgpt",
+            "title": "Download ChatGPT Desktop",
+            "description": "Install the ChatGPT desktop app on your computer.",
+            "icon_key": "chatgpt",
+            "icon_url": "",
+            "action": "auto",
+            "action_label": "Download ChatGPT",
+            "action_url": "https://chatgpt.com/download/",
+            "action_icon": "download",
+            "action_icon_url": "",
+            "prompt": "",
+            "variant": "secondary",
+            "copied_label": "Copied",
+            "copy_success_text": "Prompt copied.",
+            "copy_error_text": "Could not copy the prompt. Please try again.",
+            "is_hidden": false
+           },
+           {
+            "id": "higgsfield-plugin",
+            "title": "Install the Higgsfield plugin",
+            "description": "Add Higgsfield to ChatGPT to use this workflow.",
+            "icon_key": "higgsfield",
+            "icon_url": "",
+            "action": "auto",
+            "action_label": "Install plugin",
+            "action_url": "https://chatgpt.com/plugins/higgsfield?open_in_app=",
+            "action_icon": "download",
+            "action_icon_url": "",
+            "prompt": "",
+            "variant": "tertiary",
+            "copied_label": "Copied",
+            "copy_success_text": "Prompt copied.",
+            "copy_error_text": "Could not copy the prompt. Please try again.",
+            "is_hidden": false
+           },
+           {
+            "id": "start-in-chatgpt",
+            "title": "Run the workflow",
+            "description": "Copy this prompt into ChatGPT and add your inputs to get started.",
+            "icon_key": "chatgpt",
+            "icon_url": "",
+            "action": "copy",
+            "action_label": "Copy prompt",
+            "action_url": "",
+            "action_icon": "none",
+            "action_icon_url": "",
+            "prompt": "/marketing-campaign-manager\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+            "variant": "tertiary",
+            "copied_label": "Copied",
+            "copy_success_text": "Prompt copied.",
+            "copy_error_text": "Could not copy the prompt. Please try again.",
+            "is_hidden": false
+           }
+          ]
+         },
+         {
+          "id": "claude",
+          "destination": "claude-web",
+          "prompt": "Use @Higgsfield to run /marketing-campaign-manager.\nReview 14 days of campaign data and recommend what to scale, pause, and test next.",
+          "label": "Try in Claude",
+          "installations": []
+         },
+         {
+          "id": "claude-code",
+          "destination": "copy-prompt"
+         },
+         {
+          "id": "cli",
+          "destination": "copy-prompt"
+         },
+         {
+          "id": "other",
+          "destination": "copy-prompt"
+         }
+        ],
+        "id": "3bb04684-c964-4289-8114-000000000002",
+        "slug": "performance-marketing-operator",
+        "title": "Campaign Analyst",
+        "card_title": "Campaign Analyst",
+        "is_indexable": false,
+        "description": "Analyze campaign results to find what needs improvement. Get practical recommendations and a clear plan for what to test next.",
+        "skill_label": "marketing-campaign-manager",
+        "short_description": "Analyze campaign results to find what needs improvement. Get practical recommendations and a clear plan for what to test next.",
+        "apps": [],
+        "cover_media": {
+         "type": "video",
+         "url": "https://static.higgsfield.ai/gpt-skills/media/performance-marketing.mp4",
+         "poster_url": "https://static.higgsfield.ai/gpt-skills/media/performance-marketing-poster.webp",
+         "width": 600,
+         "height": 338
+        },
+        "cover_alt": "Campaign Analyst",
+        "view_label": "View",
+        "tags": [
+         {
+          "key": "paid-ads",
+          "name": "Paid Ads",
+          "show_on_card": true,
+          "show_on_detail": true
+         }
+        ]
+       }
+      ],
+      "card_example": {
+       "prompt": "Use @Higgsfield to run /marketing-adapt-video.\nCreate an original ad for my product using this reference video’s persuasion structure.",
+       "reference_medias": [
+        {
+         "title": "Gulpo reference video",
+         "type": "video",
+         "url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input.mp4",
+         "poster_url": "https://static.higgsfield.ai/gpt-astra/gulpo-by-astra-input-poster.webp",
+         "width": 1920,
+         "height": 1080
+        }
+       ],
+       "show_chatgpt": false,
+       "show_copy": true
+      },
+      "conversation_media": {
+       "title": "Ad Recreator",
+       "prompt": "/marketing-adapt-video\nCreate an original ad for my product using this reference video’s persuasion structure.",
+       "type": "video",
+       "url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/1.mp4",
+       "poster_url": "https://static.higgsfield.ai/gpt-skills/media/ad-adaptation/1-poster.webp",
+       "width": 600,
+       "height": 338
+      }
+     },
+     "settings": {
+      "id": "hub-settings",
+      "agents": [
+       {
+        "id": "chatgpt"
+       },
+       {
+        "id": "claude"
+       },
+       {
+        "id": "claude-code"
+       },
+       {
+        "id": "telegram"
+       },
+       {
+        "id": "slack"
+       },
+       {
+        "id": "cli"
+       },
+       {
+        "id": "other"
+       }
+      ],
+      "default_agent": "chatgpt",
+      "all_presets_bundle_ids": [
+       "546f183a-26d2-53ae-a889-62fd1de3f507",
+       "abf118a1-53b9-4179-b3b9-f4d54a6db52c",
+       "0e43e251-c6ab-4e6b-8117-b1cc3d39c307"
+      ]
+     }
+    }
+   }
+  ]
+ }
+}

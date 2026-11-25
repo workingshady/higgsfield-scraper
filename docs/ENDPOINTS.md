@@ -2,9 +2,10 @@
 
 > **This page covers the pricing endpoints.** The other scrapers' endpoints (params, page sizes, cursors, every field)
 > are documented in [`scrapers/community.md`](scrapers/community.md), [`scrapers/catalog.md`](scrapers/catalog.md),
-> [`scrapers/projects.md`](scrapers/projects.md), [`scrapers/blog.md`](scrapers/blog.md) and
+> [`scrapers/projects.md`](scrapers/projects.md), [`scrapers/blog.md`](scrapers/blog.md),
+> [`scrapers/site.md`](scrapers/site.md) (apps, academy, MCP, original series, landings, promo APIs) and
 > [`scrapers/cost-estimate.md`](scrapers/cost-estimate.md). Every endpoint, including the Clerk login flow, is in
-> [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) (76 requests). The full site map is in
+> [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) (96 requests). The full site map is in
 > [`HIGGSFIELD_DATA_INVENTORY.md`](HIGGSFIELD_DATA_INVENTORY.md).
 
 

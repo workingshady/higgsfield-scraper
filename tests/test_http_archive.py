@@ -66,3 +66,23 @@ def test_archive_writes_request_response_body_curl_and_har(tmp_path):
     assert har["log"]["version"] == "1.2" and len(har["log"]["entries"]) == 2
     idx = [json.loads(x) for x in (ctx.run_dir / "http" / "index.jsonl").read_text("utf-8").splitlines()]
     assert [i["seq"] for i in idx] == [1, 2] and idx[1]["error"]
+
+
+def _privacy_mw(tmp_path, with_profiles):
+    from types import SimpleNamespace
+    c = _Crawler(RunContext.create(tmp_path, "p"))
+    c.spider.scraper_name = "site"                                  # a personal_data scraper
+    c.spider.selection = SimpleNamespace(with_profiles=with_profiles)
+    return HttpArchiveMiddleware(c)
+
+
+def test_html_body_withheld_for_personal_data_scraper_without_opt_in(tmp_path):
+    from higgsfield_scraper.middlewares import PRIVACY_WITHHELD
+    html = b"<html><body>by @someone</body></html>"
+    assert _privacy_mw(tmp_path, False)._privacy(html) == PRIVACY_WITHHELD
+    assert _privacy_mw(tmp_path, True)._privacy(html) == html          # --with-profiles: byte-exact
+
+
+def test_json_body_redacted_not_withheld(tmp_path):
+    out = _privacy_mw(tmp_path, False)._privacy(b'{"username": "someone", "title": "x"}')
+    assert json.loads(out) == {"username": "[redacted]", "title": "x"}
