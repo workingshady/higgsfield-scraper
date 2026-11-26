@@ -46,8 +46,16 @@ def walk(node, path: str, acc, examples) -> None:
 
 
 def main() -> int:
-    run = Path(sys.argv[1]) if len(sys.argv) > 1 else latest_run("runs")
+    args = sys.argv[1:]
+    if args and args[0] in ("-h", "--help"):
+        print("usage: python scripts/gen_endpoint_fields.py [RUN_DIR]\n"
+              "Rewrites docs/ENDPOINT_FIELDS.md from RUN_DIR/raw (default: newest run in runs/).")
+        return 0
+    run = Path(args[0]) if args else latest_run("runs")
     raw = run / "raw"
+    if not raw.is_dir():
+        print(f"error: {raw} not found; docs/ENDPOINT_FIELDS.md left unchanged")
+        return 2
     lines = ["# Endpoint field reference (auto-generated)", "",
              f"Every JSON path seen in the raw responses of run `{run.name}`, with observed types and one example.",
              "Dynamic object keys are shown as `<placeholder>`; `[]` marks list items. Regenerate with",
@@ -68,6 +76,9 @@ def main() -> int:
             ex = ex.replace("|", "\\|")
             lines.append(f"| `{p}` | {'/'.join(sorted(acc[p]))} | {ex} |")
         lines.append("")
+    if not any(line.startswith("## ") for line in lines):
+        print(f"error: no pricing responses in {raw}; docs/ENDPOINT_FIELDS.md left unchanged")
+        return 2
     out = Path(__file__).resolve().parents[1] / "docs" / "ENDPOINT_FIELDS.md"
     out.write_text("\n".join(lines), encoding="utf-8")
     print(f"wrote {out} ({len(lines)} lines) from {run}")
