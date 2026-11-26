@@ -136,3 +136,68 @@ Sanity checks against the site's text:
 - **Price drift.** Prices change: `costs_version` (sha256) identifies the table used. Old generations priced with
   today's table may not match what was charged at the time.
 - Audio formula rounding (`rounding: ceil` on cost units) is approximated by block ceiling only.
+
+## Version 2: the JS formulas (`--estimate-version 2`)
+
+`higgsfield_scraper/estimate/v2.py` → `CostEstimatorV2` (+ `estimate/js_static.py`) is an **opt-in** second
+estimator that follows the web app's own formulas ([`COST_FORMULAS.md`](../COST_FORMULAS.md) §4–§5) and fixes the
+differences listed in [`COST_FORMULAS.md` §8](../COST_FORMULAS.md#8-our-estimator-vs-the-js-formulas). Everything
+above this section describes v1, which stays the default and is unchanged: without the flag every output is
+byte-identical to before (manifest, `meta.options`, CSV columns and `schema/dataset.schema.json` included).
+
+```bash
+python -m higgsfield_scraper scrape community --estimate-cost all --estimate-version 2
+python -m higgsfield_scraper scrape account --with-jobs --compare-estimate --estimate-version 2
+```
+
+```python
+from higgsfield_scraper.estimate import estimator_class
+est = estimator_class(2).from_job_costs_body(job_costs_body)          # estimator_class(1) is CostEstimator
+est.estimate("seedance_2_5_flash", {"resolution": "480p", "duration": 5, "medias": [video]})["credits"]   # 13.0 (v1: 12.5)
+```
+
+**Output.** Same `EstimatedCost` shape plus `formula_version: 2` on every v2 estimate. v1 estimates have no such key,
+and the field is only in the JSON Schema of datasets that contain it. Community runs record
+`options.estimate_version: 2` (absent for v1), a `cost_basis` note and a "Formula version" line in `summary.md`.
+Account runs record `options.estimate_version: 2` and a `pricing_basis.notes` entry (the comparison rows keep their
+schema). `normalize` re-uses the run's manifest selection, so a run scraped with `--estimate-version 2` is
+re-normalized with v2.
+
+**Lookup order for job types without a `/job-sets/costs` row:** viral preset price matrix → static JS table
+(`js_static.STATIC`, always `approximate`, `price_point_id: "js_static:<type>"`) → plan comparison table → `unpriced`.
+v1 has no static step.
+
+| §8 | rule in v2 | status |
+|---|---|---|
+| 1 | `ceil(d × cps) × max(1,b)` for Seedance 2.5/Flash/2.0/mini, Cinema 4.0, Happy Horse, Gemini Omni; `ceil(total)` for Kling 3.0 motion control (+2 with `is_chain`), Higgsfield Enhance, Marketing Studio video (+6·b with `web_product`) | fixed |
+| 2 | edit = `params.model == "video_edit"` too; quantity = first input video's length (`duration_sec` / `durationSec` / `duration` on the media, its `data` or `meta`, or top-level `source_duration`), clamped 4–30 s for Seedance 2.5 / Flash. Without a source length the output `duration` is used (`assumed.source_duration`, approximate) — JS would show no price | fixed |
+| 3 | no batch factor for Kling 4.0 / 4.0 Flash / 3.0 / Turbo / O3 / motion control, Wan 3.0 / Prime / 4.0, Grok v1.5 / Lite, Flux 3 video, Enhance, reframe (basis says "batch_size=N ignored") | fixed |
+| 4 | Genjutsu / AI Influencer: `ceil(d) × cps × b` | fixed |
+| 5 | reframe: `ceil(round(d) × cps + n_img × image_credits)`, `n_img` = row `image_count` (3) or `2·segments+1` | fixed |
+| 6 | MiniMax TTS × batch (live row: `pricing: linear`; the UI ignores batch) | kept |
+| 7 | Qwen: `max(minimum_cost_units, ceil(chars × 3/70)) / 100` | fixed |
+| 8 | Seed Audio: seconds = `clamp(ceil(chars/15), 1, 120)` from the text (falls back to `duration` without text) | fixed |
+| 9 | formula rows: `duration_rounding: floor` (dubbing, dubbing lipsync) then integer ceil; `ceil` minutes for video-to-music | fixed |
+| 10 | default duration 4 s (Seedance 2.0 / mini, Cinema 3.0 / 3.5), 8 s (Gemini Omni / Flash 1.2), 10 s (Kling 4.0 / Flash), else 5 s | fixed |
+| 11 | viral presets `ceil(units / 100)` | fixed |
+| 12 | `ceil₀.₀₁` for Wan 3.0 / Prime / 4.0, GPT Image, voice change, Flux video upscale | fixed |
+| 13 | Kling 3.0 / O3 without `sound` → `off` (main page default) | kept |
+| 14 | Kling 3.0 / O3: `Σ multi_prompt[].duration` when `multi_shots` and `multi_shot_mode` is `custom` (or absent) | fixed |
+| 15 | Wan edit: `ceil(Σ source s − 0.01)` on the `with_video` row | fixed |
+| 16 | `cost_per_run`, `cost_per_piece`, `piece`, `masks_cost_per_frame`, `picture_cost`, `look_cost` are moved from dimensions to attributes; `cost_per_run` is added once (inferred → approximate) | fixed |
+| 17 | static tables for Soul, Nano Banana 2 / 1 / Flash / Lite / upscale, Seedream / v4.5 / v5 Lite, Flux 2 / 3 image / Kontext, image_auto, Kling Omni, OpenAI Hazel, GPT text2image, Z-image, Marketing Studio image, faceswaps, Wan 2.2 image, Recraft styles, Veo 3.1 / Lite, Sora 2, Kling 2.6 / motion control / Omni video, MiniMax H3 / Max / Hailuo, Wan 2.5 / 2.6 / 2.7, Gemini Flash 1.1, Grok video, Seedance 1.0 / 1.5, FNF, Marketing hook, What-if, DoP, lipsync/speak, `*_unlimited` (0) | fixed (partly, see below) |
+| 18 | `use_unlim` note: "batch_size > 1 → charged", "never unlimited" for magi_2 / wan4_0 / Flash types; credits stay the list price | fixed |
+| 19 | GPT Image: `quality: auto` → high; missing quality/resolution or a missing combination → the high/2k row | fixed |
+
+**Not implemented in v2 (left as v1):** Veo 3 (`Ok` table: unit unclear), Cinema Studio image (`Y` table not in the
+doc), Grok image (`quality|pro` condition ambiguous), Reve (option key unknown), Kling video edit / reference (param
+names unknown), Cinema Studio video v2, chunked-speak fallback, magi_2 (no anonymous row and no static table),
+Topaz Hyperion / SAM 3 / depth video (need the frame count), and the "inferred" rounding of rows without a client
+formula (videoshop, relight, inpaint, draw-to-video, scene_switch, ad multiplier …) — they keep the v1 product.
+Lipsync job_set_type ids (`hf_speak_v2`, `wan2_5_speak`, `infinite_talk`, …) come from MODEL_LOADING.md and were not
+seen in community data.
+
+**Effect on real data** (3 community runs re-normalized with `--estimate-cost all`, 900 generations): 156 estimates
+changed, all on job types without a costs row that the static tables now price (Soul, Nano Banana Flash, Seedream v4.5,
+Flux 2, image_auto…); unpriced 244 → 167 (coverage 73 % → 81 %). Priced types in these runs (GPT Image, Nano Banana
+2.1, Seedream v5 Pro, Seedance 2.5 generate, viral presets) gave the same numbers in v1 and v2.

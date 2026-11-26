@@ -9,7 +9,7 @@ from typing import Any, Optional
 from ...core.base import RunMeta
 from ...core.dataset import make_meta
 from ...core.exporting import flatten, row, without, write_standard_outputs
-from ...estimate import EstimatedCost, skipped
+from ...estimate import EstimatedCost, formula_version_in_schema, skipped
 from .endpoints import FEED_PATHS
 from .options import Selection
 from .schemas import CommunityDataset
@@ -65,8 +65,12 @@ def _cost_context(entities: dict[str, list[dict]], sel: Selection) -> tuple[Any,
         notes.append("/job-sets/costs not fetched; estimates skipped")
         return None, summary
     try:
-        est = estimate.CostEstimator.from_job_costs_body(jc["job_costs"], usd_per_credit=summary["usd_per_credit"],
-                                                          usd_reference=summary["usd_reference"])
+        cls = estimate.CostEstimator if sel.estimate_version == 1 else estimate.estimator_class(sel.estimate_version)
+        est = cls.from_job_costs_body(jc["job_costs"], usd_per_credit=summary["usd_per_credit"],
+                                      usd_reference=summary["usd_reference"])
+        if sel.estimate_version != 1:
+            notes.append(f"estimator formula version {sel.estimate_version} (--estimate-version; "
+                         "docs/COST_FORMULAS.md §8)")
     except Exception as e:  # never lose the dataset because of the optional estimate
         log.exception("building the cost estimator failed")
         notes.append(f"estimator init failed: {e!r}")
@@ -285,8 +289,11 @@ def summary_md(ds: dict) -> str:
                   f"Estimated credits total: **{st['estimated_credits_total']}**"
                   + (f" · ≈ ${st['estimated_usd_total']} at {cb.get('usd_per_credit')} $/credit "
                      f"({cb.get('usd_reference')})" if st.get("estimated_usd_total") is not None else ""), "",
-                  "Status counts: " + ", ".join(f"{k}={v}" for k, v in st["estimate_status"].items()), "",
-                  "_Estimates use the current public price list and the generation's settings; they are not what "
+                  "Status counts: " + ", ".join(f"{k}={v}" for k, v in st["estimate_status"].items()), ""]
+        if m["options"].get("estimate_version", 1) != 1:     # line absent on default (v1) runs
+            lines += [f"Formula version: {m['options']['estimate_version']} (`--estimate-version`, JS formulas of "
+                      "docs/COST_FORMULAS.md)", ""]
+        lines += ["_Estimates use the current public price list and the generation's settings; they are not what "
                   "the creator actually paid (plans, promos and unlimited modes differ)._", ""]
     top = sorted(gens, key=lambda g: -(g["engagement"].get("views") or 0))[:10]
     lines += ["## Sample prompts (most viewed)", "", _md_table(
@@ -303,8 +310,11 @@ def summary_md(ds: dict) -> str:
 
 
 def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
-    return write_standard_outputs(
-        ds, out_dir,
-        json_parts={"generations": ds["generations"], "creators": ds["creators"], "comments": ds["comments"],
-                    "pages": ds["pages"], "stats": ds["stats"]},
-        csv_tables=csv_tables(ds), dataset_model=CommunityDataset, summary_md=summary_md(ds))
+    # formula_version (v2 estimates only) appears in the JSON Schema only when the dataset contains it
+    v2 = any((g.get("estimated_cost") or {}).get("formula_version") is not None for g in ds["generations"])
+    with formula_version_in_schema(v2):
+        return write_standard_outputs(
+            ds, out_dir,
+            json_parts={"generations": ds["generations"], "creators": ds["creators"], "comments": ds["comments"],
+                        "pages": ds["pages"], "stats": ds["stats"]},
+            csv_tables=csv_tables(ds), dataset_model=CommunityDataset, summary_md=summary_md(ds))

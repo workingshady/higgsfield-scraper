@@ -676,35 +676,39 @@ the live table, are in the [variations appendix](#11-generated-appendix-option-v
 ## 8. Our estimator vs the JS formulas
 
 `higgsfield_scraper/estimate/estimator.py` + `compare_fallback.py` (see `docs/scrapers/cost-estimate.md`) was checked
-against the formulas above by feeding the same params to `CostEstimator.estimate` with the live table:
+against the formulas above by feeding the same params to `CostEstimator.estimate` with the live table
+(the "estimator" column is v1, the default). `--estimate-version 2` (`estimate/v2.py`, `CostEstimatorV2`) is an opt-in
+estimator that implements these formulas; the last column says what it does with each row. v1 is unchanged. Every
+implemented row is a test case in `tests/test_estimate_v2.py` with the numbers of this table.
 
-| # | case | estimator | JS | cause |
-|---|---|---:|---:|---|
-| 1 | Seedance Flash 480p 5 s + video | 12.5 | 13 | estimator never applies `Math.ceil` per generation (all `ceil_batch` types: Seedance 2.5/Flash/2.0/mini, Cinema 4.0, Happy Horse, Gemini Omni, Kling motion control) |
-| 2 | Seedance 2.5 edit (`model:"video_edit"`, 12 s source) | 80 (5 s assumed, generate row) | 240 | `_component` only looks at `video_edit`/`is_edit`/`operation`/`mode`, not `params.model == "video_edit"`; source length is not read from `medias[].data.duration_sec`; no 4–30 clamp |
-| 3 | Kling 4.0 1080p 10 s, `batch_size: 2` | 75 | 37.5 | estimator multiplies batch for every per-second unit; Kling 4.0/Flash, Wan 3.0, Grok, Kling 3.0 Turbo, Flux 3 video have no batch factor |
-| 4 | Genjutsu 720p 5.4 s | 37.8 | 42 | JS uses `ceil(d) × cps` |
-| 5 | Reframe 720p 10 s | 45 | 49 | estimator adds `image_credits` per *input* image (0); JS adds `3 × 1.25` (`image_count`) |
-| 6 | MiniMax TTS 400 chars, batch 2 | 2.4 | 1.2 (UI) | UI ignores batch for non-ElevenLabs TTS; the live formula says linear — estimator probably matches the server |
-| 7 | Qwen TTS 60 chars | 0.0257 | 0.03 | estimator uses `len × 3/70/100` without `ceil` in units and without the 1-unit minimum |
-| 8 | Seed Audio 400 chars | 0.5 (5 s assumed) | 2.7 | estimator needs `duration`; JS derives seconds = `clamp(ceil(chars/15), 1, 120)` |
-| 9 | Audio dubbing 8.5 s | 25.5 | 24 | `duration_rounding: floor` and `rounding: ceil` not applied |
-| 10 | Seedance 2.0 720p, no duration | 22.5 (5 s) | 18 (4 s) | default duration 5 s vs JS default 4 s (Seedance 2.0, mini, Cinema 3.x) / 8 s (Veo, Gemini) / 10 s (Kling 4.0) |
-| 11 | Viral preset with 1750 units | 17.5 | 18 | `estimate_viral` uses `round(units/100, 4)`; JS `Math.ceil(units/100)` |
-| 12 | Wan 3.0 non-round rates | exact product | `ceil₀.₀₁` | no 0.01 rounding (no visible difference with today's rates) |
-| 13 | Kling 3.0 / O3 without `sound` | assumes `off` (lowest cost) | submit default `off`, defineJob `on` | agrees with the main page only |
-| 14 | Kling 3.0 multi-shot | uses `params.duration` | Σ `multi_prompt[].duration` when `multi_shots` and mode custom | |
-| 15 | Wan edit | generate row with `duration` | `ceil(Σ source s − 0.01)` with `with_video` | |
-| 16 | `scene_switch` | `cost_per_run`, `cost_per_piece`, `masks_cost_per_frame` … parsed as **dimensions** | — | `parsers/costs.py` treats unknown numeric scalars as dimensions; they should be add-on costs |
-| 17 | Models with static JS prices (Veo, Sora, Nano Banana 2, Soul, lipsync, Kling 2.6, MiniMax H3/Hailuo, Flux 2, Seedream v4.5 …) | `unpriced` or compare-table fallback | static tables (§4) | no JS-table fallback in the estimator |
-| 18 | Unlimited with `batch_size > 1` | note only | never unlimited | `use_unlim` note ignores the batch rule |
-| 19 | GPT Image missing combination | `unpriced`/`approximate` | high/2k row | JS fallback row |
+| # | case | estimator | JS | cause | `--estimate-version 2` |
+|---|---|---:|---:|---|---|
+| 1 | Seedance Flash 480p 5 s + video | 12.5 | 13 | estimator never applies `Math.ceil` per generation (all `ceil_batch` types: Seedance 2.5/Flash/2.0/mini, Cinema 4.0, Happy Horse, Gemini Omni, Kling motion control) | fixed in v2 |
+| 2 | Seedance 2.5 edit (`model:"video_edit"`, 12 s source) | 80 (5 s assumed, generate row) | 240 | `_component` only looks at `video_edit`/`is_edit`/`operation`/`mode`, not `params.model == "video_edit"`; source length is not read from `medias[].data.duration_sec`; no 4–30 clamp | fixed in v2 (no source length → output `duration`, approximate) |
+| 3 | Kling 4.0 1080p 10 s, `batch_size: 2` | 75 | 37.5 | estimator multiplies batch for every per-second unit; Kling 4.0/Flash, Wan 3.0, Grok, Kling 3.0 Turbo, Flux 3 video have no batch factor | fixed in v2 (also Kling 3.0 / O3 / motion control, Enhance, reframe) |
+| 4 | Genjutsu 720p 5.4 s | 37.8 | 42 | JS uses `ceil(d) × cps` | fixed in v2 |
+| 5 | Reframe 720p 10 s | 45 | 49 | estimator adds `image_credits` per *input* image (0); JS adds `3 × 1.25` (`image_count`) | fixed in v2 |
+| 6 | MiniMax TTS 400 chars, batch 2 | 2.4 | 1.2 (UI) | UI ignores batch for non-ElevenLabs TTS; the live formula says linear — estimator probably matches the server | kept (the live row says linear batch) |
+| 7 | Qwen TTS 60 chars | 0.0257 | 0.03 | estimator uses `len × 3/70/100` without `ceil` in units and without the 1-unit minimum | fixed in v2 |
+| 8 | Seed Audio 400 chars | 0.5 (5 s assumed) | 2.7 | estimator needs `duration`; JS derives seconds = `clamp(ceil(chars/15), 1, 120)` | fixed in v2 |
+| 9 | Audio dubbing 8.5 s | 25.5 | 24 | `duration_rounding: floor` and `rounding: ceil` not applied | fixed in v2 (also dubbing lipsync; music `ceil` minutes) |
+| 10 | Seedance 2.0 720p, no duration | 22.5 (5 s) | 18 (4 s) | default duration 5 s vs JS default 4 s (Seedance 2.0, mini, Cinema 3.x) / 8 s (Veo, Gemini) / 10 s (Kling 4.0) | fixed in v2 |
+| 11 | Viral preset with 1750 units | 17.5 | 18 | `estimate_viral` uses `round(units/100, 4)`; JS `Math.ceil(units/100)` | fixed in v2 |
+| 12 | Wan 3.0 non-round rates | exact product | `ceil₀.₀₁` | no 0.01 rounding (no visible difference with today's rates) | fixed in v2 (Wan, GPT Image, voice change, Flux video upscale); not implemented for Topaz Hyperion / SAM 3 / depth: need the frame count |
+| 13 | Kling 3.0 / O3 without `sound` | assumes `off` (lowest cost) | submit default `off`, defineJob `on` | agrees with the main page only | kept (= main page) |
+| 14 | Kling 3.0 multi-shot | uses `params.duration` | Σ `multi_prompt[].duration` when `multi_shots` and mode custom | | fixed in v2 |
+| 15 | Wan edit | generate row with `duration` | `ceil(Σ source s − 0.01)` with `with_video` | | fixed in v2 |
+| 16 | `scene_switch` | `cost_per_run`, `cost_per_piece`, `masks_cost_per_frame` … parsed as **dimensions** | — | `parsers/costs.py` treats unknown numeric scalars as dimensions; they should be add-on costs | fixed in v2 (`cost_per_run` added once, inferred → approximate) |
+| 17 | Models with static JS prices (Veo, Sora, Nano Banana 2, Soul, lipsync, Kling 2.6, MiniMax H3/Hailuo, Flux 2, Seedream v4.5 …) | `unpriced` or compare-table fallback | static tables (§4) | no JS-table fallback in the estimator | fixed in v2 for the tables listed in [cost-estimate.md](scrapers/cost-estimate.md#version-2-the-js-formulas---estimate-version-2); not implemented: Veo 3 (unit unclear), Cinema image (`Y` table unknown), Grok image, Reve, Kling video edit/reference (param names unknown), magi_2 (no static table) |
+| 18 | Unlimited with `batch_size > 1` | note only | never unlimited | `use_unlim` note ignores the batch rule | fixed in v2 (notes; credits stay the list price) |
+| 19 | GPT Image missing combination | `unpriced`/`approximate` | high/2k row | JS fallback row | fixed in v2 |
 
 **Validation against real charges.** `scrape account --with-jobs --compare-estimate` (login required,
 [`scrapers/account.md`](scrapers/account.md)) runs this estimator on the params of the account's own jobs and
 compares the result with the `cost` the server actually charged (`match` = |diff| ≤ 0.01 credits). It could not be
 run live yet: as of 2026-11-26 Cloudflare challenges `/jobs/accessible` for the Scrapy crawl (`403 cf-mitigated:
 challenge`; recorded, not evaded), so it is covered only by offline tests on synthetic fixtures.
+Add `--estimate-version 2` to compare the v2 formulas with the actual charges instead.
 
 Agreements: Seedance 2.5 generate/extend at integer products, `with_video` detection, Kling 3.0 mode × sound,
 GPT Image / Nano Banana 2.1 / Seedream / Recraft / Ideogram per-image prices, ElevenLabs block pricing, `original_*`

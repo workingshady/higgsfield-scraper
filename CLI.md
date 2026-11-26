@@ -227,6 +227,7 @@ Community generations: model (job_set_type), prompt, settings, inputs, results, 
 | `--estimate-cost` | `off` | `off` `images` `videos` `all` | attach an estimated credit cost per generation from /job-sets/costs: off (default) \| images \| videos \| all. An estimate, not what the creator actually paid |
 | `--usd-reference` | `plus:annual` | USD_REFERENCE | plan_type:billing_period whose after-offer $/credit converts credits to USD (default: plus:annual) |
 | `--usd-plan-set` | `ps_a3` | USD_PLAN_SET | plan_set_key used for the USD reference plan (default: ps_a3) |
+| `--estimate-version` | `1` | `1` `2` | cost formulas used by --estimate-cost: 1 (default, unchanged) or 2 (matches the web app's JS formulas, docs/COST_FORMULAS.md §8; v2 estimates carry formula_version: 2) |
 
 ```bash
 python -m higgsfield_scraper scrape community --max-items 300
@@ -345,6 +346,7 @@ OPT-IN, login required: your own balances/plan/subscription snapshot, your jobs 
 | `--with-jobs` | off | flag | also read your own jobs from /jobs/accessible (paginated; --max-items / --max-pages apply): job_set_type, status, created_at, pricing-relevant params and the actual credits charged |
 | `--compare-estimate` | off | flag | needs --with-jobs: run the CostEstimator on each job's params and compare it with the credits actually charged (fetches the public /job-sets/costs etc.) |
 | `--job-types` | — | JOB_TYPES | needs --with-jobs: comma list of job_set_type values to request (server-side filter) |
+| `--estimate-version` | `1` | `1` `2` | needs --compare-estimate: estimator formulas, 1 (default, unchanged) or 2 (the web app's JS formulas, docs/COST_FORMULAS.md §8) |
 | `--with-prompts` | off | flag | opt-in: STORE YOUR OWN PROMPT TEXT (prompt, negative_prompt, text …) in the dataset and in the raw/ and http/ archives. Default: prompts are replaced by their length only |
 
 ```bash

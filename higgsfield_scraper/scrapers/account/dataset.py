@@ -26,8 +26,8 @@ def _strip(e: dict) -> dict:
     return {k: v for k, v in e.items() if k != "kind"}
 
 
-def build_estimator(bases: dict[str, dict]) -> tuple[Any, dict]:
-    """-> (CostEstimator or None, pricing_basis dict)."""
+def build_estimator(bases: dict[str, dict], version: int = 1) -> tuple[Any, dict]:
+    """-> (CostEstimator or None, pricing_basis dict). version 2 = CostEstimatorV2 (--estimate-version 2)."""
     from ... import estimate
     notes: list[str] = []
     jc = (bases.get("job_costs") or {}).get("body")
@@ -41,7 +41,10 @@ def build_estimator(bases: dict[str, dict]) -> tuple[Any, dict]:
         notes.append("/job-sets/costs not fetched; estimates skipped")
         return None, basis
     try:
-        est = estimate.CostEstimator.from_job_costs_body(jc)
+        cls = estimate.CostEstimator if version == 1 else estimate.estimator_class(version)
+        est = cls.from_job_costs_body(jc)
+        if version != 1:
+            notes.append(f"estimator formula version {version} (--estimate-version; docs/COST_FORMULAS.md §8)")
     except Exception as e:  # never lose the dataset because of the optional estimate
         log.exception("building the cost estimator failed")
         notes.append(f"estimator init failed: {e!r}")
@@ -89,7 +92,7 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
     basis = None
     if sel.compare_estimate:
         bases = {b["basis_id"]: b for b in g("account_cost_basis")}
-        est, basis = build_estimator(bases)
+        est, basis = build_estimator(bases, sel.estimate_version)
         comparison = [compare_job(j, estimate_job(est, j)) for j in jobs]
         groups = summarize(comparison)
         if not jobs:

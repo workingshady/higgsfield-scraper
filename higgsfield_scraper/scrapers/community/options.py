@@ -7,6 +7,7 @@ import sys
 from dataclasses import asdict, dataclass, field
 from typing import Any, Iterable, Optional
 
+from ...estimate import DEFAULT_ESTIMATE_VERSION, ESTIMATE_VERSIONS
 from .endpoints import ESTIMATE_MODES, FEEDS, KNOWN_MODELS, TYPES
 
 log = logging.getLogger(__name__)
@@ -42,6 +43,7 @@ class Selection:
     usd_plan_set: str = "ps_a3"
     detail: bool = False
     with_comments: bool = False
+    estimate_version: int = DEFAULT_ESTIMATE_VERSION   # 1 = default estimator; 2 = JS formulas (estimate/v2.py)
 
     def __post_init__(self) -> None:
         feeds = [FEED_ALIASES.get(f.lower(), f.lower()) for f in _split(self.feeds)]
@@ -64,6 +66,12 @@ class Selection:
             raise ValueError(f"--estimate-cost must be one of {list(ESTIMATE_MODES)}")
         self.models = _split(self.models)
         self.preset_ids = _split(self.preset_ids)
+        try:
+            self.estimate_version = int(self.estimate_version)
+        except (TypeError, ValueError):
+            raise ValueError(f"--estimate-version must be one of {list(ESTIMATE_VERSIONS)}") from None
+        if self.estimate_version not in ESTIMATE_VERSIONS:
+            raise ValueError(f"--estimate-version must be one of {list(ESTIMATE_VERSIONS)}")
         if ":" not in (self.usd_reference or ""):
             raise ValueError("--usd-reference must look like plan_type:billing_period, e.g. plus:annual")
 
@@ -80,7 +88,10 @@ class Selection:
         return [m for m in self.models if m not in KNOWN_MODELS]
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        d = asdict(self)
+        if d["estimate_version"] == DEFAULT_ESTIMATE_VERSION:   # default runs keep the pre-option manifest/meta
+            d.pop("estimate_version")
+        return d
 
 
 def add_args(p: argparse.ArgumentParser) -> None:
@@ -122,13 +133,17 @@ def add_args(p: argparse.ArgumentParser) -> None:
                    help="plan_type:billing_period whose after-offer $/credit converts credits to USD (default: %(default)s)")
     c.add_argument("--usd-plan-set", default="ps_a3",
                    help="plan_set_key used for the USD reference plan (default: %(default)s)")
+    c.add_argument("--estimate-version", type=int, default=DEFAULT_ESTIMATE_VERSION, choices=ESTIMATE_VERSIONS,
+                   help="cost formulas used by --estimate-cost: 1 (default, unchanged) or 2 (matches the web app's JS "
+                        "formulas, docs/COST_FORMULAS.md §8; v2 estimates carry formula_version: 2)")
 
 
 def make_selection(a: argparse.Namespace) -> Selection:
     sel = Selection(feeds=a.feeds, type=a.type, models=a.models, preset_ids=a.preset_ids, resolution=a.resolution,
                     publication_ids=a.publication_ids, with_profiles=a.with_profiles,
                     with_raw_params=a.with_raw_params, estimate_cost=a.estimate_cost, usd_reference=a.usd_reference,
-                    usd_plan_set=a.usd_plan_set, detail=a.detail, with_comments=a.with_comments)
+                    usd_plan_set=a.usd_plan_set, detail=a.detail, with_comments=a.with_comments,
+                    estimate_version=getattr(a, "estimate_version", DEFAULT_ESTIMATE_VERSION))
     unknown = sel.unknown_models()
     if unknown:
         print(f"warning: --models {unknown} are not in the known job_set_type list; the API may answer 422",
@@ -149,6 +164,8 @@ def selection_from_dict(d: Optional[dict]) -> Selection:
     for k in ("with_profiles", "with_raw_params", "detail", "with_comments"):
         if k in d:
             kw[k] = _truthy(d[k])
+    if d.get("estimate_version") not in (None, ""):
+        kw["estimate_version"] = d["estimate_version"]
     return Selection(**kw)
 
 
