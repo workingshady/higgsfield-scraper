@@ -1,0 +1,46 @@
+{
+    "meta": {
+        "endpoint": "catalog_soul_styles",
+        "url": "https://cms.higgsfield.ai/soul-styles?size=2&lang=en",
+        "params": {
+            "size": "2",
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T10:05:05+00:00",
+        "status": 200
+    },
+    "body": {
+        "total": 106,
+        "cursor": 2,
+        "items": [
+            {
+                "id": "464ea177-8d40-4940-8d9d-b438bab269c7",
+                "name": "General",
+                "description": "Clean, balanced, and natural—your go-to look with true-to-life colors and soft lighting. Effortlessly versatile for any style",
+                "media": {
+                    "url": "https://cdn.higgsfield.ai/soul-style/671935ec-51a6-4f9d-9cb4-39661b9a9814.jpg",
+                    "type": "static",
+                    "width": 300,
+                    "height": 225
+                },
+                "board_id": "464ea177-8d40-4940-8d9d-b438bab269c7",
+                "media_description": null,
+                "published_at": "2025-09-18T14:48:17.829709+00:00"
+            },
+            {
+                "id": "1b798b54-03da-446a-93bf-12fcba1050d7",
+                "name": "iPhone",
+                "description": "Natural light, casual framing, soft HDR glow. Looks real, but a little better",
+                "media": {
+                    "url": "https://cdn.higgsfield.ai/soul-style/9627c330-e5e0-428d-8414-aeae83d57819.jpg",
+                    "type": "static",
+                    "width": 300,
+                    "height": 225
+                },
+                "board_id": "1b798b54-03da-446a-93bf-12fcba1050d7",
+                "media_description": null,
+                "published_at": "2025-09-18T14:48:17.829709+00:00"
+            }
+        ]
+    }
+}

@@ -1,0 +1,1495 @@
+{
+    "meta": {
+        "endpoint": "community_posts",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/publications/feed?limit=20",
+        "params": {
+            "limit": "20"
+        },
+        "fetched_at": "2026-11-26T10:05:30+00:00",
+        "status": 200
+    },
+    "body": {
+        "publications": [
+            {
+                "id": "085b9664-5c1e-4d63-a9bb-cf4df65c0977",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "THE PATCHED BALL\n\nHe left his village with a patched football. What he carried was much bigger.\n\nThis is my AI short film about Jabari. I'd love to know which moment stayed with you.\n\nWatch the full film on YouTube:\nhttps://www.youtube.com/watch?v=5A9VAVjNXRw\n\nView the project on Higgsfield:\nhttps://higgsfield.ai/@<redacted>/projects/the-patched-ball",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "5d47d0dd-09f9-480f-90af-7bc9383b4fb6",
+                            "card": {
+                                "id": "5d47d0dd-09f9-480f-90af-7bc9383b4fb6",
+                                "title": "THE PATCHED BALL",
+                                "slug": "the-patched-ball",
+                                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED004/be2c0bd2-f190-46c8-ad24-2b5b1f440f4d.jpg",
+                                "owner": {
+                                    "id": "<redacted>",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 4
+                                },
+                                "description": "Jabari, a boy from a forgotten village, plays toward a dream stitched by his grandmother's love, because dreams are never bought.\n\n\n",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED004/262faab3-ab24-4383-b486-67488702cddb.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/262faab3-ab24-4383-b486-67488702cddb/0a9b1403-2506-4276-a19d-8f9fa6f0fe53/index.m3u8?v=0a9b1403-2506-4276-a19d-8f9fa6f0fe53",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/262faab3-ab24-4383-b486-67488702cddb/compressed.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/262faab3-ab24-4383-b486-67488702cddb/0a9b1403-2506-4276-a19d-8f9fa6f0fe53/thumbnail.webp?v=0a9b1403-2506-4276-a19d-8f9fa6f0fe53",
+                                    "width": 1920,
+                                    "height": 1080,
+                                    "duration": 289.941
+                                },
+                                "stats": {
+                                    "generations_count": 241,
+                                    "credits_spent": 4101.25,
+                                    "free_generations": 0,
+                                    "size_bytes": 1067136707,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "gpt_image_2_6",
+                                            "display_name": "GPT Image 2.6",
+                                            "count": 85,
+                                            "credits_spent": 39.5
+                                        },
+                                        {
+                                            "job_set_type": "seedance_2_5",
+                                            "display_name": "Seedance 2.5",
+                                            "count": 66,
+                                            "credits_spent": 3816
+                                        },
+                                        {
+                                            "job_set_type": "seed_audio",
+                                            "display_name": "Seed Audio 1.0",
+                                            "count": 37,
+                                            "credits_spent": 17.8
+                                        },
+                                        {
+                                            "job_set_type": "mirelo_text_to_audio",
+                                            "display_name": "Sound Effects",
+                                            "count": 30,
+                                            "credits_spent": 62.25
+                                        },
+                                        {
+                                            "job_set_type": "kling3_0",
+                                            "display_name": "Kling v3.0",
+                                            "count": 16,
+                                            "credits_spent": 148
+                                        },
+                                        {
+                                            "job_set_type": "elevenlabs_music_v2_5",
+                                            "display_name": "ElevenLabs Music v2.5",
+                                            "count": 4,
+                                            "credits_spent": 13.96
+                                        },
+                                        {
+                                            "job_set_type": "text2image_soul_v2",
+                                            "display_name": "Higgsfield Soul V2",
+                                            "count": 2,
+                                            "credits_spent": 0.24
+                                        },
+                                        {
+                                            "job_set_type": "seedream_5_5",
+                                            "display_name": "Seedream 5.5",
+                                            "count": 1,
+                                            "credits_spent": 3.5
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-24T01:34:46.829779Z",
+                                "views_count": 149,
+                                "like_count": 10,
+                                "comment_count": 9,
+                                "is_liked": false
+                            }
+                        }
+                    ]
+                },
+                "like_count": 3,
+                "dislike_count": 0,
+                "comment_count": 4,
+                "views_count": 1865,
+                "share_count": 1,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 4
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-24T01:47:36.093104Z",
+                "updated_at": "2026-11-25T12:57:43.537237Z"
+            },
+            {
+                "id": "c1f26df6-6a3d-44c5-9056-55c88c67b6a6",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "Can a valley come back to life because of one dropped acorn? 🌱\n\nTHE CYCLE is my dialogue-free animated short for the Higgsfield Talent Contest. As the valley recovers, the sound shifts from wind and rustling plastic to birds and running water.\n\nIf you watch, I’d love to hear which moment made the valley feel alive again. Please leave your thoughts on the film’s project page, and tap the heart there if it stayed with you.",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "279412af-26a5-4f18-86f9-05bbc2d94c96",
+                            "card": {
+                                "id": "279412af-26a5-4f18-86f9-05bbc2d94c96",
+                                "title": "THE CYCLE",
+                                "slug": "the-cycle",
+                                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED005/a719ffc7-f1fc-443c-b22a-b1caea8a88d4.jpg",
+                                "owner": {
+                                    "id": "<redacted>",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 4
+                                },
+                                "description": "A hungry crow knocks the last acorn from a withered oak, setting a barren valley littered with plastic waste on a slow journey back to life.",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED005/fbc7a62c-58ca-4b46-bb96-ce3e5f0892bb.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/fbc7a62c-58ca-4b46-bb96-ce3e5f0892bb/9d3ff5d2-d488-42dd-b80b-cedd0e266866/index.m3u8?v=9d3ff5d2-d488-42dd-b80b-cedd0e266866",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/fbc7a62c-58ca-4b46-bb96-ce3e5f0892bb/compressed.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/fbc7a62c-58ca-4b46-bb96-ce3e5f0892bb/9d3ff5d2-d488-42dd-b80b-cedd0e266866/thumbnail.webp?v=9d3ff5d2-d488-42dd-b80b-cedd0e266866",
+                                    "width": 3840,
+                                    "height": 2160,
+                                    "duration": 230.375
+                                },
+                                "stats": {
+                                    "generations_count": 152,
+                                    "credits_spent": 11065.75,
+                                    "free_generations": 0,
+                                    "size_bytes": 3551571620,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "seedance_2_5",
+                                            "display_name": "Seedance 2.5",
+                                            "count": 95,
+                                            "credits_spent": 10872
+                                        },
+                                        {
+                                            "job_set_type": "gpt_image_2_6",
+                                            "display_name": "GPT Image 2.6",
+                                            "count": 41,
+                                            "credits_spent": 112.75
+                                        },
+                                        {
+                                            "job_set_type": "nano_banana_2_1",
+                                            "display_name": "Nano Banana 2.1",
+                                            "count": 15,
+                                            "credits_spent": 41
+                                        },
+                                        {
+                                            "job_set_type": "seedance_2_5_flash",
+                                            "display_name": "Seedance 2.5 Flash",
+                                            "count": 1,
+                                            "credits_spent": 40
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-25T19:12:31.357689Z",
+                                "views_count": 23744,
+                                "like_count": 145,
+                                "comment_count": 114,
+                                "is_liked": false
+                            }
+                        }
+                    ]
+                },
+                "like_count": 2,
+                "dislike_count": 0,
+                "comment_count": 1,
+                "views_count": 510,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 4
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-24T18:10:46.376184Z",
+                "updated_at": "2026-11-25T11:21:47.169733Z"
+            },
+            {
+                "id": "dbcf8b50-573d-4638-9cf0-5e06049dc173",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "Just finished my first short film created entirely with AI.\n\nGROUND is a reflection on those moments when life feels hopeless — and the possibility of finding something to hold on to, even when it seems there's nothing left.\n\nI made this film at a time when I was struggling to find opportunities to bring my own stories to life.\n\nIn a strange way, making GROUND became part of its own message.\n\nWould love to hear what you think.\n\n🎬 GROUND — A film by Vadim Plokhotnikov\n\nhttps://higgsfield.ai/@<redacted>/projects/ground?from=%2F%40<redacted>%2Fposts",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "ea2ff0d9-bddd-4931-9940-81443b6b9d90",
+                            "card": {
+                                "id": "ea2ff0d9-bddd-4931-9940-81443b6b9d90",
+                                "title": "GROUND",
+                                "slug": "ground",
+                                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED006/811ef9f8-bb39-4ddb-96a7-cf12259b3fbc.jpg",
+                                "owner": {
+                                    "id": "<redacted>",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 7
+                                },
+                                "description": "After a meteoroid strikes his space station, an astronaut finds himself stranded alone in open space and records his final message.",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED006/69208242-395d-4791-a74b-be3b9b326e06.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/69208242-395d-4791-a74b-be3b9b326e06/529610df-afef-4e1e-8637-4a2eef17a751/index.m3u8?v=529610df-afef-4e1e-8637-4a2eef17a751",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/69208242-395d-4791-a74b-be3b9b326e06/compressed.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/69208242-395d-4791-a74b-be3b9b326e06/529610df-afef-4e1e-8637-4a2eef17a751/thumbnail.webp?v=529610df-afef-4e1e-8637-4a2eef17a751",
+                                    "width": 2206,
+                                    "height": 946,
+                                    "duration": 244.5
+                                },
+                                "stats": {
+                                    "generations_count": 319,
+                                    "credits_spent": 12634.09,
+                                    "free_generations": 0,
+                                    "size_bytes": 3480615723,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "gpt_image_2_6",
+                                            "display_name": "GPT Image 2.6",
+                                            "count": 211,
+                                            "credits_spent": 687.75
+                                        },
+                                        {
+                                            "job_set_type": "seedance_2_5",
+                                            "display_name": "Seedance 2.5",
+                                            "count": 45,
+                                            "credits_spent": 11204
+                                        },
+                                        {
+                                            "job_set_type": "seedream_5_5",
+                                            "display_name": "Seedream 5.5",
+                                            "count": 45,
+                                            "credits_spent": 157.5
+                                        },
+                                        {
+                                            "job_set_type": "cinematic_studio_soul_cast",
+                                            "display_name": "Cinematic Studio Soul Cast",
+                                            "count": 7,
+                                            "credits_spent": 0.84
+                                        },
+                                        {
+                                            "job_set_type": "gpt_image_2_6_flare",
+                                            "display_name": "GPT Image 2.6 Flare",
+                                            "count": 4,
+                                            "credits_spent": 14
+                                        },
+                                        {
+                                            "job_set_type": "nano_banana_2",
+                                            "display_name": "Nano Banana Pro",
+                                            "count": 2,
+                                            "credits_spent": 4
+                                        },
+                                        {
+                                            "job_set_type": "nano_banana_2_1",
+                                            "display_name": "Nano Banana 2.1",
+                                            "count": 2,
+                                            "credits_spent": 6
+                                        },
+                                        {
+                                            "job_set_type": "seedance_2_0",
+                                            "display_name": "Seedance 2.0",
+                                            "count": 2,
+                                            "credits_spent": 360
+                                        },
+                                        {
+                                            "job_set_type": "cinematic_video_editor",
+                                            "display_name": "Cinematic Video Editor",
+                                            "count": 1,
+                                            "credits_spent": 200
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-25T20:04:01.753403Z",
+                                "views_count": 15,
+                                "like_count": 5,
+                                "comment_count": 3,
+                                "is_liked": false
+                            }
+                        }
+                    ]
+                },
+                "like_count": 2,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 136,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 7
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-25T20:51:55.551659Z",
+                "updated_at": "2026-11-25T22:05:19.47563Z"
+            },
+            {
+                "id": "5e3903ec-46f6-40d5-b79d-590533f2fced",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "Making for promotion video",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "f10d21ba-83dc-417e-bd66-133504358e0e",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED007/hf_20261111_194749_f10d21ba-83dc-417e-bd66-133504358e0e.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED007/hf_20261111_194749_f10d21ba-83dc-417e-bd66-133504358e0e_thumbnail.webp"
+                            },
+                            "share_link": "C_ZVrbgjIjA",
+                            "job_set_type": "seedance_2_5",
+                            "job_type": "video",
+                            "min_result": {
+                                "url": "https://cdn.higgsfield.ai/user_REDACTED007/hf_20261111_194749_f10d21ba-83dc-417e-bd66-133504358e0e_min.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED007/hf_20261111_194749_f10d21ba-83dc-417e-bd66-133504358e0e_thumbnail_min.webp"
+                            },
+                            "width": 1280,
+                            "height": 720,
+                            "shot_id": "66c005d2-3653-4855-b8d2-869f7c35441b",
+                            "made_with": {
+                                "tool": "video",
+                                "surface": "cinema_studio",
+                                "model_name": "Seedance 2.5"
+                            },
+                            "surface": "cinema_studio"
+                        }
+                    ],
+                    "room_id": "4fda4f13-54d2-4026-9e64-d7dbac903bb4"
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 106,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 4
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "room": {
+                    "id": "4fda4f13-54d2-4026-9e64-d7dbac903bb4",
+                    "slug": "cinema-cartel",
+                    "name": "Cinema Cartel",
+                    "avatar_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED008/93fbfb31-1e65-4f2b-ace6-0c26cc0283f7.webp",
+                    "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED008/385e4168-7ba2-4787-ab22-318036312110.webp",
+                    "is_followed": false
+                },
+                "created_at": "2026-11-25T22:09:36.309277Z",
+                "updated_at": "2026-11-26T00:41:59.192866Z"
+            },
+            {
+                "id": "3c981866-3cd8-4add-990e-891db90460e7",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "Fala, pessoal! 🎬🚀\n\nEssa é uma cena do meu novo filme, **EUTOPIA**! Uma produção frenética de ação e ficção científica que mostra uma revolução tecnológica nascendo dentro de uma comunidade brasileira! 🇧🇷🤖\n\nO filme mistura muita ação, tecnologia e uma história que vai fazer vocês refletirem sobre o futuro do Brasil!\n\nEstamos participando de um festival internacional de cinema, e **eu queria muito contar com vocês!** 🙏\n\nEntrem lá, assistam à cena, deixem o like, comentem e compartilhem! Cada interação ajuda nosso filme a ganhar visibilidade internacional!\n\n**Conto com vocês! Vamos levar o cinema brasileiro mais longe!** 🚀🎥",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "53990432-7155-4655-9c92-20c77ecb62f8",
+                            "card": {
+                                "id": "53990432-7155-4655-9c92-20c77ecb62f8",
+                                "title": "EUTOPIA",
+                                "slug": "eutopia",
+                                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED009/3ff40de6-8322-46c1-a140-a8d8b5176e25.png",
+                                "owner": {
+                                    "id": "<redacted>",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 3
+                                },
+                                "description": "O futuro começou onde ninguém esperava. Entre becos e máquinas, uma nova sociedade desafia tudo o que o Brasil conhece.\n\n",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED009/048ca6d0-19aa-489a-87e0-66ecd8c42a3a.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/048ca6d0-19aa-489a-87e0-66ecd8c42a3a/85a55c0a-3944-4bab-9b49-754f3a769384/index.m3u8?v=85a55c0a-3944-4bab-9b49-754f3a769384",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/048ca6d0-19aa-489a-87e0-66ecd8c42a3a/compressed.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/048ca6d0-19aa-489a-87e0-66ecd8c42a3a/85a55c0a-3944-4bab-9b49-754f3a769384/thumbnail.webp?v=85a55c0a-3944-4bab-9b49-754f3a769384",
+                                    "width": 854,
+                                    "height": 480,
+                                    "duration": 71.958333
+                                },
+                                "stats": {
+                                    "generations_count": 210,
+                                    "credits_spent": 7567.75,
+                                    "free_generations": 0,
+                                    "size_bytes": 1844037752,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "seedance_2_5",
+                                            "display_name": "Seedance 2.5",
+                                            "count": 163,
+                                            "credits_spent": 7446
+                                        },
+                                        {
+                                            "job_set_type": "gpt_image_2_6",
+                                            "display_name": "GPT Image 2.6",
+                                            "count": 47,
+                                            "credits_spent": 121.75
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-24T16:26:35.948185Z",
+                                "views_count": 290,
+                                "like_count": 18,
+                                "comment_count": 15,
+                                "is_liked": false
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 262,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 3
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-24T17:56:23.448815Z",
+                "updated_at": "2026-11-24T17:56:35.102672Z"
+            },
+            {
+                "id": "53da6d1f-2ab6-435d-8a39-e64c08325696",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "df359d03-13ed-4c17-b01f-0f351cfb7ac7",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED010/hf_20261123_223300_df359d03-13ed-4c17-b01f-0f351cfb7ac7.png"
+                            },
+                            "share_link": "IzrJ4SKyoJQ",
+                            "job_set_type": "gpt_image_2_6",
+                            "job_type": "image",
+                            "min_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED010/hf_20261123_223300_df359d03-13ed-4c17-b01f-0f351cfb7ac7_min.webp"
+                            },
+                            "width": 1024,
+                            "height": 1024,
+                            "shot_id": "cc726cf2-2b5a-437e-943e-d3d08957703c",
+                            "made_with": {
+                                "tool": "image",
+                                "model_name": "GPT Image 2.6"
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 116,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 5
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-25T14:44:58.760914Z",
+                "updated_at": "2026-11-25T14:45:14.814388Z"
+            },
+            {
+                "id": "e2a99ae0-d23b-4f8f-844c-6af9765595c4",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": ":I",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "451d3885-56f3-43de-9416-349ae85ff4ed",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED011/hf_20261125_195419_451d3885-56f3-43de-9416-349ae85ff4ed.png"
+                            },
+                            "share_link": "oUADCR6T8gc",
+                            "job_set_type": "soul_cinematic",
+                            "job_type": "image",
+                            "min_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED011/hf_20261125_195419_451d3885-56f3-43de-9416-349ae85ff4ed_min.webp"
+                            },
+                            "width": 2048,
+                            "height": 1152,
+                            "shot_id": "e0de7e5f-2ed0-4b61-9b80-a29b86d009f3",
+                            "made_with": {
+                                "tool": "image",
+                                "model_name": "Soul Cinematic"
+                            }
+                        },
+                        {
+                            "type": "job",
+                            "job_id": "ba92bc9d-dc83-4c1f-8161-f4b1b07468c5",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED011/hf_20261125_195424_ba92bc9d-dc83-4c1f-8161-f4b1b07468c5.png"
+                            },
+                            "share_link": "KQp3zZSfpqM",
+                            "job_set_type": "soul_cinematic",
+                            "job_type": "image",
+                            "min_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED011/hf_20261125_195424_ba92bc9d-dc83-4c1f-8161-f4b1b07468c5_min.webp"
+                            },
+                            "width": 2048,
+                            "height": 1152,
+                            "shot_id": "dfa0993e-e15a-4a6b-a0d4-361458c468c8",
+                            "made_with": {
+                                "tool": "image",
+                                "model_name": "Soul Cinematic"
+                            }
+                        },
+                        {
+                            "type": "job",
+                            "job_id": "2d83976b-b014-42e1-b889-d952967682fe",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED011/hf_20261125_195430_2d83976b-b014-42e1-b889-d952967682fe.png"
+                            },
+                            "share_link": "CVYZslbxJ2c",
+                            "job_set_type": "soul_cinematic",
+                            "job_type": "image",
+                            "min_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED011/hf_20261125_195430_2d83976b-b014-42e1-b889-d952967682fe_min.webp"
+                            },
+                            "width": 2048,
+                            "height": 1152,
+                            "shot_id": "e4c9b2c9-78b3-4502-b6c9-6afb9f4c989b",
+                            "made_with": {
+                                "tool": "image",
+                                "model_name": "Soul Cinematic"
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 75,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 5
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-25T23:50:51.474487Z",
+                "updated_at": "2026-11-25T23:51:02.945118Z"
+            },
+            {
+                "id": "e9bf7604-732c-4242-a141-29818b68943b",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "Daily Soul Challenge winner on the Higgsfield Discord · Theme: What My Pet Sees",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "b3254fa5-dd0e-4264-8dd2-6b9d967322b5",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED012/hf_20261125_064327_b3254fa5-dd0e-4264-8dd2-6b9d967322b5.png"
+                            },
+                            "share_link": "L7sSvTd--bI",
+                            "job_set_type": "soul_cinematic",
+                            "job_type": "image",
+                            "min_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED012/hf_20261125_064327_b3254fa5-dd0e-4264-8dd2-6b9d967322b5_min.webp"
+                            },
+                            "width": 2048,
+                            "height": 1152,
+                            "shot_id": "81389d0d-1a50-445d-a854-27feca84ac67",
+                            "made_with": {
+                                "tool": "image",
+                                "model_name": "Soul Cinematic"
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 94,
+                "share_count": 1,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 8
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-25T18:13:26.767695Z",
+                "updated_at": "2026-11-25T18:13:42.842304Z"
+            },
+            {
+                "id": "0150c9c4-7cc3-4ee7-a3d2-bba05517a19f",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "dc857f88-b676-45d2-bb58-21fb6cd152d0",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED013/hf_20261014_230957_dc857f88-b676-45d2-bb58-21fb6cd152d0.png"
+                            },
+                            "share_link": "nLGsPsvkPNw",
+                            "job_set_type": "text2image_soul_v2",
+                            "job_type": "image",
+                            "min_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED013/hf_20261014_230957_dc857f88-b676-45d2-bb58-21fb6cd152d0_min.webp"
+                            },
+                            "width": 2048,
+                            "height": 2048,
+                            "shot_id": "12e8f7b8-2a24-4140-a6f1-6e788ab53bb6",
+                            "made_with": {
+                                "tool": "image",
+                                "surface": "supercomputer",
+                                "model_name": "Higgsfield Soul 2.0"
+                            },
+                            "surface": "supercomputer"
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 1,
+                "comment_count": 1,
+                "views_count": 269,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 31
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-24T14:49:03.93908Z",
+                "updated_at": "2026-11-25T18:41:23.747622Z"
+            },
+            {
+                "id": "ff95a136-7aca-49cb-8e1d-17283af58081",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "570b1b36-b513-4f30-935e-ab1ad508b8dc",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED014/hf_20261119_164834_570b1b36-b513-4f30-935e-ab1ad508b8dc.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED014/hf_20261119_164834_570b1b36-b513-4f30-935e-ab1ad508b8dc_thumbnail.webp"
+                            },
+                            "share_link": "90vlS7KAQWI",
+                            "job_set_type": "seedance_2_5",
+                            "job_type": "video",
+                            "width": 854,
+                            "height": 480,
+                            "shot_id": "74040644-8cc6-46f1-8a7b-6e7dcb884173",
+                            "made_with": {
+                                "tool": "video",
+                                "model_name": "Seedance 2.5"
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 44,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 8
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-26T03:44:24.972716Z",
+                "updated_at": "2026-11-26T03:44:45.039975Z"
+            },
+            {
+                "id": "2dd76f14-5e68-40db-bfae-33ae5e1a5654",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "New film. Support our horror film:\n\nhttps://higgsfield.ai/@<redacted>/projects/the-kids-inside-a-ceiba",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "7ec207a4-eeae-4207-8c4c-7898b8204a8a",
+                            "card": {
+                                "id": "7ec207a4-eeae-4207-8c4c-7898b8204a8a",
+                                "title": "The Kids Inside a Ceiba",
+                                "slug": "the-kids-inside-a-ceiba",
+                                "cover_url": "https://cdn.higgsfield.ai/5e5869eb-c75f-4ff0-8350-86289e0c384e.webp",
+                                "owner": {
+                                    "id": "<redacted>",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 9
+                                },
+                                "description": "In a village shrouded in fog, a frail girl flees the shadows in her home, drawn by a flickering light in the darkness.",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED015/5b18c16c-6e99-4aef-9c8a-663552791d23.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/5b18c16c-6e99-4aef-9c8a-663552791d23/13932117-4f87-4220-bc6e-f515c7d6415f/index.m3u8?v=13932117-4f87-4220-bc6e-f515c7d6415f",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/5b18c16c-6e99-4aef-9c8a-663552791d23/compressed.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/5b18c16c-6e99-4aef-9c8a-663552791d23/13932117-4f87-4220-bc6e-f515c7d6415f/thumbnail.webp?v=13932117-4f87-4220-bc6e-f515c7d6415f",
+                                    "width": 3840,
+                                    "height": 2160,
+                                    "duration": 310.612993
+                                },
+                                "stats": {
+                                    "generations_count": 102,
+                                    "credits_spent": 1833,
+                                    "free_generations": 0,
+                                    "size_bytes": 510219134,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "cinematic_studio_video_4_0",
+                                            "display_name": "Cinema Studio 4.0",
+                                            "count": 54,
+                                            "credits_spent": 1530
+                                        },
+                                        {
+                                            "job_set_type": "nano_banana_2",
+                                            "display_name": "Nano Banana Pro",
+                                            "count": 31,
+                                            "credits_spent": 62
+                                        },
+                                        {
+                                            "job_set_type": "cinematic_video_editor",
+                                            "display_name": "Cinematic Video Editor",
+                                            "count": 14,
+                                            "credits_spent": 234
+                                        },
+                                        {
+                                            "job_set_type": "cinematic_studio_image_3d_recomposition",
+                                            "display_name": "Cinematic Studio 3D Recomposition",
+                                            "count": 2,
+                                            "credits_spent": 4
+                                        },
+                                        {
+                                            "job_set_type": "cinematic_studio_image_3d",
+                                            "display_name": "Cinematic Studio 3D Scene",
+                                            "count": 1,
+                                            "credits_spent": 3
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-25T11:15:42.75911Z",
+                                "views_count": 537,
+                                "like_count": 17,
+                                "comment_count": 6,
+                                "is_liked": false
+                            }
+                        }
+                    ]
+                },
+                "like_count": 3,
+                "dislike_count": 0,
+                "comment_count": 2,
+                "views_count": 936,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 9
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-22T09:56:21.486258Z",
+                "updated_at": "2026-11-23T19:49:11.031312Z"
+            },
+            {
+                "id": "163b7443-f933-466b-9467-f4575930568e",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "I made this for the WCC#5 Unbroken Running challenge. I spent 14 hours working on it, so I was pretty bummed when I got an aspect ratio error while trying to submit it. I’m still not sure what went wrong, but I wanted to share it with you all anyway. Hope you like it! 🤍",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "130bf13f-e881-4f02-b049-e475842baf97",
+                            "card": {
+                                "id": "130bf13f-e881-4f02-b049-e475842baf97",
+                                "title": "WCC5 error",
+                                "slug": "wcc5-error",
+                                "cover_url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED016/hf_20261124_163307_068434a0-a650-435f-a3c7-c2ed33613e9c_min.webp",
+                                "owner": {
+                                    "id": "<redacted>",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 12
+                                },
+                                "description": "I made this for the WCC#5 Unbroken Running challenge. I spent 14 hours working on it, so I was pretty bummed when I got an aspect ratio erro",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED016/5bc34dd0-e868-4eec-8b37-93d747902352.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input/5bc34dd0-e868-4eec-8b37-93d747902352/index.m3u8",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/5bc34dd0-e868-4eec-8b37-93d747902352/compressed.mp4",
+                                    "width": 1906,
+                                    "height": 1080,
+                                    "duration": 117.93415
+                                },
+                                "stats": {
+                                    "generations_count": 53,
+                                    "credits_spent": 1249,
+                                    "free_generations": 0,
+                                    "size_bytes": 646905780,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "gpt_image_2_6",
+                                            "display_name": "GPT Image 2.6",
+                                            "count": 30,
+                                            "credits_spent": 105
+                                        },
+                                        {
+                                            "job_set_type": "seedance_2_5",
+                                            "display_name": "Seedance 2.5",
+                                            "count": 23,
+                                            "credits_spent": 1144
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-25T21:31:53.351642Z",
+                                "views_count": 2,
+                                "like_count": 0,
+                                "comment_count": 0,
+                                "is_liked": false
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 55,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 12
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-25T21:33:57.23966Z",
+                "updated_at": "2026-11-26T00:33:55.599225Z"
+            },
+            {
+                "id": "484bc696-04c1-48fc-b820-cbbfea81c040",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "look guys! My work",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "fc7fe2a1-dc35-4dd1-ac39-ea402cfe16c6",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED017/hf_20261113_214708_fc7fe2a1-dc35-4dd1-ac39-ea402cfe16c6.png",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED017/hf_20261113_214708_fc7fe2a1-dc35-4dd1-ac39-ea402cfe16c6_thumbnail.webp"
+                            },
+                            "share_link": "cvdh6HL1n0Y",
+                            "job_set_type": "recraft_v4_1",
+                            "job_type": "image",
+                            "min_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED017/hf_20261113_214708_fc7fe2a1-dc35-4dd1-ac39-ea402cfe16c6_min.webp"
+                            },
+                            "width": 1792,
+                            "height": 2432,
+                            "made_with": {
+                                "tool": "image",
+                                "model_name": "Recraft V4.1"
+                            }
+                        },
+                        {
+                            "type": "job",
+                            "job_id": "bd8993f0-82c1-452e-82a8-9a500a245637",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED017/hf_20261112_162823_bd8993f0-82c1-452e-82a8-9a500a245637.png"
+                            },
+                            "share_link": "DbDrWk7gpj0",
+                            "job_set_type": "gpt_image_2",
+                            "job_type": "image",
+                            "min_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED017/hf_20261112_162823_bd8993f0-82c1-452e-82a8-9a500a245637_min.webp"
+                            },
+                            "width": 2688,
+                            "height": 1520,
+                            "made_with": {
+                                "tool": "image",
+                                "model_name": "GPT Image 2"
+                            }
+                        },
+                        {
+                            "type": "job",
+                            "job_id": "b1cffa33-ba1e-40b7-ac10-043fd6a1df74",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED017/hf_20261112_162952_b1cffa33-ba1e-40b7-ac10-043fd6a1df74.png"
+                            },
+                            "share_link": "XPKA83ZalRw",
+                            "job_set_type": "ideogram_4_5_precise_edit",
+                            "job_type": "image",
+                            "min_result": {
+                                "url": "https://cdn.higgsfield.ai/c627d9b0-90bd-4564-9ee7-aac7fa91d0d9.webp"
+                            },
+                            "width": 1536,
+                            "height": 2048,
+                            "made_with": {
+                                "tool": "image",
+                                "model_name": "Ideogram 4.5 Precise Edit"
+                            }
+                        }
+                    ],
+                    "room_id": "30b843cf-e3d2-408c-8e09-9b0a5b7e749a",
+                    "room_pinned_at": "2026-11-25T19:43:00.155737413Z"
+                },
+                "like_count": 0,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 109,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 4
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "room": {
+                    "id": "30b843cf-e3d2-408c-8e09-9b0a5b7e749a",
+                    "slug": "mountain",
+                    "name": "mountain",
+                    "avatar_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED017/cfaa88d4-2e84-4571-a510-52db15e1f77b.webp",
+                    "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED017/a38d322f-2e67-494b-929e-0720542c397e.webp",
+                    "is_followed": false
+                },
+                "created_at": "2026-11-25T19:17:49.548255Z",
+                "updated_at": "2026-11-25T19:43:00.156139Z"
+            },
+            {
+                "id": "d99c6403-b061-476b-a8b5-9c11ad182a39",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "looooool",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "40aff609-6777-4f15-ba42-54e57ce70bf8",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED018/hf_20261022_123739_40aff609-6777-4f15-ba42-54e57ce70bf8.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED018/hf_20261022_123739_40aff609-6777-4f15-ba42-54e57ce70bf8_thumbnail.webp"
+                            },
+                            "share_link": "ze2ZzXzJA1Y",
+                            "job_set_type": "hf_mult_replace_object_flash",
+                            "job_type": "video",
+                            "width": 720,
+                            "height": 1280,
+                            "shot_id": "6ce11d92-df0d-43a9-8091-7f70fc8baebd",
+                            "made_with": {
+                                "tool": "video",
+                                "model_name": "Genjutsu Lite Object Swap"
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 413,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 3
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-23T12:54:25.040522Z",
+                "updated_at": "2026-11-23T12:54:49.88064Z"
+            },
+            {
+                "id": "26e95407-beb4-4d89-8528-032e1f7536b5",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "Watch my recent project for higgsfield contest here!",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "33e92d34-5407-437a-a723-755585eb146f",
+                            "card": {
+                                "id": "33e92d34-5407-437a-a723-755585eb146f",
+                                "title": "R.S.V.P.",
+                                "slug": "r-s-v-p",
+                                "cover_url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED019/hf_20261120_235607_e1955a14-bc03-4258-99ab-73cdfa33e301_min.webp",
+                                "owner": {
+                                    "id": "<redacted>",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 55
+                                },
+                                "description": "The world's most feared monsters gather once a year to decide who is the most frightening. This year, the host has a new rule: truth or dare",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED019/db905ed6-db52-42bd-b624-d16969d8d5ee.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/db905ed6-db52-42bd-b624-d16969d8d5ee/8e910b30-99ae-4f4e-8c52-8f155e35402c/index.m3u8?v=8e910b30-99ae-4f4e-8c52-8f155e35402c",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/db905ed6-db52-42bd-b624-d16969d8d5ee/compressed.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/db905ed6-db52-42bd-b624-d16969d8d5ee/8e910b30-99ae-4f4e-8c52-8f155e35402c/thumbnail.webp?v=8e910b30-99ae-4f4e-8c52-8f155e35402c",
+                                    "width": 1920,
+                                    "height": 1080,
+                                    "duration": 166.022993
+                                },
+                                "stats": {
+                                    "generations_count": 116,
+                                    "credits_spent": 4797.75,
+                                    "free_generations": 28,
+                                    "size_bytes": 1049124989,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "seedance_2_5",
+                                            "display_name": "Seedance 2.5",
+                                            "count": 42,
+                                            "credits_spent": 4641
+                                        },
+                                        {
+                                            "job_set_type": "seedream_5_5",
+                                            "display_name": "Seedream 5.5",
+                                            "count": 39,
+                                            "credits_spent": 136.5
+                                        },
+                                        {
+                                            "job_set_type": "soul_cinematic",
+                                            "display_name": "Soul Cinematic",
+                                            "count": 28,
+                                            "credits_spent": 0
+                                        },
+                                        {
+                                            "job_set_type": "gpt_image_2_6",
+                                            "display_name": "GPT Image 2.6",
+                                            "count": 7,
+                                            "credits_spent": 20.25
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-23T09:56:46.454279Z",
+                                "views_count": 202,
+                                "like_count": 10,
+                                "comment_count": 3,
+                                "is_liked": false
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 408,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 55
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-23T10:06:02.638641Z",
+                "updated_at": "2026-11-23T10:06:07.964872Z"
+            },
+            {
+                "id": "327c5202-aabb-4131-986c-c79ee9376696",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "Yoo",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "38323e4d-e918-429d-be63-2aae601ea7c7",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED020/hf_20261121_195622_38323e4d-e918-429d-be63-2aae601ea7c7.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED020/hf_20261121_195622_38323e4d-e918-429d-be63-2aae601ea7c7_thumbnail.webp"
+                            },
+                            "share_link": "p509EzdnACE",
+                            "job_set_type": "hf_mult_motion_control",
+                            "job_type": "video",
+                            "width": 1024,
+                            "height": 576,
+                            "shot_id": "f536a638-99ba-4834-accd-593dccfdf70d",
+                            "made_with": {
+                                "tool": "video",
+                                "model_name": "Higgsfield Genjutsu"
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 1,
+                "views_count": 855,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 27
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-22T08:59:22.639074Z",
+                "updated_at": "2026-11-22T18:54:49.970599Z"
+            },
+            {
+                "id": "6838294d-321f-4ca3-a8ee-bce90fbd0867",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "guys check this out!",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "dd6565ae-b4af-4a73-9c27-9ce3eaa823ea",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED021/hf_20261125_095726_dd6565ae-b4af-4a73-9c27-9ce3eaa823ea.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED021/hf_20261125_095726_dd6565ae-b4af-4a73-9c27-9ce3eaa823ea_thumbnail.webp"
+                            },
+                            "share_link": "0vpVbDzu7xY",
+                            "job_set_type": "seedance_2_5",
+                            "job_type": "video",
+                            "width": 1280,
+                            "height": 720,
+                            "shot_id": "9decdbe3-47e3-42c7-9dc7-4b8454d9bfee",
+                            "made_with": {
+                                "tool": "video",
+                                "surface": "supercomputer",
+                                "model_name": "Seedance 2.5"
+                            },
+                            "surface": "supercomputer"
+                        },
+                        {
+                            "type": "job",
+                            "job_id": "627d0f43-c1fb-477b-abdb-45a7c9931f0e",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED021/hf_20261125_095728_627d0f43-c1fb-477b-abdb-45a7c9931f0e.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED021/hf_20261125_095728_627d0f43-c1fb-477b-abdb-45a7c9931f0e_thumbnail.webp"
+                            },
+                            "share_link": "cpcxE_ca4F4",
+                            "job_set_type": "seedance_2_5",
+                            "job_type": "video",
+                            "width": 1280,
+                            "height": 720,
+                            "shot_id": "a495237c-7f2a-4b78-9170-3848d530c5b9",
+                            "made_with": {
+                                "tool": "video",
+                                "surface": "supercomputer",
+                                "model_name": "Seedance 2.5"
+                            },
+                            "surface": "supercomputer"
+                        }
+                    ],
+                    "room_id": "30b843cf-e3d2-408c-8e09-9b0a5b7e749a"
+                },
+                "like_count": 0,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 86,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 0
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "room": {
+                    "id": "30b843cf-e3d2-408c-8e09-9b0a5b7e749a",
+                    "slug": "mountain",
+                    "name": "mountain",
+                    "avatar_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED017/cfaa88d4-2e84-4571-a510-52db15e1f77b.webp",
+                    "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED017/a38d322f-2e67-494b-929e-0720542c397e.webp",
+                    "is_followed": false
+                },
+                "created_at": "2026-11-25T19:30:26.451247Z",
+                "updated_at": "2026-11-25T19:30:27.812776Z"
+            },
+            {
+                "id": "a52db160-64ef-45be-9263-f666801914e2",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "you have 5 minutes",
+                    "medias": [
+                        {
+                            "type": "job",
+                            "job_id": "c72de415-dffd-4311-abce-46240112b851",
+                            "job_result": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED022/hf_20261123_022837_c72de415-dffd-4311-abce-46240112b851.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED022/hf_20261123_022837_c72de415-dffd-4311-abce-46240112b851_thumbnail.webp"
+                            },
+                            "share_link": "PteV0bGH7p8",
+                            "job_set_type": "hf_mult_motion_control",
+                            "job_type": "video",
+                            "width": 854,
+                            "height": 480,
+                            "shot_id": "dc88e661-58c6-45fa-805a-a6a8189af160",
+                            "made_with": {
+                                "tool": "video",
+                                "model_name": "Higgsfield Genjutsu"
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 409,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 0
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-23T03:17:06.274702Z",
+                "updated_at": "2026-11-23T03:17:15.624884Z"
+            },
+            {
+                "id": "004487aa-8b9e-4744-baaf-1b9a4e27f961",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "c7a36f77-d6af-4eef-af52-de711b7b17f3",
+                            "card": {
+                                "id": "c7a36f77-d6af-4eef-af52-de711b7b17f3",
+                                "title": "ROOM FOR TWO",
+                                "slug": "",
+                                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED023/9e320e24-e7bc-4911-94e0-007a6f8eccfa.png",
+                                "owner": {
+                                    "id": "<redacted>",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 30
+                                },
+                                "description": "A painted wife escapes her portrait at night to reach her husband's sold self-portrait before the 6:00 truck takes it away. Chased by the night guard's flashlight, she runs through six painted worlds: a stormy sea, a winter village, a market, the loading dock, the storage room and an unfinished canvas. Every change happens on her own movement, and no trick repeats: a jump, a fall, a door, a duck, a spin and run, and a step into a canvas.\n\nVideo-to-video continuation: 01:24–01:32 (the spin-and-ru",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED023/53a100fe-edff-4017-a880-346a8e9422a0.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input/53a100fe-edff-4017-a880-346a8e9422a0/index.m3u8",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/53a100fe-edff-4017-a880-346a8e9422a0/compressed.mp4",
+                                    "width": 1920,
+                                    "height": 1080,
+                                    "duration": 120.000998
+                                },
+                                "stats": {
+                                    "generations_count": 85,
+                                    "credits_spent": 2417.5,
+                                    "free_generations": 38,
+                                    "size_bytes": 1093967077,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "seedream_v5_pro",
+                                            "display_name": "Seedream 5.0 Pro",
+                                            "count": 39,
+                                            "credits_spent": 2.5
+                                        },
+                                        {
+                                            "job_set_type": "cinematic_studio_video_4_0",
+                                            "display_name": "Cinema Studio 4.0",
+                                            "count": 36,
+                                            "credits_spent": 2365
+                                        },
+                                        {
+                                            "job_set_type": "mirelo_text_to_audio",
+                                            "display_name": "Sound Effects",
+                                            "count": 10,
+                                            "credits_spent": 50
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-22T22:59:32.000712Z",
+                                "views_count": 10,
+                                "like_count": 1,
+                                "comment_count": 0,
+                                "is_liked": false
+                            }
+                        }
+                    ]
+                },
+                "like_count": 1,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 15,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 30
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-25T18:56:21.100089Z",
+                "updated_at": "2026-11-25T19:03:10.099337Z"
+            },
+            {
+                "id": "3c37500c-3314-4df6-94eb-53f2544d9025",
+                "user_id": "<redacted>",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "THE LAST MAN WHO RETURNED",
+                    "medias": []
+                },
+                "like_count": 0,
+                "dislike_count": 0,
+                "comment_count": 0,
+                "views_count": 68,
+                "share_count": 0,
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 4
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-25T09:42:14.483839Z",
+                "updated_at": "2026-11-25T09:42:14.483839Z"
+            }
+        ],
+        "has_more": true
+    }
+}

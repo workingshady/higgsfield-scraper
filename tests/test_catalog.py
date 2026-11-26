@@ -170,6 +170,48 @@ def test_generic_login_only_parsers(sel):
         validate_entity(e)
 
 
+# ------------------------------------------------------------------ opt-in catalogs (real responses, 2026-11-26)
+def test_opt_in_catalog_fixtures(sel):
+    sel = build(kinds="all", include_login_only="yes")
+    ents = all_entities(sel)
+    for k in ("catalog_soul_style", "catalog_model_motion", "catalog_mixed_media_preset", "catalog_katana_category",
+              "catalog_katana_preset", "catalog_color_preset", "catalog_youtube_faceless_preset",
+              "catalog_marketing_category", "catalog_marketing_preset"):
+        assert ents[k], k
+    soul = {s["uid"] for s in ents["catalog_soul_style"]}
+    assert "soul:464ea177-8d40-4940-8d9d-b438bab269c7" in soul and any(u.startswith("cinematic:") for u in soul)
+    mm = ents["catalog_model_motion"][0]
+    assert mm["model_family"] == "kling" and mm["media"] and mm["lang"] == "en"
+    yt = ents["catalog_youtube_faceless_preset"][0]
+    assert yt["name"] == "Editorial Motion Graphics"                 # `title` -> name
+    cats = {c["id"]: c for c in ents["catalog_marketing_category"]}
+    assert "ugc" in cats and cats["ugc"]["slug"] == "ugc" and cats["ugc"]["extra"]["formats"]
+    mp = ents["catalog_marketing_preset"][0]
+    assert mp["category_id"] == "ugc" and mp["uid"].startswith("ugc:")
+    kc = {c["id"] for c in ents["catalog_katana_category"]}
+    assert "personalized_edits" in kc
+
+
+def test_katana_author_redacted(sel):
+    sel = build(kinds="katana_preset", include_login_only="yes")
+    ps = kinds(parse_envelope(load("catalog_katana_presets__lang-en__limit-2.json"), sel), "catalog_katana_preset")
+    assert ps and ps[0]["name"] == "candy-pop"
+    for p in ps:
+        a = p["extra"]["author"]
+        assert a["redacted"] is True and not {"user_id", "username", "avatar_url"} & set(a)
+
+
+def test_opt_in_pagination():
+    soul = SOURCE_BY_ENDPOINT["catalog_soul_styles"]                 # CMS: cursor = next page number
+    body = load("catalog_soul_styles__lang-en__size-2.json").body
+    assert next_params(soul, body, {"size": "2", "lang": "en"}, 2) == {"size": "2", "lang": "en", "cursor": "2"}
+    kat = SOURCE_BY_ENDPOINT["catalog_katana_presets"]               # fnf-cms-api: opaque next_cursor
+    body = load("catalog_katana_presets__lang-en__limit-2.json").body
+    assert next_params(kat, body, {"limit": "2", "lang": "en"}, 2)["cursor"] == body["next_cursor"]
+    assert next_params(kat, {"items": [1], "next_cursor": None}, {"limit": "100"}, 1) is None
+    assert next_params(SOURCE_BY_ENDPOINT["catalog_marketing_catalog"], {"categories": [1], "cursor": 3}, {}, 1)         is None
+
+
 # ------------------------------------------------------------------ pagination
 def test_next_params_styles():
     motions = SOURCE_BY_ENDPOINT["catalog_motions"]
@@ -206,8 +248,15 @@ def test_spider_build_requests_public_and_login(sel):
     assert not any(r.meta["auth"] for r in make_spider(build()).build_requests())
     reqs = list(make_spider(build(kinds="all", include_login_only="yes")).build_requests())
     login = [r for r in reqs if r.meta["auth"] == "required"]
-    assert {r.meta["endpoint"] for r in login} >= {"catalog_soul_styles", "catalog_kling_motions",
-                                                    "catalog_marketing_catalog", "catalog_camera_settings"}
+    assert {r.meta["endpoint"] for r in login} == {"catalog_color_presets", "catalog_camera_settings"}
+    by_ep = {r.meta["endpoint"]: r.url for r in reqs}
+    # real bases (JS build 548e0f3a): CMS host and fnf-cms-api; the old fnf/<path> guesses answered 404 when logged in
+    assert by_ep["catalog_soul_styles"].startswith("https://cms.higgsfield.ai/soul-styles?")
+    assert by_ep["catalog_kling_motions"].startswith("https://cms.higgsfield.ai/kling-motions?")
+    assert by_ep["catalog_marketing_catalog"] ==         "https://cms.higgsfield.ai/marketing-studio-v2/catalog?show_hidden=false&lang=en"
+    assert by_ep["catalog_katana_presets"].startswith("https://fnf-api-gw.higgsfield.ai/fnf-cms-api/katana-presets?")
+    assert "limit=100" in by_ep["catalog_katana_presets"]
+    assert by_ep["catalog_camera_settings"] == "https://fnf-api-gw.higgsfield.ai/fnf/camera-settings"
     assert not any("{id}" in r.url for r in reqs)
     assert any("lang=en" in r.url for r in reqs if r.meta["endpoint"] == "catalog_viral_presets")
 
@@ -235,10 +284,11 @@ def test_spider_marketing_presets_from_categories():
     sp = make_spider(build(kinds="marketing_preset", include_login_only="yes"))
     first = list(sp.build_requests())
     assert [r.meta["endpoint"] for r in first] == ["catalog_marketing_catalog"]
-    env = synth("catalog_marketing_catalog", {"categories": [{"id": "c1", "name": "Ads"}]}, {})
+    env = load("catalog_marketing_catalog__lang-en__show_hidden-false.json")      # real (2 categories kept)
     out = list(sp.follow_up(env, parse_envelope(env, sp.selection), _resp(first[0])))
-    assert len(out) == 1 and out[0].url.split("?")[0].endswith("/marketing-studio-v2/categories/c1/presets")
-    assert out[0].meta["auth"] == "required" and out[0].meta["params"]["category_id"] == "c1"
+    assert len(out) == 2 and out[0].url.split("?")[0] ==         "https://cms.higgsfield.ai/marketing-studio-v2/categories/ugc/presets"       # id = category slug
+    assert "show_hidden=false" in out[0].url and "lang=en" in out[0].url
+    assert out[0].meta["auth"] is False and out[0].meta["params"]["category_id"] == "ugc"
 
 
 def test_max_items_stops_pagination():
@@ -308,7 +358,7 @@ def test_dataset_meta_summary_and_totals(sel):
     assert t["motion"] == 419 and t["voice"] == 82 and t["soul_sample"] == 1263 and t["reference_voice"] is None
     assert ds["meta"]["counts"]["motions"] == 7 and ds["summary"]["counts"]["motion"] == 7
     assert ds["summary"]["by_model_family"]["motion"]["kling"] >= 1
-    assert ds["summary"]["login_only"]["soul_style"].startswith("not selected")
+    assert ds["summary"]["login_only"]["soul_style"] == "fetched"          # real CMS fixture present
     assert ds["summary"]["soul_sample_styles"] and ds["summary"]["motions_without_preview"] >= 1
 
 

@@ -28,7 +28,7 @@ def media_urls(entity: dict, mode: str) -> list[tuple[str, str]]:
 SCRAPER = ScraperDef(
     name="catalog",
     description="Preset & asset catalogs: motions (+samples/details), avatars, voices, sounds, styles, soul samples, "
-                "viral-hub presets; login-only soul styles, per-model motions, mixed media, katana, ...",
+                "viral-hub presets; opt-in (`--kinds login`) soul styles, per-model motions, mixed media, katana, ...",
     spider_cls="higgsfield_scraper.scrapers.catalog.spider:CatalogSpider",
     model_by_kind=MODEL_BY_KIND,
     id_field_by_kind=ID_FIELD_BY_KIND,

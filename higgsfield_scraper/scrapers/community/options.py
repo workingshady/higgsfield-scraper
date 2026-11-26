@@ -111,7 +111,9 @@ def add_args(p: argparse.ArgumentParser) -> None:
     d.add_argument("--detail", action="store_true",
                    help="fetch GET /publications/{id} for every listed item and use that (1 extra request per item)")
     d.add_argument("--with-comments", action="store_true",
-                   help="LOGIN ONLY: fetch /publications/{id}/comments per item (needs a session; skipped otherwise)")
+                   help="fetch comments (+ replies) from the Community posts service (fnf-community): reads the "
+                        "posts feed (limit = --max-items, max 50) and the threads of posts that have comments. "
+                        "Gallery generations have no comments. Public; commenter identities only with --with-profiles")
     c = p.add_argument_group("community: cost estimate (optional)")
     c.add_argument("--estimate-cost", default="off", choices=ESTIMATE_MODES,
                    help="attach an estimated credit cost per generation from /job-sets/costs: off (default) | images | "

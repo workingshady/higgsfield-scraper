@@ -174,8 +174,9 @@ commands** (copy them into scripts):
 
 ## 5. Login (optional)
 
-Public data needs nothing. Login unlocks: pricing top-ups / bundles / credit price, community comments, login-only
-catalogs. Higgsfield uses **Clerk**; the scraper keeps a long-lived Clerk client cookie and mints fresh ~60-second
+Public data needs nothing. Login unlocks: pricing top-ups / bundles / adjustable credits, and the color-preset /
+camera-setting catalogs. (Community comments and the other opt-in catalogs (soul styles, per-model motions, mixed
+media, katana, faceless, marketing presets) turned out to be **public**; see [`docs/scrapers/catalog.md`](docs/scrapers/catalog.md).) Higgsfield uses **Clerk**; the scraper keeps a long-lived Clerk client cookie and mints fresh ~60-second
 session tokens automatically, refreshing and retrying once on `401`.
 
 | Option | Put in `.env` | Notes |

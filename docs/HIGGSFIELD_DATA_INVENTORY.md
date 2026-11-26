@@ -255,6 +255,12 @@ Also: `https://higgsfield.ai/pricing.md` is a markdown snapshot of the US prices
 
 ## 5. Needs a login (🔒 401 `Invalid or expired token`)
 
+> **Correction 2026-11-26 (verified with a real login):** the soul/veo3 styles, per-model motion lists, mixed-media,
+> katana, faceless and marketing catalogs below are **public** on other bases (`cms.higgsfield.ai`, `/fnf-cms-api`),
+> and comments are public on `/fnf-community`. The `fnf/<path>` guesses return 404 even when logged in. Only
+> `/color-presets` and `/camera-settings` need a session. The rest of this list is re-checked in
+> `LOGIN_COVERAGE.md` (login audit, in progress).
+
 **Caveat:** the gateway checks auth **before** routing, so unknown paths and website routes (e.g. `/about`, `/pricing`)
 also return 401. The 283 paths below are a mix of real login-only APIs and non-API strings found in the JS.
 
@@ -290,7 +296,7 @@ redeem, invite. The full rule is the `MUTATION` regex in `scripts/recon_probe.py
 |---|---|---|
 | `pricing` | ✅ built | [`ENDPOINTS.md`](ENDPOINTS.md) |
 | `community` | ✅ built, with an optional cost estimate | [`scrapers/community.md`](scrapers/community.md), [`scrapers/cost-estimate.md`](scrapers/cost-estimate.md) |
-| `catalog` | ✅ built: public catalogs, and login-only ones when a session exists | [`scrapers/catalog.md`](scrapers/catalog.md) |
+| `catalog` | ✅ built: public catalogs, plus the opt-in group (mostly public CMS lists; color/camera need a login) | [`scrapers/catalog.md`](scrapers/catalog.md) |
 | `projects` | ✅ built | [`scrapers/projects.md`](scrapers/projects.md) |
 | `blog` | ✅ built: blog, help centers, case studies, changelog, talent posts | [`scrapers/blog.md`](scrapers/blog.md) |
 | `site` | ✅ built: apps (+ credit cost per template), academy courses + lessons (Markdown), MCP skills + bundles, original-series series + episodes, mixed-media presets, landing/plugin pages (Markdown, FAQ, HowTo), rooms (opt-in, title only), promo APIs (`/datetime-settings`, `/business-unlim/state`, `/game-gift/networks`) | [`scrapers/site.md`](scrapers/site.md) |

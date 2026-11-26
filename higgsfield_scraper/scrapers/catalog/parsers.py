@@ -353,10 +353,26 @@ GENERIC_KEYS = {"id", "name", "slug", "description", "preset_family", "categorie
 GENERIC_GROUP_FIELD = {"catalog_soul_style": "style_set", "catalog_model_motion": "model_family",
                        "catalog_marketing_preset": "category_id"}
 USER_OWNED_TYPES = {"user", "custom", "manual", "personal"}
+# person objects inside catalog items (e.g. katana_presets[].author = {user_id, username, avatar_url, badge}):
+# the catalog has no --with-profiles option, so identifying fields are always dropped.
+PERSON_KEYS = ("author", "user", "creator", "owner")
+PERSON_ID_FIELDS = {"id", "user_id", "username", "full_name", "name", "email", "avatar_url", "headline", "profile_url"}
+
+
+def redact_people(item: dict) -> dict:
+    """Copy of `item` without user identities (top-level user_id/username/email; person sub-objects keep only
+    non-identifying fields such as `badge`, plus `redacted: true`)."""
+    out = {k: v for k, v in item.items() if k not in ("user_id", "username", "email")}
+    for k in PERSON_KEYS:
+        v = out.get(k)
+        if isinstance(v, dict):
+            out[k] = {**{kk: vv for kk, vv in v.items() if kk not in PERSON_ID_FIELDS}, "redacted": True}
+    return out
 
 
 def p_generic(item: dict, env, sel, src: Source) -> Optional[dict]:
     kp = _kp(sel)
+    item = redact_people(item)
     group = src.group or env.params.get("category_id")
     ident = item.get("id", item.get("slug", item.get("key", item.get("name"))))
     if ident is None:
@@ -374,8 +390,8 @@ def p_generic(item: dict, env, sel, src: Source) -> Optional[dict]:
             media += url_ref(k.removesuffix("_url"), v)
             mapped.add(k)
     d = {"uid": f"{group}:{ident}" if group else str(ident), "id": str(ident), "group": group,
-         "name": _str(item.get("name")), "slug": _str(item.get("slug")), "description": _str(item.get("description")),
-         "preset_family": _str(item.get("preset_family")), "categories": _list(item.get("categories")),
+         "name": _str(item.get("name") or item.get("title")), "slug": _str(item.get("slug")),
+         "description": _str(item.get("description")), "preset_family": _str(item.get("preset_family")), "categories": _list(item.get("categories")),
          "tags": _list(item.get("tags")), "priority": _num(item.get("priority")), "cms_id": _str(item.get("cms_id")),
          "params": item.get("params"), "lang": env.params.get("lang"), "media": _dedup_media(media),
          "extra": _extra(item, mapped)}

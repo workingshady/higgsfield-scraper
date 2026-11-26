@@ -1,0 +1,40 @@
+{
+    "meta": {
+        "endpoint": "catalog_soul_cinematic_styles",
+        "url": "https://cms.higgsfield.ai/soul-cinematic-styles?size=2&lang=en",
+        "params": {
+            "size": "2",
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T10:05:06+00:00",
+        "status": 200
+    },
+    "body": {
+        "total": 2,
+        "cursor": null,
+        "items": [
+            {
+                "id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                "name": "General",
+                "media": {
+                    "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+                    "type": "static",
+                    "width": 500,
+                    "height": 278
+                },
+                "priority": 4
+            },
+            {
+                "id": "326ae863-65fa-4612-b1bd-d5c6991fb243",
+                "name": "Soul 1.5 General",
+                "media": {
+                    "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+                    "type": "static",
+                    "width": 500,
+                    "height": 278
+                },
+                "priority": 4
+            }
+        ]
+    }
+}

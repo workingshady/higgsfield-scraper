@@ -24,8 +24,18 @@ ENDPOINT_FEEDS = {v: k for k, v in FEED_ENDPOINTS.items()}
 
 DETAIL_ENDPOINT = "community_detail"            # GET /publications/{publication_id}
 DETAIL_PATH = "/publications/{publication_id}"
-COMMENTS_ENDPOINT = "community_comments"        # GET /publications/{publication_id}/comments  (login only, 401)
+# Comments live in the separate *Community posts* service (JS: Axe() = fnf-api-gw/fnf-community; verified
+# 2026-11-26). They are public (200 with or without a session). Gallery publications (the feeds above) are NOT
+# fnf-community publications: /fnf-community/publications/{gallery id} -> 404 and .../comments -> always
+# {"comments": [], "has_more": false}; the old guess fnf/publications/{id}/comments -> 404 even when logged in.
+# So --with-comments reads the Community posts feed and fetches the comments (+ replies) of posts that have any.
+COMMUNITY_BASE = "https://fnf-api-gw.higgsfield.ai/fnf-community"
+POSTS_ENDPOINT = "community_posts"              # GET {COMMUNITY_BASE}/publications/feed?limit=&offset=
+POSTS_PATH = "/publications/feed"
+POSTS_MAX_LIMIT = 50
+COMMENTS_ENDPOINT = "community_comments"        # GET {COMMUNITY_BASE}/publications/{id}/comments?limit=&offset=&parent_id=
 COMMENTS_PATH = "/publications/{publication_id}/comments"
+COMMENTS_PAGE_SIZE = 50
 JOB_COSTS_ENDPOINT = "community_job_costs"      # GET /job-sets/costs   (only with --estimate-cost)
 JOB_COSTS_PATH = "/job-sets/costs"
 PLANS_ENDPOINT = "community_plans"              # GET /subscriptions/v2/plans?plan_set_key=..&with_localization=true
@@ -63,8 +73,8 @@ CLIENT_FILTER_TYPES = ("image", "video")
 
 ESTIMATE_MODES = ("off", "images", "videos", "all")
 
-USER_SEARCH_PATH = "/users/search"          # login only; not used (would only return search results)
-RELATED_PATH = "/publications/{publication_id}/related"  # login only; not used
+USER_SEARCH_PATH = "/users/search"          # fnf-community; not used (would only return search results)
+RELATED_PATH = "/publications/{publication_id}/related"  # fnf-community; not used
 
 # `model` (job_set_type) values the trending/approved filter accepts — from the API 422 enum on 2026-11-25 (359 values).
 # Unknown values make the API answer HTTP 422; the CLI only warns, since new models appear often.

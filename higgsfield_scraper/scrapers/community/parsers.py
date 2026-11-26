@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime, timezone
 from typing import Any, Optional
 
@@ -49,8 +50,11 @@ def iso_ts(v: Any) -> Optional[str]:
         return datetime.fromtimestamp(float(s), tz=timezone.utc).isoformat()
     except ValueError:
         pass
+    s = s.replace("Z", "+00:00")
+    # Python 3.10 fromisoformat needs 3 or 6 fractional digits; fnf-community sends 1-6 ("…:50.21733Z")
+    s = re.sub(r"(\.\d{1,6})\d*(?=[+-]\d\d:\d\d$|$)", lambda m: m.group(1).ljust(7, "0"), s)
     try:
-        dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
+        dt = datetime.fromisoformat(s)
     except ValueError:
         return None
     return (dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)).astimezone(timezone.utc).isoformat()
@@ -248,27 +252,59 @@ def _items_of(body: Any) -> list[dict]:
     return []
 
 
+COMMENT_USED = {"id", "comment_id", "parent_id", "text", "content", "body", "created_at", "updated_at", "likes_count",
+                "like_count", "likes", "dislike_count", "reply_count", "reactions", "mentions", "entity_type",
+                "publication_id", "user_id", "user", "profile", "author", "is_mine"}
+AUTHOR_PUBLIC = ("badge", "rating_points")      # kept without --with-profiles (not identifying)
+
+
 def parse_comments(body: Any, publication_id: str, sel: Selection, provenance: dict) -> list[dict]:
+    """fnf-community comments: {comments:[{id, publication_id, parent_id?, user_id, content, author{...},
+    reply_count, like_count, dislike_count, reactions[{emoji,count}], mentions[], created_at, updated_at}],
+    has_more}. The pseudonymous user_id is kept (as for creators); username, name, avatar and headline
+    only with --with-profiles."""
     out = []
     for c in _items_of(body):
         cid = c.get("id") or c.get("comment_id")
         if not cid:
             continue
+        author = c.get("author") if isinstance(c.get("author"), dict) else {}
         user = c.get("user") if isinstance(c.get("user"), dict) else {}
         prof = c.get("profile") if isinstance(c.get("profile"), dict) else {}
-        used = {"id", "comment_id", "parent_id", "text", "content", "body", "created_at", "likes_count", "likes",
-                "user_id", "user", "profile"}
+        person = {**user, **prof, **author}
+        uid = _str(c.get("user_id") or person.get("id"))
+        mentions = c.get("mentions") if isinstance(c.get("mentions"), list) else []
         out.append({
-            "kind": "community_comment", "comment_id": str(cid), "publication_id": publication_id,
+            "kind": "community_comment", "comment_id": str(cid),
+            "publication_id": _str(c.get("publication_id")) or publication_id,
+            "thread_type": _str(c.get("entity_type")),
             "parent_id": _str(c.get("parent_id")),
-            "text": _str(c.get("text") or c.get("content") or c.get("body")),
+            "text": _str(c.get("content") or c.get("text") or c.get("body")),
             "created_at": iso_ts(c.get("created_at")),
-            "likes": _int(c.get("likes_count", c.get("likes"))),
-            "user_id": _str(c.get("user_id") or user.get("id")),
-            "username": _str(prof.get("username") or user.get("username")) if sel.with_profiles else None,
-            "extra": {k: v for k, v in c.items() if k not in used},
+            "updated_at": iso_ts(c.get("updated_at")),
+            "likes": _int(c.get("like_count", c.get("likes_count", c.get("likes")))),
+            "dislikes": _int(c.get("dislike_count")),
+            "reply_count": _int(c.get("reply_count")),
+            "reactions": [{"emoji": _str(r.get("emoji")), "count": _int(r.get("count"))}
+                          for r in c.get("reactions") or [] if isinstance(r, dict)],
+            "mention_count": len(mentions),
+            "user_id": uid,                                 # pseudonymous id, like creator user_id
+
+            "username": _str(person.get("username")) if sel.with_profiles else None,
+            "author": {k: (None if person.get(k) == "" else person.get(k))
+                       for k in (("full_name", "avatar_url", "headline") if sel.with_profiles else ()) + AUTHOR_PUBLIC
+                       if k in person},
+            "extra": {k: v for k, v in c.items() if k not in COMMENT_USED},
             "source": provenance})
     return out
+
+
+def parse_posts(body: Any) -> list[dict]:
+    """fnf-community posts feed -> [{id, comment_count}] (posts themselves are not stored; only used to find
+    threads with comments)."""
+    items = body.get("publications") if isinstance(body, dict) else None
+    return [{"id": str(p["id"]), "comment_count": _int(p.get("comment_count")) or 0}
+            for p in items or [] if isinstance(p, dict) and p.get("id")]
 
 
 def parse_page(env, feed: str) -> dict:

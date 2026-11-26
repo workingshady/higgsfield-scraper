@@ -49,7 +49,7 @@ def media_urls(entity: dict, mode: str) -> list[tuple[str, str]]:
 SCRAPER = ScraperDef(
     name="community",
     description="Community generations: model (job_set_type), prompt, settings, inputs, results, engagement; "
-                "optional creator profiles (opt-in), detail, comments (login) and estimated credit cost",
+                "optional creator profiles (opt-in), detail, Community-post comments and estimated credit cost",
     spider_cls="higgsfield_scraper.scrapers.community.spider:CommunitySpider",
     model_by_kind={"community_generation": CommunityGeneration, "community_creator": CommunityCreator,
                    "community_comment": CommunityComment, "community_page": CommunityPage,

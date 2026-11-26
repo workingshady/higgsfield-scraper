@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "endpoint": "catalog_soul_keyframe_styles",
+        "url": "https://cms.higgsfield.ai/soul-keyframe-styles?size=2&lang=en",
+        "params": {
+            "size": "2",
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T10:05:07+00:00",
+        "status": 200
+    },
+    "body": {
+        "total": 17,
+        "cursor": 2,
+        "items": [
+            {
+                "id": "5b456b78-d6c1-4871-a60b-b08e8a5544ad",
+                "name": "zxctest",
+                "description": "placeholder description",
+                "media": null,
+                "board_id": null
+            },
+            {
+                "id": "bd71f5b4-ae96-43ac-a63d-dc5162eab23c",
+                "name": "zxctest v2",
+                "description": "placeholder description",
+                "media": null,
+                "board_id": null
+            }
+        ]
+    }
+}

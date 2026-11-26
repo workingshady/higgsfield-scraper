@@ -1,0 +1,13 @@
+{
+    "meta": {
+        "endpoint": "catalog_camera_settings",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/camera-settings",
+        "params": {},
+        "fetched_at": "2026-11-26T10:05:28+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [],
+        "has_more": false
+    }
+}

@@ -178,7 +178,10 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
             if per_user.get(e["user_id"]):          # drop creators of items cut by --max-items / filters
                 creators.append({**strip(e), "generations_in_dataset": per_user[e["user_id"]]})
     pubs = {g["publication_id"] for g in gens}
-    comments = [strip(e) for e in entities.get("community_comment", []) if e["publication_id"] in pubs]
+    # comments come from Community posts (fnf-community), not from the gallery publications above; keep a comment
+    # when it belongs to a fetched publication or to a Community post thread
+    comments = [strip(e) for e in entities.get("community_comment", [])
+                if e["publication_id"] in pubs or e.get("thread_type") == "publication"]
     pages = [strip(e) for e in entities.get("community_page", [])]
     totals: dict[str, Optional[int]] = {}
     for p in pages:                               # first page of a feed: total = whole (filtered) feed size
@@ -188,6 +191,9 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
     endpoints = {f: f"https://fnf-api-gw.higgsfield.ai/fnf{FEED_PATHS[f]}" for f in sel.feeds}
     if sel.detail or sel.publication_ids:
         endpoints["detail"] = "https://fnf-api-gw.higgsfield.ai/fnf/publications/{publication_id}"
+    if sel.with_comments:
+        endpoints["community_posts"] = "https://fnf-api-gw.higgsfield.ai/fnf-community/publications/feed"
+        endpoints["comments"] = "https://fnf-api-gw.higgsfield.ai/fnf-community/publications/{publication_id}/comments"
     if sel.estimating:
         endpoints["job_costs"] = "https://fnf-api-gw.higgsfield.ai/fnf/job-sets/costs"
         endpoints["plans"] = "https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/plans"

@@ -196,7 +196,7 @@ Plans, offers (before/after), renewal, discounts, per-model credit costs, benefi
 
 ### `scrape community`
 
-Community generations: model (job_set_type), prompt, settings, inputs, results, engagement; optional creator profiles (opt-in), detail, comments (login) and estimated credit cost
+Community generations: model (job_set_type), prompt, settings, inputs, results, engagement; optional creator profiles (opt-in), detail, Community-post comments and estimated credit cost
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
@@ -209,7 +209,7 @@ Community generations: model (job_set_type), prompt, settings, inputs, results, 
 | `--with-profiles` | off | flag | PERSONAL DATA: include creators' username, avatar, social handles and badges (creators table). Default: only the pseudonymous user_id |
 | `--with-raw-params` | off | flag | keep each generation's untouched `params` dict (raw_params) next to the normalized fields |
 | `--detail` | off | flag | fetch GET /publications/{id} for every listed item and use that (1 extra request per item) |
-| `--with-comments` | off | flag | LOGIN ONLY: fetch /publications/{id}/comments per item (needs a session; skipped otherwise) |
+| `--with-comments` | off | flag | fetch comments (+ replies) from the Community posts service (fnf-community): reads the posts feed (limit = --max-items, max 50) and the threads of posts that have comments. Gallery generations have no comments. Public; commenter identities only with --with-profiles |
 | `--estimate-cost` | `off` | `off` `images` `videos` `all` | attach an estimated credit cost per generation from /job-sets/costs: off (default) \| images \| videos \| all. An estimate, not what the creator actually paid |
 | `--usd-reference` | `plus:annual` | USD_REFERENCE | plan_type:billing_period whose after-offer $/credit converts credits to USD (default: plus:annual) |
 | `--usd-plan-set` | `ps_a3` | USD_PLAN_SET | plan_set_key used for the USD reference plan (default: ps_a3) |
@@ -224,7 +224,7 @@ python -m higgsfield_scraper scrape community --max-items 50 --with-profiles --d
 
 ### `scrape catalog`
 
-Preset & asset catalogs: motions (+samples/details), avatars, voices, sounds, styles, soul samples, viral-hub presets; login-only soul styles, per-model motions, mixed media, katana, ...
+Preset & asset catalogs: motions (+samples/details), avatars, voices, sounds, styles, soul samples, viral-hub presets; opt-in (`--kinds login`) soul styles, per-model motions, mixed media, katana, ...
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
@@ -232,7 +232,7 @@ Preset & asset catalogs: motions (+samples/details), avatars, voices, sounds, st
 | `--with-samples` | off | flag | also fetch the sample videos of every motion (1 request per motion, ~419; --max-pages caps the number of sample requests) |
 | `--with-details` | off | flag | also fetch /motions/{id} per motion (adds description + real preview media for the kling/minimax/seedance/wan families; ~419 requests; --max-pages caps them) |
 | `--lang` | `en` | LANG | language for viral-hub, soul styles, mixed media, katana (default: en) |
-| `--include-login-only` | `auto` | `auto` `yes` `no` | login-only catalogs: auto = when a session is configured (default), yes = always (skipped cleanly without a session), no = never |
+| `--include-login-only` | `auto` | `auto` `yes` `no` | the opt-in `login` group (soul/veo3 styles, per-model motions, mixed media, katana, faceless, marketing presets: public CMS lists; color presets + camera settings: need a login). Adds it to the default selection: auto = when logged in (default), yes = always (login-only ones skipped cleanly without a session), no = never. `--kinds all\|login` always includes it |
 | `--keep-placeholders` | off | flag | keep the base64 blur placeholders (data: URIs) found in media objects (large) |
 
 ```bash

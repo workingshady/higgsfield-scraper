@@ -165,7 +165,7 @@ mapModelToPresetFamily = { seedance_2_5:"seedance_2_5", kling3_0:"kling3_0", "kl
 
 Dynamic presets come from `GET /motions?preset_family=higgsfield` (public) and the per-family lists
 `/kling-motions`, `/kling2-6-motions`, `/seedance-motions`, `/wan2-2-motions`, `/wan2-5-motions`, `/minimax-motions`
-and `/veo3-styles` (login only). The `catalog` scraper already collects these; the public `/motions` list also
+and `/veo3-styles` (public on `cms.higgsfield.ai`; the `fnf/...` paths first recorded here 404, corrected 2026-11-26). The `catalog` scraper already collects these; the public `/motions` list also
 contains every family.
 
 ---
@@ -558,7 +558,9 @@ plan table and cost formula all live in the bundle. Deploys are frequent: the bu
 **Can't (without login, or never):**
 
 - `/notices`, `/workspaces/settings` (unlimited), `/job-set-chain-presets`, `/mixed-media/configs`,
-  `/restyle/presets`, `/seedance-motions`: login only.
+  `/restyle/presets`, `/seedance-motions`: 401 without login on the `fnf` gateway, but the gateway returns 401 for *any*
+  unknown path without a token. `/seedance-motions` and the other motion/style lists are public on `cms.higgsfield.ai`
+  (verified 2026-11-26, see `scrapers/catalog.md`); the rest are checked in `LOGIN_COVERAGE.md`.
 - Per-user flag values (`__HF_FF` for a signed-in user).
 - MCP tool schemas (OAuth).
 - Anything that creates jobs, uploads or quotes prices server-side (`dry_run`): mutations, out of scope.

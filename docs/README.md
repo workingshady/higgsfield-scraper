@@ -23,6 +23,7 @@ GitHub shows this page when you open the `docs/` folder.
 | Scrape community, catalogs, contests, blog or site pages | [`scrapers/`](#3-scrapers-one-guide-each) |
 | Add a new scraper | [`ADDING_A_SCRAPER.md`](ADDING_A_SCRAPER.md) |
 | See how something was discovered (evidence) | [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) |
+| Continue the reverse engineering where it stopped | [`../.claude/docs/higgsfield-re-checkpoint.md`](../.claude/docs/higgsfield-re-checkpoint.md), then the [playbook](../.claude/docs/higgsfield-re-playbook.md) ([§10](#10-for-contributors--claude-claude)) |
 
 ---
 
@@ -130,3 +131,22 @@ Before committing, run `python -m pytest -q` and `python scripts/check_pricing_i
 | verified live | Seen in a real response from the website (GET, no login unless stated) |
 | from JS, not called | Read from the website's JavaScript; the request was never sent (e.g. anything that starts a generation, uploads or spends credits) |
 | inferred | Deduced from names, matching price tables or indirect evidence; treat as likely, not certain |
+
+## 10. For contributors / Claude: `.claude/`
+
+Working notes for continuing the project (read by Claude Code sessions, useful for humans too).
+
+| File | Contains |
+|---|---|
+| 🧭 [`../.claude/docs/higgsfield-re-checkpoint.md`](../.claude/docs/higgsfield-re-checkpoint.md) | **Where the reverse engineering stands:** current build / costs version / baseline, status per area, key findings with links, open questions, prioritized backlog, how to continue, checkpoint changelog |
+| [`../.claude/docs/higgsfield-re-playbook.md`](../.claude/docs/higgsfield-re-playbook.md) | **How we reverse-engineer Higgsfield:** ground rules, toolbox, stages A–G with commands, JS grep recipes, doc map, commit gates and baseline versioning, facts cheat-sheet, lessons learned |
+| [`../.claude/re-state.json`](../.claude/re-state.json) | Machine checkpoint (build id, public flags, costs version, job types) compared by `python scripts/re_check_changes.py` (`--save` updates it) |
+| [`../.claude/docs/reverse-engineering.md`](../.claude/docs/reverse-engineering.md), [`scrapy.md`](../.claude/docs/scrapy.md), [`schema-design.md`](../.claude/docs/schema-design.md) | Generic references (see §5) |
+
+Skills (`.claude/skills/<name>/SKILL.md`):
+
+| Skill | Use when |
+|---|---|
+| [`continue-reverse-engineering`](../.claude/skills/continue-reverse-engineering/SKILL.md) | Resuming Higgsfield RE, checking whether the site changed, updating findings |
+| [`reverse-engineer-site`](../.claude/skills/reverse-engineer-site/SKILL.md) | Mapping a new site before scraping |
+| [`scrape-spider`](../.claude/skills/scrape-spider/SKILL.md) | Building or changing spiders, items, pipelines, exports |

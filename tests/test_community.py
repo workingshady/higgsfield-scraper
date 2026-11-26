@@ -144,10 +144,44 @@ def test_follow_up_max_pages_and_detail_requests():
     assert len(reqs) == 3                                    # no next page: detail budget spent
 
 
-def test_with_comments_without_session_is_skipped():
+POST_ID = "085b9664-5c1e-4d63-a9bb-cf4df65c0977"
+PARENT_ID = "a24bd70f-7293-40ce-bdbc-f38df4cb9e66"
+COMMENTS_FX = f"community_comments__limit-50__publication_id-{POST_ID}.json"
+REPLIES_FX = f"community_comments__limit-50__parent_id-{PARENT_ID}__publication_id-{POST_ID}.json"
+
+
+def test_with_comments_reads_community_posts_without_session():
+    """Comments are public and live in fnf-community (gallery publications have none): --with-comments
+    requests the posts feed, no session needed, and never the old fnf/publications/{id}/comments path."""
+    sp = CommunitySpider(selection=Selection(with_comments=True), common=CommonOptions(auth="off", max_items=5))
+    reqs = list(sp.build_requests())
+    posts = [r for r in reqs if r.meta["endpoint"] == "community_posts"]
+    assert len(posts) == 1 and posts[0].url == "https://fnf-api-gw.higgsfield.ai/fnf-community/publications/feed?limit=5"
+    assert not posts[0].meta["auth"] and not sp.limits_hit
+    # gallery feed pages no longer schedule per-publication comment requests
+    out = list(sp.follow_up(load("trending_p1.json"), parse_envelope(load("trending_p1.json"), sp.selection), _Resp()))
+    assert not any(r.meta["endpoint"] == "community_comments" for r in out)
+
+
+def test_with_comments_follow_up_posts_comments_replies():
     sp = CommunitySpider(selection=Selection(with_comments=True), common=CommonOptions(auth="off"))
-    list(sp.build_requests())
-    assert any("with-comments skipped" in x for x in sp.limits_hit)
+    env = load("community_posts__limit-3.json")
+    reqs = list(sp.follow_up(env, parse_envelope(env, sp.selection), _Resp()))
+    with_comments = [p for p in env.body["publications"] if p["comment_count"] > 0]
+    assert len(reqs) == len(with_comments) >= 1
+    assert reqs[0].url.startswith("https://fnf-api-gw.higgsfield.ai/fnf-community/publications/")
+    assert reqs[0].url.endswith("/comments?limit=50") and not reqs[0].meta["auth"]
+    env = load(COMMENTS_FX)
+    ents = parse_envelope(env, sp.selection)
+    reqs = list(sp.follow_up(env, ents, _Resp()))
+    replies = [r for r in reqs if "parent_id=" in r.url]
+    assert {r.meta["params"]["parent_id"] for r in replies} == {e["comment_id"] for e in ents if e["reply_count"]}
+    assert all(r.meta["params"]["publication_id"] == POST_ID for r in reqs)
+    # has_more -> next offset; replies of replies are not requested
+    more = Envelope(endpoint="community_comments", url="u", status=200, body={**env.body, "has_more": True},
+                    params={"publication_id": POST_ID, "limit": "50", "parent_id": PARENT_ID})
+    nxt = list(sp.follow_up(more, parse_envelope(more, sp.selection), _Resp()))
+    assert len(nxt) == 1 and "offset=2" in nxt[0].url and f"parent_id={PARENT_ID}" in nxt[0].url
 
 
 # ------------------------------------------------------------------ parsers
@@ -372,6 +406,23 @@ def test_media_urls_modes():
     img = [validate_entity(e) for e in parse_envelope(load("top.json"), Selection())
            if e["kind"] == "community_generation"][0]
     assert media_urls(img, "thumbs")[0][0] == "thumb" and media_urls(img, "none") == []
+
+
+def test_comments_parser_real_shape_and_privacy():
+    env = load(COMMENTS_FX)
+    out = [validate_entity(e) for e in parse_envelope(env, Selection())]
+    assert len(out) == 2 and all(c["publication_id"] == POST_ID and c["thread_type"] == "publication" for c in out)
+    c = next(x for x in out if x["comment_id"] == PARENT_ID)
+    assert c["text"] and c["likes"] == 1 and c["reply_count"] == 1 and c["dislikes"] == 0
+    assert c["reactions"] and c["reactions"][0]["count"] == 1 and c["created_at"] and c["updated_at"]
+    assert c["username"] is None and set(c["author"]) <= {"badge", "rating_points"}     # redacted by default
+    assert c["extra"] == {}
+    prof = parse_envelope(env, Selection(with_profiles=True))[0]
+    assert prof["username"] == "<redacted>" and "full_name" in prof["author"]            # fixture is redacted
+    assert iso_ts("2026-11-24T11:03:50.21733Z") == "2026-11-24T11:03:50.217330+00:00"     # 5 fraction digits
+    assert iso_ts("2026-11-24T11:03:50.1234567Z") == "2026-11-24T11:03:50.123456+00:00"
+    rep = [validate_entity(e) for e in parse_envelope(load(REPLIES_FX), Selection())]
+    assert len(rep) == 1 and rep[0]["parent_id"] == PARENT_ID
 
 
 def test_comments_parser_is_defensive():

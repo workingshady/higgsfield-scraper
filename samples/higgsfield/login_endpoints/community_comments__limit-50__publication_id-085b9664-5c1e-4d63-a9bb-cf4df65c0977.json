@@ -1,0 +1,70 @@
+{
+    "meta": {
+        "endpoint": "community_comments",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/publications/085b9664-5c1e-4d63-a9bb-cf4df65c0977/comments?limit=50",
+        "params": {
+            "limit": "50",
+            "publication_id": "085b9664-5c1e-4d63-a9bb-cf4df65c0977"
+        },
+        "fetched_at": "2026-11-26T10:05:33+00:00",
+        "status": 200
+    },
+    "body": {
+        "comments": [
+            {
+                "id": "a24bd70f-7293-40ce-bdbc-f38df4cb9e66",
+                "entity_type": "publication",
+                "publication_id": "085b9664-5c1e-4d63-a9bb-cf4df65c0977",
+                "user_id": "<redacted>",
+                "content": "❤️❤️",
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 0
+                },
+                "reply_count": 1,
+                "like_count": 1,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [
+                    {
+                        "emoji": "😍",
+                        "count": 1
+                    }
+                ],
+                "mentions": [],
+                "created_at": "2026-11-24T10:49:50.976349Z",
+                "updated_at": "2026-11-24T11:03:50.21733Z"
+            },
+            {
+                "id": "8734f2af-7eb4-4e33-a02b-0505d246bd14",
+                "entity_type": "publication",
+                "publication_id": "085b9664-5c1e-4d63-a9bb-cf4df65c0977",
+                "user_id": "<redacted>",
+                "content": "Well done",
+                "author": {
+                    "id": "<redacted>",
+                    "username": "<redacted>",
+                    "full_name": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 0
+                },
+                "reply_count": 1,
+                "like_count": 1,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [],
+                "mentions": [],
+                "created_at": "2026-11-24T02:10:04.835631Z",
+                "updated_at": "2026-11-24T09:45:53.977435Z"
+            }
+        ],
+        "has_more": false
+    }
+}

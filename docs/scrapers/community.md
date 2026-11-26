@@ -5,7 +5,7 @@ python -m higgsfield_scraper scrape community [options]
 ```
 
 Collects public community generations: the model (`job_set_type`), prompt, normalized settings, input media, result
-media, engagement, timestamps, moderation flags, and optionally creator profiles, comments (needs a login) and an
+media, engagement, timestamps, moderation flags, and optionally creator profiles, Community-post comments (public, fnf-community) and an
 estimated credit cost. Every run writes the standard run folder (`runs/<ts>_community-<label>/`), and
 `python -m higgsfield_scraper normalize --run <run>` rebuilds the dataset offline from `raw/`.
 
@@ -23,10 +23,28 @@ Base `https://fnf-api-gw.higgsfield.ai/fnf`, header `Accept: application/json`, 
 | `top` (≤100 picks) | `/publications/community/trending/top` | `size`, `type` | **100** (422 above) | returned but **ignored** (same page again) | no `has_more` → single page |
 | `model-x` (featured model, 64) | `/publications/community/model-x` | `size`, `cursor` | **50** | unix time | `has_more=false`, `cursor=null` |
 | detail | `/publications/{publication_id}` | — | — | — | 404 `Publication not found` for unknown ids (also for a *generation* id) |
-| comments 🔒 | `/publications/{publication_id}/comments` | — | — | — | 401 without a session |
+| comments (see below) | `fnf-community` `/publications/{publication_id}/comments` | `limit`, `offset`, `parent_id` | 50 used | `offset` | `has_more=false` |
 | cost basis (only with `--estimate-cost`) | `/job-sets/costs`, `/subscriptions/v2/plans?plan_set_key=<set>&with_localization=true` | | | | |
 
-`*` repeatable (`model=a&model=b`). Login-only and **not used**: `/publications/{id}/related`, `/users/search`.
+`*` repeatable (`model=a&model=b`). **Not used**: `fnf-community` `/publications/{id}/related`, `/users/search`.
+
+### Comments (verified live 2026-11-26)
+
+Comments belong to the separate **Community posts** service, base `https://fnf-api-gw.higgsfield.ai/fnf-community`
+(JS `Axe()` in core chunk `aXyXjC_KHBp09DNW.js`). It is public (200 with and without a session).
+
+- The old guess `fnf/publications/{id}/comments` -> 401 without a session and **404 `Not Found` with one**.
+- Gallery publications (the feeds above) are **not** fnf-community publications:
+  `fnf-community/publications/{gallery id}` -> 404, and `.../{any id}/comments` -> `{"comments": [], "has_more": false}`
+  (also for a made-up id). **Gallery generations have no comments.**
+- So `--with-comments` reads the posts feed `GET fnf-community/publications/feed?limit=N` (N = `--max-items`, default
+  20, max 50; posts are not stored), then `GET .../publications/{post_id}/comments?limit=50` for every post with
+  `comment_count > 0` (next page with `offset` while `has_more`), and the replies of each comment with
+  `reply_count > 0` (`&parent_id=<comment_id>`, one level like the web app).
+- Comment shape: `{comments: [{id, entity_type, publication_id, parent_id?, user_id, content, author{id, username,
+  full_name, avatar_url, headline, badge, rating_points}, reply_count, like_count, dislike_count, is_mine,
+  reactions[{emoji, count}], mentions[], created_at, updated_at}], has_more}`.
+  Samples: `samples/higgsfield/login_endpoints/community_*.json` (redacted).
 
 Response shape (listings): `{items: [...], cursor, has_more, total}`. **`total` is the number of items remaining from
 the cursor** (page 1: whole filtered feed; approved page 2 returned 6,651 = 6,701 − 50). `meta.totals_available` is
@@ -73,7 +91,7 @@ Common framework flags apply (`--max-items`, `--max-pages`, `--page-size` (clamp
 | `--with-profiles` | off | **personal data**: username, avatar, social handles, badges + `creators` table |
 | `--with-raw-params` | off | keep the untouched `params` dict as `raw_params` |
 | `--detail` | off | fetch `/publications/{id}` for every listed item (1 extra request per item); `detail_fetched=true` |
-| `--with-comments` | off | **login only** (🔒 `auth="required"`); without a session it is skipped and recorded in `limits_hit` |
+| `--with-comments` | off | comments + replies of Community posts (fnf-community, public, no session needed); gallery generations have none (see Comments) |
 | `--estimate-cost` | `off` | `off|images|videos|all`: attach `estimated_cost` |
 | `--usd-reference` | `plus:annual` | plan whose after-offer $/credit converts credits to USD |
 | `--usd-plan-set` | `ps_a3` | plan set of the USD reference plan |
@@ -106,7 +124,7 @@ every JSON leaf is a column, lists as JSON text, child lists as own tables):
 | `generation_inputs.csv` | one per input media (`generation_id`, `publication_id`, `job_set_type`, …) |
 | `generation_results.csv` | one per result variant |
 | `creators.csv` | only with `--with-profiles` |
-| `comments.csv` | only with `--with-comments` and a session |
+| `comments.csv` | only with `--with-comments` |
 | `pages.csv` | one per listing page: cursor chain, `has_more`, `total` |
 | `stats.csv` | `dimension, value, count` |
 | `run_meta.csv` | meta key/values |
@@ -147,8 +165,10 @@ resolution/aspect-ratio tables, top settings, estimate totals, most-viewed promp
 | `source` | provenance: endpoint, url, params, fetched_at. For detail/comments, `params` carries `publication_id` (+ `feed`) — these are labels, not query params |
 
 Other kinds: `community_creator` (`user_id`, username, avatar_url, instagram/twitter/youtube/tiktok handle, badge,
-badges, `generations_in_dataset`), `community_comment` (defensive: `comment_id, publication_id, parent_id, text,
-created_at, likes, user_id, username` (profiles only), `extra`), `community_page` (audit of each listing page),
+badges, `generations_in_dataset`), `community_comment` (`comment_id, publication_id` (Community post id), `thread_type`,
+`parent_id` (replies), `text, created_at, updated_at, likes, dislikes, reply_count, reactions[{emoji,count}],
+mention_count, user_id` (pseudonymous), `username` + `author.full_name/avatar_url/headline` (only
+`--with-profiles`), `author.badge/rating_points`, `extra`), `community_page` (audit of each listing page),
 `community_cost_basis` (internal: the `/job-sets/costs` body and the USD reference; summarized in
 `stats.cost_basis`, not exported as a collection).
 
@@ -183,8 +203,8 @@ reason in `notes` and `meta.warnings`). It is the **list price today for those s
 
 ## Known gaps
 
-- Comments (`--with-comments`) could not be observed without a session: parser is defensive (`items|comments|data|
-  results` lists, `id|comment_id`, `text|content|body`), no comment pagination.
+- Community posts themselves (title, text, media, counters) are not stored; only their comments. Replies of
+  replies are not fetched.
 - `/publications/{id}/related` and `/users/search` (login) not implemented.
 - `resolution`/`preset_id` filter semantics unverified (see above).
 - `normalize` re-parses every item in `raw/`, so it can contain up to one page more than the crawl's `--max-items`.

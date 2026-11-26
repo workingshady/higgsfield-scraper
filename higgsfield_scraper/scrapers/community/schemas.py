@@ -162,17 +162,26 @@ class CommunityCreator(Strict):
 
 
 class CommunityComment(Strict):
-    """Only with --with-comments (login-only endpoint). The shape was not observable without a session, so fields
-    are parsed defensively and everything else is kept in `extra`."""
+    """Only with --with-comments. Comments come from the Community posts service (fnf-community); gallery
+    publications have no comment threads. Identity fields are filled only with --with-profiles."""
 
     comment_id: str
-    publication_id: str
-    parent_id: Optional[str] = None
+    publication_id: str = Field(description="the commented publication (a Community post id for thread_type "
+                                            "'publication' from fnf-community)")
+    thread_type: Optional[str] = Field(None, description="API entity_type, e.g. 'publication'")
+    parent_id: Optional[str] = Field(None, description="set on replies")
     text: Optional[str] = None
     created_at: Optional[AwareDatetime] = None
+    updated_at: Optional[AwareDatetime] = None
     likes: Optional[int] = None
-    user_id: Optional[str] = None
+    dislikes: Optional[int] = None
+    reply_count: Optional[int] = None
+    reactions: list[dict[str, Any]] = Field(default_factory=list)
+    mention_count: int = 0
+    user_id: Optional[str] = Field(None, description="pseudonymous commenter id")
     username: Optional[str] = Field(None, description="only with --with-profiles")
+    author: dict[str, Any] = Field(default_factory=dict, description="badge/rating_points; name, avatar, headline "
+                                                                     "only with --with-profiles")
     extra: dict[str, Any] = Field(default_factory=dict)
     source: Provenance
 

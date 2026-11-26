@@ -1,0 +1,223 @@
+{
+    "meta": {
+        "endpoint": "catalog_katana_presets",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/katana-presets?limit=2&lang=en",
+        "params": {
+            "limit": "2",
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T10:05:25+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "02f14ab1-77c3-4565-99ce-78930b9f512c",
+                "slug": "candy-pop",
+                "title": "candy-pop",
+                "description": "A playful pastel fashion edit with scrapbook layouts, photo cutouts and candy-colored portrait collages.",
+                "category": "personalized_edits",
+                "source": "community",
+                "skill_key": "candy-pop",
+                "views": null,
+                "views_kind": "source_video",
+                "character_limits": {
+                    "media.images": 10
+                },
+                "reference_thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/katana-presets/89ab2718-8b7f-4895-b097-bcbc050e65f1.webp",
+                    "width": null,
+                    "height": null
+                },
+                "reference_video_media": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/katana-presets/11822042-be42-495c-be1d-cdf2f8754534.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1280,
+                    "height": 720,
+                    "duration_seconds": null,
+                    "hls_url": null,
+                    "compressed_url": null,
+                    "compressed_width": null,
+                    "compressed_height": null,
+                    "compressed_size_bytes": null
+                },
+                "input_schema": {
+                    "type": "object",
+                    "required": [
+                        "media"
+                    ],
+                    "properties": {
+                        "media": {
+                            "type": "object",
+                            "required": [
+                                "images"
+                            ],
+                            "properties": {
+                                "images": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "format": "uuid",
+                                        "x-media": "image"
+                                    },
+                                    "title": "Add your characters or other details",
+                                    "maxItems": 10,
+                                    "minItems": 1,
+                                    "description": "Upload reference images of the elements you want to recreate or modify"
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "slot_values": {
+                            "type": "object",
+                            "properties": {
+                                "prompt": {
+                                    "type": "string",
+                                    "title": "Anything else?",
+                                    "maxLength": 2000
+                                }
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/katana-presets/645f3f9c-7655-4b7e-8a99-43ef130009b5.webp",
+                    "width": 1920,
+                    "height": 1080,
+                    "mime_type": "image/webp"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/katana-presets/18188271-4cc2-48c4-9529-33842cb5fd26.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1920,
+                    "height": 1080,
+                    "duration_seconds": null,
+                    "hls_url": null,
+                    "compressed_url": null,
+                    "compressed_width": null,
+                    "compressed_height": null,
+                    "compressed_size_bytes": null
+                },
+                "person_image": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/katana-presets/948e189b-5275-4cd5-afad-868275725e67.webp",
+                    "width": 2048,
+                    "height": 1152,
+                    "mime_type": "image/webp"
+                },
+                "author": {
+                    "user_id": "<redacted>",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "badge": null
+                }
+            },
+            {
+                "id": "1afa65b9-e6cc-491b-a613-71c7214e5cba",
+                "slug": "kinetic-tech-edit",
+                "title": "Kinetic Tech Edit",
+                "description": "",
+                "category": "personalized_edits",
+                "source": "community",
+                "skill_key": "kinetic-tech-edit",
+                "views": null,
+                "views_kind": "source_video",
+                "character_limits": {
+                    "media.images": 5
+                },
+                "reference_thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/katana-presets/59f61e7b-e371-4d95-864c-6af6483b3ad7.webp",
+                    "width": null,
+                    "height": null
+                },
+                "reference_video_media": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/katana-presets/99cf3e2a-3805-4dc1-bda1-014a0f2d26e7.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1820,
+                    "height": 1138,
+                    "duration_seconds": null,
+                    "hls_url": null,
+                    "compressed_url": null,
+                    "compressed_width": null,
+                    "compressed_height": null,
+                    "compressed_size_bytes": null
+                },
+                "input_schema": {
+                    "type": "object",
+                    "required": [
+                        "media"
+                    ],
+                    "properties": {
+                        "media": {
+                            "type": "object",
+                            "required": [
+                                "images"
+                            ],
+                            "properties": {
+                                "images": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "format": "uuid",
+                                        "x-media": "image"
+                                    },
+                                    "title": "Add your characters or other details",
+                                    "maxItems": 5,
+                                    "minItems": 1,
+                                    "description": "Upload reference images of the elements you want to recreate or modify"
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "slot_values": {
+                            "type": "object",
+                            "properties": {
+                                "prompt": {
+                                    "type": "string",
+                                    "title": "Anything else?",
+                                    "maxLength": 2000
+                                }
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/katana-presets/ca2f300e-740a-4ea0-b8d4-8c5795bd0bc1.webp",
+                    "width": 1152,
+                    "height": 720,
+                    "mime_type": "image/webp"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/katana-presets/d501cb9e-17b0-4d99-8c17-0be403afd3f8.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1152,
+                    "height": 720,
+                    "duration_seconds": null,
+                    "hls_url": null,
+                    "compressed_url": null,
+                    "compressed_width": null,
+                    "compressed_height": null,
+                    "compressed_size_bytes": null
+                },
+                "person_image": null,
+                "author": {
+                    "user_id": "<redacted>",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "badge": null
+                }
+            }
+        ],
+        "next_cursor": "eyJ2IjogMSwgInNjb3BlIjogW251bGwsIG51bGwsICJlbiIsICJlbiIsIDJdLCAicmV2aXNpb24iOiAiYzdmNTBkY2NlNzUxNTIwNzNhNjIwNmQ4M2ZmMWFhODdiZmFhZWZlYjI4OGNhNjQ0ZmYzMjMyYjhhZDliZGU4ZSIsICJhZnRlciI6ICIxYWZhNjViOS1lNmNjLTQ5MWItYTYxMy03MWM3MjE0ZTVjYmEiLCAiaXNzdWVkIjogMTc5NTY4NzU1N30="
+    }
+}

@@ -1,0 +1,1476 @@
+{
+    "meta": {
+        "endpoint": "catalog_marketing_catalog",
+        "url": "https://cms.higgsfield.ai/marketing-studio-v2/catalog?show_hidden=false&lang=en",
+        "params": {
+            "show_hidden": "false",
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T10:05:21+00:00",
+        "status": 200
+    },
+    "body": {
+        "schema_version": 2,
+        "categories": [
+            {
+                "slug": "ugc",
+                "name": "UGC",
+                "availability": "available",
+                "formats": [
+                    {
+                        "slug": "talking-head",
+                        "name": "Talking head",
+                        "availability": "available",
+                        "generation": {
+                            "job_set_type": "marketing_studio_v2_video",
+                            "fixed_params": {
+                                "type": "ugc",
+                                "delivery_specs": {
+                                    "mode": "talking"
+                                }
+                            }
+                        },
+                        "default_style": {
+                            "id": "8b6470ac-919b-48d8-91ba-4f6a00c9b286",
+                            "name": "Shopping",
+                            "cover_image": {
+                                "url": "https://cdn.higgsfield.ai/marketing-studio-v2-ugc/5a9ba7c1-144b-4158-8582-47548837dd85.mp4",
+                                "type": "video",
+                                "width": 600,
+                                "height": 1066,
+                                "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-ugc/4dd6e4ce-b65a-46dd-9479-ed2b182ba44f.webp"
+                            },
+                            "metadata": {
+                                "capabilities": {
+                                    "hook_and_setting": true,
+                                    "avatar": "optional",
+                                    "product": "optional",
+                                    "required_one_of": [],
+                                    "durations": {
+                                        "min": 15,
+                                        "max": 30,
+                                        "default": 20
+                                    },
+                                    "resolutions": [],
+                                    "aspect_ratios": [
+                                        "auto",
+                                        "21:9",
+                                        "16:9",
+                                        "4:3",
+                                        "1:1",
+                                        "3:4",
+                                        "9:16"
+                                    ],
+                                    "batch": {
+                                        "max": 4
+                                    },
+                                    "brand_kit": false
+                                }
+                            }
+                        },
+                        "styles": [
+                            {
+                                "id": "8b6470ac-919b-48d8-91ba-4f6a00c9b286",
+                                "name": "Shopping",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/marketing-studio-v2-ugc/5a9ba7c1-144b-4158-8582-47548837dd85.mp4",
+                                    "type": "video",
+                                    "width": 600,
+                                    "height": 1066,
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-ugc/4dd6e4ce-b65a-46dd-9479-ed2b182ba44f.webp"
+                                },
+                                "metadata": {
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 15,
+                                            "max": 30,
+                                            "default": 20
+                                        },
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "da3c5285-7ec3-48de-bc11-5f28b6848fc5",
+                                "name": "At home",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/marketing-studio-v2-ugc/a0a7c111-da50-4c3f-a2e0-172d4a9deefb.mp4",
+                                    "type": "video",
+                                    "width": 600,
+                                    "height": 1066,
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-ugc/b023a0f0-f13c-41af-b4ef-9bf0a123a39f.webp"
+                                },
+                                "metadata": {
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 15,
+                                            "max": 30,
+                                            "default": 20
+                                        },
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "7a173ec3-942a-4851-9969-283079e7397b",
+                                "name": "Delivery",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/marketing-studio-v2-ugc/a9f10f0d-0acd-4b86-9ee8-6e4d6a2bcb76.mp4",
+                                    "type": "video",
+                                    "width": 600,
+                                    "height": 1066,
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-ugc/86ede977-ab41-4894-945d-f5dc1113a5ee.webp"
+                                },
+                                "metadata": {
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 15,
+                                            "max": 30,
+                                            "default": 20
+                                        },
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "b58f8f83-dd5f-45c2-9e09-1ea522f81da9",
+                                "name": "Review",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/marketing-studio-v2-ugc/0307d62d-efd8-4906-9162-be99158d25fb.mp4",
+                                    "type": "video",
+                                    "width": 600,
+                                    "height": 1066,
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-ugc/c3f35825-20b9-4673-a508-9c9b20fcb3d4.webp"
+                                },
+                                "metadata": {
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 15,
+                                            "max": 30,
+                                            "default": 20
+                                        },
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "078bb94f-c73e-4b8c-ae30-f5c883df7401",
+                                "name": "Try-on",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/marketing-studio-v2-ugc/7a9bcdd4-c60f-4aea-ad4f-14b607479d76.mp4",
+                                    "type": "video",
+                                    "width": 600,
+                                    "height": 800,
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-ugc/5624a15b-2117-419e-9341-752e20ef7d3c.webp"
+                                },
+                                "metadata": {
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 15,
+                                            "max": 30,
+                                            "default": 20
+                                        },
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "9a890a14-a3ef-4bab-86d8-a87f911b1a5f",
+                                "name": "Unboxing",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/marketing-studio-v2-ugc/73366684-a5c0-4c71-8061-95c7486deceb.mp4",
+                                    "type": "video",
+                                    "width": 600,
+                                    "height": 1066,
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-ugc/dedcc95c-0e28-4669-a239-37cbfa4a22f7.webp"
+                                },
+                                "metadata": {
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 15,
+                                            "max": 30,
+                                            "default": 20
+                                        },
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "7bb94f60-4de1-4121-ae97-169251f9bb62",
+                                "name": "Tutorial",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/marketing-studio-v2-ugc/97464e03-828d-4177-a29d-11d165d2f7bb.mp4",
+                                    "type": "video",
+                                    "width": 600,
+                                    "height": 800,
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-ugc/46c091cc-6f1e-47f0-82dc-14de2d65ea43.webp"
+                                },
+                                "metadata": {
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 15,
+                                            "max": 30,
+                                            "default": 20
+                                        },
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "39243f17-f64a-416e-a24a-4dd5b868e47d",
+                                "name": "Before/after",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/marketing-studio-v2-ugc/703da148-3bfa-42d9-a674-4371ebbc857f.mp4",
+                                    "type": "video",
+                                    "width": 600,
+                                    "height": 1066,
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-ugc/fce5f2c3-6797-40a6-a701-ec4fa1f1c637.webp"
+                                },
+                                "metadata": {
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 15,
+                                            "max": 30,
+                                            "default": 20
+                                        },
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "slug": "faceless",
+                        "name": "Faceless",
+                        "availability": "coming_soon",
+                        "generation": {
+                            "job_set_type": "marketing_studio_v2_video",
+                            "fixed_params": {
+                                "type": "ugc",
+                                "delivery_specs": {
+                                    "mode": "faceless"
+                                }
+                            }
+                        },
+                        "default_style": null,
+                        "styles": []
+                    },
+                    {
+                        "slug": "silent",
+                        "name": "Silent",
+                        "availability": "coming_soon",
+                        "generation": {
+                            "job_set_type": "marketing_studio_v2_video",
+                            "fixed_params": {
+                                "type": "ugc",
+                                "delivery_specs": {
+                                    "mode": "silent"
+                                }
+                            }
+                        },
+                        "default_style": null,
+                        "styles": []
+                    },
+                    {
+                        "slug": "legacy-ugc",
+                        "name": "UGC",
+                        "availability": "available",
+                        "generation": {
+                            "job_set_type": "marketing_studio_v2_video",
+                            "fixed_params": {
+                                "type": "video_mode"
+                            }
+                        },
+                        "default_style": {
+                            "id": "56fd067a-4066-4499-ac97-dbb16efa0825",
+                            "name": "Giant Figure",
+                            "cover_image": {
+                                "type": "video",
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260603_150008_ee9cf142-7741-40e9-8076-897fb0947742.mp4",
+                                "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/user_REDACTED001/hf_20260603_150008_ee9cf142-7741-40e9-8076-897fb0947742_thumbnail.webp",
+                                "width": 1080,
+                                "height": 1920
+                            },
+                            "metadata": {
+                                "legacy_mode": "ugc_giant_figure",
+                                "description": "Oversized, scroll-stopping product moments",
+                                "aspect_ratio": "9:16",
+                                "preview_video": {
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260603_150008_ee9cf142-7741-40e9-8076-897fb0947742.mp4",
+                                    "poster_url": "https://cdn.higgsfield.ai/user_REDACTED001/hf_20260603_150008_ee9cf142-7741-40e9-8076-897fb0947742_thumbnail.webp"
+                                },
+                                "capabilities": {
+                                    "hook_and_setting": true,
+                                    "avatar": "optional",
+                                    "product": "optional",
+                                    "required_one_of": [],
+                                    "durations": {
+                                        "min": 4,
+                                        "max": 15,
+                                        "default": 12
+                                    },
+                                    "resolutions": [
+                                        "480p",
+                                        "720p",
+                                        "1080p"
+                                    ],
+                                    "aspect_ratios": [
+                                        "auto",
+                                        "21:9",
+                                        "16:9",
+                                        "4:3",
+                                        "1:1",
+                                        "3:4",
+                                        "9:16"
+                                    ],
+                                    "batch": {
+                                        "max": 4
+                                    },
+                                    "brand_kit": false
+                                }
+                            }
+                        },
+                        "styles": [
+                            {
+                                "id": "56fd067a-4066-4499-ac97-dbb16efa0825",
+                                "name": "Giant Figure",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260603_150008_ee9cf142-7741-40e9-8076-897fb0947742.mp4",
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/user_REDACTED001/hf_20260603_150008_ee9cf142-7741-40e9-8076-897fb0947742_thumbnail.webp",
+                                    "width": 1080,
+                                    "height": 1920
+                                },
+                                "metadata": {
+                                    "legacy_mode": "ugc_giant_figure",
+                                    "description": "Oversized, scroll-stopping product moments",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260603_150008_ee9cf142-7741-40e9-8076-897fb0947742.mp4",
+                                        "poster_url": "https://cdn.higgsfield.ai/user_REDACTED001/hf_20260603_150008_ee9cf142-7741-40e9-8076-897fb0947742_thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "6df3ebb1-3ba1-44b8-b4a9-6c7915e0c588",
+                                "name": "Unboxing Virtual Try-On",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260603_225935_abf54d8e-3766-4bf5-9163-2f87467c9953.mp4",
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/user_REDACTED001/hf_20260603_225935_abf54d8e-3766-4bf5-9163-2f87467c9953_thumbnail.webp",
+                                    "width": 1080,
+                                    "height": 1920
+                                },
+                                "metadata": {
+                                    "legacy_mode": "ugc_unboxing_virtual_try_on",
+                                    "description": "Unbox and try on in one take",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260603_225935_abf54d8e-3766-4bf5-9163-2f87467c9953.mp4",
+                                        "poster_url": "https://cdn.higgsfield.ai/user_REDACTED001/hf_20260603_225935_abf54d8e-3766-4bf5-9163-2f87467c9953_thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "7ebdcae9-1d57-4273-858f-ae29019a94bc",
+                                "name": "Unboxing ASMR",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED002/hf_20260604_151251_092a48c7-4867-41ca-8d63-dfb1526785fb.mp4",
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/user_REDACTED002/hf_20260604_151251_092a48c7-4867-41ca-8d63-dfb1526785fb_thumbnail.webp",
+                                    "width": 1080,
+                                    "height": 1920
+                                },
+                                "metadata": {
+                                    "legacy_mode": "ugc_unboxing_asmr",
+                                    "description": "Satisfying ASMR unboxing experiences",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED002/hf_20260604_151251_092a48c7-4867-41ca-8d63-dfb1526785fb.mp4",
+                                        "poster_url": "https://cdn.higgsfield.ai/user_REDACTED002/hf_20260604_151251_092a48c7-4867-41ca-8d63-dfb1526785fb_thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "24d410de-bb26-486a-ae4d-ff59793ed469",
+                                "name": "Virtual Try-On Sneakers",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED003/hf_20260603_235259_8a9eed37-73ed-4c71-b6a8-a462a60beb50.mp4",
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/user_REDACTED003/hf_20260603_235259_8a9eed37-73ed-4c71-b6a8-a462a60beb50_thumbnail.webp",
+                                    "width": 1080,
+                                    "height": 1920
+                                },
+                                "metadata": {
+                                    "legacy_mode": "ugc_virtual_try_on_sneakers",
+                                    "description": "Virtual sneaker try-on videos",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED003/hf_20260603_235259_8a9eed37-73ed-4c71-b6a8-a462a60beb50.mp4",
+                                        "poster_url": "https://cdn.higgsfield.ai/user_REDACTED003/hf_20260603_235259_8a9eed37-73ed-4c71-b6a8-a462a60beb50_thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "1f3396e1-3e44-49c6-8de3-b810cee3c217",
+                                "name": "Crush Test",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260505_015725_c13394e1-02c4-48fe-9d61-94f340d0e7f4.mp4",
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/user_REDACTED001/hf_20260505_015725_c13394e1-02c4-48fe-9d61-94f340d0e7f4_thumbnail.webp",
+                                    "width": 1080,
+                                    "height": 1920
+                                },
+                                "metadata": {
+                                    "legacy_mode": "crush_test",
+                                    "description": "Satisfying crush and durability tests",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260505_015725_c13394e1-02c4-48fe-9d61-94f340d0e7f4.mp4",
+                                        "poster_url": "https://cdn.higgsfield.ai/user_REDACTED001/hf_20260505_015725_c13394e1-02c4-48fe-9d61-94f340d0e7f4_thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "7b59187f-dad5-48b0-a3e9-8533b1065ec1",
+                                "name": "Mystery Box",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://static.higgsfield.ai/ms-modes/mystery_box.mp4",
+                                    "poster_url": "https://static.higgsfield.ai/ms-modes/mystery_box.jpg",
+                                    "width": 540,
+                                    "height": 720
+                                },
+                                "metadata": {
+                                    "legacy_mode": "mystery_box",
+                                    "description": "Suspenseful mystery box reveals",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://static.higgsfield.ai/ms-modes/mystery_box.mp4",
+                                        "poster_url": "https://static.higgsfield.ai/ms-modes/mystery_box.jpg"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "4b7c1f91-81a3-4e20-b24a-a2c42248657d",
+                                "name": "Reboxing",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://static.higgsfield.ai/ms-modes/reboxing.mp4",
+                                    "poster_url": "https://static.higgsfield.ai/ms-modes/reboxing.jpg",
+                                    "width": 540,
+                                    "height": 720
+                                },
+                                "metadata": {
+                                    "legacy_mode": "reboxing",
+                                    "description": "Repackaging and reboxing reveals",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://static.higgsfield.ai/ms-modes/reboxing.mp4",
+                                        "poster_url": "https://static.higgsfield.ai/ms-modes/reboxing.jpg"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "68eb0b75-d210-4ee0-98fe-e178d4d7bd32",
+                                "name": "TV Spot",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://static.higgsfield.ai/marketing-studio-presets/tv-spot-mini.mp4",
+                                    "poster_url": "https://static.higgsfield.ai/marketing-studio-presets/tv-spot-mini-thumbnail.webp",
+                                    "width": 834,
+                                    "height": 1112
+                                },
+                                "metadata": {
+                                    "legacy_mode": "tv_spot",
+                                    "description": "Authentic stories, amplified",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://static.higgsfield.ai/marketing-studio-presets/tv-spot-mini.mp4",
+                                        "poster_url": "https://static.higgsfield.ai/marketing-studio-presets/tv-spot-mini-thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "3f98f3d2-899a-4d6b-a6f4-dd88179ea267",
+                                "name": "UGC Addiction",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260603_153723_6b1bb39e-dd94-43fc-9fe8-007a658e49a5.mp4",
+                                    "poster_url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/user_REDACTED001/hf_20260603_153723_6b1bb39e-dd94-43fc-9fe8-007a658e49a5_thumbnail.webp",
+                                    "width": 1080,
+                                    "height": 1920
+                                },
+                                "metadata": {
+                                    "legacy_mode": "ugc_addiction",
+                                    "description": "Can't-put-it-down product obsession",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED001/hf_20260603_153723_6b1bb39e-dd94-43fc-9fe8-007a658e49a5.mp4",
+                                        "poster_url": "https://cdn.higgsfield.ai/user_REDACTED001/hf_20260603_153723_6b1bb39e-dd94-43fc-9fe8-007a658e49a5_thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "5ccf3cc1-6116-44b1-9ddc-f2dc255d8efc",
+                                "name": "UGC Virtual Try On",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://static.higgsfield.ai/marketing-studio-presets/ugc_virtual_try_on.mp4",
+                                    "poster_url": "https://static.higgsfield.ai/marketing-studio-presets/ugc_virtual_try_on-thumbnail.webp",
+                                    "width": 834,
+                                    "height": 1112
+                                },
+                                "metadata": {
+                                    "legacy_mode": "ugc_virtual_try_on",
+                                    "description": "Try before you buy",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://static.higgsfield.ai/marketing-studio-presets/ugc_virtual_try_on.mp4",
+                                        "poster_url": "https://static.higgsfield.ai/marketing-studio-presets/ugc_virtual_try_on-thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "9de2b634-5c4a-463d-a37c-581508e98927",
+                                "name": "Pro Virtual Try On",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://static.higgsfield.ai/marketing-studio-presets/virtual_try_on.mp4",
+                                    "poster_url": "https://static.higgsfield.ai/marketing-studio-presets/virtual_try_on-thumbnail.webp",
+                                    "width": 834,
+                                    "height": 1112
+                                },
+                                "metadata": {
+                                    "legacy_mode": "virtual_try_on",
+                                    "description": "Advanced virtual try-on",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://static.higgsfield.ai/marketing-studio-presets/virtual_try_on.mp4",
+                                        "poster_url": "https://static.higgsfield.ai/marketing-studio-presets/virtual_try_on-thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "152c2d3b-4dfc-443d-b89b-8a699bc5153d",
+                                "name": "Wild Card",
+                                "cover_image": {
+                                    "type": "video",
+                                    "url": "https://static.higgsfield.ai/marketing-studio-presets/wild_card.mp4",
+                                    "poster_url": "https://static.higgsfield.ai/marketing-studio-presets/wild_card-thumbnail.webp",
+                                    "width": 1080,
+                                    "height": 1440
+                                },
+                                "metadata": {
+                                    "legacy_mode": "wild_card",
+                                    "description": "Unique and creative video mode for custom ideas",
+                                    "aspect_ratio": "9:16",
+                                    "preview_video": {
+                                        "url": "https://static.higgsfield.ai/marketing-studio-presets/wild_card.mp4",
+                                        "poster_url": "https://static.higgsfield.ai/marketing-studio-presets/wild_card-thumbnail.webp"
+                                    },
+                                    "capabilities": {
+                                        "hook_and_setting": true,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [],
+                                        "durations": {
+                                            "min": 4,
+                                            "max": 15,
+                                            "default": 12
+                                        },
+                                        "resolutions": [
+                                            "480p",
+                                            "720p",
+                                            "1080p"
+                                        ],
+                                        "aspect_ratios": [
+                                            "auto",
+                                            "21:9",
+                                            "16:9",
+                                            "4:3",
+                                            "1:1",
+                                            "3:4",
+                                            "9:16"
+                                        ],
+                                        "batch": {
+                                            "max": 4
+                                        },
+                                        "brand_kit": false
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "slug": "product-shot",
+                "name": "Product shot",
+                "availability": "available",
+                "formats": [
+                    {
+                        "slug": "with-model",
+                        "name": "With model",
+                        "availability": "available",
+                        "generation": {
+                            "job_set_type": "marketing_studio_2_image",
+                            "fixed_params": {
+                                "type": "product_shots_people"
+                            }
+                        },
+                        "default_style": {
+                            "id": "35223580-4837-4a9f-be59-087e285a0981",
+                            "name": "Closeup",
+                            "cover_image": {
+                                "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shots-people/bb41b4ca-dbeb-4755-867d-508250b2d981.webp",
+                                "width": 1080,
+                                "height": 1443
+                            },
+                            "metadata": {
+                                "aspect_ratio": "3:4",
+                                "capabilities": {
+                                    "hook_and_setting": false,
+                                    "avatar": "optional",
+                                    "product": "optional",
+                                    "required_one_of": [
+                                        "product",
+                                        "avatar"
+                                    ],
+                                    "durations": null,
+                                    "resolutions": [],
+                                    "aspect_ratios": [
+                                        "1:1",
+                                        "3:2",
+                                        "2:3",
+                                        "4:3",
+                                        "3:4",
+                                        "9:16",
+                                        "16:9"
+                                    ],
+                                    "batch": null,
+                                    "brand_kit": false
+                                }
+                            }
+                        },
+                        "styles": [
+                            {
+                                "id": "35223580-4837-4a9f-be59-087e285a0981",
+                                "name": "Closeup",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shots-people/bb41b4ca-dbeb-4755-867d-508250b2d981.webp",
+                                    "width": 1080,
+                                    "height": 1443
+                                },
+                                "metadata": {
+                                    "aspect_ratio": "3:4",
+                                    "capabilities": {
+                                        "hook_and_setting": false,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [
+                                            "product",
+                                            "avatar"
+                                        ],
+                                        "durations": null,
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "1:1",
+                                            "3:2",
+                                            "2:3",
+                                            "4:3",
+                                            "3:4",
+                                            "9:16",
+                                            "16:9"
+                                        ],
+                                        "batch": null,
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "24894802-359b-4121-9e16-eccb898d1788",
+                                "name": "Faceless",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shots-people/7344f15e-0f1a-4520-a73f-dbb1dc2f34a4.webp",
+                                    "width": 1080,
+                                    "height": 1340
+                                },
+                                "metadata": {
+                                    "aspect_ratio": "3:4",
+                                    "capabilities": {
+                                        "hook_and_setting": false,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [
+                                            "product",
+                                            "avatar"
+                                        ],
+                                        "durations": null,
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "1:1",
+                                            "3:2",
+                                            "2:3",
+                                            "4:3",
+                                            "3:4",
+                                            "9:16",
+                                            "16:9"
+                                        ],
+                                        "batch": null,
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "edba6248-cc60-462d-a4a3-3de7c006e342",
+                                "name": "Full body",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shots-people/2450c7f8-8b0c-4149-a6dd-d011ba48625e.webp",
+                                    "width": 1080,
+                                    "height": 1443
+                                },
+                                "metadata": {
+                                    "aspect_ratio": "3:4",
+                                    "capabilities": {
+                                        "hook_and_setting": false,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [
+                                            "product",
+                                            "avatar"
+                                        ],
+                                        "durations": null,
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "1:1",
+                                            "3:2",
+                                            "2:3",
+                                            "4:3",
+                                            "3:4",
+                                            "9:16",
+                                            "16:9"
+                                        ],
+                                        "batch": null,
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "40dd4f51-67de-4d0b-8ed8-7ff68e7095ea",
+                                "name": "Editorial",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shots-people/6b773178-a21b-43a1-a9ea-3f50888ad958.webp",
+                                    "width": 1080,
+                                    "height": 1443
+                                },
+                                "metadata": {
+                                    "aspect_ratio": "3:4",
+                                    "capabilities": {
+                                        "hook_and_setting": false,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [
+                                            "product",
+                                            "avatar"
+                                        ],
+                                        "durations": null,
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "1:1",
+                                            "3:2",
+                                            "2:3",
+                                            "4:3",
+                                            "3:4",
+                                            "9:16",
+                                            "16:9"
+                                        ],
+                                        "batch": null,
+                                        "brand_kit": false
+                                    }
+                                }
+                            },
+                            {
+                                "id": "9ec12810-54c3-4678-a029-05b4b4948853",
+                                "name": "UGC",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shots-people/945bde67-d3b4-4a80-a6eb-c9779b6630c1.webp",
+                                    "width": 1080,
+                                    "height": 1443
+                                },
+                                "metadata": {
+                                    "aspect_ratio": "3:4",
+                                    "capabilities": {
+                                        "hook_and_setting": false,
+                                        "avatar": "optional",
+                                        "product": "optional",
+                                        "required_one_of": [
+                                            "product",
+                                            "avatar"
+                                        ],
+                                        "durations": null,
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "1:1",
+                                            "3:2",
+                                            "2:3",
+                                            "4:3",
+                                            "3:4",
+                                            "9:16",
+                                            "16:9"
+                                        ],
+                                        "batch": null,
+                                        "brand_kit": false
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "slug": "standalone",
+                        "name": "Standalone",
+                        "availability": "available",
+                        "generation": {
+                            "job_set_type": "marketing_studio_2_image",
+                            "fixed_params": {
+                                "type": "product_shots"
+                            }
+                        },
+                        "default_style": {
+                            "id": "da8802ec-51d0-451c-9330-17082da4bcf8",
+                            "name": "Studio white",
+                            "cover_image": {
+                                "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shot/2901a3ca-5eb9-469a-b167-2e2d50996a1e.webp",
+                                "width": 1080,
+                                "height": 1340
+                            },
+                            "metadata": {
+                                "quality": "2k",
+                                "aspect_ratio": "3:4",
+                                "capabilities": {
+                                    "hook_and_setting": false,
+                                    "avatar": "none",
+                                    "product": "required",
+                                    "required_one_of": [],
+                                    "durations": null,
+                                    "resolutions": [],
+                                    "aspect_ratios": [
+                                        "1:1",
+                                        "3:2",
+                                        "2:3",
+                                        "4:3",
+                                        "3:4",
+                                        "4:5",
+                                        "5:4",
+                                        "9:16",
+                                        "16:9",
+                                        "21:9"
+                                    ],
+                                    "batch": null,
+                                    "brand_kit": true
+                                }
+                            }
+                        },
+                        "styles": [
+                            {
+                                "id": "da8802ec-51d0-451c-9330-17082da4bcf8",
+                                "name": "Studio white",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shot/2901a3ca-5eb9-469a-b167-2e2d50996a1e.webp",
+                                    "width": 1080,
+                                    "height": 1340
+                                },
+                                "metadata": {
+                                    "quality": "2k",
+                                    "aspect_ratio": "3:4",
+                                    "capabilities": {
+                                        "hook_and_setting": false,
+                                        "avatar": "none",
+                                        "product": "required",
+                                        "required_one_of": [],
+                                        "durations": null,
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "1:1",
+                                            "3:2",
+                                            "2:3",
+                                            "4:3",
+                                            "3:4",
+                                            "4:5",
+                                            "5:4",
+                                            "9:16",
+                                            "16:9",
+                                            "21:9"
+                                        ],
+                                        "batch": null,
+                                        "brand_kit": true
+                                    }
+                                }
+                            },
+                            {
+                                "id": "d4fbcc30-76a5-4e31-854b-6b66d47a876f",
+                                "name": "Color pop",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shot/d23593e3-bbe6-413d-bdee-3908639de143.webp",
+                                    "width": 1080,
+                                    "height": 1340
+                                },
+                                "metadata": {
+                                    "quality": "2k",
+                                    "aspect_ratio": "3:4",
+                                    "capabilities": {
+                                        "hook_and_setting": false,
+                                        "avatar": "none",
+                                        "product": "required",
+                                        "required_one_of": [],
+                                        "durations": null,
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "1:1",
+                                            "3:2",
+                                            "2:3",
+                                            "4:3",
+                                            "3:4",
+                                            "4:5",
+                                            "5:4",
+                                            "9:16",
+                                            "16:9",
+                                            "21:9"
+                                        ],
+                                        "batch": null,
+                                        "brand_kit": true
+                                    }
+                                }
+                            },
+                            {
+                                "id": "b9d8309f-8414-47b7-8ed3-e61469fa6fbe",
+                                "name": "Natural",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shot/750aea75-3936-406b-923d-07b0bee44955.webp",
+                                    "width": 1080,
+                                    "height": 1446
+                                },
+                                "metadata": {
+                                    "quality": "2k",
+                                    "aspect_ratio": "3:4",
+                                    "capabilities": {
+                                        "hook_and_setting": false,
+                                        "avatar": "none",
+                                        "product": "required",
+                                        "required_one_of": [],
+                                        "durations": null,
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "1:1",
+                                            "3:2",
+                                            "2:3",
+                                            "4:3",
+                                            "3:4",
+                                            "4:5",
+                                            "5:4",
+                                            "9:16",
+                                            "16:9",
+                                            "21:9"
+                                        ],
+                                        "batch": null,
+                                        "brand_kit": true
+                                    }
+                                }
+                            },
+                            {
+                                "id": "4b1a9370-e006-4278-8de4-ef58dd93b47b",
+                                "name": "Usage",
+                                "cover_image": {
+                                    "url": "https://cdn.higgsfield.ai/cdn-cgi/image/width=1080,quality=80,format=auto/marketing-studio-v2-product-shot/17517b48-1fd8-46aa-b269-a658049d418e.webp",
+                                    "width": 1080,
+                                    "height": 1609
+                                },
+                                "metadata": {
+                                    "quality": "2k",
+                                    "aspect_ratio": "3:4",
+                                    "capabilities": {
+                                        "hook_and_setting": false,
+                                        "avatar": "none",
+                                        "product": "required",
+                                        "required_one_of": [],
+                                        "durations": null,
+                                        "resolutions": [],
+                                        "aspect_ratios": [
+                                            "1:1",
+                                            "3:2",
+                                            "2:3",
+                                            "4:3",
+                                            "3:4",
+                                            "4:5",
+                                            "5:4",
+                                            "9:16",
+                                            "16:9",
+                                            "21:9"
+                                        ],
+                                        "batch": null,
+                                        "brand_kit": true
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

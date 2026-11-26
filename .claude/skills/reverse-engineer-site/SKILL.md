@@ -7,6 +7,9 @@ description: Use when starting to scrape a new website or page — recon how it 
 
 Full reference: `.claude/docs/reverse-engineering.md`. Follow these steps in order and write findings down.
 
+**Higgsfield.ai:** don't start from scratch. Use `.claude/docs/higgsfield-re-playbook.md` (how) and
+`.claude/docs/higgsfield-re-checkpoint.md` (where we are), or the `continue-reverse-engineering` skill.
+
 1. **Permissions** — fetch `robots.txt`, `sitemap.xml`; note Disallow/Crawl-delay; check ToS. Stop and tell the
    user if the target data is disallowed, behind a login they don't own, or paywalled.
 2. **Raw vs rendered** — `scrapy fetch --nolog <url> > samples/<site>/page.html`. Search it for a known on-page

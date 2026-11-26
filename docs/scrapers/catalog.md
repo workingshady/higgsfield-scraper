@@ -43,7 +43,7 @@ Common flags (all scrapers) apply: `--max-items` counts all catalog kinds except
 (`thumbs` = images: previews, thumbnails, optimized webp, avatar/voice images; `full` = videos + audio;
 `all` = everything incl. waveform JSON); `--auth`, `--token`, `--max-requests`, `--delay`, …
 
-## Endpoints (base `https://fnf-api-gw.higgsfield.ai/fnf`, all GET)
+## Endpoints (all GET; base `https://fnf-api-gw.higgsfield.ai/fnf` unless noted)
 
 ### Public
 
@@ -71,26 +71,34 @@ Notes:
   `/viral-hub/main-page-previews` returns the same 87 presets as 94 rows (multiple previews), not scraped.
 * `*` `age`/`gender` are repeated (`append`) params.
 
-### Login-only (HTTP 401 `Invalid or expired token` without a session) — requested with `auth="required"`
+### Opt-in group (`--kinds login`, `--include-login-only`) — verified live 2026-11-26
 
-| Kind | Endpoint(s) | Params (JS) | Group field |
-|---|---|---|---|
-| `catalog_soul_style` | `/soul-styles`, `/soul-cinematic-styles`, `/soul-keyframe-styles` | `size`, `lang`, `category`, `search`, `show_hidden` | `style_set` = soul / cinematic / keyframe |
-| `catalog_mixed_media_preset` | `/mixed-media-presets` | `size`, `lang` | — |
-| `catalog_model_motion` | `/veo3-styles`, `/kling-motions`, `/kling2-6-motions`, `/seedance-motions`, `/wan2-2-motions`, `/wan2-5-motions`, `/minimax-motions` | `size`, `cursor`, `category`, `search`, `show_hidden` (+`lang` for veo3) | `model_family` = veo3 / kling / kling2_6 / seedance / wan2_2 / wan2_5 / minimax |
-| `catalog_katana_category` | `/katana-categories` | `limit`, `cursor`, `lang` | — |
-| `catalog_katana_preset` | `/katana-presets` | `limit`, `cursor`, `lang`, `category`, `source` | — |
-| `catalog_color_preset` | `/color-presets` | `size`, `type`, `user_cursor`, `preset_cursor` | items with `type` user/custom/manual are dropped (account data) |
-| `catalog_youtube_faceless_preset` | `/youtube-faceless-presets` | `size`, `cursor` | — |
-| `catalog_camera_setting` | `/camera-settings` | `show_hidden` | — |
-| `catalog_marketing_category` | `/marketing-studio-v2/catalog` | `show_hidden` | — |
-| `catalog_marketing_preset` | `/marketing-studio-v2/categories/{id}/presets` (per category) | `size`, `cursor`, `show_hidden` | `category_id` |
+These were first guessed as `fnf/<path>` (401 without a session, **404 `Not Found` with one**). The JS bundle
+(build 548e0f3a, core chunk `aXyXjC_KHBp09DNW.js`) shows they use other bases: `Ixe(path, lang)` =
+`https://cms.higgsfield.ai{path}?lang=…` and `_V(path)` = `https://fnf-api-gw.higgsfield.ai/fnf-cms-api{path}`.
+On the right base they are **public** (same bytes with and without a session), so they are sent without a token.
+Only `color-presets` and `camera-settings` (fnf gateway) really need a session (`auth="required"`). The group keeps
+its CLI name `login` for compatibility. Samples: `samples/higgsfield/login_endpoints/` (redacted).
 
-Their response shapes could not be observed (no session available while building); they are parsed generically:
-common keys are typed (`id, name, slug, description, preset_family, categories, tags, priority, cms_id, params`),
-media-like values (`{url…}` objects, `*_url` strings) become `media`, **everything else goes to `extra`**. Pagination is
-generic (`cursor` / `has_more` + `user_cursor`/`preset_cursor` / `limit`+`offset`). Re-check them after the first
-logged-in run.
+| Kind | Endpoint(s) | Params sent (JS) | Paging | Total (2026-11-26) | Group field |
+|---|---|---|---|---:|---|
+| `catalog_soul_style` | CMS `/soul-styles`, `/soul-cinematic-styles`, `/soul-keyframe-styles` | `size`, `lang` (+ JS: `category`, `show_hidden`) | `cursor` = next page number, `total` | 106 / 2 / 17 | `style_set` = soul / cinematic / keyframe |
+| `catalog_mixed_media_preset` | CMS `/mixed-media-presets` | `size`, `lang` | `cursor`, `total` | 33 | — |
+| `catalog_model_motion` | CMS `/veo3-styles`, `/kling-motions`, `/kling2-6-motions`, `/seedance-motions`, `/wan2-2-motions`, `/wan2-5-motions`, `/minimax-motions` | `size`, `lang` (+ JS: `search`, `category`, `show_hidden`) | `cursor`, `total` | 17 / 58 / 22 / 25 / 27 / 15 / 77 | `model_family` |
+| `catalog_youtube_faceless_preset` | CMS `/youtube-faceless-presets` | `size`, `lang`, `cursor` | `cursor`, `total` | 12 | — (`title` → `name`) |
+| `catalog_marketing_category` | CMS `/marketing-studio-v2/catalog` | `lang`, `show_hidden=false` | single response `{schema_version, categories}` | 7 | id = category `slug`; `formats[]` in `extra` |
+| `catalog_marketing_preset` | CMS `/marketing-studio-v2/categories/{slug}/presets` | `size`, `lang`, `show_hidden=false`, `cursor` | `cursor`, `total` | e.g. ugc 1,051 | `category_id` (= slug) |
+| `catalog_katana_category` | fnf-cms-api `/katana-categories` | `limit` (1–100), `lang`, `cursor` | `next_cursor` | 3 | — |
+| `catalog_katana_preset` | fnf-cms-api `/katana-presets` | `limit` (≤100), `lang`, `cursor` | `next_cursor` (opaque) | ~100+ | — (`title` → `name`; `author` redacted) |
+| `catalog_color_preset` | fnf `/color-presets` (**session required**) | `size` | `has_more` + cursors | 6 | user-owned `type`s dropped |
+| `catalog_camera_setting` | fnf `/camera-settings` (**session required**) | — | `has_more` | 0 (the account's own saved settings; empty for the test account) | — |
+
+The old `fnf/<path>` URLs answer 404 even when logged in — do not use them.
+Parsing stays generic (typed common keys, media-like values → `media`, the rest in `extra`). Person objects inside
+items (`katana_presets[].author = {user_id, username, avatar_url, badge}`) are always reduced to non-identifying
+fields + `redacted: true` (the catalog has no `--with-profiles`).
+`--max-items` is one budget for the whole run (the first listing can use all of it); use `--max-pages 1` to sample
+every listing once.
 
 Also login-only (not scraped, no catalog value or would need ids): `/mixed-media-presets/preset/{id}`,
 `/test-presets`, `/collections/{id}` (unverified), `/series`. Not found publicly: viral preset details
@@ -121,7 +129,7 @@ height, duration, duration_ms, content_type, placeholder (only --keep-placeholde
 | `catalog_soul_sample` (`id`) | `status, job_set_type, job_set_id, user_id (pseudonymous), created_at, published_at, prompt, width, height, steps, seed, batch_size, quality, style_id, style_name, style_url, style_strength, result_url, result_type, params (full)`; `extra`: board_ids, can_bypass_ip, meta, trace_id, job_set_parent_id, job_set_client_meta |
 | `catalog_viral_type` (`id`) | `slug, name, priority, lang` |
 | `catalog_viral_preset` (`id`) | `slug, preset_kind (API kind: chain), name, description, job_set_type, duration, ip_check_required, is_main_page, priority, tags, type_ids, type_slugs (resolved), preview_url, thumbnail_url, pricing_type, pricing, default_credit_units, min_credit_units, max_credit_units, price_matrix[{key, credit_units}], param_choices, inputs[], param_inputs, lang` |
-| login-only (`uid` = group:id or id) | `id, group, name, slug, description, preset_family, categories, tags, priority, cms_id, params, lang` (+ `style_set` / `model_family` / `category_id`) |
+| opt-in group (`uid` = group:id or id) | `id, group, name, slug, description, preset_family, categories, tags, priority, cms_id, params, lang` (+ `style_set` / `model_family` / `category_id`) |
 | `catalog_page` (`page_id`) | one per listing response: `endpoint, catalog, group, params, first_page, total, item_count, next_cursor, has_more` (auditing + `totals_available`, also after `normalize`) |
 | `catalog_motion_detail` | `/motions/{id}` responses; merged into `catalog_motion` (not a collection) |
 
@@ -141,9 +149,8 @@ height, duration, duration_ms, content_type, placeholder (only --keep-placeholde
 
 ## Gaps / caveats
 
-* Login-only catalogs untested live (no session): shapes, page sizes and totals unknown; generic parsing keeps all
-  keys in `extra`. Katana presets may need a `category`; marketing presets are fetched per category from
-  `/marketing-studio-v2/catalog` (category list key assumed to be one of items/categories/data/…).
+* Opt-in catalogs: verified live 2026-11-26 (see the table above). Motion lists are large (kling-motions ≈ 3 MB for
+  58 items: inline media variants). `camera-settings` is account data (empty for the test account).
 * Motion descriptions and the previews of 190 non-higgsfield motions need `--with-details` (419 requests).
 * Viral preset detail / "how it works" endpoints return 404 publicly.
 * Soul samples: API total 1,263 contains 3 duplicate ids.

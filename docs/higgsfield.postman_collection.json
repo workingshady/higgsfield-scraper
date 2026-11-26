@@ -14,6 +14,30 @@
             "value": "https://pricing.higgsfield.ai"
         },
         {
+            "key": "cms_base",
+            "value": "https://cms.higgsfield.ai"
+        },
+        {
+            "key": "cms_api_base",
+            "value": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api"
+        },
+        {
+            "key": "community_base",
+            "value": "https://fnf-api-gw.higgsfield.ai/fnf-community"
+        },
+        {
+            "key": "community_post_id",
+            "value": ""
+        },
+        {
+            "key": "comment_id",
+            "value": ""
+        },
+        {
+            "key": "marketing_category",
+            "value": "ugc"
+        },
+        {
             "key": "site_base",
             "value": "https://higgsfield.ai"
         },
@@ -995,7 +1019,7 @@
                     ]
                 },
                 {
-                    "name": "Generation comments  🔒",
+                    "name": "Community posts feed (fnf-community)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -1013,27 +1037,28 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/publications/{{publication_id}}/comments",
+                            "raw": "{{community_base}}/publications/feed?limit=20&offset=0",
                             "host": [
-                                "{{api_base}}"
+                                "{{community_base}}"
                             ],
                             "path": [
                                 "publications",
-                                "{{publication_id}}",
-                                "comments"
+                                "feed"
                             ],
-                            "query": []
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
+                            "query": [
                                 {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
                                 }
                             ]
+                        },
+                        "description": "Separate Community posts service; used by --with-comments to find posts with comment_count > 0.",
+                        "auth": {
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -1050,7 +1075,7 @@
                     ]
                 },
                 {
-                    "name": "Related generations  🔒",
+                    "name": "Post comments (fnf-community)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -1068,13 +1093,127 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/publications/{{publication_id}}/related?limit=10",
+                            "raw": "{{community_base}}/publications/{{community_post_id}}/comments?limit=50&offset=0",
                             "host": [
-                                "{{api_base}}"
+                                "{{community_base}}"
                             ],
                             "path": [
                                 "publications",
-                                "{{publication_id}}",
+                                "{{community_post_id}}",
+                                "comments"
+                            ],
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                }
+                            ]
+                        },
+                        "description": "Public. Gallery publication ids are not posts here (always []).",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Comment replies (fnf-community)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{community_base}}/publications/{{community_post_id}}/comments?limit=50&parent_id={{comment_id}}",
+                            "host": [
+                                "{{community_base}}"
+                            ],
+                            "path": [
+                                "publications",
+                                "{{community_post_id}}",
+                                "comments"
+                            ],
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "parent_id",
+                                    "value": "{{comment_id}}"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Related publications (fnf-community)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{community_base}}/publications/{{community_post_id}}/related?limit=10",
+                            "host": [
+                                "{{community_base}}"
+                            ],
+                            "path": [
+                                "publications",
+                                "{{community_post_id}}",
                                 "related"
                             ],
                             "query": [
@@ -1086,14 +1225,7 @@
                         },
                         "description": "",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -1785,7 +1917,7 @@
                     ]
                 },
                 {
-                    "name": "Soul Styles  🔒",
+                    "name": "Soul Styles (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -1803,9 +1935,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/soul-styles?size=100",
+                            "raw": "{{cms_base}}/soul-styles?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "soul-styles"
@@ -1814,19 +1946,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -1843,7 +1972,7 @@
                     ]
                 },
                 {
-                    "name": "Soul Cinematic Styles  🔒",
+                    "name": "Soul Cinematic Styles (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -1861,9 +1990,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/soul-cinematic-styles?size=100",
+                            "raw": "{{cms_base}}/soul-cinematic-styles?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "soul-cinematic-styles"
@@ -1872,19 +2001,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -1901,7 +2027,7 @@
                     ]
                 },
                 {
-                    "name": "Soul Keyframe Styles  🔒",
+                    "name": "Soul Keyframe Styles (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -1919,9 +2045,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/soul-keyframe-styles?size=100",
+                            "raw": "{{cms_base}}/soul-keyframe-styles?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "soul-keyframe-styles"
@@ -1930,19 +2056,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -1959,7 +2082,7 @@
                     ]
                 },
                 {
-                    "name": "Mixed Media Presets  🔒",
+                    "name": "Mixed Media Presets (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -1977,9 +2100,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/mixed-media-presets?size=100",
+                            "raw": "{{cms_base}}/mixed-media-presets?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "mixed-media-presets"
@@ -1988,19 +2111,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2017,7 +2137,7 @@
                     ]
                 },
                 {
-                    "name": "Veo3 Styles  🔒",
+                    "name": "Veo3 Styles (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2035,9 +2155,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/veo3-styles?size=100",
+                            "raw": "{{cms_base}}/veo3-styles?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "veo3-styles"
@@ -2046,19 +2166,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2075,7 +2192,7 @@
                     ]
                 },
                 {
-                    "name": "Kling Motions  🔒",
+                    "name": "Kling Motions (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2093,9 +2210,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/kling-motions?size=100",
+                            "raw": "{{cms_base}}/kling-motions?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "kling-motions"
@@ -2104,19 +2221,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2133,7 +2247,7 @@
                     ]
                 },
                 {
-                    "name": "Kling2 6 Motions  🔒",
+                    "name": "Kling2 6 Motions (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2151,9 +2265,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/kling2-6-motions?size=100",
+                            "raw": "{{cms_base}}/kling2-6-motions?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "kling2-6-motions"
@@ -2162,19 +2276,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2191,7 +2302,7 @@
                     ]
                 },
                 {
-                    "name": "Seedance Motions  🔒",
+                    "name": "Seedance Motions (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2209,9 +2320,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/seedance-motions?size=100",
+                            "raw": "{{cms_base}}/seedance-motions?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "seedance-motions"
@@ -2220,19 +2331,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2249,7 +2357,7 @@
                     ]
                 },
                 {
-                    "name": "Wan2 2 Motions  🔒",
+                    "name": "Wan2 2 Motions (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2267,9 +2375,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/wan2-2-motions?size=100",
+                            "raw": "{{cms_base}}/wan2-2-motions?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "wan2-2-motions"
@@ -2278,19 +2386,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2307,7 +2412,7 @@
                     ]
                 },
                 {
-                    "name": "Wan2 5 Motions  🔒",
+                    "name": "Wan2 5 Motions (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2325,9 +2430,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/wan2-5-motions?size=100",
+                            "raw": "{{cms_base}}/wan2-5-motions?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "wan2-5-motions"
@@ -2336,19 +2441,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2365,7 +2467,7 @@
                     ]
                 },
                 {
-                    "name": "Minimax Motions  🔒",
+                    "name": "Minimax Motions (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2383,9 +2485,9 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/minimax-motions?size=100",
+                            "raw": "{{cms_base}}/minimax-motions?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
                             ],
                             "path": [
                                 "minimax-motions"
@@ -2394,19 +2496,16 @@
                                 {
                                     "key": "size",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2423,7 +2522,7 @@
                     ]
                 },
                 {
-                    "name": "Katana Categories  🔒",
+                    "name": "Youtube Faceless Presets (CMS)",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2441,30 +2540,200 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/katana-categories?size=100",
+                            "raw": "{{cms_base}}/youtube-faceless-presets?size=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_base}}"
+                            ],
+                            "path": [
+                                "youtube-faceless-presets"
+                            ],
+                            "query": [
+                                {
+                                    "key": "size",
+                                    "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
+                                }
+                            ]
+                        },
+                        "description": "Public on cms.higgsfield.ai; cursor = next page number.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Marketing Studio v2 catalog (CMS)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{cms_base}}/marketing-studio-v2/catalog?lang={{locale}}&show_hidden=false",
+                            "host": [
+                                "{{cms_base}}"
+                            ],
+                            "path": [
+                                "marketing-studio-v2",
+                                "catalog"
+                            ],
+                            "query": [
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
+                                },
+                                {
+                                    "key": "show_hidden",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "description": "Categories (id = slug) with formats.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Marketing Studio v2 presets (CMS)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{cms_base}}/marketing-studio-v2/categories/{{marketing_category}}/presets?size=100&lang={{locale}}&show_hidden=false",
+                            "host": [
+                                "{{cms_base}}"
+                            ],
+                            "path": [
+                                "marketing-studio-v2",
+                                "categories",
+                                "{{marketing_category}}",
+                                "presets"
+                            ],
+                            "query": [
+                                {
+                                    "key": "size",
+                                    "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
+                                },
+                                {
+                                    "key": "show_hidden",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "description": "Per category slug (e.g. ugc).",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Katana categories",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{cms_api_base}}/katana-categories?limit=100&lang={{locale}}",
+                            "host": [
+                                "{{cms_api_base}}"
                             ],
                             "path": [
                                 "katana-categories"
                             ],
                             "query": [
                                 {
-                                    "key": "size",
+                                    "key": "limit",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "fnf-cms-api; limit 1..100, next_cursor.",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2481,7 +2750,7 @@
                     ]
                 },
                 {
-                    "name": "Katana Presets  🔒",
+                    "name": "Katana presets",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2499,30 +2768,27 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/katana-presets?size=100",
+                            "raw": "{{cms_api_base}}/katana-presets?limit=100&lang={{locale}}",
                             "host": [
-                                "{{api_base}}"
+                                "{{cms_api_base}}"
                             ],
                             "path": [
                                 "katana-presets"
                             ],
                             "query": [
                                 {
-                                    "key": "size",
+                                    "key": "limit",
                                     "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "fnf-cms-api; next_cursor (opaque).",
                         "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "noauth"
                         }
                     },
                     "event": [
@@ -2539,7 +2805,7 @@
                     ]
                 },
                 {
-                    "name": "Color Presets  🔒",
+                    "name": "Color presets  🔒",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2571,7 +2837,7 @@
                                 }
                             ]
                         },
-                        "description": "Login-only catalog.",
+                        "description": "Needs a session.",
                         "auth": {
                             "type": "bearer",
                             "bearer": [
@@ -2597,7 +2863,7 @@
                     ]
                 },
                 {
-                    "name": "Youtube Faceless Presets  🔒",
+                    "name": "Camera settings  🔒",
                     "request": {
                         "method": "GET",
                         "header": [
@@ -2615,138 +2881,16 @@
                             }
                         ],
                         "url": {
-                            "raw": "{{api_base}}/youtube-faceless-presets?size=100",
-                            "host": [
-                                "{{api_base}}"
-                            ],
-                            "path": [
-                                "youtube-faceless-presets"
-                            ],
-                            "query": [
-                                {
-                                    "key": "size",
-                                    "value": "100"
-                                }
-                            ]
-                        },
-                        "description": "Login-only catalog.",
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        }
-                    },
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "type": "text/javascript",
-                                "exec": [
-                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
-                                    "pm.test('JSON body', () => pm.response.to.be.json);"
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Camera Settings  🔒",
-                    "request": {
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application/json"
-                            },
-                            {
-                                "key": "Origin",
-                                "value": "https://higgsfield.ai"
-                            },
-                            {
-                                "key": "Referer",
-                                "value": "https://higgsfield.ai/"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{api_base}}/camera-settings?size=100",
+                            "raw": "{{api_base}}/camera-settings",
                             "host": [
                                 "{{api_base}}"
                             ],
                             "path": [
                                 "camera-settings"
                             ],
-                            "query": [
-                                {
-                                    "key": "size",
-                                    "value": "100"
-                                }
-                            ]
+                            "query": []
                         },
-                        "description": "Login-only catalog.",
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        }
-                    },
-                    "event": [
-                        {
-                            "listen": "test",
-                            "script": {
-                                "type": "text/javascript",
-                                "exec": [
-                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
-                                    "pm.test('JSON body', () => pm.response.to.be.json);"
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Marketing Studio V2/Catalog  🔒",
-                    "request": {
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application/json"
-                            },
-                            {
-                                "key": "Origin",
-                                "value": "https://higgsfield.ai"
-                            },
-                            {
-                                "key": "Referer",
-                                "value": "https://higgsfield.ai/"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{api_base}}/marketing-studio-v2/catalog?size=100",
-                            "host": [
-                                "{{api_base}}"
-                            ],
-                            "path": [
-                                "marketing-studio-v2",
-                                "catalog"
-                            ],
-                            "query": [
-                                {
-                                    "key": "size",
-                                    "value": "100"
-                                }
-                            ]
-                        },
-                        "description": "Login-only catalog.",
+                        "description": "Needs a session (account data).",
                         "auth": {
                             "type": "bearer",
                             "bearer": [

@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "endpoint": "catalog_color_presets",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/color-presets?size=2",
+        "params": {
+            "size": "2"
+        },
+        "fetched_at": "2026-11-26T10:05:26+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "274cb3aa-4aab-4712-b8aa-9599a05eec22",
+                "name": "Nostalgic blue",
+                "status": "completed",
+                "hex_colors": [
+                    "#204587",
+                    "#1d3c7d",
+                    "#234f98",
+                    "#1e1b1d",
+                    "#a93232",
+                    "#1f3061",
+                    "#667ca2",
+                    "#ae6c61",
+                    "#ece1e6",
+                    "#873633",
+                    "#c79690",
+                    "#4a6490"
+                ],
+                "background_color": null,
+                "thumbnail_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/a8e99b3d-3998-413a-8095-6ca30d2419f5.png",
+                "is_pinned": false,
+                "created_at": 1771545600.0,
+                "updated_at": 1788851436.908611
+            },
+            {
+                "id": "7b915c75-588e-4051-894a-3b90f6b232bb",
+                "name": "Film colors",
+                "status": "completed",
+                "hex_colors": [
+                    "#434a33",
+                    "#221c11",
+                    "#616c52",
+                    "#929d8f",
+                    "#dbdbdf",
+                    "#b0986c",
+                    "#848465",
+                    "#729bce",
+                    "#416495",
+                    "#6b9f96",
+                    "#cfbe80",
+                    "#9d6337",
+                    "#9ab3ad",
+                    "#c5ac9d",
+                    "#2f4866"
+                ],
+                "background_color": null,
+                "thumbnail_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/20cf0766-d88a-4a20-834c-55aca0fd6d2a.png",
+                "is_pinned": false,
+                "created_at": 1771545600.0,
+                "updated_at": 1788851436.787899
+            }
+        ],
+        "has_more": true,
+        "cursor": 1771545600.0
+    }
+}

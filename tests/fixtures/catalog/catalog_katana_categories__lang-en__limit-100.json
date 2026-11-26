@@ -1,0 +1,39 @@
+{
+    "meta": {
+        "endpoint": "catalog_katana_categories",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/katana-categories?limit=100&lang=en",
+        "params": {
+            "limit": "100",
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T10:05:24+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "personalized_edits",
+                "name": "Personalized edits",
+                "title": "Personalized edits",
+                "position": 0,
+                "icon": "video-trim"
+            },
+            {
+                "id": "style_transfer",
+                "name": "Style transfer",
+                "title": "Style transfer",
+                "position": 1,
+                "icon": "colors"
+            },
+            {
+                "id": "motion_transfer",
+                "name": "Motion transfer",
+                "title": "Motion transfer",
+                "position": 2,
+                "icon": "reduce-motion"
+            }
+        ],
+        "default_category_id": "personalized_edits",
+        "next_cursor": null
+    }
+}

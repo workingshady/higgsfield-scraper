@@ -26,13 +26,13 @@ class CatalogSpider(BaseApiSpider):
         params = {k: str(v) for k, v in (params or {}).items() if v is not None}
         path = src.path.replace("{id}", path_id or "")
         meta_params = {**params, **(extra_meta_params or {})}
-        return self.api_request(src.endpoint, path, params, auth="required" if src.login else False,
+        return self.api_request(src.endpoint, path, params, auth="required" if src.login else False, base=src.base,
                                 meta={"params": meta_params,
                                       "catalog": {"query": params, "path_id": path_id, "listing": listing,
                                                   "extra": extra_meta_params or {}}})
 
     def _first_params(self, src: Source) -> dict:
-        p: dict[str, Any] = {}
+        p: dict[str, Any] = dict(src.fixed_params)
         if src.size_param:
             p[src.size_param] = self.page_size(src.default_size, src.max_size)
         if src.lang:

@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "endpoint": "catalog_soul_styles_old_fnf_path",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/soul-styles?size=2&lang=en",
+        "params": {
+            "size": "2",
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T10:05:38+00:00",
+        "status": 404
+    },
+    "body": {
+        "detail": "Not Found"
+    }
+}

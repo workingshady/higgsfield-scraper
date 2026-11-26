@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "endpoint": "community_comments_gallery_id",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/publications/5183f7e6-e3d5-47e7-976b-6f7203ca864e/comments?limit=50",
+        "params": {
+            "limit": "50"
+        },
+        "fetched_at": "2026-11-26T10:05:35+00:00",
+        "status": 200
+    },
+    "body": {
+        "comments": [],
+        "has_more": false
+    }
+}

@@ -9,11 +9,12 @@ from typing import Any, Iterator, Optional
 
 from ...core.api_spider import BaseApiSpider
 from ...run.logging_setup import emit
-from .endpoints import (COMMENTS_ENDPOINT, COMMENTS_PATH, DETAIL_ENDPOINT, DETAIL_PATH, ENDPOINT_FEEDS, FEED_ENDPOINTS,
+from .endpoints import (COMMENTS_ENDPOINT, COMMENTS_PAGE_SIZE, COMMENTS_PATH, COMMUNITY_BASE, POSTS_ENDPOINT,
+                        POSTS_MAX_LIMIT, POSTS_PATH, DETAIL_ENDPOINT, DETAIL_PATH, ENDPOINT_FEEDS, FEED_ENDPOINTS,
                         FEED_PARAMS, FEED_PATHS, JOB_COSTS_ENDPOINT, JOB_COSTS_PATH, PAGE_SIZE, PLANS_ENDPOINT,
                         COMPARE_ENDPOINT, COMPARE_PATH, BENEFITS_ENDPOINT, BENEFITS_PATH, VIRAL_ENDPOINT, VIRAL_PATH,
                         PLANS_PATH)
-from .parsers import _items_of, repr_cursor
+from .parsers import _items_of, parse_posts, repr_cursor
 
 
 def next_page(body: Any, sent_cursor: Optional[str], new_ids: int) -> tuple[Optional[str], str]:
@@ -79,9 +80,15 @@ class CommunitySpider(BaseApiSpider):
         return self.api_request(DETAIL_ENDPOINT, DETAIL_PATH.format(publication_id=publication_id), None,
                                 meta={"params": {"publication_id": publication_id, "feed": feed}}, priority=5)
 
-    def _comments(self, publication_id: str):
-        return self.api_request(COMMENTS_ENDPOINT, COMMENTS_PATH.format(publication_id=publication_id), None,
-                                auth="required", meta={"params": {"publication_id": publication_id}}, priority=3)
+    def _posts(self):
+        """Community posts feed (fnf-community) — only to find comment threads (see endpoints.py)."""
+        limit = min(POSTS_MAX_LIMIT, self.common.max_items or 20)
+        return self.api_request(POSTS_ENDPOINT, POSTS_PATH, {"limit": limit}, base=COMMUNITY_BASE, priority=3)
+
+    def _comments(self, publication_id: str, offset: int = 0, parent_id: Optional[str] = None):
+        params = {"limit": COMMENTS_PAGE_SIZE, "offset": offset or None, "parent_id": parent_id}
+        return self.api_request(COMMENTS_ENDPOINT, COMMENTS_PATH.format(publication_id=publication_id), params,
+                                base=COMMUNITY_BASE, labels={"publication_id": publication_id}, priority=3)
 
     def build_requests(self) -> Iterator[Any]:
         sel = self.selection
@@ -94,8 +101,8 @@ class CommunitySpider(BaseApiSpider):
                                                                     "with_localization": "true"}, priority=10)
             yield self.api_request(BENEFITS_ENDPOINT, BENEFITS_PATH, {"locale": "en"}, priority=10)
             yield self.api_request(VIRAL_ENDPOINT, VIRAL_PATH, {"lang": "en"}, priority=10)
-        if sel.with_comments and not self.authed:
-            self.limit_hit("--with-comments skipped: login-only endpoint and no session configured")
+        if sel.with_comments:
+            yield self._posts()
         for pid in sel.publication_ids:
             self.detail_requested += 1
             yield self._detail(pid, "detail")
@@ -130,10 +137,6 @@ class CommunitySpider(BaseApiSpider):
                     if pid:
                         self.detail_requested += 1
                         yield self._detail(str(pid), feed)
-            if sel.with_comments and self.authed:
-                for e in entities:
-                    if e["kind"] == "community_generation" and e.get("publication_id"):
-                        yield self._comments(e["publication_id"])
             budget = self._detail_budget_left() if sel.detail else self.budget_left()
             nxt, reason = next_page(body, sent, len(new))
             if nxt is not None and budget is not None and budget <= 0:
@@ -147,7 +150,19 @@ class CommunitySpider(BaseApiSpider):
             r = self._listing(feed, nxt)
             if r is not None:
                 yield r
-        elif env.endpoint == DETAIL_ENDPOINT and sel.with_comments and self.authed:
-            for e in entities:
-                if e["kind"] == "community_generation" and e.get("publication_id"):
-                    yield self._comments(e["publication_id"])
+        elif env.endpoint == POSTS_ENDPOINT:
+            posts = parse_posts(env.body)
+            with_comments = [p for p in posts if p["comment_count"] > 0]
+            emit(self.logger, "info", "listing.finished", f"community posts: {len(posts)} fetched, "
+                 f"{len(with_comments)} with comments", listing=POSTS_ENDPOINT, items__count=len(posts))
+            for p in with_comments:
+                yield self._comments(p["id"])
+        elif env.endpoint == COMMENTS_ENDPOINT and isinstance(env.body, dict):
+            pid = env.params.get("publication_id") or ""
+            parent = env.params.get("parent_id")
+            if env.body.get("has_more") is True and entities:
+                yield self._comments(pid, int(env.params.get("offset") or 0) + len(entities), parent)
+            if parent is None:                               # replies (one level, as in the web app)
+                for e in entities:
+                    if (e.get("reply_count") or 0) > 0:
+                        yield self._comments(pid, parent_id=e["comment_id"])

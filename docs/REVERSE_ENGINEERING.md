@@ -357,6 +357,18 @@ These findings come from the agents that built each scraper. Full details are in
   `/viral-hub/presets` always returns `[]`.
 - 18 catalogs are login-only (401): soul styles, mixed-media presets, per-model motions, katana, color presets,
   camera settings, marketing studio and others.
+- **Correction (2026-11-26, tested with a login):** most of those 401s were the fnf gateway rejecting an unknown
+  path before routing. With a session the same `fnf/<path>` URLs return **404 `Not Found`**. The JS helpers
+  (core chunk `aXyXjC_KHBp09DNW.js`) use other bases: `Ixe(path, lang)` = `https://cms.higgsfield.ai{path}?lang=`
+  (soul/cinematic/keyframe styles, veo3 styles, the six per-model motion lists, mixed-media presets, YouTube
+  faceless presets, `marketing-studio-v2/catalog` and `/categories/{slug}/presets`) and `_V(path)` =
+  `https://fnf-api-gw.higgsfield.ai/fnf-cms-api{path}` (katana categories/presets). On those bases they are
+  **public**. Only `fnf/color-presets` and `fnf/camera-settings` really need a session. Details:
+  `docs/scrapers/catalog.md`.
+- **Comments** use `Axe()` = `https://fnf-api-gw.higgsfield.ai/fnf-community` (the separate Community posts
+  service, public): `GET /publications/{id}/comments?limit&offset&parent_id`. Gallery publication ids do not exist
+  there (`/fnf-community/publications/{gallery id}` 404; comments always `[]`), so gallery generations have no
+  comments. `fnf/publications/{id}/comments` is 404 with a login. Details: `docs/scrapers/community.md`.
 
 ### Projects and contests
 - **Page sizes:** `/project-publications` max 50, with a score cursor and no total. Contests and submissions max 100.

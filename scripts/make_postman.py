@@ -66,8 +66,16 @@ community = folder("community", "Public generations (prompt, settings, results, 
     req("Top generations", "/publications/community/trending/top", [("size", "100")], "Single page, no cursor."),
     req("Model-x showcase", "/publications/community/model-x", [("size", "50")]),
     req("Generation detail", "/publications/{{publication_id}}"),
-    req("Generation comments", "/publications/{{publication_id}}/comments", auth=True),
-    req("Related generations", "/publications/{{publication_id}}/related", [("limit", "10")], auth=True),
+    req("Community posts feed (fnf-community)", "/publications/feed", [("limit", "20"), ("offset", "0")],
+        "Separate Community posts service; used by --with-comments to find posts with comment_count > 0.",
+        base="{{community_base}}"),
+    req("Post comments (fnf-community)", "/publications/{{community_post_id}}/comments",
+        [("limit", "50"), ("offset", "0")], "Public. Gallery publication ids are not posts here (always []).",
+        base="{{community_base}}"),
+    req("Comment replies (fnf-community)", "/publications/{{community_post_id}}/comments",
+        [("limit", "50"), ("parent_id", "{{comment_id}}")], base="{{community_base}}"),
+    req("Related publications (fnf-community)", "/publications/{{community_post_id}}/related", [("limit", "10")],
+        base="{{community_base}}"),
     req("Viral presets (price matrices)", "/viral-hub/presets/all", [("lang", "{{locale}}")],
         "Used by --estimate-cost to price viral_hub_video generations (credit_units / 100)."),
 ])
@@ -85,14 +93,27 @@ public_catalog = [
     ("Viral types", "/viral-hub/types", [("lang", "{{locale}}")], ""),
     ("Viral presets", "/viral-hub/presets/all", [("lang", "{{locale}}")], "87 presets with price matrix + inputs."),
 ]
-login_catalog = ["/soul-styles", "/soul-cinematic-styles", "/soul-keyframe-styles", "/mixed-media-presets", "/veo3-styles",
-                 "/kling-motions", "/kling2-6-motions", "/seedance-motions", "/wan2-2-motions", "/wan2-5-motions",
-                 "/minimax-motions", "/katana-categories", "/katana-presets", "/color-presets", "/youtube-faceless-presets",
-                 "/camera-settings", "/marketing-studio-v2/catalog"]
+# opt-in catalogs (verified 2026-11-26): public on the CMS host / fnf-cms-api; fnf/<path> is 404 even with a login
+cms_catalog = ["/soul-styles", "/soul-cinematic-styles", "/soul-keyframe-styles", "/mixed-media-presets", "/veo3-styles",
+               "/kling-motions", "/kling2-6-motions", "/seedance-motions", "/wan2-2-motions", "/wan2-5-motions",
+               "/minimax-motions", "/youtube-faceless-presets"]
 catalog = folder("catalog", "Preset & asset catalogs. docs/scrapers/catalog.md.",
                  [req(n, p, q, d) for n, p, q, d in public_catalog]
-                 + [req(p.strip("/").replace("-", " ").title(), p, [("size", "100")], "Login-only catalog.", auth=True)
-                    for p in login_catalog])
+                 + [req(p.strip("/").replace("-", " ").title() + " (CMS)", p, [("size", "100"), ("lang", "{{locale}}")],
+                        "Public on cms.higgsfield.ai; cursor = next page number.", base="{{cms_base}}")
+                    for p in cms_catalog]
+                 + [req("Marketing Studio v2 catalog (CMS)", "/marketing-studio-v2/catalog",
+                        [("lang", "{{locale}}"), ("show_hidden", "false")], "Categories (id = slug) with formats.",
+                        base="{{cms_base}}"),
+                    req("Marketing Studio v2 presets (CMS)", "/marketing-studio-v2/categories/{{marketing_category}}/presets",
+                        [("size", "100"), ("lang", "{{locale}}"), ("show_hidden", "false")], "Per category slug (e.g. ugc).",
+                        base="{{cms_base}}"),
+                    req("Katana categories", "/katana-categories", [("limit", "100"), ("lang", "{{locale}}")],
+                        "fnf-cms-api; limit 1..100, next_cursor.", base="{{cms_api_base}}"),
+                    req("Katana presets", "/katana-presets", [("limit", "100"), ("lang", "{{locale}}")],
+                        "fnf-cms-api; next_cursor (opaque).", base="{{cms_api_base}}"),
+                    req("Color presets", "/color-presets", [("size", "100")], "Needs a session.", auth=True),
+                    req("Camera settings", "/camera-settings", (), "Needs a session (account data).", auth=True)])
 projects = folder("projects", "Project showcases (films/series), contests, submissions. docs/scrapers/projects.md.", [
     req("Project publications", "/project-publications", [("limit", "50"), ("cursor", "{{cursor}}")], "cursor = score; ends when next_cursor null."),
     req("Recommended publications", "/project-publications/recommended", [("scope", "community"), ("limit", "50")],
@@ -176,6 +197,9 @@ col = {
                             "plan_set_key=ps_a3 = US prices. Unofficial; not affiliated with Higgsfield."},
     "variable": [{"key": k, "value": v} for k, v in [
         ("api_base", "https://fnf-api-gw.higgsfield.ai/fnf"), ("pricing_base", "https://pricing.higgsfield.ai"),
+        ("cms_base", "https://cms.higgsfield.ai"), ("cms_api_base", "https://fnf-api-gw.higgsfield.ai/fnf-cms-api"),
+        ("community_base", "https://fnf-api-gw.higgsfield.ai/fnf-community"), ("community_post_id", ""),
+        ("comment_id", ""), ("marketing_category", "ugc"),
         ("site_base", "https://higgsfield.ai"), ("clerk_base", "https://higgsfield.ai/_clerk"), ("locale", "en"),
         ("plan_set_key", "ps_a3"), ("billing_period", "annual"), ("size", "50"), ("cursor", ""),
         ("publication_id", ""), ("motion_id", ""), ("contest_id", ""), ("slug", ""), ("post_id", ""), ("course", ""), ("lesson", ""), ("series", ""), ("episode", ""),

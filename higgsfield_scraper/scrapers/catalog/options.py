@@ -23,8 +23,11 @@ def add_args(p: argparse.ArgumentParser) -> None:
                         "kling/minimax/seedance/wan families; ~419 requests; --max-pages caps them)")
     g.add_argument("--lang", default="en", help="language for viral-hub, soul styles, mixed media, katana (default: en)")
     g.add_argument("--include-login-only", default="auto", choices=LOGIN_MODES,
-                   help="login-only catalogs: auto = when a session is configured (default), yes = always "
-                        "(skipped cleanly without a session), no = never")
+                   help="the opt-in `login` group (soul/veo3 styles, per-model motions, mixed media, katana, "
+                        "faceless, marketing presets: public CMS lists; color presets + camera settings: need a "
+                        "login). Adds it to the default selection: auto = when logged in (default), yes = always "
+                        "(login-only ones skipped cleanly without a session), no = never. `--kinds all|login` "
+                        "always includes it")
     g.add_argument("--keep-placeholders", action="store_true",
                    help="keep the base64 blur placeholders (data: URIs) found in media objects (large)")
 
