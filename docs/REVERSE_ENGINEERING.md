@@ -16,6 +16,9 @@ Related documents:
 | [`../CLI.md`](../CLI.md) | How to run the scraper |
 | [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) | Ready-made requests |
 | [`MODEL_LOADING.md`](MODEL_LOADING.md) | How tools load models: JS registry, flags, param schemas, cost formulas, create/poll flow (§15) |
+| [`COST_FORMULAS.md`](COST_FORMULAS.md) | Credit and cost formulas for every model, scenarios, variation tables |
+| [`PRODUCTS.md`](PRODUCTS.md) | Products → model ids → providers, examples, model catalog |
+| [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) | Job ids, lifecycle, storage, library, chains, workflows |
 
 ---
 

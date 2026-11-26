@@ -40,7 +40,7 @@ marked **(from JS, not called)** are known only from the bundle.
  CREATE  POST /jobs/{route}  e.g. /jobs/v2/seedance_2_5   body {params:{…}, use_unlim, …}    (Clerk Bearer JWT)
          special routes: /chains/viral-hub, /chains/mixed-media, /chains/reframe, /workflows (apps), …
    ▼
- POLL    POST /jobs/status-batch {ids:[…]} → GET /jobs/{id} | /job-sets/{id}   (polling, no websocket)
+ PUSH    SSE fnf-notification/notifications/stream  event job:status_changed  (fallback: POST /jobs/status-batch)
    ▼
  RESULT  job.results.raw/min {url, thumbnail_url}  → CloudFront / cdn.higgsfield.ai
 ```
@@ -369,7 +369,11 @@ created_at, fail_reason, ip_check_finished, cost}`.
 | `failed`, `nsfw`, `ip_detected`, `canceled` | terminal; `meta.fail_reason` explains |
 | `dna`, `script`, `visuals`, `vision`, `flow` | stage values used by agent/multi-step products |
 
-Polling, not push: `POST /jobs/status-batch` with `{"ids":[…]}`, or `{"jobs":[{"id","realm"}]}` for shared folders.
+> **Correction (see [JOBS_AND_STORAGE.md](JOBS_AND_STORAGE.md)):** status is **pushed** over Server-Sent Events at
+> `fnf-api-gw.higgsfield.ai/fnf-notification/notifications/stream` (event `job:status_changed`). The batch poller below
+> is the fallback: every 5 s, or every 30 s while the stream is open. The "no push" statement in the original text was wrong.
+
+Fallback polling: `POST /jobs/status-batch` with `{"ids":[…]}`, or `{"jobs":[{"id","realm"}]}` for shared folders.
 Ids go in batches of 100 with a 15 s timeout. The response is `{items:[{id,status,ip_check_finished,…}], missing:[]}`.
 For jobs whose status changed, the client fetches `GET /jobs/{id}` (optionally `?cluster=true&folder_id=…`) or
 `GET /job-sets/{id}`, then refreshes the feed (`GET /jobs?job_set_type=…&status=…&cursor=…&size=…`,
