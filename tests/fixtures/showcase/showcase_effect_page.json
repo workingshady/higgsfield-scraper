@@ -1,0 +1,226 @@
+{
+ "meta": {
+  "endpoint": "showcase_effect_page",
+  "url": "https://higgsfield.ai/effects/examples/vanish",
+  "params": {
+   "slug": "vanish"
+  },
+  "fetched_at": "2026-11-26T14:05:44.287278+00:00",
+  "status": 200
+ },
+ "body": {
+  "slug": "vanish",
+  "loader": {
+   "preset": {
+    "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+    "slug": "vanish",
+    "kind": "chain",
+    "name": "Vanish",
+    "description": "The subject's body instantly disappears, leaving their empty clothing to suddenly collapse and fall flat onto the ground. Built for viral hooks, comedic reveals, and surreal visual effects.",
+    "job_set_type": "viral_hub_video",
+    "preview_url": "https://cdn.higgsfield.ai/viral_hub/d63d47dd-d00f-42c8-9c45-9bddd3df7a38.mp4",
+    "thumbnail_url": "https://cdn.higgsfield.ai/viral_hub/a9944d26-47dc-463f-b4d6-446c371ae2f7.webp"
+   },
+   "initialSamples": {
+    "total": 14,
+    "items": [
+     {
+      "attachments": [
+       {
+        "height": null,
+        "inputMedia": {
+         "id": "35fbce24-6176-462a-9c6e-50965500f9be",
+         "type": "media_input",
+         "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/35fbce24-6176-462a-9c6e-50965500f9be.png"
+        },
+        "source": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/35fbce24-6176-462a-9c6e-50965500f9be.png",
+        "width": null,
+        "type": "image"
+       }
+      ],
+      "id": "ae91e13e-0a55-497b-914f-0a7254b027fa",
+      "job": {
+       "id": "fe888ee9-8a46-4eda-8610-9a3c937ef2d3",
+       "jobSetId": "ebdb968a-9601-41c9-8278-19c9b76c5ff3",
+       "jobSetType": "viral_hub_video",
+       "status": "completed",
+       "createdAt": 1787911661.2983,
+       "rawParams": {
+        "width": 1280,
+        "height": 960,
+        "prompt": "",
+        "medias": [
+         {
+          "role": "start_image",
+          "data": {
+           "id": "35fbce24-6176-462a-9c6e-50965500f9be",
+           "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/35fbce24-6176-462a-9c6e-50965500f9be.png",
+           "type": "media_input",
+           "object_key": "user_REDACTEDREDACTEDREDACTED00/35fbce24-6176-462a-9c6e-50965500f9be.png"
+          }
+         }
+        ],
+        "duration": 5,
+        "resolution": "1080p",
+        "aspect_ratio": "4:3",
+        "chain_preset": {
+         "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+         "name": "Vanish",
+         "slug": "vanish",
+         "preview_media": {
+          "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+          "name": "Vanish",
+          "main_url": "https://cdn.higgsfield.ai/viral_hub/51759168-d293-4ef4-a275-e86963c0c06f.mp4",
+          "optimized_url": "https://cdn.higgsfield.ai/viral_hub/cfc381db-c18b-4e02-8cbd-5dd1d828dbcc.webp"
+         }
+        },
+        "chain_preset_id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+        "preset": {
+         "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+         "name": "Vanish",
+         "slug": "vanish",
+         "preview_media": {
+          "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+          "name": "Vanish",
+          "main_url": "https://cdn.higgsfield.ai/viral_hub/51759168-d293-4ef4-a275-e86963c0c06f.mp4",
+          "optimized_url": "https://cdn.higgsfield.ai/viral_hub/cfc381db-c18b-4e02-8cbd-5dd1d828dbcc.webp"
+         }
+        }
+       },
+       "params": {
+        "prompt": {
+         "prompt": "",
+         "enhance": false,
+         "_tag": "prompt-vo"
+        }
+       },
+       "user": {
+        "id_hash": "5cf1c1df332b762f"
+       }
+      },
+      "output": {
+       "height": 960,
+       "source": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/hf_20260828_100741_fe888ee9-8a46-4eda-8610-9a3c937ef2d3.mp4",
+       "width": 1280,
+       "hlsUrl": "https://cdn.higgsfield.ai/hls/job/fe888ee9-8a46-4eda-8610-9a3c937ef2d3/d4f0d4ec-8096-4fd6-976f-1b9084386b8a/index.m3u8",
+       "posterUrl": "https://cdn.higgsfield.ai/user_REDACTEDREDACTEDREDACTED00/hf_20260828_100741_fe888ee9-8a46-4eda-8610-9a3c937ef2d3_thumbnail.webp",
+       "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/hf_20260828_100741_fe888ee9-8a46-4eda-8610-9a3c937ef2d3.mp4",
+       "type": "video"
+      },
+      "presetId": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+      "presetName": "Vanish",
+      "presetPreview": {
+       "height": null,
+       "source": "https://cdn.higgsfield.ai/viral_hub/51759168-d293-4ef4-a275-e86963c0c06f.mp4",
+       "width": null,
+       "posterUrl": "https://cdn.higgsfield.ai/viral_hub/cfc381db-c18b-4e02-8cbd-5dd1d828dbcc.webp",
+       "type": "video"
+      },
+      "presetSlug": "vanish",
+      "prompt": null,
+      "publishedAt": 1788912500.352653
+     },
+     {
+      "attachments": [
+       {
+        "height": null,
+        "inputMedia": {
+         "id": "1b695af7-1703-4989-a119-5d971dfccb02",
+         "type": "media_input",
+         "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/1b695af7-1703-4989-a119-5d971dfccb02.png"
+        },
+        "source": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/1b695af7-1703-4989-a119-5d971dfccb02.png",
+        "width": null,
+        "type": "image"
+       }
+      ],
+      "id": "b456e339-9820-456c-b304-a0184c806594",
+      "job": {
+       "id": "d679a5c6-29e7-42f3-b61d-67a155f6cf68",
+       "jobSetId": "950a376b-1f46-4696-9a3d-4afd51ea736d",
+       "jobSetType": "viral_hub_video",
+       "status": "completed",
+       "createdAt": 1787915874.106,
+       "rawParams": {
+        "width": 1280,
+        "height": 960,
+        "prompt": "",
+        "medias": [
+         {
+          "role": "start_image",
+          "data": {
+           "id": "1b695af7-1703-4989-a119-5d971dfccb02",
+           "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/1b695af7-1703-4989-a119-5d971dfccb02.png",
+           "type": "media_input",
+           "object_key": "user_REDACTEDREDACTEDREDACTED00/1b695af7-1703-4989-a119-5d971dfccb02.png"
+          }
+         }
+        ],
+        "duration": 5,
+        "resolution": "1080p",
+        "aspect_ratio": "4:3",
+        "chain_preset": {
+         "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+         "name": "Vanish",
+         "slug": "vanish",
+         "preview_media": {
+          "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+          "name": "Vanish",
+          "main_url": "https://cdn.higgsfield.ai/viral_hub/51759168-d293-4ef4-a275-e86963c0c06f.mp4",
+          "optimized_url": "https://cdn.higgsfield.ai/viral_hub/cfc381db-c18b-4e02-8cbd-5dd1d828dbcc.webp"
+         }
+        },
+        "chain_preset_id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+        "preset": {
+         "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+         "name": "Vanish",
+         "slug": "vanish",
+         "preview_media": {
+          "id": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+          "name": "Vanish",
+          "main_url": "https://cdn.higgsfield.ai/viral_hub/51759168-d293-4ef4-a275-e86963c0c06f.mp4",
+          "optimized_url": "https://cdn.higgsfield.ai/viral_hub/cfc381db-c18b-4e02-8cbd-5dd1d828dbcc.webp"
+         }
+        }
+       },
+       "params": {
+        "prompt": {
+         "prompt": "",
+         "enhance": false,
+         "_tag": "prompt-vo"
+        }
+       },
+       "user": {
+        "id_hash": "5cf1c1df332b762f"
+       }
+      },
+      "output": {
+       "height": 960,
+       "source": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/hf_20260828_111754_d679a5c6-29e7-42f3-b61d-67a155f6cf68.mp4",
+       "width": 1280,
+       "hlsUrl": "https://cdn.higgsfield.ai/hls/job/d679a5c6-29e7-42f3-b61d-67a155f6cf68/3c327c90-3076-448b-aee2-2088d23e388e/index.m3u8",
+       "posterUrl": "https://cdn.higgsfield.ai/user_REDACTEDREDACTEDREDACTED00/hf_20260828_111754_d679a5c6-29e7-42f3-b61d-67a155f6cf68_thumbnail.webp",
+       "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/hf_20260828_111754_d679a5c6-29e7-42f3-b61d-67a155f6cf68.mp4",
+       "type": "video"
+      },
+      "presetId": "8b8d053d-08ff-436c-9767-315efe5f0cfc",
+      "presetName": "Vanish",
+      "presetPreview": {
+       "height": null,
+       "source": "https://cdn.higgsfield.ai/viral_hub/51759168-d293-4ef4-a275-e86963c0c06f.mp4",
+       "width": null,
+       "posterUrl": "https://cdn.higgsfield.ai/viral_hub/cfc381db-c18b-4e02-8cbd-5dd1d828dbcc.webp",
+       "type": "video"
+      },
+      "presetSlug": "vanish",
+      "prompt": null,
+      "publishedAt": 1788912499.271616
+     }
+    ],
+    "cursor": 1787779202.31353,
+    "hasMore": true
+   },
+   "sample": null
+  }
+ }
+}

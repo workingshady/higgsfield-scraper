@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "endpoint": "projects_comments",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/entities/project_publication/d62acd40-d4da-40d5-9aeb-f09374bb362e/comments?limit=100",
+        "params": {
+            "limit": "100",
+            "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e"
+        },
+        "fetched_at": "2026-11-26T13:35:38.159731+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "563523cc-6e50-4098-b7f0-452059ab388f",
+                "entity_type": "project_publication",
+                "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+                "user_id": "user_Fake1192276961d150ad60ee299",
+                "content": "amazing my brother <3",
+                "author": {
+                    "id": "user_Fake1192276961d150ad60ee299",
+                    "username": "[redacted]",
+                    "full_name": "",
+                    "avatar_url": "[redacted]",
+                    "headline": "[redacted]",
+                    "badge": "",
+                    "rating_points": 202
+                },
+                "reply_count": 0,
+                "like_count": 0,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [],
+                "mentions": [],
+                "created_at": "2026-11-26T13:21:52.404683Z",
+                "updated_at": "2026-11-26T13:21:52.404683Z"
+            },
+            {
+                "id": "1e3ed15b-821e-44a2-97d5-f2a6448d9edd",
+                "entity_type": "project_publication",
+                "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+                "user_id": "user_Fake80c37b138904c6288c22d2b",
+                "content": "One morning the sea leaves Alexandria, and an old fisherman walks across the dry seabed to ask for his son back. 'A city loses its sea, and only one man hears it as a conversation' — that's poetry. Magical realism at its most beautiful.",
+                "author": {
+                    "id": "user_Fake80c37b138904c6288c22d2b",
+                    "username": "[redacted]",
+                    "full_name": "",
+                    "avatar_url": "[redacted]",
+                    "headline": "[redacted]",
+                    "badge": "",
+                    "rating_points": 12
+                },
+                "reply_count": 0,
+                "like_count": 1,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [],
+                "mentions": [],
+                "created_at": "2026-11-26T04:41:07.769195Z",
+                "updated_at": "2026-11-26T06:33:07.400337Z"
+            },
+            {
+                "id": "a7c086e2-ac0c-4f3b-8717-bb4ee389ccd3",
+                "entity_type": "project_publication",
+                "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+                "user_id": "user_Fake1eb735851c2620a42310378",
+                "content": "Enjoyed watching your film a lot! Strong visuals. It's always great to discover each other's creative work.",
+                "author": {
+                    "id": "user_Fake1eb735851c2620a42310378",
+                    "username": "[redacted]",
+                    "full_name": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "headline": "[redacted]",
+                    "badge": "",
+                    "rating_points": 159
+                },
+                "reply_count": 0,
+                "like_count": 1,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [],
+                "mentions": [],
+                "created_at": "2026-11-25T12:45:14.524155Z",
+                "updated_at": "2026-11-25T12:47:22.293347Z"
+            }
+        ],
+        "total": 6
+    }
+}

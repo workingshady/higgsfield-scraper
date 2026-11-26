@@ -147,6 +147,33 @@ projects = folder("projects", "Project showcases (films/series), contests, submi
         "Public, no login: {items, total} (35). projects --what series --public-series.", base="{{series_base}}"),
     req("Series detail (fnf-series, public)", "/series/{{slug}}", (),
         "Public. projects --public-series --with-details.", base="{{series_base}}"),
+    # nested project data (projects --with-project-*, --contest, --users); all public GETs, no realm header
+    req("Contest by slug", "/contests/{{contest_slug}}", (), "Same body as /contests/by-id/{id}. projects --contest <slug>."),
+    req("Publication by handle/slug", "/project-publications/{{handle}}/{{slug}}", (),
+        "The page /@handle/projects/slug; same body as the detail by id."),
+    req("Project root folder", "/folders/{{folder_id}}", (),
+        "folder_id = detail snapshot_folder_id. name, count ('All assets'), subfolders_count. --with-project-assets."),
+    req("Project sub-folders", "/folders/{{folder_id}}/children", (), "Cast, Locations, Scenes … with counts; recurse "
+        "while subfolders_count > 0."),
+    req("Project assets", "/folders/{{folder_id}}/items/v2", [("size", "100"), ("include_subfolders", "true"),
+                                                             ("cursor", "{{cursor}}")],
+        "Jobs (prompt, params, job_set_type, results raw/min) and uploads. size <= 100; cursor = epoch float. "
+        "Watermarks sub-folder: list it on its own."),
+    req("Project brief snapshot (binary Yjs)", "/brief/{{folder_id}}/snapshot", (),
+        "Yjs v1 update of the Lexical brief; header X-Brief-Updated-At. --with-project-brief renders Markdown.",
+        base="{{brief_base}}", tests=OK),
+    req("Project comments (fnf-community)", "/entities/project_publication/{{publication_id}}/comments",
+        [("limit", "100"), ("cursor", "{{cursor}}")], "{items, total, next_cursor}. --with-project-comments.",
+        base="{{community_base}}"),
+    req("Project comment replies (fnf-community)", "/entities/project_publication/{{publication_id}}/comments",
+        [("limit", "100"), ("parent_id", "{{comment_id}}"), ("order", "asc")], base="{{community_base}}"),
+    req("Related projects", "/project-publications/recommended",
+        [("scope", "talent_contest"), ("current_publication_id", "{{publication_id}}")],
+        "The page's related list: scope by contest_key (community | talent_contest | ai_film_festival). "
+        "--with-project-related."),
+    req("User projects (profile tab)", "/user/{{handle}}/v2/publications",
+        [("publication_type", "project"), ("limit", "50"), ("cursor", "{{cursor}}")],
+        "{publications, has_more, cursor, total}. projects --users <handle>."),
 ])
 blog = folder("blog", "Written content. Company posts/help/changelog are SSR pages (data embedded as $_TSR state); "
               "talent posts via API (Yjs bodies). docs/scrapers/blog.md.", [
@@ -225,6 +252,8 @@ col = {
         ("plan_set_key", "ps_a3"), ("billing_period", "annual"), ("size", "50"), ("cursor", ""),
         ("publication_id", ""), ("motion_id", ""), ("contest_id", ""), ("slug", ""), ("post_id", ""), ("course", ""), ("lesson", ""), ("series", ""), ("episode", ""),
         ("preset_id", ""),
+        ("brief_base", "https://dam-editor-worker.higgsfield.ai"), ("folder_id", ""), ("handle", ""),
+        ("contest_slug", "talent-contest"),
         ("token", ""), ("client_cookie", ""), ("sign_in_id", ""), ("session_id", ""), ("email", ""), ("password", ""), ("code", "")]]
     + [{"key": "plan_set_keys_reference", "value": ", ".join(PLAN_SET_KEYS)}],
     "item": [pricing, community, catalog, projects, blog, site, clerk],

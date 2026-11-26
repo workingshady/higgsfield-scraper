@@ -1,0 +1,238 @@
+{
+    "meta": {
+        "endpoint": "projects_user_publications",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user/creator_one/v2/publications?publication_type=project&limit=50",
+        "params": {
+            "publication_type": "project",
+            "limit": "50",
+            "user_key": "3b72758422657c13"
+        },
+        "fetched_at": "2026-11-26T13:35:34.670030+00:00",
+        "status": 200
+    },
+    "body": {
+        "total": 8,
+        "publications": [
+            {
+                "contest_badges": [],
+                "can_receive_audience_choice_votes": false,
+                "is_higgsfield_featured": false,
+                "is_talents_hub": false,
+                "contest_key": "talent_contest",
+                "duration_seconds": 229.715011,
+                "publication_type": "project_publication",
+                "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+                "project_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+                "snapshot_folder_id": "96cfeed5-3ebb-4013-9de2-1ec377fca7b6",
+                "name": "The Sea Walks Out",
+                "slug": "the-sea-walks-out",
+                "description": "One morning, the sea walks out, and an old fisherman follows it to ask for his son back.",
+                "cover": {
+                    "id": "2d79cd46-1738-479a-b961-7a46cf8ca646",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/2d79cd46-1738-479a-b961-7a46cf8ca646.png",
+                    "type": "media",
+                    "width": 2720,
+                    "height": 1536,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "7da375f7-e8c1-47f8-ae3d-9c9ed20e1649",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/7da375f7-e8c1-47f8-ae3d-9c9ed20e1649/92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb/index.m3u8?v=92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb",
+                        "type": "video",
+                        "width": 2520,
+                        "height": 1080,
+                        "min_url": null,
+                        "duration": 229.715011,
+                        "object_fit": "contain",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/7da375f7-e8c1-47f8-ae3d-9c9ed20e1649/92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb/thumbnail.webp?v=92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/7da375f7-e8c1-47f8-ae3d-9c9ed20e1649.mp4",
+                        "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/7da375f7-e8c1-47f8-ae3d-9c9ed20e1649/92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb/download.mp4?v=92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb&download=7da375f7-e8c1-47f8-ae3d-9c9ed20e1649.mp4"
+                    }
+                ],
+                "thumbnail_url": null,
+                "author_user_ids": [
+                    "user_Fake4242dfd30bd7433e8273c48"
+                ],
+                "authors": [
+                    {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "[redacted]",
+                        "location": "[redacted]",
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 2931,
+                        "total_projects_likes": 77,
+                        "followers_count": 118,
+                        "badges": [
+                            {
+                                "id": "5d70214e-054a-4821-89ff-46436958541d",
+                                "name": "Higgsfield Creative Partner",
+                                "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                                "description": null
+                            }
+                        ]
+                    }
+                ],
+                "stats": {
+                    "stack": [
+                        {
+                            "count": 19,
+                            "job_set_type": "seedream_v5_pro",
+                            "credits_spent": 0
+                        },
+                        {
+                            "count": 18,
+                            "job_set_type": "seedance_2_5",
+                            "credits_spent": 486600
+                        },
+                        {
+                            "count": 16,
+                            "job_set_type": "seedream_5_5",
+                            "credits_spent": 5600
+                        },
+                        {
+                            "count": 2,
+                            "job_set_type": "kling4_0",
+                            "credits_spent": 4500
+                        },
+                        {
+                            "count": 2,
+                            "job_set_type": "magi_2",
+                            "credits_spent": 9000
+                        },
+                        {
+                            "count": 1,
+                            "job_set_type": "ideogram_4_6_precise_edit",
+                            "credits_spent": 700
+                        },
+                        {
+                            "count": 1,
+                            "job_set_type": "soul_cinematic",
+                            "credits_spent": 0
+                        }
+                    ],
+                    "size_bytes": 739380053,
+                    "credits_spent": 506400,
+                    "free_generations": 20,
+                    "generations_count": 59
+                },
+                "views": 139,
+                "likes": 8
+            },
+            {
+                "contest_badges": [],
+                "can_receive_audience_choice_votes": false,
+                "is_higgsfield_featured": false,
+                "is_talents_hub": false,
+                "contest_key": null,
+                "duration_seconds": 75.279093,
+                "publication_type": "project_publication",
+                "publication_id": "31821fee-2c87-459e-b2aa-bec4f3a785e5",
+                "project_id": "31821fee-2c87-459e-b2aa-bec4f3a785e5",
+                "snapshot_folder_id": "cbf3f278-07e2-4ede-ba54-b57f2e7bbb1d",
+                "name": "Bound",
+                "slug": "bound",
+                "description": "An intimate, sunlit cinematic portrait of two souls bound by a single cord, drifting between quiet joy and tender stillness.",
+                "cover": {
+                    "id": "03ff113b-1cf8-41f7-8701-0df015cb1398",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_044832_03ff113b-1cf8-41f7-8701-0df015cb1398_min.webp",
+                    "name": null,
+                    "type": "job",
+                    "width": 2720,
+                    "height": 1536,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "contain",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "e45f17a8-8080-41c5-a578-08c4c458af2a",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input/e45f17a8-8080-41c5-a578-08c4c458af2a/index.m3u8",
+                        "name": "e45f17a8-8080-41c5-a578-08c4c458af2a.mp4",
+                        "type": "video",
+                        "width": 1440,
+                        "height": 1080,
+                        "min_url": null,
+                        "duration": 75.279093,
+                        "object_fit": "contain",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/e45f17a8-8080-41c5-a578-08c4c458af2a/thumbnail.webp",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/e45f17a8-8080-41c5-a578-08c4c458af2a.mp4",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/e45f17a8-8080-41c5-a578-08c4c458af2a/compressed.mp4"
+                    }
+                ],
+                "thumbnail_url": null,
+                "author_user_ids": [
+                    "user_Fake4242dfd30bd7433e8273c48"
+                ],
+                "authors": [
+                    {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "[redacted]",
+                        "location": "[redacted]",
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 2931,
+                        "total_projects_likes": 77,
+                        "followers_count": 118,
+                        "badges": [
+                            {
+                                "id": "5d70214e-054a-4821-89ff-46436958541d",
+                                "name": "Higgsfield Creative Partner",
+                                "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                                "description": null
+                            }
+                        ]
+                    }
+                ],
+                "stats": {
+                    "stack": [
+                        {
+                            "count": 21,
+                            "job_set_type": "seedream_v5_pro",
+                            "credits_spent": 4250
+                        },
+                        {
+                            "count": 11,
+                            "job_set_type": "soul_cinematic",
+                            "credits_spent": 0
+                        },
+                        {
+                            "count": 10,
+                            "job_set_type": "nano_banana_2",
+                            "credits_spent": 3600
+                        },
+                        {
+                            "count": 9,
+                            "job_set_type": "seedance_2_5",
+                            "credits_spent": 236800
+                        },
+                        {
+                            "count": 3,
+                            "job_set_type": "seedream_5_5",
+                            "credits_spent": 1050
+                        }
+                    ],
+                    "size_bytes": 720017728,
+                    "credits_spent": 245700,
+                    "free_generations": 15,
+                    "generations_count": 54
+                },
+                "views": 33,
+                "likes": 0
+            }
+        ],
+        "has_more": true,
+        "cursor": "2"
+    }
+}

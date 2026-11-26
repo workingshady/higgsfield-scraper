@@ -1,0 +1,625 @@
+{
+    "meta": {
+        "endpoint": "projects_folder_items",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/folders/96cfeed5-3ebb-4013-9de2-1ec377fca7b6/items/v2?size=100&include_subfolders=true",
+        "params": {
+            "size": "100",
+            "include_subfolders": "true",
+            "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+            "folder_id": "96cfeed5-3ebb-4013-9de2-1ec377fca7b6",
+            "show_prompts": "true",
+            "offset": "0"
+        },
+        "fetched_at": "2026-11-26T13:35:44.622263+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "type": "job",
+                "job": {
+                    "id": "4effebad-8801-4064-b487-cbb440893c54",
+                    "status": "completed",
+                    "ip_check_finished": null,
+                    "ip_detected": null,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_093505_4effebad-8801-4064-b487-cbb440893c54.png"
+                        },
+                        "min": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_093505_4effebad-8801-4064-b487-cbb440893c54_min.webp"
+                        },
+                        "hls": null,
+                        "h264": null
+                    },
+                    "board_ids": [],
+                    "published_at": null,
+                    "meta": {},
+                    "created_at": 1795599305.733008,
+                    "user_id": "user_Fake4242dfd30bd7433e8273c48",
+                    "trace_id": "8a5738cc-8f60-46f2-8508-6511f16152f1",
+                    "cluster_hash": "5e7898ff9fa093bd397106bab880779e",
+                    "representation": null,
+                    "folder_ids": [],
+                    "is_favourite": false,
+                    "job_set_id": "7edee949-c678-407f-87c4-aa5318425220",
+                    "job_set_type": "seedream_v5_pro",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "params": {
+                        "prompt": "Create a cinematic 16:9 film poster using only the two attached images. The first image is the scene and governs the fisherman, his lantern, his footprints, the wall of water, the light and the colours; keep all of them exactly as they are, [trimmed]",
+                        "medias": [
+                            {
+                                "data": {
+                                    "id": "d66f81cb-64c8-49f6-9ee0-8a78940ee7f3",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/d66f81cb-64c8-49f6-9ee0-8a78940ee7f3_resize.jpg",
+                                    "type": "media_input"
+                                },
+                                "role": "image"
+                            },
+                            {
+                                "data": {
+                                    "id": "8a5738cc-8f60-46f2-8508-6511f16152f1",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_091424_8a5738cc-8f60-46f2-8508-6511f16152f1.png",
+                                    "type": "image_job"
+                                },
+                                "role": "image"
+                            }
+                        ],
+                        "batch_size": 1,
+                        "aspect_ratio": "16:9",
+                        "width": 2720,
+                        "height": 1536,
+                        "resolution": "2k",
+                        "seed": 252267,
+                        "is_inpaint": false,
+                        "remove_bg": false,
+                        "reference_elements": []
+                    },
+                    "workspace_id": "af6894d8-1b47-4873-ac8c-9bf54b155ce4",
+                    "comments_count": 0,
+                    "has_unresolved_comment": false,
+                    "folder_job_id": "e70219dd-aa34-4857-91b3-3678e03de150",
+                    "folder_id": "25531d40-ca22-46c0-8ab4-87b4165c1a4e",
+                    "review_status": null,
+                    "user": {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_viewed": true
+                }
+            },
+            {
+                "type": "job",
+                "job": {
+                    "id": "f74282f0-ffd0-414e-ba8f-c4e4f76b3400",
+                    "status": "completed",
+                    "ip_check_finished": null,
+                    "ip_detected": null,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_092237_f74282f0-ffd0-414e-ba8f-c4e4f76b3400.png"
+                        },
+                        "min": {
+                            "type": "image",
+                            "url": "https://cdn.higgsfield.ai/9033cb76-abac-459f-b50e-ab9d6c93092d.webp"
+                        },
+                        "hls": null,
+                        "h264": null
+                    },
+                    "board_ids": [],
+                    "published_at": null,
+                    "meta": {},
+                    "created_at": 1795598557.645076,
+                    "user_id": "user_Fake4242dfd30bd7433e8273c48",
+                    "trace_id": "8a5738cc-8f60-46f2-8508-6511f16152f1",
+                    "cluster_hash": "a90051fc8d3de079775103f5b1998d9f",
+                    "representation": null,
+                    "folder_ids": [],
+                    "is_favourite": false,
+                    "job_set_id": "b752cd44-b15a-4a12-887d-1cdfed5c99b6",
+                    "job_set_type": "seedream_5_5",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "params": {
+                        "prompt": "A cinematic closing title card in a wide 16:9 frame. The attached image is the title logo and governs the lettering, spelling, typeface, colour and knotted rope design exactly; reproduce it unchanged.\n\nThe background is the sea at sunrise,  [trimmed]",
+                        "medias": [
+                            {
+                                "data": {
+                                    "id": "8a5738cc-8f60-46f2-8508-6511f16152f1",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_091424_8a5738cc-8f60-46f2-8508-6511f16152f1.png",
+                                    "type": "image_job"
+                                },
+                                "role": "image"
+                            }
+                        ],
+                        "resolution": "2k",
+                        "aspect_ratio": "16:9",
+                        "background": "transparent",
+                        "batch_size": 1,
+                        "width": 2720,
+                        "height": 1536,
+                        "folder_id": "8d633c74-8254-4b66-9afe-b336e8c9a5d6"
+                    },
+                    "workspace_id": "af6894d8-1b47-4873-ac8c-9bf54b155ce4",
+                    "comments_count": 0,
+                    "has_unresolved_comment": false,
+                    "folder_job_id": "b9e789df-808c-4df3-a809-d4d1c7723267",
+                    "folder_id": "25531d40-ca22-46c0-8ab4-87b4165c1a4e",
+                    "review_status": null,
+                    "user": {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_viewed": true
+                }
+            },
+            {
+                "type": "job",
+                "job": {
+                    "id": "f5d16074-4c84-4f59-a71c-211f7c03defa",
+                    "status": "completed",
+                    "ip_check_finished": null,
+                    "ip_detected": null,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_081943_f5d16074-4c84-4f59-a71c-211f7c03defa.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake4242dfd30bd7433e8273c48/hf_20261125_081943_f5d16074-4c84-4f59-a71c-211f7c03defa_thumbnail.webp"
+                        },
+                        "min": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_081943_f5d16074-4c84-4f59-a71c-211f7c03defa.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake4242dfd30bd7433e8273c48/hf_20261125_081943_f5d16074-4c84-4f59-a71c-211f7c03defa_thumbnail.webp"
+                        },
+                        "hls": null,
+                        "h264": null
+                    },
+                    "board_ids": [],
+                    "published_at": null,
+                    "meta": {
+                        "cost": "2.1116"
+                    },
+                    "created_at": 1795594783.06045,
+                    "user_id": "user_Fake4242dfd30bd7433e8273c48",
+                    "trace_id": "f5d16074-4c84-4f59-a71c-211f7c03defa",
+                    "cluster_hash": "daa688ff0a9ec3404ace90036dd113f9",
+                    "representation": null,
+                    "folder_ids": [],
+                    "is_favourite": false,
+                    "job_set_id": "f6c8d3d4-0fd0-4c63-b4c5-dcbb9db01a66",
+                    "job_set_type": "kling4_0",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "params": {
+                        "mode": "video-edit",
+                        "prompt": "Remove every person standing along the waterfront in the foreground of this shot — the entire crowd of onlookers, all of their heads, shoulders, coats and shawls — so that nobody is left on the shore.\n\nIn the space they occupied, continue t [trimmed]",
+                        "width": 2520,
+                        "height": 1080,
+                        "resolution": "1080p",
+                        "aspect_ratio": "21:9",
+                        "duration": 5,
+                        "medias": [
+                            {
+                                "data": {
+                                    "id": "df2863c0-945c-416f-82d8-d47278ff5a61",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_075411_df2863c0-945c-416f-82d8-d47278ff5a61.mp4",
+                                    "type": "video_job"
+                                },
+                                "role": "video"
+                            }
+                        ],
+                        "kling_element_ids": [],
+                        "batch_size": 1,
+                        "dynamic_range": "sdr"
+                    },
+                    "workspace_id": "af6894d8-1b47-4873-ac8c-9bf54b155ce4",
+                    "comments_count": 0,
+                    "has_unresolved_comment": false,
+                    "folder_job_id": "568fa3f5-beed-42f7-8b6a-852b97bece85",
+                    "folder_id": "1347311d-9d1a-4fdb-a84e-6cfbc5cbfd4a",
+                    "review_status": null,
+                    "user": {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_viewed": true
+                }
+            },
+            {
+                "type": "job",
+                "job": {
+                    "id": "a91af450-bee0-432e-8f1c-ffb06f720d41",
+                    "status": "completed",
+                    "ip_check_finished": true,
+                    "ip_detected": false,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_074903_a91af450-bee0-432e-8f1c-ffb06f720d41.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake4242dfd30bd7433e8273c48/hf_20261125_074903_a91af450-bee0-432e-8f1c-ffb06f720d41_thumbnail.webp"
+                        },
+                        "min": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_074903_a91af450-bee0-432e-8f1c-ffb06f720d41.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake4242dfd30bd7433e8273c48/hf_20261125_074903_a91af450-bee0-432e-8f1c-ffb06f720d41_thumbnail.webp"
+                        },
+                        "hls": null,
+                        "h264": null
+                    },
+                    "board_ids": [],
+                    "published_at": null,
+                    "meta": {},
+                    "created_at": 1795592943.747138,
+                    "user_id": "user_Fake4242dfd30bd7433e8273c48",
+                    "trace_id": "a91af450-bee0-432e-8f1c-ffb06f720d41",
+                    "cluster_hash": "bc2af2402bf3aea876f06a4dcabe6048",
+                    "representation": null,
+                    "can_upgrade_to_4k": false,
+                    "upgrade_options": [],
+                    "expires_at": null,
+                    "folder_ids": [],
+                    "is_favourite": false,
+                    "job_set_id": "e9202c81-723c-4aff-970f-594bccea7fa2",
+                    "job_set_type": "seedance_2_5",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "params": {
+                        "width": 1920,
+                        "height": 1080,
+                        "prompt": "3 shots. Total 18 seconds — shot 1 runs 0.0–6.0s, shot 2 runs 6.0–12.0s, shot 3 runs 12.0–18.0s. Hard cuts between them, no transitions, no dissolves. All shots real-time, no slow motion, no speed ramping anywhere.\n\nStyle: 8K photorealism,  [trimmed]",
+                        "genre": "auto",
+                        "medias": [
+                            {
+                                "data": {
+                                    "id": "aa254c7f-ee53-4332-8863-6a1bbc1d136a",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261122_004759_aa254c7f-ee53-4332-8863-6a1bbc1d136a.png",
+                                    "type": "image_job"
+                                },
+                                "role": "image"
+                            },
+                            {
+                                "data": {
+                                    "id": "4219c297-2ec4-4895-887c-a0047857ed83",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261123_190142_4219c297-2ec4-4895-887c-a0047857ed83.png",
+                                    "type": "image_job"
+                                },
+                                "role": "image"
+                            },
+                            {
+                                "data": {
+                                    "id": "aa61eb06-1f9b-494c-b8a9-0ca4712a2263",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261123_190617_aa61eb06-1f9b-494c-b8a9-0ca4712a2263.png",
+                                    "type": "image_job"
+                                },
+                                "role": "image"
+                            },
+                            {
+                                "data": {
+                                    "id": "de3391a9-c0b4-4aa3-bb85-7997bc18cc2a",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_072903_de3391a9-c0b4-4aa3-bb85-7997bc18cc2a.png",
+                                    "type": "image_job"
+                                },
+                                "role": "image"
+                            },
+                            {
+                                "data": {
+                                    "id": "fac68805-776b-4afb-ae58-cf4e065949dd",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_073627_fac68805-776b-4afb-ae58-cf4e065949dd.mp4",
+                                    "type": "video_job"
+                                },
+                                "role": "video"
+                            }
+                        ],
+                        "duration": 18,
+                        "resolution": "1080p",
+                        "aspect_ratio": "16:9",
+                        "generate_audio": true,
+                        "multi_shots": false,
+                        "multi_shot_mode": "custom",
+                        "multi_prompt": [],
+                        "speedramp": "auto",
+                        "reference_elements": [],
+                        "prompt_language": "en",
+                        "model": "video_extension",
+                        "extension_mode": "forward",
+                        "bitrate_mode": "high",
+                        "draft": false,
+                        "seed": 442757836,
+                        "draft_job_id": null
+                    },
+                    "workspace_id": "af6894d8-1b47-4873-ac8c-9bf54b155ce4",
+                    "comments_count": 0,
+                    "has_unresolved_comment": false,
+                    "folder_job_id": "d44ecb6f-c7af-40db-99c6-1623af7c91cd",
+                    "folder_id": "1347311d-9d1a-4fdb-a84e-6cfbc5cbfd4a",
+                    "review_status": null,
+                    "user": {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_viewed": true
+                }
+            },
+            {
+                "type": "job",
+                "job": {
+                    "id": "b01690c9-72f1-42e8-9978-79eb57e01a87",
+                    "status": "completed",
+                    "ip_check_finished": null,
+                    "ip_detected": null,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_072618_b01690c9-72f1-42e8-9978-79eb57e01a87.1d4aa2a459d6c624f4807dabb245d93033d611d8df3e0f02438ec909c792ef44.png"
+                        },
+                        "min": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_072618_b01690c9-72f1-42e8-9978-79eb57e01a87_min.7390bcc627c0f9e9bfca339315ba7aa47a3c0ce0a9ee0e70774fd6ec613a5232.webp"
+                        },
+                        "hls": null,
+                        "h264": null
+                    },
+                    "board_ids": [],
+                    "published_at": null,
+                    "meta": {},
+                    "created_at": 1795591578.492727,
+                    "user_id": "user_Fake4242dfd30bd7433e8273c48",
+                    "trace_id": "b01690c9-72f1-42e8-9978-79eb57e01a87",
+                    "cluster_hash": "69e2d91049d84ffb1d2a851f8d8d8aca",
+                    "representation": null,
+                    "folder_ids": [],
+                    "is_favourite": false,
+                    "job_set_id": "0e5f76cf-1558-4701-a1a2-cf495ab442df",
+                    "job_set_type": "ideogram_4_6_precise_edit",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "params": {
+                        "prompt": "Remove the human subject and its footsteps and the lantern lighting.",
+                        "quality": "high",
+                        "context_window": "none",
+                        "width": 2206,
+                        "height": 946,
+                        "medias": [
+                            {
+                                "data": {
+                                    "id": "8697ce7a-4803-4709-ad0b-789954f3e8b0",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/8697ce7a-4803-4709-ad0b-789954f3e8b0.png",
+                                    "type": "media_input"
+                                },
+                                "role": "image"
+                            }
+                        ],
+                        "seed": null,
+                        "batch_size": 1
+                    },
+                    "workspace_id": "af6894d8-1b47-4873-ac8c-9bf54b155ce4",
+                    "comments_count": 0,
+                    "has_unresolved_comment": false,
+                    "folder_job_id": "1e39a6ba-6dd1-4483-9c4d-852f9d7d164e",
+                    "folder_id": "85de75eb-b8c1-4775-ac30-ff09906661c6",
+                    "review_status": null,
+                    "user": {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_viewed": true
+                }
+            },
+            {
+                "type": "job",
+                "job": {
+                    "id": "36a1c095-d594-4732-b348-09fa71209306",
+                    "status": "completed",
+                    "ip_check_finished": null,
+                    "ip_detected": null,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_043140_36a1c095-d594-4732-b348-09fa71209306.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake4242dfd30bd7433e8273c48/hf_20261125_043140_36a1c095-d594-4732-b348-09fa71209306_thumbnail.webp"
+                        },
+                        "min": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261125_043140_36a1c095-d594-4732-b348-09fa71209306.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake4242dfd30bd7433e8273c48/hf_20261125_043140_36a1c095-d594-4732-b348-09fa71209306_thumbnail.webp"
+                        },
+                        "hls": null,
+                        "h264": null
+                    },
+                    "board_ids": [],
+                    "published_at": null,
+                    "meta": {},
+                    "created_at": 1795581100.943652,
+                    "user_id": "user_Fake4242dfd30bd7433e8273c48",
+                    "trace_id": "36a1c095-d594-4732-b348-09fa71209306",
+                    "cluster_hash": "bc2af2402bf3aea876f06a4dcabe6048",
+                    "representation": null,
+                    "folder_ids": [],
+                    "is_favourite": false,
+                    "job_set_id": "cd850462-4b1b-4799-9024-f55f9a4a8709",
+                    "job_set_type": "magi_2",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "params": {
+                        "height": 944,
+                        "width": 2208,
+                        "prompt": "4 shots. Total 18 seconds — shot 1 runs 0.0–5.0s, shot 2 runs 5.0–9.0s, shot 3 runs 9.0–13.0s, shot 4 runs 13.0–18.0s. Hard cuts between them, no transitions, no dissolves. All shots real-time, no slow motion, no speed ramping anywhere.\n\nSt [trimmed]",
+                        "duration": 18,
+                        "medias": [
+                            {
+                                "data": {
+                                    "id": "aa254c7f-ee53-4332-8863-6a1bbc1d136a",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261122_004759_aa254c7f-ee53-4332-8863-6a1bbc1d136a.png",
+                                    "type": "image_job"
+                                },
+                                "role": "image"
+                            },
+                            {
+                                "data": {
+                                    "id": "1c39ecdf-fd54-42e0-a4f3-1b64ac229db3",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261123_191029_1c39ecdf-fd54-42e0-a4f3-1b64ac229db3.png",
+                                    "type": "soul_cinematic_job"
+                                },
+                                "role": "image"
+                            }
+                        ],
+                        "aspect_ratio": "21:9",
+                        "resolution": "1080p",
+                        "generate_audio": true,
+                        "enhance_prompt": false,
+                        "seed": null,
+                        "batch_size": 1
+                    },
+                    "workspace_id": "af6894d8-1b47-4873-ac8c-9bf54b155ce4",
+                    "comments_count": 0,
+                    "has_unresolved_comment": false,
+                    "folder_job_id": "709c6e42-92e1-419f-b004-6fff7aee70da",
+                    "folder_id": "1347311d-9d1a-4fdb-a84e-6cfbc5cbfd4a",
+                    "review_status": null,
+                    "user": {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_viewed": true
+                }
+            },
+            {
+                "type": "audio_input",
+                "input": {
+                    "id": "13955475-c16c-4294-a153-524b4c9581f7",
+                    "type": "audio_input",
+                    "name": "The Last Pluck.m4a",
+                    "filename": "The Last Pluck.m4a",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/13955475-c16c-4294-a153-524b4c9581f7.wav",
+                    "download_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/13955475-c16c-4294-a153-524b4c9581f7.wav?download=The%20Last%20Pluck.wav",
+                    "user_id": "user_Fake4242dfd30bd7433e8273c48",
+                    "waveform_url": "https://d1xarpci4ikg0w.cloudfront.net/waveform/26bb70b2-3a45-4282-9e0e-d8d77fd8f640.json",
+                    "duration": 224.813515,
+                    "extension": "wav",
+                    "size_bytes": 39657276,
+                    "prompt": null,
+                    "status": "uploaded",
+                    "created_at": 1795694452.511134,
+                    "uploaded_at": 1795600301.843841,
+                    "last_used_at": null,
+                    "folder_job_id": "bf886ddb-77cb-4007-abe1-127e9d8b7e16",
+                    "folder_id": "a2f9ab77-9ab4-4119-b786-06481e99f9b2",
+                    "user": {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_favourite": false,
+                    "review_status": null,
+                    "comments_count": 0,
+                    "has_unresolved_comment": false
+                }
+            },
+            {
+                "type": "job",
+                "job": {
+                    "id": "1c39ecdf-fd54-42e0-a4f3-1b64ac229db3",
+                    "status": "completed",
+                    "ip_check_finished": null,
+                    "ip_detected": null,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261123_191029_1c39ecdf-fd54-42e0-a4f3-1b64ac229db3.png"
+                    },
+                    "results": {
+                        "raw": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261123_191029_1c39ecdf-fd54-42e0-a4f3-1b64ac229db3.png"
+                        },
+                        "min": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/hf_20261123_191029_1c39ecdf-fd54-42e0-a4f3-1b64ac229db3.png"
+                        }
+                    },
+                    "board_ids": [],
+                    "published_at": null,
+                    "meta": {},
+                    "created_at": 1795461029.645963,
+                    "user_id": "user_Fake4242dfd30bd7433e8273c48",
+                    "trace_id": "1c39ecdf-fd54-42e0-a4f3-1b64ac229db3",
+                    "cluster_hash": "6997f7b722d47996490bcd850533adde",
+                    "representation": null,
+                    "folder_ids": [],
+                    "is_favourite": false,
+                    "job_set_id": "0205a046-b1d6-4c24-a4f4-3ac59d43d819",
+                    "job_set_type": "soul_cinematic",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "params": {
+                        "prompt": "A cinematic still photograph of an empty stone seawall above a small fishing harbour on a Mediterranean city shore at first light, a medium-wide composition from just above the top of the wall at seated eye height, looking along the curving [trimmed]",
+                        "width": 2528,
+                        "height": 1088,
+                        "batch_size": 1,
+                        "seed": 448231,
+                        "enhance_prompt": true,
+                        "quality": "1080p",
+                        "style_id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                        "style": {
+                            "id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                            "name": "General",
+                            "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+                            "strength": 1.0
+                        },
+                        "style_strength": null
+                    },
+                    "workspace_id": "af6894d8-1b47-4873-ac8c-9bf54b155ce4",
+                    "comments_count": 0,
+                    "has_unresolved_comment": false,
+                    "folder_job_id": "ce7ab4a8-57a7-4905-b8e1-20a4f0b55aba",
+                    "folder_id": "85de75eb-b8c1-4775-ac30-ff09906661c6",
+                    "review_status": null,
+                    "user": {
+                        "id": "user_Fake4242dfd30bd7433e8273c48",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_viewed": true
+                }
+            }
+        ],
+        "cursor": null
+    }
+}

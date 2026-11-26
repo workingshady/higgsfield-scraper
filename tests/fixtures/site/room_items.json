@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "endpoint": "room_items",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/rooms/0136d3ec-0e9d-413e-8d17-aba6f5d6b919/items?limit=50",
+        "params": {
+            "limit": "50",
+            "room_id": "0136d3ec-0e9d-413e-8d17-aba6f5d6b919",
+            "room_slug": "codeoneshot",
+            "offset": "0"
+        },
+        "fetched_at": "2026-11-26T13:20:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "space_item_id": "86952f9b-6b3f-4d6e-9ad8-b096515e88fa",
+                "item_type": "blog_post",
+                "item": {
+                    "id": "ad92a63a-48d9-4561-9704-d079c1b754e6",
+                    "state": "published",
+                    "title": "MAGI-2: How It Reads Your Prompt (and the Structure That Gets Results)",
+                    "subtitle": null,
+                    "slug": "magi-2-how-it-reads-your-prompt-and-the-structure-that-gets-results",
+                    "cover": {
+                        "id": "83c135be-518d-44de-880c-0a9869156d28",
+                        "url": "https://cdn.higgsfield.ai/1611f7f0-f164-4aef-9043-a0aaefa31cc9.webp",
+                        "type": "job",
+                        "width": 600,
+                        "height": 338
+                    },
+                    "tags": [],
+                    "related_posts": [],
+                    "reading_time": null,
+                    "reading_time_minutes": 12,
+                    "breadcrumb_label": null,
+                    "pinned_position": 0,
+                    "likes_count": 7,
+                    "views_count": 72,
+                    "liked_by_me": null,
+                    "folder_id": "1cf97fc5-a9c4-4b75-8590-9605b1fb5ccd",
+                    "content_url": "https://cdn.higgsfield.ai/blog/bcfc6d93-8fa4-4875-97c6-d9dd5a70301a.bin",
+                    "draft": null,
+                    "published_at": 1795679461.685568,
+                    "created_at": 1795676056.872138,
+                    "updated_at": 1795692631.579429,
+                    "author": {
+                        "id": "user_REDACTED125",
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>"
+                    },
+                    "review_state": null,
+                    "flagged_media": null
+                },
+                "pinned": true
+            },
+            {
+                "space_item_id": "ca3b9389-afa2-43f8-ae50-fbb16c377a59",
+                "item_type": "project_publication",
+                "item": {
+                    "publication_id": "61b174d5-275f-40e7-8b59-4217d9716eec",
+                    "duration_seconds": 85.472993,
+                    "state": "published",
+                    "type": "film",
+                    "is_ongoing": false,
+                    "project_id": "61b174d5-275f-40e7-8b59-4217d9716eec",
+                    "snapshot_folder_id": "e324a497-40e1-4a78-8f64-d657516d1815",
+                    "has_changes_since_publish": false,
+                    "project_updated_at": "2026-11-22T12:18:46.458725+00:00",
+                    "final_submitted_at": null,
+                    "is_open_source": false,
+                    "name": "The Myth",
+                    "slug": "the-myth",
+                    "description": "Dusk on a mountain dam: two armored titans clash amid roaring flood mist and a seamless gray cloud sea—epic, filmic tension.",
+                    "cover": {
+                        "id": "f17b04cb-e73d-41ed-aa0d-7941d74ce0f7",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED125/f17b04cb-e73d-41ed-aa0d-7941d74ce0f7.png",
+                        "name": null,
+                        "type": "media",
+                        "width": 2720,
+                        "height": 1536,
+                        "min_url": null,
+                        "duration": null,
+                        "object_fit": "cover",
+                        "thumbnail_url": null
+                    },
+                    "gallery_media": [
+                        {
+                            "id": "3e1d6559-d888-46f9-bde8-d2f12eaa2e27",
+                            "url": "https://cdn.higgsfield.ai/hls/video_input/3e1d6559-d888-46f9-bde8-d2f12eaa2e27/index.m3u8",
+                            "name": "THE MYTH.mp4",
+                            "type": "video",
+                            "width": 3414,
+                            "height": 1440,
+                            "min_url": null,
+                            "duration": 85.472993,
+                            "object_fit": "contain",
+                            "thumbnail_url": null,
+                            "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED125/3e1d6559-d888-46f9-bde8-d2f12eaa2e27.mp4",
+                            "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/3e1d6559-d888-46f9-bde8-d2f12eaa2e27/compressed.mp4"
+                        }
+                    ],
+                    "trailer": null,
+                    "author_user_ids": [
+                        "user_REDACTED125"
+                    ],
+                    "tags": [],
+                    "categories": [],
+                    "show_prompts": true,
+                    "show_canvas": true,
+                    "is_discoverable": true,
+                    "featured_episode_id": null,
+                    "is_featured": false,
+                    "created_at": "2026-11-22T12:16:59.900571+00:00",
+                    "authors": [
+                        {
+                            "id": "user_REDACTED125",
+                            "full_name": null,
+                            "username": "<redacted>",
+                            "avatar_url": "<redacted>",
+                            "headline": "<redacted>",
+                            "location": "<redacted>",
+                            "is_owner": true,
+                            "is_followed": false,
+                            "total_projects_views": 6032,
+                            "total_projects_likes": 266,
+                            "followers_count": 298,
+                            "badges": [
+                                {
+                                    "id": "5d70214e-054a-4821-89ff-46436958541d",
+                                    "name": "Higgsfield Creative Partner",
+                                    "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                                    "description": null
+                                }
+                            ]
+                        }
+                    ],
+                    "team": null,
+                    "views": 564,
+                    "likes": 10,
+                    "comments": 3,
+                    "is_liked_by_user": null,
+                    "awards": [],
+                    "contest_badges": [],
+                    "can_receive_audience_choice_votes": false,
+                    "is_higgsfield_featured": false,
+                    "is_talents_hub": false,
+                    "contest_key": null
+                },
+                "pinned": true
+            },
+            {
+                "space_item_id": "c8ac8219-bff8-4bff-a5ad-6d9596d4aff7",
+                "item_type": "shot",
+                "item": {
+                    "job_set_type": "soul_cinematic",
+                    "job_set_id": "b45577fe-1c51-4330-ba85-2984ffbefb68",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "board_ids": [],
+                    "params": {
+                        "prompt": "create something disturbing and horrifying  that makes no sense ",
+                        "width": 2048,
+                        "height": 1152,
+                        "batch_size": 4,
+                        "seed": 458665,
+                        "enhance_prompt": true,
+                        "quality": "1080p",
+                        "style_id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                        "style": {
+                            "id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                            "name": "General",
+                            "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+                            "strength": 1.0
+                        },
+                        "style_strength": null
+                    },
+                    "meta": {},
+                    "id": "6fa0fd63-06e7-4a2e-a592-46c1439a4b57",
+                    "status": "completed",
+                    "ip_check_finished": null,
+                    "ip_detected": null,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED125/hf_20261101_200316_6fa0fd63-06e7-4a2e-a592-46c1439a4b57.png"
+                    },
+                    "results": {
+                        "raw": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED125/hf_20261101_200316_6fa0fd63-06e7-4a2e-a592-46c1439a4b57.png"
+                        },
+                        "min": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED125/hf_20261101_200316_6fa0fd63-06e7-4a2e-a592-46c1439a4b57.png"
+                        }
+                    },
+                    "published_at": 1793743932.833677,
+                    "created_at": 1793563396.568477,
+                    "user_id": "user_REDACTED125",
+                    "trace_id": "6fa0fd63-06e7-4a2e-a592-46c1439a4b57",
+                    "cluster_hash": "3ebf37e9bd3cf1420acb1322c07d5929",
+                    "representation": null,
+                    "publication": {
+                        "id": "746eac60-b664-474a-aab3-1b163275a688",
+                        "views_count": 890,
+                        "likes_count": 4,
+                        "is_liked_by_user": null,
+                        "approved": false,
+                        "pinned_at": null
+                    },
+                    "profile": {
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>",
+                        "instagram_handle": "<redacted>",
+                        "twitter_handle": "<redacted>",
+                        "youtube_handle": "<redacted>",
+                        "tiktok_handle": null,
+                        "badge": null,
+                        "badges": [
+                            {
+                                "name": "Higgsfield Creative Partner",
+                                "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                                "description": null
+                            }
+                        ]
+                    },
+                    "drama": null
+                },
+                "pinned": true
+            }
+        ],
+        "next_cursor": "eyJJRCI6ImRjNjFkYzE1LTI2YjMtNDg1Ni1iZmJhLWQ4MDRkYWQ1Nzc5OSIsIlJvb21JRCI6IiIsIkl0ZW1UeXBlIjoiIiwiSXRlbUlEIjoiIiwiQWRkZWRCeSI6IiIsIlBpbm5lZEF0IjpudWxsLCJDcmVhdGVkQXQiOiIyMDI2LTExLTAzVDIyOjEyOjM3LjYyNDM4NloifQ"
+    }
+}

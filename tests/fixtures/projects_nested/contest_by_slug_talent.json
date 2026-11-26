@@ -1,0 +1,81 @@
+{
+    "meta": {
+        "endpoint": "projects_contest_by_slug",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/contests/talent-contest",
+        "params": {
+            "slug": "talent-contest"
+        },
+        "fetched_at": "2026-11-26T13:36:30.263609+00:00",
+        "status": 200
+    },
+    "body": {
+        "contest_type": "global",
+        "submissions_close_at": null,
+        "settings": null,
+        "rewards": null,
+        "rules_effective_at": null,
+        "results_published": false,
+        "id": "7834f30d-cfbf-4a1e-9d29-a2373b581c26",
+        "slug": "talent-contest",
+        "title": "Talent Contest",
+        "description": "Build in public. Explore prizes and rules, then submit your film to Talent Contest",
+        "start_at": "2026-11-12T17:00:00Z",
+        "end_at": "2026-11-26T17:00:00Z",
+        "status": "open",
+        "preview_image": "https://static.higgsfield.ai/community-contest/banner/bg-v2-poster.webp",
+        "preview_video": "https://static.higgsfield.ai/community-contest/banner/bg-v2.mp4",
+        "logo_url": "https://d30d7anzgyxsrg.cloudfront.net/content_user_id/15fe124e-451c-48da-bbf5-095e02c8b4d8.png",
+        "redirect_url": null,
+        "prize_pool": 1000000,
+        "submissions_count": 0,
+        "prizes": [
+            {
+                "label": "1st",
+                "type": "usd",
+                "value": 200000,
+                "count": 1
+            },
+            {
+                "label": "2nd",
+                "type": "usd",
+                "value": 150000,
+                "count": 1
+            },
+            {
+                "label": "3rd",
+                "type": "usd",
+                "value": 100000,
+                "count": 1
+            },
+            {
+                "label": "Audience Choice",
+                "type": "usd",
+                "value": 50000,
+                "count": 2
+            },
+            {
+                "label": "15 nominations",
+                "type": "usd",
+                "value": 30000,
+                "count": 15
+            }
+        ],
+        "theme_markdown": "1 [trimmed]",
+        "details_markdown": "# **Higgsfield Talent Contest — Official Rules**\n\nEffective: November 12, 2026  \n**No purchase or payment of any kind is necessary to enter or win. A paid subscription does not improve your chances of winning. This is a contest of skill. Open to individuals 18 or older (or the age of majority where they live, if higher). Void where prohibited by law.**  \nWelcome, and thank you for making something [trimmed]",
+        "some_contestants": [],
+        "winners": null,
+        "submission_ids": [],
+        "judges": [],
+        "timeline": null,
+        "faq": [
+            {
+                "question": "What is the Talent Contest?",
+                "answer": "Two weeks, an open theme, and $1,000,000 in cash for the filmmakers who make the most of it. The Talent Contest is a short, hackathon-style film contest where participants make a short film on Higgsfield, either building it in public and sharing their progress or working privately until the deadline. The jury picks the top three winners and 15 category awards, and the community votes for two Audience Choice awards."
+            },
+            {
+                "question": "Who can take part?",
+                "answer": "The Contest is open to anyone 18 or older with a Higgsfield account, whether free or paid. You can enter alone or with a team of up to 4, in which case one Team Leader owns the Contest Project and receives any prize on the group’s behalf. See [Section 2 of the Rules](/contests/talent-contest?tab=rules) for the full requirements."
+            }
+        ]
+    }
+}

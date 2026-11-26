@@ -268,6 +268,8 @@ def _listing_name(env) -> str:
         return f"recommended:{p.get('scope') or 'default'}"
     if env.endpoint == "projects_contest_entries":
         return f"entries:{p.get('contest_key')}:{p.get('tab')}"
+    if env.endpoint == "projects_user_publications":                 # --users (key = sha256 of the handle)
+        return f"user:{p.get('user_key')}"
     return env.endpoint
 
 
@@ -575,8 +577,34 @@ PARSERS: dict[str, Callable[[Any, Selection], list[dict]]] = {
 }
 
 
+def parse_publication_detail_nested(env, sel: Selection) -> list[dict]:
+    """Detail + (with --with-project-stats) the project stats and stack rows of the page."""
+    out = parse_publication_detail(env, sel)
+    if sel.with_project_stats and isinstance(env.body, dict):
+        from .nested import parse_stats
+        out += parse_stats(env.body, env)
+    return out
+
+
+def _nested_parsers() -> dict[str, Callable[[Any, Selection], list[dict]]]:
+    from . import nested as n
+    return {
+        "projects_contest_by_slug": parse_contest_detail,      # --contest <slug>: same body as /contests/by-id/{id}
+        "projects_folder": n.parse_folder,
+        "projects_folder_children": n.parse_folder_children,
+        "projects_folder_items": n.parse_folder_items,
+        "projects_brief": n.parse_brief,
+        "projects_comments": n.parse_comments,
+        "projects_related": n.parse_related,
+        "projects_user_publications": n.parse_user_publications,
+    }
+
+
 def parse_envelope(env, sel: Selection) -> list[dict]:
-    fn = PARSERS.get(env.endpoint)
+    if env.endpoint == "projects_publication_detail" and getattr(sel, "with_project_stats", False):
+        fn = parse_publication_detail_nested
+    else:
+        fn = PARSERS.get(env.endpoint) or _nested_parsers().get(env.endpoint)
     if fn is None or not env.ok:
         return []
     return fn(env, sel)

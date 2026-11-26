@@ -12,6 +12,10 @@ estimated credit cost. Every run writes the standard run folder (`runs/<ts>_comm
 Package: `higgsfield_scraper/scrapers/community/` (`endpoints.py`, `options.py`, `parsers.py`, `schemas.py`,
 `dataset.py`, `spider.py`). Tests: `tests/test_community.py` with scrubbed fixtures in `tests/fixtures/community/`.
 
+> **Opt-in Community pages (2026-11-26):** `--feeds shots|posts|feed|creators|talents` (never part of `--feeds all`)
+> and comment threads of shots/projects/blogs with `--with-comments`. Endpoints, JS evidence, data model (ER
+> diagram + field tables), totals and the anonymous-vs-logged-in check: [`../COMMUNITY_COVERAGE.md`](../COMMUNITY_COVERAGE.md).
+
 ## Endpoints (reverse-engineered 2026-11-25)
 
 Base `https://fnf-api-gw.higgsfield.ai/fnf`, header `Accept: application/json`, all GET.
@@ -82,7 +86,7 @@ Common framework flags apply (`--max-items`, `--max-pages`, `--page-size` (clamp
 
 | Flag | Default | Meaning |
 |---|---|---|
-| `--feeds` | `trending` | comma list of `trending, approved, top, model-x`, `all`, or `none` (only `--publication-ids`) |
+| `--feeds` | `trending` | comma list of `trending, approved, top, model-x`, `all`, or `none` (only `--publication-ids`). Opt-in, not in `all`: `shots` (fnf-community `/generations/feed` → `community_shot`), `posts` (Community posts → `community_post`), `feed` (`/community/feed` cards → `community_feed_item`), `creators` / `talents` (aggregate creator stats → `community_creator_stats`; names only with `--with-profiles`). `--max-items` caps each opt-in feed separately |
 | `--type` | `all` | `all|image|video|speak|upscale`; image/video also enforced client-side |
 | `--models` | all | job_set_types, comma list and/or repeatable |
 | `--preset-ids` | — | API `preset_id` (repeatable); effect unverified |
@@ -91,7 +95,7 @@ Common framework flags apply (`--max-items`, `--max-pages`, `--page-size` (clamp
 | `--with-profiles` | off | **personal data**: username, avatar, social handles, badges + `creators` table |
 | `--with-raw-params` | off | keep the untouched `params` dict as `raw_params` |
 | `--detail` | off | fetch `/publications/{id}` for every listed item (1 extra request per item); `detail_fetched=true` |
-| `--with-comments` | off | comments + replies of Community posts (fnf-community, public, no session needed); gallery generations have none (see Comments) |
+| `--with-comments` | off | comments + replies of Community posts (fnf-community, public, no session needed). With the opt-in feeds `shots`/`feed`/`posts`: the threads of those items (`/entities/{generation_publication\|project_publication\|blog_post}/{id}/comments`, `thread_type` = entity type). Without opt-in feeds: unchanged |
 | `--estimate-cost` | `off` | `off|images|videos|all`: attach `estimated_cost` |
 | `--usd-reference` | `plus:annual` | plan whose after-offer $/credit converts credits to USD |
 | `--usd-plan-set` | `ps_a3` | plan set of the USD reference plan |
@@ -203,7 +207,11 @@ reason in `notes` and `meta.warnings`). It is the **list price today for those s
 
 ## Known gaps
 
-- Community posts themselves (title, text, media, counters) are not stored; only their comments. Replies of
+- Correction 2026-11-26: gallery generations **do** have comments — on fnf-community
+  `/entities/generation_publication/{publication_id}/comments` (cursor, 20/page), not on `/publications/{id}/comments`.
+  They are collected for `--feeds shots` / `--feeds feed` items with `--with-comments`; the default trending/approved
+  path does not request them (that would be 1 request per generation without a known comment count).
+- Community posts are stored only with `--feeds posts` (default `--with-comments` still keeps only their comments). Replies of
   replies are not fetched.
 - `/publications/{id}/related` and `/users/search` (login) not implemented.
 - `resolution`/`preset_id` filter semantics unverified (see above).

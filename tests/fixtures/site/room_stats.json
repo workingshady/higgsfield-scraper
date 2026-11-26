@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "endpoint": "room_stats",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/publications/room-stats?room_id=15993944-3b7e-470b-86be-aa9b2c46c7bb",
+        "params": {
+            "room_id": "15993944-3b7e-470b-86be-aa9b2c46c7bb"
+        },
+        "fetched_at": "2026-11-26T13:34:30.990383+00:00",
+        "status": 200
+    },
+    "body": {
+        "posts": 0,
+        "discussions": 0
+    }
+}

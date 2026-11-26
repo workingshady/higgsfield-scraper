@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "endpoint": "showcase_seedance_presets",
+  "url": "https://cms.higgsfield.ai/seedance-2-0?lang=en",
+  "params": {
+   "lang": "en"
+  },
+  "fetched_at": "2026-11-26T14:05:50.892295+00:00",
+  "status": 200
+ },
+ "body": [
+  {
+   "id": "82300047-7829-427d-8895-dd3167c35570",
+   "name": "Casual Monster Slayer",
+   "preview_image": {
+    "url": "https://cdn.higgsfield.ai/superhero-gen-preset/8783c570-3f74-4d94-877d-a753194c7bb1.webp",
+    "type": "static",
+    "width": 500,
+    "height": 279
+   },
+   "preview_media": {
+    "url": "https://cdn.higgsfield.ai/superhero-gen-preset/43c9d9da-c9dc-477b-bcd4-c680f6e4353b.mp4",
+    "type": "video",
+    "width": 600,
+    "height": 338,
+    "main_url": "https://cdn.higgsfield.ai/superhero-gen-preset/b799a9e9-cbe8-4425-b3dd-5115d89cec71.mp4",
+    "main_width": 1280,
+    "main_height": 720,
+    "placeholder": "data:image/webp;base64,AAAA",
+    "optimized_url": "https://cdn.higgsfield.ai/superhero-gen-preset/2d2984b3-d110-482b-b6c9-e7de5d1ed4c9.webp",
+    "thumbnail_url": "https://cdn.higgsfield.ai/superhero-gen-preset/f71405bf-0d6c-46a5-85de-efddd9291457.webp"
+   },
+   "description": "",
+   "duration": 12,
+   "priority": 4
+  },
+  {
+   "id": "98a36358-13ca-48cb-aff2-6fa109e8b959",
+   "name": "Wrestle",
+   "preview_image": {
+    "url": "https://cdn.higgsfield.ai/superhero-gen-preset/e923f9c4-d788-4f47-860f-a7976a816337.webp",
+    "type": "static",
+    "width": 500,
+    "height": 279
+   },
+   "preview_media": {
+    "url": "https://cdn.higgsfield.ai/superhero-gen-preset/2271a7fe-ff32-4543-a270-189a36f8434e.mp4",
+    "type": "video",
+    "width": 600,
+    "height": 338,
+    "main_url": "https://cdn.higgsfield.ai/superhero-gen-preset/a57ad0e2-02f9-4e7e-ac38-cea5b489653b.mp4",
+    "main_width": 1280,
+    "main_height": 720,
+    "placeholder": "data:image/webp;base64,AAAA",
+    "optimized_url": "https://cdn.higgsfield.ai/superhero-gen-preset/1db6118b-b7a6-4735-9e1f-49dfd32488bc.webp",
+    "thumbnail_url": "https://cdn.higgsfield.ai/superhero-gen-preset/683652a0-8eb5-4828-9beb-48235105894b.webp"
+   },
+   "description": "",
+   "duration": 14,
+   "priority": 5
+  }
+ ]
+}

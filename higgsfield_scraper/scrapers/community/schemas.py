@@ -245,6 +245,170 @@ class CommunityStats(Strict):
     cost_basis: Optional[CostBasisSummary] = None
 
 
+# ------------------------------------------------------------------ opt-in Community pages
+# (--feeds shots, posts, feed, creators, talents). Data model: docs/COMMUNITY_COVERAGE.md "Data model". Identity
+# fields (username, names, avatars, bio, headline, location) are None unless --with-profiles; user_id is the
+# pseudonymous Clerk id (as for community_generation.creator.user_id).
+
+class PersonRef(Strict):
+    """Author of a shot / post / feed item. Only user_id (+ non-identifying badge / rating) without --with-profiles."""
+
+    user_id: Optional[str] = Field(None, description="pseudonymous Higgsfield user id (Clerk id)")
+    username: Optional[str] = Field(None, description="only with --with-profiles")
+    full_name: Optional[str] = Field(None, description="only with --with-profiles")
+    avatar_url: Optional[str] = Field(None, description="only with --with-profiles")
+    headline: Optional[str] = Field(None, description="only with --with-profiles")
+    badge: Optional[str] = Field(None, description="badge key (e.g. higgs); not identifying")
+    rating_points: Optional[int] = Field(None, description="creator rating points shown on cards")
+
+
+class CommunityShot(Strict):
+    """kind=community_shot - one item of the Shots tab (/community/generations): a published generation as listed by
+    fnf-community GET /generations/feed. shot_id is the gallery publication id (joins
+    community_generation.publication_id); generation_id is the job id (joins community_generation.generation_id)."""
+
+    shot_id: str = Field(description="publication id (API `id`)")
+    generation_id: Optional[str] = Field(None, description="job id (API `job_id`) = community_generation.generation_id")
+    url: str = Field(description="https://higgsfield.ai/community/generations?shot=<shot_id>")
+    job_set_type: Optional[str] = Field(None, description="API `model` (a job_set_type, joins pricing model_id)")
+    media_type: MediaType
+    media_url: Optional[str] = Field(None, description="preview-size media (..._min.webp / _min.mp4)")
+    thumbnail_url: Optional[str] = Field(None, description="video poster; null for images")
+    width: Optional[int] = Field(None, description="px; the UI shows 0 when missing or <= 0")
+    height: Optional[int] = Field(None, description="px")
+    likes: Optional[int] = Field(None, description="API like_count (shown on the card)")
+    views: Optional[int] = Field(None, description="API view_count (not shown on the Shots card)")
+    comments: Optional[int] = Field(None, description="API comment_count (shown on the card)")
+    aesthetic_score: Optional[float] = Field(None, description="0..1 model score used for ranking (not shown)")
+    aesthetic_label: Optional[bool] = Field(None, description="passes the aesthetic filter (not shown)")
+    published_at: Optional[AwareDatetime] = None
+    author: PersonRef
+    snapshot_id: Optional[str] = Field(None, description="feed snapshot the page came from (cursor-based ranking)")
+    source: Provenance
+
+
+class PostMedia(Strict):
+    """One attachment of a Community post (content.medias[])."""
+
+    index: int
+    type: Optional[str] = Field(None, description="project_publication | job | image | video | blog_post | ...")
+    url: Optional[str] = Field(None, description="job_result.url / url (empty strings -> null)")
+    project_publication_id: Optional[str] = None
+    job_id: Optional[str] = None
+    blog_post_id: Optional[str] = None
+    card_id: Optional[str] = None
+    card_title: Optional[str] = None
+    card_slug: Optional[str] = None
+    card_description: Optional[str] = None
+    card_cover_url: Optional[str] = None
+    video_url: Optional[str] = None
+    video_hls_url: Optional[str] = None
+    video_preview_url: Optional[str] = None
+    video_thumbnail_url: Optional[str] = None
+    width: Optional[int] = Field(None, description="px")
+    height: Optional[int] = Field(None, description="px")
+    duration_seconds: Optional[float] = Field(None, description="seconds (card.video.duration)")
+    card_stats: Optional[dict[str, Any]] = Field(None, description="project card stats: generations_count, "
+                                                 "credits_spent, free_generations, size_bytes, stack[] (per model)")
+    extra: dict[str, Any] = Field(default_factory=dict)
+
+
+class CommunityPost(Strict):
+    """kind=community_post - a Community post (fnf-community GET /publications/feed): text + attached works.
+    Room discussions (site --what room-content) are the same objects filtered by room_id."""
+
+    post_id: str
+    url: str = Field(description="https://higgsfield.ai/community/feed/<post_id>")
+    title: Optional[str] = Field(None, description="title or content.title (empty -> null)")
+    text: Optional[str] = Field(None, description="content.text")
+    room_id: Optional[str] = Field(None, description="content.room_id when the post is a room discussion")
+    post_kind: Optional[str] = Field(None, description="content.kind (e.g. discussion)")
+    media: list[PostMedia] = Field(default_factory=list)
+    likes: Optional[int] = None
+    dislikes: Optional[int] = None
+    comments: Optional[int] = None
+    views: Optional[int] = Field(None, description="API views_count")
+    shares: Optional[int] = Field(None, description="API share_count")
+    created_at: Optional[AwareDatetime] = None
+    updated_at: Optional[AwareDatetime] = None
+    author: PersonRef
+    extra: dict[str, Any] = Field(default_factory=dict, description="other non-null API fields")
+    source: Provenance
+
+
+class CommunityFeedItem(Strict):
+    """kind=community_feed_item - one card of the Feed tab (/community/feed, fnf-community GET /feed): a shot,
+    project, blog post or Community post with its counters as shown on the card."""
+
+    feed_item_id: str = Field(description="make_id(item_type, item_id)")
+    item_type: Literal["generation", "project_publication", "blog_post", "post", "unknown"]
+    item_id: str = Field(description="publication id (generation / project), blog post id or post id")
+    url: Optional[str] = Field(None, description="page URL when it can be built without the author's username")
+    position: Optional[int] = Field(None, description="0-based rank in the crawled feed")
+    title: Optional[str] = Field(None, description="card.title / post title / first line of the post text")
+    description: Optional[str] = None
+    slug: Optional[str] = None
+    media_type: Optional[str] = None
+    job_set_type: Optional[str] = Field(None, description="generation.model")
+    generation_id: Optional[str] = Field(None, description="generation.job_id (joins community_generation)")
+    made_with_tool: Optional[str] = Field(None, description="made_with.tool, e.g. video")
+    made_with_model: Optional[str] = Field(None, description="made_with.model_name (display name)")
+    media_url: Optional[str] = None
+    thumbnail_url: Optional[str] = None
+    cover_url: Optional[str] = None
+    video_url: Optional[str] = None
+    likes: Optional[int] = Field(None, description="item like_count (card counter)")
+    comments: Optional[int] = Field(None, description="item comment_count")
+    shares: Optional[int] = Field(None, description="item share_count")
+    views: Optional[int] = Field(None, description="generation.view_count / card.views_count / post.views_count")
+    reading_time_minutes: Optional[int] = None
+    project_stats: Optional[dict[str, Any]] = Field(None, description="card.stats of a project (credits_spent ...)")
+    created_at: Optional[AwareDatetime] = None
+    top_comment_id: Optional[str] = None
+    top_comment_likes: Optional[int] = None
+    author: PersonRef
+    snapshot_id: Optional[str] = None
+    source: Provenance
+
+
+class CreatorWork(Strict):
+    """A work shown on a creator card (users[].items[]; the UI shows at most 12)."""
+
+    type: str = Field(description="project | shot")
+    item_id: Optional[str] = Field(None, description="project publication_id or shot publication id")
+    title: Optional[str] = Field(None, description="project name (public)")
+    is_pinned: Optional[bool] = None
+
+
+class CommunityCreatorStats(Strict):
+    """kind=community_creator_stats - one creator card of /community/creators (listing 'creators') or of the Talents
+    hub (listing 'talents'): aggregate public stats. Profile fields only with --with-profiles."""
+
+    record_id: str = Field(description="make_id(listing, user_id)")
+    listing: Literal["creators", "talents"]
+    position: Optional[int] = Field(None, description="0-based rank in the listing order")
+    user_id: str = Field(description="pseudonymous Clerk id")
+    rating_points: Optional[int] = None
+    followers_count: Optional[int] = None
+    following_count: Optional[int] = None
+    likes_count: Optional[int] = Field(None, description="likes received on the creator's works")
+    views_count: Optional[int] = Field(None, description="views of the creator's works")
+    verified_projects_count: Optional[int] = None
+    latest_verified_at: Optional[AwareDatetime] = None
+    is_pinned: Optional[bool] = None
+    badge: Optional[str] = None
+    badge_names: list[str] = Field(default_factory=list, description="badges[].name (achievements)")
+    works_count: int = Field(0, description="works listed on the card")
+    works: list[CreatorWork] = Field(default_factory=list)
+    username: Optional[str] = Field(None, description="only with --with-profiles")
+    full_name: Optional[str] = Field(None, description="only with --with-profiles")
+    headline: Optional[str] = Field(None, description="only with --with-profiles")
+    bio: Optional[str] = Field(None, description="only with --with-profiles")
+    location: Optional[str] = Field(None, description="only with --with-profiles")
+    avatar_url: Optional[str] = Field(None, description="only with --with-profiles")
+    source: Provenance
+
+
 class CommunityDataset(Strict):
     schema_version: int = 1
     meta: CoreMeta
@@ -253,3 +417,25 @@ class CommunityDataset(Strict):
     comments: list[CommunityComment] = Field(default_factory=list)
     pages: list[CommunityPage] = Field(default_factory=list)
     stats: CommunityStats
+
+
+class CommunityExtraStats(Strict):
+    shots: int = 0
+    posts: int = 0
+    feed_items: int = 0
+    creator_stats: int = 0
+    feed_items_by_type: dict[str, int] = Field(default_factory=dict)
+    shots_by_job_set_type: dict[str, int] = Field(default_factory=dict)
+    shots_by_media_type: dict[str, int] = Field(default_factory=dict)
+    comments_by_thread_type: dict[str, int] = Field(default_factory=dict)
+
+
+class CommunityDatasetExt(CommunityDataset):
+    """Dataset of a run that used an opt-in Community page (--feeds shots|posts|feed|creators|talents). Default runs
+    keep CommunityDataset, so their dataset.json / schema / CSV set are unchanged."""
+
+    shots: list[CommunityShot] = Field(default_factory=list)
+    posts: list[CommunityPost] = Field(default_factory=list)
+    feed_items: list[CommunityFeedItem] = Field(default_factory=list)
+    creator_stats: list[CommunityCreatorStats] = Field(default_factory=list)
+    extra_stats: CommunityExtraStats = Field(default_factory=CommunityExtraStats)

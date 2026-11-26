@@ -73,6 +73,45 @@ CLIENT_FILTER_TYPES = ("image", "video")
 
 ESTIMATE_MODES = ("off", "images", "videos", "all")
 
+# ---------------------------------------------------------------- opt-in Community pages (added 2026-11-26)
+# Values of --feeds that are NOT part of 'all' (which stays the four gallery feeds above). See
+# docs/COMMUNITY_COVERAGE.md for the JS evidence (route chunks + query functions) and live checks.
+#   shots    /community/generations ("Shots" tab): fnf-community GET /generations/feed?limit<=50&cursor&type&models
+#            -> {items[], next_cursor, snapshot_id, snapshot_at, available_models[]}   (limit > 50 -> HTTP 400)
+#   posts    Community posts: fnf-community GET /publications/feed?limit&offset -> {publications[], has_more}
+#            (~24.3k posts on 2026-11-26, offset pagination, limit 100 accepted; we cap at 50)
+#   feed     /community/feed ("Feed" tab): fnf-community GET /feed?limit<=50&cursor -> {items[{type: generation |
+#            project_publication | blog_post | post, ...}], next_cursor, snapshot_id}
+#   creators /community/creators: fnf GET /community/discovery/v2/creators?all=true&sort=&limit&cursor
+#            -> {users[], total (646), next_cursor, next_offset, limit}
+#   talents  Talents hub list: fnf GET /community/discovery/talents?sort=rating|trending|recent&limit&offset&size
+#            -> {users[], total (80), limit, next_offset}
+EXTRA_FEEDS = ("shots", "posts", "feed", "creators", "talents")
+SHOTS_ENDPOINT = "community_shots"
+SHOTS_PATH = "/generations/feed"
+FEED_ENDPOINT = "community_feed"
+FEED_PATH = "/feed"
+POSTS_LIST_ENDPOINT = "community_posts_list"      # same URL as POSTS_ENDPOINT, but paginated and stored as items
+CREATORS_ENDPOINT = "community_creators"
+CREATORS_PATH = "/community/discovery/v2/creators"
+TALENTS_ENDPOINT = "community_talents"
+TALENTS_PATH = "/community/discovery/talents"
+ENTITY_COMMENTS_ENDPOINT = "community_entity_comments"
+# fnf-community GET /entities/{generation_publication|project_publication|blog_post}/{id}/comments?limit&cursor&parent_id
+# -> {items[comment], next_cursor, total}. The JS (community-…: `na=({kind,id})=>N(/entities/${ta[kind]}/${id}/comments)`,
+# page size ea=20) uses it for Feed/Shots items; gallery generations' comments live here (publication id).
+ENTITY_COMMENTS_PATH = "/entities/{entity_type}/{entity_id}/comments"
+ENTITY_COMMENTS_PAGE_SIZE = 20
+EXTRA_PAGE_SIZE: dict[str, tuple[int, int]] = {      # feed -> (default, maximum we send)
+    "shots": (50, 50), "posts": (50, 50), "feed": (50, 50), "creators": (50, 50), "talents": (50, 50)}
+EXTRA_ENDPOINTS = {"shots": SHOTS_ENDPOINT, "posts": POSTS_LIST_ENDPOINT, "feed": FEED_ENDPOINT,
+                   "creators": CREATORS_ENDPOINT, "talents": TALENTS_ENDPOINT}
+# feed -> kind it produces (per-feed --max-items cap)
+EXTRA_KINDS = {"shots": "community_shot", "posts": "community_post", "feed": "community_feed_item",
+               "creators": "community_creator_stats", "talents": "community_creator_stats"}
+FEED_ITEM_ENTITY = {"generation": "generation_publication", "project_publication": "project_publication",
+                    "blog_post": "blog_post"}
+
 USER_SEARCH_PATH = "/users/search"          # fnf-community; not used (would only return search results)
 RELATED_PATH = "/publications/{publication_id}/related"  # fnf-community; not used
 

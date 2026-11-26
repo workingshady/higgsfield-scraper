@@ -1,0 +1,278 @@
+{
+    "meta": {
+        "endpoint": "projects_related",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/project-publications/recommended?scope=talent_contest&current_publication_id=d62acd40-d4da-40d5-9aeb-f09374bb362e",
+        "params": {
+            "scope": "talent_contest",
+            "current_publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+            "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e"
+        },
+        "fetched_at": "2026-11-26T13:35:38.249182+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "publication_id": "0f43c79f-0f93-433d-8208-82cd6aadb926",
+                "duration_seconds": 180.958,
+                "state": "published",
+                "type": "film",
+                "is_ongoing": false,
+                "project_id": "0f43c79f-0f93-433d-8208-82cd6aadb926",
+                "snapshot_folder_id": "d27d32f8-54cd-48d6-acf1-4ff70aeb9286",
+                "has_changes_since_publish": false,
+                "project_updated_at": "2026-11-22T08:03:44.058217+00:00",
+                "final_submitted_at": "2026-11-21T22:50:12.099785+00:00",
+                "is_open_source": true,
+                "name": "Godlike",
+                "slug": "godlike",
+                "description": "Damaged gods race for the light that can make them gods again. Only one can take it. Full CGI, AAA game cinematic style.",
+                "cover": {
+                    "id": "6de2cbbb-9fee-4647-ab7a-3296747582ad",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake680c6558de29cc0520039e5/6de2cbbb-9fee-4647-ab7a-3296747582ad.png",
+                    "type": "media",
+                    "width": 2720,
+                    "height": 1536,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "b9cc8c86-8279-4ec0-9e0e-d755a8c27cb9",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/b9cc8c86-8279-4ec0-9e0e-d755a8c27cb9/6e21ef3b-1aed-4992-aa96-1f274649e707/index.m3u8?v=6e21ef3b-1aed-4992-aa96-1f274649e707",
+                        "type": "video",
+                        "width": 4398,
+                        "height": 1886,
+                        "min_url": null,
+                        "duration": 180.958,
+                        "object_fit": "contain",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/b9cc8c86-8279-4ec0-9e0e-d755a8c27cb9/6e21ef3b-1aed-4992-aa96-1f274649e707/thumbnail.webp?v=6e21ef3b-1aed-4992-aa96-1f274649e707",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake680c6558de29cc0520039e5/b9cc8c86-8279-4ec0-9e0e-d755a8c27cb9.mp4",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/b9cc8c86-8279-4ec0-9e0e-d755a8c27cb9/compressed.mp4",
+                        "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/b9cc8c86-8279-4ec0-9e0e-d755a8c27cb9/6e21ef3b-1aed-4992-aa96-1f274649e707/download.mp4?v=6e21ef3b-1aed-4992-aa96-1f274649e707&download=b9cc8c86-8279-4ec0-9e0e-d755a8c27cb9.mp4"
+                    }
+                ],
+                "trailer": null,
+                "author_user_ids": [
+                    "user_Fake680c6558de29cc0520039e5"
+                ],
+                "tags": [],
+                "categories": [],
+                "show_prompts": true,
+                "show_canvas": true,
+                "is_discoverable": false,
+                "featured_episode_id": null,
+                "is_featured": false,
+                "created_at": "2026-11-18T09:19:25.954726Z",
+                "authors": [
+                    {
+                        "id": "user_Fake680c6558de29cc0520039e5",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "[redacted]",
+                        "location": "[redacted]",
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 475,
+                        "total_projects_likes": 9,
+                        "followers_count": 37,
+                        "badges": []
+                    }
+                ],
+                "team": null,
+                "views": 2341,
+                "likes": 148,
+                "comments": 72,
+                "is_liked_by_user": null,
+                "awards": [],
+                "contest_badges": [],
+                "can_receive_audience_choice_votes": false,
+                "is_higgsfield_featured": false,
+                "is_talents_hub": false,
+                "contest_key": "talent_contest"
+            },
+            {
+                "publication_id": "3b512752-1263-456f-8f40-60855885aa11",
+                "duration_seconds": 20.433333,
+                "state": "published",
+                "type": "film",
+                "is_ongoing": false,
+                "project_id": null,
+                "snapshot_folder_id": null,
+                "has_changes_since_publish": false,
+                "project_updated_at": "2026-11-26T13:17:28.150295+00:00",
+                "final_submitted_at": null,
+                "is_open_source": true,
+                "name": "فلاي بوكس | Fly Box",
+                "slug": "fly-box",
+                "description": "a 21-year-old Sudanese man who flees the war. He crosses the desert in the back of an overloaded Hilux with strangers who become his family.",
+                "cover": {
+                    "id": "14145bd9-26e0-41d0-a83a-79f4753d2968",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake5778c9f0c036c04ac0d6766/14145bd9-26e0-41d0-a83a-79f4753d2968.png",
+                    "name": null,
+                    "type": "media",
+                    "width": 1920,
+                    "height": 1080,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "94b30629-92e6-4655-9fcb-b21e06b5b244",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/94b30629-92e6-4655-9fcb-b21e06b5b244/96690623-3a28-4856-8b67-5c2fd4499e62/index.m3u8?v=96690623-3a28-4856-8b67-5c2fd4499e62",
+                        "name": "94b30629-92e6-4655-9fcb-b21e06b5b244.mp4",
+                        "type": "video",
+                        "width": 1280,
+                        "height": 720,
+                        "min_url": null,
+                        "duration": 20.433333,
+                        "object_fit": "contain",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/94b30629-92e6-4655-9fcb-b21e06b5b244/96690623-3a28-4856-8b67-5c2fd4499e62/thumbnail.webp?v=96690623-3a28-4856-8b67-5c2fd4499e62",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake5778c9f0c036c04ac0d6766/94b30629-92e6-4655-9fcb-b21e06b5b244.mp4",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/94b30629-92e6-4655-9fcb-b21e06b5b244/compressed.mp4",
+                        "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/94b30629-92e6-4655-9fcb-b21e06b5b244/96690623-3a28-4856-8b67-5c2fd4499e62/download.mp4?v=96690623-3a28-4856-8b67-5c2fd4499e62&download=94b30629-92e6-4655-9fcb-b21e06b5b244.mp4"
+                    }
+                ],
+                "trailer": null,
+                "author_user_ids": [
+                    "user_Fake5778c9f0c036c04ac0d6766"
+                ],
+                "tags": [],
+                "categories": [],
+                "show_prompts": false,
+                "show_canvas": false,
+                "is_discoverable": false,
+                "featured_episode_id": null,
+                "is_featured": false,
+                "created_at": "2026-11-24T08:44:28.614048Z",
+                "authors": [
+                    {
+                        "id": "user_Fake5778c9f0c036c04ac0d6766",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "[redacted]",
+                        "location": "[redacted]",
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 0,
+                        "total_projects_likes": 0,
+                        "followers_count": 14,
+                        "badges": []
+                    }
+                ],
+                "team": null,
+                "views": 4010,
+                "likes": 329,
+                "comments": 126,
+                "is_liked_by_user": null,
+                "awards": [],
+                "contest_badges": [],
+                "can_receive_audience_choice_votes": false,
+                "is_higgsfield_featured": false,
+                "is_talents_hub": false,
+                "contest_key": "talent_contest"
+            },
+            {
+                "publication_id": "395c173b-069f-4a0c-9864-95ebebfe25e3",
+                "duration_seconds": 278.464,
+                "state": "published",
+                "type": "film",
+                "is_ongoing": false,
+                "project_id": "395c173b-069f-4a0c-9864-95ebebfe25e3",
+                "snapshot_folder_id": "dad1e81c-b401-40de-91ca-ee146b418a7d",
+                "has_changes_since_publish": false,
+                "project_updated_at": "2026-11-25T01:25:54.495115+00:00",
+                "final_submitted_at": "2026-11-25T01:25:54.485524+00:00",
+                "is_open_source": true,
+                "name": "SEVEN",
+                "slug": "seven",
+                "description": "Seven village dogs are stolen by butchers. Bun, a tiny corgi, must lead them 17 km home, leaving no one behind.",
+                "cover": {
+                    "id": "b9f69051-9193-4339-80b9-1a8d87a7e817",
+                    "url": "https://cdn.higgsfield.ai/e58f82d2-1bde-45e2-83a2-4a403d8cdccf.webp",
+                    "type": "job",
+                    "width": 2720,
+                    "height": 1536,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "ecd1c8f8-e41b-469f-bae8-0a807be750f4",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/ecd1c8f8-e41b-469f-bae8-0a807be750f4/7b98d699-d0b1-40d6-9d30-9db1adde0d77/index.m3u8?v=7b98d699-d0b1-40d6-9d30-9db1adde0d77",
+                        "type": "video",
+                        "width": 1920,
+                        "height": 1080,
+                        "min_url": null,
+                        "duration": 278.464,
+                        "object_fit": "contain",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/ecd1c8f8-e41b-469f-bae8-0a807be750f4/7b98d699-d0b1-40d6-9d30-9db1adde0d77/thumbnail.webp?v=7b98d699-d0b1-40d6-9d30-9db1adde0d77",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake10669f96e4beea1cb0ece53/ecd1c8f8-e41b-469f-bae8-0a807be750f4.mp4",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/ecd1c8f8-e41b-469f-bae8-0a807be750f4/compressed.mp4",
+                        "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/ecd1c8f8-e41b-469f-bae8-0a807be750f4/7b98d699-d0b1-40d6-9d30-9db1adde0d77/download.mp4?v=7b98d699-d0b1-40d6-9d30-9db1adde0d77&download=ecd1c8f8-e41b-469f-bae8-0a807be750f4.mp4"
+                    }
+                ],
+                "trailer": null,
+                "author_user_ids": [
+                    "user_Fake10669f96e4beea1cb0ece53"
+                ],
+                "tags": [],
+                "categories": [],
+                "show_prompts": true,
+                "show_canvas": true,
+                "is_discoverable": false,
+                "featured_episode_id": null,
+                "is_featured": false,
+                "created_at": "2026-11-13T10:26:30.769467Z",
+                "authors": [
+                    {
+                        "id": "user_Fake10669f96e4beea1cb0ece53",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "[redacted]",
+                        "location": "[redacted]",
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 0,
+                        "total_projects_likes": 0,
+                        "followers_count": 13,
+                        "badges": [
+                            {
+                                "id": "5d70214e-054a-4821-89ff-46436958541d",
+                                "name": "Higgsfield Creative Partner",
+                                "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                                "description": null
+                            }
+                        ]
+                    }
+                ],
+                "team": null,
+                "views": 2498,
+                "likes": 62,
+                "comments": 28,
+                "is_liked_by_user": null,
+                "awards": [],
+                "contest_badges": [],
+                "can_receive_audience_choice_votes": false,
+                "is_higgsfield_featured": false,
+                "is_talents_hub": false,
+                "contest_key": "talent_contest"
+            }
+        ],
+        "next_cursor": null,
+        "feed": {
+            "source": "ranking",
+            "version": null,
+            "snapshot_id": null
+        }
+    }
+}

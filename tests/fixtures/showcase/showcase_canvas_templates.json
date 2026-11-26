@@ -1,0 +1,51 @@
+{
+ "meta": {
+  "endpoint": "showcase_canvas_templates",
+  "url": "https://canvas-worker.higgsfield.ai/api/templates",
+  "params": {},
+  "fetched_at": "2026-11-26T14:05:41.075327+00:00",
+  "status": 200
+ },
+ "body": {
+  "items": [
+   {
+    "id": "40bb7eef-a6dc-44cf-b5c9-8b28097b3254",
+    "name": "Long Video Example",
+    "description": null,
+    "thumbnail_url": "https://d1xarpci4ikg0w.cloudfront.net/canvas_templates/long_video.png",
+    "created_at": "2026-04-29T19:38:01.419760+00:00"
+   },
+   {
+    "id": "96397cc5-83bf-4449-a3c3-b296ded979c7",
+    "name": "Simple Seedance 2.0",
+    "description": null,
+    "thumbnail_url": "https://d1xarpci4ikg0w.cloudfront.net/canvas_templates/simple.png",
+    "created_at": "2026-04-29T19:38:01.221961+00:00"
+   },
+   {
+    "id": "87b9187d-75a2-43a1-9264-464a9557d7bb",
+    "name": "Extend Video",
+    "description": null,
+    "thumbnail_url": "https://d1xarpci4ikg0w.cloudfront.net/canvas_templates/extend.png",
+    "created_at": "2026-04-29T19:38:01.023037+00:00"
+   },
+   {
+    "id": "71765427-7162-474e-917d-8ac06291fab1",
+    "name": "Image Edit",
+    "description": null,
+    "thumbnail_url": "https://d1xarpci4ikg0w.cloudfront.net/canvas_templates/img_edit.png",
+    "created_at": "2026-04-29T19:38:00.825617+00:00"
+   },
+   {
+    "id": "7b1af334-cffd-4584-8d97-99f6a9a0513b",
+    "name": "StoryBoard With Elements",
+    "description": null,
+    "thumbnail_url": "https://d1xarpci4ikg0w.cloudfront.net/canvas_templates/storyboard.jpg",
+    "created_at": "2026-04-29T17:31:20.476940+00:00"
+   }
+  ],
+  "total": 5,
+  "limit": 50,
+  "offset": 0
+ }
+}

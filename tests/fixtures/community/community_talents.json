@@ -1,0 +1,172 @@
+{
+    "meta": {
+        "endpoint": "community_talents",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/community/discovery/talents?sort=rating&limit=20&offset=0",
+        "params": {
+            "sort": "rating",
+            "limit": "20",
+            "offset": "0"
+        },
+        "fetched_at": "2026-11-26T13:31:06.887387+00:00",
+        "status": 200
+    },
+    "body": {
+        "users": [
+            {
+                "id": "user_REDACTED114",
+                "rating_points": 748,
+                "username": "<redacted>",
+                "avatar_url": "<redacted>",
+                "bio": "<redacted>",
+                "headline": "<redacted>",
+                "location": null,
+                "background_image_url": null,
+                "badge": null,
+                "badges": [
+                    {
+                        "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                        "name": "Higgsfield Talent",
+                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                        "description": null
+                    }
+                ],
+                "full_name": "<redacted>",
+                "verified_projects_count": 0,
+                "latest_verified_at": null,
+                "is_pinned": false,
+                "followers_count": 186,
+                "following_count": 2,
+                "is_subscribed": false,
+                "likes_count": 741,
+                "views_count": 83406,
+                "items": []
+            },
+            {
+                "id": "user_REDACTED115",
+                "rating_points": 532,
+                "username": "<redacted>",
+                "avatar_url": "<redacted>",
+                "bio": "<redacted>",
+                "headline": "<redacted>",
+                "location": "<redacted>",
+                "background_image_url": "<redacted>",
+                "badge": null,
+                "badges": [
+                    {
+                        "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                        "name": "Higgsfield Talent",
+                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                        "description": null
+                    }
+                ],
+                "full_name": "<redacted>",
+                "verified_projects_count": 4,
+                "latest_verified_at": "2026-11-21T15:45:23.907577Z",
+                "is_pinned": false,
+                "followers_count": 401,
+                "following_count": 1,
+                "is_subscribed": false,
+                "likes_count": 1218,
+                "views_count": 52582,
+                "items": [
+                    {
+                        "type": "project",
+                        "is_pinned": true,
+                        "item": {
+                            "publication_id": "50e90417-f205-4c14-ab7f-6d70a9a6c01c",
+                            "duration_seconds": 344.142993,
+                            "state": "published",
+                            "type": "film",
+                            "is_ongoing": false,
+                            "project_id": "50e90417-f205-4c14-ab7f-6d70a9a6c01c",
+                            "snapshot_folder_id": "6c16e464-2c24-4f95-b0c7-7081c86af18c",
+                            "has_changes_since_publish": false,
+                            "project_updated_at": "2026-11-20T11:33:55.836445+00:00",
+                            "final_submitted_at": "2026-11-20T11:33:55.819688+00:00",
+                            "is_open_source": true,
+                            "name": "OMOKAGE",
+                            "slug": "omokage",
+                            "description": "An 80s-inspired anime short about friendship, memory and the past that never lets go, blending crime, nostalgia and 1970s Casablanca.",
+                            "cover": {
+                                "id": "838e83db-288f-4473-8843-55a6a779b54c",
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED115/838e83db-288f-4473-8843-55a6a779b54c.png",
+                                "type": "media",
+                                "width": 2553,
+                                "height": 1438,
+                                "min_url": null,
+                                "duration": null,
+                                "object_fit": "cover",
+                                "thumbnail_url": null
+                            },
+                            "gallery_media": [
+                                {
+                                    "id": "1d9bbcae-d2a4-44ea-9755-4920a1a3e61c",
+                                    "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/1d9bbcae-d2a4-44ea-9755-4920a1a3e61c/c82177b9-c157-47fc-8aa2-264ebaf8206d/index.m3u8?v=c82177b9-c157-47fc-8aa2-264ebaf8206d",
+                                    "type": "video",
+                                    "width": 3840,
+                                    "height": 2160,
+                                    "min_url": null,
+                                    "duration": 344.142993,
+                                    "object_fit": "contain",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/1d9bbcae-d2a4-44ea-9755-4920a1a3e61c/c82177b9-c157-47fc-8aa2-264ebaf8206d/thumbnail.webp?v=c82177b9-c157-47fc-8aa2-264ebaf8206d",
+                                    "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED115/1d9bbcae-d2a4-44ea-9755-4920a1a3e61c.mp4",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/1d9bbcae-d2a4-44ea-9755-4920a1a3e61c/compressed.mp4",
+                                    "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/1d9bbcae-d2a4-44ea-9755-4920a1a3e61c/c82177b9-c157-47fc-8aa2-264ebaf8206d/download.mp4?v=c82177b9-c157-47fc-8aa2-264ebaf8206d&download=1d9bbcae-d2a4-44ea-9755-4920a1a3e61c.mp4"
+                                }
+                            ],
+                            "trailer": null,
+                            "author_user_ids": [
+                                "user_REDACTED115"
+                            ],
+                            "tags": [],
+                            "categories": [],
+                            "show_prompts": true,
+                            "show_canvas": true,
+                            "is_discoverable": false,
+                            "featured_episode_id": null,
+                            "is_featured": false,
+                            "created_at": "2026-11-14T19:03:48.846892Z",
+                            "authors": [
+                                {
+                                    "id": "user_REDACTED115",
+                                    "full_name": null,
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "headline": "<redacted>",
+                                    "location": "<redacted>",
+                                    "is_owner": true,
+                                    "is_followed": false,
+                                    "total_projects_views": 4887,
+                                    "total_projects_likes": 333,
+                                    "followers_count": 401,
+                                    "badges": [
+                                        {
+                                            "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                                            "name": "Higgsfield Talent",
+                                            "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                                            "description": null
+                                        }
+                                    ]
+                                }
+                            ],
+                            "team": null,
+                            "views": 4217,
+                            "likes": 199,
+                            "comments": 57,
+                            "is_liked_by_user": null,
+                            "awards": [],
+                            "contest_badges": [],
+                            "can_receive_audience_choice_votes": false,
+                            "is_higgsfield_featured": false,
+                            "is_talents_hub": false,
+                            "contest_key": "talent_contest"
+                        }
+                    }
+                ]
+            }
+        ],
+        "total": 80,
+        "limit": 20,
+        "next_offset": 20
+    }
+}

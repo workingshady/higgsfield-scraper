@@ -102,7 +102,68 @@ class SiteSpider(BaseApiSpider):
             reqs.append(self.sitemap("mixed_media_sitemap", "mixed-media"))
         if s.wants("landings") or s.wants("rooms"):
             reqs.append(self.sitemap("marketing_sitemap", "marketing"))
+        if s.rooms_api:                                   # opt-in: --what room-list / room-content
+            reqs.append(self.rooms_list())
         yield from (r for r in reqs if r is not None)
+
+    # ------------------------------------------------------------ community rooms (fnf-community JSON, opt-in)
+    def rooms_list(self, cursor: Optional[str] = None, offset: int = 0) -> Optional[scrapy.Request]:
+        if not self.page_allowed("rooms_api"):
+            return None
+        return self.api_request("rooms_api", E.ROOMS_LIST, {"limit": E.ROOMS_PAGE_SIZE, "cursor": cursor},
+                                base=E.COMMUNITY_API, labels={"offset": offset}, priority=8)
+
+    def room_items(self, rid: str, slug: str, cursor: Optional[str] = None, offset: int = 0):
+        if self._cap_reached("site_room_item") or not self.page_allowed(f"room_items:{rid}"):
+            return None
+        return self.api_request("room_items", E.ROOM_ITEMS.format(room_id=rid),
+                                {"limit": E.ROOMS_PAGE_SIZE, "cursor": cursor}, base=E.COMMUNITY_API,
+                                labels={"room_id": rid, "room_slug": slug, "offset": offset}, priority=3)
+
+    def room_discussions(self, rid: str, slug: str, offset: int = 0):
+        if self._cap_reached("site_room_discussion") or not self.page_allowed(f"room_discussions:{rid}"):
+            return None
+        return self.api_request("room_discussions", E.ROOM_DISCUSSIONS,
+                                {"room_id": rid, "kind": "discussion", "offset": offset, "limit": E.ROOMS_PAGE_SIZE},
+                                base=E.COMMUNITY_API, labels={"room_slug": slug}, priority=3)
+
+    def _rooms_follow_up(self, env: Envelope) -> list[Optional[scrapy.Request]]:
+        ep, s, b = env.endpoint, self.selection, (env.body if isinstance(env.body, dict) else {})
+        out: list[Optional[scrapy.Request]] = []
+        mx = self.common.max_items
+        if ep == "rooms_api":
+            if b.get("total") is not None:
+                self.totals.setdefault("rooms_api_total", b.get("total"))
+            rooms = [r for r in b.get("items") or [] if isinstance(r, dict) and r.get("id") and r.get("slug")]
+            for r in rooms:
+                rid, slug = str(r["id"]), str(r["slug"])
+                if not s.path_ok(f"/community/rooms/{slug}") or rid in self._scheduled:
+                    continue
+                if mx is not None and self._page_budget["rooms"] >= mx:
+                    self.limit_hit(f"max_items={mx} reached for site_room (further rooms not requested)")
+                    break
+                self._page_budget["rooms"] += 1
+                self._scheduled.add(rid)
+                out.append(self.api_request("room_stats", E.ROOM_STATS, {"room_id": rid}, base=E.COMMUNITY_API,
+                                            priority=4))
+                if s.wants("room-content"):
+                    out += [self.room_items(rid, slug), self.room_discussions(rid, slug)]
+            nxt = b.get("next_cursor")
+            more = mx is None or self._page_budget["rooms"] < mx
+            if rooms and nxt and nxt != env.params.get("cursor") and more:
+                out.append(self.rooms_list(nxt, int(env.params.get("offset") or 0) + len(rooms)))
+        elif ep == "room_items":
+            items = b.get("items") or []
+            nxt = b.get("next_cursor")
+            if items and nxt and nxt != env.params.get("cursor"):
+                out.append(self.room_items(env.params["room_id"], env.params.get("room_slug") or "", nxt,
+                                           int(env.params.get("offset") or 0) + len(items)))
+        elif ep == "room_discussions":
+            pubs = b.get("publications") or []
+            if pubs and b.get("has_more") is True:
+                out.append(self.room_discussions(env.params["room_id"], env.params.get("room_slug") or "",
+                                                 int(env.params.get("offset") or 0) + len(pubs)))
+        return out
 
     def parse_api(self, response, **kw):
         """Convert non-JSON bodies, then run the framework's parse_api and apply the per-kind --max-items."""
@@ -152,7 +213,9 @@ class SiteSpider(BaseApiSpider):
     def follow_up(self, env: Envelope, entities: list[dict], response) -> Iterator[Any]:
         ep, s = env.endpoint, self.selection
         out: list[Optional[scrapy.Request]] = []
-        if ep == "apps_index":
+        if ep in ("rooms_api", "room_items", "room_discussions"):
+            out += self._rooms_follow_up(env)
+        elif ep == "apps_index":
             self._app_categories |= app_category_slugs(env.body)
             slugs = app_index_slugs(env.body)
             self.totals["apps_on_index"] = len(slugs)

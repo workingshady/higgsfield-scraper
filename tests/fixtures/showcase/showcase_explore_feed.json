@@ -1,0 +1,268 @@
+{
+ "meta": {
+  "endpoint": "showcase_explore_feed",
+  "url": "https://cms.higgsfield.ai/higgsfield-multiplier/video-explore/v2?lang=en&source=higgsfield&size=20&cursor=1",
+  "params": {
+   "lang": "en",
+   "source": "higgsfield",
+   "size": "20",
+   "cursor": "1",
+   "page": "1",
+   "feed": "higgsfield-trending"
+  },
+  "fetched_at": "2026-11-26T14:05:43.793687+00:00",
+  "status": 200
+ },
+ "body": {
+  "total": 35,
+  "cursor": 2,
+  "items": [
+   {
+    "id": "27182599-2cee-4b27-be1a-d13e9d713d37",
+    "source": "higgsfield",
+    "title": "Countryside Duo",
+    "description": "Explore this object replacement preset.",
+    "job_set_type": "hf_mult_replace_object",
+    "original_video": {
+     "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/baed0aeb-20d0-54f8-99c5-b4b0cb3a2f66.mp4",
+     "type": "video",
+     "width": 1276,
+     "height": 718,
+     "duration": 14.133333,
+     "main_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/baed0aeb-20d0-54f8-99c5-b4b0cb3a2f66.mp4",
+     "media_id": "baed0aeb-20d0-54f8-99c5-b4b0cb3a2f66",
+     "main_width": 1276,
+     "media_type": "video_input",
+     "main_height": 718,
+     "thumbnail_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_how_it_works_reference/c13b5559-6f19-5e97-bef5-bd5846e7d05d.webp"
+    },
+    "variants": [
+     {
+      "id": "c482de2c-1644-5faa-9271-9290bcf8eb2e",
+      "type": "edit",
+      "media": {
+       "url": "https://cdn.higgsfield.ai/genjutsu/preview/genjutsu-h264-600-v1/90d01517-46a5-467d-a37e-b2e18b401386.mp4",
+       "type": "video",
+       "width": 600,
+       "height": 338,
+       "duration": 14.041667,
+       "main_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/47e7f67c-9036-5716-b9c7-fee8bc56d0d6.mp4",
+       "main_width": 1920,
+       "main_height": 1080,
+       "thumbnail_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/54b6f52b-08b2-5acf-9557-2e599560acd8.webp",
+       "compressed_video": {
+        "url": "https://cdn.higgsfield.ai/genjutsu/preview/genjutsu-h264-600-v1/90d01517-46a5-467d-a37e-b2e18b401386.mp4",
+        "width": 600,
+        "height": 338,
+        "status": "ready",
+        "profile": "genjutsu-h264-600-v1",
+        "duration": 14.041667,
+        "size_bytes": 995242,
+        "source_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/47e7f67c-9036-5716-b9c7-fee8bc56d0d6.mp4",
+        "audio_streams": 0
+       },
+       "hls_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/hls/genjutsu-h264-abr-v1/f0a6564537af14ec0a07d3ad/b4cee478-e276-484d-b32d-22e5f1060a77/master.m3u8"
+      },
+      "prompt": null,
+      "input_assets": [],
+      "params": {},
+      "priority": 0
+     },
+     {
+      "id": "fcb01b90-aa23-4d54-8861-9dbe50479a5a",
+      "type": "original",
+      "media": {
+       "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/baed0aeb-20d0-54f8-99c5-b4b0cb3a2f66.mp4",
+       "type": "video",
+       "width": 1276,
+       "height": 718,
+       "duration": 14.133333,
+       "main_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/baed0aeb-20d0-54f8-99c5-b4b0cb3a2f66.mp4",
+       "media_id": "baed0aeb-20d0-54f8-99c5-b4b0cb3a2f66",
+       "main_width": 1276,
+       "media_type": "video_input",
+       "main_height": 718,
+       "thumbnail_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_how_it_works_reference/c13b5559-6f19-5e97-bef5-bd5846e7d05d.webp"
+      },
+      "prompt": null,
+      "input_assets": [],
+      "params": {},
+      "priority": 1
+     },
+     {
+      "id": "5446eb08-8686-4d4a-9155-64e8ad1f5896",
+      "type": "generation",
+      "media": {
+       "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/cf829d48-242d-41e7-ba24-41cecc9a4172/generation-genjutsu-h264-600-v1.mp4",
+       "type": "video",
+       "width": 600,
+       "height": 338,
+       "duration": 14.041667,
+       "main_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/8459f2e9-c287-50e6-9d75-75ae25a467fc.mp4",
+       "main_width": 1920,
+       "main_height": 1080,
+       "thumbnail_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/c131016c-ab63-5bc9-a27a-44feffacd621.webp",
+       "compressed_video": {
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/cf829d48-242d-41e7-ba24-41cecc9a4172/generation-genjutsu-h264-600-v1.mp4",
+        "width": 600,
+        "height": 338,
+        "status": "ready",
+        "profile": "genjutsu-h264-600-v1",
+        "duration": 14.041667,
+        "size_bytes": 782190,
+        "source_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/8459f2e9-c287-50e6-9d75-75ae25a467fc.mp4",
+        "audio_streams": 0
+       },
+       "hls_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/hls/genjutsu-h264-abr-v1/027c999c8b623abbcac9cbdb/5dbb6706-243d-4434-9a9d-9f3386f923fe/master.m3u8"
+      },
+      "prompt": "Replace the scene location with the environment from my references and change the characters",
+      "input_assets": [
+       {
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/1e8ff4e3-d1ff-49dc-b7ac-ec47e437574e.png",
+        "type": "static",
+        "width": 2048,
+        "height": 1152,
+        "media_id": "1e8ff4e3-d1ff-49dc-b7ac-ec47e437574e",
+        "media_type": "media_input"
+       },
+       {
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/015042cd-7956-4def-81de-d15803b9b868.png",
+        "type": "static",
+        "width": 2048,
+        "height": 1152,
+        "media_id": "015042cd-7956-4def-81de-d15803b9b868",
+        "media_type": "media_input"
+       },
+       {
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/9c30f33e-2587-4578-8679-2e4283ee65a6.png",
+        "type": "static",
+        "width": 2048,
+        "height": 1152,
+        "media_id": "9c30f33e-2587-4578-8679-2e4283ee65a6",
+        "media_type": "media_input"
+       }
+      ],
+      "params": {},
+      "priority": 2
+     }
+    ],
+    "priority": 2
+   },
+   {
+    "id": "735fdf1a-e36a-4f2c-be5e-eb3064f53ede",
+    "source": "higgsfield",
+    "title": "Orange Jacket",
+    "description": "Explore this object replacement preset.",
+    "job_set_type": "hf_mult_replace_object",
+    "original_video": {
+     "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/000f949b-2131-4fd7-b64e-d6547b9bb722.mp4",
+     "type": "video",
+     "width": 1280,
+     "height": 720,
+     "duration": 9.866667,
+     "main_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/000f949b-2131-4fd7-b64e-d6547b9bb722.mp4",
+     "media_id": "000f949b-2131-4fd7-b64e-d6547b9bb722",
+     "main_width": 1280,
+     "media_type": "video_input",
+     "main_height": 720,
+     "thumbnail_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_how_it_works_reference/000f949b-2131-4fd7-b64e-d6547b9bb722.webp"
+    },
+    "variants": [
+     {
+      "id": "b24239b1-755b-592b-8a10-2d23b778df1a",
+      "type": "edit",
+      "media": {
+       "url": "https://cdn.higgsfield.ai/genjutsu/preview/genjutsu-h264-600-v1/76933ec2-b002-4446-8713-180f60286ad7.mp4",
+       "type": "video",
+       "width": 600,
+       "height": 338,
+       "duration": 9.5,
+       "main_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/8d95f4bf-551f-5606-a72b-54bdb2c20312.mp4",
+       "main_width": 1920,
+       "main_height": 1080,
+       "thumbnail_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/c045b52b-ab93-5d96-8e2b-72115697cb50.webp",
+       "compressed_video": {
+        "url": "https://cdn.higgsfield.ai/genjutsu/preview/genjutsu-h264-600-v1/76933ec2-b002-4446-8713-180f60286ad7.mp4",
+        "width": 600,
+        "height": 338,
+        "status": "ready",
+        "profile": "genjutsu-h264-600-v1",
+        "duration": 9.5,
+        "size_bytes": 618543,
+        "source_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/8d95f4bf-551f-5606-a72b-54bdb2c20312.mp4",
+        "audio_streams": 0
+       },
+       "hls_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/hls/genjutsu-h264-abr-v1/171320a44116c61d1e0d68ac/3433bd7f-be25-49a6-a7ab-8745f8c396dd/master.m3u8"
+      },
+      "prompt": null,
+      "input_assets": [],
+      "params": {},
+      "priority": 0
+     },
+     {
+      "id": "27ff9986-b857-4284-b8a2-dd7a9492aa67",
+      "type": "original",
+      "media": {
+       "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/000f949b-2131-4fd7-b64e-d6547b9bb722.mp4",
+       "type": "video",
+       "width": 1280,
+       "height": 720,
+       "duration": 9.866667,
+       "main_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/000f949b-2131-4fd7-b64e-d6547b9bb722.mp4",
+       "media_id": "000f949b-2131-4fd7-b64e-d6547b9bb722",
+       "main_width": 1280,
+       "media_type": "video_input",
+       "main_height": 720,
+       "thumbnail_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_how_it_works_reference/000f949b-2131-4fd7-b64e-d6547b9bb722.webp"
+      },
+      "prompt": null,
+      "input_assets": [],
+      "params": {},
+      "priority": 1
+     },
+     {
+      "id": "620b55ba-807a-4cfe-84b6-469061f8c583",
+      "type": "generation",
+      "media": {
+       "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/fc0dfb62-d5cd-401b-bee1-496f617e5d3e/generation-genjutsu-h264-600-v1.mp4",
+       "type": "video",
+       "width": 600,
+       "height": 1066,
+       "duration": 9.708008,
+       "main_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/9349e2ab-a532-5620-bb87-0e3c4a3cba8d.mp4",
+       "main_width": 1080,
+       "main_height": 1920,
+       "thumbnail_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/32379b92-292b-55e0-a4a6-70a875aa2edc.webp",
+       "compressed_video": {
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/fc0dfb62-d5cd-401b-bee1-496f617e5d3e/generation-genjutsu-h264-600-v1.mp4",
+        "width": 600,
+        "height": 1066,
+        "status": "ready",
+        "profile": "genjutsu-h264-600-v1",
+        "duration": 9.708008,
+        "size_bytes": 1441691,
+        "source_url": "https://cdn.higgsfield.ai/higgsfield_multiplier_video_explore_variant/9349e2ab-a532-5620-bb87-0e3c4a3cba8d.mp4",
+        "audio_streams": 0
+       },
+       "hls_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/hls/genjutsu-h264-abr-v1/1c8e190f912477e58e282117/3a140e8f-0182-4997-833f-5845f14299ed/master.m3u8"
+      },
+      "prompt": "Replace the main character with the character from my references.",
+      "input_assets": [
+       {
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/c0b043e1-71b6-43ac-8255-55bad7e70907.png",
+        "type": "static",
+        "width": 2048,
+        "height": 1152,
+        "media_id": "c0b043e1-71b6-43ac-8255-55bad7e70907",
+        "media_type": "media_input"
+       }
+      ],
+      "params": {},
+      "priority": 2
+     }
+    ],
+    "priority": 3
+   }
+  ]
+ }
+}

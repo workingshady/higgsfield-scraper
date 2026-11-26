@@ -1,0 +1,34 @@
+{
+ "meta": {
+  "endpoint": "showcase_faceless_showcases",
+  "url": "https://cms.higgsfield.ai/youtube-faceless-showcases?lang=en&size=20",
+  "params": {
+   "lang": "en",
+   "size": "20"
+  },
+  "fetched_at": "2026-11-26T14:05:48.695966+00:00",
+  "status": 200
+ },
+ "body": {
+  "total": 9,
+  "cursor": null,
+  "items": [
+   {
+    "id": "5e0072b4-4add-4f90-b175-18831d2854a3",
+    "title": "The Raven Who Stole the Light",
+    "category": "storytelling",
+    "video_url": "https://cdn.higgsfield.ai/youtube_faceless_showcase/d847bce9-c7f6-471b-a90f-5d7e0ef2990b.mp4",
+    "thumbnail_url": "https://cdn.higgsfield.ai/youtube_faceless_showcase/7aed82d8-f35c-406c-ac2e-b7631083aa33.webp",
+    "icon_url": "https://cdn.higgsfield.ai/youtube_faceless_showcase/f9403e80-2609-45e8-9e09-0f017252e59f.webp"
+   },
+   {
+    "id": "664f0e40-5ad3-4c2d-8bb4-96fcb8727d60",
+    "title": "POV: 17th Century Factory Worker",
+    "category": "history",
+    "video_url": "https://cdn.higgsfield.ai/youtube_faceless_showcase/03086c37-1fc1-4888-9157-f5bcd5b91f56.webm",
+    "thumbnail_url": "https://cdn.higgsfield.ai/youtube_faceless_showcase/e28206ff-baa6-402d-b402-7407f6325abf.webp",
+    "icon_url": "https://cdn.higgsfield.ai/youtube_faceless_showcase/d00869a3-2a87-483d-a442-610212a4bdc2.webp"
+   }
+  ]
+ }
+}

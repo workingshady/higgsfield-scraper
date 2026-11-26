@@ -1,0 +1,91 @@
+{
+    "meta": {
+        "endpoint": "community_entity_comments",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/entities/project_publication/d34bf2aa-de9f-4302-a4f2-cc4bc8008209/comments?limit=20&cursor=MjAyNi0wOC0yMFQwMjo1ODoyMC4wODUxNjdafGEzNTdmMDJhLWExODgtNDc2ZC1iOWNlLWNlZjczOGFmZGZmOQ",
+        "params": {
+            "limit": "20",
+            "cursor": "MjAyNi0wOC0yMFQwMjo1ODoyMC4wODUxNjdafGEzNTdmMDJhLWExODgtNDc2ZC1iOWNlLWNlZjczOGFmZGZmOQ",
+            "entity_type": "project_publication",
+            "entity_id": "d34bf2aa-de9f-4302-a4f2-cc4bc8008209"
+        },
+        "fetched_at": "2026-11-26T13:36:54.303995+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "467fb265-2063-4fc7-8849-d64f869e8637",
+                "entity_type": "project_publication",
+                "publication_id": "d34bf2aa-de9f-4302-a4f2-cc4bc8008209",
+                "user_id": "user_REDACTED116",
+                "content": "황정민 ㅎㅎㅎㅎ",
+                "author": {
+                    "id": "user_REDACTED116",
+                    "username": "<redacted>",
+                    "full_name": "",
+                    "avatar_url": "<redacted>",
+                    "headline": "",
+                    "badge": "",
+                    "rating_points": null
+                },
+                "reply_count": 0,
+                "like_count": 1,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [],
+                "mentions": [],
+                "created_at": "2026-08-20T00:35:37.515933Z",
+                "updated_at": "2026-08-21T04:10:45.565907Z"
+            },
+            {
+                "id": "fa11bbfa-13bf-4f77-addd-c7c2f878cd13",
+                "entity_type": "project_publication",
+                "publication_id": "d34bf2aa-de9f-4302-a4f2-cc4bc8008209",
+                "user_id": "user_REDACTED117",
+                "content": "🇨🇮🇨🇮🇨🇮",
+                "author": {
+                    "id": "user_REDACTED117",
+                    "username": "<redacted>",
+                    "full_name": "",
+                    "avatar_url": "<redacted>",
+                    "headline": "",
+                    "badge": "",
+                    "rating_points": null
+                },
+                "reply_count": 0,
+                "like_count": 0,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [],
+                "mentions": [],
+                "created_at": "2026-08-20T00:33:24.027918Z",
+                "updated_at": "2026-08-20T00:33:24.027918Z"
+            },
+            {
+                "id": "29d02cbe-abcd-44ef-827b-2b8e1f4e0823",
+                "entity_type": "project_publication",
+                "publication_id": "d34bf2aa-de9f-4302-a4f2-cc4bc8008209",
+                "user_id": "user_REDACTED118",
+                "content": "the style and production is too good\n\ndo watch my film too its SYNARA",
+                "author": {
+                    "id": "user_REDACTED118",
+                    "username": "<redacted>",
+                    "full_name": "",
+                    "avatar_url": "<redacted>",
+                    "headline": "",
+                    "badge": "",
+                    "rating_points": 4
+                },
+                "reply_count": 0,
+                "like_count": 0,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [],
+                "mentions": [],
+                "created_at": "2026-08-19T19:32:32.4056Z",
+                "updated_at": "2026-08-19T19:32:32.4056Z"
+            }
+        ],
+        "total": 96
+    }
+}

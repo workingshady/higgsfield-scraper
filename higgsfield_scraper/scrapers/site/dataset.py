@@ -9,10 +9,10 @@ from typing import Any, Optional
 
 from ...core.base import RunMeta
 from ...core.dataset import make_meta
-from ...core.exporting import row, without, write_standard_outputs
-from .endpoints import ENDPOINT_DOCS
+from ...core.exporting import flatten, row, without, write_standard_outputs
+from .endpoints import ENDPOINT_DOCS, ROOM_ENDPOINT_DOCS
 from .options import Selection
-from .schemas import SiteDataset
+from .schemas import SiteDataset, SiteDatasetExt
 
 COLLECTIONS = {               # dataset key -> (kind, id field used in CSVs)
     "apps": ("site_app", "slug"),
@@ -29,6 +29,11 @@ COLLECTIONS = {               # dataset key -> (kind, id field used in CSVs)
     "promo_events": ("site_promo_event", "event_id"),
     "business_unlim_offers": ("site_business_unlim_offer", "offer_id"),
     "game_gifts": ("site_game_gift", "gift_id"),
+}
+ROOM_COLLECTIONS = {          # only in runs with --what room-list / room-content (SiteDatasetExt)
+    "rooms": ("site_room", "room_id"),
+    "room_items": ("site_room_item", "room_item_id"),
+    "room_discussions": ("site_room_discussion", "post_id"),
 }
 MERGED = ("apps", "courses", "mcp_skills")         # index + page records merged by slug
 EMPTY = (None, "", [], {})
@@ -109,10 +114,36 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
     warnings = []
     if sel.wants("landings") and not data["landings"] and sel.with_content:
         warnings.append("no landing pages parsed")
-    meta = make_meta("site", sel, rm, counts=counts, endpoints=dict(ENDPOINT_DOCS), totals_available=dict(rm.totals),
+    endpoints = dict(ENDPOINT_DOCS)
+    rooms = _room_collections(entities) if sel.rooms_api else None
+    if rooms is not None:
+        counts.update({c: len(v) for c, v in rooms.items()})
+        endpoints.update(ROOM_ENDPOINT_DOCS)
+    meta = make_meta("site", sel, rm, counts=counts, endpoints=endpoints, totals_available=dict(rm.totals),
                      warnings=warnings)
-    ds = SiteDataset.model_validate({"schema_version": 1, "meta": meta, **data, "summary": summary})
+    if rooms is None:
+        ds = SiteDataset.model_validate({"schema_version": 1, "meta": meta, **data, "summary": summary})
+    else:
+        ds = SiteDatasetExt.model_validate({"schema_version": 1, "meta": meta, **data, **rooms, "summary": summary})
     return ds.model_dump(mode="json")
+
+
+def _room_collections(entities: dict[str, list[dict]]) -> dict[str, list[dict]]:
+    """Rooms (+ room-stats merged in), room works and room discussions."""
+    stats = {e["room_id"]: e for e in entities.get("site_room_stats", [])}
+    out = {c: [_strip_kind(e) for e in entities.get(kind, [])] for c, (kind, _id) in ROOM_COLLECTIONS.items()}
+    for r in out["rooms"]:
+        st = stats.get(r["room_id"]) or {}
+        r["posts_count"] = st.get("posts", r.get("posts_count"))
+        r["discussions_count"] = st.get("discussions", r.get("discussions_count"))
+    slug_of = {r["room_id"]: r["slug"] for r in out["rooms"]}
+    for c in ("room_items", "room_discussions"):
+        for x in out[c]:
+            x["room_slug"] = x.get("room_slug") or slug_of.get(x.get("room_id"))
+    out["rooms"].sort(key=lambda r: (r.get("position") is None, r.get("position") or 0, r["slug"]))
+    out["room_items"].sort(key=lambda x: (x.get("room_slug") or "", x.get("position") or 0))
+    out["room_discussions"].sort(key=lambda x: (x.get("room_slug") or "", str(x.get("created_at") or "")))
+    return out
 
 
 # ------------------------------------------------------------------ CSV tables
@@ -216,11 +247,41 @@ def write_articles(ds: dict, out_dir: Path) -> list[Path]:
     return files
 
 
+def room_csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
+    disc = ds["room_discussions"]
+    return {
+        "rooms": ([_main_row(r, []) for r in ds["rooms"]], ["room_id", "slug", "name", "url"]),
+        "room_items": ([_main_row(x, []) for x in ds["room_items"]],
+                       ["room_item_id", "room_id", "room_slug", "item_type", "item_id"]),
+        "room_discussions": ([flatten(without(x, "media")) for x in disc], ["post_id", "room_id", "room_slug"]),
+        "room_discussion_media": ([row(m, post_id=x["post_id"], room_id=x.get("room_id")) for x in disc
+                                   for m in x.get("media") or []], ["post_id", "room_id", "index"]),
+    }
+
+
+def room_summary_md(ds: dict) -> str:
+    rooms = ds["rooms"]
+    lines = ["## Community rooms (fnf-community API)", "", "| collection | items |", "|---|---:|"]
+    lines += [f"| {c} | {len(ds[c])} |" for c in ROOM_COLLECTIONS]
+    if rooms:
+        lines += ["", "| room | members | works | posts | discussions | call |", "|---|---:|---:|---:|---:|---|"]
+        for r in sorted(rooms, key=lambda r: -(r.get("followers_count") or 0))[:30]:
+            lines.append(f"| {r['slug']} | {r.get('followers_count')} | {r.get('works_count')} | "
+                         f"{r.get('posts_count')} | {r.get('discussions_count')} | {r.get('call_status')} |")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
     parts: dict[str, Any] = {c: ds[c] for c in COLLECTIONS}
     parts["summary"] = ds["summary"]
-    files = write_standard_outputs(ds, out_dir, json_parts=parts, csv_tables=csv_tables(ds),
-                                   dataset_model=SiteDataset, summary_md=summary_md(ds))
+    tables, model, md = csv_tables(ds), SiteDataset, summary_md(ds)
+    if "rooms" in ds:              # --what room-list / room-content (SiteDatasetExt)
+        parts.update({c: ds[c] for c in ROOM_COLLECTIONS})
+        tables.update(room_csv_tables(ds))
+        model, md = SiteDatasetExt, md + "\n" + room_summary_md(ds)
+    files = write_standard_outputs(ds, out_dir, json_parts=parts, csv_tables=tables,
+                                   dataset_model=model, summary_md=md)
     if (ds["meta"].get("options") or {}).get("write_markdown", True):
         files += write_articles(ds, out_dir)
     return files

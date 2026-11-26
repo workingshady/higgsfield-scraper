@@ -735,6 +735,117 @@ def parse_game_gift(env: Envelope, sel: Selection) -> list[dict]:
     return out
 
 
+# ================================================================== community rooms (fnf-community API, opt-in)
+
+def _room_url(slug: Any) -> str:
+    return f"{SITE}/community/rooms/{slug}"
+
+
+def parse_rooms_list(env: Envelope, sel: Selection) -> list[dict]:
+    b = env.body if isinstance(env.body, dict) else {}
+    off = _int(env.params.get("offset")) or 0
+    out = []
+    for n, r in enumerate(_dicts(b.get("items"))):
+        if not r.get("id") or not r.get("slug"):
+            continue
+        wc = r.get("works_counts") if isinstance(r.get("works_counts"), dict) else {}
+        cs = r.get("call_status") if isinstance(r.get("call_status"), dict) else {}
+        au = r.get("author") if isinstance(r.get("author"), dict) else {}
+        out.append({
+            "kind": "site_room", "room_id": str(r["id"]), "slug": str(r["slug"]), "url": _room_url(r["slug"]),
+            "name": _s(r.get("name")), "description": _s(r.get("description")), "avatar_url": _s(r.get("avatar_url")),
+            "cover_url": _s(r.get("cover_url")), "works_count": _int(r.get("works_count")),
+            "works_shots": _int(wc.get("shot")), "works_projects": _int(wc.get("project_publication")),
+            "works_blog_posts": _int(wc.get("blog_post")), "followers_count": _int(r.get("followers_count")),
+            "posts_count": None, "discussions_count": None, "call_status": _s(cs.get("status")),
+            "call_participants": _int(cs.get("participant_count")), "owner_user_id": _s(au.get("user_id")),
+            "owner_username": _s(au.get("username")) if sel.with_profiles else None, "pinned": _bool(r.get("pinned")),
+            "members_can_post": _bool(r.get("members_can_post")), "join_approval": _bool(r.get("join_approval")),
+            "project_publication_id": _s(r.get("project_publication_id")), "contest_id": _s(r.get("contest_id")),
+            "original_space_id": _s(r.get("original_space_id")),
+            "works_preview_ids": [str(w["item_id"]) for w in _dicts(r.get("works_preview")) if w.get("item_id")],
+            "created_at": iso(r.get("created_at")), "position": off + n, "source": env.provenance()})
+    return out
+
+
+def parse_room_stats(env: Envelope, sel: Selection) -> list[dict]:
+    """room-stats -> an aux record merged into site_room by build_dataset (not a collection of its own)."""
+    b = env.body if isinstance(env.body, dict) else {}
+    rid = env.params.get("room_id")
+    if not rid:
+        return []
+    return [{"kind": "site_room_stats", "room_id": str(rid), "posts": _int(b.get("posts")),
+             "discussions": _int(b.get("discussions"))}]
+
+
+def parse_room_items(env: Envelope, sel: Selection) -> list[dict]:
+    b = env.body if isinstance(env.body, dict) else {}
+    rid, rslug = env.params.get("room_id") or "", env.params.get("room_slug")
+    off = _int(env.params.get("offset")) or 0
+    out = []
+    for n, it in enumerate(_dicts(b.get("items"))):
+        sid = it.get("space_item_id")
+        x = it.get("item") if isinstance(it.get("item"), dict) else {}
+        if not sid:
+            continue
+        t = str(it.get("item_type") or "unknown")
+        t = t if t in ("shot", "project_publication", "blog_post") else "unknown"
+        e: dict[str, Any] = {"kind": "site_room_item", "room_item_id": str(sid), "room_id": rid, "room_slug": rslug,
+                             "item_type": t, "pinned": _bool(it.get("pinned")), "position": off + n,
+                             "source": env.provenance()}
+        cover = x.get("cover") if isinstance(x.get("cover"), dict) else {}
+        if t == "shot":
+            pub = x.get("publication") if isinstance(x.get("publication"), dict) else {}
+            res = x.get("results") if isinstance(x.get("results"), dict) else {}
+            raw = res.get("raw") if isinstance(res.get("raw"), dict) else {}
+            mn = res.get("min") if isinstance(res.get("min"), dict) else {}
+            params = x.get("params") if isinstance(x.get("params"), dict) else {}
+            prompt = _s(params.get("prompt"))
+            e.update({"item_id": _s(pub.get("id")), "generation_id": _s(x.get("id")),
+                      "url": f"{SITE}/community/generations?shot={pub['id']}" if pub.get("id") else None,
+                      "title": prompt[:200] if prompt else None, "prompt": prompt,
+                      "job_set_type": _s(x.get("job_set_type")), "media_type": _s(raw.get("type") or mn.get("type")),
+                      "media_url": _s(raw.get("url")), "thumbnail_url": _s(raw.get("thumbnail_url") or mn.get("url")),
+                      "likes": _int(pub.get("likes_count")), "views": _int(pub.get("views_count")),
+                      "author_user_ids": [str(x["user_id"])] if x.get("user_id") else [],
+                      "created_at": iso(x.get("published_at") or x.get("created_at"))})
+        elif t == "project_publication":
+            e.update({"item_id": _s(x.get("publication_id")), "title": _s(x.get("name")), "slug": _s(x.get("slug")),
+                      "description": _s(x.get("description")), "media_url": _s(cover.get("url")),
+                      "thumbnail_url": _s(cover.get("thumbnail_url") or cover.get("min_url")),
+                      "project_type": _s(x.get("type")), "duration_seconds": _float(x.get("duration_seconds")),
+                      "likes": _int(x.get("likes")), "views": _int(x.get("views")), "comments": _int(x.get("comments")),
+                      "tags": [str(v) for v in x.get("tags") or [] if v is not None],
+                      "author_user_ids": [str(v) for v in x.get("author_user_ids") or [] if v],
+                      "created_at": iso(x.get("created_at"))})
+        elif t == "blog_post":
+            au = x.get("author") if isinstance(x.get("author"), dict) else {}
+            e.update({"item_id": _s(x.get("id")), "title": _s(x.get("title")), "slug": _s(x.get("slug")),
+                      "description": _s(x.get("subtitle")), "media_url": _s(cover.get("url")),
+                      "reading_time_minutes": _int(x.get("reading_time_minutes")),
+                      "likes": _int(x.get("likes_count")), "views": _int(x.get("views_count")),
+                      "tags": [str(v.get("name") if isinstance(v, dict) else v) for v in x.get("tags") or [] if v],
+                      "author_user_ids": [str(au["id"])] if au.get("id") else [],
+                      "created_at": iso(x.get("published_at") or x.get("created_at"))})
+        out.append(e)
+    return out
+
+
+def parse_room_discussions(env: Envelope, sel: Selection) -> list[dict]:
+    from ..community.parsers import parse_post
+    b = env.body if isinstance(env.body, dict) else {}
+    out = []
+    for p in _dicts(b.get("publications")):
+        if not p.get("id"):
+            continue
+        e = parse_post(p, sel, env.provenance())
+        e["kind"] = "site_room_discussion"
+        e["room_id"] = e.get("room_id") or env.params.get("room_id")
+        e["room_slug"] = env.params.get("room_slug")
+        out.append(e)
+    return out
+
+
 # ================================================================== sitemaps + dispatch
 
 def sitemap_urls(body: Any) -> list[dict[str, Any]]:
@@ -760,6 +871,10 @@ PARSERS = {
     "datetime_settings": parse_datetime_settings,
     "business_unlim": parse_business_unlim,
     "game_gift": parse_game_gift,
+    "rooms_api": parse_rooms_list,
+    "room_stats": parse_room_stats,
+    "room_items": parse_room_items,
+    "room_discussions": parse_room_discussions,
 }
 
 
@@ -774,6 +889,8 @@ def keep(e: dict, sel: Selection) -> bool:
     """--only filters detail records by URL path (index/aux records are always kept)."""
     if e.get("kind") not in PRIMARY_KINDS or not sel.only:
         return True
+    if e.get("kind") in ("site_room_item", "site_room_discussion"):     # filtered by their room's page path
+        return sel.path_ok(f"/community/rooms/{e.get('room_slug') or ''}")
     return sel.path_ok(urlsplit(e.get("url") or "").path)
 
 

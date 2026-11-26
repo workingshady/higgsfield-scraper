@@ -80,5 +80,6 @@ SCRAPER = ScraperDef(
         "scrape site --what landings --only /plugins/,kling --max-items 10",
         "scrape site --what originals,mixed-media --download-media thumbs",
         "scrape site --what all,rooms --max-items 20 --label smoke-site",
+        "scrape site --what room-content --max-items 50 --label rooms",
     ),
 )

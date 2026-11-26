@@ -22,6 +22,12 @@ covers**, plus three small public JSON APIs that were not used anywhere:
 
 Default `--what`: everything except `rooms`. A full run is ≈ 650 requests (≈ 12 minutes at the default 1 s delay).
 
+> **Community rooms API (opt-in, 2026-11-26):** `--what room-list` → `site_room` (all 88 rooms from fnf-community
+> `/rooms` + `/publications/room-stats`: works per type, followers, posts/discussions counts, call status);
+> `--what room-content` → also `site_room_item` (each room's shots with prompts, projects, blog posts) and
+> `site_room_discussion` (discussion posts). Not part of `--what all`. Evidence, data model and totals:
+> [`../COMMUNITY_COVERAGE.md`](../COMMUNITY_COVERAGE.md).
+
 ## Sources (reverse-engineered, GET only, no login)
 
 ### SSR pages: TanStack Start loader state
@@ -101,7 +107,7 @@ are included with `preset: secondary`. Landing `offer_price` comes from JSON-LD 
 
 | Option | Default | Meaning |
 |---|---|---|
-| `--what` | all but `rooms` | comma list of `apps, academy, mcp, originals, mixed-media, landings, rooms, promos` or `all` |
+| `--what` | all but `rooms`, `room-list`, `room-content` | comma list of `apps, academy, mcp, originals, mixed-media, landings, rooms, promos, room-list, room-content` or `all` (`all` never adds the three room values). `--max-items` caps rooms, room items and room discussions separately |
 | `--with-content` / `--no-content` | on | `--no-content` = index pages only where an index exists (apps, academy, mcp, originals): ≈ 15 requests, no lesson/landing text |
 | `--only` | — | keep only detail pages whose URL path contains one of these strings (`kling,/plugins/,blockbuster-4k`) |
 | `--with-profiles` | off | keep creators' usernames (app authors, episode uploaders, mixed-media sample creators, series cast) |
@@ -143,7 +149,7 @@ published staff bylines and are kept in the dataset; note that the `raw/` redact
 | Source | Why |
 |---|---|
 | `/effects`, `/effects/examples/<preset>` (87) | The presets are the same objects as `catalog` → `viral_presets` (`/viral-hub/presets/all`, incl. price matrix); the example generations are community generations (`community --preset …`) |
-| `/community/rooms/<slug>` chat | Client-side and per-user content; only the page title/description is kept (`--what rooms`) |
+| `/community/rooms/<slug>` chat | There is no public message stream (no WebSocket/SSE in the bundle; calls need a login). The room's works and discussion posts are public JSON: `--what room-content`. Room followers lists (people only) are not collected |
 | `/feature`, `/user/meta`, `/user/features`, `/youtube-faceless/hot-right-now`, `/contests/trending` | Anonymous feature flags / your IP's country / empty lists — no catalog data |
 | Academy JSON API (`/api/v1/courses`, `/academy/_catalog`) | 401 without login; the SSR pages carry the same data |
 | Localized landing copies (`/es`, `/ja`, `/ko`, `/de`), `sitemap-es.xml`, `sitemap-ko.xml` | Duplicates of English pages |

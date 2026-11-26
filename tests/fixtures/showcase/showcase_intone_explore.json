@@ -1,0 +1,121 @@
+{
+ "meta": {
+  "endpoint": "showcase_intone_explore",
+  "url": "https://cms.higgsfield.ai/intone/explore?lang=en&size=20&cursor=1",
+  "params": {
+   "lang": "en",
+   "size": "20",
+   "cursor": "1"
+  },
+  "fetched_at": "2026-11-26T14:05:50.208278+00:00",
+  "status": 200
+ },
+ "body": {
+  "total": 18,
+  "cursor": null,
+  "items": [
+   {
+    "id": "1e4a3c24-173e-4c8c-be89-78c671e21b0b",
+    "title": "Podcast 2",
+    "video": {
+     "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/efe39974-2565-4387-a4c5-cf4625014d92.mp4",
+     "type": "video",
+     "width": 1920,
+     "height": 1080,
+     "main_url": "https://static-public-media.higgsfield.ai/intone-explore-presets/efe39974-2565-4387-a4c5-cf4625014d92.mp4",
+     "main_width": 1920,
+     "main_height": 1080,
+     "placeholder": "data:image/webp;base64,AAAA",
+     "thumbnail_url": "https://static-public-media.higgsfield.ai/intone-explore-presets/4105f427-030e-40a7-87a3-02562000a85f.webp",
+     "compressed_video": {
+      "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/6665d788-0f3f-41f9-be8a-19d8c87dd184.mp4",
+      "width": 600,
+      "height": 338,
+      "status": "ready",
+      "profile": "genjutsu-h264-600-v1",
+      "duration": 12.125,
+      "size_bytes": 772644,
+      "source_url": "https://static-public-media.higgsfield.ai/intone-explore-presets/efe39974-2565-4387-a4c5-cf4625014d92.mp4",
+      "audio_streams": 1
+     }
+    },
+    "image": {
+     "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/9e89b6f3-586a-46ca-bd57-8418b3b78cfc.jpg",
+     "width": 1920,
+     "height": 1080
+    },
+    "priority": 0,
+    "recreate": {
+     "character": {
+      "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/f8f914c9-7eb8-4052-a109-a5ff0420886e.jpg",
+      "width": 1920,
+      "height": 1080,
+      "id": "01407b49-e55f-4ea0-ba8d-120f21c46f87",
+      "type": "media_input"
+     },
+     "location": null,
+     "audio": {
+      "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/8cb1ad76-600b-43c7-ab03-b42ae5605441.wav",
+      "duration": 11.964082,
+      "id": "312cfcde-01db-4993-8f07-0e4ea65d2289",
+      "type": "audio_input"
+     },
+     "prompt": "INPUTS.\n<<<image_1>>> is the reference for the whole clip: a still from this podcast — the young woman with long auburn waves on a white sofa, leaning forward with her palms open, her podcast microphone in front of her, the warm studio behind her. Take from it her face, hair, makeup, jewellery and outfit, the microphone, the room, the light and the camera look. It is a reference, not a frame to copy: the clip films her from the angles described below.\n<<<audio_1>>> is this character's own voice and the dialogue track of this take: a recording of her speaking these exact words — \"The most underrated flex? Eating alone at a restaurant. Like... no phone, no book— just you and, um, a really good pasta. Main character energy.\" The voice coming out of her mouth is exactly this recording, unchanged: same speaker, same accent, same pitch, same timbre, same texture, same speaking rhythm, the same laugh, \"um\" and little pauses. Her lips sync perfectly to this recording; every word, laugh, hesitation and pause lands exactly where it is in the recording, and the shot timings below follow it.\n\nSTYLE\n\nA real video-podcast clip, the kind cut for Shorts and Reels: a guest mid-conversation on a warm, calm podcast set — natural, unscripted, alive, nothing like an ad. Photoreal footage from real podcast cameras, matching <<<image_1>>>: soft, even studio light with the warm glow of a floor lamp, rich true-to-life colour, crisp skin detail, gentle background blur and real depth — the coffee table in the foreground, her in the middle, the room behind her. Bright and warm, never dark. No beauty filter, no heavy grade.\n\nCHARACTER — <<<image_1>>>\n\nYoung East Asian woman in her early twenties, exactly as in the reference: long auburn copper-brown hair in loose waves, half-up, with soft curtain strands framing her face; glowing dewy skin with a rosy flush across her cheeks and nose; soft brown eyes and natural brows; full lips in a soft nude-pink; small silver cuffs along her ear cartilage; thin rings on her fingers. A fitted off-the-shoulder long-sleeve top in pale lilac with a tiny ditsy floral print and wide flared cuffs, with a wide butter-yellow fold-over band across her shoulders and collarbones; light-wash faded flared jeans. 100% match, never restyled. Real skin texture with visible pores, natural blinking, real micro-expressions.\n\nSETTING — <<<image_1>>>\n\nThe podcast set from the reference: she sits on a deep white linen sofa against a warm cream wall; on the left a big abstract painting in cobalt blue and ochre on a dark walnut wall panel and a floor lamp with a cream shade glowing; above the sofa on the right a framed abstract print in deep rust tones; in the foreground a low walnut coffee table with an orange ceramic bowl, a cobalt-blue mug and a few loose papers. Her black podcast microphone with a foam windscreen sits on a black boom stand coming in from the right, in front of her just below her chin, never covering her mouth. The host sits just beside the camera, to its right — she talks toward them. No logos or readable text anywhere.\n\nLIGHT\n\nFront-lit, never backlit, exactly as in the reference. Soft, even light falls on her face from the front: evenly lit skin, catchlights in her eyes, the face never darker than the background. The lamp glows warm at the side of the frame; no bright light directly behind her head, no silhouette, no blown-out background, no lens flare, no haze washing out her face.\n\nCAMERA\n\nThree locked podcast cameras, cut together like a real clip. WIDE: the angle of the reference — her on the sofa from the front, knees and hands in frame, the coffee table in the foreground, the microphone on the right, the paintings behind her. SIDE: a second camera off to her left — a three-quarter close-up of her face, shoulders and hands, the microphone in the foreground on the left, a walnut sideboard with a white vase of leafy green and the warm glow of the lamp softly blurred behind her. CLOSE: a frontal punch-in on her face, shoulders and hands, the microphone still in front of her. Cuts land between her phrases. Static framing, no camera moves; the only changes are the hard cuts between the cameras.\n\nPERFORMANCE\n\nA real guest having fun, not a presenter: she talks with her hands the whole time — a finger up for the hot take, open palms like in the reference, little circles in the air, mimed objects, a hand on her chest when she laughs — playing with a strand of hair while she thinks, leaning forward with her elbows on her knees and then sitting back into the sofa, brows lifting, eyes sparkling. She talks mostly to the host just beside the camera, with quick glances straight into the lens. Her face plays exactly what is heard in the recording — playful, amused, a little dreamy, then confident. Never stiff or posed. Ten fingers, natural hands.\n\nSHOTS\n\n0.0–3.9s — WIDE, the angle of the reference. She leans forward on the sofa and lifts one finger, eyebrows up, playful: \"The most underrated flex?\" (0.1–1.8s) — a tiny pause for effect, then, opening both palms like it's obvious: \"Eating alone at a restaurant.\" (2.2–3.75s)\n\n3.9–6.6s — SIDE, the second camera at her left. She laughs (4.0–4.6s), a hand to her chest, then waves her fingers as if brushing things away: \"Like...\" (4.6–4.85s) — \"no phone,\" (5.05–5.6s) — \"no book—\" (5.95–6.45s), ticking each off in the air.\n\n6.6–9.9s — CLOSE, frontal. She tilts her head, thinking, twisting a strand of hair: \"just you and, um,\" (6.8–8.3s) — then mimes twirling pasta on a fork, eyes half-closing dreamily: \"a really good pasta.\" (8.45–9.75s)\n\n9.9–12.0s — WIDE. She sits back into the sofa, flips her hair over her shoulder with a confident little shrug and points at the host: \"Main character energy.\" (10.3–11.6s). She laughs and nods, to the end.\n\nAUDIO\n\nHer voice is <<<audio_1>>>, unchanged, warm and close on the podcast mic. Under it: very quiet studio room tone, the soft rustle of her top and hair, the sofa cushions shifting. No other voices. No music. No subtitles, no captions, no on-screen text or graphics.\n\nLOCKS\n\nPhotoreal live action. Always front-lit, never backlit. Her face, hair, makeup, jewellery and outfit identical to <<<image_1>>> throughout. The room, the sofa, the paintings and the microphone match the reference in every shot. The cameras filming are never visible. The only equipment in frame is her microphone on its boom stand — no headphones, no laptop, no phone, no screens, no cameras, no lights, no other stands. No logos, no readable text, non-IP.\n",
+     "resolution": "1080p",
+     "aspect_ratio": "16:9"
+    }
+   },
+   {
+    "id": "2731da40-3b91-4b7b-b758-678c52ba4a0e",
+    "title": "podcast 1",
+    "video": {
+     "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/c5f23b2a-20e6-49f0-9aba-e2179d0e02b8.mp4",
+     "type": "video",
+     "width": 1080,
+     "height": 1920,
+     "main_url": "https://static-public-media.higgsfield.ai/intone-explore-presets/c5f23b2a-20e6-49f0-9aba-e2179d0e02b8.mp4",
+     "main_width": 1080,
+     "main_height": 1920,
+     "placeholder": "data:image/webp;base64,AAAA",
+     "thumbnail_url": "https://static-public-media.higgsfield.ai/intone-explore-presets/2aa0b9c9-7c93-42b7-a568-a5afacb24f8a.webp",
+     "compressed_video": {
+      "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/52352708-4c21-43de-a6ae-05382473acf7.mp4",
+      "width": 600,
+      "height": 1066,
+      "status": "ready",
+      "profile": "genjutsu-h264-600-v1",
+      "duration": 10.125,
+      "size_bytes": 1441719,
+      "source_url": "https://static-public-media.higgsfield.ai/intone-explore-presets/c5f23b2a-20e6-49f0-9aba-e2179d0e02b8.mp4",
+      "audio_streams": 1
+     }
+    },
+    "image": {
+     "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/a30044fd-2afc-478b-9a3b-df645b69cd03.jpg",
+     "width": 1080,
+     "height": 1920
+    },
+    "priority": 1,
+    "recreate": {
+     "character": {
+      "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/2cd85af0-0771-4d6c-b035-71c4b50ec46b.jpg",
+      "width": 1080,
+      "height": 1920,
+      "id": "d9175f15-bee6-4f08-893b-4613d7df5aa7",
+      "type": "media_input"
+     },
+     "location": null,
+     "audio": {
+      "url": "https://static-public-media.higgsfield.ai/intone-explore-presets/5f820dce-56ac-4e25-a0ab-743f5327f766.wav",
+      "duration": 10.187755,
+      "id": "70d65ae3-8d2c-490a-a0f2-246b7c965036",
+      "type": "audio_input"
+     },
+     "prompt": "INPUTS.\n<<<image_1>>> is the reference for the whole clip: a still from this podcast — the young man in a teal hood, his podcast microphone in front of him, the bright studio behind him. Take from it his face, hair, hood, clothes and chain, the microphone, the room, the light and the camera look. It is a reference, not a first frame to copy: the clip films him from the angles described below.\n<<<audio_1>>> is this character's own voice and the dialogue track of this take: a recording of him speaking these exact words — \"Boredom is so... underrated? Every good idea I've had came on some, um, random train ride. No phone— just me and the window.\" The voice coming out of his mouth is exactly this recording, unchanged: same speaker, same accent, same pitch, same timbre, same texture, same speaking rhythm, the same thinking pause, \"um\" and little laugh. His lips sync perfectly to this recording; every word, hesitation, laugh and pause lands exactly where it is in the recording, and the shot timings below follow it.\n\nSTYLE\n\nA real video-podcast clip, the kind cut for Shorts and Reels: a guest mid-conversation on a calm, bright podcast set — natural, unscripted, alive, nothing like an ad. Photoreal footage from real podcast cameras, matching <<<image_1>>>: soft natural daylight, crisp skin detail with visible freckles and pores, shallow depth of field with the room softly blurred behind him, true natural colours, no heavy grade, no beauty filter.\n\nCHARACTER — <<<image_1>>>\n\nYoung man around twenty, exactly as in the reference: light olive skin with freckles across the nose and cheeks, thick dark-brown hair with a soft fringe falling onto his forehead, dark brows, warm brown eyes, a small gold hoop in his ear. A washed teal-blue zip hoodie with the hood up, framing his face; a white crew-neck tee underneath; a chunky silver chain necklace; a long cream textured, slightly fuzzy coat worn open over the hoodie; loose light-wash jeans with ripped knees; chunky silver rings on several fingers. 100% match, never restyled; the hood stays up. Real skin texture, natural blinking, real micro-expressions.\n\nSETTING — <<<image_1>>>\n\nThe podcast set: an open, airy veranda in a warm climate — tall square white columns, a dark wooden beam ceiling, palm trees and big banana leaves outside under a clear blue sky, white curtains softly blurred behind him in the close shot, as in the reference. He sits on a low cream sofa with blue-and-white striped cushions; in front of him a low green-glass coffee table with a glass of water. His black podcast microphone with its metal grille on a black boom arm comes in from the side, just below and in front of his mouth, never covering it. The host sits off-camera to the left — he talks toward them. No logos or readable text anywhere.\n\nLIGHT\n\nFront-lit, never backlit. The soft daylight falls on his face from the front and the side, exactly as in the reference: evenly lit skin, catchlights in his eyes, the face never darker than the background. The bright veranda and the sky behind him stay soft and normally exposed, never blown out; no silhouette, no lens flare, no haze washing out his face.\n\nCAMERA\n\nTwo locked podcast cameras, cut together like a real clip. WIDE: a front view of him on the sofa, head to knees, the glass table and the glass of water in the foreground, the microphone in front of him, the white columns and the palms behind him. CLOSE: the angle of the reference — a tight three-quarter profile of his face and shoulders, the microphone in the foreground on the left, the veranda blurred behind him. Cuts land between his phrases. Static framing, no camera moves; the only change in size is the hard cut between the two cameras.\n\nPERFORMANCE\n\nA real guest who loves the topic, not a presenter: he talks with his hands the whole time — tapping his temple, rolling a hand in the air while he searches for a word, slicing the air, framing a window — leaning back and then forward toward the host, brows lifting, a squint while he thinks, a quick laugh at himself. He talks to the host off-camera left, with one quick glance into the lens near the end. His face plays exactly what is heard in the recording — thoughtful, curious, amused, warm. Never stiff or posed. Ten fingers, natural hands.\n\nSHOTS\n\n0.0–2.9s — WIDE. He sits back on the sofa, his fingers at his chin, eyes drifting up as he thinks: \"Boredom is so...\" (0.0–1.3s) — then turns toward the host, eyebrows up, a small smile: \"underrated?\" (1.7–2.4s)\n\n2.9–7.4s — CLOSE, the angle of the reference. He taps two fingers against his temple: \"Every good idea I've had\" (3.0–4.3s) — rolling his hand in the air, searching for the words — \"came on some, um, random train ride.\" (4.3–6.8s). He laughs at himself, shaking his head (7.1–7.4s).\n\n7.4–11.0s — WIDE. Leaning forward, a flat hand slicing sideways through the air: \"No phone—\" (7.5–8.4s) — then both hands lift to frame an imaginary window, a soft grin: \"just me and the window.\" (8.7–9.9s). A quick glance into the lens and a nod back to the host, to the end.\n\nAUDIO\n\nHis voice is <<<audio_1>>>, unchanged, warm and close on the podcast mic. Under it: very quiet studio room tone and the soft rustle of his coat and hood. No other voices. No music. No subtitles, no captions, no on-screen text or graphics.\n\nLOCKS\n\nPhotoreal live action. Always front-lit, never backlit. His face, hair, hood, chain and clothes identical to <<<image_1>>> throughout; the hood stays up. The veranda, the sofa and the microphone stay the same in every shot. The cameras filming are never visible. The only equipment in frame is his microphone on its boom arm — no headphones, no laptop, no phone, no screens, no cameras, no lights, no stands. No logos, no readable text, non-IP.\n",
+     "resolution": "1080p",
+     "aspect_ratio": "9:16"
+    }
+   }
+  ]
+ }
+}

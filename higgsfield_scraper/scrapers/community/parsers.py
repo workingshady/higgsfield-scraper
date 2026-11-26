@@ -7,8 +7,9 @@ from datetime import datetime, timezone
 from typing import Any, Optional
 
 from ...core.dataset import make_id
-from .endpoints import (BENEFITS_ENDPOINT, COMMENTS_ENDPOINT, COMPARE_ENDPOINT, DETAIL_ENDPOINT, ENDPOINT_FEEDS,
-                        JOB_COSTS_ENDPOINT, PLANS_ENDPOINT, VIRAL_ENDPOINT)
+from .endpoints import (BENEFITS_ENDPOINT, COMMENTS_ENDPOINT, COMPARE_ENDPOINT, CREATORS_ENDPOINT, DETAIL_ENDPOINT,
+                        ENDPOINT_FEEDS, ENTITY_COMMENTS_ENDPOINT, FEED_ENDPOINT, JOB_COSTS_ENDPOINT, PLANS_ENDPOINT,
+                        POSTS_LIST_ENDPOINT, SHOTS_ENDPOINT, TALENTS_ENDPOINT, VIRAL_ENDPOINT)
 from .options import Selection
 
 # settings key -> accepted python types (a value of another type stays in params_extra, so nothing is lost)
@@ -307,6 +308,203 @@ def parse_posts(body: Any) -> list[dict]:
             for p in items or [] if isinstance(p, dict) and p.get("id")]
 
 
+# ------------------------------------------------------------------ opt-in Community pages
+# (shots, posts, feed, creators, talents; see endpoints.EXTRA_FEEDS and docs/COMMUNITY_COVERAGE.md)
+SITE = "https://higgsfield.ai"
+PERSON_PROFILE = ("username", "full_name", "avatar_url", "headline")
+
+
+def _nz(v: Any) -> Optional[str]:
+    """str or None; empty / whitespace-only strings are None (the API sends "" for missing titles, names …)."""
+    if v is None or isinstance(v, (dict, list)):
+        return None
+    s = str(v)
+    return s if s.strip() else None
+
+
+def _float(v: Any) -> Optional[float]:
+    if isinstance(v, bool) or v is None:
+        return None
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _media_type(v: Any) -> str:
+    t = str(v or "").lower()
+    return t if t in MEDIA_TYPES else "unknown"
+
+
+def person_ref(author: Any, user_id: Any, sel: Selection) -> dict:
+    """Author block. Without --with-profiles only the pseudonymous id, the badge key and the rating are kept."""
+    a = author if isinstance(author, dict) else {}
+    ref: dict[str, Any] = {"user_id": _str(user_id or a.get("id") or a.get("user_id")),
+                           "badge": _nz(a.get("badge")), "rating_points": _int(a.get("rating_points"))}
+    if sel.with_profiles:
+        ref.update({k: _nz(a.get(k)) for k in PERSON_PROFILE})
+    return ref
+
+
+def parse_shot(it: dict, snapshot_id: Optional[str], sel: Selection, prov: dict) -> dict:
+    sid = str(it["id"])
+    w, h = _int(it.get("width")), _int(it.get("height"))
+    return {"kind": "community_shot", "shot_id": sid, "generation_id": _str(it.get("job_id")),
+            "url": f"{SITE}/community/generations?shot={sid}", "job_set_type": _str(it.get("model")),
+            "media_type": _media_type(it.get("media_type")), "media_url": _nz(it.get("media_url")),
+            "thumbnail_url": _nz(it.get("thumbnail_url")), "width": w, "height": h,
+            "likes": _int(it.get("like_count")), "views": _int(it.get("view_count")),
+            "comments": _int(it.get("comment_count")), "aesthetic_score": _float(it.get("aesthetic_score")),
+            "aesthetic_label": _bool(it.get("aesthetic_label")), "published_at": iso_ts(it.get("published_at")),
+            "author": person_ref(it.get("author"), it.get("author_id"), sel), "snapshot_id": snapshot_id,
+            "source": prov}
+
+
+def parse_shots(body: Any, sel: Selection, prov: dict) -> list[dict]:
+    b = body if isinstance(body, dict) else {}
+    snap = _str(b.get("snapshot_id"))
+    return [parse_shot(it, snap, sel, prov) for it in _items_of(b) if it.get("id")]
+
+
+POST_MEDIA_USED = {"type", "job_result", "url", "project_publication_id", "job_id", "blog_post_id", "card"}
+POST_USED = {"id", "user_id", "title", "content", "like_count", "dislike_count", "comment_count", "views_count",
+             "share_count", "author", "created_at", "updated_at", "is_mine", "is_subscribed", "is_liked"}
+
+
+# per-viewer state a logged-in response adds (my likes / follows / votes): never stored, so runs with and without a
+# session give the same records (docs/COMMUNITY_COVERAGE.md "Anonymous vs logged in")
+VIEWER_FLAGS = frozenset({"is_liked_by_user", "liked_by_me", "is_liked", "is_followed", "join_requested",
+                          "is_subscribed", "is_mine", "my_vote", "notification_level", "permissions"})
+
+
+def drop_viewer_flags(o: Any) -> Any:
+    if isinstance(o, dict):
+        return {k: drop_viewer_flags(v) for k, v in o.items() if k not in VIEWER_FLAGS}
+    if isinstance(o, list):
+        return [drop_viewer_flags(x) for x in o]
+    return o
+
+
+def _post_media(m: dict, i: int) -> dict:
+    card = m.get("card") if isinstance(m.get("card"), dict) else {}
+    video = card.get("video") if isinstance(card.get("video"), dict) else {}
+    jr = m.get("job_result") if isinstance(m.get("job_result"), dict) else {}
+    return {"index": i, "type": _nz(m.get("type")), "url": _nz(jr.get("url") or m.get("url")),
+            "project_publication_id": _nz(m.get("project_publication_id")), "job_id": _nz(m.get("job_id")),
+            "blog_post_id": _nz(m.get("blog_post_id")), "card_id": _nz(card.get("id")),
+            "card_title": _nz(card.get("title")), "card_slug": _nz(card.get("slug")),
+            "card_description": _nz(card.get("description")), "card_cover_url": _nz(card.get("cover_url")),
+            "video_url": _nz(video.get("url")), "video_hls_url": _nz(video.get("hls_url")),
+            "video_preview_url": _nz(video.get("preview_url")), "video_thumbnail_url": _nz(video.get("thumbnail_url")),
+            "width": _int(video.get("width")), "height": _int(video.get("height")),
+            "duration_seconds": _float(video.get("duration")),
+            "card_stats": card.get("stats") if isinstance(card.get("stats"), dict) else None,
+            "extra": {k: drop_viewer_flags(v) for k, v in m.items() if k not in POST_MEDIA_USED and v not in (None, "")}}
+
+
+def parse_post(p: dict, sel: Selection, prov: dict) -> dict:
+    """One fnf-community publication (Community post / room discussion)."""
+    content = p.get("content") if isinstance(p.get("content"), dict) else {}
+    pid = str(p["id"])
+    return {"kind": "community_post", "post_id": pid, "url": f"{SITE}/community/feed/{pid}",
+            "title": _nz(p.get("title")) or _nz(content.get("title")), "text": _nz(content.get("text")),
+            "room_id": _nz(content.get("room_id")), "post_kind": _nz(content.get("kind")),
+            "media": [_post_media(m, i) for i, m in enumerate(content.get("medias") or []) if isinstance(m, dict)],
+            "likes": _int(p.get("like_count")), "dislikes": _int(p.get("dislike_count")),
+            "comments": _int(p.get("comment_count")), "views": _int(p.get("views_count")),
+            "shares": _int(p.get("share_count")), "created_at": iso_ts(p.get("created_at")),
+            "updated_at": iso_ts(p.get("updated_at")), "author": person_ref(p.get("author"), p.get("user_id"), sel),
+            "extra": {**{k: drop_viewer_flags(v) for k, v in p.items() if k not in POST_USED and v is not None},
+                      **{f"content.{k}": drop_viewer_flags(v) for k, v in content.items()
+                         if k not in ("title", "text", "medias", "room_id", "kind") and v is not None}},
+            "source": prov}
+
+
+def parse_posts_list(body: Any, sel: Selection, prov: dict) -> list[dict]:
+    items = body.get("publications") if isinstance(body, dict) else None
+    return [parse_post(p, sel, prov) for p in items or [] if isinstance(p, dict) and p.get("id")]
+
+
+def _first_line(s: Optional[str]) -> Optional[str]:
+    if not s:
+        return None
+    line = s.strip().splitlines()[0].strip()
+    return line[:200] or None
+
+
+def parse_feed_items(body: Any, offset: int, sel: Selection, prov: dict) -> list[dict]:
+    b = body if isinstance(body, dict) else {}
+    snap = _str(b.get("snapshot_id"))
+    out = []
+    for n, it in enumerate(_items_of(b)):
+        if not it.get("id"):
+            continue
+        t = str(it.get("type") or "unknown")
+        t = t if t in ("generation", "project_publication", "blog_post", "post") else "unknown"
+        iid = str(it["id"])
+        gen = it.get("generation") if isinstance(it.get("generation"), dict) else {}
+        card = it.get("card") if isinstance(it.get("card"), dict) else {}
+        post = it.get("post") if isinstance(it.get("post"), dict) else {}
+        pc = post.get("content") if isinstance(post.get("content"), dict) else {}
+        mw = it.get("made_with") if isinstance(it.get("made_with"), dict) else {}
+        tc = it.get("top_comment") if isinstance(it.get("top_comment"), dict) else {}
+        video = card.get("video") if isinstance(card.get("video"), dict) else {}
+        url = {"generation": f"{SITE}/community/generations?shot={iid}", "post": f"{SITE}/community/feed/{iid}"}.get(t)
+        views = gen.get("view_count") if t == "generation" else (card.get("views_count") if card else
+                                                                  post.get("views_count"))
+        out.append({
+            "kind": "community_feed_item", "feed_item_id": make_id("feed_item", t, iid), "item_type": t,
+            "item_id": iid, "url": url, "position": offset + n,
+            "title": _nz(card.get("title")) or _nz(post.get("title")) or _first_line(_nz(pc.get("text"))),
+            "description": _nz(card.get("description")), "slug": _nz(card.get("slug")),
+            "media_type": _nz(gen.get("media_type")), "job_set_type": _nz(gen.get("model")),
+            "generation_id": _nz(gen.get("job_id")), "made_with_tool": _nz(mw.get("tool")),
+            "made_with_model": _nz(mw.get("model_name")), "media_url": _nz(gen.get("media_url")),
+            "thumbnail_url": _nz(gen.get("thumbnail_url")) or _nz(video.get("thumbnail_url")),
+            "cover_url": _nz(card.get("cover_url")), "video_url": _nz(video.get("url")),
+            "likes": _int(it.get("like_count")), "comments": _int(it.get("comment_count")),
+            "shares": _int(it.get("share_count")), "views": _int(views),
+            "reading_time_minutes": _int(card.get("reading_time_minutes")),
+            "project_stats": card.get("stats") if isinstance(card.get("stats"), dict) else None,
+            "created_at": iso_ts(it.get("created_at")), "top_comment_id": _nz(tc.get("id")),
+            "top_comment_likes": _int(tc.get("like_count")),
+            "author": person_ref(it.get("author"), None, sel), "snapshot_id": snap, "source": prov})
+    return out
+
+
+CREATOR_PROFILE = ("username", "full_name", "headline", "bio", "location", "avatar_url")
+
+
+def parse_creators(body: Any, listing: str, offset: int, sel: Selection, prov: dict) -> list[dict]:
+    users = body.get("users") if isinstance(body, dict) else None
+    out = []
+    for n, u in enumerate(users or []):
+        if not isinstance(u, dict) or not u.get("id"):
+            continue
+        works = []
+        for w in u.get("items") or []:
+            if not isinstance(w, dict):
+                continue
+            item = w.get("item") if isinstance(w.get("item"), dict) else {}
+            pub = item.get("publication") if isinstance(item.get("publication"), dict) else {}
+            works.append({"type": str(w.get("type") or "unknown"),
+                          "item_id": _nz(item.get("publication_id")) or _nz(pub.get("id")) or _nz(item.get("id")),
+                          "title": _nz(item.get("name")), "is_pinned": _bool(w.get("is_pinned"))})
+        e = {"kind": "community_creator_stats", "record_id": make_id("creator_stats", listing, u["id"]),
+             "listing": listing, "position": offset + n, "user_id": str(u["id"]),
+             "rating_points": _int(u.get("rating_points")), "followers_count": _int(u.get("followers_count")),
+             "following_count": _int(u.get("following_count")), "likes_count": _int(u.get("likes_count")),
+             "views_count": _int(u.get("views_count")),
+             "verified_projects_count": _int(u.get("verified_projects_count")),
+             "latest_verified_at": iso_ts(u.get("latest_verified_at")), "is_pinned": _bool(u.get("is_pinned")),
+             "badge": _nz(u.get("badge")),
+             "badge_names": [str(x["name"]) for x in u.get("badges") or [] if isinstance(x, dict) and x.get("name")],
+             "works_count": len(works), "works": works, "source": prov}
+        e.update({k: (_nz(u.get(k)) if sel.with_profiles else None) for k in CREATOR_PROFILE})
+        out.append(e)
+    return out
+
+
 def parse_page(env, feed: str) -> dict:
     b = env.body if isinstance(env.body, dict) else {}
     nxt = b.get("cursor")
@@ -367,6 +565,18 @@ def parse_envelope(env, sel: Selection) -> list[dict]:
         rate, notes = usd_per_credit_from_plans(env.body, prov, sel.usd_reference)
         return [{"kind": "community_cost_basis", "basis_id": "usd_reference", "usd_per_credit": rate,
                  "usd_reference": ref, "notes": notes, "source": prov}]
+    # ---- opt-in Community pages (never requested by default runs)
+    if ep == SHOTS_ENDPOINT:
+        return parse_shots(env.body, sel, prov)
+    if ep == POSTS_LIST_ENDPOINT:
+        return parse_posts_list(env.body, sel, prov)
+    if ep == FEED_ENDPOINT:
+        return parse_feed_items(env.body, _int(env.params.get("offset")) or 0, sel, prov)
+    if ep in (CREATORS_ENDPOINT, TALENTS_ENDPOINT):
+        listing = "creators" if ep == CREATORS_ENDPOINT else "talents"
+        return parse_creators(env.body, listing, _int(env.params.get("offset")) or 0, sel, prov)
+    if ep == ENTITY_COMMENTS_ENDPOINT:
+        return parse_comments(env.body, env.params.get("entity_id", ""), sel, prov)
     return []
 
 

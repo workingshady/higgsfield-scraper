@@ -10,6 +10,7 @@ __pycache__/
 *.har
 .claude/settings.local.json
 /runs/
+/exports/
 /httpcache/
 .pytest_cache/
 *.egg-info/
@@ -24,6 +25,7 @@ samples/higgsfield/js_urls.txt
 samples/higgsfield/inventory/bodies/
 samples/higgsfield/probe/
 samples/higgsfield/recon2/
+samples/higgsfield/projects_nested/
 
 # Private analysis (competitive/economics notes): kept local, never committed
 /private/

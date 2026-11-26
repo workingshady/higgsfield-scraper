@@ -1,0 +1,55 @@
+{
+ "meta": {
+  "endpoint": "showcase_property_studio_presets",
+  "url": "https://assets.higgsfield.ai/tanstack/assets/548e0f3a-1Zr93DgzOqSBRyme.js",
+  "params": {
+   "chunk": "548e0f3a-1Zr93DgzOqSBRyme.js",
+   "lang": "en"
+  },
+  "fetched_at": "2026-11-26T14:05:54.725905+00:00",
+  "status": 200
+ },
+ "body": {
+  "chunk": "548e0f3a-1Zr93DgzOqSBRyme.js",
+  "lang": "en",
+  "rows": [
+   [
+    "flash-tour",
+    "02-walnut-loft-house",
+    "R-iA_7",
+    3,
+    1920,
+    1080
+   ],
+   [
+    "renovation",
+    "1/bedroom",
+    "1Zi7Kr",
+    1,
+    2720,
+    1536
+   ],
+   [
+    "floor-plan-3d",
+    "10/13",
+    "08POJL",
+    1,
+    2496,
+    1664
+   ],
+   [
+    "enhance",
+    "1/03-kitchen",
+    "eurAJi",
+    1,
+    3776,
+    2112
+   ]
+  ],
+  "titles": {
+   "R-iA_7": "Walnut Loft House",
+   "1Zi7Kr": "Bordeaux Bedroom",
+   "08POJL": "Family Flat"
+  }
+ }
+}

@@ -1,0 +1,81 @@
+{
+    "meta": {
+        "endpoint": "projects_folder_items",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/folders/09b0b671-d0d9-4204-bd7e-133c057591ae/items/v2?size=100",
+        "params": {
+            "size": "100",
+            "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+            "folder_id": "96cfeed5-3ebb-4013-9de2-1ec377fca7b6",
+            "show_prompts": "true",
+            "offset": "0",
+            "items_folder": "09b0b671-d0d9-4204-bd7e-133c057591ae"
+        },
+        "fetched_at": "2026-11-26T13:35:52.092837+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "type": "file_input",
+                "input": {
+                    "id": "de8d1a43-0570-4ba8-afd2-5450a7faaa8c",
+                    "type": "file_input",
+                    "name": "talent_contest_packshot_21_9.mov",
+                    "filename": "talent_contest_packshot_21_9.mov",
+                    "extension": "mov",
+                    "status": "uploaded",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/de8d1a43-0570-4ba8-afd2-5450a7faaa8c.mov",
+                    "download_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/de8d1a43-0570-4ba8-afd2-5450a7faaa8c.mov?download=talent_contest_packshot_21_9.mov",
+                    "created_at": 1795694452.510836,
+                    "uploaded_at": 1795050545.518497,
+                    "last_used_at": null,
+                    "size_bytes": 1583164804,
+                    "user_id": "content_user_id",
+                    "folder_job_id": "cc68a7ef-df38-4347-8fc7-36fc92be1fb3",
+                    "folder_id": "09b0b671-d0d9-4204-bd7e-133c057591ae",
+                    "user": {
+                        "id": "content_user_id",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_favourite": false,
+                    "review_status": null,
+                    "comments_count": 0,
+                    "has_unresolved_comment": false
+                }
+            },
+            {
+                "type": "file_input",
+                "input": {
+                    "id": "8566849f-bb56-4e62-a925-f65997303850",
+                    "type": "file_input",
+                    "name": "talent_contest_packshot_16_9.mov",
+                    "filename": "talent_contest_packshot_16_9.mov",
+                    "extension": "mov",
+                    "status": "uploaded",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/8566849f-bb56-4e62-a925-f65997303850.mov",
+                    "download_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/8566849f-bb56-4e62-a925-f65997303850.mov?download=talent_contest_packshot_16_9.mov",
+                    "created_at": 1795694452.510828,
+                    "uploaded_at": 1795050525.626585,
+                    "last_used_at": null,
+                    "size_bytes": 1359787956,
+                    "user_id": "content_user_id",
+                    "folder_job_id": "c230944c-a650-4034-ada0-35c40b7302d5",
+                    "folder_id": "09b0b671-d0d9-4204-bd7e-133c057591ae",
+                    "user": {
+                        "id": "content_user_id",
+                        "full_name": "[redacted]",
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]"
+                    },
+                    "is_favourite": false,
+                    "review_status": null,
+                    "comments_count": 0,
+                    "has_unresolved_comment": false
+                }
+            }
+        ],
+        "cursor": null
+    }
+}

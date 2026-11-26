@@ -10,7 +10,8 @@ from .endpoints import DEFAULT_WHAT, WHAT
 ALIASES = {"app": "apps", "courses": "academy", "lessons": "academy", "skills": "mcp", "original-series": "originals",
            "series": "originals", "mixed-media-presets": "mixed-media", "mixedmedia": "mixed-media",
            "landing": "landings", "marketing": "landings", "plugins": "landings", "room": "rooms", "promo": "promos",
-           "config": "promos"}
+           "config": "promos", "rooms-api": "room-list", "room-items": "room-content",
+           "room-discussions": "room-content"}
 
 
 def _split(value: Any) -> list[str]:
@@ -56,12 +57,19 @@ class Selection:
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 
+    @property
+    def rooms_api(self) -> bool:
+        return self.wants("room-list") or self.wants("room-content")
+
 
 def add_args(p: argparse.ArgumentParser) -> None:
     g = p.add_argument_group("site: what to scrape")
     g.add_argument("--what", default=",".join(DEFAULT_WHAT),
                    help=f"comma list of {list(WHAT)} or 'all' (default: %(default)s; 'rooms' = community room "
-                        "pages, title/description only, opt-in)")
+                        "pages, title/description only, opt-in; 'room-list' = every room from the public rooms API "
+                        "with member/works counts and room-stats (posts, discussions); 'room-content' = room-list + "
+                        "each room's works (shots, projects, blog posts) and discussion posts. All three are opt-in, "
+                        "not part of 'all'; --max-items caps rooms, room items and discussions separately)")
     g.add_argument("--with-content", dest="with_content", action="store_true", default=True,
                    help="fetch every detail page (apps, courses, lessons, MCP skills, episodes) and convert bodies "
                         "to Markdown (default: on)")

@@ -1,0 +1,230 @@
+{
+    "meta": {
+        "endpoint": "community_posts_list",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/publications/feed?limit=20",
+        "params": {
+            "limit": "20"
+        },
+        "fetched_at": "2026-11-26T13:30:53.279517+00:00",
+        "status": 200
+    },
+    "body": {
+        "publications": [
+            {
+                "id": "085b9664-5c1e-4d63-a9bb-cf4df65c0977",
+                "user_id": "user_REDACTED104",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "THE PATCHED BALL\n\nHe left his village with a patched football. What he carried was much bigger.\n\nThis is my AI short film about Jabari. I'd love to know which moment stayed with you.\n\nWatch the full film on YouTube:\nhttps://www.youtube.com/watch?v=5A9VAVjNXRw\n\nView the project on Higgsfield:\nhttps://higgsfield.ai/@dreaminggiraffe1191/projects/the-patched-ball",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "5d47d0dd-09f9-480f-90af-7bc9383b4fb6",
+                            "card": {
+                                "id": "5d47d0dd-09f9-480f-90af-7bc9383b4fb6",
+                                "title": "THE PATCHED BALL",
+                                "slug": "the-patched-ball",
+                                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED104/be2c0bd2-f190-46c8-ad24-2b5b1f440f4d.jpg",
+                                "owner": {
+                                    "id": "user_REDACTED104",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 4
+                                },
+                                "description": "Jabari, a boy from a forgotten village, plays toward a dream stitched by his grandmother's love, because dreams are never bought.\n\n\n",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED104/262faab3-ab24-4383-b486-67488702cddb.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/262faab3-ab24-4383-b486-67488702cddb/0a9b1403-2506-4276-a19d-8f9fa6f0fe53/index.m3u8?v=0a9b1403-2506-4276-a19d-8f9fa6f0fe53",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/262faab3-ab24-4383-b486-67488702cddb/compressed.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/262faab3-ab24-4383-b486-67488702cddb/0a9b1403-2506-4276-a19d-8f9fa6f0fe53/thumbnail.webp?v=0a9b1403-2506-4276-a19d-8f9fa6f0fe53",
+                                    "width": 1920,
+                                    "height": 1080,
+                                    "duration": 289.941
+                                },
+                                "stats": {
+                                    "generations_count": 241,
+                                    "credits_spent": 4101.25,
+                                    "free_generations": 0,
+                                    "size_bytes": 1067136707,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "gpt_image_2_6",
+                                            "display_name": "<redacted>",
+                                            "count": 85,
+                                            "credits_spent": 39.5
+                                        },
+                                        {
+                                            "job_set_type": "seedance_2_5",
+                                            "display_name": "<redacted>",
+                                            "count": 66,
+                                            "credits_spent": 3816
+                                        },
+                                        {
+                                            "job_set_type": "seed_audio",
+                                            "display_name": "<redacted>",
+                                            "count": 37,
+                                            "credits_spent": 17.8
+                                        },
+                                        {
+                                            "job_set_type": "mirelo_text_to_audio",
+                                            "display_name": "<redacted>",
+                                            "count": 30,
+                                            "credits_spent": 62.25
+                                        },
+                                        {
+                                            "job_set_type": "kling3_0",
+                                            "display_name": "<redacted>",
+                                            "count": 16,
+                                            "credits_spent": 148
+                                        },
+                                        {
+                                            "job_set_type": "elevenlabs_music_v2_5",
+                                            "display_name": "<redacted>",
+                                            "count": 4,
+                                            "credits_spent": 13.96
+                                        },
+                                        {
+                                            "job_set_type": "text2image_soul_v2",
+                                            "display_name": "<redacted>",
+                                            "count": 2,
+                                            "credits_spent": 0.24
+                                        },
+                                        {
+                                            "job_set_type": "seedream_5_5",
+                                            "display_name": "<redacted>",
+                                            "count": 1,
+                                            "credits_spent": 3.5
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-24T01:34:46.829779Z",
+                                "views_count": 151,
+                                "like_count": 10,
+                                "comment_count": 9,
+                                "is_liked": null
+                            }
+                        }
+                    ]
+                },
+                "like_count": 3,
+                "dislike_count": 0,
+                "comment_count": 4,
+                "views_count": 2068,
+                "share_count": 1,
+                "author": {
+                    "id": "user_REDACTED104",
+                    "username": "<redacted>",
+                    "full_name": "",
+                    "avatar_url": "<redacted>",
+                    "headline": "",
+                    "badge": "",
+                    "rating_points": 4
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-24T01:47:36.093104Z",
+                "updated_at": "2026-11-25T12:57:43.537237Z"
+            },
+            {
+                "id": "c1f26df6-6a3d-44c5-9056-55c88c67b6a6",
+                "user_id": "user_REDACTED105",
+                "title": "",
+                "content": {
+                    "title": "",
+                    "text": "Can a valley come back to life because of one dropped acorn? 🌱\n\nTHE CYCLE is my dialogue-free animated short for the Higgsfield Talent Contest. As the valley recovers, the sound shifts from wind and rustling plastic to birds and running water.\n\nIf you watch, I’d love to hear which moment made the valley feel alive again. Please leave your thoughts on the film’s project page, and tap the heart there if it stayed with you.",
+                    "medias": [
+                        {
+                            "type": "project_publication",
+                            "job_result": {
+                                "url": ""
+                            },
+                            "project_publication_id": "279412af-26a5-4f18-86f9-05bbc2d94c96",
+                            "card": {
+                                "id": "279412af-26a5-4f18-86f9-05bbc2d94c96",
+                                "title": "THE CYCLE",
+                                "slug": "the-cycle",
+                                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED105/a719ffc7-f1fc-443c-b22a-b1caea8a88d4.jpg",
+                                "owner": {
+                                    "id": "user_REDACTED105",
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "rating_points": 4
+                                },
+                                "description": "A hungry crow knocks the last acorn from a withered oak, setting a barren valley littered with plastic waste on a slow journey back to life.",
+                                "video": {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED105/fbc7a62c-58ca-4b46-bb96-ce3e5f0892bb.mp4",
+                                    "hls_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/fbc7a62c-58ca-4b46-bb96-ce3e5f0892bb/9d3ff5d2-d488-42dd-b80b-cedd0e266866/index.m3u8?v=9d3ff5d2-d488-42dd-b80b-cedd0e266866",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/fbc7a62c-58ca-4b46-bb96-ce3e5f0892bb/compressed.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/fbc7a62c-58ca-4b46-bb96-ce3e5f0892bb/9d3ff5d2-d488-42dd-b80b-cedd0e266866/thumbnail.webp?v=9d3ff5d2-d488-42dd-b80b-cedd0e266866",
+                                    "width": 3840,
+                                    "height": 2160,
+                                    "duration": 230.375
+                                },
+                                "stats": {
+                                    "generations_count": 152,
+                                    "credits_spent": 11065.75,
+                                    "free_generations": 0,
+                                    "size_bytes": 3551571620,
+                                    "stack": [
+                                        {
+                                            "job_set_type": "seedance_2_5",
+                                            "display_name": "<redacted>",
+                                            "count": 95,
+                                            "credits_spent": 10872
+                                        },
+                                        {
+                                            "job_set_type": "gpt_image_2_6",
+                                            "display_name": "<redacted>",
+                                            "count": 41,
+                                            "credits_spent": 112.75
+                                        },
+                                        {
+                                            "job_set_type": "nano_banana_2_1",
+                                            "display_name": "<redacted>",
+                                            "count": 15,
+                                            "credits_spent": 41
+                                        },
+                                        {
+                                            "job_set_type": "seedance_2_5_flash",
+                                            "display_name": "<redacted>",
+                                            "count": 1,
+                                            "credits_spent": 40
+                                        }
+                                    ]
+                                },
+                                "published_at": "2026-11-25T19:12:31.357689Z",
+                                "views_count": 24620,
+                                "like_count": 156,
+                                "comment_count": 122,
+                                "is_liked": null
+                            }
+                        }
+                    ]
+                },
+                "like_count": 2,
+                "dislike_count": 0,
+                "comment_count": 1,
+                "views_count": 538,
+                "share_count": 0,
+                "author": {
+                    "id": "user_REDACTED105",
+                    "username": "<redacted>",
+                    "full_name": "",
+                    "avatar_url": "<redacted>",
+                    "headline": "",
+                    "badge": "",
+                    "rating_points": 4
+                },
+                "is_subscribed": false,
+                "is_mine": false,
+                "created_at": "2026-11-24T18:10:46.376184Z",
+                "updated_at": "2026-11-25T11:21:47.169733Z"
+            }
+        ],
+        "has_more": true
+    }
+}

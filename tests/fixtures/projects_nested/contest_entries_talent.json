@@ -1,0 +1,187 @@
+{
+    "meta": {
+        "endpoint": "projects_contest_entries",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/contest-participations/publications?tab=latest&contest_key=talent_contest&size=5",
+        "params": {
+            "tab": "latest",
+            "contest_key": "talent_contest",
+            "size": "5"
+        },
+        "fetched_at": "2026-11-26T13:36:31.965955+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "publication_id": "e466026d-5acb-4aa9-8b5e-6bba414f8715",
+                "duration_seconds": 218.916667,
+                "state": "published",
+                "type": "film",
+                "is_ongoing": false,
+                "project_id": null,
+                "snapshot_folder_id": null,
+                "has_changes_since_publish": false,
+                "project_updated_at": "2026-11-26T13:37:01.775466+00:00",
+                "final_submitted_at": null,
+                "is_open_source": true,
+                "name": "The One Before",
+                "slug": "the-one-before",
+                "description": "Arbitrary Life — Episode 1. Earlier cut shared as WIP for a fresh remake with an expanded story, new visuals and new audio.",
+                "cover": {
+                    "id": "8ece0b5a-58ee-45f9-a8bf-3ddaae7d4643",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake79964fc5b542e2317eece04/8ece0b5a-58ee-45f9-a8bf-3ddaae7d4643.png",
+                    "name": null,
+                    "type": "media",
+                    "width": 1672,
+                    "height": 941,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "3bab43a0-0474-4613-8df5-786c50f80d00",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/3bab43a0-0474-4613-8df5-786c50f80d00/89f7776a-e441-4ae3-9c8a-338f1d9411bb/index.m3u8?v=89f7776a-e441-4ae3-9c8a-338f1d9411bb",
+                        "name": "3bab43a0-0474-4613-8df5-786c50f80d00.mp4",
+                        "type": "video",
+                        "width": 1920,
+                        "height": 1080,
+                        "min_url": null,
+                        "duration": 218.916667,
+                        "object_fit": "contain",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/3bab43a0-0474-4613-8df5-786c50f80d00/89f7776a-e441-4ae3-9c8a-338f1d9411bb/thumbnail.webp?v=89f7776a-e441-4ae3-9c8a-338f1d9411bb",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake79964fc5b542e2317eece04/3bab43a0-0474-4613-8df5-786c50f80d00.mp4",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/3bab43a0-0474-4613-8df5-786c50f80d00/compressed.mp4",
+                        "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/3bab43a0-0474-4613-8df5-786c50f80d00/89f7776a-e441-4ae3-9c8a-338f1d9411bb/download.mp4?v=89f7776a-e441-4ae3-9c8a-338f1d9411bb&download=3bab43a0-0474-4613-8df5-786c50f80d00.mp4"
+                    }
+                ],
+                "trailer": null,
+                "author_user_ids": [
+                    "user_Fake79964fc5b542e2317eece04"
+                ],
+                "tags": [],
+                "categories": [],
+                "show_prompts": true,
+                "show_canvas": true,
+                "is_discoverable": false,
+                "featured_episode_id": null,
+                "is_featured": false,
+                "root_folder_id": "f01ab906-ab99-4551-829b-c4ab4c666ede",
+                "authors": [
+                    {
+                        "id": "user_Fake79964fc5b542e2317eece04",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "[redacted]",
+                        "location": "[redacted]",
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 0,
+                        "total_projects_likes": 0,
+                        "followers_count": 0,
+                        "badges": []
+                    }
+                ],
+                "team": null,
+                "grant_awarded_at": null,
+                "published_at": "2026-11-26T10:26:52.408646Z",
+                "views": 59,
+                "votes": 0,
+                "likes": 4,
+                "comments": 2,
+                "can_receive_audience_choice_votes": false,
+                "watch_required": false,
+                "watch_completed": false,
+                "watched_percent": 0
+            },
+            {
+                "publication_id": "fd044dec-9a1b-4954-92d6-05becc4fe4f4",
+                "duration_seconds": 19.1,
+                "state": "published",
+                "type": "film",
+                "is_ongoing": false,
+                "project_id": null,
+                "snapshot_folder_id": null,
+                "has_changes_since_publish": false,
+                "project_updated_at": "2026-11-26T13:36:59.105201+00:00",
+                "final_submitted_at": null,
+                "is_open_source": true,
+                "name": "The Great Hero Race",
+                "slug": "the-great-hero-race",
+                "description": "A race for one wish where running charges your magic. Last-place lightning mage Noa vs a colossal rock dragon guarding the needle castle.",
+                "cover": {
+                    "id": "107eaf5a-582b-429d-9ac1-c16f5dac5343",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4d963615dcf16a57a25130e/107eaf5a-582b-429d-9ac1-c16f5dac5343.webp",
+                    "name": null,
+                    "type": "media",
+                    "width": 1336,
+                    "height": 752,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "c6559374-39a9-48fb-8593-ed7659f6f4b5",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/c6559374-39a9-48fb-8593-ed7659f6f4b5/965dadd5-f385-4aa4-bbf6-b3c3d6dd8456/index.m3u8?v=965dadd5-f385-4aa4-bbf6-b3c3d6dd8456",
+                        "name": "c6559374-39a9-48fb-8593-ed7659f6f4b5.mp4",
+                        "type": "video",
+                        "width": 1920,
+                        "height": 1080,
+                        "min_url": null,
+                        "duration": 19.1,
+                        "object_fit": "contain",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/c6559374-39a9-48fb-8593-ed7659f6f4b5/965dadd5-f385-4aa4-bbf6-b3c3d6dd8456/thumbnail.webp?v=965dadd5-f385-4aa4-bbf6-b3c3d6dd8456",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4d963615dcf16a57a25130e/c6559374-39a9-48fb-8593-ed7659f6f4b5.mp4",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/c6559374-39a9-48fb-8593-ed7659f6f4b5/compressed.mp4",
+                        "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/c6559374-39a9-48fb-8593-ed7659f6f4b5/965dadd5-f385-4aa4-bbf6-b3c3d6dd8456/download.mp4?v=965dadd5-f385-4aa4-bbf6-b3c3d6dd8456&download=c6559374-39a9-48fb-8593-ed7659f6f4b5.mp4"
+                    }
+                ],
+                "trailer": null,
+                "author_user_ids": [
+                    "user_Fake4d963615dcf16a57a25130e"
+                ],
+                "tags": [],
+                "categories": [],
+                "show_prompts": true,
+                "show_canvas": true,
+                "is_discoverable": false,
+                "featured_episode_id": null,
+                "is_featured": false,
+                "root_folder_id": "632b9bc2-9e30-4e41-ab78-0f3aba775f35",
+                "authors": [
+                    {
+                        "id": "user_Fake4d963615dcf16a57a25130e",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": null,
+                        "location": null,
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 0,
+                        "total_projects_likes": 0,
+                        "followers_count": 0,
+                        "badges": []
+                    }
+                ],
+                "team": null,
+                "grant_awarded_at": null,
+                "published_at": "2026-11-23T15:33:51.189009Z",
+                "views": 21,
+                "votes": 0,
+                "likes": 4,
+                "comments": 2,
+                "can_receive_audience_choice_votes": false,
+                "watch_required": false,
+                "watch_completed": false,
+                "watched_percent": 0
+            }
+        ],
+        "next_cursor": "5",
+        "total": 2755
+    }
+}

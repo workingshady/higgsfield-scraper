@@ -8,7 +8,7 @@ from dataclasses import asdict, dataclass, field
 from typing import Any, Iterable, Optional
 
 from ...estimate import DEFAULT_ESTIMATE_VERSION, ESTIMATE_VERSIONS
-from .endpoints import ESTIMATE_MODES, FEEDS, KNOWN_MODELS, TYPES
+from .endpoints import ESTIMATE_MODES, EXTRA_FEEDS, FEEDS, KNOWN_MODELS, TYPES
 
 log = logging.getLogger(__name__)
 
@@ -44,20 +44,33 @@ class Selection:
     detail: bool = False
     with_comments: bool = False
     estimate_version: int = DEFAULT_ESTIMATE_VERSION   # 1 = default estimator; 2 = JS formulas (estimate/v2.py)
+    # opt-in Community pages (shots, posts, feed, creators, talents): given through --feeds, kept apart from the
+    # gallery feeds so 'all' and every default stay unchanged
+    extra_feeds: list[str] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         feeds = [FEED_ALIASES.get(f.lower(), f.lower()) for f in _split(self.feeds)]
+        extra = [f for f in feeds if f in EXTRA_FEEDS]
+        feeds = [f for f in feeds if f not in EXTRA_FEEDS]
+        extra += [f.lower() for f in _split(self.extra_feeds) if f.lower() not in extra]
+        bad_extra = [f for f in extra if f not in EXTRA_FEEDS]
+        if bad_extra:
+            raise ValueError(f"unknown feed(s) {bad_extra}; opt-in feeds are {list(EXTRA_FEEDS)}")
+        self.extra_feeds = list(dict.fromkeys(extra))
         self.publication_ids = _split(self.publication_ids)
         if feeds == ["all"]:
             feeds = list(FEEDS)
+        elif "all" in feeds:                       # e.g. 'all,shots' (the opt-in feeds were split off above)
+            feeds = list(FEEDS) + [f for f in feeds if f not in FEEDS and f != "all"]
         if feeds == ["none"]:                      # only --publication-ids
-            if not self.publication_ids:
+            if not self.publication_ids and not self.extra_feeds:
                 raise ValueError("--feeds none needs --publication-ids")
             feeds = []
         bad = [f for f in feeds if f not in FEEDS]
         if bad:
-            raise ValueError(f"unknown feed(s) {bad}; choose from {list(FEEDS)} or 'all'")
-        self.feeds = feeds if (feeds or self.publication_ids) else ["trending"]
+            raise ValueError(f"unknown feed(s) {bad}; choose from {list(FEEDS)}, 'all', or the opt-in "
+                             f"{list(EXTRA_FEEDS)}")
+        self.feeds = feeds if (feeds or self.publication_ids or self.extra_feeds) else ["trending"]
         self.type = (self.type or "all").lower()
         if self.type not in TYPES:
             raise ValueError(f"--type must be one of {list(TYPES)}")
@@ -91,7 +104,12 @@ class Selection:
         d = asdict(self)
         if d["estimate_version"] == DEFAULT_ESTIMATE_VERSION:   # default runs keep the pre-option manifest/meta
             d.pop("estimate_version")
+        if not d["extra_feeds"]:                                # same for the opt-in Community pages
+            d.pop("extra_feeds")
         return d
+
+    def wants(self, extra_feed: str) -> bool:
+        return extra_feed in self.extra_feeds
 
 
 def add_args(p: argparse.ArgumentParser) -> None:
@@ -99,7 +117,11 @@ def add_args(p: argparse.ArgumentParser) -> None:
     g.add_argument("--feeds", default="trending",
                    help="comma list of feeds: trending (main feed, ~78.6k), approved (curated, ~6.7k, mostly video), "
                         "top (single page, <=100), model-x (featured model showcase), 'all', or 'none' (only --publication-ids) "
-                        "(default: %(default)s)")
+                        "(default: %(default)s). Opt-in Community pages, never part of 'all': shots (/community/"
+                        "generations, fnf-community generations feed), posts (Community posts, ~24k), feed (the "
+                        "/community/feed mix of shots, projects, blogs and posts), creators (/community/creators, "
+                        "~650, aggregate stats; names only with --with-profiles), talents (Talents hub, ~80). "
+                        "--max-items caps each opt-in feed separately")
     g.add_argument("--type", default="all", choices=TYPES,
                    help="media type filter (API `type`). image|video are also enforced client-side because the "
                         "approved feed ignores it; speak|upscale are server-side only (default: %(default)s)")
@@ -124,7 +146,9 @@ def add_args(p: argparse.ArgumentParser) -> None:
     d.add_argument("--with-comments", action="store_true",
                    help="fetch comments (+ replies) from the Community posts service (fnf-community): reads the "
                         "posts feed (limit = --max-items, max 50) and the threads of posts that have comments. "
-                        "Gallery generations have no comments. Public; commenter identities only with --with-profiles")
+                        "With the opt-in feeds shots/feed/posts it instead reads the comment threads of those items "
+                        "(fnf-community /entities/{type}/{id}/comments for shots, projects and blogs). "
+                        "Public; commenter identities only with --with-profiles")
     c = p.add_argument_group("community: cost estimate (optional)")
     c.add_argument("--estimate-cost", default="off", choices=ESTIMATE_MODES,
                    help="attach an estimated credit cost per generation from /job-sets/costs: off (default) | images | "
@@ -155,7 +179,7 @@ def selection_from_dict(d: Optional[dict]) -> Selection:
     """Accepts Selection.to_dict() (manifest) and string values (`scrapy crawl community -a feeds=approved`)."""
     d = dict(d or {})
     kw: dict[str, Any] = {}
-    for k in ("feeds", "models", "preset_ids", "publication_ids"):
+    for k in ("feeds", "models", "preset_ids", "publication_ids", "extra_feeds"):
         if k in d:
             kw[k] = d[k]
     for k in ("type", "resolution", "estimate_cost", "usd_reference", "usd_plan_set"):
@@ -170,7 +194,7 @@ def selection_from_dict(d: Optional[dict]) -> Selection:
 
 
 def default_label(sel: Selection) -> str:
-    parts = ["-".join(sel.feeds) or "detail"]
+    parts = ["-".join(sel.feeds + sel.extra_feeds) or "detail"]
     if sel.type != "all":
         parts.append(sel.type)
     if sel.models:

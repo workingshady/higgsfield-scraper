@@ -1,0 +1,150 @@
+{
+    "meta": {
+        "endpoint": "projects_publication_detail",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/project-publications/d62acd40-d4da-40d5-9aeb-f09374bb362e",
+        "params": {
+            "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e"
+        },
+        "fetched_at": "2026-11-26T13:35:35.577375+00:00",
+        "status": 200
+    },
+    "body": {
+        "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+        "duration_seconds": 229.715011,
+        "state": "published",
+        "type": "film",
+        "is_ongoing": false,
+        "project_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+        "snapshot_folder_id": "96cfeed5-3ebb-4013-9de2-1ec377fca7b6",
+        "has_changes_since_publish": false,
+        "project_updated_at": "2026-11-26T13:36:04.963642+00:00",
+        "final_submitted_at": "2026-11-26T12:00:52.405959+00:00",
+        "is_open_source": true,
+        "name": "The Sea Walks Out",
+        "slug": "the-sea-walks-out",
+        "description": "One morning, the sea walks out, and an old fisherman follows it to ask for his son back.",
+        "cover": {
+            "id": "2d79cd46-1738-479a-b961-7a46cf8ca646",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/2d79cd46-1738-479a-b961-7a46cf8ca646.png",
+            "type": "media",
+            "width": 2720,
+            "height": 1536,
+            "min_url": null,
+            "duration": null,
+            "object_fit": "cover",
+            "thumbnail_url": null
+        },
+        "gallery_media": [
+            {
+                "id": "7da375f7-e8c1-47f8-ae3d-9c9ed20e1649",
+                "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/7da375f7-e8c1-47f8-ae3d-9c9ed20e1649/92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb/index.m3u8?v=92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb",
+                "type": "video",
+                "width": 2520,
+                "height": 1080,
+                "min_url": null,
+                "duration": 229.715011,
+                "object_fit": "contain",
+                "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/7da375f7-e8c1-47f8-ae3d-9c9ed20e1649/92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb/thumbnail.webp?v=92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb",
+                "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/7da375f7-e8c1-47f8-ae3d-9c9ed20e1649.mp4",
+                "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/7da375f7-e8c1-47f8-ae3d-9c9ed20e1649/92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb/download.mp4?v=92c0f7bb-bbdd-4a26-b156-e6f49c30c1bb&download=7da375f7-e8c1-47f8-ae3d-9c9ed20e1649.mp4"
+            }
+        ],
+        "trailer": null,
+        "author_user_ids": [
+            "user_Fake4242dfd30bd7433e8273c48"
+        ],
+        "tags": [],
+        "categories": [],
+        "show_prompts": true,
+        "show_canvas": true,
+        "is_discoverable": false,
+        "featured_episode_id": null,
+        "is_featured": false,
+        "original_folder_id": null,
+        "created_at": "2026-11-25T11:40:48.678976Z",
+        "stats": {
+            "stack": [
+                {
+                    "count": 19,
+                    "job_set_type": "seedream_v5_pro",
+                    "credits_spent": 0.0,
+                    "display_name": "Seedream 5.0 Pro"
+                },
+                {
+                    "count": 18,
+                    "job_set_type": "seedance_2_5",
+                    "credits_spent": 4866.0,
+                    "display_name": "Seedance 2.5"
+                },
+                {
+                    "count": 16,
+                    "job_set_type": "seedream_5_5",
+                    "credits_spent": 56.0,
+                    "display_name": "Seedream 5.5"
+                },
+                {
+                    "count": 2,
+                    "job_set_type": "kling4_0",
+                    "credits_spent": 45.0,
+                    "display_name": "Kling 4.0"
+                },
+                {
+                    "count": 2,
+                    "job_set_type": "magi_2",
+                    "credits_spent": 90.0,
+                    "display_name": "MAGI-2"
+                },
+                {
+                    "count": 1,
+                    "job_set_type": "ideogram_4_6_precise_edit",
+                    "credits_spent": 7.0,
+                    "display_name": "Ideogram 4.6 Precise Edit"
+                },
+                {
+                    "count": 1,
+                    "job_set_type": "soul_cinematic",
+                    "credits_spent": 0.0,
+                    "display_name": "Soul Cinematic"
+                }
+            ],
+            "size_bytes": 739380053,
+            "credits_spent": 5064.0,
+            "free_generations": 20,
+            "generations_count": 59
+        },
+        "featured_episode_slug": null,
+        "authors": [
+            {
+                "id": "user_Fake4242dfd30bd7433e8273c48",
+                "full_name": null,
+                "username": "[redacted]",
+                "avatar_url": "[redacted]",
+                "headline": "[redacted]",
+                "location": "[redacted]",
+                "is_owner": true,
+                "is_followed": false,
+                "total_projects_views": 2931,
+                "total_projects_likes": 77,
+                "followers_count": 118,
+                "badges": [
+                    {
+                        "id": "5d70214e-054a-4821-89ff-46436958541d",
+                        "name": "Higgsfield Creative Partner",
+                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                        "description": null
+                    }
+                ]
+            }
+        ],
+        "team": null,
+        "contest_badges": [],
+        "contest_key": "talent_contest",
+        "views": 139,
+        "likes": 8,
+        "is_higgsfield_featured": false,
+        "can_receive_audience_choice_votes": false,
+        "watch_required": false,
+        "watch_completed": false,
+        "watched_percent": 0
+    }
+}

@@ -12,7 +12,7 @@ from ...core.exporting import without, write_standard_outputs
 from . import endpoints as ep
 from .options import Selection
 from .parsers import best_video_url
-from .schemas import ProjectsDataset
+from .schemas import NESTED_COLLECTIONS, ProjectsDataset, ProjectsNestedDataset
 
 NEVER_OVERRIDE = {"source", "listing", "detail_source", "detail_fetched", "extra"}
 
@@ -99,15 +99,132 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
     counts = {"publications": len(publications), "episodes": len(episodes), "categories": len(categories),
               "contests": len(contests), "submissions": len(submissions), "series": len(series),
               "listing_entries": len(entries)}
+    nested = _nested(entities, publications, warnings) if getattr(sel, "nested", False) else None
+    if nested is not None:
+        counts.update({k: len(nested[k]) for k in NESTED_COLLECTIONS})
     meta = make_meta("projects", sel, rm, counts=counts,
                      endpoints={**{k: f"{API_BASE}{v}" for k, v in ep.ENDPOINTS.items()},
                                 **({k: f"{ep.SERIES_BASE}{v}" for k, v in ep.PUBLIC_SERIES_ENDPOINTS.items()}
-                                   if getattr(sel, "public_series", False) else {})},
+                                   if getattr(sel, "public_series", False) else {}),
+                                **_nested_endpoints(sel)},
                      totals_available=rm.totals, warnings=warnings)
     ds = {"schema_version": 1, "meta": meta, "publications": publications, "episodes": episodes,
           "categories": categories, "contests": contests, "submissions": submissions, "series": series,
           "listing_entries": entries, "summary": summary}
-    return ProjectsDataset.model_validate(ds).model_dump(mode="json")
+    if nested is None:
+        return ProjectsDataset.model_validate(ds).model_dump(mode="json")
+    return ProjectsNestedDataset.model_validate({**ds, **nested}).model_dump(mode="json")
+
+
+# ------------------------------------------------------------------ nested project data (opt-in)
+def _nested_endpoints(sel: Selection) -> dict[str, str]:
+    """meta.endpoints entries for the opt-in features actually used (none by default)."""
+    keys: list[str] = []
+    if getattr(sel, "contests", ()):
+        keys.append("projects_contest_by_slug")
+    if getattr(sel, "users", ()):
+        keys.append("projects_user_publications")
+    if getattr(sel, "with_project_assets", False):
+        keys += ["projects_folder", "projects_folder_children", "projects_folder_items"]
+    if getattr(sel, "with_project_brief", False):
+        keys.append("projects_brief")
+    if getattr(sel, "with_project_comments", False):
+        keys.append("projects_comments")
+    if getattr(sel, "with_project_related", False):
+        keys.append("projects_related")
+    out = {}
+    for k in keys:
+        base, path = ep.NESTED_ENDPOINTS[k]
+        out[k] = f"{base or API_BASE}{path}"
+    return out
+
+
+def _folder_chain(fid: Optional[str], folders: dict[str, dict]) -> list[dict]:
+    """[folder, parent, …] up to (excluding) the root folder."""
+    chain: list[dict] = []
+    seen: set[str] = set()
+    while fid and fid in folders and fid not in seen:
+        seen.add(fid)
+        f = folders[fid]
+        if f.get("is_root") or not f.get("parent_id"):
+            break
+        chain.append(f)
+        fid = f.get("parent_id")
+    return chain
+
+
+def _brief_names(briefs: list[dict], pubs: dict[str, dict]) -> None:
+    """briefs/<slug>.md (the slug, else the publication id); duplicates get the id appended."""
+    names: dict[str, int] = Counter()
+    base = {}
+    for b in briefs:
+        stem = b.get("publication_slug") or (pubs.get(b.get("publication_id") or "") or {}).get("slug") \
+            or b.get("publication_id") or b["brief_id"]
+        stem = "".join(c if c.isalnum() or c in "-_" else "-" for c in str(stem))[:120] or b["brief_id"]
+        base[b["brief_id"]] = stem
+        names[stem] += 1
+    for b in briefs:
+        stem = base[b["brief_id"]]
+        if names[stem] > 1:
+            stem = f"{stem}-{str(b.get('publication_id') or b['brief_id'])[:8]}"
+        b["file"] = f"briefs/{stem}.md" if b.get("markdown") else None
+
+
+def _nested(entities: dict[str, list[dict]], publications: list[dict], warnings: list[str]) -> dict:
+    g = lambda k: [_strip(e) for e in entities.get(k) or []]  # noqa: E731
+    folders, assets, briefs = g("projects_folder"), g("projects_asset"), g("projects_brief")
+    stats, stack, comments, related = (g("projects_stats"), g("projects_stack_item"), g("projects_comment"),
+                                       g("projects_related"))
+    pubs = {p["publication_id"]: p for p in publications}
+    by_folder = {f["folder_id"]: f for f in folders}
+    model = {(s["publication_id"], s.get("job_set_type")): s.get("display_name") for s in stack}
+    under: Counter = Counter()
+    for a in assets:
+        chain = _folder_chain(a.get("folder_id"), by_folder)
+        leaf = by_folder.get(a.get("folder_id") or "")
+        a["folder_name"] = leaf.get("name") if leaf else None
+        a["folder_path"] = " / ".join(f.get("name") or "?" for f in reversed(chain)) or None
+        a["model_name"] = model.get((a.get("publication_id"), a.get("job_set_type")))
+        for f in chain:
+            under[f["folder_id"]] += 1
+        if a.get("root_folder_id") and a.get("in_all_assets", True):   # root count = the "All assets" grid
+            under[a["root_folder_id"]] += 1
+    for f in folders:
+        f["assets_scraped"] = under.get(f["folder_id"], 0) if assets else None
+    mismatches = [f"{f['folder_id']}: count={f.get('asset_count')} scraped={f['assets_scraped']}"
+                  for f in folders if f.get("is_root") and f["assets_scraped"] is not None
+                  and f.get("asset_count") is not None and f["asset_count"] != f["assets_scraped"]]
+    if mismatches:
+        warnings.append(f"{len(mismatches)} project root folders: API asset count != assets scraped "
+                        "(--max-pages, or items the API does not list)")
+    asset_ids: dict[str, set[str]] = {}
+    for a in assets:
+        asset_ids.setdefault(a.get("publication_id") or "", set()).add(a["asset_id"])
+    for b in briefs:
+        ids = asset_ids.get(b.get("publication_id") or "", set())
+        b["referenced_asset_ids"] = [i for i in b.get("referenced_ids") or [] if i in ids]
+    _brief_names(briefs, pubs)
+    for c in comments:
+        keys = set((pubs.get(c.get("publication_id") or "") or {}).get("author_keys") or [])
+        ak = (c.get("author") or {}).get("author_key")
+        c["is_by_author"] = (ak in keys) if keys and ak else None
+    project_ids = {x.get("publication_id") for coll in (folders, assets, briefs, stats, comments, related)
+                   for x in coll if x.get("publication_id")}
+    summary = {
+        "projects": len(project_ids),
+        "folders": len(folders),
+        "assets": len(assets),
+        "assets_by_media_type": dict(Counter(a.get("media_type") or "unknown" for a in assets)),
+        "assets_by_model": dict(Counter(a.get("model_name") or a.get("job_set_type") or a.get("item_type")
+                                        or "unknown" for a in assets)),
+        "prompts_visible": sum(1 for a in assets if a.get("prompt")),
+        "briefs": sum(1 for b in briefs if b.get("has_content")),
+        "comments": len(comments),
+        "related": len(related),
+        "asset_count_mismatches": mismatches,
+    }
+    return {"folders": folders, "assets": assets, "briefs": briefs, "project_stats": stats, "stack_items": stack,
+            "comments": comments, "related": related, "nested_summary": summary}
 
 
 # ------------------------------------------------------------------ outputs
@@ -136,12 +253,39 @@ def csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
         "submissions": ([row(s) for s in ds["submissions"]], ["submission_id", "contest_id", "title"]),
         "series": ([row(s) for s in ds["series"]], ["series_id", "slug", "title"]),
         "listing_entries": ([row(e) for e in ds["listing_entries"]], ["listing", "position", "publication_id"]),
+        **(_nested_tables(ds) if "assets" in ds else {}),
+    }
+
+
+ASSET_CHILDREN = ("variants", "input_media")
+
+
+def _nested_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
+    from ...core.exporting import row
+    ak = lambda a: {"placement_id": a["placement_id"], "asset_id": a["asset_id"],  # noqa: E731
+                    "publication_id": a.get("publication_id")}
+    return {
+        "project_folders": ([row(f) for f in ds["folders"]], ["publication_id", "folder_id", "depth", "name"]),
+        "project_assets": ([row(without(a, *ASSET_CHILDREN)) for a in ds["assets"]],
+                           ["publication_id", "placement_id", "asset_id", "folder_path", "job_set_type"]),
+        "project_asset_variants": ([row(v, **ak(a)) for a in ds["assets"] for v in a["variants"]],
+                                   ["publication_id", "asset_id", "variant"]),
+        "project_asset_inputs": ([row(i, **ak(a)) for a in ds["assets"] for i in a["input_media"]],
+                                 ["publication_id", "asset_id", "position"]),
+        "project_briefs": ([row(b) for b in ds["briefs"]], ["publication_id", "brief_id", "file"]),
+        "project_stats": ([row(s) for s in ds["project_stats"]], ["publication_id"]),
+        "project_stack": ([row(s) for s in ds["stack_items"]], ["publication_id", "position", "label"]),
+        "project_comments": ([row(c) for c in ds["comments"]], ["publication_id", "comment_id", "parent_id"]),
+        "project_related": ([row(r) for r in ds["related"]], ["publication_id", "position", "related_publication_id"]),
     }
 
 
 def json_parts(ds: dict) -> dict[str, Any]:
-    return {k: ds[k] for k in ("publications", "episodes", "categories", "contests", "submissions", "series",
-                               "listing_entries", "summary")}
+    keys = ["publications", "episodes", "categories", "contests", "submissions", "series", "listing_entries",
+            "summary"]
+    if "assets" in ds:
+        keys += list(NESTED_COLLECTIONS) + ["nested_summary"]
+    return {k: ds[k] for k in keys}
 
 
 def summary_md(ds: dict) -> str:
@@ -170,6 +314,28 @@ def summary_md(ds: dict) -> str:
         lines += [f"| {c.get('slug')} | {c.get('contest_type')} | {c.get('status')} | {c.get('prize_pool')} "
                   f"{c.get('prize_pool_unit') or ''} | {c.get('submissions_count')} | "
                   f"{s['submissions_by_contest'].get(c.get('slug'), 0)} |" for c in ds["contests"]]
+    if "nested_summary" in ds:
+        n = ds["nested_summary"]
+        lines += ["", "## Nested project data", "", "| project | folders | all assets [+ listed apart] (API count) | prompts | brief | "
+                  "comments | related |", "|---|---:|---:|---:|---|---:|---:|"]
+        roots = {f["publication_id"]: f for f in ds["folders"] if f.get("is_root")}
+        names = {p["publication_id"]: p.get("name") for p in ds["publications"]}
+        for pid in sorted({x["publication_id"] for k in NESTED_COLLECTIONS for x in ds[k] if x.get("publication_id")},
+                          key=lambda i: str(names.get(i) or i)):
+            r = roots.get(pid) or {}
+            a = [x for x in ds["assets"] if x.get("publication_id") == pid]
+            b = next((x for x in ds["briefs"] if x.get("publication_id") == pid), None)
+            n_all = sum(1 for x in a if x.get("in_all_assets", True))
+            extra = f" + {len(a) - n_all}" if len(a) > n_all else ""
+            lines.append(f"| {(names.get(pid) or pid).strip().replace('|', '/')} | "
+                         f"{sum(1 for f in ds['folders'] if f.get('publication_id') == pid)} | {n_all}{extra} "
+                         f"({r.get('asset_count', '?')}) | {sum(1 for x in a if x.get('prompt'))} | "
+                         f"{(str(b['word_count']) + ' words') if b and b.get('has_content') else '-'} | "
+                         f"{sum(1 for x in ds['comments'] if x.get('publication_id') == pid)} | "
+                         f"{sum(1 for x in ds['related'] if x.get('publication_id') == pid)} |")
+        if n.get("assets_by_model"):
+            lines += ["", "Assets by model: " + ", ".join(f"{k} {v}" for k, v in
+                                                          sorted(n["assets_by_model"].items(), key=lambda kv: -kv[1]))]
     if m.get("limits_hit"):
         lines += ["", "## Limits hit", ""] + [f"- {x}" for x in m["limits_hit"]]
     if m.get("warnings"):
@@ -178,8 +344,17 @@ def summary_md(ds: dict) -> str:
 
 
 def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
-    return write_standard_outputs(ds, out_dir, json_parts=json_parts(ds), csv_tables=csv_tables(ds),
-                                  dataset_model=ProjectsDataset, summary_md=summary_md(ds))
+    nested = "assets" in ds
+    files = write_standard_outputs(ds, out_dir, json_parts=json_parts(ds), csv_tables=csv_tables(ds),
+                                   dataset_model=ProjectsNestedDataset if nested else ProjectsDataset,
+                                   summary_md=summary_md(ds))
+    for b in ds.get("briefs") or []:                          # --with-project-brief: output/briefs/<slug>.md
+        if b.get("file") and b.get("markdown"):
+            path = out_dir / b["file"]
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(b["markdown"], encoding="utf-8")
+            files.append(path)
+    return files
 
 
 # ------------------------------------------------------------------ media for --download-media
@@ -214,6 +389,13 @@ def media_urls(entity: dict, mode: str) -> list[tuple[str, str]]:
     elif kind == "projects_series":
         thumbs += [(r, entity[r]) for r in ("portrait_url", "landscape_url", "logo_url") if entity.get(r)]
         full += [("trailer", entity["trailer_url"])] if entity.get("trailer_url") else []
+    elif kind == "projects_asset":                            # --with-project-assets: <run>/media/projects_asset/
+        thumb = entity.get("thumbnail_url") or (entity.get("min_url") if entity.get("media_type") == "image" else None)
+        thumbs += [("thumb", thumb)] if thumb else []
+        full += [("original", entity["url"])] if entity.get("url") and not str(entity["url"]).split("?")[0] \
+            .endswith(".m3u8") else []
+        if entity.get("min_url") and entity.get("min_url") not in (thumb, entity.get("url")):
+            other.append(("preview", entity["min_url"]))
     if mode == "thumbs":
         return thumbs
     if mode == "full":

@@ -376,6 +376,250 @@ ID_FIELD_BY_KIND = {
 }
 
 
+# ====================================================================== nested project data (opt-in, 2026-11-26)
+# contest -> submission -> publication -> folder -> asset (+ brief, stats/stack, comments, related).
+# Only built with a --with-project-* flag; the default dataset (ProjectsDataset) is unchanged.
+# Field tables and the ER diagram: docs/scrapers/projects.md "Nested data model".
+class _NestedBase(Strict):
+    source: Provenance
+    source_url: str = Field(description="URL of the API response this row came from")
+    scraped_at: str = Field(description="UTC ISO-8601 fetch time of that response")
+    schema_version: int = Field(1, description="version of the nested-entity schema")
+
+
+class ProjectFolder(_NestedBase):
+    """A folder of a published project (GET /folders/{id} for the root, /folders/{id}/children below it)."""
+
+    folder_id: str
+    publication_id: Optional[str] = None
+    root_folder_id: Optional[str] = Field(None, description="the project's snapshot folder (= the 'All assets' view)")
+    parent_id: Optional[str] = None
+    is_root: Optional[bool] = None
+    depth: Optional[int] = Field(None, description="0 = root, 1 = top-level folder (Cast, Scenes ...), 2 = sub-folder")
+    position: Optional[int] = Field(None, description="0-based order in the parent's children list")
+    name: Optional[str] = None
+    slug: Optional[str] = None
+    description: Optional[str] = None
+    emoji: Optional[str] = None
+    color: Optional[str] = None
+    surface: Optional[str] = Field(None, description="e.g. contests (root), cast, locations, scenes, watermarks")
+    folder_kind: Optional[str] = Field(None, description="API `kind`")
+    asset_count: Optional[int] = Field(None, description="API `count`: assets in the folder incl. sub-folders "
+                                                         "(the number next to the folder name on the page)")
+    subfolders_count: Optional[int] = None
+    views_count: Optional[int] = None
+    copies_count: Optional[int] = None
+    access_mode: Optional[str] = None
+    link_access_level: Optional[str] = None
+    is_snapshot: Optional[bool] = None
+    is_discoverable: Optional[bool] = None
+    locked: Optional[bool] = None
+    preview_url: Optional[str] = None
+    cover_image_url: Optional[str] = None
+    contest_key: Optional[str] = None
+    contest_id: Optional[str] = None
+    project_id: Optional[str] = None
+    publication_state: Optional[str] = None
+    created_at: Optional[str] = None
+    updated_at: Optional[str] = None
+    archived_at: Optional[str] = None
+    hidden_at: Optional[str] = None
+    assets_scraped: Optional[int] = Field(None, description="assets scraped in this folder or below it "
+                                                            "(build-time check against asset_count)")
+    owner_key: Optional[str] = Field(None, description="pseudonymous owner key = sha256(user id)[:16]")
+    owner_user_id: Optional[str] = Field(None, description="--with-profiles only")
+    owner_username: Optional[str] = Field(None, description="--with-profiles only")
+    extra: Extra = Field(default_factory=dict)
+
+
+class AssetVariant(Strict):
+    variant: str = Field(description="raw (original) | min (preview) | hls | h264 | ...")
+    type: Optional[str] = None
+    url: Optional[str] = None
+    thumbnail_url: Optional[str] = None
+    extra: Extra = Field(default_factory=dict)
+
+
+class AssetInput(Strict):
+    position: int
+    role: Optional[str] = Field(None, description="image | video | start_image | ...")
+    media_id: Optional[str] = None
+    type: Optional[str] = Field(None, description="media_input (upload) | image_job (another generation) | ...")
+    url: Optional[str] = None
+
+
+class ProjectAsset(_NestedBase):
+    """One asset placement of a project (GET /folders/{root}/items/v2?include_subfolders=true): a generation (job)
+    or an upload (audio_input, ...). The job id is the asset id."""
+
+    placement_id: str = Field(description="API folder_job_id (one placement of the asset in a folder)")
+    asset_id: str = Field(description="job id / upload id")
+    item_type: Optional[str] = Field(None, description="job | audio_input | media_input | ...")
+    position: Optional[int] = Field(None, description="0-based order in its listing (the 'All assets' grid)")
+    in_all_assets: bool = Field(True, description="listed by the root folder's items (the page's 'All assets'); "
+                                                  "False for sub-folders that listing omits (Watermarks)")
+    publication_id: Optional[str] = None
+    root_folder_id: Optional[str] = None
+    folder_id: Optional[str] = Field(None, description="the (sub-)folder holding the asset")
+    folder_name: Optional[str] = None
+    folder_path: Optional[str] = Field(None, description="folder names below the root, e.g. 'Cast / Saber'")
+    status: Optional[str] = None
+    media_type: Optional[str] = Field(None, description="image | video | audio")
+    job_set_id: Optional[str] = None
+    job_set_type: Optional[str] = Field(None, description="model key, e.g. seedance_2_5")
+    job_set_parent_id: Optional[str] = None
+    model_name: Optional[str] = Field(None, description="display name from the project stack (needs stats)")
+    prompts_visible: bool = Field(description="the author's show_prompts flag; False -> prompt and prompt params "
+                                              "are not stored")
+    prompt: Optional[str] = None
+    has_prompt: bool = False
+    params: dict[str, Any] = Field(default_factory=dict, description="generation parameters as returned "
+                                                                     "(prompt keys removed when not visible)")
+    aspect_ratio: Optional[str] = None
+    resolution: Optional[str] = Field(None, description="e.g. 480p, 720p, 2k (params.resolution or quality)")
+    width: Optional[int] = None
+    height: Optional[int] = None
+    duration_seconds: Optional[float] = None
+    seed: Optional[int] = None
+    batch_size: Optional[int] = None
+    input_media: list[AssetInput] = Field(default_factory=list, description="reference media (params.medias)")
+    url: Optional[str] = Field(None, description="original file (results.raw.url, or the upload url)")
+    min_url: Optional[str] = Field(None, description="compressed preview (results.min.url)")
+    thumbnail_url: Optional[str] = None
+    hls_url: Optional[str] = None
+    h264_url: Optional[str] = None
+    download_url: Optional[str] = None
+    waveform_url: Optional[str] = None
+    variants: list[AssetVariant] = Field(default_factory=list)
+    filename: Optional[str] = None
+    extension: Optional[str] = None
+    size_bytes: Optional[int] = None
+    cost_raw: Optional[str] = Field(None, description="job meta.cost as returned (unit not documented; not credits)")
+    comments_count: Optional[int] = None
+    review_status: Optional[str] = None
+    created_at: Optional[str] = None
+    uploaded_at: Optional[str] = None
+    creator_key: Optional[str] = Field(None, description="pseudonymous creator key = sha256(user id)[:16]")
+    creator_user_id: Optional[str] = Field(None, description="--with-profiles only")
+    creator_username: Optional[str] = Field(None, description="--with-profiles only")
+    extra: Extra = Field(default_factory=dict)
+
+
+class ProjectBrief(_NestedBase):
+    """The project brief (Yjs snapshot of the Lexical document) rendered as Markdown."""
+
+    brief_id: str = Field(description="= folder_id (one brief per project folder)")
+    publication_id: Optional[str] = None
+    folder_id: Optional[str] = None
+    publication_slug: Optional[str] = None
+    title: Optional[str] = None
+    has_content: bool = False
+    markdown: Optional[str] = None
+    updated_at: Optional[str] = Field(None, description="X-Brief-Updated-At (epoch ms) as UTC ISO-8601")
+    snapshot_bytes: int = 0
+    block_count: int = 0
+    word_count: int = 0
+    node_types: dict[str, int] = Field(default_factory=dict, description="Lexical node types -> count")
+    links: list[str] = Field(default_factory=list)
+    referenced_ids: list[str] = Field(default_factory=list, description="UUIDs written in the brief (job ids ...)")
+    referenced_asset_ids: list[str] = Field(default_factory=list,
+                                            description="referenced_ids that are assets of this project")
+    file: Optional[str] = Field(None, description="output/briefs/<slug>.md")
+    decode_error: Optional[str] = None
+
+
+class ProjectStats(_NestedBase):
+    """The page's stats block (publication detail `stats`)."""
+
+    publication_id: str
+    generations_count: Optional[int] = Field(None, description="'Generations'")
+    free_generations: Optional[int] = None
+    credits_spent: Optional[float] = Field(None, description="'Credits spent' (credits, not cents)")
+    size_bytes: Optional[int] = None
+    size_mb: Optional[float] = Field(None, description="'Size' = size_bytes / 1,000,000, 1 decimal (decimal MB)")
+    model_count: int = Field(0, description="stack entries shown (count>0 or credits>0)")
+    stack_generations: int = Field(0, description="sum of the shown stack counts (denominator of percent)")
+    extra: Extra = Field(default_factory=dict)
+
+
+class ProjectStackItem(_NestedBase):
+    """One model of the page's 'Stack' (publication detail stats.stack)."""
+
+    stack_item_id: str
+    publication_id: str
+    position: int
+    job_set_type: Optional[str] = None
+    display_name: Optional[str] = None
+    label: Optional[str] = Field(None, description="label shown by the page (display_name with UI renames)")
+    count: Optional[int] = Field(None, description="generations with this model")
+    credits_spent: Optional[float] = None
+    shown_in_ui: bool = Field(description="count>0 or credits_spent>0 (the page hides the others)")
+    share: Optional[float] = Field(None, description="count / stack_generations * 100 (computed like the page)")
+    percent: Optional[float] = Field(None, description="share rounded to 0.1 by largest remainder (the page's %)")
+    extra: Extra = Field(default_factory=dict)
+
+
+class ProjectComment(_NestedBase):
+    comment_id: str
+    publication_id: Optional[str] = None
+    thread_type: Optional[str] = Field(None, description="API entity_type (project_publication)")
+    parent_id: Optional[str] = None
+    is_reply: bool = False
+    text: Optional[str] = None
+    created_at: Optional[str] = None
+    updated_at: Optional[str] = None
+    likes: Optional[int] = None
+    dislikes: Optional[int] = None
+    reply_count: Optional[int] = None
+    reactions: list[dict[str, Any]] = Field(default_factory=list)
+    mention_count: int = 0
+    author: Optional[Person] = Field(None, description="pseudonymous unless --with-profiles")
+    is_by_author: Optional[bool] = Field(None, description="the commenter is one of the project's authors")
+    extra: Extra = Field(default_factory=dict)
+
+
+class ProjectRelated(_NestedBase):
+    """One entry of the page's related-projects list (recommended?scope=...&current_publication_id=...)."""
+
+    related_id: str
+    publication_id: Optional[str] = None
+    related_publication_id: str
+    position: int
+    scope: Optional[str] = None
+    name: Optional[str] = None
+    slug: Optional[str] = None
+    type: Optional[str] = None
+    contest_key: Optional[str] = None
+    views: Optional[int] = None
+    likes: Optional[int] = None
+    comments: Optional[int] = None
+    cover_url: Optional[str] = None
+    author_keys: list[str] = Field(default_factory=list)
+    feed_source: Optional[str] = None
+
+
+NESTED_MODEL_BY_KIND = {
+    "projects_folder": ProjectFolder,
+    "projects_asset": ProjectAsset,
+    "projects_brief": ProjectBrief,
+    "projects_stats": ProjectStats,
+    "projects_stack_item": ProjectStackItem,
+    "projects_comment": ProjectComment,
+    "projects_related": ProjectRelated,
+}
+NESTED_ID_FIELD_BY_KIND = {
+    "projects_folder": "folder_id",
+    "projects_asset": "placement_id",
+    "projects_brief": "brief_id",
+    "projects_stats": "publication_id",
+    "projects_stack_item": "stack_item_id",
+    "projects_comment": "comment_id",
+    "projects_related": "related_id",
+}
+MODEL_BY_KIND.update(NESTED_MODEL_BY_KIND)
+ID_FIELD_BY_KIND.update(NESTED_ID_FIELD_BY_KIND)
+
+
 class Summary(Strict):
     publications_by_type: dict[str, int] = Field(default_factory=dict)
     publications_by_listing: dict[str, int] = Field(default_factory=dict)
@@ -400,3 +644,33 @@ class ProjectsDataset(Strict):
     series: list[Series] = Field(default_factory=list)
     listing_entries: list[ListingEntry] = Field(default_factory=list)
     summary: Summary = Field(default_factory=Summary)
+
+
+class NestedSummary(Strict):
+    projects: int = Field(0, description="publications with any nested data")
+    folders: int = 0
+    assets: int = 0
+    assets_by_media_type: dict[str, int] = Field(default_factory=dict)
+    assets_by_model: dict[str, int] = Field(default_factory=dict)
+    prompts_visible: int = 0
+    briefs: int = 0
+    comments: int = 0
+    related: int = 0
+    asset_count_mismatches: list[str] = Field(default_factory=list,
+                                              description="root folders whose API count != assets scraped")
+
+
+class ProjectsNestedDataset(ProjectsDataset):
+    """ProjectsDataset + the nested project collections (only with a --with-project-* flag)."""
+
+    folders: list[ProjectFolder] = Field(default_factory=list)
+    assets: list[ProjectAsset] = Field(default_factory=list)
+    briefs: list[ProjectBrief] = Field(default_factory=list)
+    project_stats: list[ProjectStats] = Field(default_factory=list)
+    stack_items: list[ProjectStackItem] = Field(default_factory=list)
+    comments: list[ProjectComment] = Field(default_factory=list)
+    related: list[ProjectRelated] = Field(default_factory=list)
+    nested_summary: NestedSummary = Field(default_factory=NestedSummary)
+
+
+NESTED_COLLECTIONS = ("folders", "assets", "briefs", "project_stats", "stack_items", "comments", "related")

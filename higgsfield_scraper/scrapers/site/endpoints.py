@@ -37,8 +37,22 @@ DATETIME_SETTINGS = "/datetime-settings"                 # [{source, datetimes{s
 BUSINESS_UNLIM = "/business-unlim/state"                 # plan_cards{monthly[], annual[]}, pricing_banner{offers[]}
 GAME_GIFT = "/game-gift/networks"                        # networks[{id, countries[{code, fulfillment_mode, amount_label}]}]
 
+# --- Community rooms (fnf-community JSON API, public; opt-in --what room-list / room-content) -------------------------
+# JS evidence: module community-rooms-api (chunk 548e0f3a-Pl2H2mKz4X6BJdOa.js): S(...e)=N([/rooms,...e].join(/)),
+# list ce({query,kind,following,mine,sort,cursor,similarTo,limit=20}), detail _e(id), items ve(id,{type,sort,limit=20,
+# cursor}); room page chunk 548e0f3a-J380-oy_aThK_vXz.js: discussions td() = /publications/feed?room_id&kind=discussion
+# &offset&limit=20[&sort=new] and mu() = /publications/room-stats?room_id. See docs/COMMUNITY_COVERAGE.md.
+COMMUNITY_API = "https://fnf-api-gw.higgsfield.ai/fnf-community"
+ROOMS_LIST = "/rooms"                                     # ?limit<=50&cursor -> {items[room], next_cursor, total}
+ROOM_STATS = "/publications/room-stats"                   # ?room_id -> {posts, discussions}
+ROOM_ITEMS = "/rooms/{room_id}/items"                     # ?limit<=50&cursor -> {items[{space_item_id, item_type, item,
+                                                          #   pinned}], next_cursor} (pinned items come on top of limit)
+ROOM_DISCUSSIONS = "/publications/feed"                   # ?room_id&kind=discussion&offset&limit -> {publications[], has_more}
+ROOMS_PAGE_SIZE = 50
+
 # --- what= values ---------------------------------------------------------------------------------------------------
-WHAT = ("apps", "academy", "mcp", "originals", "mixed-media", "landings", "rooms", "promos")
+WHAT = ("apps", "academy", "mcp", "originals", "mixed-media", "landings", "rooms", "promos", "room-list",
+        "room-content")
 DEFAULT_WHAT = ("apps", "academy", "mcp", "originals", "mixed-media", "landings", "promos")   # rooms: opt-in
 
 # marketing-sitemap paths that are not landings (covered elsewhere or by another --what value)
@@ -68,4 +82,10 @@ ENDPOINT_DOCS = {
     "datetime_settings": API + DATETIME_SETTINGS,
     "business_unlim": API + BUSINESS_UNLIM,
     "game_gift": API + GAME_GIFT,
+}
+ROOM_ENDPOINT_DOCS = {           # added to meta.endpoints only in runs with --what room-list / room-content
+    "rooms_api": COMMUNITY_API + ROOMS_LIST,
+    "room_stats": COMMUNITY_API + ROOM_STATS + "?room_id={room_id}",
+    "room_items": COMMUNITY_API + ROOM_ITEMS,
+    "room_discussions": COMMUNITY_API + ROOM_DISCUSSIONS + "?room_id={room_id}&kind=discussion",
 }

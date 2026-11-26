@@ -1,0 +1,57 @@
+{
+ "meta": {
+  "endpoint": "showcase_motion_control_presets",
+  "url": "https://cms.higgsfield.ai/kling-motion-control-presets?lang=en",
+  "params": {
+   "lang": "en"
+  },
+  "fetched_at": "2026-11-26T14:05:51.872065+00:00",
+  "status": 200
+ },
+ "body": [
+  {
+   "id": "4997819d-6a03-4f7c-91be-5519de684a14",
+   "name": "1",
+   "description": "",
+   "preview_media": {
+    "url": "https://cdn.higgsfield.ai/kling_motion_control_preset/7c764ec1-9343-48dd-a300-8fb7b2be09a5.mp4",
+    "type": "video",
+    "width": 600,
+    "height": 1084,
+    "placeholder": "data:image/webp;base64,AAAA",
+    "optimized_url": "https://cdn.higgsfield.ai/kling_motion_control_preset/dc45d7bb-5eae-43c3-8f16-e8f8c163ac72.webp",
+    "thumbnail_url": "https://cdn.higgsfield.ai/kling_motion_control_preset/caa0ca87-8507-4e45-a26d-b4f184ce9344.webp"
+   },
+   "source_media": {
+    "id": "b7b19f6b-820c-49fb-81a5-358847ffbbe5",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/b7b19f6b-820c-49fb-81a5-358847ffbbe5.mp4",
+    "type": "video_input",
+    "optimized_url": "https://cdn.higgsfield.ai/kling_motion_control_preset/93bf2034-4962-4b56-ab7a-c7118c284c22.webp",
+    "thumbnail_url": "https://cdn.higgsfield.ai/kling_motion_control_preset/58f5be87-5af2-4c58-899c-41db4fc34820.webp"
+   },
+   "priority": 3
+  },
+  {
+   "id": "e43fabb9-679e-451e-a0c4-9a8b57a21a8a",
+   "name": "21",
+   "description": "",
+   "preview_media": {
+    "url": "https://cdn.higgsfield.ai/kling_motion_control_preset/55f89edc-767d-49ca-aad3-6ce882b6ee72.mp4",
+    "type": "video",
+    "width": 600,
+    "height": 1084,
+    "placeholder": "data:image/webp;base64,AAAA",
+    "optimized_url": "https://cdn.higgsfield.ai/kling_motion_control_preset/00e5a266-d5d0-4902-913c-6f087f83bcd0.webp",
+    "thumbnail_url": "https://cdn.higgsfield.ai/kling_motion_control_preset/ef76e11c-31e9-4df2-9213-d0ca27d9d189.webp"
+   },
+   "source_media": {
+    "id": "f4c8fd03-98ec-40b8-9e9a-c6bcc7102de8",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/f4c8fd03-98ec-40b8-9e9a-c6bcc7102de8.mp4",
+    "type": "video_input",
+    "optimized_url": "https://cdn.higgsfield.ai/kling_motion_control_preset/3ca72567-7cc1-4784-8039-3271e0c45b37.webp",
+    "thumbnail_url": "https://cdn.higgsfield.ai/kling_motion_control_preset/39b8e1b6-781b-462f-b659-af13d7eb23ee.webp"
+   },
+   "priority": 4
+  }
+ ]
+}

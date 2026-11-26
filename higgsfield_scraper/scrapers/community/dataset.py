@@ -10,9 +10,10 @@ from ...core.base import RunMeta
 from ...core.dataset import make_meta
 from ...core.exporting import flatten, row, without, write_standard_outputs
 from ...estimate import EstimatedCost, formula_version_in_schema, skipped
-from .endpoints import FEED_PATHS
+from .endpoints import (COMMUNITY_BASE, CREATORS_PATH, ENTITY_COMMENTS_PATH, FEED_PATH, FEED_PATHS, POSTS_PATH,
+                        SHOTS_PATH, TALENTS_PATH)
 from .options import Selection
-from .schemas import CommunityDataset
+from .schemas import CommunityDataset, CommunityDatasetExt
 
 log = logging.getLogger(__name__)
 
@@ -182,6 +183,10 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
             if per_user.get(e["user_id"]):          # drop creators of items cut by --max-items / filters
                 creators.append({**strip(e), "generations_in_dataset": per_user[e["user_id"]]})
     pubs = {g["publication_id"] for g in gens}
+    ext = _extra_collections(entities) if sel.extra_feeds else None
+    if ext is not None:      # comments of opt-in shots / feed items / posts are kept too
+        pubs |= {x["shot_id"] for x in ext["shots"]} | {x["item_id"] for x in ext["feed_items"]} | \
+            {x["post_id"] for x in ext["posts"]}
     # comments come from Community posts (fnf-community), not from the gallery publications above; keep a comment
     # when it belongs to a fetched publication or to a Community post thread
     comments = [strip(e) for e in entities.get("community_comment", [])
@@ -201,12 +206,85 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
     if sel.estimating:
         endpoints["job_costs"] = "https://fnf-api-gw.higgsfield.ai/fnf/job-sets/costs"
         endpoints["plans"] = "https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/plans"
-    meta = make_meta("community", sel, rm, counts={"generations": len(gens), "creators": len(creators),
-                                                   "comments": len(comments), "pages": len(pages)},
+    counts = {"generations": len(gens), "creators": len(creators), "comments": len(comments), "pages": len(pages)}
+    if ext is not None:      # only runs with opt-in feeds get the extra counts / endpoints / collections
+        counts.update({k: len(v) for k, v in ext.items()})
+        endpoints.update(_extra_endpoints(sel))
+    meta = make_meta("community", sel, rm, counts=counts,
                      endpoints=endpoints, totals_available=totals, warnings=warnings)
     ds = {"schema_version": SCHEMA_VERSION, "meta": meta, "generations": gens, "creators": creators,
           "comments": comments, "pages": pages, "stats": build_stats(gens, cost_basis, sel)}
-    return CommunityDataset.model_validate(ds).model_dump(mode="json")
+    if ext is None:
+        return CommunityDataset.model_validate(ds).model_dump(mode="json")
+    ds.update(ext)
+    ds["extra_stats"] = _extra_stats(ext, comments)
+    return CommunityDatasetExt.model_validate(ds).model_dump(mode="json")
+
+
+# ------------------------------------------------------------------ opt-in Community pages
+EXTRA_COLLECTIONS = {"shots": "community_shot", "posts": "community_post", "feed_items": "community_feed_item",
+                     "creator_stats": "community_creator_stats"}
+
+
+def _extra_collections(entities: dict[str, list[dict]]) -> dict[str, list[dict]]:
+    out = {c: [without(e, "kind") for e in entities.get(k, [])] for c, k in EXTRA_COLLECTIONS.items()}
+    out["feed_items"].sort(key=lambda x: (x.get("position") is None, x.get("position") or 0))
+    out["creator_stats"].sort(key=lambda x: (x["listing"], x.get("position") is None, x.get("position") or 0))
+    return out
+
+
+def _extra_endpoints(sel: Selection) -> dict[str, str]:
+    fnf = "https://fnf-api-gw.higgsfield.ai/fnf"
+    urls = {"shots": COMMUNITY_BASE + SHOTS_PATH, "posts": COMMUNITY_BASE + POSTS_PATH, "feed": COMMUNITY_BASE + FEED_PATH,
+            "creators": fnf + CREATORS_PATH, "talents": fnf + TALENTS_PATH}
+    out = {f: urls[f] for f in sel.extra_feeds}
+    if sel.with_comments:
+        out["entity_comments"] = COMMUNITY_BASE + ENTITY_COMMENTS_PATH
+    return out
+
+
+def _extra_stats(ext: dict[str, list[dict]], comments: list[dict]) -> dict:
+    return {"shots": len(ext["shots"]), "posts": len(ext["posts"]), "feed_items": len(ext["feed_items"]),
+            "creator_stats": len(ext["creator_stats"]),
+            "feed_items_by_type": _top(Counter(x["item_type"] for x in ext["feed_items"])),
+            "shots_by_job_set_type": _top(Counter(x.get("job_set_type") or "?" for x in ext["shots"])),
+            "shots_by_media_type": _top(Counter(x["media_type"] for x in ext["shots"])),
+            "comments_by_thread_type": _top(Counter(c.get("thread_type") or "?" for c in comments))}
+
+
+def extra_csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
+    """Complete CSVs of the opt-in collections (one row per record + child tables for nested lists)."""
+    posts, creators = ds["posts"], ds["creator_stats"]
+    return {
+        "shots": ([flatten(x) for x in ds["shots"]], ["shot_id", "generation_id", "job_set_type", "media_type"]),
+        "posts": ([flatten(without(x, "media")) for x in posts], ["post_id", "title", "text"]),
+        "post_media": ([row(m, post_id=p["post_id"]) for p in posts for m in p["media"]], ["post_id", "index", "type"]),
+        "feed_items": ([flatten(x) for x in ds["feed_items"]], ["feed_item_id", "position", "item_type", "item_id"]),
+        "creator_stats": ([flatten(without(x, "works")) for x in creators], ["record_id", "listing", "position",
+                                                                             "user_id"]),
+        "creator_works": ([row(w, record_id=c["record_id"], user_id=c["user_id"], listing=c["listing"], position=i)
+                           for c in creators for i, w in enumerate(c["works"])], ["record_id", "user_id", "position"]),
+        "extra_stats": ([{"dimension": k, "value": v2, "count": n} for k, v in ds["extra_stats"].items()
+                         if isinstance(v, dict) for v2, n in v.items()] +
+                        [{"dimension": k, "value": None, "count": v} for k, v in ds["extra_stats"].items()
+                         if not isinstance(v, dict)], ["dimension", "value", "count"]),
+    }
+
+
+def extra_summary_md(ds: dict) -> str:
+    st = ds["extra_stats"]
+    lines = ["## Opt-in Community pages", "",
+             _md_table([[k, st[k]] for k in ("shots", "posts", "feed_items", "creator_stats")], ["collection", "rows"]),
+             ""]
+    for title, key in (("Feed items by type", "feed_items_by_type"), ("Shots by model", "shots_by_job_set_type"),
+                       ("Comments by thread type", "comments_by_thread_type")):
+        if st.get(key):
+            lines += [f"### {title}", "", _md_table([[k, v] for k, v in list(st[key].items())[:15]],
+                                                     ["value", "count"]), ""]
+    lines += ["Files: `csv/shots.csv`, `csv/posts.csv` + `csv/post_media.csv`, `csv/feed_items.csv`, "
+              "`csv/creator_stats.csv` + `csv/creator_works.csv`, `csv/extra_stats.csv` (only in runs with opt-in "
+              "feeds). Creator names, bios and avatars only with --with-profiles.", ""]
+    return "\n".join(lines)
 
 
 # ------------------------------------------------------------------ outputs
@@ -312,9 +390,13 @@ def summary_md(ds: dict) -> str:
 def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
     # formula_version (v2 estimates only) appears in the JSON Schema only when the dataset contains it
     v2 = any((g.get("estimated_cost") or {}).get("formula_version") is not None for g in ds["generations"])
+    json_parts = {"generations": ds["generations"], "creators": ds["creators"], "comments": ds["comments"],
+                  "pages": ds["pages"], "stats": ds["stats"]}
+    tables, model, md = csv_tables(ds), CommunityDataset, summary_md(ds)
+    if "shots" in ds:          # opt-in feeds were used (CommunityDatasetExt)
+        json_parts.update({k: ds[k] for k in (*EXTRA_COLLECTIONS, "extra_stats")})
+        tables.update(extra_csv_tables(ds))
+        model, md = CommunityDatasetExt, md + "\n" + extra_summary_md(ds)
     with formula_version_in_schema(v2):
-        return write_standard_outputs(
-            ds, out_dir,
-            json_parts={"generations": ds["generations"], "creators": ds["creators"], "comments": ds["comments"],
-                        "pages": ds["pages"], "stats": ds["stats"]},
-            csv_tables=csv_tables(ds), dataset_model=CommunityDataset, summary_md=summary_md(ds))
+        return write_standard_outputs(ds, out_dir, json_parts=json_parts, csv_tables=tables, dataset_model=model,
+                                      summary_md=md)

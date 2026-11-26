@@ -5,7 +5,10 @@
 """
 from __future__ import annotations
 
+from collections import Counter
 from typing import Any, Iterator, Optional
+
+import scrapy
 
 from ...core.api_spider import BaseApiSpider
 from ...run.logging_setup import emit
@@ -14,7 +17,14 @@ from .endpoints import (COMMENTS_ENDPOINT, COMMENTS_PAGE_SIZE, COMMENTS_PATH, CO
                         FEED_PARAMS, FEED_PATHS, JOB_COSTS_ENDPOINT, JOB_COSTS_PATH, PAGE_SIZE, PLANS_ENDPOINT,
                         COMPARE_ENDPOINT, COMPARE_PATH, BENEFITS_ENDPOINT, BENEFITS_PATH, VIRAL_ENDPOINT, VIRAL_PATH,
                         PLANS_PATH)
+from .endpoints import (CREATORS_PATH, ENTITY_COMMENTS_ENDPOINT, ENTITY_COMMENTS_PAGE_SIZE, ENTITY_COMMENTS_PATH,
+                        EXTRA_ENDPOINTS, EXTRA_KINDS, EXTRA_PAGE_SIZE, FEED_ITEM_ENTITY, FEED_PATH, SHOTS_PATH,
+                        TALENTS_PATH)
 from .parsers import _items_of, parse_posts, repr_cursor
+
+EXTRA_FEED_OF = {v: k for k, v in EXTRA_ENDPOINTS.items()}
+EXTRA_ID_FIELD = {"community_shot": "shot_id", "community_post": "post_id", "community_feed_item": "feed_item_id",
+                  "community_creator_stats": "record_id"}
 
 
 def next_page(body: Any, sent_cursor: Optional[str], new_ids: int) -> tuple[Optional[str], str]:
@@ -52,6 +62,21 @@ class CommunitySpider(BaseApiSpider):
         self.seen_ids: set[str] = set()
         self.detail_requested = 0
         self.stop_reasons: dict[str, str] = {}
+        # opt-in Community pages: per-feed --max-items accounting (unused by default runs)
+        self._extra_kept: Counter = Counter()
+        self._extra_seen: set[tuple[str, str]] = set()
+        self._extra_dropped: set[str] = set()
+        self._extra_ids: set[str] = set()
+
+    @classmethod
+    def update_settings(cls, settings) -> None:
+        """Add the creators privacy middleware (acts only on --feeds creators/talents responses; a no-op otherwise)
+        to the project's DOWNLOADER_MIDDLEWARES without replacing them (see account/spider.py)."""
+        super().update_settings(settings)
+        from .privacy import CreatorsPrivacyMiddleware
+        mws = dict(settings.getdict("DOWNLOADER_MIDDLEWARES"))
+        mws[CreatorsPrivacyMiddleware.PATH] = CreatorsPrivacyMiddleware.PRIORITY
+        settings.set("DOWNLOADER_MIDDLEWARES", mws, priority="spider")
 
     # ------------------------------------------------------------ requests
     def _feed_params(self, feed: str, cursor: Optional[str] = None) -> dict:
@@ -101,8 +126,12 @@ class CommunitySpider(BaseApiSpider):
                                                                     "with_localization": "true"}, priority=10)
             yield self.api_request(BENEFITS_ENDPOINT, BENEFITS_PATH, {"locale": "en"}, priority=10)
             yield self.api_request(VIRAL_ENDPOINT, VIRAL_PATH, {"lang": "en"}, priority=10)
-        if sel.with_comments:
+        if sel.with_comments and not sel.wants("posts"):   # with --feeds posts the listing itself finds threads
             yield self._posts()
+        for feed in sel.extra_feeds:
+            r = self._extra(feed)
+            if r is not None:
+                yield r
         for pid in sel.publication_ids:
             self.detail_requested += 1
             yield self._detail(pid, "detail")
@@ -111,6 +140,127 @@ class CommunitySpider(BaseApiSpider):
             if r is not None:
                 yield r
 
+    # ------------------------------------------------------------ opt-in Community pages
+    def _extra_left(self, feed: str) -> Optional[int]:
+        mx = self.common.max_items
+        return None if mx is None else max(0, mx - self._extra_kept[feed])
+
+    def _extra(self, feed: str, cursor: Optional[str] = None, offset: int = 0):
+        """First / next page of an opt-in feed. The page size never exceeds what --max-items still allows."""
+        left = self._extra_left(feed)
+        if left is not None and left <= 0:
+            self.limit_hit(f"max_items={self.common.max_items} reached for {feed}")
+            return None
+        if not self.page_allowed(feed):
+            return None
+        sel = self.selection
+        size = self.page_size(*EXTRA_PAGE_SIZE[feed])
+        if left is not None:
+            size = max(1, min(size, left))
+        ep = EXTRA_ENDPOINTS[feed]
+        labels = {"offset": offset} if feed in ("shots", "feed", "creators") else None
+        if feed == "shots":
+            params = {"limit": size, "type": sel.type if sel.type in ("image", "video") else None,
+                      "models": ",".join(sel.models) or None, "cursor": cursor}
+            return self.api_request(ep, SHOTS_PATH, params, base=COMMUNITY_BASE, labels=labels)
+        if feed == "posts":
+            return self.api_request(ep, POSTS_PATH, {"limit": size, "offset": offset or None}, base=COMMUNITY_BASE)
+        if feed == "feed":
+            return self.api_request(ep, FEED_PATH, {"limit": size, "cursor": cursor}, base=COMMUNITY_BASE,
+                                    labels=labels)
+        if feed == "creators":
+            return self.api_request(ep, CREATORS_PATH, {"all": "true", "sort": "default", "limit": size,
+                                                        "cursor": cursor}, labels=labels)
+        return self.api_request(ep, TALENTS_PATH, {"sort": "rating", "limit": size, "offset": offset})
+
+    def _entity_comments(self, entity_type: str, entity_id: str, cursor: Optional[str] = None,
+                         parent_id: Optional[str] = None):
+        params = {"limit": ENTITY_COMMENTS_PAGE_SIZE, "cursor": cursor, "parent_id": parent_id}
+        return self.api_request(ENTITY_COMMENTS_ENDPOINT,
+                                ENTITY_COMMENTS_PATH.format(entity_type=entity_type, entity_id=entity_id), params,
+                                base=COMMUNITY_BASE, labels={"entity_type": entity_type, "entity_id": entity_id},
+                                priority=3)
+
+    def parse_api(self, response, **kw):
+        """Base parsing; with opt-in feeds, also the per-feed --max-items cap (items beyond it are dropped)."""
+        if not self.selection.extra_feeds:
+            yield from super().parse_api(response, **kw)
+            return
+        mx = self.common.max_items
+        feed = EXTRA_FEED_OF.get(response.meta.get("endpoint"))
+        for x in super().parse_api(response, **kw):
+            if feed is not None and isinstance(x, scrapy.Item) and x.get("kind") == EXTRA_KINDS[feed]:
+                ident = str(x.get(EXTRA_ID_FIELD[x["kind"]]))
+                if (feed, ident) not in self._extra_seen:
+                    if mx is not None and self._extra_kept[feed] >= mx:
+                        self.limit_hit(f"max_items={mx} reached for {feed}")
+                        self._extra_dropped.add(ident)
+                        continue
+                    self._extra_kept[feed] += 1
+                    self._extra_seen.add((feed, ident))
+                    self._extra_ids.add(ident)
+            elif isinstance(x, scrapy.Request) and x.meta.get("media") and \
+                    x.meta.get("media_owner") in self._extra_dropped:
+                continue
+            yield x
+
+    def _extra_follow_up(self, env, entities) -> Iterator[Any]:
+        sel = self.selection
+        feed = EXTRA_FEED_OF[env.endpoint]
+        body = env.body if isinstance(env.body, dict) else {}
+        kept = [e for e in entities if str(e.get(EXTRA_ID_FIELD.get(e.get("kind"), ""), "")) in self._extra_ids]
+        if sel.with_comments:                                 # comment threads of the kept items
+            for e in kept:
+                if not (e.get("comments") or 0) > 0:
+                    continue
+                if e["kind"] == "community_shot":
+                    yield self._entity_comments("generation_publication", e["shot_id"])
+                elif e["kind"] == "community_post":
+                    yield self._comments(e["post_id"])
+                elif e["kind"] == "community_feed_item":
+                    if e["item_type"] == "post":
+                        yield self._comments(e["item_id"])
+                    elif e["item_type"] in FEED_ITEM_ENTITY:
+                        yield self._entity_comments(FEED_ITEM_ENTITY[e["item_type"]], e["item_id"])
+        if feed == "posts":
+            n = len(body.get("publications") or [])
+        elif feed in ("creators", "talents"):
+            n = len(body.get("users") or [])
+            if body.get("total") is not None and feed not in self.totals:
+                self.totals[feed] = body.get("total")
+        else:
+            n = len(_items_of(body))
+        offset = int(env.params.get("offset") or 0)
+        nxt_cursor, nxt_offset, reason = None, None, "next"
+        if n == 0:
+            reason = "empty page"
+        elif feed == "posts":
+            reason = "next" if body.get("has_more") is True else "has_more false"
+            nxt_offset = offset + n
+        elif feed == "talents":
+            no = body.get("next_offset")
+            reason = "next" if isinstance(no, int) and no > offset else "no next_offset"
+            nxt_offset = no if isinstance(no, int) else None
+        else:
+            nxt_cursor = body.get("next_cursor")
+            if not nxt_cursor or nxt_cursor == env.params.get("cursor"):
+                reason = "no next_cursor"
+            nxt_offset = offset + n
+        if reason == "next" and not kept:
+            reason = "no new items on page"
+        left = self._extra_left(feed)
+        if reason == "next" and left is not None and left <= 0:
+            reason = "max_items reached"
+            self.limit_hit(f"max_items={self.common.max_items} reached for {feed}")
+        self.stop_reasons[feed] = reason
+        if reason != "next":
+            emit(self.logger, "info", "listing.finished", f"feed {feed}: stop after page {self.pages[feed]} "
+                 f"({reason})", listing=feed, pages__count=self.pages[feed], reason=reason)
+            return
+        r = self._extra(feed, nxt_cursor, nxt_offset or 0)
+        if r is not None:
+            yield r
+
     def _detail_budget_left(self) -> Optional[int]:
         mx = self.common.max_items
         return None if mx is None else max(0, mx - self.detail_requested)
@@ -118,7 +268,20 @@ class CommunitySpider(BaseApiSpider):
     # ------------------------------------------------------------ follow-ups
     def follow_up(self, env, entities, response) -> Iterator[Any]:
         sel = self.selection
-        if env.endpoint in ENDPOINT_FEEDS:
+        if env.endpoint in EXTRA_FEED_OF:
+            yield from self._extra_follow_up(env, entities)
+        elif env.endpoint == ENTITY_COMMENTS_ENDPOINT and isinstance(env.body, dict):
+            etype, eid = env.params.get("entity_type") or "", env.params.get("entity_id") or ""
+            parent = env.params.get("parent_id")
+            nxt = env.body.get("next_cursor")
+            if nxt and entities and nxt != env.params.get("cursor") and \
+                    self.page_allowed(f"comments:{eid}:{parent or ''}"):
+                yield self._entity_comments(etype, eid, nxt, parent)
+            if parent is None:                               # replies (one level, as in the web app)
+                for e in entities:
+                    if (e.get("reply_count") or 0) > 0:
+                        yield self._entity_comments(etype, eid, parent_id=e["comment_id"])
+        elif env.endpoint in ENDPOINT_FEEDS:
             feed = ENDPOINT_FEEDS[env.endpoint]
             body = env.body if isinstance(env.body, dict) else {}
             items = _items_of(body)

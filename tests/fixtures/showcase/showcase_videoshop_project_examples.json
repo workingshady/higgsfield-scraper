@@ -1,0 +1,262 @@
+{
+ "meta": {
+  "endpoint": "showcase_videoshop_project_examples",
+  "url": "https://fnf-api-gw.higgsfield.ai/fnf/videoshop/project-examples",
+  "params": {},
+  "fetched_at": "2026-11-26T14:05:42.399181+00:00",
+  "status": 200
+ },
+ "body": {
+  "items": [
+   {
+    "project": {
+     "id": "82118cec-007e-4a0f-aff6-05e453ca049a",
+     "name": "My сorners of the сity",
+     "created_at": 1795086926.308985,
+     "updated_at": 1795086929.320981,
+     "take": {
+      "id": "2552d9f4-8122-4050-b067-6cafc70c4a20",
+      "type": "video_input",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/2552d9f4-8122-4050-b067-6cafc70c4a20.mp4",
+      "thumbnail_url": "https://cdn.higgsfield.ai/2552d9f4-8122-4050-b067-6cafc70c4a20_thumb.webp",
+      "width": 3840,
+      "height": 2160,
+      "duration_ms": 15041,
+      "filename": "Input (1).mp4",
+      "assets": {
+       "poster": {
+        "status": "ready",
+        "url": "https://cdn.higgsfield.ai/2552d9f4-8122-4050-b067-6cafc70c4a20_thumb.webp"
+       },
+       "storyboard": {
+        "status": "ready",
+        "vtt_url": "https://cdn.higgsfield.ai/storyboard/cc8643e0-0846-49c0-8c48-a58db379f0f2/video_input/2552d9f4-8122-4050-b067-6cafc70c4a20/storyboard/board.vtt"
+       },
+       "preview": {
+        "status": "ready",
+        "url": "https://cdn.higgsfield.ai/videoshop/take/2552d9f4-8122-4050-b067-6cafc70c4a20/preview/fe113d9a-0bbe-4962-9392-a216abedc6cd/compressed.mp4"
+       }
+      }
+     },
+     "take_status": "ready",
+     "scenes_status": "ready",
+     "scenes": [
+      {
+       "end_ms": 15041,
+       "start_ms": 0
+      }
+     ]
+    },
+    "timeline": {
+     "schemaVersion": 3,
+     "edits": [
+      {
+       "startMs": 1241,
+       "endMs": 3450,
+       "id": "3c45d099-a6f6-45b0-82a6-a483d2c106bf",
+       "number": 1,
+       "tool": "relight",
+       "layer": 1,
+       "hidden": false,
+       "resolution": "1080p",
+       "promptEnabled": false,
+       "prompt": "",
+       "references": [],
+       "relight": {
+        "preset": "bold-02",
+        "lights": [
+         {
+          "az": 45,
+          "el": 35,
+          "color": "#FFBC70",
+          "brightness": 100,
+          "diffuse": 10
+         }
+        ]
+       },
+       "brush": null,
+       "cameraMove": null,
+       "angle": null,
+       "placedVersionId": "28d41e56-1ed8-4855-adb8-397ada53270b"
+      },
+      {
+       "startMs": 3450,
+       "endMs": 5450,
+       "id": "d60bdd21-2502-4c57-831f-f76f92965a8e",
+       "number": 2,
+       "tool": "relight",
+       "layer": 1,
+       "hidden": false,
+       "resolution": "1080p",
+       "promptEnabled": false,
+       "prompt": "",
+       "references": [],
+       "relight": {
+        "preset": "moon",
+        "lights": [
+         {
+          "az": 150,
+          "el": 50,
+          "color": "#8FB4FF",
+          "brightness": 70,
+          "diffuse": 35
+         }
+        ]
+       },
+       "brush": null,
+       "cameraMove": null,
+       "angle": null,
+       "placedVersionId": "91b819e6-897d-43ce-908a-ed13ac281956"
+      },
+      {
+       "startMs": 5450,
+       "endMs": 15041,
+       "id": "c515e447-121c-4610-95d1-f4f30b95553a",
+       "number": 4,
+       "tool": "genjutsu",
+       "genjutsuWay": "change-location",
+       "layer": 1,
+       "hidden": false,
+       "resolution": "1080p",
+       "promptEnabled": true,
+       "prompt": "change location",
+       "references": [
+        {
+         "id": "3c5e43b5-0cbc-43db-b2cf-cc8075375f4d",
+         "type": "media_input",
+         "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/3c5e43b5-0cbc-43db-b2cf-cc8075375f4d.png",
+         "ipCheckFinished": true,
+         "ipDetected": false,
+         "ipStatus": "uploaded",
+         "created_at": 1795087202
+        }
+       ],
+       "relight": null,
+       "brush": null,
+       "cameraMove": null,
+       "angle": null,
+       "placedVersionId": "2ce246b9-5e75-4f37-912e-20d762099323"
+      }
+     ],
+     "nextEditNumber": 11,
+     "versions": [
+      {
+       "batchId": "56a2f524-18d8-434a-997c-58596bcdf1ef",
+       "id": "28d41e56-1ed8-4855-adb8-397ada53270b",
+       "editId": "3c45d099-a6f6-45b0-82a6-a483d2c106bf",
+       "number": 1,
+       "jobSetId": "3d4fb01e-7134-4501-9b3e-a763087be4b6",
+       "rangeMs": {
+        "startMs": 1241,
+        "endMs": 3450
+       },
+       "specKey": "[\"relight\",1241,3450,\"1080p\",\"\",[],\"take\",{\"preset\":\"bold-02\",\"lights\":[{\"az\":45,\"el\":35,\"color\":\"#FFBC70\",\"brightness\":100,\"diffuse\":10}]}]",
+       "resolution": "1080p",
+       "madeWith": {
+        "tool": "relight",
+        "resolution": "1080p",
+        "promptEnabled": false,
+        "prompt": "",
+        "relight": {
+         "preset": "bold-02",
+         "lights": [
+          {
+           "az": 45,
+           "el": 35,
+           "color": "#FFBC70",
+           "brightness": 100,
+           "diffuse": 10
+          }
+         ]
+        }
+       },
+       "status": "ready",
+       "media": {
+        "id": "f58010df-5d68-4db4-a6c0-05e40eb6fd4a",
+        "type": "video_job",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/hf_20261119_111610_f58010df-5d68-4db4-a6c0-05e40eb6fd4a.mp4"
+       },
+       "thumbnailUrl": "https://cdn.higgsfield.ai/user_REDACTEDREDACTEDREDACTED00/hf_20261119_111610_f58010df-5d68-4db4-a6c0-05e40eb6fd4a_thumbnail.webp"
+      },
+      {
+       "batchId": "941e6f00-5ac3-42d2-b909-4894cf89cd73",
+       "id": "91b819e6-897d-43ce-908a-ed13ac281956",
+       "editId": "d60bdd21-2502-4c57-831f-f76f92965a8e",
+       "number": 3,
+       "jobSetId": "07b73ba3-064d-4957-be00-1d5a06539bb2",
+       "rangeMs": {
+        "startMs": 3450,
+        "endMs": 5450
+       },
+       "specKey": "[\"relight\",3450,5450,\"1080p\",\"\",[],\"take\",{\"preset\":\"moon\",\"lights\":[{\"az\":150,\"el\":50,\"color\":\"#8FB4FF\",\"brightness\":70,\"diffuse\":35}]}]",
+       "resolution": "1080p",
+       "madeWith": {
+        "tool": "relight",
+        "resolution": "1080p",
+        "promptEnabled": false,
+        "prompt": "",
+        "relight": {
+         "preset": "moon",
+         "lights": [
+          {
+           "az": 150,
+           "el": 50,
+           "color": "#8FB4FF",
+           "brightness": 70,
+           "diffuse": 35
+          }
+         ]
+        }
+       },
+       "status": "ready",
+       "media": {
+        "id": "f2280f9a-bcd5-448a-9494-1506013eb32a",
+        "type": "video_job",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/hf_20261119_112538_f2280f9a-bcd5-448a-9494-1506013eb32a.mp4"
+       },
+       "thumbnailUrl": "https://cdn.higgsfield.ai/user_REDACTEDREDACTEDREDACTED00/hf_20261119_112538_f2280f9a-bcd5-448a-9494-1506013eb32a_thumbnail.webp"
+      },
+      {
+       "batchId": "39380695-c6c5-44e7-9780-ea3459e26f49",
+       "id": "2ce246b9-5e75-4f37-912e-20d762099323",
+       "editId": "c515e447-121c-4610-95d1-f4f30b95553a",
+       "number": 1,
+       "jobSetId": "a641e007-1b37-4fae-a054-b4c03605aec8",
+       "rangeMs": {
+        "startMs": 5450,
+        "endMs": 15041
+       },
+       "specKey": "[\"genjutsu\",5450,15041,\"1080p\",\"change location\",[\"3c5e43b5-0cbc-43db-b2cf-cc8075375f4d\"],\"take\"]",
+       "resolution": "1080p",
+       "madeWith": {
+        "tool": "genjutsu",
+        "resolution": "1080p",
+        "promptEnabled": true,
+        "prompt": "change location",
+        "references": [
+         {
+          "id": "3c5e43b5-0cbc-43db-b2cf-cc8075375f4d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/3c5e43b5-0cbc-43db-b2cf-cc8075375f4d.png",
+          "ipCheckFinished": true,
+          "ipDetected": false,
+          "ipStatus": "uploaded",
+          "created_at": 1795087202
+         }
+        ],
+        "genjutsuWay": "change-location"
+       },
+       "status": "ready",
+       "media": {
+        "id": "5b75a9f6-8395-4d27-b3a4-6049e07eb650",
+        "type": "video_job",
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDREDACTEDREDACTED00/hf_20261119_112035_5b75a9f6-8395-4d27-b3a4-6049e07eb650.mp4"
+       },
+       "thumbnailUrl": "https://cdn.higgsfield.ai/user_REDACTEDREDACTEDREDACTED00/hf_20261119_112035_5b75a9f6-8395-4d27-b3a4-6049e07eb650_thumbnail.webp"
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

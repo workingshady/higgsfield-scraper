@@ -1,0 +1,106 @@
+{
+    "meta": {
+        "endpoint": "rooms_api",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/rooms?limit=50",
+        "params": {
+            "limit": "50",
+            "offset": "0"
+        },
+        "fetched_at": "2026-11-26T13:34:11.296746+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "48778e71-932f-4517-a7ec-bccc730f134d",
+                "slug": "ai-film-japan-ai",
+                "name": "AI Film Japan｜日本のAI映画・ドラマ",
+                "description": "AI films & live-action AI dramas from Japan. Share shorts, dramas, MVs and behind-the-scenes. 日本語・English OK.",
+                "avatar_url": "<redacted>",
+                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED119/5a40e4df-de75-4622-a1ac-facbad535562.webp",
+                "works_count": 1,
+                "works_counts": {
+                    "blog_post": 1,
+                    "project_publication": 0,
+                    "shot": 0
+                },
+                "followers_count": 1,
+                "followers_preview": [
+                    {
+                        "user_id": "user_REDACTED119",
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>"
+                    }
+                ],
+                "works_preview": [
+                    {
+                        "item_type": "blog_post",
+                        "item_id": "8dabf97c-ba6e-45f9-843c-566d28ac244c",
+                        "media_type": "image",
+                        "cover_url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED119/hf_20261126_024250_bd213c1e-389e-429e-af7b-14b2b7a2041f_min.webp",
+                        "video_url": null,
+                        "width": 2688,
+                        "height": 1520
+                    }
+                ],
+                "author": {
+                    "user_id": "user_REDACTED119",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>"
+                },
+                "pinned": false,
+                "project_publication_id": null,
+                "contest_id": null,
+                "original_space_id": null,
+                "members_can_post": true,
+                "join_approval": false,
+                "created_at": "2026-11-26T13:24:51.20688Z",
+                "call_status": {
+                    "status": "inactive",
+                    "participant_count": 0
+                }
+            },
+            {
+                "id": "68c92cac-e706-4570-be94-df800d733e8b",
+                "slug": "story-first-ai-short-films",
+                "name": "Story First · AI Short Films",
+                "description": "For AI filmmakers who start with the story. Share short films, scripts, dialogue scenes and edits, and get honest feedback. Finished films and WIPs welcome.",
+                "avatar_url": "<redacted>",
+                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED120/66dff9f9-443f-4c4e-bf68-e03b4e690442.webp",
+                "works_count": 0,
+                "works_counts": {
+                    "blog_post": 0,
+                    "project_publication": 0,
+                    "shot": 0
+                },
+                "followers_count": 1,
+                "followers_preview": [
+                    {
+                        "user_id": "user_REDACTED120",
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>"
+                    }
+                ],
+                "works_preview": [],
+                "author": {
+                    "user_id": "user_REDACTED120",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>"
+                },
+                "pinned": false,
+                "project_publication_id": null,
+                "contest_id": null,
+                "original_space_id": null,
+                "members_can_post": true,
+                "join_approval": false,
+                "created_at": "2026-11-26T12:35:37.691141Z",
+                "call_status": {
+                    "status": "inactive",
+                    "participant_count": 0
+                }
+            }
+        ],
+        "next_cursor": "eyJzIjoibmV3ZXN0IiwiYyI6IjIwMjYtMTEtMDdUMTc6MTM6MTkuMzE2MjUyWiIsImkiOiJiNjVlZDFiOC00YmZlLTRjYjItOTc3ZS0xYThhZTdkYWExZjYifQ",
+        "total": 88
+    }
+}

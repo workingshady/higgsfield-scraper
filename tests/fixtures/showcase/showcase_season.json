@@ -1,0 +1,10 @@
+{
+ "meta": {
+  "endpoint": "showcase_season",
+  "url": "https://fnf-api-gw.higgsfield.ai/fnf-score/v1/season",
+  "params": {},
+  "fetched_at": "2026-11-26T14:05:43.912879+00:00",
+  "status": 200
+ },
+ "body": null
+}

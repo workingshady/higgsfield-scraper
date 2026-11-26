@@ -1,0 +1,263 @@
+{
+ "meta": {
+  "endpoint": "showcase_explore_feed",
+  "url": "https://cms.higgsfield.ai/higgsfield-multiplier/video-explore/v2?lang=en&source=community&size=20&cursor=1&sort=trending&view=v2",
+  "status": 200,
+  "params": {
+   "lang": "en",
+   "source": "community",
+   "size": "20",
+   "cursor": "1",
+   "sort": "trending",
+   "view": "v2",
+   "page": "1",
+   "feed": "community-trending"
+  },
+  "fetched_at": "2026-11-26T12:00:00+00:00"
+ },
+ "body": {
+  "cursor": "NWFkOWIyYTItZTJjOC00YjUyLThmZWUtNzc5MGY3ODI5MDhkOmNsdXN0ZXJzLWFiMi1FRzoyMDowMWEyMTgxOC0yODRiLTc0MmEtYTMwMS0zOGQxM2QwZGE5MWE",
+  "request_id": "01a21818-284b-742a-a301-38d13d0da91a",
+  "feed_session_id": "01a21818-284b-742a-a301-38d13d0da91a",
+  "items": [
+   {
+    "id": "962dc4bb-9e8c-40b6-a562-cbdb6eb31e68",
+    "source": "community",
+    "title": "Sunset Pier Swap",
+    "description": "Recast the main subject in this dramatic sunset pier scene with your own character while preserving the cinematic flow and environment.",
+    "job_set_type": "hf_mult_replace_object",
+    "original_video": {
+     "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/e54d2390-a322-5388-88df-2b847502543d.mp4",
+     "type": "video",
+     "width": 960,
+     "height": 720,
+     "duration": 29.916667,
+     "media_id": "e54d2390-a322-5388-88df-2b847502543d",
+     "media_type": "video_input",
+     "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/original.webp"
+    },
+    "variants": [
+     {
+      "id": "742e4cae-cb52-485a-9cfe-02129d65c2b1",
+      "type": "edit",
+      "media": {
+       "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/edit.mp4",
+       "type": "video",
+       "width": 1280,
+       "height": 960,
+       "duration": 29.708333,
+       "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/edit.webp",
+       "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/edit.mp4",
+       "main_width": 1280,
+       "main_height": 960
+      },
+      "prompt": null,
+      "input_assets": [],
+      "params": {},
+      "priority": 0
+     },
+     {
+      "id": "4ab0eef6-0ba6-48d4-a78e-871d15138036",
+      "type": "original",
+      "media": {
+       "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/e54d2390-a322-5388-88df-2b847502543d.mp4",
+       "type": "video",
+       "width": 960,
+       "height": 720,
+       "duration": 29.916667,
+       "media_id": "e54d2390-a322-5388-88df-2b847502543d",
+       "media_type": "video_input",
+       "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/original.webp"
+      },
+      "prompt": null,
+      "input_assets": [],
+      "params": {},
+      "priority": 1
+     },
+     {
+      "id": "d56a8514-69bc-4c27-9f1e-1f0632c725c2",
+      "type": "generation",
+      "media": {
+       "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/generation-genjutsu-h264-600-v1.mp4",
+       "type": "video",
+       "width": 600,
+       "height": 450,
+       "duration": 29.708333,
+       "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/generation.webp",
+       "compressed_video": {
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/generation-genjutsu-h264-600-v1.mp4",
+        "width": 600,
+        "height": 450,
+        "status": "ready",
+        "profile": "genjutsu-h264-600-v1",
+        "duration": 29.708333,
+        "size_bytes": 2000161,
+        "source_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/generation.mp4",
+        "audio_streams": 1
+       },
+       "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/b46a9e02-9c52-45e7-9e5b-b4299504dbe8/generation.mp4",
+       "main_width": 1664,
+       "main_height": 1248,
+       "hls_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/hls/genjutsu-h264-abr-v1/0f79cc2676817f3b94d404c0/812e15c3-de6a-436e-95a6-39584502b167/master.m3u8"
+      },
+      "prompt": "Use the provided character reference as the exact identity and appearance guide. Replace the original young male character with mines ensuring he fits naturally into the scene.\n\n\nPreserve his exact facial structure, hairstyle, clothing, accessories, skin tone and body proportions. Do not add a beanie, hoodie or any clothing that is not present in the reference.\n\nART STYLE AND VISUAL INTEGRATION\n\n\n\nThe character must share the same artistic rendering, lighting, texture and visual quality as the surrounding scene. Avoid photorealism, 3D rendering, plastic-looking skin, exaggerated anime proportions or a character-pasted-on appearance.\n\nSCENE INTEGRATION\n\nMake him fit the original scene’s perspective, scale, camera angles and physical environment. Adapt his posture and movements naturally to each shot while keeping his identity and outfit consistent.\n\nMaintain the original cinematic storytelling, character interactions, background, environment and lighting. Ensure his clothing moves naturally with his body and that his hairstyle and sunglasses remain consistent across every frame.\n\nFINAL REQUIREMENT\n\nThe result should look as though this character was originally designed for and animated within the scene. Preserve the character reference faithfully. Do not redesign, simplify, reinterpret or replace any of his defining features.",
+      "input_assets": [
+       {
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/a411f4db-fbbb-5775-96ad-e61a1f3623d8.webp",
+        "role": "image",
+        "type": "static",
+        "width": 1199,
+        "height": 1312,
+        "media_id": "a411f4db-fbbb-5775-96ad-e61a1f3623d8",
+        "media_type": "media_input"
+       }
+      ],
+      "params": {
+       "width": 960,
+       "height": 720,
+       "resolution": "1080p"
+      },
+      "priority": 2,
+      "publication": {
+       "id": "89f5f485-a602-4add-91de-4c7a21a540bc",
+       "likes_count": 1569,
+       "views_count": 27898
+      },
+      "author": {
+       "user_id": "user_REDACTEDREDACTEDREDACTED00",
+       "username": "REDACTED",
+       "avatar_url": "https://example.invalid/avatar.webp",
+       "badge": null
+      }
+     }
+    ],
+    "priority": 0,
+    "likes_count": 1569,
+    "views_count": 27898,
+    "comments_count": 16,
+    "trend_id": "f371706",
+    "times_made": 10463,
+    "category": "fun"
+   },
+   {
+    "id": "969df601-a8cb-477b-a496-13b7c7659a7e",
+    "source": "community",
+    "title": "Speedboat Getaway Driver",
+    "description": "Replace the driver of a high-speed boat in a cinematic neon city setting with any character or person of your choice.",
+    "job_set_type": "hf_mult_replace_object",
+    "original_video": {
+     "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d7886989-323b-58fb-a732-0ed0b35f6a46.mp4",
+     "type": "video",
+     "width": 1664,
+     "height": 1248,
+     "duration": 15.041997,
+     "media_id": "d7886989-323b-58fb-a732-0ed0b35f6a46",
+     "media_type": "video_input",
+     "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/original.webp"
+    },
+    "variants": [
+     {
+      "id": "67710a6b-07a6-4117-ade4-a929f03de5f4",
+      "type": "edit",
+      "media": {
+       "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/edit.mp4",
+       "type": "video",
+       "width": 1280,
+       "height": 960,
+       "duration": 15.041667,
+       "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/edit.webp",
+       "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/edit.mp4",
+       "main_width": 1280,
+       "main_height": 960
+      },
+      "prompt": null,
+      "input_assets": [],
+      "params": {},
+      "priority": 0
+     },
+     {
+      "id": "930a3a0e-7eff-4c0c-a8b9-af3061ba2549",
+      "type": "original",
+      "media": {
+       "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d7886989-323b-58fb-a732-0ed0b35f6a46.mp4",
+       "type": "video",
+       "width": 1664,
+       "height": 1248,
+       "duration": 15.041997,
+       "media_id": "d7886989-323b-58fb-a732-0ed0b35f6a46",
+       "media_type": "video_input",
+       "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/original.webp"
+      },
+      "prompt": null,
+      "input_assets": [],
+      "params": {},
+      "priority": 1
+     },
+     {
+      "id": "19ed527c-ca89-4d31-ab6d-1ba02cea1f37",
+      "type": "generation",
+      "media": {
+       "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation-genjutsu-h264-600-v1.mp4",
+       "type": "video",
+       "width": 600,
+       "height": 450,
+       "duration": 15.041667,
+       "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation.webp",
+       "compressed_video": {
+        "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation-genjutsu-h264-600-v1.mp4",
+        "width": 600,
+        "height": 450,
+        "status": "ready",
+        "profile": "genjutsu-h264-600-v1",
+        "duration": 15.041667,
+        "size_bytes": 1453946,
+        "source_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation.mp4",
+        "audio_streams": 1
+       },
+       "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation.mp4",
+       "main_width": 1664,
+       "main_height": 1248,
+       "hls_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/hls/genjutsu-h264-abr-v1/fff47b64b8f3a9bda4e6d415/e7e9f6f1-a2f9-42f4-b67b-c02208b67cfa/master.m3u8"
+      },
+      "prompt": "Replace only the boat driver at the wheel in <<<video_1>>> with the character from <<<image_1>>>. Everything else in <<<video_1>>> stays exactly the same: the man in the palm-print shirt, the woman in the leather jacket, the boat, the pier, the buildings, the neon signs, the police, the light, the camera and the timing.\n\nTHE NEW DRIVER: the same face, hair, body shape, colors and outfit as in <<<image_1>>>, in every shot. The new driver copies every move of the original driver one to one: the grip on the wheel, the glances, the arm wave, the turn of the head and the chuckle, with the head at about the same height in the seat.\n\nGRAPHICS MATCH (most important): whatever the style of <<<image_1>>> (a photo, a cartoon, anime, a 3D render or a drawing), the new driver is rendered in the exact video-game graphics of <<<video_1>>>, with the same shading, detail, sharpness, pink dusk and neon light, shadows and color grade as the man and the woman, so the new driver looks native to the same game and never pasted in. An animal keeps its own anatomy and rests plain paws on the wheel.\n\nLIP-SYNC: the new driver's mouth moves exactly like the original driver's mouth and only there: \"come on, come on\" (1.6–3.6 s) and \"Come on!\" (7.3–8.4 s), then a short chuckle at the end.\n\nNEVER: changes to anyone or anything except the driver, a mix of two faces, the driver cut off by the frame edge, size changes, a different art style, a pasted-in look, extra fingers, morphing.",
+      "input_assets": [
+       {
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/617c65ec-2591-5d8f-843d-e156be0d6593.webp",
+        "role": "image",
+        "type": "static",
+        "width": 1536,
+        "height": 2048,
+        "media_id": "617c65ec-2591-5d8f-843d-e156be0d6593",
+        "media_type": "media_input"
+       }
+      ],
+      "params": {
+       "width": 1664,
+       "height": 1248,
+       "resolution": "1080p"
+      },
+      "priority": 2,
+      "publication": {
+       "id": "95a82d13-fcc0-40b5-bff7-b73b0fbb2539",
+       "likes_count": 305,
+       "views_count": 1035
+      },
+      "author": {
+       "user_id": "user_REDACTEDREDACTEDREDACTED00",
+       "username": "REDACTED",
+       "avatar_url": "https://example.invalid/avatar.webp",
+       "badge": null
+      }
+     }
+    ],
+    "priority": 0,
+    "likes_count": 305,
+    "views_count": 1035,
+    "comments_count": 2,
+    "trend_id": "f460847",
+    "times_made": 1515,
+    "category": null
+   }
+  ]
+ }
+}

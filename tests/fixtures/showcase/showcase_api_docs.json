@@ -1,0 +1,345 @@
+{
+ "meta": {
+  "endpoint": "showcase_api_docs",
+  "url": "https://docs.higgsfield.ai/llms-full.txt",
+  "params": {},
+  "fetched_at": "2026-11-26T14:05:43.465247+00:00",
+  "status": 200
+ },
+ "body": {
+  "text": "# Higgsfield API Docs\n\n> This file is very large and may be truncated. For an index of this content, please refer to https://docs.higgsfield.ai/docs/llms.txt instead.\n\n> Build image and video generation workflows with the Higgsfield API, from authentication and requests to polling, webhooks, and model-specific endpoints.\n\n# Genjutsu — Restyle API\nSource: https://docs.higgsfield.ai/docs/models/genjutsu/restyle\n\nRestyle with Genjutsu: request parameters, examples and response handling.\n\n[← Genjutsu](/docs/models/genjutsu)\n\n**Endpoint:** `POST https://api.higgsfield.ai/higgsfield/genjutsu/restyle/v1.0`\n\n**Endpoint ID:** `higgsfield/genjutsu/restyle/v1.0`\n\n[▶\nOpen API PlaygroundGenjutsu · Restyle\n↗](https://console.higgsfield.ai/models/higgsfield%2Fgenjutsu%2Frestyle%2Fv1.0/playground)\n\n## Usage notes\n\n* Restyle changes the visual style of a source video while retaining its motion, shot composition, and source audio. Each request produces one video.\n* Select a current style from GET /models/higgsfield/genjutsu/restyle/v1.0/presets and send its UUID as preset_id. The example UUID below is illustrative of a published preset; fetch the current catalog before submitting.\n* The source must be at least 4 seconds and no larger than 200 MiB. Videos longer than 30 seconds are trimmed to their first 30 seconds, including audio.\n* Character references are optional: omit image_urls or send \\[] to restyle the existing source subjects. Supply up to 5 character images to guide their appearance.\n* Defaults apply to omitted optional fields. Use \\[] or an empty string where appropriate; null is not accepted.\n* Output framing is derived from the source and animation cadence can depend on the selected style. Exact output duration and FPS may differ from the source.\n\n## Quick start\n\nReplace the example media URLs with publicly accessible URLs for your own files before submitting.\n\n```bash cURL theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\ncurl --request POST \\\n  --url https://api.higgsfield.ai/higgsfield/genjutsu/restyle/v1.0 \\\n  --header \"Authorization: Key ${HF_API_KEY_ID}:${HF_API_KEY_SECRET}\" \\\n  --header \"Content-Type: application/json\" \\\n  --header \"Idempotency-Key: ${IDEMPOTENCY_KEY}\" \\\n  --data '{\n  \"video_url\": \"https://example.com/input.mp4\",\n  \"preset_id\": \"c2143317-f28d-4c3c-a0b8-39bd547e08a7\",\n  \"image_urls\": [],\n  \"prompt\": \"Preserve the original movement and camera composition.\",\n  \"resolution\": \"720p\"\n}'\n```\n\n```python Python theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\nimport higgsfield_client\n\narguments = (\n    {'video_url': 'https://example.com/input.mp4',\n     'preset_id': 'c2143317-f28d-4c3c-a0b8-39bd547e08a7',\n     'image_urls': [],\n     'prompt': 'Preserve the original movement and camera composition.',\n     'resolution': '720p'}\n)\nresult = higgsfield_client.subscribe(\n    \"higgsfield/genjutsu/restyle/v1.0\",\n    arguments=arguments,\n)\nprint(result[\"video\"][\"url\"])\n```\n\n```typescript TypeScript theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\nimport { config, higgsfield } from \"@higgsfield/client/v2\";\n\nconfig({ credentials: process.env.HF_CREDENTIALS });\n\nconst result = await higgsfield.subscribe(\"higgsfield/genjutsu/restyle/v1.0\", {\n  input:\n    {\n      \"video_url\": \"https://example.com/input.mp4\",\n      \"preset_id\": \"c2143317-f28d-4c3c-a0b8-39bd547e08a7\",\n      \"image_urls\": [],\n      \"prompt\": \"Preserve the original movement and camera composition.\",\n      \"resolution\": \"720p\"\n    },\n  withPolling: true,\n});\n\nif (result.status === \"completed\") {\n  console.log(result.video?.url);\n}\n```\n\n## Input schema\n\n**prompt** `string`\n\nOptional additional guidance for the final video alongside the preset, source motion, and character references. Describe subject roles or details to retain, for example: “Keep the referenced character’s pink hair consistent across shots.” An empty string uses the visual inputs without additional instructions. This supplements preset_id; it does not create a custom style or set duration, resolution, FPS, or audio behavior. Instructions guide a generative result and do not guarantee exact preservation.\nMaximum characters: `10000`.\n\n**preset_id** `string` *required*\n\nRequired UUID from items\\[].id in the [available styles](#available-styles) response. Selects one visual style for the subjects and scene. Send the ID, not the style name, preview URL, or list index. A prompt or character image does not replace this field. Hidden or unavailable presets fail input preparation; no alternative style is selected automatically. Custom/personal presets and multiple simultaneous styles are not supported.\nFormat: `uuid`.\n\n**video_url** `string` *required*\n\nDirect URL of the source video that supplies motion, camera movement, composition, and the source scene. It must be downloadable without browser cookies or custom authentication headers; an unexpired signed HTTPS URL is suitable. Minimum duration: 4 seconds. Maximum download size: 200 MiB (209,715,200 bytes), including files that will be trimmed. Longer clips use only their first 30 seconds; trim your upload first if you need another segment. Use a decodable video such as MP4, not a player page or local file path. Original audio is retained when present; there is no new-soundtrack control.\nMinimum characters: `1`.\nFormat: `uri`.\n\n**image_urls** `array` (default: \\[])\n\nOptional character appearance references, in a stable order. Omit this field or send \\[] to derive the styled subjects and scene from the source video. With references, each character image is restyled and the source background is cleaned and styled separately before video generation. Each URL must point directly to a downloadable image; JPEG and PNG are practical choices. Maximum download size: 64 MiB (67,108,864 bytes) per image. Images are normalized, so their dimensions do not set the output video size. These are character references, not style previews or background-only inputs. For multiple characters, describe the intended roles in prompt; the public API provides no explicit reference-to-person mapping.\nMaximum items: `5`.\nEach item: string. Minimum characters: `1`. Format: `uri`.\n\n**resolution** `string` (default: 720p)\n\nOutput resolution tier; strings are case-sensitive. Defaults to 720p. Send a supported string such as \"720p\", not the number 720 or \"HD\". This setting selects the video price tier and does not set the aspect ratio, duration, or FPS.\nAllowed values: `\"480p\"`, `\"720p\"`, `\"1080p\"`.\n\n> [accordion] Complete JSON schema\n>\n> ```json theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\n> {\n>   \"type\": \"object\",\n>   \"title\": \"Genjutsu Restyle\",\n>   \"required\": [\n>     \"video_url\",\n>     \"preset_id\"\n>   ],\n>   \"properties\": {\n>     \"prompt\": {\n>       \"type\": \"string\",\n>       \"title\": \"Prompt\",\n>       \"default\": \"\",\n>       \"maxLength\": 10000\n>     },\n>     \"preset_id\": {\n>       \"type\": \"string\",\n>       \"title\": \"Style preset\",\n>       \"format\": \"uuid\"\n>     },\n>     \"video_url\": {\n>       \"type\": \"string\",\n>       \"title\": \"Source video\",\n>       \"format\": \"uri\",\n>       \"minLength\": 1,\n>       \"description\": \"Source video, 4–30 seconds. Longer videos are trimmed to 30 seconds.\"\n>     },\n>     \"image_urls\": {\n>       \"type\": \"array\",\n>       \"items\": {\n>         \"type\": \"string\",\n>         \"format\": \"uri\",\n>         \"minLength\": 1\n>       },\n>       \"title\": \"Character images\",\n>       \"default\": [],\n>       \"maxItems\": 5,\n>       \"description\": \"Optional character references. Leave empty to restyle the source frame.\"\n>     },\n>     \"resolution\": {\n>       \"enum\": [\n>         \"480p\",\n>         \"720p\",\n>         \"1080p\"\n>       ],\n>       \"type\": \"string\",\n>       \"title\": \"Resolution\",\n>       \"default\": \"720p\"\n>     }\n>   },\n>   \"additionalProperties\": false\n> }\n> ```\n\n## Available styles\n\nStyles are called **presets** in the API. Fetch the catalog before selecting a style:\n\n```bash theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\ncurl --fail-with-body --silent --show-error \\\n  'https://api.higgsfield.ai/models/higgsfield/genjutsu/restyle/v1.0/presets' \\\n  -H \"Authorization: Key ${HF_API_KEY_ID}:${HF_API_KEY_SECRET}\"\n```\n\nNo request body, query parameters, or pagination parameters are needed. The endpoint requires authentication and access to the Restyle model. It returns all currently selectable system presets, ordered by name and ID. Hidden or unusable presets are omitted; personal/custom styles are not included.\n\nExample response, shortened to one item:\n\n```json theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\n{\n  \"model\": \"higgsfield/genjutsu/restyle/v1.0\",\n  \"items\": [\n    {\n      \"id\": \"c2143317-f28d-4c3c-a0b8-39bd547e08a7\",\n      \"name\": \"Cel-Shaded CG Anime\",\n      \"preview_url\": \"https://cdn.higgsfield.ai/restyle_presets/259d7ddb-4201-49f7-8a91-cee5bce28715.webp\"\n    }\n  ]\n}\n```\n\n| Response field | Meaning |\n| - | - |\n| `model` | The generation model to which this catalog belongs. |\n| `items` | Array of available styles. Treat an empty array as no selectable styles. |\n| `items[].id` | Style UUID. Copy this value into the generation request's `preset_id`. |\n| `items[].name` | Human-readable style name for a menu or style picker. |\n| `items[].preview_url` | Style preview image for display. This is not the value of `preset_id` and does not need to be sent in `image_urls`. |\n\nSelect exactly one item. Use its `id`, not its name, list position, or preview URL. The example ID above was available when this documentation was written; always use the current catalog in your application. If a saved selection disappears, refresh the list and select an available style.\n\n## Character references\n\nWithout `image_urls`, Restyle takes the existing source subject and scene as its appearance reference. With `image_urls`, it styles each supplied character image and prepares a styled background from the source scene. In both cases, `video_url` supplies the motion and `preset_id` supplies the visual style.\n\nFor example, use this generation body to include a character reference. Replace the media URLs and select a current preset ID:\n\n```json theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\n{\n  \"video_url\": \"https://example.com/input.mp4\",\n  \"preset_id\": \"c2143317-f28d-4c3c-a0b8-39bd547e08a7\",\n  \"image_urls\": [\"https://example.com/character.png\"],\n  \"prompt\": \"Keep the referenced character consistent across shots while preserving the original movement.\",\n  \"resolution\": \"1080p\"\n}\n```\n\nThere are only five public model inputs: `video_url`, `preset_id`, `image_urls`, `prompt`, and `resolution`. Batch size, duration, aspect ratio, FPS, scene mode, a separate background image, seed, and provider selection are not exposed by this model.\n\n## Approximate pricing\n\n| Resolution | Approximate price per source-video second |\n| - | - |\n| `480p` | \\$0.318 |\n| `720p` | \\$0.681 |\n| `1080p` | \\$1.632 |\n\nThese are approximate per-second rates, not an exact total quote. Source duration is rounded up to whole seconds after trimming to 30 seconds: an 8.1-second source is billed as 9 seconds.\n\n## Check request status\n\nThe same API key is used to list styles, submit generation, and poll the result. Set `HF_API_KEY_ID` and `HF_API_KEY_SECRET` to your API credentials. Set a unique `IDEMPOTENCY_KEY` for each intended generation, and reuse it only when retrying that request.\n\nAfter submission, poll the returned `status_url`, or set `REQUEST_ID` to the returned ID:\n\n```bash theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\ncurl --fail-with-body --silent --show-error \\\n  \"https://api.higgsfield.ai/requests/${REQUEST_ID}/status\" \\\n  -H \"Authorization: Key ${HF_API_KEY_ID}:${HF_API_KEY_SECRET}\"\n```\n\nA request can be `queued` or `in_progress` before it completes. Stop polling on `completed`, `failed`, `nsfw`, or `canceled`. A failed response includes an `error` message. Media download and unavailable-preset errors can occur after acceptance; a request handle alone does not mean that generation succeeded. Keep signed media URLs valid while inputs are fetched.\n\n## Response\n\nSubmission returns a request handle. Poll `status_url` until `status` is `completed`, or use [webhooks](/docs/how-to/webhooks).\n\n```json Accepted theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\n{\n  \"status\": \"queued\",\n  \"request_id\": \"REQUEST_ID\",\n  \"status_url\": \"https://api.higgsfield.ai/requests/REQUEST_ID/status\",\n  \"cancel_url\": \"https://api.higgsfield.ai/requests/REQUEST_ID/cancel\"\n}\n```\n\nA completed response includes the following output fields:\n\n```json theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\n{\n  \"status\": \"completed\",\n  \"request_id\": \"REQUEST_ID\",\n  \"video\": {\n    \"url\": \"https://example.com/output.mp4\"\n  }\n}\n```\n\nSee [idempotent requests](/docs/concepts/idempotency), [polling](/docs/concepts/polling), [request errors](/docs/concepts/errors) and [authentication](/docs/authentication) for shared request handling.\n\n\n# Hailuo 2.3 — Standard image to video API\nSource: https://docs.higgsfield.ai/docs/models/hailuo-2-3/standard-image-to-video\n\nStandard image to video with Hailuo 2.3: request parameters, examples and response handling.\n\n[← Hailuo 2.3](/docs/models/hailuo-2-3)\n\n**Endpoint:** `POST https://api.higgsfield.ai/minimax/hailuo-2.3/standard/image-to-video`\n\n**Endpoint ID:** `minimax/hailuo-2.3/standard/image-to-video`\n\n[▶\nOpen API PlaygroundHailuo 2.3 · Standard image to video\n↗](https://console.higgsfield.ai/models/minimax%2Fhailuo-2.3%2Fstandard%2Fimage-to-video/playground)\n\n## Usage notes\n\n* This Standard endpoint uses a fixed 768P output resolution; resolution is not a configurable field in the production schema.\n\n## Quick start\n\nReplace the example media URLs with publicly accessible URLs for your own files before submitting.\n\n```bash cURL theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\ncurl --request POST \\\n  --url https://api.higgsfield.ai/minimax/hailuo-2.3/standard/image-to-video \\\n  --header \"Authorization: Key ${HF_API_KEY_ID}:${HF_API_KEY_SECRET}\" \\\n  --header \"Content-Type: application/json\" \\\n  --header \"Idempotency-Key: ${IDEMPOTENCY_KEY}\" \\\n  --data '{\n  \"prompt\": \"A cinematic wide shot of ocean waves at sunset, with gentle camera movement.\",\n  \"image_url\": \"https://example.com/input.jpg\"\n}'\n```\n\n```python Python theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\nimport higgsfield_client\n\narguments = (\n    {'prompt': 'A cinematic wide shot of ocean waves at sunset, with gentle camera '\n               'movement.',\n     'image_url': 'https://example.com/input.jpg'}\n)\nresult = higgsfield_client.subscribe(\n    \"minimax/hailuo-2.3/standard/image-to-video\",\n    arguments=arguments,\n)\nprint(result[\"video\"][\"url\"])\n```\n\n```typescript TypeScript theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\nimport { config, higgsfield } from \"@higgsfield/client/v2\";\n\nconfig({ credentials: process.env.HF_CREDENTIALS });\n\nconst result = await higgsfield.subscribe(\"minimax/hailuo-2.3/standard/image-to-video\", {\n  input:\n    {\n      \"prompt\": \"A cinematic wide shot of ocean waves at sunset, with gentle camera movement.\",\n      \"image_url\": \"https://example.com/input.jpg\"\n    },\n  withPolling: true,\n});\n\nif (result.status === \"completed\") {\n  console.log(result.video?.url);\n}\n```\n\n## Input schema\n\n**prompt** `string` *required*\n\nWrite your prompt here\n\n**duration** `integer` (default: 6)\n\nRequested output duration in seconds.\nAllowed values: `6`, `10`.\n\n**image_url** `string` *required*\n\nPublic URL of the input image.\nFormat: `uri`.\n\n**prompt_optimizer** `boolean` (default: true)\n\nSee the complete JSON schema below.\n\n> [accordion] Complete JSON schema\n>\n> ```json theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\n> {\n>   \"type\": \"object\",\n>   \"title\": \"Minimax Hailuo 2.3 Playground\",\n>   \"required\": [\n>     \"prompt\",\n>     \"image_url\"\n>   ],\n>   \"properties\": {\n>     \"prompt\": {\n>       \"type\": \"string\",\n>       \"title\": \"Prompt\",\n>       \"description\": \"Write your prompt here\"\n>     },\n>     \"duration\": {\n>       \"enum\": [\n>         6,\n>         10\n>       ],\n>       \"type\": \"integer\",\n>       \"title\": \"Duration\",\n>       \"default\": 6\n>     },\n>     \"image_url\": {\n>       \"type\": \"string\",\n>       \"title\": \"Image URL\",\n>       \"format\": \"uri\"\n>     },\n>     \"prompt_optimizer\": {\n>       \"type\": \"boolean\",\n>       \"title\": \"Prompt optimizer\",\n>       \"default\": true\n>     }\n>   }\n> }\n> ```\n\n## Response\n\nSubmission returns a request handle. Poll `status_url` until `status` is `completed`, or use [webhooks](/docs/how-to/webhooks).\n\n```json Accepted theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\n{\n  \"status\": \"queued\",\n  \"request_id\": \"REQUEST_ID\",\n  \"status_url\": \"https://api.higgsfield.ai/requests/REQUEST_ID/status\",\n  \"cancel_url\": \"https://api.higgsfield.ai/requests/REQUEST_ID/cancel\"\n}\n```\n\nA completed response includes the following output fields:\n\n```json theme={\"theme\":{\"light\":\"github-light\",\"dark\":\"github-dark\"}}\n{\n  \"status\": \"completed\",\n  \"request_id\": \"REQUEST_ID\",\n  \"video\": {\n    \"url\": \"https://example.com/output.mp4\"\n  }\n}\n```\n\nSee [idempotent requests](/docs/concepts/idempotency), [polling](/docs/concepts/polling), [request errors](/docs/concepts/errors) and [authentication](/docs/authentication) for shared request handling.\n\n\n",
+  "openapi": {
+   "info": {
+    "title": "Higgsfield API",
+    "version": "2.0.0",
+    "description": "Submit generation requests and retrieve their status and outputs."
+   },
+   "servers": [
+    {
+     "url": "https://api.higgsfield.ai"
+    }
+   ],
+   "x-mcp": {
+    "enabled": true
+   },
+   "paths": {
+    "/higgsfield-ai/soul/standard": {
+     "post": {
+      "requestBody": {
+       "required": true,
+       "content": {
+        "application/json": {
+         "schema": {
+          "type": "object",
+          "properties": {
+           "prompt": {
+            "type": "string",
+            "title": "Prompt"
+           },
+           "num_images": {
+            "type": "integer",
+            "default": 1,
+            "maximum": 4,
+            "minimum": 1
+           },
+           "resolution": {
+            "enum": [
+             "2K",
+             "4K"
+            ],
+            "default": "2K"
+           },
+           "aspect_ratio": {
+            "enum": [
+             "1:1",
+             "4:3",
+             "3:4",
+             "3:2",
+             "2:3",
+             "5:4",
+             "4:5",
+             "16:9",
+             "9:16",
+             "21:9"
+            ],
+            "type": "string",
+            "title": "Aspect Ratio",
+            "default": "4:3"
+           }
+          },
+          "required": [
+           "prompt"
+          ]
+         }
+        }
+       }
+      },
+      "responses": {
+       "200": {
+        "description": "The request status",
+        "content": {
+         "application/json": {
+          "schema": {
+           "$ref": "#/components/schemas/RequestStatus"
+          }
+         }
+        }
+       }
+      },
+      "operationId": "post_higgsfield_ai_soul_standard",
+      "summary": "Create higgsfield-ai soul standard",
+      "tags": [
+       "Soul"
+      ],
+      "description": "Submit an asynchronous generation request to `/higgsfield-ai/soul/standard`. The response includes request metadata for status tracking and cancellation."
+     }
+    },
+    "/requests/{request_id}/status": {
+     "get": {
+      "summary": "Get request status",
+      "operationId": "get_request_status",
+      "parameters": [
+       {
+        "name": "request_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+         "type": "string",
+         "format": "uuid",
+         "title": "Request Id"
+        }
+       }
+      ],
+      "responses": {
+       "200": {
+        "description": "Current request state and output, when available.",
+        "content": {
+         "application/json": {
+          "schema": {
+           "$ref": "#/components/schemas/RequestStatus"
+          }
+         }
+        }
+       },
+       "401": {
+        "description": "Missing or invalid API credentials.",
+        "content": {
+         "application/json": {
+          "schema": {
+           "$ref": "#/components/schemas/ErrorResponse"
+          }
+         }
+        }
+       },
+       "404": {
+        "description": "The request does not exist or belongs to another account.",
+        "content": {
+         "application/json": {
+          "schema": {
+           "$ref": "#/components/schemas/ErrorResponse"
+          }
+         }
+        }
+       }
+      },
+      "tags": [
+       "Requests"
+      ],
+      "description": "Retrieve the current state and output of a generation request."
+     }
+    },
+    "/minimax/hailuo-2.3/standard/image-to-video": {
+     "post": {
+      "requestBody": {
+       "required": true,
+       "content": {
+        "application/json": {
+         "schema": {
+          "type": "object",
+          "properties": {
+           "prompt": {
+            "type": "string",
+            "title": "Prompt"
+           },
+           "duration": {
+            "enum": [
+             6,
+             10
+            ],
+            "type": "integer",
+            "title": "Duration",
+            "default": 6
+           },
+           "image_url": {
+            "type": "string",
+            "title": "Image URL",
+            "format": "uri"
+           },
+           "prompt_optimizer": {
+            "type": "boolean",
+            "title": "Prompt optimizer",
+            "default": true
+           }
+          },
+          "required": [
+           "prompt",
+           "image_url"
+          ]
+         }
+        }
+       }
+      },
+      "responses": {
+       "200": {
+        "description": "The request status",
+        "content": {
+         "application/json": {
+          "schema": {
+           "$ref": "#/components/schemas/RequestStatus"
+          }
+         }
+        }
+       }
+      },
+      "operationId": "post_minimax_hailuo_2_3_standard_image_to_video",
+      "summary": "Create minimax hailuo-2.3 standard image-to-video",
+      "tags": [
+       "Minimax"
+      ],
+      "description": "Submit an asynchronous generation request to `/minimax/hailuo-2.3/standard/image-to-video`. The response includes request metadata for status tracking and cancellation."
+     }
+    }
+   },
+   "components": {
+    "schemas": {
+     "RequestStatus": {
+      "title": "Request",
+      "type": "object",
+      "properties": {
+       "status": {
+        "enum": [
+         "queued",
+         "in_progress",
+         "nsfw",
+         "failed",
+         "completed",
+         "canceled"
+        ],
+        "title": "Status",
+        "type": "string"
+       },
+       "request_id": {
+        "type": "string",
+        "format": "uuid"
+       },
+       "status_url": {
+        "type": "string",
+        "format": "uri"
+       },
+       "cancel_url": {
+        "type": "string",
+        "format": "uri"
+       },
+       "error": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "images": {
+        "type": "array",
+        "items": {
+         "$ref": "#/components/schemas/MediaOutput"
+        }
+       },
+       "video": {
+        "$ref": "#/components/schemas/MediaOutput"
+       },
+       "audio": {
+        "$ref": "#/components/schemas/MediaOutput"
+       },
+       "audios": {
+        "type": "array",
+        "items": {
+         "$ref": "#/components/schemas/MediaOutput"
+        }
+       },
+       "expires_at": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "format": "date-time",
+        "description": "When the request data is deleted and output URLs stop working. Present once the request has finished."
+       }
+      },
+      "required": [
+       "status",
+       "request_id"
+      ]
+     },
+     "MediaOutput": {
+      "title": "Media output",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+       "url": {
+        "type": "string",
+        "format": "uri"
+       }
+      },
+      "required": [
+       "url"
+      ]
+     },
+     "ErrorResponse": {
+      "title": "Error response",
+      "type": "object",
+      "properties": {
+       "detail": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "detail"
+      ]
+     },
+     "DeletedRequest": {
+      "title": "DeletedRequest",
+      "type": "object",
+      "properties": {
+       "request_id": {
+        "type": "string",
+        "format": "uuid"
+       },
+       "status": {
+        "type": "string",
+        "enum": [
+         "deleted"
+        ]
+       }
+      },
+      "required": [
+       "request_id",
+       "status"
+      ]
+     }
+    },
+    "securitySchemes": {
+     "authKey": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "Use `Key {api_key_id}:{api_key_secret}`."
+     }
+    }
+   },
+   "security": [
+    {
+     "authKey": []
+    }
+   ],
+   "openapi": "3.1.0"
+  }
+ }
+}

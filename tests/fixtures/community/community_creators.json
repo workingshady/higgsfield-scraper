@@ -1,0 +1,454 @@
+{
+    "meta": {
+        "endpoint": "community_creators",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/community/discovery/v2/creators?all=true&sort=default&limit=20",
+        "params": {
+            "all": "true",
+            "sort": "default",
+            "limit": "20",
+            "offset": "0"
+        },
+        "fetched_at": "2026-11-26T13:30:58.542139+00:00",
+        "status": 200
+    },
+    "body": {
+        "users": [
+            {
+                "id": "user_REDACTED112",
+                "rating_points": 143,
+                "username": "<redacted>",
+                "avatar_url": "<redacted>",
+                "bio": "<redacted>",
+                "headline": "<redacted>",
+                "location": "<redacted>",
+                "background_image_url": null,
+                "badge": null,
+                "badges": [],
+                "full_name": "<redacted>",
+                "verified_projects_count": 0,
+                "latest_verified_at": null,
+                "is_pinned": false,
+                "followers_count": 30,
+                "following_count": 0,
+                "is_subscribed": false,
+                "likes_count": 97,
+                "views_count": 5186,
+                "items": [
+                    {
+                        "type": "project",
+                        "is_pinned": true,
+                        "item": {
+                            "publication_id": "e9bc42a9-f058-4e0e-9a21-e620a9ad4eed",
+                            "duration_seconds": 99.029333,
+                            "state": "published",
+                            "type": "film",
+                            "is_ongoing": false,
+                            "project_id": "e9bc42a9-f058-4e0e-9a21-e620a9ad4eed",
+                            "snapshot_folder_id": "184c891e-24cf-441c-953e-0a64379175a9",
+                            "has_changes_since_publish": false,
+                            "project_updated_at": "2026-10-30T22:33:13.600854+00:00",
+                            "final_submitted_at": null,
+                            "is_open_source": false,
+                            "name": "Frieren — Live-Action Trailer",
+                            "slug": "frieren-live-action-trailer",
+                            "description": "A serene, cinematic fantasy of an elf mage's quiet journey through wind‑tossed flowers, soaring skies and a golden sunset of resolve.",
+                            "cover": {
+                                "id": "8916e8a2-cf35-4821-8bd3-cab97f24e579",
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED112/8916e8a2-cf35-4821-8bd3-cab97f24e579.png",
+                                "name": null,
+                                "type": "media",
+                                "width": 2720,
+                                "height": 1536,
+                                "min_url": null,
+                                "duration": null,
+                                "object_fit": "cover",
+                                "thumbnail_url": null
+                            },
+                            "gallery_media": [
+                                {
+                                    "id": "87790caf-48de-4f95-9d09-0d7b42ea5984",
+                                    "url": "https://cdn.higgsfield.ai/hls/video_input/87790caf-48de-4f95-9d09-0d7b42ea5984/index.m3u8",
+                                    "name": "87790caf-48de-4f95-9d09-0d7b42ea5984.mp4",
+                                    "type": "video",
+                                    "width": 3840,
+                                    "height": 2160,
+                                    "min_url": null,
+                                    "duration": 99.029333,
+                                    "object_fit": "contain",
+                                    "thumbnail_url": null,
+                                    "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED112/87790caf-48de-4f95-9d09-0d7b42ea5984.mp4",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/87790caf-48de-4f95-9d09-0d7b42ea5984/compressed.mp4"
+                                }
+                            ],
+                            "trailer": null,
+                            "author_user_ids": [
+                                "user_REDACTED112"
+                            ],
+                            "tags": [],
+                            "categories": [],
+                            "show_prompts": false,
+                            "show_canvas": true,
+                            "is_discoverable": true,
+                            "featured_episode_id": null,
+                            "is_featured": false,
+                            "created_at": "2026-10-30T22:26:21.696429Z",
+                            "authors": [
+                                {
+                                    "id": "user_REDACTED112",
+                                    "full_name": null,
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "headline": "<redacted>",
+                                    "location": "<redacted>",
+                                    "is_owner": true,
+                                    "is_followed": false,
+                                    "total_projects_views": 3900,
+                                    "total_projects_likes": 59,
+                                    "followers_count": 30,
+                                    "badges": []
+                                }
+                            ],
+                            "team": null,
+                            "views": 510,
+                            "likes": 10,
+                            "comments": 0,
+                            "is_liked_by_user": null,
+                            "awards": [],
+                            "contest_badges": [],
+                            "can_receive_audience_choice_votes": false,
+                            "is_higgsfield_featured": false,
+                            "is_talents_hub": false,
+                            "contest_key": null
+                        }
+                    },
+                    {
+                        "type": "project",
+                        "is_pinned": true,
+                        "item": {
+                            "publication_id": "5237015d-f330-4607-8ba5-5035cfef0106",
+                            "duration_seconds": 120.0,
+                            "state": "published",
+                            "type": "carousel",
+                            "is_ongoing": false,
+                            "project_id": "5237015d-f330-4607-8ba5-5035cfef0106",
+                            "snapshot_folder_id": "89ab205a-30d7-4278-b05c-6cbbab95bd79",
+                            "has_changes_since_publish": false,
+                            "project_updated_at": "2026-11-17T16:10:18.112615+00:00",
+                            "final_submitted_at": null,
+                            "is_open_source": false,
+                            "name": "Princess's Day Off",
+                            "slug": null,
+                            "description": "A wordless 120-second animated fairy tale. A princess slips out of her castle in a servant's yellow dress and spends one day as an ordinary girl in the town below, until the bell calls her home. Hand-painted 2D look, stepped stop-motion cadence, no dialogue, no text, one heroine from the first frame to the last. \n\nVideo-to-video shot: 1:26–1:43, the walk into the square and the dance. One continuous shot made of two generations, joined at 1:34.\n\nThe pipeline, in order:\n1. Story and shot list fir",
+                            "cover": {
+                                "id": "ea1882d3-2821-4e88-966c-59dc803cde9a",
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED112/ea1882d3-2821-4e88-966c-59dc803cde9a.png",
+                                "type": "media",
+                                "width": 2688,
+                                "height": 1520,
+                                "min_url": null,
+                                "duration": null,
+                                "thumbnail_url": null
+                            },
+                            "gallery_media": [
+                                {
+                                    "id": "c7d97690-fc5c-4ff7-b2be-a599c555dc2c",
+                                    "url": "https://cdn.higgsfield.ai/hls/video_input/c7d97690-fc5c-4ff7-b2be-a599c555dc2c/index.m3u8",
+                                    "type": "video",
+                                    "width": 3840,
+                                    "height": 2160,
+                                    "min_url": null,
+                                    "duration": 120.0,
+                                    "thumbnail_url": null,
+                                    "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED112/c7d97690-fc5c-4ff7-b2be-a599c555dc2c.mp4",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/c7d97690-fc5c-4ff7-b2be-a599c555dc2c/compressed.mp4"
+                                }
+                            ],
+                            "trailer": null,
+                            "author_user_ids": [],
+                            "tags": [],
+                            "categories": [],
+                            "show_prompts": true,
+                            "show_canvas": true,
+                            "is_discoverable": true,
+                            "featured_episode_id": null,
+                            "is_featured": false,
+                            "created_at": "2026-11-17T15:10:43.970685Z",
+                            "authors": [
+                                {
+                                    "id": "user_REDACTED112",
+                                    "full_name": null,
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "headline": "<redacted>",
+                                    "location": "<redacted>",
+                                    "is_owner": true,
+                                    "is_followed": false,
+                                    "total_projects_views": 3900,
+                                    "total_projects_likes": 59,
+                                    "followers_count": 30,
+                                    "badges": []
+                                }
+                            ],
+                            "team": null,
+                            "views": 2520,
+                            "likes": 36,
+                            "comments": 7,
+                            "is_liked_by_user": null,
+                            "awards": [],
+                            "contest_badges": [],
+                            "can_receive_audience_choice_votes": false,
+                            "is_higgsfield_featured": false,
+                            "is_talents_hub": false,
+                            "contest_key": null
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "user_REDACTED113",
+                "rating_points": 137,
+                "username": "<redacted>",
+                "avatar_url": "<redacted>",
+                "bio": "<redacted>",
+                "headline": "<redacted>",
+                "location": "<redacted>",
+                "background_image_url": null,
+                "badge": null,
+                "badges": [
+                    {
+                        "id": "5d70214e-054a-4821-89ff-46436958541d",
+                        "name": "Higgsfield Creative Partner",
+                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                        "description": null
+                    }
+                ],
+                "full_name": null,
+                "verified_projects_count": 1,
+                "latest_verified_at": "2026-10-12T18:27:42.655005Z",
+                "is_pinned": false,
+                "followers_count": 231,
+                "following_count": 0,
+                "is_subscribed": false,
+                "likes_count": 366,
+                "views_count": 35367,
+                "items": [
+                    {
+                        "type": "project",
+                        "is_pinned": false,
+                        "item": {
+                            "publication_id": "ed5d0ffe-eab1-4054-be29-812f0974892e",
+                            "duration_seconds": 152.6,
+                            "state": "published",
+                            "type": "film",
+                            "is_ongoing": false,
+                            "project_id": "ed5d0ffe-eab1-4054-be29-812f0974892e",
+                            "snapshot_folder_id": "bd739aea-b149-4ca1-b358-0cd9aa83761c",
+                            "has_changes_since_publish": false,
+                            "project_updated_at": "2026-11-20T22:05:37.920482+00:00",
+                            "final_submitted_at": null,
+                            "is_open_source": false,
+                            "name": "Chip Daddy - Zero To Hero Animated Shorts",
+                            "slug": "chipdaddy",
+                            "description": "A hand-drawn, neon-lit adult cartoon of cocky friends, paint-splattered office mayhem, sly seduction and midnight car chases.",
+                            "cover": {
+                                "id": "855bb346-1043-4ab2-aa07-0cf80e0f9c71",
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED113/hf_20261118_043905_855bb346-1043-4ab2-aa07-0cf80e0f9c71_min.webp",
+                                "name": null,
+                                "type": "job",
+                                "width": 2688,
+                                "height": 1520,
+                                "min_url": null,
+                                "duration": null,
+                                "object_fit": "cover",
+                                "thumbnail_url": null
+                            },
+                            "gallery_media": [
+                                {
+                                    "id": "e0f86a45-8963-4f0e-a674-145030e5bda1",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED113/e0f86a45-8963-4f0e-a674-145030e5bda1.mp4",
+                                    "name": null,
+                                    "type": "video",
+                                    "width": 1920,
+                                    "height": 1080,
+                                    "min_url": null,
+                                    "duration": 152.6,
+                                    "object_fit": "contain",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/e0f86a45-8963-4f0e-a674-145030e5bda1_thumb.webp",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/e0f86a45-8963-4f0e-a674-145030e5bda1/compressed.mp4"
+                                }
+                            ],
+                            "trailer": null,
+                            "author_user_ids": [
+                                "user_REDACTED113"
+                            ],
+                            "tags": [],
+                            "categories": [],
+                            "show_prompts": false,
+                            "show_canvas": true,
+                            "is_discoverable": true,
+                            "featured_episode_id": null,
+                            "is_featured": false,
+                            "created_at": "2026-11-18T04:50:15.180782Z",
+                            "authors": [
+                                {
+                                    "id": "user_REDACTED113",
+                                    "full_name": null,
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "headline": "<redacted>",
+                                    "location": "<redacted>",
+                                    "is_owner": true,
+                                    "is_followed": false,
+                                    "total_projects_views": 2802,
+                                    "total_projects_likes": 35,
+                                    "followers_count": 231,
+                                    "badges": [
+                                        {
+                                            "id": "5d70214e-054a-4821-89ff-46436958541d",
+                                            "name": "Higgsfield Creative Partner",
+                                            "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                                            "description": null
+                                        }
+                                    ]
+                                }
+                            ],
+                            "team": null,
+                            "views": 785,
+                            "likes": 6,
+                            "comments": 0,
+                            "is_liked_by_user": null,
+                            "awards": [],
+                            "contest_badges": [],
+                            "can_receive_audience_choice_votes": false,
+                            "is_higgsfield_featured": false,
+                            "is_talents_hub": false,
+                            "contest_key": null
+                        }
+                    },
+                    {
+                        "type": "project",
+                        "is_pinned": false,
+                        "item": {
+                            "publication_id": "f05b3bcc-735f-4c9c-8ef6-5c362db23569",
+                            "duration_seconds": 63.166667000000004,
+                            "state": "published",
+                            "type": "series",
+                            "is_ongoing": false,
+                            "project_id": "f05b3bcc-735f-4c9c-8ef6-5c362db23569",
+                            "snapshot_folder_id": "aade487c-1fb7-4083-b527-a431e041c5ba",
+                            "has_changes_since_publish": false,
+                            "project_updated_at": "2026-11-20T21:54:50.594099+00:00",
+                            "final_submitted_at": null,
+                            "is_open_source": false,
+                            "name": "Zero To Hero Reels",
+                            "slug": "zero-to-hero-reels",
+                            "description": "",
+                            "cover": {
+                                "id": "0b471405-5f92-4c9b-8b7d-eabc3848a43c",
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED113/0b471405-5f92-4c9b-8b7d-eabc3848a43c.webp",
+                                "name": null,
+                                "type": "media",
+                                "width": 1536,
+                                "height": 866,
+                                "min_url": null,
+                                "duration": null,
+                                "object_fit": "cover",
+                                "thumbnail_url": null
+                            },
+                            "gallery_media": [
+                                {
+                                    "id": "e1f43ff5-37bc-4101-aa20-e9839e2c2d18",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED113/e1f43ff5-37bc-4101-aa20-e9839e2c2d18.mp4",
+                                    "name": "e1f43ff5-37bc-4101-aa20-e9839e2c2d18.mp4",
+                                    "type": "video",
+                                    "width": 720,
+                                    "height": 1280,
+                                    "min_url": null,
+                                    "duration": 29.833333,
+                                    "object_fit": "contain",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/e1f43ff5-37bc-4101-aa20-e9839e2c2d18_thumb.webp",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/e1f43ff5-37bc-4101-aa20-e9839e2c2d18/compressed.mp4"
+                                },
+                                {
+                                    "id": "97cc74c5-5b9c-48f2-8a7c-6859e9c8c10d",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED113/97cc74c5-5b9c-48f2-8a7c-6859e9c8c10d.mp4",
+                                    "name": "97cc74c5-5b9c-48f2-8a7c-6859e9c8c10d.mp4",
+                                    "type": "video",
+                                    "width": 720,
+                                    "height": 1280,
+                                    "min_url": null,
+                                    "duration": 11.041667,
+                                    "object_fit": "contain",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/97cc74c5-5b9c-48f2-8a7c-6859e9c8c10d_thumb.webp"
+                                },
+                                {
+                                    "id": "b9c4f3d2-722f-4ed4-af94-bfca534bfc8e",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED113/b9c4f3d2-722f-4ed4-af94-bfca534bfc8e.mp4",
+                                    "name": "b9c4f3d2-722f-4ed4-af94-bfca534bfc8e.mp4",
+                                    "type": "video",
+                                    "width": 720,
+                                    "height": 1280,
+                                    "min_url": null,
+                                    "duration": 22.291667,
+                                    "object_fit": "contain",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/b9c4f3d2-722f-4ed4-af94-bfca534bfc8e_thumb.webp",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/b9c4f3d2-722f-4ed4-af94-bfca534bfc8e/compressed.mp4"
+                                }
+                            ],
+                            "trailer": null,
+                            "author_user_ids": [
+                                "user_REDACTED113"
+                            ],
+                            "tags": [],
+                            "categories": [],
+                            "show_prompts": false,
+                            "show_canvas": true,
+                            "is_discoverable": true,
+                            "featured_episode_id": null,
+                            "is_featured": false,
+                            "created_at": "2026-10-24T00:09:37.400456Z",
+                            "authors": [
+                                {
+                                    "id": "user_REDACTED113",
+                                    "full_name": null,
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "headline": "<redacted>",
+                                    "location": "<redacted>",
+                                    "is_owner": true,
+                                    "is_followed": false,
+                                    "total_projects_views": 2802,
+                                    "total_projects_likes": 35,
+                                    "followers_count": 231,
+                                    "badges": [
+                                        {
+                                            "id": "5d70214e-054a-4821-89ff-46436958541d",
+                                            "name": "Higgsfield Creative Partner",
+                                            "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                                            "description": null
+                                        }
+                                    ]
+                                }
+                            ],
+                            "team": null,
+                            "views": 860,
+                            "likes": 8,
+                            "comments": 3,
+                            "is_liked_by_user": null,
+                            "awards": [],
+                            "contest_badges": [],
+                            "can_receive_audience_choice_votes": false,
+                            "is_higgsfield_featured": false,
+                            "is_talents_hub": false,
+                            "contest_key": null
+                        }
+                    }
+                ]
+            }
+        ],
+        "total": 646,
+        "next_offset": 20,
+        "next_cursor": "creators-all-v2:eyJvZmZzZXQiOiAyMCwgInZlcnNpb24iOiBudWxsLCAiY29udGV4dCI6ICIyZTliNjZjZTQwMzc2NmMzNjcyZTVhODBkZTY4YjI4MmUzNWQ2ODhmMmU3ZjdmZTFjOGQ1NGNkODk2ZDFiN2Q3In0=",
+        "limit": 20
+    }
+}

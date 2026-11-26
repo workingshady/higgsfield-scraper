@@ -5,6 +5,7 @@ import argparse
 from dataclasses import asdict, dataclass
 from typing import Any, Iterable, Optional
 
+from ...core.dataset import make_id
 from . import endpoints as ep
 
 
@@ -33,6 +34,17 @@ def _choose(values: Iterable[str], allowed: Iterable[str], what: str, all_value:
     return tuple(dict.fromkeys(vals))
 
 
+def user_key(handle: str) -> str:
+    """Pseudonymous stable key of a --users handle (16 hex); 'key:<hex>' (from a redacted manifest) passes through."""
+    h = str(handle)
+    return h[4:] if h.startswith("key:") else make_id("handle", h.lstrip("@"))
+
+
+WHAT_EXTRA = ("user-projects",)          # accepted by --what but not part of 'all' (needs --users)
+OPT_IN_KEYS = ("public_series", "with_project_assets", "with_project_brief", "with_project_stats",
+               "with_project_comments", "with_project_related", "users", "contests", "contest_tabs")
+
+
 @dataclass
 class Selection:
     what: tuple[str, ...] = ep.WHAT
@@ -49,6 +61,16 @@ class Selection:
     max_submissions: Optional[int] = None           # per contest
     with_profiles: bool = False                      # opt-in: usernames, names, avatars, handles, profile URLs
     public_series: bool = False                      # opt-in: series from the public fnf-series service (no login)
+    # ---- nested project data (opt-in; added 2026-11-26). Omitted from to_dict() at their defaults so the default
+    # run's meta.options (and so its outputs) stay byte-identical.
+    with_project_assets: bool = False                # folders + every asset (job/upload) with prompt, model, params, media
+    with_project_brief: bool = False                 # the project brief (Lexical/Yjs snapshot -> Markdown)
+    with_project_stats: bool = False                 # generations, credits spent, size, stack (model shares)
+    with_project_comments: bool = False              # comments + replies (fnf-community)
+    with_project_related: bool = False               # the "related projects" list of the project page
+    users: tuple[str, ...] = ()                      # --users: handles whose public projects are listed (input only)
+    contests: tuple[str, ...] = ()                   # --contest: contest slugs (fetched by slug instead of listed)
+    contest_tabs: tuple[str, ...] = ()               # --contest-tabs: entry tabs of a --contest (default: --entry-tab)
 
     def __post_init__(self) -> None:
         self.what = tuple(self.what)
@@ -56,6 +78,16 @@ class Selection:
         self.scopes = tuple(self.scopes)
         self.contest_types = tuple(self.contest_types)
         self.entry_keys = tuple(self.entry_keys)
+        self.users = tuple(self.users)
+        self.contests = tuple(self.contests)
+        self.contest_tabs = tuple(self.contest_tabs)
+        bad = [t for t in self.contest_tabs if t not in ep.CONTEST_TABS]
+        if bad:
+            raise ValueError(f"--contest-tabs: unknown {bad}; choose from {list(ep.CONTEST_TABS)} or 'all'")
+        if "user-projects" in self.what and not self.users:
+            raise ValueError("--what user-projects needs --users <handle>[,handle]")
+        if self.users and "user-projects" not in self.what:
+            self.what = self.what + ("user-projects",)
         if self.contest_status not in ep.CONTEST_STATUS_GROUPS:
             raise ValueError(f"--contest-status must be one of {list(ep.CONTEST_STATUS_GROUPS)}")
         if self.entry_tab not in ep.ENTRY_TABS:
@@ -70,10 +102,23 @@ class Selection:
     def wants(self, part: str) -> bool:
         return part in self.what
 
+    @property
+    def nested(self) -> bool:
+        """Any per-project nested data requested (each needs the publication detail first)."""
+        return (self.with_project_assets or self.with_project_brief or self.with_project_stats
+                or self.with_project_comments or self.with_project_related)
+
+    @property
+    def tabs_for_contest(self) -> tuple[str, ...]:
+        return self.contest_tabs or (self.entry_tab,)
+
     def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
-        if not d["public_series"]:              # added later: omitted at its default so default meta.options is unchanged
-            del d["public_series"]
+        for k in OPT_IN_KEYS:                   # added later: omitted at their default so default meta.options is unchanged
+            if not d[k]:
+                del d[k]
+        if d.get("users") and not self.with_profiles:   # handles are inputs: the dataset keeps pseudonymous keys
+            d["users"] = [f"key:{user_key(u)}" for u in self.users]
         return {k: list(v) if isinstance(v, tuple) else v for k, v in d.items()}
 
     @classmethod
@@ -81,10 +126,13 @@ class Selection:
               with_details: Any = False, with_submissions: Any = False, contest_status: Any = "all",
               contest_types: Any = None, entry_keys: Any = None, entry_tab: Any = "latest",
               submission_ordering: Any = "newest", max_submissions: Any = None, with_profiles: Any = False,
-              public_series: Any = False) -> "Selection":
+              public_series: Any = False, with_project_assets: Any = False, with_project_brief: Any = False,
+              with_project_stats: Any = False, with_project_comments: Any = False, with_project_related: Any = False,
+              users: Any = None, contests: Any = None, contest_tabs: Any = None) -> "Selection":
         ms = None if max_submissions in (None, "", "None") else int(max_submissions)
+        tabs = _csv(contest_tabs)
         return cls(
-            what=_choose(_csv(what), ep.WHAT, "--what", ep.WHAT),
+            what=_choose(_csv(what), ep.WHAT + WHAT_EXTRA, "--what", ep.WHAT),
             categories=tuple(_csv(categories)),
             featured=_truthy(featured),
             scopes=_choose(_csv(scope), ep.RECOMMENDED_SCOPES, "--scope", ep.RECOMMENDED_SCOPES),
@@ -98,6 +146,14 @@ class Selection:
             max_submissions=ms,
             with_profiles=_truthy(with_profiles),
             public_series=_truthy(public_series),
+            with_project_assets=_truthy(with_project_assets),
+            with_project_brief=_truthy(with_project_brief),
+            with_project_stats=_truthy(with_project_stats),
+            with_project_comments=_truthy(with_project_comments),
+            with_project_related=_truthy(with_project_related),
+            users=tuple(dict.fromkeys(u.lstrip("@") for u in _csv(users))),
+            contests=tuple(dict.fromkeys(_csv(contests))),
+            contest_tabs=ep.CONTEST_TABS if "all" in tabs else tuple(dict.fromkeys(tabs)),
         )
 
 
@@ -127,6 +183,25 @@ def add_args(p: argparse.ArgumentParser) -> None:
                    help="series: use the public fnf-series service (no login; 35 series, --with-details adds "
                         "/series/{slug}; --max-items caps the series). Without it series keep the legacy "
                         "login-only fnf path (skipped without a session)")
+    n = p.add_argument_group("projects: nested project data (opt-in; each fetches the publication detail first)")
+    n.add_argument("--with-project-assets", action="store_true",
+                   help="folders (+ counts) and every asset of each project: prompt (only when the author enabled "
+                        "show_prompts), model/job_set_type, params, media URLs/variants, folder, created_at")
+    n.add_argument("--with-project-brief", action="store_true",
+                   help="the project brief as Markdown (field + output/briefs/<slug>.md)")
+    n.add_argument("--with-project-stats", action="store_true",
+                   help="generations, credits spent, size and the model stack with the page's percentages")
+    n.add_argument("--with-project-comments", action="store_true", help="comments and replies of each project")
+    n.add_argument("--with-project-related", action="store_true", help="the page's related-projects list")
+    n.add_argument("--users", default=None,
+                   help="comma list of handles: list their public projects (adds 'user-projects' to --what). "
+                        "Handles are inputs only; outputs stay pseudonymous unless --with-profiles")
+    n.add_argument("--contest", dest="contests", default=None,
+                   help="comma list of contest slugs (e.g. talent-contest,wcc-the-place-you-know): fetch these "
+                        "contests by slug instead of listing all contests")
+    n.add_argument("--contest-tabs", default=None,
+                   help=f"entry tabs of a --contest that has an entries listing (talent-contest, festival): "
+                        f"{list(ep.CONTEST_TABS)} or 'all' (default: --entry-tab). Needs --with-submissions")
     o = p.add_argument_group("projects: personal data")
     o.add_argument("--with-profiles", action="store_true",
                    help="opt-in: include authors'/contestants' usernames, names, avatars, headlines, locations, "
@@ -139,7 +214,8 @@ def make_selection(a: argparse.Namespace) -> Selection:
                            contest_status=a.contest_status, contest_types=a.contest_types, entry_keys=a.entry_keys,
                            entry_tab=a.entry_tab, submission_ordering=a.submission_ordering,
                            max_submissions=a.max_submissions, with_profiles=a.with_profiles,
-                           public_series=getattr(a, "public_series", False))
+                           public_series=getattr(a, "public_series", False),
+                           **{k: getattr(a, k, None) for k in OPT_IN_KEYS if k != "public_series"})
 
 
 def selection_from_dict(d: dict) -> Selection:
@@ -151,7 +227,8 @@ def selection_from_dict(d: dict) -> Selection:
         with_submissions=d.get("with_submissions", False), contest_status=d.get("contest_status", "all"),
         contest_types=d.get("contest_types"), entry_keys=d.get("entry_keys"), entry_tab=d.get("entry_tab", "latest"),
         submission_ordering=d.get("submission_ordering", "newest"), max_submissions=d.get("max_submissions"),
-        with_profiles=d.get("with_profiles", False), public_series=d.get("public_series", False))
+        with_profiles=d.get("with_profiles", False), public_series=d.get("public_series", False),
+        **{k: d.get(k) for k in OPT_IN_KEYS if k != "public_series"})
 
 
 def default_label(sel: Selection) -> str:

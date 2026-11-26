@@ -1,0 +1,248 @@
+{
+ "meta": {
+  "endpoint": "showcase_videoshop_examples",
+  "url": "https://cms.higgsfield.ai/videoshop-examples?lang=en",
+  "params": {
+   "lang": "en"
+  },
+  "fetched_at": "2026-11-26T14:05:41.099694+00:00",
+  "status": 200
+ },
+ "body": {
+  "items": [
+   {
+    "id": "tea-house",
+    "title": "Tea house",
+    "thumbnail_url": "https://static-public-media.higgsfield.ai/videoshop-examples/33273157-6710-4591-bbd5-453f91f3c22a.webp",
+    "preview_url": "https://static-public-media.higgsfield.ai/videoshop-examples/bad1a477-925f-41b2-b4d1-5bad988c3fc2.mp4",
+    "input": {
+     "url": "https://static-public-media.higgsfield.ai/videoshop-examples/2ee6ded0-cda3-487a-8bc0-7b0aea57b35b.mp4",
+     "thumbnail_url": "https://static-public-media.higgsfield.ai/videoshop-examples/58d7efdd-9bb0-4d47-9f0d-afcbf7a80b08.webp",
+     "width": 1920,
+     "height": 1080,
+     "duration_ms": 30042
+    },
+    "final": {
+     "url": "https://static-public-media.higgsfield.ai/videoshop-examples/c9d780b8-6863-43ea-ac68-aff0828c4938.mp4",
+     "thumbnail_url": "https://static-public-media.higgsfield.ai/videoshop-examples/33273157-6710-4591-bbd5-453f91f3c22a.webp",
+     "width": 1920,
+     "height": 1080,
+     "duration_ms": 29708
+    },
+    "edits": [
+     {
+      "id": "b5ab276e-e723-4238-a06a-583616a1f860",
+      "tool": "camera-move",
+      "label": "Pull Back Arc Right",
+      "prompt": "",
+      "start_ms": 0,
+      "end_ms": 3000,
+      "layer": 1
+     },
+     {
+      "id": "2bc0c7a1-2efe-4429-b506-6ef5fea47357",
+      "tool": "camera-move",
+      "label": "Push In Truck Right Rack Focus",
+      "prompt": "",
+      "start_ms": 3000,
+      "end_ms": 5920,
+      "layer": 1
+     },
+     {
+      "id": "0fad099c-ba91-42ae-8476-d3a29dabdcce",
+      "tool": "camera-move",
+      "label": "Crash Zoom In",
+      "prompt": "",
+      "start_ms": 5920,
+      "end_ms": 6750,
+      "layer": 1
+     },
+     {
+      "id": "d9878b42-6cf2-4357-8f76-2cdc791789e9",
+      "tool": "camera-move",
+      "label": "Crash Zoom Out",
+      "prompt": "",
+      "start_ms": 6750,
+      "end_ms": 8000,
+      "layer": 1
+     },
+     {
+      "id": "b80c4cc5-196d-4275-857e-15b7549cd7f9",
+      "tool": "camera-move",
+      "label": "Arc Left Push In",
+      "prompt": "",
+      "start_ms": 8000,
+      "end_ms": 12000,
+      "layer": 1
+     },
+     {
+      "id": "73a11fa0-5e95-4834-9e6a-7b1806110d9a",
+      "tool": "camera-move",
+      "label": "Whip Pan",
+      "prompt": "",
+      "start_ms": 12000,
+      "end_ms": 12920,
+      "layer": 1
+     },
+     {
+      "id": "df8ad9a7-620a-47d4-a235-c06c6fa8d5d9",
+      "tool": "camera-move",
+      "label": "Push In Tilt Down",
+      "prompt": "",
+      "start_ms": 12920,
+      "end_ms": 18620,
+      "layer": 1
+     },
+     {
+      "id": "579982a3-8b93-439a-8449-5472c1c07d19",
+      "tool": "camera-move",
+      "label": "Tilt Down to Hands",
+      "prompt": "",
+      "start_ms": 18620,
+      "end_ms": 21000,
+      "layer": 1
+     },
+     {
+      "id": "cbab4254-20ae-46d1-aedf-50eb93ecd6ff",
+      "tool": "camera-move",
+      "label": "Crane Up Arc Left",
+      "prompt": "",
+      "start_ms": 21000,
+      "end_ms": 24000,
+      "layer": 1
+     },
+     {
+      "id": "73dada12-2fd9-4507-b6c5-a87aa2b10a03",
+      "tool": "camera-move",
+      "label": "Pull Back",
+      "prompt": "",
+      "start_ms": 24000,
+      "end_ms": 27000,
+      "layer": 1
+     },
+     {
+      "id": "6ebc4945-e269-41d2-88f2-668ce4465404",
+      "tool": "camera-move",
+      "label": "Push In",
+      "prompt": "",
+      "start_ms": 27000,
+      "end_ms": 29880,
+      "layer": 1
+     },
+     {
+      "id": "4f8213b2-037a-4199-8885-7ebddf0253a4",
+      "tool": "relight",
+      "label": "",
+      "prompt": "",
+      "start_ms": 3120,
+      "end_ms": 8040,
+      "layer": 2
+     },
+     {
+      "id": "a2b8635d-c58a-412e-a895-bcac547f5b98",
+      "tool": "relight",
+      "label": "",
+      "prompt": "",
+      "start_ms": 8040,
+      "end_ms": 12580,
+      "layer": 2
+     },
+     {
+      "id": "f0ee6b53-bfa8-437f-bb16-aa34d2846224",
+      "tool": "genjutsu",
+      "label": "",
+      "prompt": "",
+      "start_ms": 12580,
+      "end_ms": 29880,
+      "layer": 2
+     },
+     {
+      "id": "0d3dbfd4-fc4b-4f99-97fd-2d7d6613d8b4",
+      "tool": "brush",
+      "label": "",
+      "prompt": "",
+      "start_ms": 18620,
+      "end_ms": 29880,
+      "layer": 3
+     }
+    ]
+   },
+   {
+    "id": "attic-room",
+    "title": "Attic room",
+    "thumbnail_url": "https://static-public-media.higgsfield.ai/videoshop-examples/aeaa6984-23fe-4f4f-bac5-e679760e3679.webp",
+    "preview_url": "https://static-public-media.higgsfield.ai/videoshop-examples/5896dadd-42cf-4093-8897-badf14d96936.mp4",
+    "input": {
+     "url": "https://static-public-media.higgsfield.ai/videoshop-examples/f879b7ea-3707-4a19-ab35-e315fef77f88.mp4",
+     "thumbnail_url": "https://static-public-media.higgsfield.ai/videoshop-examples/8a5566b1-2c1b-44e2-b4da-8384750cc4cf.webp",
+     "width": 1920,
+     "height": 1080,
+     "duration_ms": 30042
+    },
+    "final": {
+     "url": "https://static-public-media.higgsfield.ai/videoshop-examples/8127c267-9919-4c7b-9db4-c025ed7bb362.mp4",
+     "thumbnail_url": "https://static-public-media.higgsfield.ai/videoshop-examples/aeaa6984-23fe-4f4f-bac5-e679760e3679.webp",
+     "width": 1920,
+     "height": 1080,
+     "duration_ms": 29417
+    },
+    "edits": [
+     {
+      "id": "36ce24cd-aae8-4e6d-9de2-38cc0904507b",
+      "tool": "genjutsu",
+      "label": "Genjutsu",
+      "prompt": "",
+      "start_ms": 0,
+      "end_ms": 2000,
+      "layer": 1
+     },
+     {
+      "id": "343e057f-c69b-4d91-a354-bfb135beaaeb",
+      "tool": "relight",
+      "label": "Relight",
+      "prompt": "",
+      "start_ms": 4670,
+      "end_ms": 8040,
+      "layer": 1
+     },
+     {
+      "id": "172ba836-3974-4ec3-b482-d25941d77849",
+      "tool": "brush",
+      "label": "Brush",
+      "prompt": "",
+      "start_ms": 9170,
+      "end_ms": 15710,
+      "layer": 1
+     },
+     {
+      "id": "77cc7f6a-d8f1-4612-86e5-45b79a43b3cd",
+      "tool": "genjutsu",
+      "label": "Genjutsu",
+      "prompt": "",
+      "start_ms": 15710,
+      "end_ms": 29420,
+      "layer": 1
+     },
+     {
+      "id": "cb74093b-41e7-4750-b199-737db76b039f",
+      "tool": "camera-move",
+      "label": "Zoom in",
+      "prompt": "",
+      "start_ms": 13670,
+      "end_ms": 15710,
+      "layer": 2
+     },
+     {
+      "id": "acb6e9b7-cc47-4911-931f-1ecf0d07b46f",
+      "tool": "camera-move",
+      "label": "Camera move",
+      "prompt": "",
+      "start_ms": 15710,
+      "end_ms": 29420,
+      "layer": 2
+     }
+    ]
+   }
+  ]
+ }
+}

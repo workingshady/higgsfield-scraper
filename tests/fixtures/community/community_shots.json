@@ -1,0 +1,113 @@
+{
+    "meta": {
+        "endpoint": "community_shots",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/generations/feed?limit=20",
+        "params": {
+            "limit": "20",
+            "offset": "0"
+        },
+        "fetched_at": "2026-11-26T13:30:51.366227+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "af29d29e-94af-4c45-83c4-776cf2494ab1",
+                "author_id": "user_REDACTED101",
+                "published_at": "2026-11-26T06:14:31.434953Z",
+                "media_type": "image",
+                "model": "nano_banana_2_1",
+                "like_count": 4,
+                "view_count": 65,
+                "comment_count": 0,
+                "aesthetic_score": 0.8444089889526367,
+                "aesthetic_label": true,
+                "job_id": "6301c461-adb6-4f08-bca0-7b7f2d91e11c",
+                "media_url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED101/hf_20261106_022427_6301c461-adb6-4f08-bca0-7b7f2d91e11c_min.webp",
+                "thumbnail_url": null,
+                "is_liked_by_user": null,
+                "width": 768,
+                "height": 1376,
+                "author": {
+                    "id": "user_REDACTED101",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "badge": null
+                }
+            },
+            {
+                "id": "89f5f485-a602-4add-91de-4c7a21a540bc",
+                "author_id": "user_REDACTED102",
+                "published_at": "2026-11-13T10:38:30.48357Z",
+                "media_type": "video",
+                "model": "hf_mult_replace_object",
+                "like_count": 1567,
+                "view_count": 27881,
+                "comment_count": 16,
+                "aesthetic_score": null,
+                "aesthetic_label": null,
+                "job_id": "d47bf92c-8ca0-4e7e-81cd-091529684d39",
+                "media_url": "https://cdn.higgsfield.ai/user_REDACTED102/hf_20261113_100725_d47bf92c-8ca0-4e7e-81cd-091529684d39_min.mp4",
+                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED102/hf_20261113_100725_d47bf92c-8ca0-4e7e-81cd-091529684d39_thumbnail_min.webp",
+                "is_liked_by_user": null,
+                "width": 960,
+                "height": 720,
+                "author": {
+                    "id": "user_REDACTED102",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "badge": null
+                }
+            },
+            {
+                "id": "73ad3a02-669b-441b-9ec3-4691c12d1265",
+                "author_id": "user_REDACTED103",
+                "published_at": "2026-11-26T10:07:55.804693Z",
+                "media_type": "image",
+                "model": "text2image_soul_v2",
+                "like_count": 1,
+                "view_count": 34,
+                "comment_count": 0,
+                "aesthetic_score": 0.896975576877594,
+                "aesthetic_label": true,
+                "job_id": "8bf55ced-2bdc-4530-b4d3-efcadd6307e3",
+                "media_url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED103/hf_20261125_112213_8bf55ced-2bdc-4530-b4d3-efcadd6307e3_min.webp",
+                "thumbnail_url": null,
+                "is_liked_by_user": null,
+                "width": 1536,
+                "height": 2048,
+                "author": {
+                    "id": "user_REDACTED103",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "badge": null
+                }
+            }
+        ],
+        "next_cursor": "Y2I4ZDNhYjItMjU0Zi00MWU2LThmMzItM2ZjMzY2ZmZjMTZiOmZlZWQ6MjA",
+        "snapshot_at": "2026-11-26T13:26:01.184631138Z",
+        "snapshot_id": "cb8d3ab2-254f-41e6-8f32-3fc366ffc16b",
+        "available_models": [
+            {
+                "model": "3d_jutsu_angles",
+                "media_type": "image"
+            },
+            {
+                "model": "ad_multiplier",
+                "media_type": "video"
+            },
+            {
+                "model": "ad_multiplier_v2",
+                "media_type": "video"
+            },
+            {
+                "model": "ads_story_result",
+                "media_type": "video"
+            },
+            {
+                "model": "ai_influencer",
+                "media_type": "image"
+            }
+        ]
+    }
+}

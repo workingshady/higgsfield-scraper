@@ -508,3 +508,33 @@ endpoint answered 200. Requests from the Scrapy crawl of the `account` scraper g
 `cf-mitigated: challenge`. The scraper records this in `meta.limits_hit` (`bot protection (cloudflare challenge) on
 account_jobs`), ends the run `partial` and makes no attempt to get past it, so the estimate-vs-actual comparison
 (`--compare-estimate`) has not run live yet.
+
+## 17. Sixth round (2026-11-26): projects nested data
+
+Target: the project page `/@<handle>/projects/<slug>` (route `#_private#profile#$username#projects#$projectSlug`),
+`/contests/$slug` and `/@<handle>/projects`. Build `548e0f3a` (72 missing route chunks fetched into
+`samples/higgsfield/js2/`; page HTML and raw responses in `samples/higgsfield/projects_nested/`, gitignored because
+they hold real handles). GET only, ~1 req/s, anonymous first, then compared with a session.
+
+* The SSR loader embeds only the publication (`project`, `info.information`, `info.stack`); `assets`, `document`
+  (brief), comments and recommendations load client-side. The page model is `z8()` in `548e0f3a-H2odSMT_fOKI1GMn.js`;
+  the assets/brief folder is chosen by `Fi()` (`snapshotFolderId`, else for contest entries `sourceFolderId` /
+  `rootFolderId`).
+* All the data is **public**: `/folders/{id}`, `/folders/{id}/children`, `/folders/{id}/items/v2`
+  (`include_subfolders=true`, `size ≤ 100`, epoch-float cursor) carry every asset with its prompt, params, model
+  (`job_set_type`) and media variants. No `hf-access-realm` header is needed (it changes nothing here).
+* The **brief** is a Yjs CRDT snapshot of a Lexical document on a separate worker:
+  `https://dam-editor-worker.higgsfield.ai/brief/{folder_id}/snapshot` (binary; `X-Brief-Updated-At`). The scraper
+  decodes it with a small pure-Python Yjs v1 reader (`scrapers/projects/yjs.py`, YATA ordering) and renders
+  Markdown (`brief.py`).
+* **Comments** are on `fnf-community`: `/entities/project_publication/{id}/comments` (`limit`, `cursor`,
+  `parent_id`, `order`). **Related** = `/project-publications/recommended?scope=…&current_publication_id=…`.
+  **User projects** = `/fnf/user/{handle}/v2/publications?publication_type=project`.
+* Stats: the page computes the stack percentages itself (count share, largest-remainder rounding to 0.1) and shows
+  the size in decimal MB; credits are not scaled. Verified on "The Sea Walks Out": 59 generations, 5 064 credits,
+  739.4 MB, 7 stack rows, 8 folder counts and 60 assets all match the page.
+* `/jobs/{id}` and `/assets/{id}/public` answer a Cloudflare challenge (not evaded, not needed).
+* Logged in vs anonymous: identical public data; a session only adds viewer state and a per-viewer feed order.
+* Implemented as opt-in flags of `scrape projects` (`--with-project-assets/-brief/-stats/-comments/-related`,
+  `--contest`, `--contest-tabs`, `--users`). Full write-up, field map, ER model and the anonymous/logged-in table:
+  [`scrapers/projects.md`](scrapers/projects.md#nested-data-model-opt-in-2026-11-26).

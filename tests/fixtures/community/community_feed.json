@@ -1,0 +1,311 @@
+{
+    "meta": {
+        "endpoint": "community_feed",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/feed?limit=20",
+        "params": {
+            "limit": "20",
+            "offset": "0"
+        },
+        "fetched_at": "2026-11-26T13:30:55.773850+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "type": "generation",
+                "id": "89f5f485-a602-4add-91de-4c7a21a540bc",
+                "author": {
+                    "id": "user_REDACTED102",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 18,
+                    "is_subscribed": false
+                },
+                "created_at": "2026-11-13T10:38:30.48357Z",
+                "like_count": 1567,
+                "comment_count": 16,
+                "share_count": 6,
+                "is_liked": false,
+                "is_mine": false,
+                "made_with": {
+                    "tool": "video",
+                    "model_name": "Higgsfield Genjutsu"
+                },
+                "top_comment": {
+                    "id": "2eded84a-d5c2-4ff3-9449-65a62ee80a05",
+                    "author": {
+                        "id": "user_REDACTED106",
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>"
+                    },
+                    "text": "See you 😘",
+                    "like_count": 2,
+                    "my_vote": null
+                },
+                "generation": {
+                    "id": "89f5f485-a602-4add-91de-4c7a21a540bc",
+                    "author_id": "user_REDACTED102",
+                    "published_at": "2026-11-13T10:38:30.48357Z",
+                    "media_type": "video",
+                    "model": "hf_mult_replace_object",
+                    "like_count": 1567,
+                    "view_count": 27881,
+                    "comment_count": 16,
+                    "aesthetic_score": null,
+                    "aesthetic_label": null,
+                    "job_id": "d47bf92c-8ca0-4e7e-81cd-091529684d39",
+                    "media_url": "https://cdn.higgsfield.ai/user_REDACTED102/hf_20261113_100725_d47bf92c-8ca0-4e7e-81cd-091529684d39_min.mp4",
+                    "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED102/hf_20261113_100725_d47bf92c-8ca0-4e7e-81cd-091529684d39_thumbnail_min.webp",
+                    "is_liked_by_user": null,
+                    "width": 960,
+                    "height": 720,
+                    "author": {
+                        "id": "user_REDACTED102",
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>",
+                        "badge": null,
+                        "rating_points": 18
+                    }
+                }
+            },
+            {
+                "type": "project_publication",
+                "id": "dcaa8b5d-e4f7-4849-8716-3e4ed34fbc73",
+                "author": {
+                    "id": "user_REDACTED107",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 382,
+                    "is_subscribed": false
+                },
+                "created_at": "2026-11-09T18:15:20.055932Z",
+                "like_count": 336,
+                "comment_count": 18,
+                "share_count": 3,
+                "is_liked": false,
+                "is_mine": false,
+                "top_comment": {
+                    "id": "36c1230a-86a4-4d9f-9e94-baf04c84be44",
+                    "author": {
+                        "id": "user_REDACTED108",
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>"
+                    },
+                    "text": "Amazing",
+                    "like_count": 1,
+                    "my_vote": null
+                },
+                "card": {
+                    "id": "dcaa8b5d-e4f7-4849-8716-3e4ed34fbc73",
+                    "title": "ORIGINS EP. 01: ZARA",
+                    "slug": "origins-ep-01-zara",
+                    "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED107/aa73629e-41b5-4657-aae3-1c4610d16186.jpg",
+                    "owner": {
+                        "id": "user_REDACTED107",
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>",
+                        "rating_points": 382
+                    },
+                    "description": "Zara fights her way through a flooded penthouse in search of the truth about where she came from.",
+                    "video": {
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED107/d85e04fb-59f9-4465-8439-5d4832caa2b8.mp4",
+                        "hls_url": "https://cdn.higgsfield.ai/hls/video_input/d85e04fb-59f9-4465-8439-5d4832caa2b8/index.m3u8",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/d85e04fb-59f9-4465-8439-5d4832caa2b8/compressed.mp4",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input/d85e04fb-59f9-4465-8439-5d4832caa2b8/thumbnail.webp",
+                        "width": 3840,
+                        "height": 2160,
+                        "duration": 449.375
+                    },
+                    "stats": {
+                        "generations_count": 74,
+                        "credits_spent": 18372,
+                        "size_bytes": 1860011978,
+                        "stack": [
+                            {
+                                "job_set_type": "seedance_2_5",
+                                "display_name": "<redacted>",
+                                "count": 62,
+                                "credits_spent": 18342
+                            },
+                            {
+                                "job_set_type": "seedream_v5_pro",
+                                "display_name": "<redacted>",
+                                "count": 12,
+                                "credits_spent": 30
+                            }
+                        ]
+                    },
+                    "published_at": "2026-11-09T18:15:20.055932Z",
+                    "views_count": 14783,
+                    "like_count": 336,
+                    "comment_count": 18,
+                    "is_liked": null
+                }
+            },
+            {
+                "type": "blog_post",
+                "id": "902968bf-8f75-438c-a14b-c5cf6c7bbae4",
+                "author": {
+                    "id": "user_REDACTED109",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 20,
+                    "is_subscribed": false
+                },
+                "created_at": "2026-11-23T21:28:26.647787Z",
+                "like_count": 131,
+                "comment_count": 63,
+                "share_count": 0,
+                "is_liked": false,
+                "is_mine": false,
+                "top_comment": {
+                    "id": "2d0e194c-b50f-406a-9f86-16744952ccf1",
+                    "author": {
+                        "id": "user_REDACTED110",
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>"
+                    },
+                    "text": "Changed up the video a little bit yea? Did You use the same model as in live? :))",
+                    "like_count": 7,
+                    "my_vote": null
+                },
+                "card": {
+                    "id": "902968bf-8f75-438c-a14b-c5cf6c7bbae4",
+                    "title": "The Floating House: Every prompt from my first ever Live Masterclass!",
+                    "slug": "the-floating-house-every-prompt-from-my-first-ever-live-masterclass",
+                    "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED109/89d21cd8-a09f-4507-adef-b0766ee48ab4.jpg",
+                    "owner": {
+                        "id": "user_REDACTED109",
+                        "username": "<redacted>",
+                        "avatar_url": "<redacted>",
+                        "rating_points": 20
+                    },
+                    "reading_time_minutes": 6,
+                    "published_at": "2026-11-23T21:28:26.647787Z",
+                    "views_count": 8957,
+                    "likes_count": 131,
+                    "like_count": 131,
+                    "comment_count": 63,
+                    "is_liked": null
+                }
+            },
+            {
+                "type": "post",
+                "id": "cdc99d29-278f-4831-942d-2154240483e1",
+                "author": {
+                    "id": "user_REDACTED111",
+                    "username": "<redacted>",
+                    "avatar_url": "<redacted>",
+                    "headline": "<redacted>",
+                    "badge": "",
+                    "rating_points": 4,
+                    "is_subscribed": false
+                },
+                "created_at": "2026-11-14T14:59:30.49555Z",
+                "like_count": 8,
+                "comment_count": 1,
+                "share_count": 1,
+                "is_liked": false,
+                "is_mine": false,
+                "top_comment": null,
+                "post": {
+                    "id": "cdc99d29-278f-4831-942d-2154240483e1",
+                    "user_id": "user_REDACTED111",
+                    "title": "",
+                    "content": {
+                        "title": "",
+                        "text": "Everybody loves fluffy animals. How far would you go?\n#HiggsfieldDiscord300K",
+                        "medias": [
+                            {
+                                "type": "job",
+                                "job_id": "60239804-ffbb-4c77-a455-91d81f8659f2",
+                                "job_result": {
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED111/hf_20261114_145544_60239804-ffbb-4c77-a455-91d81f8659f2.png"
+                                },
+                                "share_link": "8aFjZUBVr0Q",
+                                "job_set_type": "seedream_5_5",
+                                "job_type": "image",
+                                "min_result": {
+                                    "url": "https://cdn.higgsfield.ai/7b515a55-9459-4d48-a573-cda625eed6e5.webp"
+                                },
+                                "width": 2720,
+                                "height": 1536,
+                                "made_with": {
+                                    "tool": "image",
+                                    "model_name": "Seedream 5.5"
+                                }
+                            },
+                            {
+                                "type": "job",
+                                "job_id": "8e74d0c6-b7ba-4e50-a747-3226d9876776",
+                                "job_result": {
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED111/hf_20261114_144938_8e74d0c6-b7ba-4e50-a747-3226d9876776.png"
+                                },
+                                "share_link": "qHarrK10eDM",
+                                "job_set_type": "seedream_5_5",
+                                "job_type": "image",
+                                "min_result": {
+                                    "url": "https://cdn.higgsfield.ai/f7148c92-c786-4dc3-9a1d-304081ec5ecf.webp"
+                                },
+                                "width": 2720,
+                                "height": 1536,
+                                "made_with": {
+                                    "tool": "image",
+                                    "model_name": "Seedream 5.5"
+                                }
+                            },
+                            {
+                                "type": "job",
+                                "job_id": "fc188ad5-c28d-4dbe-9532-fe575b5db19f",
+                                "job_result": {
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTED111/hf_20261114_145544_fc188ad5-c28d-4dbe-9532-fe575b5db19f.png"
+                                },
+                                "share_link": "taGdW77yK9A",
+                                "job_set_type": "seedream_5_5",
+                                "job_type": "image",
+                                "min_result": {
+                                    "url": "https://cdn.higgsfield.ai/d34f37b4-52e0-457e-ab20-62738766a1dc.webp"
+                                },
+                                "width": 2720,
+                                "height": 1536,
+                                "made_with": {
+                                    "tool": "image",
+                                    "model_name": "Seedream 5.5"
+                                }
+                            }
+                        ]
+                    },
+                    "like_count": 8,
+                    "dislike_count": 0,
+                    "comment_count": 1,
+                    "views_count": 35391,
+                    "share_count": 1,
+                    "author": {
+                        "id": "user_REDACTED111",
+                        "username": "<redacted>",
+                        "full_name": "",
+                        "avatar_url": "<redacted>",
+                        "headline": "<redacted>",
+                        "badge": "",
+                        "rating_points": 4
+                    },
+                    "is_subscribed": false,
+                    "is_mine": false,
+                    "created_at": "2026-11-14T14:59:30.49555Z",
+                    "updated_at": "2026-11-21T05:50:27.138991Z"
+                }
+            }
+        ],
+        "next_cursor": "OTUzOGZlOGQtMWZlZS00M2ZlLWE3ODAtZTU0MDczYzNmN2Y5OnVuaWZpZWQ6MjA~AaIYDceVeOOaU_fuaI0s9g",
+        "snapshot_id": "9538fe8d-1fee-43fe-a780-e54073c3f7f9",
+        "snapshot_at": "2026-11-26T13:26:51.429195197Z",
+        "request_id": "01a2180d-c795-78e3-9a53-f7ee688d2cf6",
+        "feed_session_id": "01a2180d-c795-78e3-9a53-f7ee688d2cf6"
+    }
+}

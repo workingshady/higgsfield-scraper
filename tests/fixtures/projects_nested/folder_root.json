@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "endpoint": "projects_folder",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/folders/96cfeed5-3ebb-4013-9de2-1ec377fca7b6",
+        "params": {
+            "publication_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+            "folder_id": "96cfeed5-3ebb-4013-9de2-1ec377fca7b6"
+        },
+        "fetched_at": "2026-11-26T13:35:44.819047+00:00",
+        "status": 200
+    },
+    "body": {
+        "id": "96cfeed5-3ebb-4013-9de2-1ec377fca7b6",
+        "workspace_id": "af6894d8-1b47-4873-ac8c-9bf54b155ce4",
+        "user_id": "user_Fake4242dfd30bd7433e8273c48",
+        "owner_username": "[redacted]",
+        "parent_id": null,
+        "root_folder_id": "96cfeed5-3ebb-4013-9de2-1ec377fca7b6",
+        "is_root": true,
+        "path": "/96cfeed5-3ebb-4013-9de2-1ec377fca7b6/",
+        "name": "The Sea Walks Out",
+        "slug": null,
+        "description": "one morning the sea leaves Alexandria, and an old fisherman walks after it to ask why.",
+        "emoji": null,
+        "color": "cyan",
+        "preview_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake4242dfd30bd7433e8273c48/2d79cd46-1738-479a-b961-7a46cf8ca646.png",
+        "cover_image_url": null,
+        "count": 60,
+        "subfolders_count": 8,
+        "sort_order": 0,
+        "access_mode": "via_link",
+        "link_access_level": "no_access",
+        "views_count": 0,
+        "copies_count": 0,
+        "join_behavior": "open",
+        "default_role": "view",
+        "is_discoverable": false,
+        "admins_can_manage_credit_limits": false,
+        "is_snapshot": true,
+        "contest_key": null,
+        "contest_id": null,
+        "locked": false,
+        "archived_at": null,
+        "hidden_at": null,
+        "role": null,
+        "surface": "contests",
+        "kind": null,
+        "is_pinned": false,
+        "created_at": 1795694452.416325,
+        "updated_at": 1795694452.41633,
+        "project_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+        "cs_chat_ids": [],
+        "workspace": {
+            "id": "af6894d8-1b47-4873-ac8c-9bf54b155ce4",
+            "name": null,
+            "username": null,
+            "bio": null,
+            "avatar_url": null
+        },
+        "publication": {
+            "state": "published",
+            "review_state": null,
+            "nsfw_media": [],
+            "original_folder_id": null,
+            "project_id": "d62acd40-d4da-40d5-9aeb-f09374bb362e",
+            "snapshot_folder_id": "96cfeed5-3ebb-4013-9de2-1ec377fca7b6",
+            "published_at": "2026-11-26T12:00:52.404214+00:00",
+            "has_changes_since_publish": true
+        },
+        "force_show_prompts": false
+    }
+}

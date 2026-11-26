@@ -566,9 +566,65 @@ def build_parser() -> argparse.ArgumentParser:
     cc.add_argument("--save", action="store_true", help="store pricing.md + the report in <run>/crosscheck/")
     cc.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
     cc.set_defaults(func=cmd_crosscheck)
+    ex = sub.add_parser("export", help="turn finished run folder(s) into a browsable / dataset-ready folder (docs/EXPORT.md)",
+                        description="Read-only export of run folders (any scraper) into a new folder: tree (website-"
+                                    "like), hf (ImageFolder/VideoFolder metadata.jsonl), webdataset (tar shards) or "
+                                    "jsonl (one deduplicated manifest). Never modifies runs/; no network unless "
+                                    "--download-missing-media.")
+    ex.add_argument("--run", action="append", required=True, metavar="RUN",
+                    help="run folder, run id or glob (repeatable; records are deduped by stable id)")
+    ex.add_argument("--out", default=None, metavar="DIR", help="export folder (default: exports/<run>-<layout>)")
+    ex.add_argument("--layout", choices=["tree", "hf", "webdataset", "jsonl"], default="tree")
+    ex.add_argument("--group-by", default=None, metavar="FIELDS",
+                    help="tree folders, e.g. model,media_type or collection,feed,date (=name for a literal folder)")
+    ex.add_argument("--per-asset", action="store_true", help="tree: one folder per asset (small selections)")
+    ex.add_argument("--media", choices=["auto", "link", "copy", "hardlink", "none"], default="auto",
+                    help="auto/copy: copy local media; hardlink: hardlink (same volume, else copy); link: URLs only "
+                         "(+urls.txt); none: metadata only")
+    ex.add_argument("--download-missing-media", choices=["thumbs", "full"], default=None,
+                    help="GET media that is not in the run's media/ (1 req/s, capped) into <out>/.media_cache/")
+    ex.add_argument("--max-media-files", type=int, default=None, help="download cap (default: the run's cap)")
+    ex.add_argument("--max-media-mb", type=float, default=None, help="download cap in MB (default: the run's cap)")
+    ex.add_argument("--only", default=None, metavar="COLLECTIONS", help="comma list, e.g. assets,generations")
+    ex.add_argument("--filter", default=None, metavar="EXPR",
+                    help='AND of field=value terms, | for OR, != to negate: "has_prompt=true,media_type=video"')
+    ex.add_argument("--shard-mb", type=float, default=1024.0, help="webdataset shard size (default 1024 MB)")
+    ex.add_argument("--dry-run", action="store_true", help="plan and print counts; write nothing")
+    ex.add_argument("--force", action="store_true", help="allow a non-empty --out / replacing another layout")
+    ex.add_argument("--runs-dir", default=os.environ.get("HF_RUNS_DIR", "runs"))
+    ex.set_defaults(func=cmd_export)
     sub.add_parser("menu", help="interactive menu (alias -i/--interactive; the default with no args on a terminal; "
                                 "needs the `interactive` extra)").set_defaults(func=cmd_menu)
     return ap
+
+
+def cmd_export(a) -> int:
+    """Export run folder(s) (logic: higgsfield_scraper/export/)."""
+    from . import export as ex
+    runs = ex.expand_runs(a.run, Path(a.runs_dir))
+    out = Path(a.out) if a.out else Path("exports") / f"{runs[0].name}-{a.layout}"
+    opts = ex.ExportOptions(
+        runs=runs, out=out, layout=a.layout, per_asset=a.per_asset, media=a.media,
+        group_by=[x.strip() for x in a.group_by.split(",") if x.strip()] if a.group_by else None,
+        download_missing=a.download_missing_media, max_media_files=a.max_media_files, max_media_mb=a.max_media_mb,
+        only={x.strip() for x in a.only.split(",") if x.strip()} if a.only else None,
+        filters=ex.parse_filters(a.filter), filter_spec=a.filter, dry_run=a.dry_run, force=a.force,
+        shard_mb=a.shard_mb)
+    r = ex.run_export(opts)
+    c = r.counts
+    print(f"{'DRY RUN: would export' if r.dry_run else 'exported'} {c['unique']} unique of {c['records_read']} "
+          f"records -> {r.out} ({a.layout})")
+    print(f"  files {r.files}  bytes {r.bytes:,}  media files {c.get('media_files', 0)}  "
+          f"url-only {c.get('media_urls_only', 0)}  time {r.seconds:.1f}s")
+    if not r.dry_run:
+        s = r.sink_stats
+        print(f"  written {s['written']}  unchanged {s['unchanged']}  removed {s['removed']}")
+    media = {k: v for k, v in r.media_stats.items() if v}
+    if media:
+        print(f"  media: {media}")
+    if r.errors:
+        print(f"  {len(r.errors)} note(s) in errors.log, e.g.: {r.errors[0]}")
+    return 0
 
 
 def cmd_menu(a) -> int:

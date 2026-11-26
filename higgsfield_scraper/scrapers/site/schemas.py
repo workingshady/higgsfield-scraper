@@ -12,6 +12,7 @@ from pydantic import AwareDatetime, Field
 
 from ...core.dataset import CoreMeta, Provenance, Strict
 from ..blog.schemas import FaqItem, Heading, Image, Link
+from ..community.schemas import CommunityPost
 
 RecordSource = Literal["page", "index", "sitemap"]
 
@@ -486,6 +487,93 @@ class GameGift(Strict):
     source: Provenance
 
 
+# ------------------------------------------------------------------ community rooms (fnf-community API, opt-in)
+# Data model: docs/COMMUNITY_COVERAGE.md "Data model". Room records hold no personal data beyond pseudonymous ids;
+# the owner's username only with --with-profiles.
+
+class Room(Strict):
+    """kind=site_room - a Community room (/community/rooms/<slug>) from GET fnf-community/rooms (+ room-stats)."""
+
+    room_id: str = Field(description="room UUID (API `id`)")
+    slug: str
+    url: str = Field(description="https://higgsfield.ai/community/rooms/<slug>")
+    name: Optional[str] = None
+    description: Optional[str] = None
+    avatar_url: Optional[str] = None
+    cover_url: Optional[str] = None
+    works_count: Optional[int] = Field(None, description="works (shots + projects + blog posts) in the room")
+    works_shots: Optional[int] = Field(None, description="works_counts.shot")
+    works_projects: Optional[int] = Field(None, description="works_counts.project_publication")
+    works_blog_posts: Optional[int] = Field(None, description="works_counts.blog_post")
+    followers_count: Optional[int] = Field(None, description="members (the UI calls followers 'members')")
+    posts_count: Optional[int] = Field(None, description="room-stats `posts` (room works feed count)")
+    discussions_count: Optional[int] = Field(None, description="room-stats `discussions` (discussion posts)")
+    call_status: Optional[str] = Field(None, description="live voice room status: active | inactive")
+    call_participants: Optional[int] = Field(None, description="call_status.participant_count (at fetch time)")
+    owner_user_id: Optional[str] = Field(None, description="author.user_id (pseudonymous)")
+    owner_username: Optional[str] = Field(None, description="only with --with-profiles")
+    pinned: Optional[bool] = None
+    members_can_post: Optional[bool] = None
+    join_approval: Optional[bool] = None
+    project_publication_id: Optional[str] = Field(None, description="room linked to a project (joins projects)")
+    contest_id: Optional[str] = None
+    original_space_id: Optional[str] = None
+    works_preview_ids: list[str] = Field(default_factory=list, description="works_preview[].item_id (card preview)")
+    created_at: Optional[AwareDatetime] = None
+    position: Optional[int] = Field(None, description="0-based rank in the rooms API order (newest first)")
+    source: Provenance
+
+
+class RoomItem(Strict):
+    """kind=site_room_item - one work in a room (GET fnf-community/rooms/{id}/items): a shot (gallery generation),
+    a project publication or a blog post."""
+
+    room_item_id: str = Field(description="space_item_id")
+    room_id: str
+    room_slug: Optional[str] = None
+    item_type: Literal["shot", "project_publication", "blog_post", "unknown"]
+    item_id: Optional[str] = Field(None, description="shot: publication id (joins community_generation."
+                                   "publication_id); project: publication_id; blog: post id")
+    generation_id: Optional[str] = Field(None, description="shot job id (joins community_generation.generation_id)")
+    pinned: Optional[bool] = None
+    position: Optional[int] = Field(None, description="0-based order in the room's works feed")
+    url: Optional[str] = Field(None, description="shot page URL (projects/blogs need the author's username)")
+    title: Optional[str] = Field(None, description="project name / blog title / shot prompt (first 200 chars)")
+    slug: Optional[str] = None
+    description: Optional[str] = None
+    prompt: Optional[str] = Field(None, description="shot params.prompt (full)")
+    job_set_type: Optional[str] = None
+    media_type: Optional[str] = None
+    media_url: Optional[str] = Field(None, description="shot raw result / project or blog cover")
+    thumbnail_url: Optional[str] = None
+    project_type: Optional[str] = Field(None, description="film | series | carousel")
+    duration_seconds: Optional[float] = Field(None, description="project duration in seconds")
+    reading_time_minutes: Optional[int] = None
+    likes: Optional[int] = None
+    views: Optional[int] = None
+    comments: Optional[int] = None
+    tags: list[str] = Field(default_factory=list)
+    author_user_ids: list[str] = Field(default_factory=list, description="pseudonymous ids")
+    created_at: Optional[AwareDatetime] = Field(None, description="published/created time of the work")
+    source: Provenance
+
+
+class RoomStats(Strict):
+    """kind=site_room_stats - GET fnf-community/publications/room-stats?room_id=; merged into site_room
+    (posts_count, discussions_count) by build_dataset, not a collection of its own."""
+
+    room_id: str
+    posts: Optional[int] = None
+    discussions: Optional[int] = None
+
+
+class RoomDiscussion(CommunityPost):
+    """kind=site_room_discussion - a discussion post in a room (fnf-community /publications/feed?room_id=&kind=
+    discussion): same fields as community_post plus the room slug."""
+
+    room_slug: Optional[str] = None
+
+
 MODEL_BY_KIND = {
     "site_app": App,
     "site_app_category": AppCategory,
@@ -501,6 +589,10 @@ MODEL_BY_KIND = {
     "site_promo_event": PromoEvent,
     "site_business_unlim_offer": BusinessUnlimOffer,
     "site_game_gift": GameGift,
+    "site_room": Room,
+    "site_room_item": RoomItem,
+    "site_room_discussion": RoomDiscussion,
+    "site_room_stats": RoomStats,
 }
 ID_FIELD_BY_KIND = {
     "site_app": "record_key",
@@ -517,10 +609,14 @@ ID_FIELD_BY_KIND = {
     "site_promo_event": "event_id",
     "site_business_unlim_offer": "offer_id",
     "site_game_gift": "gift_id",
+    "site_room": "room_id",
+    "site_room_item": "room_item_id",
+    "site_room_discussion": "post_id",
+    "site_room_stats": "room_id",
 }
 # kinds counted by --max-items (per kind); index-level/aux kinds are never capped
 PRIMARY_KINDS = ("site_app", "site_academy_course", "site_academy_lesson", "site_mcp_skill", "site_original_episode",
-                 "site_mixed_media_preset", "site_landing")
+                 "site_mixed_media_preset", "site_landing", "site_room", "site_room_item", "site_room_discussion")
 
 
 class SiteSummary(Strict):
@@ -550,3 +646,11 @@ class SiteDataset(Strict):
     business_unlim_offers: list[BusinessUnlimOffer] = Field(default_factory=list)
     game_gifts: list[GameGift] = Field(default_factory=list)
     summary: SiteSummary
+
+
+class SiteDatasetExt(SiteDataset):
+    """Dataset of a run with --what room-list / room-content. Default runs keep SiteDataset (unchanged outputs)."""
+
+    rooms: list[Room] = Field(default_factory=list)
+    room_items: list[RoomItem] = Field(default_factory=list)
+    room_discussions: list[RoomDiscussion] = Field(default_factory=list)
