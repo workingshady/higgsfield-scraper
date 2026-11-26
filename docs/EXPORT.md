@@ -175,6 +175,9 @@ for s in ds: s["__key__"], s.get("png"), s["json"]["prompt"], s.get("txt")
 * Exports contain exactly what the run output contains. Runs without `--with-profiles` hold no usernames/handles
   (authors are pseudonymous `author_key`s); the README states when a source run used `--with-profiles`.
 * `comments.md` names authors only by `author_key`.
+* Media URLs are exported unchanged: Higgsfield CDN addresses contain the uploader's Clerk user id (`user_…`) in the
+  path. The owner decided on 2026-11-26 to keep them (they are the media addresses and downloads need them); every
+  other personal field stays redacted unless the run used `--with-profiles`.
 * Prompts, comments and briefs are user-written and can mention people: review before sharing.
 * **Licensing caveat** (also in every export's README): the content belongs to its creators and is subject to the
   Higgsfield Terms of Service; the export grants no licence to redistribute or train on it.

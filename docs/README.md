@@ -21,7 +21,13 @@ GitHub shows this page when you open the `docs/` folder.
 | Understand how the website **loads and calls models** | [`MODEL_LOADING.md`](MODEL_LOADING.md) |
 | Understand **jobs, IDs, storage, the generation lifecycle** | [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) |
 | Look at **everything Higgsfield has** (features, routes, APIs) | [`HIGGSFIELD_DATA_INVENTORY.md`](HIGGSFIELD_DATA_INVENTORY.md) |
-| Scrape community, catalogs, contests, blog or site pages | [`scrapers/`](#3-scrapers-one-guide-each) |
+| Scrape community, catalogs, contests, blog, site pages or showcase content | [`scrapers/`](#3-scrapers-one-guide-each) |
+| Scrape **everything** (all 8 scrapers + opt-in extras) | [`../CLI.md` "Scrape everything"](../CLI.md#scrape-everything-all-8-scrapers) |
+| Get **every asset, prompt and brief of a project** or contest | [`scrapers/projects.md`](scrapers/projects.md#nested-data-model-opt-in-2026-11-26), [`../CLI.md` §1d](../CLI.md#1d-projects-nested-project-data-contests-by-slug-user-projects) |
+| Know what each **Community page** offers (Feed, Shots, Creators, Rooms…) | [`COMMUNITY_COVERAGE.md`](COMMUNITY_COVERAGE.md) |
+| Find **likes / views / comments** and track them over time | [`ENGAGEMENT.md`](ENGAGEMENT.md) |
+| **Export** runs as browsable folders or datasets (Hugging Face, WebDataset, JSONL) | [`EXPORT.md`](EXPORT.md), [`../CLI.md` §6b](../CLI.md#6b-export-run-folders--browsable--dataset-folders) |
+| **Count and dedupe all videos / images** across runs | [`../CLI.md` §6c](../CLI.md#6c-count-and-dedupe-generations-scriptsmerge_generationspy) (`scripts/merge_generations.py`), [`scrapers/showcase.md` §8](scrapers/showcase.md#8-dedupe-scriptsmerge_generationspy) |
 | See what logging in adds (extra price rows, your own account data) | [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md), then [`scrapers/account.md`](scrapers/account.md) |
 | Record **your own** balances and jobs (real charged credits) | [`scrapers/account.md`](scrapers/account.md) |
 | Add a new scraper | [`ADDING_A_SCRAPER.md`](ADDING_A_SCRAPER.md) |
@@ -34,10 +40,10 @@ GitHub shows this page when you open the `docs/` folder.
 
 | Doc | Contains | Lines |
 |---|---|---:|
-| 🧭 [`../README.md`](../README.md) | Overview of the 7 scrapers, setup, quick start, interactive menu, login, options summary, run-folder layout, logging, privacy, architecture, contributing | 400 |
-| 🧭 [`../CLI.md`](../CLI.md) | Every command (`scrape`, `menu`, `normalize`, `show`, `scrapers`, `diff`, `crosscheck`, `login`, `auth-check`, `runs`, `runs clean`, `show-config`, `schema`…), every flag of every scraper (⚙️ option tables), examples for the opt-in kinds/flags and `scrape account`, logged-in pricing, recipes, output files, exit codes, environment variables, troubleshooting | 1,210 |
+| 🧭 [`../README.md`](../README.md) | Overview of the 8 scrapers by category, setup, quick start (incl. scrape everything + export), interactive menu, login, options summary, run-folder layout, export, logging, privacy, architecture, contributing | 480 |
+| 🧭 [`../CLI.md`](../CLI.md) | Every command (`scrape`, `menu`, `normalize`, `show`, `scrapers`, `diff`, `crosscheck`, `login`, `auth-check`, `runs`, `runs clean`, `show-config`, `schema`…), `export`, every flag of every scraper (⚙️ option tables), examples for the opt-in kinds/flags, `scrape account`, nested projects, community pages, rooms, `scrape showcase`, `export` and `scripts/merge_generations.py`, logged-in pricing, recipes incl. scrape everything, output files, exit codes, environment variables, troubleshooting | 1,670 |
 | [`../.env.example`](../.env.example) | Login options A/B/C (email + password + code, browser cookie, one-off token) and default settings | 40 |
-| [`../CLAUDE.md`](../CLAUDE.md) | Project rules for contributors and Claude: conventions, layout, required pre-commit checks | 105 |
+| [`../CLAUDE.md`](../CLAUDE.md) | Project rules for contributors and Claude: conventions, layout, required pre-commit checks | 110 |
 
 ## 2. Higgsfield pricing, credits and plans
 
@@ -56,12 +62,21 @@ Each guide covers endpoints, options, output entities and fields, CSV tables, ex
 | Scraper | Doc | Data |
 |---|---|---|
 | `pricing` | [`PRICING.md`](PRICING.md), [`ENDPOINTS.md`](ENDPOINTS.md) | Plans, offers, model credit costs, benefits, comparison, marketing |
-| `community` | [`scrapers/community.md`](scrapers/community.md) | Generations: model, prompt, settings, results, engagement, estimated cost |
+| `community` | [`scrapers/community.md`](scrapers/community.md), [`COMMUNITY_COVERAGE.md`](COMMUNITY_COVERAGE.md) | Generations: model, prompt, settings, results, engagement, estimated cost; opt-in Community pages (shots, posts, Feed, creators, talents) and comment threads |
 | `catalog` | [`scrapers/catalog.md`](scrapers/catalog.md) | Motions, avatars, voices, sounds, styles, viral presets; opt-in group (mostly public CMS lists; color presets + camera settings need a login); opt-in public kinds chain presets (credit prices), notices, restyle presets |
-| `projects` | [`scrapers/projects.md`](scrapers/projects.md) | Projects, contests (rules, prizes, judges, winners), submissions; original series from the public `fnf-series` service (`--public-series`) |
+| `projects` | [`scrapers/projects.md`](scrapers/projects.md) | Projects, contests (rules, prizes, judges, winners), submissions; original series from the public `fnf-series` service (`--public-series`); opt-in nested project data (folders, every asset with prompt and model, brief as Markdown, stats + model stack, comments, related), contests by slug, user projects |
 | `blog` | [`scrapers/blog.md`](scrapers/blog.md) | Blog, talent posts, help centers, case studies, changelog (full text) |
-| `site` | [`scrapers/site.md`](scrapers/site.md) | Apps (+ credit cost), academy courses and lessons, MCP skills and bundles, original series, landings, promos |
+| `site` | [`scrapers/site.md`](scrapers/site.md) | Apps (+ credit cost), academy courses and lessons, MCP skills and bundles, original series, landings, promos; opt-in community rooms (`room-list`, `room-content`) |
 | `account` | [`scrapers/account.md`](scrapers/account.md) | **Opt-in, login required:** your own balances, plan, subscription, auto top-up; your jobs with the credits actually charged; estimate-vs-actual comparison |
+| `showcase` | [`scrapers/showcase.md`](scrapers/showcase.md) | Canvas templates, Editing Room examples, Property Studio presets, video explore (+ likes), effect samples, public API models, Cinema Studio controls, faceless / Intone / Seedance / motion-control showcases; opt-in login `season` |
+
+Across scrapers:
+
+| Doc | Contains | Lines |
+|---|---|---:|
+| [`COMMUNITY_COVERAGE.md`](COMMUNITY_COVERAGE.md) | Audit of every Community page: endpoints, JS evidence, totals, data model (ER + field tables), options added, anonymous vs logged in, how to scrape it all | 420 |
+| [`ENGAGEMENT.md`](ENGAGEMENT.md) | Likes, views, comments, votes per content type: API field, endpoint, public or not, logged-in difference, old vs new items, live vs frozen, which scraper collects it, how to track over time | 190 |
+| [`EXPORT.md`](EXPORT.md) | The `export` command: options, per-scraper profiles, layouts (tree, hf, webdataset, jsonl), loading examples, dedup, idempotency, best-practice sources, privacy and licensing | 190 |
 
 ## 4. How Higgsfield works inside (reverse engineering)
 
@@ -73,7 +88,7 @@ Each guide covers endpoints, options, output entities and fields, CSV tables, ex
 | [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) | Job / job set / publication / project / media ids, lifecycle (upload → create → SSE status → result), CDN storage and file naming, library and workspaces, browser storage, chains, workflows (apps), Canvas, publishing | 835 |
 | [`products/EDITING_ROOM.md`](products/EDITING_ROOM.md) | Editing Room ("videoshop"): AI re-shoot tools (Genjutsu, Angles, Camera move, Relight, Brush), timeline data model, server-side rendering, FCP7 export, autosave, credits, endpoints | 370 |
 | [`products/PROPERTY_STUDIO.md`](products/PROPERTY_STUDIO.md) | Property Studio ("realtor studio"): floor plan → narrated 3D walkthrough chain with review gates, apps, `/realtor-studio/*` endpoints, progress stream, quotes and eligibility | 350 |
-| [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) | The research log: stack, method, endpoint inventory, how the frontend picks prices, geo pricing, data shapes, verification, change monitoring; §13 login (Clerk) and community/catalog/projects/content; §14 site pages; §15 model loading; §16 login audit (gateway 401 rule, service prefixes, logged-in differences) | 510 |
+| [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) | The research log: stack, method, endpoint inventory, how the frontend picks prices, geo pricing, data shapes, verification, change monitoring; §13 login (Clerk) and community/catalog/projects/content; §14 site pages; §15 model loading; §16 login audit (gateway 401 rule, service prefixes, logged-in differences); §17 projects nested data (folders, assets, Yjs briefs, comments) | 540 |
 | [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) | Login audit (2026-11-26): what a session unlocks, logged-in vs anonymous differences (`lite` plan, `magi_2`, costs versions), every probed login endpoint with status and shape, service prefixes, proposed schemas, doc corrections, implementation status | 300 |
 | [`HIGGSFIELD_DATA_INVENTORY.md`](HIGGSFIELD_DATA_INVENTORY.md) | Everything Higgsfield offers: feature catalog, public APIs with params, 1,384 sitemap pages, login-only and blocked areas, scraper status; appendix of 589 frontend routes and 728 API paths with probe results | 1,380 |
 | [`endpoints/higgsfield.md`](endpoints/higgsfield.md) | Short per-site entry point (expected by the `reverse-engineer-site` skill), pointing here | 15 |
@@ -93,7 +108,7 @@ Each guide covers endpoints, options, output entities and fields, CSV tables, ex
 
 | File | What it is |
 |---|---|
-| ⚙️ [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) | 105 requests for every scraper plus the Clerk login flow; import into Postman (`scripts/make_postman.py`) |
+| ⚙️ [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) | 115 requests (pricing, community, catalog, projects, blog, site) plus the Clerk login flow; no showcase folder yet; import into Postman (`scripts/make_postman.py`) |
 | ⚙️ [`assets/`](assets/) | Banner (dark/light) and architecture diagram SVGs (`scripts/make_assets.py`) |
 
 ## 7. Raw samples (`samples/higgsfield/`)
@@ -111,9 +126,12 @@ Captured website responses used as evidence by the docs. Usernames are redacted.
 | `products/` | Product config samples (videoshop, UI strings, costs) | PRODUCTS |
 | `editing_room/`, `property_studio/` | Example projects, CMS examples, voice list | products/ docs |
 | `login_endpoints/` | The opt-in catalog lists (soul/veo3 styles, per-model motions, mixed media, katana, faceless, marketing, color presets, camera settings) and the Community-post comments, captured with a login (redacted) | `scrapers/catalog.md`, `scrapers/community.md` |
+| `showcase/` | Showcase sources (redacted): Canvas templates, CMS lists (videoshop examples, cinema controls, faceless, Intone, Seedance, motion control, cards, applications, AI-influencer config, viral-hub previews), video-explore pages and categories, voices list, API docs (`openapi.json`, `llms-full.txt`) | `scrapers/showcase.md` |
 | `login_audit/` | Login audit (redacted): logged-in-only plan and cost rows, chain presets, notices, restyle presets, series, courses, applications, marketplace apps, flags; per-user account endpoints as **types only** (`account_endpoint_shapes.json`) | `LOGIN_COVERAGE.md` |
 
-Not in git (too large or private): `samples/higgsfield/js/`, `js2/` (downloaded JS bundles), `recon2/`, `inventory/bodies/`, `probe/`.
+Not in git (too large or private): `samples/higgsfield/js/`, `js2/` (downloaded JS bundles), `recon2/`, `inventory/bodies/`, `probe/`, `projects_nested/` (page HTML and raw responses with real handles).
+
+Test fixtures for the 2026-11-26 features (user ids faked): `tests/fixtures/projects_nested/`, `tests/fixtures/community/` (shots, posts, Feed, creators, talents, entity comments), `tests/fixtures/showcase/`.
 
 ## 8. Generated content: how to refresh
 

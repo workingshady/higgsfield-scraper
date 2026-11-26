@@ -11,6 +11,7 @@
   python -m higgsfield_scraper plan-sets | sections | schema
   python -m higgsfield_scraper diff [--old RUN] [--new RUN] [--json] [--out FILE]   # compare two pricing runs
   python -m higgsfield_scraper crosscheck [--run RUN] [--json] [--save]            # run vs official pricing.md
+  python -m higgsfield_scraper export --run RUN [--layout tree|hf|webdataset|jsonl] [--out DIR] [--dry-run]   # runs -> dataset folder
   python -m higgsfield_scraper menu                         # interactive menu (also -i; default with no args on a TTY)
 
 Exit codes: 0 success · 1 failure · 2 usage error · 3 partial · 4 blocked (bot protection) · 130 cancelled (Ctrl-C)

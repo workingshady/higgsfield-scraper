@@ -303,6 +303,9 @@ redeem, invite. The full rule is the `MUTATION` regex in `scripts/recon_probe.py
 **Update 2026-11-25:** six scrapers are built (`python -m higgsfield_scraper scrapers`); `site` covers the sitemap page types that were left (§4).
 **Update 2026-11-26:** seven scrapers; the opt-in `account` scraper (plan #7 below, specified in [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) §3.4) is
 built, and the login audit's other recommendations are implemented as opt-in flags (see the table).
+**Update 2026-11-26 (commit `de0f5b8`):** eight scrapers; new `showcase` scraper, nested project data, the Community
+pages, room content, the `export` command and the cross-run dedupe script (rows below). Every addition is opt-in and
+public (a session adds no public data on community, projects or showcase).
 
 | Scraper | Status | Docs |
 |---|---|---|
@@ -313,7 +316,14 @@ built, and the login audit's other recommendations are implemented as opt-in fla
 | `blog` | ✅ built: blog, help centers, case studies, changelog, talent posts | [`scrapers/blog.md`](scrapers/blog.md) |
 | `site` | ✅ built: apps (+ credit cost per template), academy courses + lessons (Markdown), MCP skills + bundles, original-series series + episodes, mixed-media presets, landing/plugin pages (Markdown, FAQ, HowTo), rooms (opt-in, title only), promo APIs (`/datetime-settings`, `/business-unlim/state`, `/game-gift/networks`) | [`scrapers/site.md`](scrapers/site.md) |
 | `account` | ✅ built (opt-in, login required): own balances / plan / subscription snapshot, `--with-jobs` (own jobs with the credits actually charged), `--compare-estimate` (estimator vs real charge; `/jobs/accessible` was Cloudflare-challenged for the crawler on 2026-11-26, recorded, not evaded) | [`scrapers/account.md`](scrapers/account.md) |
-| effects pages | ➖ not built: same presets as `catalog` viral presets; samples = community generations | [`scrapers/site.md`](scrapers/site.md) |
+| `showcase` | ✅ built (2026-11-26): Canvas templates, Editing Room examples + projects + renders, Property Studio presets, video explore (6 categories, 35 curated, ~49k community items with likes), effect sample generations (87 `/effects/examples` pages, first SSR page each), public API models (83 endpoints), Cinema Studio controls, faceless / Intone / Seedance / motion-control showcases; opt-in login `season` | [`scrapers/showcase.md`](scrapers/showcase.md) |
+| projects nested | ✅ built (opt-in): `--with-project-assets` (folders + every asset with prompt, model, params, media), `--with-project-brief` (Yjs snapshot → Markdown), `--with-project-stats`, `--with-project-comments`, `--with-project-related`, `--contest <slug>`, `--contest-tabs`, `--users <handle>` | [`scrapers/projects.md`](scrapers/projects.md#nested-data-model-opt-in-2026-11-26) |
+| Community pages | ✅ built (opt-in): `community --feeds shots,posts,feed,creators,talents`, comment threads of shots / projects / blog posts / posts with `--with-comments` | [`COMMUNITY_COVERAGE.md`](COMMUNITY_COVERAGE.md) |
+| Community rooms | ✅ built (opt-in): `site --what room-list` (88 rooms + room-stats), `--what room-content` (+ works and discussion posts) | [`COMMUNITY_COVERAGE.md`](COMMUNITY_COVERAGE.md), [`scrapers/site.md`](scrapers/site.md) |
+| `export` command | ✅ built: run folders → tree / Hugging Face / WebDataset / JSONL, deduped, read-only | [`EXPORT.md`](EXPORT.md) |
+| Dedupe / count generations | ✅ built: `scripts/merge_generations.py` (one row per generation across runs; `--compare` for likes/views deltas) | [`scrapers/showcase.md`](scrapers/showcase.md#8-dedupe-scriptsmerge_generationspy), [`ENGAGEMENT.md`](ENGAGEMENT.md) |
+| Community apps marketplace (`fnf-apps-marketplace/api/v1/apps/community`) | ⏳ **gap**: public, with views / likes / dislikes / remixes / credits spent, but collected by no scraper | [`ENGAGEMENT.md`](ENGAGEMENT.md) §11 |
+| effects pages | ✅ example generations now in `showcase --what effect_examples`; the presets themselves stay in `catalog` (viral presets) | [`scrapers/showcase.md`](scrapers/showcase.md), [`scrapers/site.md`](scrapers/site.md) |
 | `/feature`, `/user/meta`, `/user/features`, `/youtube-faceless/hot-right-now`, `/contests/trending` | ➖ not built: flags / empty | [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) §14 |
 
 The original plan follows.

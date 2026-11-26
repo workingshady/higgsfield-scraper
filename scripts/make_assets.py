@@ -22,19 +22,26 @@ THEMES = {
 SANS = "Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif"
 MONO = "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
 
-SCRAPERS = [("pricing", 104), ("community", 132), ("catalog", 110), ("projects", 112), ("blog", 78), ("site", 72)]
+SCRAPERS = ["pricing", "community", "catalog", "projects", "blog", "site", "account", "showcase"]
+PILL_FONT, PILL_GAP = 13, 8            # 8 pills in one row must end before the flow nodes (x = 820)
+
+
+def pill_width(name: str) -> int:
+    return round(len(name) * PILL_FONT * 0.62) + 24     # monospace advance ~0.6 em + padding
 
 
 def banner(t: dict) -> str:
     pills, x = [], 64
-    for i, (name, w) in enumerate(SCRAPERS):
+    for i, name in enumerate(SCRAPERS):
+        w = pill_width(name)
         first = i == 0
         pills.append(
             f'<rect x="{x}" y="226" width="{w}" height="34" rx="17" fill="{t["lime"] if first else t["pill_bg"]}" '
             f'stroke="{t["lime"] if first else t["line"]}" stroke-width="1.5"/>'
-            f'<text x="{x + w / 2}" y="248" text-anchor="middle" font-family="{MONO}" font-size="14" font-weight="600" '
+            f'<text x="{x + w / 2}" y="247.5" text-anchor="middle" font-family="{MONO}" font-size="{PILL_FONT}" font-weight="600" '
             f'fill="{t["lime_ink"] if first else t["text"]}">{name}</text>')
-        x += w + 10
+        x += w + PILL_GAP
+    assert x - PILL_GAP <= 800, f"pills end at {x - PILL_GAP}, overlapping the flow nodes at 820"
     nodes = [("/plans", 64), ("/job-sets/costs", 118), ("/publications", 172)]
     flow = "".join(
         f'<rect x="820" y="{y}" width="150" height="30" rx="8" fill="{t["surface"]}" stroke="{t["line"]}"/>'
@@ -48,7 +55,7 @@ def banner(t: dict) -> str:
         for n, y in [("JSON", 64), ("CSV", 118), ("HAR", 172)])
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
   <title id="title">higgsfield-scraper (unofficial)</title>
-  <desc id="desc">Unofficial, reverse-engineered Scrapy scrapers for public Higgsfield.ai data: pricing, community, catalog, projects, blog, site (apps, academy, MCP); cost estimates, interactive menu.</desc>
+  <desc id="desc">Unofficial, reverse-engineered Scrapy scrapers for public Higgsfield.ai data: pricing, community, catalog, projects, blog, site (apps, academy, MCP), account, showcase; cost estimates, export to datasets, interactive menu.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <path d="M32 0H0V32" fill="none" stroke="{t["grid"]}" stroke-opacity="{t["grid_op"]}" stroke-width="1"/>
@@ -71,7 +78,7 @@ def banner(t: dict) -> str:
   <text x="64" y="184" font-family="{SANS}" font-size="22" fill="{t["sub"]}">Every public Higgsfield.ai dataset — validated, organized, exported.</text>
   <rect x="64" y="200" width="64" height="4" rx="2" fill="{t["lime"]}"/>
   {"".join(pills)}
-  <text x="64" y="294" font-family="{MONO}" font-size="14" fill="{t["muted"]}"><tspan fill="{t["lime_text"]}">$</tspan> python -m higgsfield_scraper menu<tspan dx="18" fill="{t["muted"]}"># or: scrape &lt;scraper&gt; · diff · crosscheck</tspan></text>
+  <text x="64" y="294" font-family="{MONO}" font-size="14" fill="{t["muted"]}"><tspan fill="{t["lime_text"]}">$</tspan> python -m higgsfield_scraper menu<tspan dx="18" fill="{t["muted"]}"># or: scrape &lt;scraper&gt; · export · diff</tspan></text>
 
   {flow}
   <circle cx="1084" cy="133" r="17" fill="{t["lime"]}"/>
@@ -136,7 +143,7 @@ def architecture() -> str:
     add(f'<text x="32" y="44" font-family="{SANS}" font-size="22" font-weight="800" fill="{t["text"]}">higgsfield-scraper '
         f'<tspan fill="{t["lime"]}">·</tspan> container view of one run</text>')
     add(f'<text x="34" y="66" font-family="{SANS}" font-size="13" fill="{t["muted"]}">Data flows left → right. '
-        f'Numbers give the order of events. Same machinery for every scraper (pricing, community, catalog, projects, blog, site).</text>')
+        f'Numbers give the order of events. Same machinery for all 8 scrapers; the export command then turns finished runs into dataset folders.</text>')
 
     # lanes (trust boundaries)
     lane(20, 270, "HIGGSFIELD", "external systems (read-only)")

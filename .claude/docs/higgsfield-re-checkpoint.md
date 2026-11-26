@@ -12,8 +12,8 @@
 | Job set types priced | **87** (incl. `scene_switch`, priced but no frontend code) |
 | Public `__HF_FF` flags | **empty** for the anonymous request on 2026-11-26 (an earlier crawl of `/ai/video` got 23; `f_24c5dcf4` Seedance 2.5 Flash on, `f_3a0922bf` Kling 4.0 Flash on, `f_6a87092e` Wan 4.0 off) |
 | Pricing baseline | `runs/20261126-100141_pricing-baseline-v3` (31 files; `scripts/check_pricing_identity.py`) |
-| Tests | **370 passed, 1 skipped** (`.venv\Scripts\python -m pytest -q`, 2026-11-26, after commit `d0429ec`) |
-| Scrapers | `pricing`, `community`, `catalog`, `projects`, `blog`, `site`, `account` (opt-in, login required) |
+| Tests | **578 passed, 1 skipped** (`.venv\Scripts\python -m pytest -q`, 2026-11-26, after commit `de0f5b8`) |
+| Scrapers | **8**: `pricing`, `community`, `catalog`, `projects`, `blog`, `site`, `showcase`, `account` (opt-in, login required); plus `export` and `scripts/merge_generations.py` |
 
 ---
 
@@ -28,11 +28,18 @@
 | Account scraper (snapshot, own jobs with real `cost`, estimate vs actual) | done; `/jobs/accessible` Cloudflare-challenged for the crawler (recorded, not evaded), so `--compare-estimate` not run live | `account` | [`scrapers/account.md`](../../docs/scrapers/account.md) | 2026-11-26 |
 | Login audit (what a session unlocks) | **done** | — | [`LOGIN_COVERAGE.md`](../../docs/LOGIN_COVERAGE.md), [`REVERSE_ENGINEERING.md`](../../docs/REVERSE_ENGINEERING.md) §16 | 2026-11-26 |
 | Community generations | done | `community` | [`scrapers/community.md`](../../docs/scrapers/community.md), [`cost-estimate.md`](../../docs/scrapers/cost-estimate.md) | 2026-11-26 |
-| Community comments | done (public on `/fnf-community`; Community posts only, gallery items have none) | `community --with-comments` | `scrapers/community.md` | 2026-11-26 |
+| Community comments | done (public on `/fnf-community`): Community posts (`/publications/{id}/comments`) and, with the opt-in feeds, shots / projects / blog posts (`/entities/{type}/{id}/comments`). Gallery generations **do** have comments (correction of the earlier note) | `community --with-comments` (+ `--feeds shots,posts,feed`) | `scrapers/community.md`, [`COMMUNITY_COVERAGE.md`](../../docs/COMMUNITY_COVERAGE.md) | 2026-11-26 |
+| Community pages (Shots, Posts, Feed, Creators, Talents) | done (opt-in, public, never in `--feeds all`; requests always anonymous) | `community --feeds shots,posts,feed,creators,talents` | [`COMMUNITY_COVERAGE.md`](../../docs/COMMUNITY_COVERAGE.md) | 2026-11-26 |
+| Community rooms (list, works, discussions) | done (opt-in, public; no public chat stream) | `site --what room-list` / `room-content` | `COMMUNITY_COVERAGE.md`, [`scrapers/site.md`](../../docs/scrapers/site.md) | 2026-11-26 |
+| Engagement audit (likes, views, comments, votes; anon vs login; old vs new) | **done**; only gap: community apps marketplace | — | [`ENGAGEMENT.md`](../../docs/ENGAGEMENT.md) | 2026-11-26 |
 | Catalogs (public) | done | `catalog` | [`scrapers/catalog.md`](../../docs/scrapers/catalog.md) | 2026-11-25 |
 | Catalogs opt-in `login` group | done (public on CMS / `fnf-cms-api`; color + camera need a login) | `catalog --kinds login` | `scrapers/catalog.md` | 2026-11-26 |
 | Catalog kinds `chain_preset` (credit prices), `notice`, `restyle_preset` | done (opt-in, public; `--include-hidden`, `--with-profiles`) | `catalog --kinds chain_preset,notice,restyle_preset` | `scrapers/catalog.md` | 2026-11-26 |
 | Projects, series, contests | done | `projects` | [`scrapers/projects.md`](../../docs/scrapers/projects.md) | 2026-11-25 |
+| Projects nested data (folders, assets with prompt/model/params/media, brief, stats + stack, comments, related; contests by slug, contest tabs, user projects) | done (opt-in, public; nested requests always anonymous) | `projects --with-project-assets/-brief/-stats/-comments/-related`, `--contest`, `--contest-tabs`, `--users` | [`scrapers/projects.md`](../../docs/scrapers/projects.md#nested-data-model-opt-in-2026-11-26), REVERSE_ENGINEERING §17 | 2026-11-26 |
+| Showcase / examples (Canvas templates, Editing Room, Property Studio, video explore, effect samples, API models, Cinema controls, CMS showcases) | done (public; `season` login-only, opt-in) | `showcase` | [`scrapers/showcase.md`](../../docs/scrapers/showcase.md) | 2026-11-26 |
+| Export (tree / Hugging Face / WebDataset / JSONL) | done (read-only on runs, deduped, idempotent) | `export` | [`EXPORT.md`](../../docs/EXPORT.md) | 2026-11-26 |
+| Cross-run dedupe / counting of generations | done (`job:` / `pub:` / `media:` / `static:` keys, `--compare` deltas) | `scripts/merge_generations.py` | `scrapers/showcase.md` §8, `ENGAGEMENT.md` §14 | 2026-11-26 |
 | Original series (public `fnf-series`) | done (opt-in; the default run keeps the legacy login-only path) | `projects --what series --public-series` | `scrapers/projects.md` | 2026-11-26 |
 | Blog, help centers, case studies, changelog, talent posts | done | `blog` | [`scrapers/blog.md`](../../docs/scrapers/blog.md) | 2026-11-25 |
 | Site pages (apps, academy, MCP, series, landings, promos) | done | `site` | [`scrapers/site.md`](../../docs/scrapers/site.md) | 2026-11-25 |
@@ -92,6 +99,26 @@ The real paths (documented in `docs/scrapers/catalog.md` and `community.md`) liv
 30. What a session really adds: those price rows, the account's own money state (wallet balances in cost units ×100,
     `credits_per_dollar` 18) and its own library (`/jobs/accessible` with the actual charged `cost`).
     → [LOGIN_COVERAGE §1](../../docs/LOGIN_COVERAGE.md#1-tldr), [scrapers/account.md](../../docs/scrapers/account.md)
+31. **Gallery generations do have comments**, on `fnf-community /entities/generation_publication/{publication_id}/comments`
+    (cursor, 20/page); `/publications/{id}/comments` is always empty for them (the earlier "no comments" note was wrong).
+    Projects and blog posts use the same `/entities/{type}/{id}/comments` pattern.
+    → [COMMUNITY_COVERAGE §3](../../docs/COMMUNITY_COVERAGE.md#comments-of-shots-projects-and-blog-posts-new-finding)
+32. **Project assets are public via folders**: `/folders/{id}`, `/children`, `/folders/{id}/items/v2`
+    (`include_subfolders=true`, `size ≤ 100`, epoch-float cursor) carry every asset with prompt, params, model and media;
+    the folder comes from the publication's `snapshot_folder_id` (web app `Fi()`). `/jobs/{id}` and `/assets/{id}/public`
+    are Cloudflare-challenged (not needed, not evaded). → [scrapers/projects.md](../../docs/scrapers/projects.md#nested-data-model-opt-in-2026-11-26)
+33. **Project briefs are a Yjs snapshot** of a Lexical document on `https://dam-editor-worker.higgsfield.ai/brief/{folder}/snapshot`
+    (binary, `X-Brief-Updated-At`); decoded in pure Python (`scrapers/projects/yjs.py`) and rendered to Markdown
+    (`brief.py`). → [REVERSE_ENGINEERING §17](../../docs/REVERSE_ENGINEERING.md#17-sixth-round-2026-11-26-projects-nested-data)
+34. **Video explore** (`cms.higgsfield.ai/higgsfield-multiplier/video-explore/v2`) has ~49k community items with likes
+    (49,322 on 2026-11-26; page-number cursor with `total` for `sort=new`, opaque cursor for `trending`).
+    → [scrapers/showcase.md](../../docs/scrapers/showcase.md), [ENGAGEMENT §12](../../docs/ENGAGEMENT.md#12-showcase-items-scrape-showcase)
+35. **Logging in adds no public data** on community pages, projects (incl. nested) or showcase: same items, totals and
+    fields; only viewer state (`is_liked_by_user`, `liked_by_me`, `is_followed` …) and a personalised feed order. So
+    those requests are always sent anonymously. → COMMUNITY_COVERAGE §7a, projects.md "Anonymous vs logged in", showcase.md §4
+36. **The Canvas node graph exists only over a login WebSocket** (`wss://canvas-worker…/api/templates/{id}/connect?ticket=`,
+    ticket from `/auth` with a session; a Yjs-style sync protocol where the client must send messages). Template
+    metadata is public; the graph is not scraped. → [scrapers/showcase.md §9](../../docs/scrapers/showcase.md#9-skipped-sources-and-gaps)
 
 ## 3. Open questions / unknowns
 
@@ -145,14 +172,21 @@ The real paths (documented in `docs/scrapers/catalog.md` and `community.md`) liv
 | 3 | **`models` registry scraper** (JS registry + costs + flags) | Design in [MODEL_LOADING §8](../../docs/MODEL_LOADING.md#8-what-we-can-and-cant-scrape): fetch tool pages → chunk graph → regex `defineJob`, routes, gating, featured ids, plan tiers → join on `job_set_type` with `/job-sets/costs` + `__HF_FF`; store the build id; fixtures = a few saved chunks | new `docs/scrapers/models.md`, ADDING_A_SCRAPER flow |
 | 4 | **Monitor costs version / new job types** (e.g. `scene_switch`) | Schedule `re_check_changes.py` daily (or wrap it in a `monitor` command); on change run `pricing` + `diff`; document new types | this checkpoint changelog, PRODUCTS §5 |
 | 5 | **Team-account checks** | With a team workspace: `/workspaces/credit-price`, seat pricing, `hf-workspace-id` effects on costs | PRICING §10, COST_FORMULAS §5.3 |
-| 6 | **Canvas templates scraper** | Public `GET canvas-worker.higgsfield.ai/api/templates` + `/{id}`; small catalog scraper (or a `catalog` kind) | JOBS_AND_STORAGE §6.3, new scraper doc |
-| 7 | **Property Studio public example media** | Parse the preset table in the chunk (`en=[[format, path, titleId, inputs, w, h], …]`) → enumerate `static.higgsfield.ai/realty-studio/app-presets/v1/...`; plus `/reference-elements/voices` per model | PROPERTY_STUDIO §10 |
+| 6 | ~~**Canvas templates scraper**~~ **done (`de0f5b8`)**: `showcase --what canvas_templates` (metadata; the node graph is login + WebSocket only) | — | `scrapers/showcase.md` |
+| 7 | ~~**Property Studio public example media**~~ **done (`de0f5b8`)**: `showcase --what property_studio_examples` (69 presets, l10n titles); voices are `catalog --kinds reference_voice` | — | `scrapers/showcase.md` |
+| 11 | **Community apps marketplace** (`fnf-apps-marketplace/api/v1/apps/community?offset`, 50/page, public): views, likes, dislikes, remixes, credits spent — collected by no scraper | Add as an opt-in kind of `site` or `community`; keep `my_reaction` (personal) out | `ENGAGEMENT.md` §11, `COMMUNITY_COVERAGE.md`, DATA_INVENTORY §8 |
+| 12 | **`display_name` redaction removes model names after `normalize`** | `core/privacy.PERSONAL_KEYS` blanks every `display_name`, incl. `stats.stack[]` model names: live runs are fine, `normalize` gets `[redacted]` (stack label falls back to `job_set_type`, assets lose `model_name`; `publication_model_usage.display_name` too). Fix carefully per scraper: redact `display_name` only inside person containers, then check every scraper's normalize output | `scrapers/projects.md` Gaps, core privacy |
+| 13 | **Talent-contest `/contests/{id}/submissions` is empty** (`submissions_count: 0`); its entries come from the contest-participations tabs | Either map those entries into `submissions` (with a `listing`/source marker) or document it more prominently in the contest output (`nested_summary`, summary.md) | `scrapers/projects.md` |
 | 8 | **Re-verify after a frontend build change** | When `re_check_changes.py` reports a new build: re-crawl chunks, re-run grep recipes, re-check every chunk name cited in MODEL_LOADING / PRODUCTS / COST_FORMULAS / EDITING_ROOM / PROPERTY_STUDIO, regenerate the catalog | those docs |
 | 10 | ~~Estimator matches the JS formulas~~ **done (v2, opt-in)**; remaining: Veo 3 units, Cinema image table, Grok image condition, Reve key, Kling edit/reference params, magi_2, frame-count models | `--estimate-version 2` | COST_FORMULAS §8 |
 | 9 | **Cloudflare scheduled deployment** (pending the user's decision) | Don't start until the user decides: scheduled runs of `re_check_changes.py` / pricing diff | — |
 
-Smaller ideas: viral-preset price-matrix flattening (MODEL_LOADING §8 #4); Editing Room examples catalog
-(`cms.higgsfield.ai/videoshop-examples`, `/videoshop/project-examples`; EDITING_ROOM §10); refresh the inventory
+**DECIDED:** 2026-11-26: owner decided to keep CDN media URLs unredacted (they contain the uploader's Clerk user id in
+the path); all other personal fields stay redacted unless --with-profiles.
+
+Smaller ideas: viral-preset price-matrix flattening (MODEL_LOADING §8 #4); ~~Editing Room examples catalog~~ done
+(`showcase --what editing_room_examples`); effect samples beyond the first SSR page (TanStack server function with a
+per-build hash; showcase.md §9); refresh the inventory
 (`recon_probe.py`) on the current build; `pricing --locales all`.
 
 ## 5. How to continue (new session)
@@ -172,6 +206,7 @@ Smaller ideas: viral-preset price-matrix flattening (MODEL_LOADING §8 #4); Edit
 
 | Date | Build | Costs version | What changed |
 |---|---|---|---|
+| 2026-11-26 | `548e0f3a` | unchanged | Commit `de0f5b8` (all opt-in, default dry-runs unchanged, pricing 31/31): projects nested data (`--with-project-assets/-brief/-stats/-comments/-related`, `--contest`, `--contest-tabs`, `--users`; Yjs briefs → Markdown); Community pages (`--feeds shots,posts,feed,creators,talents`, entity comment threads); `site --what room-list/room-content`; new **`showcase`** scraper (8 scrapers); `export` command; `scripts/merge_generations.py`; docs COMMUNITY_COVERAGE, ENGAGEMENT, EXPORT, scrapers/showcase, REVERSE_ENGINEERING §17; `core/privacy` redacts `owner_username`. Owner decision: CDN media URLs stay unredacted. Tests 578 passed, 1 skipped |
 | 2026-11-26 | `548e0f3a` | unchanged | Commits `0e2f57d`, `2a4deb7` + docs: fixed projects normalize (contest detail without list row), catalog schema export (`CatalogDatasetFull`), `account --dry-run`; **estimator v2** (`--estimate-version 2`: 17/19 COST_FORMULAS §8 differences fixed, ~60 static JS tables, community coverage 73% → 81%; v1 default byte-identical); **`docs/PROVIDERS.md`**: makers are published, inference platforms are not; 0 fal/Replicate fingerprints in 925 jobs + 744 JS chunks; OpenAI/Gemini/xAI/BFL upstream billing records point to direct vendor APIs. Tests 465 passed, 1 skipped |
 | 2026-11-26 | `548e0f3a` | anonymous `0cee3218…` (87 types) / logged in `9048fa70…` (88, + `magi_2`) | Login audit (`LOGIN_COVERAGE.md`, REVERSE_ENGINEERING §16). Commit `d0429ec`: `pricing --logged-in-prices` and `--sections account`, new `account` scraper (7 scrapers), `catalog --kinds chain_preset,notice,restyle_preset` (+ `--include-hidden`, `--with-profiles`), `projects --public-series`. `/jobs/accessible` Cloudflare-challenged for the crawler (not evaded). Docs updated for the audit corrections. Tests 370 passed, 1 skipped |
 | 2026-11-26 | `548e0f3a` | `0cee3218…` (87 types) | First checkpoint. Pricing (incl. login-only, baseline v3), 6 scrapers, model loading, products, cost formulas, jobs/storage, Editing Room, Property Studio documented. Catalog/community login endpoints fixed (public bases). Anonymous `__HF_FF` empty |

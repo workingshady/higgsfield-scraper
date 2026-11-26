@@ -540,9 +540,9 @@ folder (`assets:<folder>`) and the comment pages of each thread. `--download-med
 * Prompts, briefs, folder names and assets are content the author published on the project page; they are kept.
   Prompts are dropped when the author turned `show_prompts` off.
 * People stay pseudonymous unless `--with-profiles` (owners, creators, commenters: `*_key` only).
-* Folder bodies carry `owner_username`, which the core archive redaction does not list: the spider blanks it before
-  the response reaches `raw/` and the parser (`parse_folder_response`). The `http/` archive is written by the
-  downloader middleware before that and still holds it (see *Gaps*).
+* Folder bodies carry `owner_username`: the spider blanks it before the response reaches `raw/` and the parser
+  (`parse_folder_response`), and since commit `de0f5b8` it is also in `core/privacy.PERSONAL_KEYS`, so the `http/`
+  archive redacts it too (unless `--with-profiles`).
 * `--users` handles appear in the request URL, so in `raw/` meta, `http/`, logs and the manifest's `argv`, as any
   CLI input does; not in `output/`.
 
@@ -616,8 +616,8 @@ that was a stale cached token (`TokenProvider.get()` without refresh); with a fr
   listing carries the same prompt, params and results.
 * `meta.cost` of a job is kept as `cost_raw`: its unit is not documented (it is not credits: 2 Kling jobs cost 45
   credits in the stack and `2.1116` here).
-* The `http/` archive keeps `owner_username` of folder bodies: one key to add to `core/privacy.PERSONAL_KEYS`
-  (outside this scraper).
+* ~~The `http/` archive keeps `owner_username` of folder bodies~~: fixed in `de0f5b8` (`owner_username` added to
+  `core/privacy.PERSONAL_KEYS`).
 * The core archive redaction (`core/privacy.PERSONAL_KEYS`) blanks every `display_name`, including the model names
   of `stats.stack[]`. Live runs are unaffected (parsed before archiving), but `normalize` sees `[redacted]`: the
   stack then falls back to `job_set_type` as `label` and assets get no `model_name` (the existing
