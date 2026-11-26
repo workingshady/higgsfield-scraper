@@ -10,15 +10,16 @@
   <img alt="Python 3.10+" src="https://img.shields.io/badge/python-3.10%2B-0f1113?style=flat-square&labelColor=0f1113&color=d1fe17">
   <img alt="Scrapy 2.x" src="https://img.shields.io/badge/scrapy-2.x-0f1113?style=flat-square&labelColor=0f1113&color=9ce6f3">
   <img alt="pydantic v2" src="https://img.shields.io/badge/pydantic-v2-0f1113?style=flat-square&labelColor=0f1113&color=9ce6f3">
-  <img alt="5 scrapers" src="https://img.shields.io/badge/scrapers-5-0f1113?style=flat-square&labelColor=0f1113&color=d1fe17">
+  <img alt="6 scrapers" src="https://img.shields.io/badge/scrapers-6-0f1113?style=flat-square&labelColor=0f1113&color=d1fe17">
   <img alt="unofficial" src="https://img.shields.io/badge/status-unofficial-0f1113?style=flat-square&labelColor=0f1113&color=ff005b">
 </p>
 
 # higgsfield-scraper
 
 Scrapy scrapers for **public [Higgsfield.ai](https://higgsfield.ai) data**: prices, model credit costs, community
-generations (prompt + model + settings + estimated cost), preset/asset catalogs, projects & contests, and the blog /
-help center. Data comes straight from the site's JSON APIs (no HTML parsing), is validated with pydantic, and lands in
+generations (prompt + model + settings + estimated cost), preset/asset catalogs, projects & contests, the blog /
+help center, and site pages (apps, academy, MCP skills, original series, landings). Data comes from the site's JSON
+APIs wherever they exist (embedded page data or HTML only for page-only content), is validated with pydantic, and lands in
 a timestamped run folder as indented JSON, complete CSVs, JSONL feeds and a full HTTP archive.
 
 Two ways to drive it: a **flag CLI** for scripts/CI, and an **interactive menu** (Rich + questionary) with multi-select,
@@ -115,11 +116,11 @@ python -m higgsfield_scraper menu     # explicit (alias: -i / --interactive)
 ```
 
 ```
-┌────────── higgsfield-scraper 0.1.0 · interactive ──────────┐
-│ scrapers: pricing · community · catalog · projects · blog  │
-│ session:  not logged in                                    │
-│ Ctrl-C = back · flags: python -m higgsfield_scraper --help │
-└────────────────────────────────────────────────────────────┘
+┌───────────── higgsfield-scraper 0.1.0 · interactive ─────────────┐
+│ scrapers: pricing · community · catalog · projects · blog · site │
+│ session:  not logged in                                          │
+│ Ctrl-C = back · flags: python -m higgsfield_scraper --help       │
+└──────────────────────────────────────────────────────────────────┘
 ? What do you want to do?
  » Scrape                     pick scrapers, options, run
    Normalize a past run       re-parse raw/ offline
@@ -292,6 +293,8 @@ higgsfield_scraper/
   scrapers/<name>/           community · catalog · projects · blog · site — endpoints, options, parsers, schemas,
                              dataset, spider (pricing adapts the original modules below)
   spiders/ parsers/ schemas/ assemble.py exporters.py   the pricing scraper
+  pricing_diff.py            `diff`: compare two pricing runs
+  pricing_crosscheck.py      `crosscheck`: compare a run with the official pricing.md
   estimate/                  cost estimator (+ comparison-table and viral-preset fallbacks)
   pipelines.py               raw archive → validation → dedup → collect & export
   middlewares.py             auth, HTTP archive, access log, retry events

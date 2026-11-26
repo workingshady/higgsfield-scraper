@@ -1,7 +1,8 @@
 # higgsfield-scraper
 
-Python **Scrapy** project for scraping pricing data (products → plans → price tiers / features) by
-reverse-engineering target sites' data sources and storing validated, versioned records.
+Python **Scrapy** project that scrapes public Higgsfield.ai data by reverse-engineering its data sources and storing
+validated, versioned records. Six scrapers (`python -m higgsfield_scraper scrapers`): `pricing` (default), `community`,
+`catalog`, `projects`, `blog`, `site`; plus `diff` / `crosscheck` for pricing and an interactive menu (`menu`).
 
 ## Knowledge base (read the relevant one before working)
 
@@ -59,9 +60,11 @@ runs/                                      # run output (gitignored)
 
 ## Higgsfield specifics
 
-- Data comes from 5 public JSON endpoints + 4 login-only ones. Docs: `docs/REVERSE_ENGINEERING.md` (findings),
+- Pricing data comes from 5 public JSON endpoints + 4 login-only ones; the other scrapers are documented in
+  `docs/scrapers/<name>.md`. Docs: `docs/REVERSE_ENGINEERING.md` (findings),
   `docs/ENDPOINTS.md` (field meanings), `docs/ENDPOINT_FIELDS.md` (generated: `python scripts/gen_endpoint_fields.py`),
-  `CLI.md` (every option — update it when adding/changing a CLI flag).
+  `CLI.md` (every option — update it when adding/changing a CLI flag; regenerate its scraper option tables with
+  `python scripts/gen_cli_tables.py`), Postman collection (`python scripts/make_postman.py`).
 - Full site inventory (features, 589 routes, 728 API paths, public vs login, next scrapers): `docs/HIGGSFIELD_DATA_INVENTORY.md`;
   re-probe with `python scripts/recon_probe.py`.
 - All JSON output is written with `indent=4`; JSONL stays one object per line.
@@ -82,4 +85,7 @@ python -m pytest -q                                   # offline tests
 python -m higgsfield_scraper scrape --dry-run                # planned requests
 python -m higgsfield_scraper scrape --sections all           # live run -> runs/<ts>_<label>/
 python -m higgsfield_scraper show model seedance_2_5         # inspect latest run
+python -m higgsfield_scraper scrape site --what apps --max-items 20   # any scraper: scrape <name> -h
+python -m higgsfield_scraper diff                            # pricing changes vs previous run
+python -m higgsfield_scraper menu                            # interactive mode
 ```
