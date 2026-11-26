@@ -16,6 +16,8 @@ __pycache__/
 /schemas/
 # reverse-engineering scratch: third-party JS bundles and the 4 MB config dump
 samples/higgsfield/js/
+# second JS crawl (build 548e0f3a) + tool-page HTML, used for docs/MODEL_LOADING.md
+samples/higgsfield/js2/
 samples/higgsfield/pricing_config.json
 samples/higgsfield/js_urls.txt
 # recon response bodies contain real users' usernames/handles — keep local

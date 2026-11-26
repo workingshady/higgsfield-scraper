@@ -15,6 +15,7 @@ Related documents:
 | [`ENDPOINT_FIELDS.md`](ENDPOINT_FIELDS.md) | Auto-generated list of every JSON path |
 | [`../CLI.md`](../CLI.md) | How to run the scraper |
 | [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) | Ready-made requests |
+| [`MODEL_LOADING.md`](MODEL_LOADING.md) | How tools load models: JS registry, flags, param schemas, cost formulas, create/poll flow (§15) |
 
 ---
 
@@ -404,3 +405,20 @@ type against the existing scrapers. Probes were polite GETs (≈ 1 req/s, a few 
   `/feature`, `/user/meta` (your IP's country/cohort), `/user/features`, `/youtube-faceless/hot-right-now` (empty) and
   `/contests/trending` (204) carry no catalog data and are skipped.
 - No DataDome/Cloudflare challenge on any page type at ≈ 1 req/s; the framework still stops on a captcha.
+
+## 15. Fourth round (2026-11-26): how tools load and call models
+
+Full write-up: [`MODEL_LOADING.md`](MODEL_LOADING.md). Static analysis of build `548e0f3a` (580 chunks crawled from
+the tool pages into `samples/higgsfield/js2/`, gitignored) plus GET-only probes (`samples/higgsfield/model_loading/`).
+
+- The model list is **hard-coded in JS** (menu entries, `video-featured-model-ids`, plan tiers) and filtered at
+  runtime by hashed feature flags embedded in every page as `window.__HF_FF`, by presence in `/job-sets/costs`
+  (`pricedAs`), and by a retired-model set. No public "models" endpoint exists.
+- Each job type's options come from a shared `defineJob({type, input, validate, toProvider, fromProvider, credits})`
+  registry (~100 types). Seedance 2.5: 4–30 s, 480p–4k, 6 aspect ratios, `bitrate_mode`, `generate_audio`,
+  batch 1–4, `model` default/video_edit/video_extension, draft, seed, media roles image/start_image/end_image/video/audio.
+- Cost = live `/job-sets/costs` × JS formula (Seedance: `ceil(duration × cost_per_second[with_video|without_video]) ×
+  batch`, edit uses the `video_edit` row). Generation = `POST /jobs/v2/{type}` `{params, use_unlim, …}` (from JS, not
+  called); chains use `/chains/*`, apps `POST /workflows`; status by polling `POST /jobs/status-batch`.
+- `scene_switch` appeared in `/job-sets/costs` with no frontend code yet: prices and availability can change without
+  a deploy, new base models can't.
