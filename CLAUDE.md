@@ -6,6 +6,8 @@ validated, versioned records. Six scrapers (`python -m higgsfield_scraper scrape
 
 ## Knowledge base (read the relevant one before working)
 
+Project docs index (what every doc contains, by topic): `docs/README.md`. Add new docs to it.
+
 | File | Covers |
 |---|---|
 | `.claude/docs/scrapy.md` | Scrapy setup/CLI, spiders, Items, ItemLoaders, pipelines, feed exports (CSV/JSON/JSONL/S3), SQLite/MySQL/Postgres pipelines, login, 6 pagination methods, headers/proxies, scrapy-redis |

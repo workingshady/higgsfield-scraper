@@ -29,6 +29,8 @@ option editing, login with emailed code, a test request and a live progress pane
 > data is collected by default; login-only data uses *your own* account. No captcha/bot-protection bypass, no purchase
 > or write endpoints — every request is a `GET` (login uses the normal Clerk sign-in).
 
+**All documentation, organized by topic: [`docs/README.md`](docs/README.md)** (index with what each doc contains and when to read it).
+
 | Doc | Contents |
 |---|---|
 | [`CLI.md`](CLI.md) | **Every command and option**, interactive mode, recipes, exit codes |

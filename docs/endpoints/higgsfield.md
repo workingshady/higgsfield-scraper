@@ -1,6 +1,7 @@
 # Higgsfield: endpoint docs index
 
-This is the per-site entry point that the `reverse-engineer-site` skill expects. The content lives in:
+This is the per-site entry point that the `reverse-engineer-site` skill expects. **Full index of all docs:
+[`../README.md`](../README.md).** The pricing content lives in:
 
 | Doc | What's in it |
 |---|---|
