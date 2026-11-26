@@ -30,6 +30,7 @@ MENU = [
     ("Normalize a past run       re-parse raw/ offline", "normalize"),
     ("Browse runs                table, summaries, errors", "runs"),
     ("Login / session            status, log in, log out", "login"),
+    ("Pricing tools              diff two runs, cross-check pricing.md", "pricing"),
     ("Test request               one GET of a public endpoint", "test"),
     ("Show config                resolved settings (secrets hidden)", "config"),
     ("Clean old runs             dry run first, then confirm", "clean"),
@@ -116,7 +117,7 @@ class App:
 
     def run(self) -> int:
         screens = {"scrape": self.scrape, "normalize": self.normalize, "runs": self.browse_runs,
-                   "login": self.login_menu, "test": self.test_request, "config": self.show_config,
+                   "login": self.login_menu, "test": self.test_request, "pricing": self.pricing_tools, "config": self.show_config,
                    "clean": self.clean_runs, "settings": self.settings}
         while True:
             self.header()
@@ -520,6 +521,53 @@ class App:
                 t.add_row(f"[bold]{k}[/]", str(res[k]))
         self.console.print(t)
         return res
+
+    # ============================================================== pricing tools
+    def pricing_tools(self) -> None:
+        runs_dir = default_runs_dir()
+        pricing = [(d, m) for d, m in recent_runs(runs_dir, 60)
+                   if (m.get("scraper") or "pricing") == "pricing" and m.get("status") == "success"
+                   and (d / "output" / "dataset.json").is_file()][:25]
+        act = self.p.select("Pricing tools", [
+            ("Diff: latest pricing run vs the previous compatible one", "diff"),
+            ("Diff: pick the two runs", "diff_pick"),
+            ("Cross-check a run with the official higgsfield.ai/pricing.md", "cross"), BACK])
+        if not act:
+            return
+        choices = [(f"{d.name:48} {m.get('status') or '?'}", str(d)) for d, m in pricing]
+        if act != "diff" and not choices:
+            self.say(f"no successful pricing runs in {runs_dir}/ - scrape pricing first")
+            return
+        if act == "diff":
+            argv = ["diff"]
+        elif act == "diff_pick":
+            old = self.p.select("Old run (before)", choices + [BACK])
+            if not old:
+                return
+            new = self.p.select("New run (after)", [c for c in choices if c[1] != old] + [BACK])
+            if not new:
+                return
+            argv = ["diff", "--old", old, "--new", new]
+        else:
+            run = self.p.select("Cross-check which run?", choices + [BACK])
+            if not run:
+                return
+            argv = ["crosscheck", "--run", run]
+            if self.p.confirm("Save pricing.md + the report into <run>/crosscheck/?", default=False):
+                argv.append("--save")
+        if act == "diff" or act == "diff_pick":
+            out = self.p.text("Also write a report file? (.md or .json, empty = no)", default="",
+                              validate=lambda v: (not v.strip() or v.strip().lower().endswith((".md", ".json")))
+                              or "must end in .md or .json")
+            if out is None:
+                return
+            if out.strip():
+                argv += ["--out", out.strip()]
+        self.say(f"[cyan]{opt.command_line(argv)}[/]")
+        from ..cli import build_parser
+        ns = build_parser().parse_args(argv)
+        code = ns.func(ns)
+        self.say(f"exit code {code}")
 
     # ============================================================== misc
     def show_config(self) -> None:

@@ -498,3 +498,42 @@ def test_test_request_uses_the_first_public_request(monkeypatch):
     assert res["status"] == 200 and "/subscriptions/v2/plans" in seen["url"]
     assert not any(k.lower() == "authorization" for k in seen["headers"])
     assert "latency_ms" in console.file.getvalue()
+
+
+# ---------------------------------------------------------------- pricing tools (diff / crosscheck)
+def _pricing_runs(tmp_path, monkeypatch):
+    for name in ("20261120-000000_old", "20261121-000000_new"):
+        d = tmp_path / "runs" / name
+        (d / "output").mkdir(parents=True)
+        (d / "output" / "dataset.json").write_text("{}", encoding="utf-8")
+        (d / "manifest.json").write_text(json.dumps({"scraper": "pricing", "status": "success", "run_id": name}),
+                                         encoding="utf-8")
+    monkeypatch.setenv("HF_RUNS_DIR", str(tmp_path / "runs"))
+    seen = []
+    import higgsfield_scraper.cli as cli
+    monkeypatch.setattr(cli, "cmd_diff", lambda ns: seen.append(("diff", ns.old, ns.new, ns.out)) or 0)
+    monkeypatch.setattr(cli, "cmd_crosscheck", lambda ns: seen.append(("cross", ns.run, ns.save)) or 0)
+    return tmp_path / "runs", seen
+
+
+def test_menu_lists_pricing_tools_and_every_registered_scraper():
+    assert "pricing" in [v for _, v in app_mod.MENU]
+    assert "site" in registry.available()
+
+
+def test_pricing_tools_diff_picked_runs(tmp_path, monkeypatch):
+    runs, seen = _pricing_runs(tmp_path, monkeypatch)
+    old, new = str(runs / "20261120-000000_old"), str(runs / "20261121-000000_new")
+    a, _ = make_app(["diff_pick", old, new, "report.md"])
+    a.pricing_tools()
+    assert seen == [("diff", old, new, "report.md")]
+
+
+def test_pricing_tools_default_diff_and_crosscheck(tmp_path, monkeypatch):
+    runs, seen = _pricing_runs(tmp_path, monkeypatch)
+    a, _ = make_app(["diff", ""])
+    a.pricing_tools()
+    run = str(runs / "20261121-000000_new")
+    a, _ = make_app(["cross", run, True])
+    a.pricing_tools()
+    assert seen == [("diff", None, None, None), ("cross", run, True)]

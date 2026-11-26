@@ -126,6 +126,7 @@ python -m higgsfield_scraper menu     # explicit (alias: -i / --interactive)
    Normalize a past run       re-parse raw/ offline
    Browse runs                table, summaries, errors
    Login / session            status, log in, log out
+   Pricing tools              diff two runs, cross-check pricing.md
    Test request               one GET of a public endpoint
    Show config                resolved settings (secrets hidden)
    Clean old runs             dry run first, then confirm

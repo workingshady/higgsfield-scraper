@@ -39,7 +39,8 @@ Menu items: **Scrape** (pick one or more scrapers, then for each one "quick (def
 "customize". The customize step asks every option of `scrape <scraper> -h`, grouped as in `--help`. Then you set a
 run label, review a summary showing the **equivalent flag command**, and choose Run / Dry run / Edit / Cancel),
 **Normalize a past run**, **Browse runs** (table, summary.md, errors.log, open folder), **Login / session**
-(auth-check, log in with the emailed 6-digit code, log out = delete `runs/.auth/clerk_client.json`), **Test request**
+(auth-check, log in with the emailed 6-digit code, log out = delete `runs/.auth/clerk_client.json`), **Pricing tools** (`diff` latest vs previous or two
+picked runs, optional `.md`/`.json` report; `crosscheck` a run with pricing.md, optional `--save`), **Test request**
 (one GET of a scraper's first public request: status, latency, size, JSON keys), **Show config**, **Clean old runs**
 (dry run, then confirm), **Settings / prefs**, **Quit**.
 
