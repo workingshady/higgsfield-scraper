@@ -16,7 +16,10 @@ import sys
 from pathlib import Path
 
 SOURCE = "runs/20261125-112609_everything-full-csv"
-BASELINE = "runs/20261125-122450_pricing-baseline/output"
+# v2 (2026-11-26): same data as v1 (runs/20261125-122450_pricing-baseline) except meta.label, which v1 had wrong
+# ("Soul V2 & Cinema"; fixed in assemble.py). Only that one line per file differed.
+BASELINE = "runs/20261126-094534_pricing-baseline-v2/output"
+CHECK_LABEL = "pricing-identity-check"
 NORMALIZE_ARGS = ["--sections", "all", "--plan-sets", "all", "--marketing-versions", "all",
                   "--include-raw-cost", "--include-hidden-plans"]
 
@@ -24,22 +27,32 @@ RID = re.compile(rb"\d{8}-\d{6}_[a-z0-9-]+")
 TS = re.compile(rb"\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:?\d{2})?")
 
 
-def norm(data: bytes) -> bytes:
+def norm(data: bytes, label: str = "") -> bytes:
+    """Mask run ids, timestamps and this run's own --label (it legitimately differs between runs)."""
     data = TS.sub(b"TS", RID.sub(b"RID", data))
+    if label:
+        data = data.replace(label.encode(), b"LABEL")
     return b"\n".join(line for line in data.split(b"\n") if b"scraped_at" not in line)
+
+
+def run_label(output: Path) -> str:
+    """The run label = folder name after the timestamp (<yyyymmdd-HHMMSS>_<label>)."""
+    m = re.match(r"\d{8}-\d{6}_(.+?)(-\d+)?$", output.parent.name)
+    return m.group(1) if m else ""
 
 
 def compare(new: Path, base: Path) -> tuple[list[str], list[str], list[str], int]:
     fa = {p.relative_to(new).as_posix() for p in new.rglob("*") if p.is_file()}
     fb = {p.relative_to(base).as_posix() for p in base.rglob("*") if p.is_file()}
-    diff = [f for f in sorted(fa & fb) if norm((new / f).read_bytes()) != norm((base / f).read_bytes())]
+    ln, lb = run_label(new), run_label(base)
+    diff = [f for f in sorted(fa & fb) if norm((new / f).read_bytes(), ln) != norm((base / f).read_bytes(), lb)]
     return sorted(fa - fb), sorted(fb - fa), diff, len(fa & fb) - len(diff)
 
 
 def run_normalize(runs_dir: str) -> Path:
     before = {p.name for p in Path(runs_dir).iterdir()}
     subprocess.run([sys.executable, "-m", "higgsfield_scraper", "normalize", "--run", SOURCE, *NORMALIZE_ARGS,
-                    "--runs-dir", runs_dir, "--label", "pricing-identity-check", "-q"], check=True)
+                    "--runs-dir", runs_dir, "--label", CHECK_LABEL, "-q"], check=True)
     new = sorted(p for p in Path(runs_dir).iterdir() if p.name not in before and p.is_dir())
     return new[-1] / "output"
 

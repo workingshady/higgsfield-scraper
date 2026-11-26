@@ -99,3 +99,13 @@ def test_csvs_contain_every_json_field(tmp_path, fixtures_dir, sel):
         assert not missing, f"{table}.csv is missing JSON fields: {sorted(missing)[:10]}"
     meta_keys = {r["key"] for r in _csv_cols_and_rows(tmp_path / "csv" / "run_meta.csv")[1]}
     assert {"meta.country_code", "meta.counts.plans", "schema_version"} <= meta_keys
+
+
+def test_meta_label_is_the_run_label_not_a_benefit_row(fixtures_dir, sel):
+    """Regression: a loop over benefit-only models reused the `label` parameter, so meta.label became e.g.
+    "Soul V2 & Cinema" instead of the run label."""
+    ents = _entities(fixtures_dir, sel)
+    ds = build_dataset(ents, sel, run_id="r", label="my-run-label")
+    assert ds["meta"]["label"] == "my-run-label"
+    benefit_only = [m for m in ds["models"] if not m.get("price_points")]
+    assert benefit_only, "fixture should contain benefit-only models so the loop actually runs"

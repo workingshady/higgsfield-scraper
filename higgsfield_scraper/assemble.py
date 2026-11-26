@@ -77,8 +77,9 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, *, run_id: Op
         known = {m["model_id"] for m in models}
         src = cards[0]["source"]
         for mid in sorted(set(ents) - known):
-            label = labels.get(mid) or next((e["benefit_label"] for e in ents[mid] if e.get("benefit_label")), None)
-            name = label or humanize(mid)
+            # NB: not `label` — that is the run label parameter, used for meta.label below.
+            benefit_label = labels.get(mid) or next((e["benefit_label"] for e in ents[mid] if e.get("benefit_label")), None)
+            name = benefit_label or humanize(mid)
             fam, cat = family_of(mid), category_of(mid, set())
             if not sel.keep_model(mid, fam, name, cat):
                 continue
