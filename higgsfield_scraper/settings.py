@@ -29,6 +29,7 @@ DOWNLOADER_MIDDLEWARES = {
     "higgsfield_scraper.middlewares.RetryEventsMiddleware": 550,   # Scrapy retry + external.call.retried/failed events
     "higgsfield_scraper.core.auth.AuthMiddleware": 560,            # bearer token + auto refresh (meta auth=True only)
     "higgsfield_scraper.middlewares.HttpArchiveMiddleware": 580,   # below HttpCompression (590): sees decoded bodies
+    "higgsfield_scraper.middlewares.AccountPrivacyMiddleware": 583,  # pricing --sections account: whitelist bodies first
     "higgsfield_scraper.middlewares.AccessLogMiddleware": 585,     # http.request.finished -> logs/access.jsonl
 }
 HIGGS_HTTP_ARCHIVE = True

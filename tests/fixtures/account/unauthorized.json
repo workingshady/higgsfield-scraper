@@ -1,0 +1,12 @@
+{
+    "meta": {
+        "endpoint": "account_user",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user",
+        "params": {},
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 401
+    },
+    "body": {
+        "detail": "Unauthorized"
+    }
+}

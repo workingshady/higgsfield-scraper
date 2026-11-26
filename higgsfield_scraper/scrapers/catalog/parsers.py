@@ -354,7 +354,7 @@ GENERIC_GROUP_FIELD = {"catalog_soul_style": "style_set", "catalog_model_motion"
                        "catalog_marketing_preset": "category_id"}
 USER_OWNED_TYPES = {"user", "custom", "manual", "personal"}
 # person objects inside catalog items (e.g. katana_presets[].author = {user_id, username, avatar_url, badge}):
-# the catalog has no --with-profiles option, so identifying fields are always dropped.
+# identifying fields are dropped unless --with-profiles.
 PERSON_KEYS = ("author", "user", "creator", "owner")
 PERSON_ID_FIELDS = {"id", "user_id", "username", "full_name", "name", "email", "avatar_url", "headline", "profile_url"}
 
@@ -370,9 +370,14 @@ def redact_people(item: dict) -> dict:
     return out
 
 
+def _profiles(sel: Any) -> bool:
+    return bool(getattr(sel, "with_profiles", False))
+
+
 def p_generic(item: dict, env, sel, src: Source) -> Optional[dict]:
     kp = _kp(sel)
-    item = redact_people(item)
+    if not _profiles(sel):
+        item = redact_people(item)
     group = src.group or env.params.get("category_id")
     ident = item.get("id", item.get("slug", item.get("key", item.get("name"))))
     if ident is None:
@@ -401,11 +406,131 @@ def p_generic(item: dict, env, sel, src: Source) -> Optional[dict]:
     return d
 
 
+# ------------------------------------------------------------------ opt-in extras (2026-11-26)
+def _flat_prov(env) -> dict:
+    return {"source_url": env.url, "scraped_at": env.fetched_at.isoformat(), "schema_version": 1}
+
+
+def _credits(v: Any) -> Optional[int | float]:
+    """Credit amounts as numbers: int when integral (34), float otherwise; None for missing/non-numeric."""
+    n = _num(v)
+    if n is None:
+        return None
+    return int(n) if n.is_integer() else n
+
+
+def _dict(v: Any) -> dict:
+    return v if isinstance(v, dict) else {}
+
+
+CHAIN_KEYS = {"id", "product_key", "name", "description", "collaborate", "category", "image_preview", "previews",
+              "duration", "priority", "discount_credits", "cost_credits", "pricing_mode", "pricing_schema", "inputs",
+              "preset_family", "model", "runtime", "runtime_params"}
+
+
+def p_chain_preset(item: dict, env, sel) -> dict:
+    kp = _kp(sel)
+    rp = _dict(item.get("runtime_params"))
+    preview = _dict(item.get("image_preview"))
+    media = media_refs(preview, "image_preview", kp)
+    previews = sorted((p for p in _list(item.get("previews")) if isinstance(p, dict)),
+                      key=lambda p: not p.get("is_main"))            # main preview first, like the app
+    for p in previews:
+        for m in media_refs(p.get("media"), "preview", kp):
+            m["extra"] = {**m.get("extra", {}), "aspect_ratio": _str(p.get("aspect_ratio")),
+                          "is_main": p.get("is_main"), "preview_id": _str(p.get("id"))}
+            media.append(m)
+    inputs = []
+    for i in _list(item.get("inputs")):
+        if not isinstance(i, dict):
+            continue
+        props = _dict(i.get("properties"))
+        inputs.append({"id": _str(i.get("id")), "type": _str(i.get("type")), "min": _int(props.get("min")),
+                       "max": _int(props.get("max")), "properties": props,
+                       "extra": _extra(i, {"id", "type", "properties"})})
+    cost, regular = _credits(item.get("cost_credits")), _credits(item.get("discount_credits"))
+    collab = item.get("collaborate") if isinstance(item.get("collaborate"), str) and item["collaborate"].strip() \
+        else None
+    return {"id": str(item["id"]), "product_key": _str(item.get("product_key")), "name": _str(item.get("name")),
+            "description": _str(item.get("description")), "category": _str(item.get("category")) or None,
+            "priority": _num(item.get("priority")), "model": _str(item.get("model")),
+            "preset_family": _str(item.get("preset_family")), "runtime": _str(item.get("runtime")),
+            "chain_type": _str(rp.get("chain_type")), "runtime_endpoint": _str(rp.get("endpoint")),
+            "runtime_model": _str(rp.get("model")), "runtime_params": rp,
+            "pricing_mode": _str(item.get("pricing_mode")), "pricing_schema": _dict(item.get("pricing_schema")),
+            "cost_credits": cost, "discount_credits": regular,
+            "is_discounted": cost is not None and regular is not None and cost != regular,
+            "duration": _num(item.get("duration")), "inputs": inputs,
+            "is_hidden": SOURCE_BY_ENDPOINT[env.endpoint].group == "hidden",
+            "has_collaborator": collab is not None,
+            "collaborator": collab.strip() if collab and _profiles(sel) else None,
+            "image_preview_url": _str(preview.get("url")) if _usable(preview.get("url")) else None,
+            "lang": env.params.get("lang"), "media": _dedup_media(media), "extra": _extra(item, CHAIN_KEYS),
+            **_flat_prov(env)}
+
+
+def p_restyle_preset(item: dict, env, sel) -> dict:
+    kp = _kp(sel)
+    media: list[dict] = []
+    for key, role in (("image", "image"), ("preview_video", "preview"), ("video", "video"),
+                      ("original_video", "original_video")):
+        media += media_refs(item.get(key), role, kp)
+    images = [m for m in _list(item.get("images")) if isinstance(m, dict)]
+    for n, m in enumerate(images):
+        media += media_refs(m, f"images_{n}", kp)
+    variants = []
+    for v in _list(item.get("variants")):
+        if not isinstance(v, dict):
+            continue
+        vtype = _str(v.get("type"))
+        media += media_refs(v.get("media"), f"variant_{vtype or 'unknown'}", kp)
+        variants.append({"id": _str(v.get("id")), "type": vtype, "extra": _extra(v, {"id", "type", "media"})})
+    keys = {"id", "name", "title", "description", "source", "job_set_type", "priority", "variants", "image", "images",
+            "preview_video", "video", "original_video"}
+    return {"id": str(item["id"]), "name": _str(item.get("name")), "title": _str(item.get("title")),
+            "description": _str(item.get("description")), "preset_source": _str(item.get("source")),
+            "job_set_type": _str(item.get("job_set_type")), "priority": _num(item.get("priority")),
+            "variants": variants, "image_count": len(images), "lang": env.params.get("lang"),
+            "media": _dedup_media(media), "extra": _extra(item, keys), **_flat_prov(env)}
+
+
+def p_notices(body: Any, env) -> list[dict]:
+    """{header_notices: [{view{title, description, link, …}, config{…}}], job_set_notices: [{job_set_types, params,
+    variant, badge{label, tooltip}, popup{title, description}}]} -> one entity per notice (no API ids: hashed)."""
+    if not isinstance(body, dict):
+        return []
+    out = []
+    for section, key in (("header", "header_notices"), ("job_set", "job_set_notices")):
+        for n in _list(body.get(key)):
+            if not isinstance(n, dict):
+                continue
+            badge, popup, view = _dict(n.get("badge")), _dict(n.get("popup")), _dict(n.get("view"))
+            types = sorted(str(t) for t in _list(n.get("job_set_types")))
+            label = badge.get("label") if section == "job_set" else view.get("title")
+            out.append({"id": make_id("catalog_notice", section, ",".join(types), label),
+                        "section": section, "job_set_types": types, "variant": _str(n.get("variant")),
+                        "badge_label": _str(badge.get("label")), "badge_tooltip": _str(badge.get("tooltip")),
+                        "popup_title": _str(popup.get("title")), "popup_description": _str(popup.get("description")),
+                        "title": _str(view.get("title")), "description": _str(view.get("description")),
+                        "link": _str(view.get("link")), "params": _dict(n.get("params")),
+                        "lang": env.params.get("lang"), "media": [],
+                        "extra": {**_extra(n, {"job_set_types", "params", "variant", "badge", "popup", "view"}),
+                                  **({"badge": _extra(badge, {"label", "tooltip"})}
+                                     if _extra(badge, {"label", "tooltip"}) else {}),
+                                  **({"popup": _extra(popup, {"title", "description"})}
+                                     if _extra(popup, {"title", "description"}) else {}),
+                                  **({"view": _extra(view, {"title", "description", "link"})}
+                                     if _extra(view, {"title", "description", "link"}) else {})},
+                        **_flat_prov(env)})
+    return out
+
+
 ITEM_PARSERS = {
     "catalog_motion": p_motion, MOTION_DETAIL_KIND: p_motion_detail, "catalog_style": p_style,
     "catalog_motion_sample": p_motion_sample, "catalog_avatar": p_avatar, "catalog_avatar_preset": p_avatar_preset,
     "catalog_voice": p_voice, "catalog_reference_voice": p_reference_voice, "catalog_sound": p_sound,
     "catalog_soul_sample": p_soul_sample, "catalog_viral_type": p_viral_type, "catalog_viral_preset": p_viral_preset,
+    "catalog_chain_preset": p_chain_preset, "catalog_restyle_preset": p_restyle_preset,
 }
 
 
@@ -416,11 +541,15 @@ def parse_envelope(env, sel) -> list[dict]:
         return []
     prov = env.provenance()
     body = env.body
+    out: list[dict] = []
     if src.kind == MOTION_DETAIL_KIND:
         items = [body] if isinstance(body, dict) and body.get("id") else []
+    elif src.kind == "catalog_notice":                 # two lists in one object; items have no ids
+        notices = p_notices(body, env)
+        items = []
+        out += [{"kind": src.kind, **n, "source": prov} for n in notices]
     else:
         items = items_of(body)
-    out: list[dict] = []
     for item in items:
         if not isinstance(item, dict):
             continue
@@ -442,7 +571,7 @@ def parse_envelope(env, sel) -> list[dict]:
         out.append({"kind": PAGE_KIND, "page_id": make_id(env.endpoint, sorted(params.items())),
                     "endpoint": env.endpoint, "catalog": src.kind, "group": src.group or params.get("motion_id")
                     or params.get("category_id"), "params": params, "first_page": first,
-                    "item_count": len(items), **info, "source": prov})
+                    "item_count": len(items) or sum(1 for e in out if e["kind"] == "catalog_notice"), **info, "source": prov})
     return out
 
 

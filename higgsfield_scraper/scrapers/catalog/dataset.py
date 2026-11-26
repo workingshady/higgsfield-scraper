@@ -8,9 +8,9 @@ from typing import Any, Optional
 from ...core.base import RunMeta
 from ...core.dataset import make_meta
 from ...core.exporting import row, without, write_standard_outputs
-from .endpoints import (COLLECTION_OF, ENDPOINT_URLS, KIND_OF, KINDS, LOGIN_ONLY, MOTION_DETAIL_KIND, PAGE_KIND,
-                        SHORT_OF)
-from .schemas import CatalogDataset
+from .endpoints import (COLLECTION_OF, ENDPOINT_URLS, KIND_OF, KINDS, LOGIN_ONLY, MOTION_DETAIL_KIND, OPT_IN,
+                        OPT_IN_COLLECTIONS, OPT_IN_ENDPOINTS, PAGE_KIND, SHORT_OF, SOURCE_BY_ENDPOINT)
+from .schemas import CatalogDataset, CatalogDatasetFull
 
 CHILD_LISTS = ("media", "mix", "price_matrix", "inputs")
 
@@ -52,7 +52,7 @@ def _totals(pages: list[dict], spider_totals: dict[str, Optional[int]]) -> dict[
 
 
 def _summary(ds: dict, sel: Any, pages: list[dict], totals: dict) -> dict:
-    counts = {s: len(ds[COLLECTION_OF[k]]) for s, k in KIND_OF.items() if ds[COLLECTION_OF[k]]}
+    counts = {s: len(ds[COLLECTION_OF[k]]) for s, k in KIND_OF.items() if ds.get(COLLECTION_OF[k])}
     by_cat: dict[str, dict[str, int]] = {}
 
     def cat(name: str, values) -> None:
@@ -103,8 +103,26 @@ def _summary(ds: dict, sel: Any, pages: list[dict], totals: dict) -> dict:
             "soul_sample_styles": sorted(styles.values(), key=lambda x: (-x["samples"], x["name"] or ""))}
 
 
+def _active_opt_in(entities: dict[str, list[dict]], sel: Any) -> set[str]:
+    """Opt-in short kinds that belong in this run's output: selected or with rows. The others are left out of the
+    dataset entirely (no empty collections / counts / endpoints / summary rows), so runs that do not use them keep
+    exactly the pre-opt-in output."""
+    try:
+        selected = set(sel.resolve_kinds(bool(getattr(sel, "has_session", False))))
+    except Exception:
+        selected = set()
+    return {k for k in OPT_IN if k in selected or entities.get(KIND_OF[k])}
+
+
+def _is_opt_in_collection_active(ds: dict, coll: str) -> bool:
+    return coll not in OPT_IN_COLLECTIONS or coll in ds
+
+
 def build_dataset(entities: dict[str, list[dict]], sel: Any, rm: RunMeta) -> dict:
-    ds: dict[str, Any] = {COLLECTION_OF[k]: [_strip(e) for e in entities.get(k, [])] for k in KIND_OF.values()}
+    active = _active_opt_in(entities, sel)
+    inactive_colls = {COLLECTION_OF[KIND_OF[k]] for k in OPT_IN if k not in active}
+    ds: dict[str, Any] = {COLLECTION_OF[k]: [_strip(e) for e in entities.get(k, [])] for k in KIND_OF.values()
+                          if COLLECTION_OF[k] not in inactive_colls}
     pages = [_strip(p) for p in entities.get(PAGE_KIND, [])]
     details = [_strip(d) for d in entities.get(MOTION_DETAIL_KIND, [])]
     _merge_details(ds["motions"], details)
@@ -117,12 +135,16 @@ def build_dataset(entities: dict[str, list[dict]], sel: Any, rm: RunMeta) -> dic
     ds["soul_samples"].sort(key=lambda s: s.get("created_at") or "", reverse=True)
     pages.sort(key=lambda p: (p["endpoint"], p.get("group") or "", not p["first_page"], p["page_id"]))
     totals = _totals(pages, rm.totals)
-    counts = {c: len(ds[c]) for c in COLLECTION_OF.values()}
+    counts = {c: len(ds[c]) for c in COLLECTION_OF.values() if c in ds}
     counts["pages"] = len(pages)
     counts["motion_details"] = len(details)
-    meta = make_meta("catalog", sel, rm, counts=counts, endpoints=dict(ENDPOINT_URLS), totals_available=totals)
+    endpoints = {e: u for e, u in ENDPOINT_URLS.items()
+                 if e not in OPT_IN_ENDPOINTS or SHORT_OF[SOURCE_BY_ENDPOINT[e].kind] in active}
+    meta = make_meta("catalog", sel, rm, counts=counts, endpoints=endpoints, totals_available=totals)
     out = {"schema_version": 1, "meta": meta, "summary": _summary(ds, sel, pages, totals), **ds, "pages": pages}
-    return CatalogDataset.model_validate(out).model_dump(mode="json")
+    if not active:
+        return CatalogDataset.model_validate(out).model_dump(mode="json")
+    return CatalogDatasetFull.model_validate(out).model_dump(mode="json", exclude=inactive_colls)
 
 
 # ------------------------------------------------------------------ outputs
@@ -136,7 +158,7 @@ def csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
         rows = ds.get(coll) or []
         if not rows:
             continue
-        first = ["uid", "sample_uid", "id", "motion_id", "name", "slug"]
+        first = ["uid", "sample_uid", "id", "motion_id", "name", "slug", "section"]
         tables[coll] = ([row(without(e, *CHILD_LISTS)) for e in rows], first)
         media = [row(m, **{f"parent_{k}": v for k, v in _id_of(e).items()}, position=i)
                  for e in rows for i, m in enumerate(e.get("media") or [])]
@@ -155,13 +177,19 @@ def csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
             tables["viral_preset_prices"] = (prices, ["preset_id", "preset_slug", "key", "credit_units"])
         if inputs:
             tables["viral_preset_inputs"] = (inputs, ["preset_id", "preset_slug", "position", "id"])
+    if ds.get("chain_presets"):
+        inputs = [row(i, preset_id=v["id"], preset_name=v["name"], position=n) for v in ds["chain_presets"]
+                  for n, i in enumerate(v["inputs"])]
+        if inputs:
+            tables["chain_preset_inputs"] = (inputs, ["preset_id", "preset_name", "position", "id"])
     s = ds["summary"]
     if s["soul_sample_styles"]:
         tables["soul_sample_styles"] = ([row(x) for x in s["soul_sample_styles"]], ["style_id", "name"])
     tables["summary_counts"] = ([{"kind": k, "count": s["counts"].get(k, 0),
                                   "total_available": s["totals_available"].get(k),
                                   "login_only": KINDS[k][2], "status": s["login_only"].get(k, "")}
-                                 for k in KINDS], ["kind"])
+                                 for k in KINDS if _is_opt_in_collection_active(ds, COLLECTION_OF[KIND_OF[k]])],
+                                ["kind"])
     tables["summary_by_category"] = ([{"kind": k, "category": c, "count": n} for k, d in s["by_category"].items()
                                       for c, n in d.items()], ["kind"])
     tables["summary_by_model_family"] = ([{"kind": k, "model_family": f, "count": n}
@@ -177,6 +205,8 @@ def summary_md(ds: dict) -> str:
              f"run `{m.get('run_id')}` · label `{m.get('label')}` · options `{m['options']}`", "",
              "| kind | items | API total | login-only | status |", "|---|---:|---:|---|---|"]
     for k, (kind, coll, login, desc) in KINDS.items():
+        if not _is_opt_in_collection_active(ds, coll):
+            continue
         t = s["totals_available"].get(k)
         lines.append(f"| {k} | {s['counts'].get(k, 0)} | {'' if t is None else t} | {'yes' if login else ''} | "
                      f"{s['login_only'].get(k, '')} |")
@@ -206,7 +236,8 @@ def summary_md(ds: dict) -> str:
 
 def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
     parts: dict[str, Any] = {c: ds[c] for c in COLLECTION_OF.values() if ds.get(c)}
+    model = CatalogDatasetFull if any(c in ds for c in OPT_IN_COLLECTIONS) else CatalogDataset
     parts["summary"] = ds["summary"]
     parts["pages"] = ds["pages"]
     return write_standard_outputs(ds, Path(out_dir), json_parts=parts, csv_tables=csv_tables(ds),
-                                  dataset_model=CatalogDataset, summary_md=summary_md(ds))
+                                  dataset_model=model, summary_md=summary_md(ds))

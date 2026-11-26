@@ -33,6 +33,7 @@ class Source:
     max_size: int = 1000
     lang: bool = False               # sends ?lang=
     paginate: bool = True
+    follow_only: bool = False        # never a first request: scheduled by the spider's follow_up
 
 
 # ------------------------------------------------------------------ kinds
@@ -68,11 +69,20 @@ KINDS: dict[str, tuple[str, str, bool, str]] = {
                            "Marketing Studio v2 categories (id = slug; formats inline)"),
     "marketing_preset": ("catalog_marketing_preset", "marketing_presets", True,
                          "Marketing Studio v2 presets per category"),
+    # ---- opt-in extras (public, no login; added 2026-11-26). NOT in the default run, NOT in `public` and NOT in
+    # the `login` group: only `--kinds all` or their explicit names select them (default output stays unchanged).
+    "chain_preset": ("catalog_chain_preset", "chain_presets", False,
+                     "job-set chain presets (game character creator): credit price + regular price, model"),
+    "notice": ("catalog_notice", "notices", False, "per-model notices (retirement / status badges, header bars)"),
+    "restyle_preset": ("catalog_restyle_preset", "restyle_presets", False, "video restyle presets (+ variants)"),
 }
 KIND_OF = {short: v[0] for short, v in KINDS.items()}
 SHORT_OF = {v[0]: short for short, v in KINDS.items()}
 COLLECTION_OF = {v[0]: v[1] for v in KINDS.values()}
-PUBLIC = tuple(s for s, v in KINDS.items() if not v[2])
+OPT_IN = ("chain_preset", "notice", "restyle_preset")
+OPT_IN_KINDS = frozenset(KIND_OF[k] for k in OPT_IN)
+OPT_IN_COLLECTIONS = frozenset(COLLECTION_OF[KIND_OF[k]] for k in OPT_IN)
+PUBLIC = tuple(s for s, v in KINDS.items() if not v[2] and s not in OPT_IN)
 LOGIN_ONLY = tuple(s for s, v in KINDS.items() if v[2])
 DEFAULT_PUBLIC = tuple(s for s in PUBLIC if s != "motion_sample")
 
@@ -133,10 +143,26 @@ SOURCES: tuple[Source, ...] = (
     # opt-in group — fnf gateway, really login-only (401 without a session, 200 with one)
     Source("catalog_color_presets", "catalog_color_preset", "/color-presets", login=True),
     Source("catalog_camera_settings", "catalog_camera_setting", "/camera-settings", login=True, size_param=None),
+    # opt-in extras (public; verified 2026-11-26 without a session)
+    # one JSON array, no paging (48 visible presets). JS: Wr(`/job-set-chain-presets`, lang) + show_hidden/product_key
+    Source("catalog_chain_presets", "catalog_chain_preset", "/job-set-chain-presets", size_param=None, lang=True,
+           paginate=False, base=CMS_API_BASE),
+    # --include-hidden: the same list with show_hidden=true (58 = 48 visible + 10 hidden). The API has no per-item
+    # hidden flag, so it is requested after the visible list; rows seen only here get is_hidden=True.
+    Source("catalog_chain_presets_hidden", "catalog_chain_preset", "/job-set-chain-presets", group="hidden",
+           size_param=None, lang=True, paginate=False, base=CMS_API_BASE, fixed_params=(("show_hidden", "true"),),
+           follow_only=True),
+    # {header_notices: [], job_set_notices: [...]} (same body at fnf-cms-api/notices; fnf/notices is 404)
+    Source("catalog_notices", "catalog_notice", "/notices", size_param=None, lang=True, paginate=False,
+           base=CMS_BASE),
+    # {total, cursor (next page number), items}; the web app sends lang + size=20
+    Source("catalog_restyle_presets", "catalog_restyle_preset", "/restyle-presets", default_size=100, max_size=100,
+           lang=True, base=CMS_API_BASE),
 )
 SOURCE_BY_ENDPOINT = {s.endpoint: s for s in SOURCES}
 LOGIN_ENDPOINTS = frozenset(s.endpoint for s in SOURCES if s.login)          # need a session (auth="required")
 ENDPOINT_URLS = {s.endpoint: f"{s.base}{s.path}" for s in SOURCES}
+OPT_IN_ENDPOINTS = frozenset(s.endpoint for s in SOURCES if s.kind in OPT_IN_KINDS)
 
 
 def sources_for(kind: str) -> list[Source]:

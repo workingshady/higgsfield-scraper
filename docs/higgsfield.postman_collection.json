@@ -22,6 +22,10 @@
             "value": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api"
         },
         {
+            "key": "series_base",
+            "value": "https://fnf-api-gw.higgsfield.ai/fnf-series"
+        },
+        {
             "key": "community_base",
             "value": "https://fnf-api-gw.higgsfield.ai/fnf-community"
         },
@@ -2914,6 +2918,218 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "Job-set chain presets",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{cms_api_base}}/job-set-chain-presets?lang={{locale}}",
+                            "host": [
+                                "{{cms_api_base}}"
+                            ],
+                            "path": [
+                                "job-set-chain-presets"
+                            ],
+                            "query": [
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
+                                }
+                            ]
+                        },
+                        "description": "fnf-cms-api; one JSON array (48), no paging. cost_credits / discount_credits are credits (no /100). catalog --kinds chain_preset.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Job-set chain presets (+hidden)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{cms_api_base}}/job-set-chain-presets?show_hidden=true&lang={{locale}}",
+                            "host": [
+                                "{{cms_api_base}}"
+                            ],
+                            "path": [
+                                "job-set-chain-presets"
+                            ],
+                            "query": [
+                                {
+                                    "key": "show_hidden",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
+                                }
+                            ]
+                        },
+                        "description": "58 = 48 visible + 10 hidden; no per-item hidden flag. catalog --include-hidden.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Notices (CMS)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{cms_base}}/notices?lang={{locale}}",
+                            "host": [
+                                "{{cms_base}}"
+                            ],
+                            "path": [
+                                "notices"
+                            ],
+                            "query": [
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
+                                }
+                            ]
+                        },
+                        "description": "{header_notices[], job_set_notices[]}: per-model badges/popups (retirements, incidents). catalog --kinds notice.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Restyle presets",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{cms_api_base}}/restyle-presets?size=100&lang={{locale}}",
+                            "host": [
+                                "{{cms_api_base}}"
+                            ],
+                            "path": [
+                                "restyle-presets"
+                            ],
+                            "query": [
+                                {
+                                    "key": "size",
+                                    "value": "100"
+                                },
+                                {
+                                    "key": "lang",
+                                    "value": "{{locale}}"
+                                }
+                            ]
+                        },
+                        "description": "fnf-cms-api; {total, cursor (next page number), items}. catalog --kinds restyle_preset.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -3412,7 +3628,7 @@
                             ],
                             "query": []
                         },
-                        "description": "",
+                        "description": "Legacy fnf path used by the default run: 401 without a session, 404 with one. Use the fnf-series requests below.",
                         "auth": {
                             "type": "bearer",
                             "bearer": [
@@ -3466,7 +3682,7 @@
                             ],
                             "query": []
                         },
-                        "description": "",
+                        "description": "Legacy fnf path (404). Use fnf-series below.",
                         "auth": {
                             "type": "bearer",
                             "bearer": [
@@ -3476,6 +3692,104 @@
                                     "type": "string"
                                 }
                             ]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Series (fnf-series, public)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{series_base}}/series?limit=100",
+                            "host": [
+                                "{{series_base}}"
+                            ],
+                            "path": [
+                                "series"
+                            ],
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "100"
+                                }
+                            ]
+                        },
+                        "description": "Public, no login: {items, total} (35). projects --what series --public-series.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                    "pm.test('JSON body', () => pm.response.to.be.json);"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Series detail (fnf-series, public)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Origin",
+                                "value": "https://higgsfield.ai"
+                            },
+                            {
+                                "key": "Referer",
+                                "value": "https://higgsfield.ai/"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{series_base}}/series/{{slug}}",
+                            "host": [
+                                "{{series_base}}"
+                            ],
+                            "path": [
+                                "series",
+                                "{{slug}}"
+                            ],
+                            "query": []
+                        },
+                        "description": "Public. projects --public-series --with-details.",
+                        "auth": {
+                            "type": "noauth"
                         }
                     },
                     "event": [

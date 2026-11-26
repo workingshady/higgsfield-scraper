@@ -13,7 +13,7 @@ from urllib.parse import urlencode
 
 import scrapy
 
-from ..constants import ENDPOINTS
+from ..constants import ACCOUNT_ENDPOINTS, ENDPOINTS
 from ..items import RawResponseItem, to_item
 from ..parsers import keep, parse_envelope
 from ..raw import Envelope
@@ -40,12 +40,28 @@ class HiggsfieldSpider(scrapy.Spider):
                 include_hidden_plans=str(kwargs.get("include_hidden_plans", "")).lower() in ("1", "true", "yes"),
                 include_raw_cost=str(kwargs.get("include_raw_cost", "")).lower() in ("1", "true", "yes"),
                 usd_reference=kwargs.get("usd_reference", "plus:annual"), has_token=bool(self.token),
+                logged_in_prices=str(kwargs.get("logged_in_prices", "")).lower() in ("1", "true", "yes"),
             )
         self.selection = selection
         if "auth" in selection.sections and not self._login_configured():
             emit(self.logger, "warning", "auth.token.missing",
                  "section 'auth' requested but no login (run `login`, or set HF_CLERK_CLIENT / HF_TOKEN); "
                  "those endpoints will 401")
+        # opt-in login-only extras: never sent without a session (skipped with one warning each, never anonymously)
+        for what, wanted in (("--logged-in-prices", selection.logged_in_prices),
+                             ("section 'account'", "account" in selection.sections)):
+            if wanted and not self._login_usable():
+                emit(self.logger, "warning", "auth.skipped",
+                     f"{what} needs a usable login (run `login` or set HF_CLERK_CLIENT / HF_TOKEN; never with "
+                     f"--auth off); skipped")
+
+    def _auth_mode(self) -> str:
+        return getattr(getattr(self, "common", None), "auth", "auto")
+
+    def _login_usable(self) -> bool:
+        """For the opt-in login-only requests: the selection says a login is usable (has_token is False under
+        --auth off / without a session), --auth is not off and a session is really configured."""
+        return bool(self.selection.has_token) and self._auth_mode() != "off" and self._login_configured()
 
     def _login_configured(self) -> bool:
         try:
@@ -70,6 +86,16 @@ class HiggsfieldSpider(scrapy.Spider):
                 meta["auth"] = "required" if mode == "required" else True
         return scrapy.Request(url, headers=headers, callback=self.parse_api, errback=self.on_error, dont_filter=True,
                               meta=meta)
+
+    def _login_only_request(self, endpoint: str, params: Optional[dict[str, str]] = None) -> scrapy.Request:
+        """Opt-in login-only request: always `auth="required"` (AuthMiddleware skips it rather than sending it
+        anonymously); account bodies are never stored in the dev HTTP cache (AccountPrivacyMiddleware whitelists them
+        before the http/ and raw/ archives)."""
+        req = self._request(endpoint, params)
+        req.meta["auth"] = "required"
+        if endpoint in ACCOUNT_ENDPOINTS:
+            req.meta["dont_cache"] = True
+        return req
 
     def build_requests(self) -> Iterator[scrapy.Request]:
         sel = self.selection
@@ -98,6 +124,18 @@ class HiggsfieldSpider(scrapy.Spider):
         for ep in ("credit_packages", "unlim_catalog", "credit_price", "adjustable_credits"):
             if ep in eps:
                 yield self._request(ep, auth=True)
+        # ---- opt-in extras (after every existing request, so the default request list is unchanged)
+        if not (sel.logged_in_prices or "account" in sel.sections) or not self._login_usable():
+            return
+        if sel.logged_in_prices:
+            if "plans" in eps:
+                for key in sel.plan_set_keys:
+                    yield self._login_only_request("plans_logged_in", {"with_localization": "true", "plan_set_key": key})
+            if "job_costs" in eps:
+                yield self._login_only_request("job_costs_logged_in")
+        if "account" in sel.sections:
+            for ep in ACCOUNT_ENDPOINTS:
+                yield self._login_only_request(ep)
 
     async def start(self):  # Scrapy >= 2.13
         for r in self.build_requests():

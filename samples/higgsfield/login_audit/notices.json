@@ -1,0 +1,43 @@
+{
+    "_meta": {
+        "request": "GET https://cms.higgsfield.ai/notices (also https://fnf-api-gw.higgsfield.ai/fnf-cms-api/notices)",
+        "auth": "none (public)",
+        "captured": "2026-11-26",
+        "note": "job_set_notices had 10 rows; /fnf/notices is 404"
+    },
+    "data": {
+        "header_notices": [],
+        "job_set_notices": [
+            {
+                "job_set_types": [
+                    "seedance1_5"
+                ],
+                "params": {},
+                "variant": "info",
+                "badge": {
+                    "label": "Seedance 1.5 Pro is being retired",
+                    "tooltip": "This model is outdated and will no longer be available after 11 November. We recommend switching to Seedance 2.0, Seedance 2.0 Mini — it's faster and delivers better results."
+                },
+                "popup": {
+                    "title": "Seedance 1.5 Pro is being retired",
+                    "description": "This model is outdated and will no longer be available after 11 November. We recommend switching to Seedance 2.0, Seedance 2.0 Mini — it's faster and delivers better results."
+                }
+            },
+            {
+                "job_set_types": [
+                    "ai_influencer"
+                ],
+                "params": {},
+                "variant": "warning",
+                "badge": {
+                    "label": "Temporary Issues",
+                    "tooltip": "AI Influencer is facing issues due to high user load. Generation may fail, credits auto-refunded."
+                },
+                "popup": {
+                    "title": "Temporary Issues",
+                    "description": "AI Influencer is facing issues due to high user load. Generation may fail, credits auto-refunded."
+                }
+            }
+        ]
+    }
+}

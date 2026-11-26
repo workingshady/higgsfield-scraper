@@ -303,6 +303,8 @@ class Submission(Strict):
 
 class Series(Strict):
     """Higgsfield original series (GET /series, LOGIN ONLY). Parser written from the web app's JS."""
+    # ^ docstring kept verbatim: it is the description in every run's dataset.schema.json. In fact the series are
+    # public on the fnf-series service (--public-series); only the legacy fnf path is session-gated (and 404s).
 
     series_id: str
     slug: Optional[str] = None

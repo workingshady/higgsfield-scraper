@@ -18,6 +18,7 @@ from typing import Any, Iterable
 
 from .run.logging_setup import emit
 from .schemas import Dataset
+from .schemas.common import login_fields_in_schema
 
 log = logging.getLogger(__name__)
 
@@ -149,6 +150,29 @@ def csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
     return T
 
 
+def account_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
+    """Opt-in --sections account. Only for datasets that have `account` (no file otherwise, so default runs keep
+    exactly the same file set). account.csv = one row per scalar field, account_items.csv = one row per list item."""
+    recs = (ds.get("account") or {}).get("records") or []
+    if not recs:
+        return {}
+    fields = [{"endpoint": r["endpoint"], "status": r["status"], "field": k,
+               "value": json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v,
+               "conversion": r["conversions"].get(k)}
+              for r in recs for k, v in (r["fields"] or {"": None}).items()]
+    items = [_row(it, endpoint=r["endpoint"], list=part, position=i)
+             for r in recs for part, rows in r["lists"].items() for i, it in enumerate(rows)]
+    return {"account": (fields, ["endpoint", "status", "field", "value", "conversion"]),
+            "account_items": (items, ["endpoint", "list", "position"])}
+
+
+def has_login_only_data(ds: dict) -> bool:
+    """True when the dataset carries opt-in login-only content (its JSON Schema then documents those fields)."""
+    return bool(ds.get("account") or ds["meta"].get("logged_in_prices")
+                or any(p.get("visibility") for ps in ds["plan_sets"] for p in ps["plans"])
+                or any(m.get("visibility") for m in ds["models"]))
+
+
 # ------------------------------------------------------------------ summary
 def _summary_md(ds: dict) -> str:
     meta = ds["meta"]
@@ -166,7 +190,8 @@ def _summary_md(ds: dict) -> str:
         for p in ps["plans"]:
             pr, d = p["pricing"], p.get("discount") or {}
             disc = f"{d.get('percent_off')}% {d.get('applies_to')}" if d else "—"
-            L.append(f"| {p['name']} | {p['billing_period']} | {p['credits_per_month']:,} | {p['seats'] or ''} | "
+            name = p["name"] + (" (logged in only)" if p.get("visibility") else "")
+            L.append(f"| {name} | {p['billing_period']} | {p['credits_per_month']:,} | {p['seats'] or ''} | "
                      f"${pr['before_offer']['per_month']} | **${pr['after_offer']['per_month']}** | ${pr['renewal']['per_month']} | "
                      f"{disc} | {p['price_per_credit']['after_offer']} |")
         L.append("")
@@ -180,10 +205,17 @@ def _summary_md(ds: dict) -> str:
             best = min(pts, key=lambda p: p["credits"]) if pts else None
             opts = "; ".join(f"{k}: {'/'.join(map(str, v))}" for k, v in m["options"].items())
             ex = best and best.get("example")
-            L.append(f"| {m['display_name']} | `{m['model_id']}` | {m['category']} | {best['unit'] if best else ''} | "
+            dn = m["display_name"] + (" (logged in only)" if m.get("visibility") else "")
+            L.append(f"| {dn} | `{m['model_id']}` | {m['category']} | {best['unit'] if best else ''} | "
                      f"{best['credits'] if best else ''} | {ex or ''} | {best['usd_estimate'] if best else ''} | {opts} |")
         L.append("")
     return "\n".join(L)
+
+
+def _schema(ds: dict) -> dict:
+    # default datasets: exactly the schema they always had; login-only data: the schema also documents those fields
+    with login_fields_in_schema(has_login_only_data(ds)):
+        return Dataset.model_json_schema(mode="serialization")
 
 
 # ------------------------------------------------------------------ main
@@ -200,9 +232,11 @@ def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
         _dump(out_dir / "json" / "auth.json", ds["auth"]),
         _dump(out_dir / "json" / "meta.json", {"schema_version": ds["schema_version"], "meta": ds["meta"],
                                                  "tab_badges": ds.get("tab_badges")}),
-        _dump(out_dir / "schema" / "dataset.schema.json", Dataset.model_json_schema(mode="serialization")),
+        _dump(out_dir / "schema" / "dataset.schema.json", _schema(ds)),
     ]
-    for name, (rows, first) in csv_tables(ds).items():
+    if ds.get("account"):                               # opt-in --sections account only
+        files.append(_dump(out_dir / "json" / "account.json", ds["account"]))
+    for name, (rows, first) in {**csv_tables(ds), **account_tables(ds)}.items():
         files.append(write_csv(out_dir / "csv" / f"{name}.csv", rows, first))
     md = out_dir / "summary.md"
     md.write_text(_summary_md(ds), encoding="utf-8")

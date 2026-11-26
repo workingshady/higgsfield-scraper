@@ -5,7 +5,7 @@ import argparse
 from dataclasses import asdict, dataclass
 from typing import Any, Iterable, Optional
 
-from .endpoints import AUX_KINDS, DEFAULT_PUBLIC, KIND_OF, KINDS, LOGIN_ONLY, PUBLIC, SHORT_OF
+from .endpoints import AUX_KINDS, DEFAULT_PUBLIC, KIND_OF, KINDS, LOGIN_ONLY, OPT_IN, PUBLIC, SHORT_OF
 
 LOGIN_MODES = ("auto", "yes", "no")
 
@@ -14,7 +14,8 @@ def add_args(p: argparse.ArgumentParser) -> None:
     g = p.add_argument_group("catalog: what to scrape")
     g.add_argument("--kinds", default=None,
                    help="comma list of catalog kinds (short names like motion,voice or catalog_motion), or "
-                        "'public' (default), 'login', 'all'. Available: " + ", ".join(KINDS))
+                        "'public' (default), 'login', 'all'. Opt-in extras (only by name or 'all'): "
+                        + ", ".join(OPT_IN) + ". Available: " + ", ".join(KINDS))
     g.add_argument("--with-samples", action="store_true",
                    help="also fetch the sample videos of every motion (1 request per motion, ~419; "
                         "--max-pages caps the number of sample requests)")
@@ -30,6 +31,18 @@ def add_args(p: argparse.ArgumentParser) -> None:
                         "always includes it")
     g.add_argument("--keep-placeholders", action="store_true",
                    help="keep the base64 blur placeholders (data: URIs) found in media objects (large)")
+    g.add_argument("--include-hidden", action="store_true",
+                   help="chain_preset: also fetch the presets the app hides (show_hidden=true; 1 extra request, "
+                        "~10 more presets). They are marked is_hidden=true; visible ones keep is_hidden=false")
+    o = p.add_argument_group("catalog: personal data")
+    o.add_argument("--with-profiles", action="store_true",
+                   help="opt-in: keep creator credits of the opt-in extras (chain_preset `collaborator`) and the "
+                        "katana preset authors (default: dropped / redacted)")
+
+
+# Options added after the first release: left out of to_dict() while at their default, so runs that do not use
+# them keep byte-identical meta.options / manifests.
+LATE_OPTIONS = ("include_hidden", "with_profiles")
 
 
 @dataclass
@@ -41,9 +54,15 @@ class Selection:
     include_login_only: str = "auto"
     keep_placeholders: bool = False
     has_session: bool = False                  # informational (from CLI); the spider decides with its own provider
+    include_hidden: bool = False               # chain presets: + show_hidden=true list
+    with_profiles: bool = False                # keep creator credits / authors
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        d = asdict(self)
+        for k in LATE_OPTIONS:
+            if not d[k]:
+                del d[k]
+        return d
 
     # ------------------------------------------------------------ kinds
     def resolve_kinds(self, authed: bool) -> list[str]:
@@ -106,7 +125,8 @@ def _truthy(v: Any) -> bool:
 
 
 def build(kinds: Any = None, with_samples: Any = False, with_details: Any = False, lang: Any = "en",
-          include_login_only: Any = "auto", keep_placeholders: Any = False, has_session: Any = False) -> Selection:
+          include_login_only: Any = "auto", keep_placeholders: Any = False, has_session: Any = False,
+          include_hidden: Any = False, with_profiles: Any = False) -> Selection:
     mode = str(include_login_only or "auto").lower()
     if mode in ("true", "1"):
         mode = "yes"
@@ -116,7 +136,8 @@ def build(kinds: Any = None, with_samples: Any = False, with_details: Any = Fals
         raise ValueError(f"include_login_only must be one of {LOGIN_MODES}")
     return Selection(kinds=parse_kinds(kinds), with_samples=_truthy(with_samples), with_details=_truthy(with_details),
                      lang=str(lang or "en"), include_login_only=mode, keep_placeholders=_truthy(keep_placeholders),
-                     has_session=_truthy(has_session))
+                     has_session=_truthy(has_session), include_hidden=_truthy(include_hidden),
+                     with_profiles=_truthy(with_profiles))
 
 
 def make_selection(a: argparse.Namespace) -> Selection:
@@ -130,14 +151,16 @@ def make_selection(a: argparse.Namespace) -> Selection:
             has_session = False
     return build(kinds=a.kinds, with_samples=a.with_samples, with_details=a.with_details, lang=a.lang,
                  include_login_only=a.include_login_only, keep_placeholders=a.keep_placeholders,
-                 has_session=has_session)
+                 has_session=has_session, include_hidden=getattr(a, "include_hidden", False),
+                 with_profiles=getattr(a, "with_profiles", False))
 
 
 def selection_from_dict(d: Optional[dict]) -> Selection:
     """Accepts Selection.to_dict() (manifest) and string kwargs (`scrapy crawl catalog -a kinds=motion,voice`)."""
     d = dict(d or {})
     return build(**{k: d[k] for k in ("kinds", "with_samples", "with_details", "lang", "include_login_only",
-                                       "keep_placeholders", "has_session") if k in d})
+                                       "keep_placeholders", "has_session", "include_hidden", "with_profiles")
+                     if k in d})
 
 
 def default_label(sel: Selection) -> str:
@@ -149,4 +172,5 @@ def default_label(sel: Selection) -> str:
         base = "-".join(sel.kinds)
     else:
         base = f"{len(sel.kinds)}kinds"
-    return base + ("-samples" if sel.samples else "") + ("-details" if sel.with_details else "")
+    return base + ("-samples" if sel.samples else "") + ("-details" if sel.with_details else "") \
+        + ("-hidden" if sel.include_hidden else "")

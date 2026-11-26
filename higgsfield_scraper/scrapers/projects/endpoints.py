@@ -17,8 +17,13 @@ CONTESTS = "/contests"                                       # contest_type (def
 CONTEST_DETAIL = "/contests/by-id/{id}"                      # also /contests/{slug}
 CONTEST_SUBMISSIONS = "/contests/{id}/submissions"           # limit<=100, offset, ordering, user_id, search -> {items, has_more}
 ENTRIES = "/contest-participations/publications"             # tab, contest_key, size<=100, cursor -> {items, next_cursor, total}
-SERIES = "/series"                                           # LOGIN ONLY (401 without a session); limit
-SERIES_DETAIL = "/series/{slug}"                             # LOGIN ONLY
+# Original series. On the fnf base (/fnf/series) they answer 401 without a session and 404 with one: that path is
+# wrong, not login-only. The web app calls the PUBLIC `fnf-series` service (JS: ho(`/series`) + limit=100, no login;
+# 35 series on 2026-11-26). The legacy fnf requests are kept unchanged for the default run; `--public-series`
+# switches to SERIES_BASE (endpoints projects_series_public[_detail], same parser and fields).
+SERIES = "/series"                                           # limit (<=100), {items, total}; no cursor
+SERIES_DETAIL = "/series/{slug}"
+SERIES_BASE = "https://fnf-api-gw.higgsfield.ai/fnf-series"
 
 ENDPOINTS = {
     "projects_publications": PUBLICATIONS,
@@ -32,7 +37,11 @@ ENDPOINTS = {
     "projects_series": SERIES,
     "projects_series_detail": SERIES_DETAIL,
 }
-LOGIN_ONLY = frozenset({"projects_series", "projects_series_detail"})
+LOGIN_ONLY = frozenset({"projects_series", "projects_series_detail"})       # legacy fnf paths (session-gated)
+PUBLIC_SERIES_ENDPOINTS = {                                  # --public-series (no login)
+    "projects_series_public": SERIES,
+    "projects_series_public_detail": SERIES_DETAIL,
+}
 
 MAX_PUBLICATIONS_LIMIT = 50
 MAX_RECOMMENDED_LIMIT = 50

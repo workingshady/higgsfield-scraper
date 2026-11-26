@@ -275,6 +275,31 @@ Send `Authorization: Bearer <Clerk JWT>` (the `__session` cookie). Without it th
 
 How to log in and scrape them: `PRICING.md` §10 and `CLI.md` (Logged-in pricing).
 
+### Logged-in differences on the public endpoints (opt-in `--logged-in-prices`)
+
+Audited 2026-11-26 (`docs/LOGIN_COVERAGE.md`); `hf-workspace-id` changes nothing.
+
+| Endpoint name | Request | Logged in vs anonymous | Scraper handling |
+|---|---|---|---|
+| `plans_logged_in` | `/subscriptions/v2/plans?plan_set_key=…&with_localization=true` + Bearer | ps_a3: **15** plans vs 14. Extra `lite` / `annual`: `credits` 100, `final_price` 1200 (=$12/yr, $1/mo), `original_price` 8400, `discount {percent_off: 85, duration: "forever"}`, `offer: null`. The 14 shared rows are byte-identical | logged-in-only plans appended with `visibility: "logged_in"`; anonymous rows unchanged |
+| `job_costs_logged_in` | `/job-sets/costs` + Bearer | **88** rows vs 87, `version` `9048fa70…` vs `0cee3218…`. Extra `magi_2`: `[{resolution: "1080p", base_credits: 0, cost_per_second: 2.5, original_cost_per_second: 2.5}]` | `magi_2` model appended with `visibility: "logged_in"`; both versions in `meta.logged_in_prices` |
+
+### Account endpoints (opt-in `--sections account`, login only)
+
+| Endpoint name | Request (GET) | Shape (wire) | Kept by the scraper |
+|---|---|---|---|
+| `account_wallet` | `/workspaces/wallet` | `{workspace_id, credits_balance, subscription_balance, total_credits, on_demand_credits, bonus_credits, bonus_credits_expire_at, expire_days, credit_limit, group_credit_allocation, allocation_cycle, next_credit_allocation_date, wallet_created_at, scoped_credits[]}`; **balances in cost units (×100)**: `888` = 8.88 credits | balances ÷100 → credits, dates, `expire_days`, `credit_limit`, `scoped_credits[]` (balance ÷100); no ids |
+| `account_subscription` | `/workspaces/subscription` | 34 keys: `subscription_id, workspace_id, plan_name, plan_type, status, billing_cycle, *_seats, credits_per_seat, current_period_start/end, payment_status, plan_version, email_type, …` | plan/seat/period/status fields; no ids, no `email_type`, no payment message |
+| `account_auto_top_up` | `/v2/auto-top-ups/settings` | `{state, is_eligible, is_on_demand_only, threshold, refill_options[], options[], selected_option, default_option, credits_per_dollar (18), current_refill_amount, on_demand_credits, modal_type, currency, expire_days, outstanding_amount}` | all but `outstanding_amount` / `modal_data` |
+| `account_free_gens` | `/user/free-gens/v2` | `{items: []}` | `items[]` (scrubbed) |
+| `account_generation_seconds` | `/user/generation-seconds` | `{items: []}` | `items[]` |
+| `account_generation_seconds_packs` | `/generation-seconds/packs` | `{items: []}` (401 anonymous) | `items[]` |
+| `account_bundle_all_unlim_status` | `/subscriptions/bundle/all-unlim/status` | `{is_eligible_to_purchase, has_all_unlims}` | both |
+| `account_bundle_seedance_unlimited` | `/subscriptions/bundle/seedance-unlimited` | `{tiers: []}` | `tiers[]` |
+
+Not scraped on purpose: `/user`, `/user/profile`, `/user/meta`, `/workspaces*` ids/details (personal data or UI
+permissions), invoices (private billing). List items keep scalars only, without id / url / personal keys.
+
 ## Bonus: `GET https://higgsfield.ai/pricing.md`
 
 An official markdown version of the US pricing page, with tables for individual and business plans, "best prices

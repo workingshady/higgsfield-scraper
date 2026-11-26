@@ -6,10 +6,11 @@ python -m higgsfield_scraper scrape projects [options]
 
 This scraper collects Higgsfield's community **project publications** (films, series, carousels), the
 **recommended** feeds, **contest entries** (festival and talent contest submissions published as projects),
-**contests** (with rules, rewards, prizes, judges, FAQ, timeline and winners) and **contest submissions**. With a
-login session it also collects the **original series**.
+**contests** (with rules, rewards, prizes, judges, FAQ, timeline and winners) and **contest submissions**. With
+`--public-series` (no login) it also collects the **original series** from the public `fnf-series` service.
 
-All requests are GET. Every endpoint is public except `/series`. The code lives in
+All requests are GET. Every endpoint is public. The legacy `/fnf/series` path used by the default run is not
+(401 without a session, 404 with one); see *Original series* below. The code lives in
 `higgsfield_scraper/scrapers/projects/` and the tests are in `tests/test_projects.py`
 (fixtures: `tests/fixtures/projects/`).
 
@@ -27,6 +28,8 @@ All requests are GET. Every endpoint is public except `/series`. The code lives 
 | `projects_contest_submissions` | `/contests/{id}/submissions` | `limit` (max **100**), `offset`, `ordering`, `user_id`, `search` | `{items, has_more}`, offset pagination |
 | `projects_series` 🔒 | `/series` | `limit` (the web app uses 100) | 401 `Invalid or expired token` without a session |
 | `projects_series_detail` 🔒 | `/series/{slug}` | none | 401 without a session |
+| `projects_series_public` | **base `https://fnf-api-gw.higgsfield.ai/fnf-series`** `/series` (`--public-series`) | `limit` (≤100; the web app sends 100) | `{items, total}` (35 on 2026-11-26), one page, no cursor. Public, no login |
+| `projects_series_public_detail` | fnf-series `/series/{slug}` (`--public-series --with-details`) | none | full series + episodes. Public |
 
 Enums, read from the API's own 422 messages:
 
@@ -71,6 +74,7 @@ Live sizes on 2026-11-25:
 | `--entry-tab` | `latest` | tab of the contest-entries listing |
 | `--submission-ordering` | `newest` | |
 | `--max-submissions N` | all | cap on submissions per contest |
+| `--public-series` | off | series from the public `fnf-series` service (no login): `projects_series_public` (+ `_detail` with `--with-details`). `--max-items N` caps the series via `limit=N` (series do not use the publications/contests budget). Without the flag series keep the legacy behaviour (skipped without a session) |
 | `--with-profiles` | off | **opt-in personal data**: user ids, usernames, names, avatars, headlines, locations, profile URLs, page URLs that contain a handle, the names of `some_contestants`, social `post_urls`, and judge avatars and links |
 
 The common flags also apply: `--max-items` (counts publications and contests), `--max-pages` (per listing: each
@@ -172,7 +176,8 @@ The detail's `winners[]` are also emitted as submissions with `listing="winners"
 * Other: `badges[]`, `user` (Person), `publication_id`, `publication_slug`, `publication_url` (profiles), `listing`,
   `url`.
 
-**Series** 🔒 (the parser was written from the web app's JS; no live sample yet):
+**Series** (parser written from the web app's JS; checked against the live `fnf-series` response 2026-11-26 —
+same fields and ids whichever endpoint fed them; fixture `tests/fixtures/projects_series/`):
 
 * Basics: `series_id`, `slug`, `title`, `short_description`, `full_description`, `author_type`, `author`,
   `is_series`, `state`.
@@ -220,11 +225,15 @@ python -m higgsfield_scraper normalize --run runs/<run>
 
 ## Gaps and notes
 
-* **`/series` and `/series/{slug}` are login-only.** Without a session they are not requested: a warning is logged
-  and the dataset gets the warning `original series ... none scraped`. With a session (`--auth auto` plus a cached
-  login) they are requested with `auth="required"`. The parser follows the web app's JS (`e5`/`J8` mappers) and has
-  not been checked against a real response. The 41 `/original-series/<series>/<episode>` pages in the sitemap are
-  what this would cover.
+* **Original series.** The series are **public** on `https://fnf-api-gw.higgsfield.ai/fnf-series/series?limit=100`
+  (+ `/series/{slug}`), which is what the web app calls (JS `ho(`/series`)`). The default run keeps its old
+  behaviour so its output does not change: it uses `/fnf/series`, which answers 401 without a session (not
+  requested: a warning is logged and the dataset gets `original series (/series) need a login session: none
+  scraped`) and **404 even with a session**. Add `--public-series` to get them without a login:
+  `scrape projects --what series --public-series` → 35 series (one per `projects_series`, plus one
+  `projects_episode` per episode with `series_id`/`series_slug`). `meta.endpoints` then also lists
+  `projects_series_public[_detail]`. `is_vote_triggered` / `is_notify_triggered` are per-viewer (always false
+  anonymously) and stay in `extra`; `cast[]` (character names and pictures) is in `extra` too.
 * The `/project-publications` listing has no total. Its cursor is a score, so `position` is unknown after page 1.
 * A publication's public URL contains the author's handle, so `url` is null unless `--with-profiles` is given. Media
   URLs on the CDN contain the raw Clerk user id (`user_…`) in their path; this is how the API serves them.

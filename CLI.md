@@ -165,7 +165,7 @@ community, catalog, projects and blog also take the limit/media options. Per-scr
 | `--scrapy-log-level` | — | SCRAPY_LOG_LEVEL | Scrapy's own loggers (default INFO, -vv: DEBUG) |
 | `--split-logs` | off | flag | also write logs/app.log and logs/scrapy.log |
 
-### Limits and media (community, catalog, projects, blog, site)
+### Limits and media (community, catalog, projects, blog, site, account)
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
@@ -182,7 +182,7 @@ Plans, offers (before/after), renewal, discounts, per-model credit costs, benefi
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--sections` | `plans,compare,benefits,models,marketing` | SECTIONS | comma list of ['auth', 'benefits', 'compare', 'marketing', 'models', 'plans'] or 'all' (default: plans,compare,benefits,models,marketing) |
+| `--sections` | `plans,compare,benefits,models,marketing` | SECTIONS | comma list of ['account', 'auth', 'benefits', 'compare', 'marketing', 'models', 'plans'] or 'all' (default: plans,compare,benefits,models,marketing) |
 | `--plan-sets` | `us` | PLAN_SETS | plan_set_keys or presets ['all', 'tiers', 'us'] (default: us = ps_a3) |
 | `--billing` | `monthly,annual` | BILLING | billing periods for /compare (default: monthly,annual) |
 | `--marketing-versions` | `latest` | MARKETING_VERSIONS | latest \| all \| comma list like v51,v50 (default: latest) |
@@ -193,6 +193,7 @@ Plans, offers (before/after), renewal, discounts, per-model credit costs, benefi
 | `--usd-reference` | `plus:annual` | USD_REFERENCE | plan_type:billing_period whose after-offer $/credit prices model USD estimates |
 | `--include-hidden-plans` | off | flag | keep trial/secret plan types |
 | `--include-raw-cost` | off | flag | embed each model's untouched cost JSON |
+| `--logged-in-prices` | off | flag | also fetch plans + model costs WITH the session and add the rows only logged-in users see (e.g. the Lite annual plan, magi_2), tagged visibility=logged_in; anonymous rows unchanged. Needs a login (skipped with a warning otherwise); --auth off disables it. Use --sections account for the account's own balances |
 
 ### `scrape community`
 
@@ -228,12 +229,14 @@ Preset & asset catalogs: motions (+samples/details), avatars, voices, sounds, st
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--kinds` | — | KINDS | comma list of catalog kinds (short names like motion,voice or catalog_motion), or 'public' (default), 'login', 'all'. Available: motion, motion_sample, avatar, avatar_preset, voice, reference_voice, sound, style, soul_sample, viral_type, viral_preset, soul_style, mixed_media_preset, model_motion, katana_category, katana_preset, color_preset, youtube_faceless_preset, camera_setting, marketing_category, marketing_preset |
+| `--kinds` | — | KINDS | comma list of catalog kinds (short names like motion,voice or catalog_motion), or 'public' (default), 'login', 'all'. Opt-in extras (only by name or 'all'): chain_preset, notice, restyle_preset. Available: motion, motion_sample, avatar, avatar_preset, voice, reference_voice, sound, style, soul_sample, viral_type, viral_preset, soul_style, mixed_media_preset, model_motion, katana_category, katana_preset, color_preset, youtube_faceless_preset, camera_setting, marketing_category, marketing_preset, chain_preset, notice, restyle_preset |
 | `--with-samples` | off | flag | also fetch the sample videos of every motion (1 request per motion, ~419; --max-pages caps the number of sample requests) |
 | `--with-details` | off | flag | also fetch /motions/{id} per motion (adds description + real preview media for the kling/minimax/seedance/wan families; ~419 requests; --max-pages caps them) |
 | `--lang` | `en` | LANG | language for viral-hub, soul styles, mixed media, katana (default: en) |
 | `--include-login-only` | `auto` | `auto` `yes` `no` | the opt-in `login` group (soul/veo3 styles, per-model motions, mixed media, katana, faceless, marketing presets: public CMS lists; color presets + camera settings: need a login). Adds it to the default selection: auto = when logged in (default), yes = always (login-only ones skipped cleanly without a session), no = never. `--kinds all\|login` always includes it |
 | `--keep-placeholders` | off | flag | keep the base64 blur placeholders (data: URIs) found in media objects (large) |
+| `--include-hidden` | off | flag | chain_preset: also fetch the presets the app hides (show_hidden=true; 1 extra request, ~10 more presets). They are marked is_hidden=true; visible ones keep is_hidden=false |
+| `--with-profiles` | off | flag | opt-in: keep creator credits of the opt-in extras (chain_preset `collaborator`) and the katana preset authors (default: dropped / redacted) |
 
 ```bash
 python -m higgsfield_scraper scrape catalog
@@ -249,7 +252,7 @@ Community projects (films/series/carousels), recommended feeds, contest entries,
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--what` | `all` | WHAT | comma list of ['publications', 'recommended', 'contests', 'entries', 'series'] or 'all' (default). 'series' needs a login session |
+| `--what` | `all` | WHAT | comma list of ['publications', 'recommended', 'contests', 'entries', 'series'] or 'all' (default). 'series' needs a login session unless --public-series |
 | `--categories` | — | CATEGORIES | publication category slugs (server-side filter), e.g. spotlight,open-sourced-by-higgsfield |
 | `--featured` | off | flag | publications listing: only featured (featured=true) |
 | `--scope` | `all` | SCOPE | recommended feed scopes: ['community', 'ai_film_festival', 'talent_contest', 'ad_contest', 'discord'] or 'all' (default) |
@@ -261,6 +264,7 @@ Community projects (films/series/carousels), recommended feeds, contest entries,
 | `--entry-tab` | `latest` | `latest` `trending` `most_watched` `all_entries` `submissions` `liked` `voted` | ordering/tab of the contest-entries listing (default latest = every entry) |
 | `--submission-ordering` | `newest` | `newest` `most-liked` `most-viewed` `trending` |  |
 | `--max-submissions` | — | MAX_SUBMISSIONS | cap submissions per contest (default: all) |
+| `--public-series` | off | flag | series: use the public fnf-series service (no login; 35 series, --with-details adds /series/{slug}; --max-items caps the series). Without it series keep the legacy login-only fnf path (skipped without a session) |
 | `--with-profiles` | off | flag | opt-in: include authors'/contestants' usernames, names, avatars, headlines, locations, judge links and profile-based page URLs (default: pseudonymous author keys only) |
 
 ```bash
@@ -317,6 +321,23 @@ python -m higgsfield_scraper scrape site --what mcp,promos --no-content
 python -m higgsfield_scraper scrape site --what landings --only /plugins/,kling --max-items 10
 python -m higgsfield_scraper scrape site --what originals,mixed-media --download-media thumbs
 python -m higgsfield_scraper scrape site --what all,rooms --max-items 20 --label smoke-site
+```
+
+### `scrape account`
+
+OPT-IN, login required: your own balances/plan/subscription snapshot, your jobs with the credits actually charged (--with-jobs) and estimate-vs-actual checks (--compare-estimate)
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--with-jobs` | off | flag | also read your own jobs from /jobs/accessible (paginated; --max-items / --max-pages apply): job_set_type, status, created_at, pricing-relevant params and the actual credits charged |
+| `--compare-estimate` | off | flag | needs --with-jobs: run the CostEstimator on each job's params and compare it with the credits actually charged (fetches the public /job-sets/costs etc.) |
+| `--job-types` | — | JOB_TYPES | needs --with-jobs: comma list of job_set_type values to request (server-side filter) |
+| `--with-prompts` | off | flag | opt-in: STORE YOUR OWN PROMPT TEXT (prompt, negative_prompt, text …) in the dataset and in the raw/ and http/ archives. Default: prompts are replaced by their length only |
+
+```bash
+python -m higgsfield_scraper scrape account
+python -m higgsfield_scraper scrape account --with-jobs --max-items 100
+python -m higgsfield_scraper scrape account --with-jobs --compare-estimate --max-items 20
 ```
 <!-- END scraper-options -->
 
@@ -508,6 +529,64 @@ manifest records `responses.credit_packages.401`.
 
 `normalize` never looks at this machine's login: it re-parses `auth` only when the source run contains login
 responses in `raw/` (or when you pass `--sections …,auth`).
+
+#### `--logged-in-prices` (opt-in): the rows only logged-in users see
+
+A session changes two **public** price lists (audit 2026-11-26, `docs/LOGIN_COVERAGE.md`): `/subscriptions/v2/plans`
+returns one more plan (`lite` **annual**: 100 credits/month, $12/year, list $84, 85 % off forever) and
+`/job-sets/costs` one more model (`magi_2`, 1080p, 2.5 credits/s) with a different `version` hash. The flag fetches
+both lists a second time **with** the session (endpoints `plans_logged_in` (one per plan set) and
+`job_costs_logged_in`, raw files `raw/plans_logged_in__plan_set_key-….json`, `raw/job_costs_logged_in.json`) and merges:
+
+- every anonymous row stays exactly as it is (same content, same order, no new key);
+- a row that exists **only** in the logged-in response is appended with `visibility: "logged_in"` (plans, their
+  `credit_values` row, models). The field is absent on every other row. (`plan.audience` already means
+  individual/business, hence the separate name);
+- `meta.logged_in_prices` = `{costs_version_anonymous, costs_version_logged_in, logged_in_only_plan_ids,
+  logged_in_only_model_ids, differing_rows}`. A row present in both responses with different content keeps the
+  anonymous version and is listed in `differing_rows` + `meta.warnings`;
+- `plan_sets[].plan_count` / `plan_types` keep describing the anonymous response; `summary.md` marks the extra rows
+  "(logged in only)"; `schema/dataset.schema.json` documents `visibility` / `logged_in_prices` only in runs that have them.
+
+Needs a usable login: without one (or with `--auth off`) the requests are not sent, one warning `auth.skipped` is
+logged and the output is the normal anonymous output. Requests are sent with `auth="required"`, never anonymously.
+
+#### `--sections account` (opt-in): the account's own pricing state
+
+Never part of `all`; list it explicitly (`--sections all,account` or `--sections account`). Needs a login (skipped
+with a warning otherwise, and with `--auth off`). One `pricing_account` record per endpoint:
+
+| Endpoint name | Request (GET) | Kept (whitelist) |
+|---|---|---|
+| `account_wallet` | `/workspaces/wallet` | balances **converted to credits** (`credits_balance`, `subscription_balance`, `total_credits`, `on_demand_credits`, `bonus_credits`), `expire_days`, `credit_limit`, allocation dates, `scoped_credits[]` |
+| `account_subscription` | `/workspaces/subscription` | plan name/type, status, billing cycle, seats, `credits_per_seat`, period start/end, pause/cancel flags, payment status, `plan_version` |
+| `account_auto_top_up` | `/v2/auto-top-ups/settings` | `credits_per_dollar`, state, eligibility, threshold, refill amount, currency, `expire_days`, `options[]`, `refill_options[]` |
+| `account_free_gens` | `/user/free-gens/v2` | `items[]` |
+| `account_generation_seconds` | `/user/generation-seconds` | `items[]` |
+| `account_generation_seconds_packs` | `/generation-seconds/packs` | `items[]` |
+| `account_bundle_all_unlim_status` | `/subscriptions/bundle/all-unlim/status` | `is_eligible_to_purchase`, `has_all_unlims` |
+| `account_bundle_seedance_unlimited` | `/subscriptions/bundle/seedance-unlimited` | `tiers[]` |
+
+**Privacy:** only the whitelisted fields survive (`higgsfield_scraper/parsers/account.py`); list items keep scalars
+only, without id / url / email / name / avatar / user / workspace / Stripe / customer / payment keys. The whitelist is
+applied by `AccountPrivacyMiddleware` *before* the `http/` and `raw/` archives, and these requests bypass the dev HTTP
+cache, so emails, names, user / workspace / subscription ids and Stripe ids are never written to disk.
+**Units:** wallet balances arrive in cost units = credits × 100 (`888` → `8.88`); the record holds credits and names the
+rule in `conversions` (`raw/` keeps the API value). Everything else is kept as returned.
+
+Output: `account.records[]` in `dataset.json`, `json/account.json`, `csv/account.csv` (one row per field:
+`endpoint, status, field, value, conversion`) and `csv/account_items.csv` (one row per list item). These files exist
+only in runs with account data. `meta.counts.account_records` likewise.
+
+```bash
+python -m higgsfield_scraper scrape pricing --sections all --logged-in-prices --label with-logged-in-prices
+python -m higgsfield_scraper scrape pricing --sections all,account --logged-in-prices --label logged-in-prices-check
+python -m higgsfield_scraper scrape pricing --sections account --label my-balance          # account only
+python -m higgsfield_scraper normalize --run runs/<id>      # re-parses plans_logged_in / job_costs_logged_in / account_*
+```
+
+`normalize` turns `--logged-in-prices` on by itself when the source run has `plans_logged_in*` / `job_costs_logged_in*`
+raw files, and always re-parses `account_*` raw files that are present.
 
 ### `--no-http-archive`
 

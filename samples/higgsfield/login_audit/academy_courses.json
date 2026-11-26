@@ -1,0 +1,62 @@
+{
+    "_meta": {
+        "request": "GET https://fnf-api-gw.higgsfield.ai/fnf-academy/api/v1/courses",
+        "auth": "none (public)",
+        "captured": "2026-11-26",
+        "note": "17 courses; truncated"
+    },
+    "data": [
+        {
+            "id": "<redacted>",
+            "slug": "blockbuster-4k",
+            "title": "Blockbuster 4K: The AI Filmmaking Pipeline",
+            "description": "One 40-minute tutorial — scripting, asset creation, and scene-by-scene prompt engineering — chaptered into sections you can follow along with, shot by shot.",
+            "lesson_count": 10,
+            "test_count": 0,
+            "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__cover__course-thumbnail.d3aeddb8.webp",
+            "has_certificate": false,
+            "has_examples": false,
+            "published_at": "2026-07-18",
+            "updated_at": "2026-10-16",
+            "difficulty": "Intermediate",
+            "reading_minutes": 38,
+            "duration_minutes": 40,
+            "free_generations": 0,
+            "categories": [
+                "movie-making"
+            ],
+            "preview_media": {
+                "url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__video__lesson-video.f4c9f07a.mp4",
+                "kind": "video",
+                "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__cover.3b23bed5.webp"
+            },
+            "featured_position": 0
+        },
+        {
+            "id": "<redacted>",
+            "slug": "santiago-cinematic",
+            "title": "Build an Ultra-Realistic Short Film in 4K",
+            "description": "A 33-minute director's masterclass. A football drama built shot by shot with Claude Fable 5 and Seedance 2.0 4K.",
+            "lesson_count": 19,
+            "test_count": 0,
+            "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__cover__course-thumbnail.789b1f0e.webp",
+            "has_certificate": false,
+            "has_examples": false,
+            "published_at": "2026-07-21",
+            "updated_at": "2026-10-07",
+            "difficulty": "Intermediate",
+            "reading_minutes": 43,
+            "duration_minutes": 33,
+            "free_generations": 0,
+            "categories": [
+                "movie-making"
+            ],
+            "preview_media": {
+                "url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video__lesson-video.4583f137.mp4",
+                "kind": "video",
+                "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video_poster__cover.10418591.webp"
+            },
+            "featured_position": 1
+        }
+    ]
+}

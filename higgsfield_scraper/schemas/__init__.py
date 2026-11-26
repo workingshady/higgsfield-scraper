@@ -6,6 +6,7 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
+from .account import AccountRecord
 from .auth import AuthPayload, CreditPackage
 from .benefits import BenefitCard
 from .common import SCHEMA_VERSION, Provenance, make_id
@@ -24,10 +25,11 @@ MODEL_BY_KIND: dict[str, type[BaseModel]] = {
     "marketing_plan": MarketingPlan,
     "credit_package": CreditPackage,
     "auth_payload": AuthPayload,
+    "pricing_account": AccountRecord,          # opt-in `--sections account`
 }
 
 __all__ = [
     "SCHEMA_VERSION", "MODEL_BY_KIND", "Provenance", "make_id",
-    "AuthPayload", "BenefitCard", "Comparison", "CreditPackage", "Dataset",
+    "AccountRecord", "AuthPayload", "BenefitCard", "Comparison", "CreditPackage", "Dataset",
     "MarketingPlan", "Model", "Plan", "PlanSet",
 ]

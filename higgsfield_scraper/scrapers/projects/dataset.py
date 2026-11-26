@@ -72,7 +72,9 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
     categories = [_strip(c) for c in g("projects_category")]
     series = [_strip(s) for s in g("projects_series")]
     if sel.wants("series") and not series:
-        warnings.append("original series (/series) need a login session: none scraped")
+        warnings.append("original series: none scraped (fnf-series answered nothing)"
+                        if getattr(sel, "public_series", False)
+                        else "original series (/series) need a login session: none scraped")
 
     slug_by_contest = {c["contest_id"]: c.get("slug") for c in contests}
     summary = {
@@ -92,7 +94,9 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
               "contests": len(contests), "submissions": len(submissions), "series": len(series),
               "listing_entries": len(entries)}
     meta = make_meta("projects", sel, rm, counts=counts,
-                     endpoints={k: f"{API_BASE}{v}" for k, v in ep.ENDPOINTS.items()},
+                     endpoints={**{k: f"{API_BASE}{v}" for k, v in ep.ENDPOINTS.items()},
+                                **({k: f"{ep.SERIES_BASE}{v}" for k, v in ep.PUBLIC_SERIES_ENDPOINTS.items()}
+                                   if getattr(sel, "public_series", False) else {})},
                      totals_available=rm.totals, warnings=warnings)
     ds = {"schema_version": 1, "meta": meta, "publications": publications, "episodes": episodes,
           "categories": categories, "contests": contests, "submissions": submissions, "series": series,

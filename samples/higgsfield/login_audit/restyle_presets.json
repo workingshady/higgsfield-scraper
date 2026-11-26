@@ -1,0 +1,217 @@
+{
+    "_meta": {
+        "request": "GET https://fnf-api-gw.higgsfield.ai/fnf-cms-api/restyle-presets",
+        "auth": "none (public)",
+        "captured": "2026-11-26",
+        "note": "total 21, page of 5, cursor int"
+    },
+    "data": {
+        "total": 21,
+        "cursor": 2,
+        "items": [
+            {
+                "id": "<redacted>",
+                "name": "Mission",
+                "title": "Mission",
+                "description": null,
+                "source": "higgsfield",
+                "job_set_type": "restyle",
+                "original_video": null,
+                "variants": [],
+                "image": {
+                    "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.png",
+                    "type": "static",
+                    "width": 3456,
+                    "height": 2168,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp"
+                },
+                "images": [
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.png",
+                        "type": "static",
+                        "width": 3456,
+                        "height": 2168,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.png",
+                        "type": "static",
+                        "width": 3456,
+                        "height": 2168,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp"
+                    }
+                ],
+                "preview_video": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "width": 600,
+                    "height": 800,
+                    "duration": 12.041667,
+                    "main_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "main_width": 1248,
+                    "main_height": 1664,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp",
+                    "placeholder": "data:image/webp;base64,UklGRnQCAABXRUJQVlA4IGgCAABQCwCdASogACsAPlEgjEQjoiEYDVVUOAUEswBOmUJBX4ecsPPLt49ADparNt3YYpmdFJlZmgit7xmorLj/7EDxmR5yMnGZyatvd241Oye0+Bb3UuQFbJwb68SNp4/7Sga+YgAA/vtK8wC9/xe/Gz/vGbvuIlSRq+WUvlUtrw42guzwE6jf7C8/1msW68NXOCFiFIqq72I5PN2sPPLBbBOqlGqloIN9/Cpgm10dmdxmwY9eZ//otC976Atgx39yA0cWQunD+CR1iAQ5h/9YxJLpFKm+nnz4RCmFXXhUjeggAAtOiwoGOBK/LBd8iGvauUNZzsIcjhnqLRECvS95+FKbHgQpi8tH/3UgwlqD8QHMQRar/97b6jt9/5ncRKNAOd8jXm8+FPKRrnuaQMP8wLLziXOmLFsq9vRPP1iFlgv391nvz8wUYsF+I75kMrF2k5xt5fgJOp0LrqEPP5tsI9cZnwb4+ucF/7NLdpM4Pdiagwd4JErPve01sDaf0l2BdKV/6e2yDwrBDHj+70fMt3AnKrOFuVSu+G5pnen7V9/SP8Ku9n0slB+V2YLvx5wFkWzkZyJWYe4lQOSYntW9cYJ5ww9OAC+ovUHuvvjkhM7vk7bbN3wFB6gogP73u2ZJHxW//lsjJQHnuqPPbU12OUajz+LML8/ZGQWj4lJJ0y1aNSEp7Kwf3fhSfxj2L30XbX2SFd3a9p3rnZ8RxrhcAZdeTz/wFmYlZ6gr2oi4wvKxLy3LY6wc+CuOyaabUwrNukkwAMggHco3gOL50/xcdbcRWcPvwHg3S/9J0fr8uF3hE3JDEVvylgAA"
+                },
+                "video": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "width": 600,
+                    "height": 800,
+                    "duration": 12.041667,
+                    "main_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "main_width": 1248,
+                    "main_height": 1664,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp",
+                    "placeholder": "data:image/webp;base64,UklGRnQCAABXRUJQVlA4IGgCAABQCwCdASogACsAPlEgjEQjoiEYDVVUOAUEswBOmUJBX4ecsPPLt49ADparNt3YYpmdFJlZmgit7xmorLj/7EDxmR5yMnGZyatvd241Oye0+Bb3UuQFbJwb68SNp4/7Sga+YgAA/vtK8wC9/xe/Gz/vGbvuIlSRq+WUvlUtrw42guzwE6jf7C8/1msW68NXOCFiFIqq72I5PN2sPPLBbBOqlGqloIN9/Cpgm10dmdxmwY9eZ//otC976Atgx39yA0cWQunD+CR1iAQ5h/9YxJLpFKm+nnz4RCmFXXhUjeggAAtOiwoGOBK/LBd8iGvauUNZzsIcjhnqLRECvS95+FKbHgQpi8tH/3UgwlqD8QHMQRar/97b6jt9/5ncRKNAOd8jXm8+FPKRrnuaQMP8wLLziXOmLFsq9vRPP1iFlgv391nvz8wUYsF+I75kMrF2k5xt5fgJOp0LrqEPP5tsI9cZnwb4+ucF/7NLdpM4Pdiagwd4JErPve01sDaf0l2BdKV/6e2yDwrBDHj+70fMt3AnKrOFuVSu+G5pnen7V9/SP8Ku9n0slB+V2YLvx5wFkWzkZyJWYe4lQOSYntW9cYJ5ww9OAC+ovUHuvvjkhM7vk7bbN3wFB6gogP73u2ZJHxW//lsjJQHnuqPPbU12OUajz+LML8/ZGQWj4lJJ0y1aNSEp7Kwf3fhSfxj2L30XbX2SFd3a9p3rnZ8RxrhcAZdeTz/wFmYlZ6gr2oi4wvKxLy3LY6wc+CuOyaabUwrNukkwAMggHco3gOL50/xcdbcRWcPvwHg3S/9J0fr8uF3hE3JDEVvylgAA",
+                    "original_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "original_width": 1246,
+                    "original_height": 1664
+                },
+                "priority": 0
+            },
+            {
+                "id": "<redacted>",
+                "name": "Classic Cel",
+                "title": "Classic Cel",
+                "description": null,
+                "source": "higgsfield",
+                "job_set_type": "restyle",
+                "original_video": {
+                    "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "type": "video",
+                    "width": 1080,
+                    "height": 1440,
+                    "main_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "media_id": "<redacted>",
+                    "main_width": 1080,
+                    "media_type": "video_input",
+                    "main_height": 1440,
+                    "placeholder": "data:image/webp;base64,UklGRoYCAABXRUJQVlA4IHoCAAAwDACdASogACsAPkkei0QioaEarfwAKASEoAnTMmAd8rb6eU88Wu3CUA9QDzB8Tf3c6n8nnKas7WA+8ugw0EqhAwLrujvyfpLSqgpTwoq+40MDo2CbzWuZ7g39myamWhYI71+KEkSRP2TgAP7vgBXoN6ok2mHs+HMRwuC9mlRTwF+7TVtqWv3DWSO60uRWKZAvp96W9SFXuk3c60JBiXvH+OTy43/64Suhi54BAM//2AAZhY238bD9VGan+h97ioF/2m0glyZGJ/nfEl7b7G8o3BfeUgpxYcg3ge+jCRAUhmxHlUYundf8i3tWmKlIJw9/wb7bePbsroubBA/8nJLrnFzFazG7X0L92QdFW8L7I7h8UuCNvORlphZcRyblW6EZGNqSVc3N/04UcRpvvbbi1pZXZMu90gwmQIo2JnJ/k3MiTivCsvERmMdbqwip28MYRwC2ZM9N+aTIbUIoRQ7FUPNApZXSADI1AXT/4XksuTWSw6cMvcjDAA2s6Q1h4+WtY93Op7YeGWPHB3uJ5LlRfQjBaM1D83k6n8Aev+VYLmeZdlsag6Z42rroOCDLmrdLHWMzfRTvCI/F1F0AIOQDNpM5hyXFaLzM9mhiBtMVVh267vhN0B67lvhKwfTb6A8h71e530mBSFnMZ3RkcYA4fMQg/210+a9jit5QTdtNqyP8ogxmBviFSKvTYv2HDjHox0ZoFSeRGQfQwXFVjftKiV8eBaLdLRRqLITOgFfgv5rXgGmX2d05ePSDG0LbAaCZrS5naOWjhhrU2d3Jt0XUFUTptTws8YEAv9xr/tQ+iQIya8nUiNmLPlVLnbgMIOcYjqocFy3ogUAA",
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp",
+                    "compressed_video": {
+                        "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                        "width": 600,
+                        "height": 800,
+                        "status": "ready",
+                        "profile": "<redacted>",
+                        "duration": 10.041667,
+                        "size_bytes": 2171270,
+                        "source_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                        "audio_streams": 1
+                    }
+                },
+                "variants": [
+                    {
+                        "id": "<redacted>",
+                        "type": "edit",
+                        "media": {
+                            "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                            "type": "video",
+                            "width": 600,
+                            "height": 800,
+                            "main_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                            "main_width": 960,
+                            "main_height": 1280,
+                            "placeholder": "data:image/webp;base64,UklGRnICAABXRUJQVlA4IGYCAACwCwCdASogACsAPkkci0QioaEapAAoBISgCdMwAGB2M6UeX3bBKAfGP8IPMnxOekTg/DrtS1ZNI55Ze5ZHuTd7dAa99XntJPUgxTNdeBdGurtTjHYcVfO+WDFmYxNsvPO2emANGIAA/u+VmeHmLBtLHUVNiKvVMyHph7Pp7YMQXuY2EmD8nTlyc+ELf+ozan2ien7iL4pXRhpkowI62QFdeTO1BDI/vzut/ClJugftt3G/IHR8P3uNS8dvVFgF117f53xI+zF7Lu7WZAncvjUpQ5ONyjVxMCzc1aM33rxtYr2ienpE0Xu5Wb8PV//wZ8LoRnWPHuzdALkV9UlCV33b2rtplrtPfnkCeQs1eWAJCbcc0Hbt4G8zYAtvpvUgCBEUnJaiPYQaFI1hoH9QvpTJ2IkehO13q2uOtp6D8jp7ITWH4AcPnJn5ZHVqMUbY6li4Lcmomg0F0sqbk2T338cb3j1Ocooio+doLeujQJwD1tKMaqzxhr5T8ap+1Wc9zh5COSn7qDDgYFQHNimbsR7ceEFU1G8nJdIA2qnmnF+AAcJZF5ejSJCBETnLNA3Zz6jHW1q1ZBJgNdNeN8YnL9P5rbojcyQR0JpnWanFJO2QTgsvVaNS+rOD9hcgvh12y0Dfg26dN0muwK/831g0bifqd4Y/PDhnKYO5b08seGVGAWQRO1EXZ2meGreeRRvbK+BX8X64YF/3FwV8m46xMzGvl5P1i7U4NDwyTG/nV5LpjqlVSIQjWxWQYlmwRy308M87sMDFt7/uLzv82gWBnSvm8mxDV9Rj3MBD40anx9rAmyCqOyokAA==",
+                            "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp",
+                            "compressed_video": {
+                                "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                                "width": 600,
+                                "height": 800,
+                                "status": "ready",
+                                "profile": "<redacted>",
+                                "duration": 10.041667,
+                                "size_bytes": 2066847,
+                                "source_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                                "audio_streams": 1
+                            },
+                            "hls_url": "https://static-public-media.higgsfield.ai/multiplier-items/hls/genjutsu-h264-abr-v1/<uuid>/master.m3u8",
+                            "duration": 10.041667
+                        },
+                        "prompt": null,
+                        "input_assets": [],
+                        "params": {},
+                        "priority": 0
+                    },
+                    {
+                        "id": "<redacted>",
+                        "type": "original",
+                        "media": {
+                            "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                            "type": "video",
+                            "width": 1080,
+                            "height": 1440,
+                            "main_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                            "media_id": "<redacted>",
+                            "main_width": 1080,
+                            "media_type": "video_input",
+                            "main_height": 1440,
+                            "placeholder": "data:image/webp;base64,UklGRoYCAABXRUJQVlA4IHoCAAAwDACdASogACsAPkkei0QioaEarfwAKASEoAnTMmAd8rb6eU88Wu3CUA9QDzB8Tf3c6n8nnKas7WA+8ugw0EqhAwLrujvyfpLSqgpTwoq+40MDo2CbzWuZ7g39myamWhYI71+KEkSRP2TgAP7vgBXoN6ok2mHs+HMRwuC9mlRTwF+7TVtqWv3DWSO60uRWKZAvp96W9SFXuk3c60JBiXvH+OTy43/64Suhi54BAM//2AAZhY238bD9VGan+h97ioF/2m0glyZGJ/nfEl7b7G8o3BfeUgpxYcg3ge+jCRAUhmxHlUYundf8i3tWmKlIJw9/wb7bePbsroubBA/8nJLrnFzFazG7X0L92QdFW8L7I7h8UuCNvORlphZcRyblW6EZGNqSVc3N/04UcRpvvbbi1pZXZMu90gwmQIo2JnJ/k3MiTivCsvERmMdbqwip28MYRwC2ZM9N+aTIbUIoRQ7FUPNApZXSADI1AXT/4XksuTWSw6cMvcjDAA2s6Q1h4+WtY93Op7YeGWPHB3uJ5LlRfQjBaM1D83k6n8Aev+VYLmeZdlsag6Z42rroOCDLmrdLHWMzfRTvCI/F1F0AIOQDNpM5hyXFaLzM9mhiBtMVVh267vhN0B67lvhKwfTb6A8h71e530mBSFnMZ3RkcYA4fMQg/210+a9jit5QTdtNqyP8ogxmBviFSKvTYv2HDjHox0ZoFSeRGQfQwXFVjftKiV8eBaLdLRRqLITOgFfgv5rXgGmX2d05ePSDG0LbAaCZrS5naOWjhhrU2d3Jt0XUFUTptTws8YEAv9xr/tQ+iQIya8nUiNmLPlVLnbgMIOcYjqocFy3ogUAA",
+                            "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp",
+                            "compressed_video": {
+                                "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                                "width": 600,
+                                "height": 800,
+                                "status": "ready",
+                                "profile": "<redacted>",
+                                "duration": 10.041667,
+                                "size_bytes": 2171270,
+                                "source_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                                "audio_streams": 1
+                            }
+                        },
+                        "prompt": null,
+                        "input_assets": [],
+                        "params": {},
+                        "priority": 1
+                    }
+                ],
+                "image": {
+                    "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.png",
+                    "type": "static",
+                    "width": 1800,
+                    "height": 1018,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp"
+                },
+                "images": [
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.png",
+                        "type": "static",
+                        "width": 1800,
+                        "height": 1018,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp"
+                    }
+                ],
+                "preview_video": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "width": 600,
+                    "height": 800,
+                    "duration": 10.083333,
+                    "main_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "main_width": 1080,
+                    "main_height": 1440,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp",
+                    "placeholder": "data:image/webp;base64,UklGRtYCAABXRUJQVlA4IMoCAAAwDQCdASogACsAPlEcjUQjoaGYDVVUOAUEoAnTLHAJQZ8t0YOGbtwLtJlAPpPvB8Y3meNh2e4D+A3fPtSbvuqA15Ixtnj1BBFqPtkEiXYdV+CGATXmtIUlUOjgNR3IaECyy638jHAxzzA1eTevwM26bAAA9rEUGMTdFgxeTs/gZk+Z9jOLPYq4Be8/W0N8625iFEKW4B1HMgavewRNJfOxnfo/Aj+ykfDw7hyQ+1e94XnA+dP3cHGtku/BF57k8ksgv6qMw0sjs2KNzDS3hbAAcyCJh+P/zHtaSnssZGNb3XJ45Vqz8JVqVvjvJHeexWV0c7yxrxu0ibgaN2xzypqPtyF/TKLKkxBWduToWhsvm0opfy4UeVmIxrTNBU473N4k0PXw3Xxlb29dePTf9EuzNiJgT9n7dBnPpw8jxk1avFvEy4n8NvSxOXEOVT35cn8nfLy/6+uqBHErTXIHtzhGN/OC4nW9k9cgsi7FhJBo4d8YDSfTuy+8l+h9CqZ0HRV8u7aH8Oz+/NRn1hThXJ1rtpDFugWXoncc7tDsRT1P5kzZMS3nKixmA3gsNGPXdqzD9RSWOtLlJ6OoXvT/m0dA+NbrDo+y7VZ8VlgIurh58BJmuQwnub9o2h8azA5UIXSABeuJt6McaGHSipNHtcqHAkPr9LN6Br1HaXfQu1wqFS7chB3e6c6P3pVvrPByDaZ/Jq7xSQvoN/8czMHt4cevCnD7JeqnEBresI+khwPB3rcuVZ77S/u+/Muk/ev7WGT9e/bhDLSz0uU540fFV5AlXIsf7I0U0FP0gNfFh2TWyESTvUry/wY4E9y2K8JZ6zdbHvT8xzpFrfvljAvVREYVRj0tm5wwsZaafjyu5bUNgc8eeBpAzWKskZQKTe3gWZ3kDq13+xW7EnRBucvN6+hbSVwod2Dm1pR3ewTDZ8ncEFJB4RV/lZBUmAA="
+                },
+                "video": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "width": 600,
+                    "height": 800,
+                    "duration": 10.083333,
+                    "main_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "main_width": 1080,
+                    "main_height": 1440,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.webp",
+                    "placeholder": "data:image/webp;base64,UklGRtYCAABXRUJQVlA4IMoCAAAwDQCdASogACsAPlEcjUQjoaGYDVVUOAUEoAnTLHAJQZ8t0YOGbtwLtJlAPpPvB8Y3meNh2e4D+A3fPtSbvuqA15Ixtnj1BBFqPtkEiXYdV+CGATXmtIUlUOjgNR3IaECyy638jHAxzzA1eTevwM26bAAA9rEUGMTdFgxeTs/gZk+Z9jOLPYq4Be8/W0N8625iFEKW4B1HMgavewRNJfOxnfo/Aj+ykfDw7hyQ+1e94XnA+dP3cHGtku/BF57k8ksgv6qMw0sjs2KNzDS3hbAAcyCJh+P/zHtaSnssZGNb3XJ45Vqz8JVqVvjvJHeexWV0c7yxrxu0ibgaN2xzypqPtyF/TKLKkxBWduToWhsvm0opfy4UeVmIxrTNBU473N4k0PXw3Xxlb29dePTf9EuzNiJgT9n7dBnPpw8jxk1avFvEy4n8NvSxOXEOVT35cn8nfLy/6+uqBHErTXIHtzhGN/OC4nW9k9cgsi7FhJBo4d8YDSfTuy+8l+h9CqZ0HRV8u7aH8Oz+/NRn1hThXJ1rtpDFugWXoncc7tDsRT1P5kzZMS3nKixmA3gsNGPXdqzD9RSWOtLlJ6OoXvT/m0dA+NbrDo+y7VZ8VlgIurh58BJmuQwnub9o2h8azA5UIXSABeuJt6McaGHSipNHtcqHAkPr9LN6Br1HaXfQu1wqFS7chB3e6c6P3pVvrPByDaZ/Jq7xSQvoN/8czMHt4cevCnD7JeqnEBresI+khwPB3rcuVZ77S/u+/Muk/ev7WGT9e/bhDLSz0uU540fFV5AlXIsf7I0U0FP0gNfFh2TWyESTvUry/wY4E9y2K8JZ6zdbHvT8xzpFrfvljAvVREYVRj0tm5wwsZaafjyu5bUNgc8eeBpAzWKskZQKTe3gWZ3kDq13+xW7EnRBucvN6+hbSVwod2Dm1pR3ewTDZ8ncEFJB4RV/lZBUmAA=",
+                    "original_url": "https://static-public-media.higgsfield.ai/restyle-presets/<uuid>.mp4",
+                    "original_width": 1080,
+                    "original_height": 1440
+                },
+                "priority": 1
+            }
+        ]
+    }
+}

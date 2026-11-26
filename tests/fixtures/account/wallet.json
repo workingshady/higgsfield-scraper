@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "endpoint": "account_wallet",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/workspaces/wallet",
+        "params": {},
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "workspace_id": "ws_SYNTHETIC",
+        "credits_balance": 888,
+        "subscription_balance": 0,
+        "wallet_created_at": "2026-01-01T00:00:00Z",
+        "next_credit_allocation_date": null,
+        "allocation_cycle": null,
+        "total_credits": 1038,
+        "on_demand_credits": 0,
+        "bonus_credits": 150,
+        "bonus_credits_expire_at": null,
+        "expire_days": 90,
+        "credit_limit": null,
+        "group_credit_allocation": null,
+        "scoped_credits": [
+            {
+                "id": "sc_SYNTH",
+                "scope": "seedance",
+                "balance": 500,
+                "expires_at": "2026-12-31T00:00:00Z"
+            }
+        ]
+    }
+}

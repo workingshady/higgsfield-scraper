@@ -1,0 +1,36 @@
+{
+    "_meta": {
+        "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/plans?plan_set_key=ps_a3&with_localization=true",
+        "auth": "Bearer (logged in) vs none",
+        "captured": "2026-11-26",
+        "note": "Every other plan row is identical between the two responses; country_code is omitted (IP-derived)."
+    },
+    "data": {
+        "anon_plan_count": 14,
+        "logged_in_plan_count": 15,
+        "logged_in_only_plans": [
+            {
+                "id": "<redacted>",
+                "plan_type": "lite",
+                "name": "Lite",
+                "credits": 100,
+                "billing_period": "annual",
+                "product_id": "<redacted>",
+                "price_id": "<redacted>",
+                "original_price": 8400,
+                "original_monthly_price": 700,
+                "final_price": 1200,
+                "final_monthly_price": 100,
+                "renew_price": 1200,
+                "renew_monthly_price": 100,
+                "currency": "usd",
+                "discount": {
+                    "percent_off": 85,
+                    "duration_months": null,
+                    "duration": "forever"
+                },
+                "offer": null
+            }
+        ]
+    }
+}

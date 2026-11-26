@@ -1,0 +1,35 @@
+{
+    "meta": {
+        "endpoint": "account_subscription",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/workspaces/subscription",
+        "params": {},
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "subscription_id": "sub_SYNTH",
+        "workspace_id": "ws_SYNTHETIC",
+        "plan_name": "Free",
+        "plan_type": "free",
+        "status": "active",
+        "billing_cycle": "monthly",
+        "total_seats": 1,
+        "occupied_seats": 1,
+        "available_seats": 0,
+        "seats_capacity": 1,
+        "unlimited_seats": false,
+        "credits_per_seat": 0,
+        "current_period_start": "2026-11-01T00:00:00Z",
+        "current_period_end": "2026-12-01T00:00:00Z",
+        "last_payment_date": null,
+        "created_at": "2026-01-01T00:00:00Z",
+        "cancel_at": null,
+        "is_paused": false,
+        "payment_status": "ok",
+        "payment_status_message": "x",
+        "plan_version": 3,
+        "is_gift_subscription": false,
+        "is_cancellation_requested": false,
+        "email_type": "personal"
+    }
+}

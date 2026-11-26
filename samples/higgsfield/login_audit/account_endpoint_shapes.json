@@ -1,0 +1,692 @@
+{
+    "_meta": {
+        "captured": "2026-11-26",
+        "note": "Per-user endpoints: field names and JSON types only, no values. Free personal account."
+    },
+    "data": {
+        "user": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/user",
+            "shape": {
+                "id": "str",
+                "enterprise_new_main": "bool",
+                "plan_type": "str",
+                "subscription_credits": "float",
+                "package_credits": "float",
+                "bonus_credits": "float",
+                "bonus_credits_expire_at": "null",
+                "soul_credits": "float",
+                "wan2_5_video_credits": "float",
+                "text2keyframes_credits": "float",
+                "face_swap_credits": "float",
+                "qwen_camera_control_credits": "float",
+                "character_swap_credits": "float",
+                "daily_credits": "float",
+                "total_plan_credits": "int",
+                "billing_period": "null",
+                "is_cancel_inited": "bool",
+                "plan_ends_at": "null",
+                "next_credit_allocation_at": "null",
+                "is_pro_plan_veo3_available": "bool",
+                "cohort": "str",
+                "promo_state": "str",
+                "has_unlim": "bool",
+                "veo3_fast_generations_count": "int",
+                "auto_publish": "bool",
+                "lang": "str",
+                "is_creator_partner_program": "bool",
+                "pause_starts_at": "null",
+                "pause_resumes_at": "null",
+                "is_pause_scheduled": "bool",
+                "is_paused": "bool",
+                "is_gift_subscription": "bool",
+                "workspace_id": "str",
+                "workspace_type": "str",
+                "workspace_role": "str",
+                "workspace_membership_exists": "bool",
+                "blog_ip_check": "bool",
+                "blog_collab": "bool",
+                "subscription_downgrades_at": "null",
+                "subscription_downgrades_plan": "null",
+                "lite_annual_reserve_days": "null",
+                "lite_annual_reserve_ends_at": "null",
+                "lite_annual_source": "null",
+                "last_daily_credits_awarded_at": "str",
+                "has_flex_unlim": "bool",
+                "hide_reduced_nano_banana_2_concurrent": "bool",
+                "unlim_battery": "null",
+                "blocked_at": "null",
+                "suspended_at": "null",
+                "email": "str",
+                "business_email": "null",
+                "block_reason": "str",
+                "appeal_applied_at": "null",
+                "plan_version": "int",
+                "show_generation_activity_notice": "bool",
+                "verified_business_email": "null",
+                "is_test_user": "bool",
+                "mcp_trial_ends_at": "null",
+                "trial_status": "null",
+                "consents": {
+                    "enabled": "bool",
+                    "terms_of_use": {
+                        "required_version": "int",
+                        "accepted_version": "int",
+                        "is_accepted": "bool"
+                    },
+                    "biometric": {
+                        "required_version": "int",
+                        "accepted_version": "int",
+                        "is_accepted": "bool"
+                    },
+                    "seedance_4k_folder": {
+                        "required_version": "int",
+                        "accepted_version": "int",
+                        "is_accepted": "bool"
+                    },
+                    "seedance_4k_paywall": {
+                        "required_version": "int",
+                        "accepted_version": "int",
+                        "is_accepted": "bool"
+                    },
+                    "seedance_4k_folder_completion": {
+                        "required_version": "int",
+                        "accepted_version": "int",
+                        "is_accepted": "bool"
+                    },
+                    "seedance_2_5_retention_active": {
+                        "required_version": "int",
+                        "accepted_version": "int",
+                        "is_accepted": "bool"
+                    },
+                    "seedance_2_5_retention_cancelled": {
+                        "required_version": "int",
+                        "accepted_version": "int",
+                        "is_accepted": "bool"
+                    }
+                },
+                "cobalt": "bool",
+                "onyx": "str"
+            }
+        },
+        "user_profile": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/user/profile",
+            "shape": {
+                "username": "str",
+                "avatar_url": "str",
+                "background_image_url": "null",
+                "bio": "null",
+                "headline": "null",
+                "instagram_handle": "null",
+                "twitter_handle": "null",
+                "youtube_handle": "null",
+                "tiktok_handle": "null",
+                "discord_handle": "null",
+                "linkedin_handle": "null",
+                "show_full_name": "bool",
+                "full_name": "str",
+                "location": "null",
+                "badge": "null",
+                "badges": [],
+                "total_projects_views": "int",
+                "total_projects_likes": "int",
+                "created_at": "str",
+                "account_created_at": "str",
+                "updated_at": "str"
+            }
+        },
+        "user_meta": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/user/meta",
+            "shape": {
+                "country_code": "str",
+                "region_code": "str",
+                "cohort": "str"
+            }
+        },
+        "user_settings": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/user/settings",
+            "shape": {
+                "media_consent": "bool",
+                "media_consented_at": "null",
+                "audio_consent": "null",
+                "audio_consented_at": "null",
+                "unlimited_settings": "null",
+                "has_image_auto": "bool",
+                "character_sheets_consent": "bool",
+                "character_sheets_consented_at": "null",
+                "ai_influencer_consent": "bool",
+                "ai_influencer_consented_at": "null",
+                "supercomputer_llm_consent": "bool",
+                "supercomputer_llm_consented_at": "null",
+                "blog_posts_validation_disabled": "bool"
+            }
+        },
+        "workspaces": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces",
+            "shape": [
+                {
+                    "id": "str",
+                    "name": "null",
+                    "type": "str",
+                    "is_enterprise_sub_workspace": "bool",
+                    "can_publish_assets": "bool",
+                    "clerk_organization_id": "null",
+                    "avatar_url": "null",
+                    "username": "null",
+                    "user_role": "str"
+                }
+            ]
+        },
+        "ws_details": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces/details",
+            "shape": {
+                "id": "str",
+                "name": "null",
+                "type": "str",
+                "user_role": "str",
+                "clerk_organization_id": "null",
+                "avatar_url": "null",
+                "bio": "null",
+                "grace_period_type": "null",
+                "can_publish_assets": "bool",
+                "sso_status": "str",
+                "has_scheduled_monthly_credit_allocation": "bool",
+                "is_enterprise_sub_workspace": "bool",
+                "sub_workspace_block": "null",
+                "overdue_invoice_stage": "null"
+            }
+        },
+        "ws_capabilities": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces/capabilities",
+            "shape": {
+                "id": "str",
+                "project_create": "bool",
+                "project_creation_policy_manage": "bool",
+                "organization_sso": "bool",
+                "organization_api_keys": "bool",
+                "claude_org_billing": "bool",
+                "workspace_settings_view": "bool",
+                "workspace_edit_profile": "bool",
+                "workspace_leave": "bool",
+                "workspace_delete": "bool",
+                "workspace_transfer_ownership": "bool",
+                "members_view": "bool",
+                "members_view_details": "bool",
+                "members_invite": "bool",
+                "members_resend_invite": "bool",
+                "members_copy_invite_link": "bool",
+                "members_cancel_invite": "bool",
+                "members_add_seats": "bool",
+                "members_pause": "bool",
+                "members_resume": "bool",
+                "members_remove": "bool",
+                "members_change_role": "bool",
+                "members_group_view": "bool",
+                "members_group_manage": "bool",
+                "members_admin_permissions": "bool",
+                "members_assign_unlims": "bool",
+                "assets_view_member_assets": "bool",
+                "assets_view_deleted_member_assets": "bool",
+                "subscription_view": "bool",
+                "subscription_manage_plan": "bool",
+                "subscription_cancel": "bool",
+                "subscription_top_up": "bool",
+                "subscription_auto_top_up": "bool",
+                "subscription_unlimited_models": "bool",
+                "billing_view_invoices": "bool",
+                "billing_view_payment_methods": "bool",
+                "billing_manage_payment_method": "bool",
+                "billing_manage_billing_info": "bool",
+                "billing_view_unlimited_access_history": "bool",
+                "usage_view_team_dashboard": "bool",
+                "usage_view_team_overview": "bool",
+                "usage_view_member_personal_statistics": "bool",
+                "usage_view_member_statistics": "bool",
+                "usage_view_credit_spend_overview": "bool",
+                "usage_export_general_report": "bool",
+                "usage_export_member_report": "bool",
+                "project_credit_limits_manage": "bool",
+                "promo_code_redeem": "bool",
+                "gifts_redeem": "bool",
+                "supercomputer_safety_manage": "bool",
+                "withdraw_sub_credits": "bool",
+                "manage_sub_workspace_members": "bool",
+                "create_sub_workspace": "bool",
+                "manage_sub_workspace": "bool",
+                "request_sub_credits": "bool",
+                "approve_sub_credits": "bool",
+                "view_credit_requests": "bool",
+                "allocate_sub_credits": "bool"
+            }
+        },
+        "ws_wallet": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces/wallet",
+            "shape": {
+                "workspace_id": "str",
+                "credits_balance": "int",
+                "subscription_balance": "int",
+                "wallet_created_at": "str",
+                "next_credit_allocation_date": "null",
+                "allocation_cycle": "null",
+                "total_credits": "int",
+                "on_demand_credits": "int",
+                "bonus_credits": "int",
+                "bonus_credits_expire_at": "null",
+                "expire_days": "int",
+                "credit_limit": "null",
+                "group_credit_allocation": "null",
+                "scoped_credits": []
+            }
+        },
+        "ws_subscription": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces/subscription",
+            "shape": {
+                "subscription_id": "str",
+                "workspace_id": "str",
+                "plan_name": "str",
+                "plan_type": "str",
+                "status": "str",
+                "billing_cycle": "str",
+                "total_seats": "int",
+                "occupied_seats": "int",
+                "available_seats": "int",
+                "seats_capacity": "int",
+                "unlimited_seats": "bool",
+                "credits_per_seat": "int",
+                "current_period_start": "str",
+                "current_period_end": "str",
+                "last_payment_date": "null",
+                "created_at": "str",
+                "updated_at": "str",
+                "cancel_at": "null",
+                "is_pause_scheduled": "bool",
+                "pause_starts_at": "null",
+                "pause_resumes_at": "null",
+                "is_paused": "bool",
+                "payment_status": "str",
+                "payment_status_message": "str",
+                "payment_status_updated_at": "null",
+                "downgrades_at": "null",
+                "plan_version": "int",
+                "show_cta": "bool",
+                "is_gift_subscription": "bool",
+                "is_cancellation_requested": "bool",
+                "cancellation_rewards_value": "null",
+                "email_type": "str"
+            }
+        },
+        "ws_notice": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces/notice",
+            "shape": {
+                "status": "str",
+                "modal_data": "null",
+                "payment_method_data": "null",
+                "payment_method_bonus_status": "str",
+                "payment_method_bonus_type": "null",
+                "claim_date": "null",
+                "first_claim_date": "null",
+                "rebill_claim_date": "null",
+                "discount": "null",
+                "discounted_price": "null",
+                "subscription": "null",
+                "subscription_cancelled_at": "null",
+                "bonus_shown_at": "null",
+                "grace_notice_shown_at": "null",
+                "payment_method": "null",
+                "unlims": "null",
+                "currency": "str"
+            }
+        },
+        "ws_settings": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces/settings",
+            "shape": {
+                "configs": []
+            }
+        },
+        "ws_seat_bonus": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces/seat-bonus",
+            "shape": {
+                "seat_bonus": "null"
+            }
+        },
+        "v2_auto_top_ups_settings": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/v2/auto-top-ups/settings",
+            "shape": {
+                "threshold": "null",
+                "state": "str",
+                "outstanding_amount": "null",
+                "refill_options": [],
+                "options": [],
+                "selected_option": "null",
+                "default_option": "null",
+                "is_eligible": "bool",
+                "is_on_demand_only": "bool",
+                "credits_per_dollar": "int",
+                "current_refill_amount": "int",
+                "on_demand_credits": "int",
+                "modal_type": "str",
+                "modal_data": "null",
+                "currency": "str",
+                "expire_days": "int"
+            }
+        },
+        "free_gens_v2": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/user/free-gens/v2",
+            "shape": {
+                "items": []
+            }
+        },
+        "user_offers": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/user/offers",
+            "shape": []
+        },
+        "personal_promo": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/user/personal-promo",
+            "shape": {}
+        },
+        "user_generation_seconds": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/user/generation-seconds",
+            "shape": {
+                "items": []
+            }
+        },
+        "generation_seconds_packs": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/generation-seconds/packs",
+            "shape": {
+                "items": []
+            }
+        },
+        "bundle_all_unlim_status": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/bundle/all-unlim/status",
+            "shape": {
+                "is_eligible_to_purchase": "bool",
+                "has_all_unlims": "bool"
+            }
+        },
+        "bundle_seedance_unlimited": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/bundle/seedance-unlimited",
+            "shape": {
+                "tiers": []
+            }
+        },
+        "restyle_custom": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/restyle/presets/custom?size=20",
+            "shape": {
+                "items": [],
+                "has_more": "bool",
+                "cursor": "null"
+            }
+        },
+        "mixed_media_configs": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/mixed-media/configs?preset_id=<id>",
+            "shape": {
+                "total": "int",
+                "cursor": "null",
+                "items": []
+            }
+        },
+        "quizzes_user": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/v2/quizzes/user",
+            "shape": {
+                "quiz": {
+                    "id": "str",
+                    "usage_plan": "str",
+                    "experience": "str",
+                    "team_size": "null",
+                    "features": [
+                        "str"
+                    ],
+                    "first_feature": "str",
+                    "flagship_features": [
+                        "str"
+                    ],
+                    "creation_goals": [
+                        "str"
+                    ],
+                    "source": "str",
+                    "source_detail": "null",
+                    "source_other_text": "null",
+                    "frustration": "str",
+                    "quiz_version": "str",
+                    "flow_type": "str",
+                    "team_name": "null",
+                    "role_in_company": "null",
+                    "device_type": "null",
+                    "completed_at": "float",
+                    "created_at": "float",
+                    "updated_at": "float"
+                },
+                "enterprise_quiz_required": "bool"
+            }
+        },
+        "assets_image": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/assets?category=image&size=20",
+            "shape": {
+                "items": [
+                    {
+                        "drama": "null",
+                        "id": "str",
+                        "user_id": "str",
+                        "created_at": "float",
+                        "min_url": "str",
+                        "raw_url": "str",
+                        "thumbnail_url": "null",
+                        "job_set_type": "str",
+                        "published_at": "null",
+                        "folder_ids": [],
+                        "comments_count": "int",
+                        "deleted_at": "null",
+                        "artifacts": "null",
+                        "duration_ms": "null",
+                        "is_favourite": "bool"
+                    }
+                ],
+                "cursor": "null"
+            }
+        },
+        "jobs_accessible": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/jobs/accessible?size=20",
+            "shape": {
+                "jobs": [
+                    {
+                        "job_set_type": "str",
+                        "job_set_id": "str",
+                        "job_set_parent_id": "null",
+                        "job_set_client_meta": {
+                            "ai_influencer": {
+                                "version": "int",
+                                "display_selection": {
+                                    "hair": [
+                                        "str"
+                                    ],
+                                    "gender": [
+                                        "str"
+                                    ],
+                                    "height": [
+                                        "str"
+                                    ],
+                                    "body_type": [
+                                        "str"
+                                    ],
+                                    "eye_color": [
+                                        "str"
+                                    ],
+                                    "skin_tone": [
+                                        "str"
+                                    ],
+                                    "freak_face": [
+                                        "str"
+                                    ],
+                                    "freak_neck": [
+                                        "str"
+                                    ],
+                                    "facial_hair": [
+                                        "str"
+                                    ],
+                                    "hair_colour": [
+                                        "str"
+                                    ],
+                                    "proportions": [
+                                        "str"
+                                    ],
+                                    "ethnicity_origin_base": [
+                                        "str"
+                                    ]
+                                }
+                            }
+                        },
+                        "board_ids": [],
+                        "params": {
+                            "tier": "str",
+                            "selection": {
+                                "hair": [
+                                    "str"
+                                ],
+                                "gender": [
+                                    "str"
+                                ],
+                                "height": [
+                                    "str"
+                                ],
+                                "accessory": [
+                                    "str"
+                                ],
+                                "aesthetic": [
+                                    "str"
+                                ],
+                                "body_type": [
+                                    "str"
+                                ],
+                                "eye_color": [
+                                    "str"
+                                ],
+                                "eye_shape": [
+                                    "str"
+                                ],
+                                "skin_tone": [
+                                    "str"
+                                ],
+                                "freak_face": [
+                                    "str"
+                                ],
+                                "freak_head": [
+                                    "str"
+                                ],
+                                "freak_neck": [
+                                    "str"
+                                ],
+                                "distinctive": [
+                                    "str"
+                                ],
+                                "facial_hair": [
+                                    "str"
+                                ],
+                                "hair_colour": [
+                                    "str"
+                                ],
+                                "proportions": [
+                                    "str"
+                                ],
+                                "ethnicity_origin_base": [
+                                    "str"
+                                ]
+                            },
+                            "brief": "str",
+                            "medias": [
+                                {
+                                    "data": {
+                                        "id": "str",
+                                        "url": "str",
+                                        "type": "str"
+                                    },
+                                    "role": "str"
+                                }
+                            ],
+                            "item_medias": [],
+                            "seed": "int",
+                            "batch_size": "int",
+                            "trait_variants": {
+                                "choices": {
+                                    "pr_egg": "str",
+                                    "ff_ears_9": "str",
+                                    "head_long": "str",
+                                    "neck_long": "str",
+                                    "body_ultra": "str",
+                                    "fh_pushbroom": "str",
+                                    "hs_lampshade": "str",
+                                    "fn_thickbrows": "str",
+                                    "ff_forehead_14": "str"
+                                },
+                                "version": "str"
+                            }
+                        },
+                        "meta": {},
+                        "id": "str",
+                        "status": "str",
+                        "ip_check_finished": "null",
+                        "ip_detected": "null",
+                        "can_bypass_ip": "bool",
+                        "deepfake_consent_required": "bool",
+                        "result": "null",
+                        "results": {
+                            "raw": {
+                                "type": "str",
+                                "url": "str"
+                            },
+                            "min": {
+                                "type": "str",
+                                "url": "str"
+                            },
+                            "hls": "null",
+                            "h264": "null"
+                        },
+                        "published_at": "null",
+                        "created_at": "float",
+                        "user_id": "str",
+                        "trace_id": "str",
+                        "cluster_hash": "str",
+                        "representation": "null",
+                        "drama": "null",
+                        "workspace_name": "null",
+                        "workspace_id": "str",
+                        "user": {
+                            "id": "str",
+                            "full_name": "str",
+                            "username": "str",
+                            "avatar_url": "str"
+                        },
+                        "comments_count": "int",
+                        "has_unresolved_comment": "bool",
+                        "is_favourite": "bool",
+                        "cost": "int",
+                        "is_viewed": "bool"
+                    }
+                ],
+                "has_more": "bool"
+            }
+        },
+        "folders": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/folders",
+            "shape": {
+                "items": [],
+                "cursor": "null"
+            }
+        },
+        "custom_references": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/custom-references",
+            "shape": []
+        },
+        "users_feed": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf-community/users/feed?limit=20&offset=0",
+            "shape": {
+                "publications": [],
+                "has_more": "bool"
+            }
+        },
+        "apps_personal": {
+            "request": "GET https://fnf-api-gw.higgsfield.ai/fnf-apps-marketplace/api/v1/apps/personal",
+            "shape": {
+                "apps": []
+            }
+        }
+    }
+}

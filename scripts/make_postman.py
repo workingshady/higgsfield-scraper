@@ -113,7 +113,21 @@ catalog = folder("catalog", "Preset & asset catalogs. docs/scrapers/catalog.md."
                     req("Katana presets", "/katana-presets", [("limit", "100"), ("lang", "{{locale}}")],
                         "fnf-cms-api; next_cursor (opaque).", base="{{cms_api_base}}"),
                     req("Color presets", "/color-presets", [("size", "100")], "Needs a session.", auth=True),
-                    req("Camera settings", "/camera-settings", (), "Needs a session (account data).", auth=True)])
+                    req("Camera settings", "/camera-settings", (), "Needs a session (account data).", auth=True),
+                    # opt-in extras (catalog --kinds chain_preset,notice,restyle_preset; public, verified 2026-11-26)
+                    req("Job-set chain presets", "/job-set-chain-presets", [("lang", "{{locale}}")],
+                        "fnf-cms-api; one JSON array (48), no paging. cost_credits / discount_credits are credits "
+                        "(no /100). catalog --kinds chain_preset.", base="{{cms_api_base}}"),
+                    req("Job-set chain presets (+hidden)", "/job-set-chain-presets",
+                        [("show_hidden", "true"), ("lang", "{{locale}}")],
+                        "58 = 48 visible + 10 hidden; no per-item hidden flag. catalog --include-hidden.",
+                        base="{{cms_api_base}}"),
+                    req("Notices (CMS)", "/notices", [("lang", "{{locale}}")],
+                        "{header_notices[], job_set_notices[]}: per-model badges/popups (retirements, incidents). "
+                        "catalog --kinds notice.", base="{{cms_base}}"),
+                    req("Restyle presets", "/restyle-presets", [("size", "100"), ("lang", "{{locale}}")],
+                        "fnf-cms-api; {total, cursor (next page number), items}. catalog --kinds restyle_preset.",
+                        base="{{cms_api_base}}")])
 projects = folder("projects", "Project showcases (films/series), contests, submissions. docs/scrapers/projects.md.", [
     req("Project publications", "/project-publications", [("limit", "50"), ("cursor", "{{cursor}}")], "cursor = score; ends when next_cursor null."),
     req("Recommended publications", "/project-publications/recommended", [("scope", "community"), ("limit", "50")],
@@ -126,7 +140,13 @@ projects = folder("projects", "Project showcases (films/series), contests, submi
     req("Contest submissions", "/contests/{{contest_id}}/submissions", [("limit", "100"), ("ordering", "newest")],
         "ordering: newest | most-liked | most-viewed | trending."),
     req("Contest entries", "/contest-participations/publications", [("tab", "ai_film_festival"), ("limit", "100")]),
-    req("Series", "/series", auth=True), req("Series detail", "/series/{{slug}}", auth=True),
+    req("Series", "/series", auth=True, desc="Legacy fnf path used by the default run: 401 without a session, 404 with "
+        "one. Use the fnf-series requests below."),
+    req("Series detail", "/series/{{slug}}", auth=True, desc="Legacy fnf path (404). Use fnf-series below."),
+    req("Series (fnf-series, public)", "/series", [("limit", "100")],
+        "Public, no login: {items, total} (35). projects --what series --public-series.", base="{{series_base}}"),
+    req("Series detail (fnf-series, public)", "/series/{{slug}}", (),
+        "Public. projects --public-series --with-details.", base="{{series_base}}"),
 ])
 blog = folder("blog", "Written content. Company posts/help/changelog are SSR pages (data embedded as $_TSR state); "
               "talent posts via API (Yjs bodies). docs/scrapers/blog.md.", [
@@ -198,6 +218,7 @@ col = {
     "variable": [{"key": k, "value": v} for k, v in [
         ("api_base", "https://fnf-api-gw.higgsfield.ai/fnf"), ("pricing_base", "https://pricing.higgsfield.ai"),
         ("cms_base", "https://cms.higgsfield.ai"), ("cms_api_base", "https://fnf-api-gw.higgsfield.ai/fnf-cms-api"),
+        ("series_base", "https://fnf-api-gw.higgsfield.ai/fnf-series"),
         ("community_base", "https://fnf-api-gw.higgsfield.ai/fnf-community"), ("community_post_id", ""),
         ("comment_id", ""), ("marketing_category", "ugc"),
         ("site_base", "https://higgsfield.ai"), ("clerk_base", "https://higgsfield.ai/_clerk"), ("locale", "en"),

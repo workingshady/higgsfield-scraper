@@ -206,6 +206,18 @@ credits, e.g. 100 credits = $6.25), **adjustable credit tiers** (12 slider tiers
 `/workspaces/credit-price` only works for team workspaces (500 otherwise; logged as a warning, the run still succeeds).
 Details: [`docs/PRICING.md`](docs/PRICING.md) §10.
 
+Two more **opt-in** extras (never on by default, the default output is unchanged without them):
+
+```bash
+# + the rows only logged-in users see (Lite annual plan, magi_2 cost), tagged visibility="logged_in"
+python -m higgsfield_scraper scrape pricing --sections all --logged-in-prices
+# + the account's own wallet (credits), subscription, auto top-up (credits_per_dollar), free gens, generation seconds
+python -m higgsfield_scraper scrape pricing --sections all,account --logged-in-prices
+```
+
+`account` is never implied by `all`; its bodies are reduced to a privacy whitelist before anything is saved (no emails,
+names, avatars, user/workspace/subscription or Stripe ids). See [`CLI.md`](CLI.md) "Logged-in pricing".
+
 ## 6. Options
 
 Full reference with every choice and default: **[`CLI.md`](CLI.md)**. Summary:

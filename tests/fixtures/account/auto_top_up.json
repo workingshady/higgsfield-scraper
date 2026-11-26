@@ -1,0 +1,33 @@
+{
+    "meta": {
+        "endpoint": "account_auto_top_up",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/v2/auto-top-ups/settings",
+        "params": {},
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "threshold": null,
+        "state": "disabled",
+        "outstanding_amount": null,
+        "refill_options": [],
+        "options": [
+            {
+                "credits": 500,
+                "price": 25,
+                "price_id": "price_SYNTH"
+            }
+        ],
+        "selected_option": null,
+        "default_option": null,
+        "is_eligible": false,
+        "is_on_demand_only": false,
+        "credits_per_dollar": 18,
+        "current_refill_amount": 0,
+        "on_demand_credits": 0,
+        "modal_type": "none",
+        "modal_data": null,
+        "currency": "usd",
+        "expire_days": 90
+    }
+}

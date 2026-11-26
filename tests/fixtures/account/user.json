@@ -1,0 +1,38 @@
+{
+    "meta": {
+        "endpoint": "account_user",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user",
+        "params": {},
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "_note": "SYNTHETIC fixture - not real account data",
+        "id": "user_SYNTHETIC123",
+        "email": "someone@example.invalid",
+        "plan_type": "free",
+        "subscription_credits": 0.0,
+        "package_credits": 8.88,
+        "bonus_credits": 0.0,
+        "bonus_credits_expire_at": null,
+        "daily_credits": 1.5,
+        "total_plan_credits": 0,
+        "soul_credits": 0.0,
+        "billing_period": null,
+        "plan_ends_at": null,
+        "next_credit_allocation_at": null,
+        "cohort": "c_synthetic",
+        "promo_state": "none",
+        "has_unlim": false,
+        "workspace_id": "ws_SYNTHETIC",
+        "workspace_type": "personal",
+        "workspace_role": "owner",
+        "is_paused": false,
+        "plan_version": 3,
+        "consents": {
+            "enabled": true
+        },
+        "block_reason": "",
+        "lang": "en"
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "endpoint": "account_jobs",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/jobs/accessible",
+        "params": {
+            "size": "20"
+        },
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "_note": "SYNTHETIC fixture - not real account data",
+        "has_more": true,
+        "jobs": [
+            {
+                "id": "job-SYNTHETIC-1",
+                "job_set_id": "set-SYNTHETIC-1",
+                "job_set_type": "seedance_2_0",
+                "status": "completed",
+                "created_at": 1764150000.5,
+                "cost": 2250,
+                "user_id": "user_SYNTHETIC123",
+                "workspace_id": "ws_SYNTHETIC",
+                "trace_id": "tr",
+                "user": {
+                    "id": "user_SYNTHETIC123",
+                    "full_name": "Jane Synthetic",
+                    "username": "jsyn",
+                    "avatar_url": "https://example.invalid/a.png"
+                },
+                "results": {
+                    "raw": {
+                        "type": "video",
+                        "url": "https://example.invalid/out.mp4"
+                    }
+                },
+                "params": {
+                    "prompt": "a secret synthetic prompt",
+                    "resolution": "720p",
+                    "model": "seedance_2_0",
+                    "duration": 5,
+                    "seed": 42,
+                    "medias": [
+                        {
+                            "role": "start_image",
+                            "data": {
+                                "id": "m1",
+                                "url": "https://example.invalid/in.png",
+                                "type": "image"
+                            }
+                        }
+                    ],
+                    "aspect_ratio": "16:9",
+                    "batch_size": 1
+                }
+            },
+            {
+                "id": "job-SYNTHETIC-2",
+                "job_set_id": "set-SYNTHETIC-2",
+                "job_set_type": "nano_banana_2_1",
+                "status": "failed",
+                "created_at": 1764140000.0,
+                "cost": 0,
+                "params": {
+                    "prompt": "another",
+                    "resolution": "2k",
+                    "batch_size": 4
+                }
+            }
+        ]
+    }
+}

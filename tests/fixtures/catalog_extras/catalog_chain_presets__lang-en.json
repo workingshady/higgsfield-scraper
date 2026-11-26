@@ -1,0 +1,238 @@
+{
+    "meta": {
+        "endpoint": "catalog_chain_presets",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/job-set-chain-presets?lang=en",
+        "params": {
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T12:00:00+00:00",
+        "status": 200
+    },
+    "body": [
+        {
+            "id": "930f4c3a-7bdd-4e59-b1a4-0b33500cf992",
+            "product_key": "game_character_creator",
+            "name": "BASEBALL GAME",
+            "description": "A baseball game broadcast shot — person sits in stadium stands in a team jersey, watching the field and posing softly like a viral stargirl moment caught on live TV.",
+            "collaborate": "",
+            "category": "Viral",
+            "image_preview": {},
+            "previews": [
+                {
+                    "id": "47adc2f8-9083-4e51-9035-c171e9dfe74f",
+                    "aspect_ratio": "9:16",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/job_set_chain_preset/a80f4b9e-5898-4c10-a5a0-1ae10fdbd15d.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 1072,
+                        "main_url": "https://cdn.higgsfield.ai/job_set_chain_preset/a85d6043-ca28-4862-9979-03a2eb9f0c5e.mp4",
+                        "main_width": 1280,
+                        "main_height": 2288,
+                        "optimized_url": "https://cdn.higgsfield.ai/job_set_chain_preset/2b8ac52c-d6b7-43d2-bccc-c5a45cceb3bc.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/job_set_chain_preset/b47bd0df-de95-4759-a355-8cc8e7fd41f9.webp"
+                    },
+                    "is_main": true
+                },
+                {
+                    "id": "b4357e97-ee17-4400-8a87-6aa1adba90c0",
+                    "aspect_ratio": "16:9",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/job_set_chain_preset/adb614b2-16bf-46c8-9a79-3090e356666b.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 336,
+                        "main_url": "https://cdn.higgsfield.ai/job_set_chain_preset/b4543834-64ab-412b-95a7-5af00e39d591.mp4",
+                        "main_width": 1280,
+                        "main_height": 716,
+                        "optimized_url": "https://cdn.higgsfield.ai/job_set_chain_preset/0b312d70-c6ed-4b03-9b05-fc7a59b05222.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/job_set_chain_preset/2e2eb229-aab2-4a21-b796-9b5b813a13dc.webp"
+                    },
+                    "is_main": false
+                },
+                {
+                    "id": "45999866-19a4-498a-8b02-1a42c9db1020",
+                    "aspect_ratio": "1:1",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/job_set_chain_preset/295e5dd3-e8ba-4ebc-b3ca-4a6f063c010e.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 600,
+                        "main_url": "https://cdn.higgsfield.ai/job_set_chain_preset/a2c0d673-b411-4a08-9509-bbd69e29eb61.mp4",
+                        "main_width": 1280,
+                        "main_height": 1280,
+                        "optimized_url": "https://cdn.higgsfield.ai/job_set_chain_preset/6aee46a0-ea4d-4575-8496-1e551f8a0756.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/job_set_chain_preset/3035ba04-f5c8-48ac-8d7e-4eb024dd07d3.webp"
+                    },
+                    "is_main": false
+                }
+            ],
+            "duration": null,
+            "priority": 40,
+            "discount_credits": 14,
+            "cost_credits": 10,
+            "pricing_mode": "fixed",
+            "pricing_schema": {},
+            "inputs": [
+                {
+                    "id": "input_image",
+                    "type": "image",
+                    "properties": {
+                        "max": 1,
+                        "min": 1
+                    }
+                }
+            ],
+            "preset_family": "kling",
+            "model": "kling3_0",
+            "runtime": "preset_chain",
+            "runtime_params": {
+                "chain_type": "game_character_creator",
+                "preset_id": "930f4c3a-7bdd-4e59-b1a4-0b33500cf992",
+                "endpoint": "/chains/game-character-creator",
+                "model": "kling3_0"
+            }
+        },
+        {
+            "id": "7335f08f-5f16-4f8c-85a3-4de5ff05e3c3",
+            "product_key": "game_character_creator",
+            "name": "ORBITAL PRESENCE",
+            "description": "Cinematic satellite scenes of a subject on Earth — wide orbital shots, cloud-touch simulations, and intimate close-ups blending space scale with human presence.",
+            "collaborate": "example_creator",
+            "category": "Viral",
+            "image_preview": {},
+            "previews": [
+                {
+                    "id": "ef103874-944f-4839-93e3-0bd46626f3ff",
+                    "aspect_ratio": "9:16",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/job_set_chain_preset/fbfb34dc-5257-4fc4-8112-231a7fc83fba.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 1066,
+                        "main_url": "https://cdn.higgsfield.ai/job_set_chain_preset/f09fdbf2-bf69-43e1-a363-1acee3d473a1.mp4",
+                        "main_width": 1280,
+                        "main_height": 2276,
+                        "optimized_url": "https://cdn.higgsfield.ai/job_set_chain_preset/c7fd33ab-29db-4749-ae7b-f298103aeb64.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/job_set_chain_preset/062c0131-1d1a-4ff9-8e9d-abf4925e7483.webp"
+                    },
+                    "is_main": true
+                },
+                {
+                    "id": "2f95a500-6ce9-457c-bde5-ba89f41cda3c",
+                    "aspect_ratio": "1:1",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/job_set_chain_preset/7ac97056-6a49-4951-8ac8-b5aeeb1911df.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 600,
+                        "main_url": "https://cdn.higgsfield.ai/job_set_chain_preset/fedbe664-579f-49e0-8d48-78636065e019.mp4",
+                        "main_width": 1280,
+                        "main_height": 1280,
+                        "optimized_url": "https://cdn.higgsfield.ai/job_set_chain_preset/f720de2d-9bd9-423e-a729-ddc0c7b7843e.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/job_set_chain_preset/a092f508-b100-4462-8d43-efd7db64402c.webp"
+                    },
+                    "is_main": false
+                },
+                {
+                    "id": "40039708-50f3-471b-8232-2d5139b19614",
+                    "aspect_ratio": "16:9",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/job_set_chain_preset/e29470e4-c9f9-4e7f-b8ee-76690a88f424.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 338,
+                        "main_url": "https://cdn.higgsfield.ai/job_set_chain_preset/9342e910-75cf-4df5-aaec-379cbb9eaa73.mp4",
+                        "main_width": 1280,
+                        "main_height": 720,
+                        "optimized_url": "https://cdn.higgsfield.ai/job_set_chain_preset/7dff938f-2160-4339-9e4c-28c848871817.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/job_set_chain_preset/e240f485-1cae-4325-b87b-1e2ff9e5d515.webp"
+                    },
+                    "is_main": false
+                }
+            ],
+            "duration": null,
+            "priority": 44,
+            "discount_credits": 28,
+            "cost_credits": 28,
+            "pricing_mode": "fixed",
+            "pricing_schema": {},
+            "inputs": [
+                {
+                    "id": "input_image",
+                    "type": "image",
+                    "properties": {
+                        "max": 1,
+                        "min": 1
+                    }
+                }
+            ],
+            "preset_family": "seedance",
+            "model": "seedance_2_0_fast",
+            "runtime": "preset_chain",
+            "runtime_params": {
+                "chain_type": "game_character_creator",
+                "preset_id": "7335f08f-5f16-4f8c-85a3-4de5ff05e3c3",
+                "endpoint": "/chains/game-character-creator",
+                "model": "seedance_2_0_fast"
+            }
+        },
+        {
+            "id": "4839201e-a9a0-45a3-a2d1-de42107acb1e",
+            "product_key": "game_character_creator",
+            "name": "MOONWALK",
+            "description": "A handcrafted theatrical stage show: you walk in place on top of a slowly rotating paper Moon, then Venus, then Earth — set pieces flying in and out on visible strings like real stage rigging.",
+            "collaborate": "",
+            "category": "Viral",
+            "image_preview": {
+                "url": "https://cdn.higgsfield.ai/job_set_chain_preset/44fb9903-de4e-4a80-8ec8-e5d0635afa77.webp",
+                "type": "static",
+                "width": 1080,
+                "height": 1920
+            },
+            "previews": [
+                {
+                    "id": "5184d326-125a-45b5-9cba-8b1c14b8e3c6",
+                    "aspect_ratio": "4:3",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/job_set_chain_preset/500b4879-bcb7-4497-b34f-2ae8b597a9a5.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 1066,
+                        "main_url": "https://cdn.higgsfield.ai/job_set_chain_preset/2de463b7-cb97-47bb-b9a2-230bfc48f651.mp4",
+                        "main_width": 1280,
+                        "main_height": 2276,
+                        "optimized_url": "https://cdn.higgsfield.ai/job_set_chain_preset/3a071659-c604-4980-b2d2-503af87c7d5b.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/job_set_chain_preset/ab01d445-5b5d-49b8-a8cf-ed9ef313d5c0.webp"
+                    },
+                    "is_main": true
+                }
+            ],
+            "duration": null,
+            "priority": 54,
+            "discount_credits": 56,
+            "cost_credits": 56,
+            "pricing_mode": "dynamic_chain",
+            "pricing_schema": {},
+            "inputs": [
+                {
+                    "id": "input_image",
+                    "type": "image",
+                    "properties": {
+                        "max": 1,
+                        "min": 1
+                    }
+                }
+            ],
+            "preset_family": "seedance",
+            "model": "seedance_2_0_fast",
+            "runtime": "preset_chain",
+            "runtime_params": {
+                "chain_type": "game_character_creator",
+                "preset_id": "4839201e-a9a0-45a3-a2d1-de42107acb1e",
+                "endpoint": "/chains/game-character-creator",
+                "model": "seedance_2_0_fast"
+            }
+        }
+    ]
+}

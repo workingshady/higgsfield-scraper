@@ -50,7 +50,8 @@ class CatalogSpider(BaseApiSpider):
              f"(session: {'yes' if self.authed else 'no'})", kinds=list(kinds), auth__session=self.authed)
         for kind in [KIND_OF[k] for k in KIND_OF if KIND_OF[k] in wanted]:
             for src in sources_for(kind):
-                if src.kind in ("catalog_motion_sample", "catalog_marketing_preset") or "{id}" in src.path:
+                if src.kind in ("catalog_motion_sample", "catalog_marketing_preset") or "{id}" in src.path \
+                        or src.follow_only:
                     continue                                  # scheduled from follow_up
                 r = self._request(src, self._first_params(src))
                 if r is not None:
@@ -111,6 +112,13 @@ class CatalogSpider(BaseApiSpider):
                     if r is None:
                         break
                     yield r
+        # chain presets: the show_hidden=true list strictly after the visible one (so visible rows win the dedup
+        # and only the hidden-only rows keep is_hidden=True)
+        if src.endpoint == "catalog_chain_presets" and self.selection.include_hidden:
+            h = SOURCE_BY_ENDPOINT["catalog_chain_presets_hidden"]
+            r = self._request(h, self._first_params(h))
+            if r is not None:
+                yield r
         # marketing presets per category
         if src.kind == "catalog_marketing_category" and "marketing_preset" in getattr(self, "kinds", []):
             p = SOURCE_BY_ENDPOINT["catalog_marketing_presets"]

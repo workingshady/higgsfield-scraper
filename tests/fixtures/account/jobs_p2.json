@@ -1,0 +1,16 @@
+{
+    "meta": {
+        "endpoint": "account_jobs",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/jobs/accessible",
+        "params": {
+            "size": "20",
+            "cursor": "1764140000.0"
+        },
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "has_more": false,
+        "jobs": []
+    }
+}

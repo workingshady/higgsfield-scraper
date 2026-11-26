@@ -20,8 +20,25 @@ ENDPOINTS: dict[str, tuple[str, bool]] = {
     "unlim_catalog": (f"{API_BASE}/subscriptions/bundle/unlim-catalog", True),
     "credit_price": (f"{API_BASE}/workspaces/credit-price", True),
     "adjustable_credits": (f"{API_BASE}/subscriptions/v2/adjustable-credits", True),
+    # opt-in `--logged-in-prices`: the same public price lists fetched WITH a session (they differ: extra plans/models)
+    "plans_logged_in": (f"{API_BASE}/subscriptions/v2/plans", True),
+    "job_costs_logged_in": (f"{API_BASE}/job-sets/costs", True),
+    # opt-in section `account` (the logged-in account's own money state; whitelisted fields only, see parsers/account.py)
+    "account_wallet": (f"{API_BASE}/workspaces/wallet", True),
+    "account_subscription": (f"{API_BASE}/workspaces/subscription", True),
+    "account_auto_top_up": (f"{API_BASE}/v2/auto-top-ups/settings", True),
+    "account_free_gens": (f"{API_BASE}/user/free-gens/v2", True),
+    "account_generation_seconds": (f"{API_BASE}/user/generation-seconds", True),
+    "account_generation_seconds_packs": (f"{API_BASE}/generation-seconds/packs", True),
+    "account_bundle_all_unlim_status": (f"{API_BASE}/subscriptions/bundle/all-unlim/status", True),
+    "account_bundle_seedance_unlimited": (f"{API_BASE}/subscriptions/bundle/seedance-unlimited", True),
 }
-AUTH_ENDPOINTS = [k for k, (_, auth) in ENDPOINTS.items() if auth]
+# the `auth` section (explicit list: the newer login-only endpoints below are NOT part of it)
+AUTH_ENDPOINTS = ["credit_packages", "unlim_catalog", "credit_price", "adjustable_credits"]
+# `--logged-in-prices`: logged-in endpoint -> the anonymous endpoint it is merged into
+LOGGED_IN_PRICE_ENDPOINTS = {"plans_logged_in": "plans", "job_costs_logged_in": "job_costs"}
+ACCOUNT_ENDPOINTS = [k for k in ENDPOINTS if k.startswith("account_")]
+LOGIN_ENDPOINTS = [k for k, (_, auth) in ENDPOINTS.items() if auth]      # every endpoint that needs a session
 
 # Sections the CLI can scrape -> endpoints they hit
 SECTIONS: dict[str, list[str]] = {
@@ -31,8 +48,11 @@ SECTIONS: dict[str, list[str]] = {
     "models": ["job_costs"],
     "marketing": ["pricing_config"],
     "auth": AUTH_ENDPOINTS,
+    "account": ACCOUNT_ENDPOINTS,
 }
 DEFAULT_SECTIONS = ["plans", "compare", "benefits", "models", "marketing"]
+# never implied by `all`: only scraped when listed explicitly (`--sections all,account`)
+OPT_IN_SECTIONS = ["account"]
 
 # Every plan_set_key the API accepts (from its 422 validation error, 2026-11-25).
 PLAN_SET_KEYS = [

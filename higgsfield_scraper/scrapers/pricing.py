@@ -9,7 +9,8 @@ from __future__ import annotations
 import argparse
 import os
 
-from ..constants import AUTH_ENDPOINTS, DEFAULT_SECTIONS, PLAN_SET_PRESETS, SECTIONS, US_PLAN_SET
+from ..constants import (ACCOUNT_ENDPOINTS, DEFAULT_SECTIONS, LOGGED_IN_PRICE_ENDPOINTS, LOGIN_ENDPOINTS,
+                         PLAN_SET_PRESETS, SECTIONS, US_PLAN_SET)
 from ..core.base import RunMeta, ScraperDef
 from ..schemas import MODEL_BY_KIND
 from ..selection import Selection
@@ -34,6 +35,19 @@ def add_args(p: argparse.ArgumentParser) -> None:
                    help="plan_type:billing_period whose after-offer $/credit prices model USD estimates")
     o.add_argument("--include-hidden-plans", action="store_true", help="keep trial/secret plan types")
     o.add_argument("--include-raw-cost", action="store_true", help="embed each model's untouched cost JSON")
+    li = p.add_argument_group("pricing: logged-in extras (opt-in, need a session; default output unchanged)")
+    li.add_argument("--logged-in-prices", action="store_true",
+                    help="also fetch plans + model costs WITH the session and add the rows only logged-in users see "
+                         "(e.g. the Lite annual plan, magi_2), tagged visibility=logged_in; anonymous rows unchanged. "
+                         "Needs a login (skipped with a warning otherwise); --auth off disables it. "
+                         "Use --sections account for the account's own balances")
+
+
+def _raw_has(a: argparse.Namespace, endpoints) -> bool:
+    """normalize: did the source run capture any of these endpoints? (data decides, not this machine's login)"""
+    from pathlib import Path
+    raw = Path(getattr(a, "run", "") or ".") / "raw"
+    return any(next(raw.glob(f"{ep}*.json"), None) is not None for ep in endpoints)
 
 
 def _login_available(a: argparse.Namespace) -> bool:
@@ -47,7 +61,8 @@ def _login_available(a: argparse.Namespace) -> bool:
         has_auth_raw = any(next(raw.glob(p), None) is not None
                            for p in ("credit_packages*.json", "unlim_catalog*.json",
                                      "adjustable_credits*.json", "credit_price*.json"))
-        return legacy or has_auth_raw
+        # opt-in logged-in extras (--logged-in-prices, --sections account) also mean "the source run had a session"
+        return legacy or has_auth_raw or _raw_has(a, [*LOGGED_IN_PRICE_ENDPOINTS, *ACCOUNT_ENDPOINTS])
     if getattr(a, "command", None) != "scrape":
         return legacy
     if getattr(a, "auth", "auto") == "off":
@@ -61,11 +76,14 @@ def _login_available(a: argparse.Namespace) -> bool:
 
 def make_selection(a: argparse.Namespace) -> Selection:
     has_token = _login_available(a)
+    logged_in_prices = bool(getattr(a, "logged_in_prices", False))
+    if getattr(a, "command", None) == "normalize" and _raw_has(a, LOGGED_IN_PRICE_ENDPOINTS):
+        logged_in_prices = True        # the source run captured logged-in price lists: re-parse and merge them
     return Selection.build(
         sections=a.sections, plan_sets=a.plan_sets, billing=a.billing, plan_types=a.plan_types,
         models=a.models, categories=a.categories, marketing_versions=a.marketing_versions, locale=a.locale,
         include_hidden_plans=a.include_hidden_plans, include_raw_cost=a.include_raw_cost,
-        usd_reference=a.usd_reference, has_token=has_token,
+        usd_reference=a.usd_reference, has_token=has_token, logged_in_prices=logged_in_prices,
     )
 
 
@@ -78,7 +96,8 @@ def selection_from_dict(d: dict) -> Selection:
         plan_types=d.get("plan_types"), models=d.get("models"), categories=d.get("categories"),
         marketing_versions=d.get("marketing_versions"), locale=d.get("locale", "en"),
         include_hidden_plans=truthy(d.get("include_hidden_plans")), include_raw_cost=truthy(d.get("include_raw_cost")),
-        usd_reference=d.get("usd_reference", "plus:annual"), has_token=bool(d.get("token")))
+        usd_reference=d.get("usd_reference", "plus:annual"), has_token=bool(d.get("token")),
+        logged_in_prices=truthy(d.get("logged_in_prices")))
 
 
 def _parse(env, sel):
@@ -121,5 +140,5 @@ SCRAPER = ScraperDef(
     build_dataset=_build,
     write_outputs=_write,
     default_label=default_label,
-    optional_endpoints=frozenset(AUTH_ENDPOINTS),
+    optional_endpoints=frozenset(LOGIN_ENDPOINTS),   # every login-only endpoint (auth, logged-in prices, account)
 )

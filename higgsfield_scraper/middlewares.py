@@ -352,3 +352,30 @@ class RetryEventsMiddleware(RetryMiddleware):
                  f"gave up on {request.meta.get('endpoint') or urlsplit(request.url).hostname}: {reason_s}",
                  retry__attempt=request.meta.get("retry_times", 0), **f)
         return new
+
+
+class AccountPrivacyMiddleware:
+    """Downloader middleware (583, above HttpArchive 580): for the pricing scraper's opt-in `--sections account`
+    requests only, replace the response body with its privacy whitelist (parsers/account.py) BEFORE the http/ and raw/
+    archives and the spider see it — emails, names, user / workspace / subscription ids are never written to disk.
+    Every other request passes through untouched."""
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls()
+
+    def process_response(self, request, response, spider=None):
+        from .constants import ACCOUNT_ENDPOINTS
+        endpoint = request.meta.get("endpoint")
+        if endpoint not in ACCOUNT_ENDPOINTS or request.meta.get("media"):
+            return response
+        if spider is not None and getattr(spider, "scraper_name", None) not in (None, "pricing"):
+            return response                            # other scrapers apply their own redaction
+        from .parsers.account import sanitize_account_body
+        try:
+            data = json.loads(response.body or b"null")
+        except (ValueError, UnicodeDecodeError):
+            data = None
+        clean = sanitize_account_body(endpoint, data) if response.status == 200 else {}
+        return response.replace(body=json.dumps(clean, ensure_ascii=False).encode("utf-8"))
+

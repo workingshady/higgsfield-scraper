@@ -6,7 +6,8 @@ from dataclasses import asdict, dataclass, field
 from typing import Any, Iterable, Optional
 
 from .constants import (
-    DEFAULT_SECTIONS, PLAN_SET_KEYS, PLAN_SET_PRESETS, SECTIONS, US_PLAN_SET,
+    DEFAULT_SECTIONS, LOGGED_IN_PRICE_ENDPOINTS, OPT_IN_SECTIONS, PLAN_SET_KEYS, PLAN_SET_PRESETS, SECTIONS,
+    US_PLAN_SET,
 )
 
 
@@ -41,15 +42,21 @@ class Selection:
     include_raw_cost: bool = False
     usd_reference: str = "plus:annual"                          # plan_type:billing_period
     has_token: bool = False
+    # opt-in (--logged-in-prices): also fetch plans + job costs WITH a session and add the rows only a logged-in user
+    # sees, tagged `visibility: "logged_in"`. Effective only with a usable login (has_token); see endpoints().
+    logged_in_prices: bool = False
 
     # ---------------------------------------------------------------- build
     @classmethod
     def build(cls, *, sections=None, plan_sets=None, billing=None, plan_types=None, models=None,
               categories=None, marketing_versions=None, locale="en", include_hidden_plans=False,
-              include_raw_cost=False, usd_reference="plus:annual", has_token=False) -> "Selection":
+              include_raw_cost=False, usd_reference="plus:annual", has_token=False,
+              logged_in_prices=False) -> "Selection":
         secs = split_csv(sections) or list(DEFAULT_SECTIONS)
         if "all" in secs:   # `all` = every public section, + auth when a login exists or `auth` is listed too
-            secs = list(DEFAULT_SECTIONS) + (["auth"] if has_token or "auth" in secs else [])
+            # opt-in sections (`account`) are never implied by `all`; they survive only when listed: `all,account`
+            secs = list(DEFAULT_SECTIONS) + (["auth"] if has_token or "auth" in secs else []) + \
+                [s for s in OPT_IN_SECTIONS if s in secs]
         unknown = set(secs) - set(SECTIONS)
         if unknown:
             raise ValueError(f"unknown section(s): {sorted(unknown)}; choose from {sorted(SECTIONS)}")
@@ -73,6 +80,7 @@ class Selection:
             include_raw_cost=include_raw_cost,
             usd_reference=usd_reference,
             has_token=has_token,
+            logged_in_prices=bool(logged_in_prices),
         )
 
     # ------------------------------------------------------------- endpoints
@@ -85,6 +93,8 @@ class Selection:
             eps.extend(["plan_benefits", "plans"])
         if "plans" in self.sections:
             eps.extend(["plan_benefits", "compare"])  # benefits -> plan.unlimited models, compare -> seats
+        if self.logged_in_prices and self.has_token:  # same price lists again, with a session (merged in assemble)
+            eps.extend(li for li, anon in LOGGED_IN_PRICE_ENDPOINTS.items() if anon in eps)
         return list(dict.fromkeys(eps))
 
     # ---------------------------------------------------------------- filters
@@ -106,4 +116,7 @@ class Selection:
         return False
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        d = asdict(self)
+        if not d["logged_in_prices"]:      # keep manifests of default runs exactly as before the flag existed
+            d.pop("logged_in_prices")
+        return d

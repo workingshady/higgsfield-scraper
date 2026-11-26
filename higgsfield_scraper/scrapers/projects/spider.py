@@ -1,5 +1,6 @@
 """ProjectsSpider: community project publications, recommended feeds, contest entries, contests (+detail,
-+submissions) and (login-only) original series."""
++submissions) and original series (legacy login-only fnf path, or the public fnf-series service with
+--public-series)."""
 from __future__ import annotations
 
 import dataclasses
@@ -66,7 +67,12 @@ class ProjectsSpider(BaseApiSpider):
             for key in sel.entry_keys:
                 yield self._entries_page(key, None)
         if sel.wants("series"):
-            if self.authed:
+            if sel.public_series:
+                limit = self.page_size(ep.MAX_SERIES_LIMIT, ep.MAX_SERIES_LIMIT)
+                if self.common.max_items is not None:          # one page, no cursor: cap via limit (own budget)
+                    limit = max(1, min(limit, self.common.max_items))
+                yield self.api_request("projects_series_public", ep.SERIES, {"limit": limit}, base=ep.SERIES_BASE)
+            elif self.authed:
                 yield self.api_request("projects_series", ep.SERIES,
                                        {"limit": self.page_size(ep.MAX_SERIES_LIMIT, ep.MAX_SERIES_LIMIT)},
                                        auth="required")
@@ -123,6 +129,12 @@ class ProjectsSpider(BaseApiSpider):
             yield from self._follow_contests(env, body, entities)
         elif env.endpoint == "projects_contest_submissions":
             yield from self._follow_submissions(env, body, entities)
+        elif env.endpoint == "projects_series_public" and self.selection.with_details:
+            for e in entities:
+                if e["kind"] == "projects_series" and e.get("slug"):
+                    yield self.api_request("projects_series_public_detail",
+                                           ep.SERIES_DETAIL.format(slug=quote(e["slug"], safe="")),
+                                           base=ep.SERIES_BASE, meta=_path_params(slug=e["slug"]))
         elif env.endpoint == "projects_series" and self.selection.with_details:
             for e in entities:
                 if e["kind"] == "projects_series" and e.get("slug"):

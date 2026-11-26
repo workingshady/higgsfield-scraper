@@ -1,0 +1,124 @@
+{
+    "_meta": {
+        "request": "GET https://fnf-api-gw.higgsfield.ai/fnf-cms-api/job-set-chain-presets?show_hidden=true",
+        "auth": "none (public)",
+        "captured": "2026-11-26",
+        "note": "58 rows with show_hidden=true, 48 without; truncated to 2"
+    },
+    "data": [
+        {
+            "id": "<redacted>",
+            "product_key": "game_character_creator",
+            "name": "CLOUD KEEPER",
+            "description": "You relax on the balcony of a little wooden cabin soaring through an endless sea of dusk clouds — trailing your hand through the mist as a giant mythical eagle lands on the roof to greet you.",
+            "collaborate": "",
+            "category": "Viral",
+            "image_preview": {
+                "url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.webp",
+                "type": "static",
+                "width": 1080,
+                "height": 1920
+            },
+            "previews": [
+                {
+                    "id": "<redacted>",
+                    "aspect_ratio": "9:16",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 1066,
+                        "main_url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.mp4",
+                        "main_width": 1280,
+                        "main_height": 2276,
+                        "optimized_url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.webp"
+                    },
+                    "is_main": true
+                }
+            ],
+            "duration": null,
+            "priority": 58,
+            "discount_credits": 34,
+            "cost_credits": 34,
+            "pricing_mode": "fixed",
+            "pricing_schema": {},
+            "inputs": [
+                {
+                    "id": "<redacted>",
+                    "type": "image",
+                    "properties": {
+                        "max": 1,
+                        "min": 1
+                    }
+                }
+            ],
+            "preset_family": "seedance",
+            "model": "seedance_2_0_fast",
+            "runtime": "preset_chain",
+            "runtime_params": {
+                "chain_type": "game_character_creator",
+                "preset_id": "<redacted>",
+                "endpoint": "/chains/game-character-creator",
+                "model": "seedance_2_0_fast"
+            }
+        },
+        {
+            "id": "<redacted>",
+            "product_key": "game_character_creator",
+            "name": "EARTH ZOOM",
+            "description": "A single uninterrupted cinematic dive from low Earth orbit into a living scene reconstructed around you from your uploaded selfie.",
+            "collaborate": "",
+            "category": "Viral",
+            "image_preview": {
+                "url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.webp",
+                "type": "static",
+                "width": 1080,
+                "height": 1920
+            },
+            "previews": [
+                {
+                    "id": "<redacted>",
+                    "aspect_ratio": "9:16",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 1066,
+                        "main_url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.mp4",
+                        "main_width": 1280,
+                        "main_height": 2276,
+                        "optimized_url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/job_set_chain_preset/<uuid>.webp"
+                    },
+                    "is_main": true
+                }
+            ],
+            "duration": null,
+            "priority": 57,
+            "discount_credits": 28,
+            "cost_credits": 28,
+            "pricing_mode": "fixed",
+            "pricing_schema": {},
+            "inputs": [
+                {
+                    "id": "<redacted>",
+                    "type": "image",
+                    "properties": {
+                        "max": 1,
+                        "min": 1
+                    }
+                }
+            ],
+            "preset_family": "seedance",
+            "model": "seedance_2_0_fast",
+            "runtime": "preset_chain",
+            "runtime_params": {
+                "chain_type": "game_character_creator",
+                "preset_id": "<redacted>",
+                "endpoint": "/chains/game-character-creator",
+                "model": "seedance_2_0_fast"
+            }
+        }
+    ]
+}

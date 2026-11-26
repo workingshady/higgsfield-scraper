@@ -1,0 +1,27 @@
+{
+    "_meta": {
+        "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/job-sets/costs",
+        "auth": "none vs Bearer vs Bearer+hf-workspace-id (last two identical)",
+        "captured": "2026-11-26"
+    },
+    "data": {
+        "anon_version": "0cee321863e207292a9facc5db75a99be4f292b03865ace9c025bd229f9b8f77",
+        "anon_rows": 87,
+        "logged_in_version": "9048fa70df878bcc2ca1ff94400c62e8aeee706743d64b25863149e51f93338f",
+        "logged_in_rows": 88,
+        "logged_in_only_rows": [
+            {
+                "job_set_type": "magi_2",
+                "cost": [
+                    {
+                        "resolution": "1080p",
+                        "base_credits": 0,
+                        "cost_per_second": 2.5,
+                        "original_cost_per_second": 2.5
+                    }
+                ]
+            }
+        ],
+        "rows_changed": []
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "meta": {
+        "endpoint": "account_free_gens",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user/free-gens/v2",
+        "params": {},
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": []
+    }
+}

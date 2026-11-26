@@ -1,0 +1,22 @@
+{
+    "meta": {
+        "endpoint": "account_workspace_settings",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/workspaces/settings",
+        "params": {},
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "configs": [
+            {
+                "job_set_type": "nano_banana_2",
+                "status": "active",
+                "id": "cfg1"
+            },
+            {
+                "job_set_type": "x",
+                "status": "locked"
+            }
+        ]
+    }
+}

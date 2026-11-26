@@ -1,11 +1,12 @@
 """Per-model ("job_set_type") credit costs, flattened into typed price points."""
 from __future__ import annotations
 
-from typing import Any, Literal, Optional
+from typing import Annotated, Any, Literal, Optional
 
 from pydantic import Field
 
-from .common import SCHEMA_VERSION, Provenance, Scalar, Strict
+from .common import (SCHEMA_VERSION, VISIBILITY_DESCRIPTION, LoginOnly, LoginOptional, Provenance, Scalar, Strict,
+                     Visibility)
 
 Category = Literal["video", "image", "audio", "other"]
 
@@ -51,7 +52,9 @@ class ModelEntitlement(Strict):
     benefit_label: Optional[str] = None
 
 
-class Model(Strict):
+class Model(LoginOptional):
+    __login_only__ = ("visibility",)
+
     schema_version: int = SCHEMA_VERSION
     model_id: str = Field(description="job_set_type")
     display_name: str
@@ -72,3 +75,4 @@ class Model(Strict):
     costs_version: Optional[str] = None
     raw_cost: Optional[Any] = None
     source: Provenance
+    visibility: Annotated[Optional[Visibility], LoginOnly] = Field(None, description=VISIBILITY_DESCRIPTION)

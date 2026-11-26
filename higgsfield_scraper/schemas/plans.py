@@ -1,11 +1,12 @@
 """Subscription plans with prices before / after the offer and on renewal."""
 from __future__ import annotations
 
-from typing import Any, Literal, Optional
+from typing import Annotated, Any, Literal, Optional
 
 from pydantic import Field, model_validator
 
-from .common import SCHEMA_VERSION, Currency, Money, Provenance, Strict
+from .common import (SCHEMA_VERSION, VISIBILITY_DESCRIPTION, Currency, LoginOnly, LoginOptional, Money,
+                     Provenance, Strict, Visibility)
 
 BillingPeriod = Literal["monthly", "quarterly", "annual"]
 
@@ -40,7 +41,9 @@ class PricePerCredit(Strict):
     renewal: Optional[Money] = None
 
 
-class Plan(Strict):
+class Plan(LoginOptional):
+    __login_only__ = ("visibility",)
+
     schema_version: int = SCHEMA_VERSION
     plan_id: str = Field(description="hash(plan_set_key, plan_type, billing_period, credits)")
     plan_uuid: str
@@ -67,6 +70,7 @@ class Plan(Strict):
     unlimited_model_ids: list[str] = Field(default_factory=list)
     free_gens: list[dict[str, Any]] = Field(default_factory=list)
     source: Provenance
+    visibility: Annotated[Optional[Visibility], LoginOnly] = Field(None, description=VISIBILITY_DESCRIPTION)
 
     @model_validator(mode="after")
     def _check(self):

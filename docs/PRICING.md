@@ -691,6 +691,9 @@ The schedule only drives the **banner**. The prices themselves changed in `/plan
 
 - One card per `billing_period × tab × plan_type` (24 on 2026-11-26). This includes legacy plans (`basic`, `lite`,
   `standby`, `pro`, `max`) for existing subscribers, and `enterprise`. Team has a card on both tabs.
+  **Correction (2026-11-26 login audit):** `lite` is not only legacy: it is still **sold to logged-in users** as an
+  annual plan (100 credits/month, $12/year = $1/month, list $84, 85 % off forever, ps_a3). The anonymous
+  `/plans` response omits it; `--logged-in-prices` adds it (see §10).
 - Section kinds:
   - **`list`** with rows: `unlimited` ("Unlimited & free gens" / "Unlimited models") and `free_gens` ("Free
     generations").
@@ -920,6 +923,29 @@ Purchased credits expire after 90 days (`expire_days`). The original JS-based de
 | `GET {API}/workspaces/credit-price` | Price per credit for the workspace (top-up / auto-top-up rate) | `auth.payloads[]` raw |
 | `GET {API}/subscriptions/v2/adjustable-credits` | Credit-slider tiers ("boost credits"), used by the adjustable plans | `auth.payloads[]` raw |
 
+**Logged-in differences on the public price lists (audit 2026-11-26, `LOGIN_COVERAGE.md`).** A session changes two
+endpoints that the anonymous scrape already reads; `hf-workspace-id` changes nothing:
+
+| Endpoint | Anonymous | Logged in |
+|---|---|---|
+| `/subscriptions/v2/plans?plan_set_key=ps_a3` | 14 plans | **15**: + `lite` / annual, 100 credits/month, **$12/year ($1/month)**, list $84/year, `discount {percent_off: 85, duration: "forever"}`, `offer: null`. The 14 shared rows are byte-identical |
+| `/job-sets/costs` | 87 rows, `version 0cee3218…` | **88** rows, `version 9048fa70…`: + `magi_2` (1080p, `base_credits` 0, `cost_per_second` 2.5 → 12.5 credits for 5 s). Other 87 rows identical; stable over 3 re-checks |
+
+Whether `lite` is offered to every logged-in user or only some cohorts is unknown (one free account tested).
+`--logged-in-prices` (opt-in) fetches both lists again with the session as `plans_logged_in` / `job_costs_logged_in`
+and appends only the rows the anonymous response lacks, tagged `visibility: "logged_in"` (plans, their
+`credit_values` row, models); anonymous rows are untouched, and `meta.logged_in_prices` records both costs `version`
+hashes and the added ids. Without the flag the output is exactly the anonymous one.
+
+More login-only endpoints (opt-in `--sections account`, never part of `all`; whitelisted, see `CLI.md`):
+`/workspaces/wallet` (balances in cost units ×100, converted to credits), `/workspaces/subscription`,
+`/v2/auto-top-ups/settings` (`credits_per_dollar` 18, refill `options[]`, `expire_days` 90),
+`/user/free-gens/v2`, `/user/generation-seconds`, `/generation-seconds/packs` (purchasable generation-second packs;
+empty for this account, 401 anonymous), `/subscriptions/bundle/all-unlim/status`,
+`/subscriptions/bundle/seedance-unlimited` (`{tiers: []}` today). `/workspaces/credit-price` 500 on personal accounts:
+confirmed. `credits_per_dollar` is kept only in `account` (adding it to the `auth` section would change the default
+logged-in `--sections all` output).
+
 Related public facts: `two_day_offer` (40 credits for 2 days, one-time) in the marketing config; the
 `freegen_card_bonus` window (40 credits, 90-day expiry); the wallet distinguishes subscription, on-demand (top-up),
 bonus and scoped credits (see `COST_FORMULAS.md` §5.3).
@@ -931,6 +957,7 @@ python -m higgsfield_scraper login                  # Clerk emails a 6-digit cod
 python -m higgsfield_scraper login --code 123456    # session cached in runs/.auth/clerk_client.json
 python -m higgsfield_scraper auth-check
 python -m higgsfield_scraper scrape --sections all,auth --label with-login
+python -m higgsfield_scraper scrape --sections all,account --logged-in-prices --label with-login-extras   # opt-in extras
 ```
 
 Google/Apple accounts have no password: set `HF_CLERK_CLIENT` (the browser's `__client` cookie) instead. Without a

@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "endpoint": "catalog_notices",
+        "url": "https://cms.higgsfield.ai/notices?lang=en",
+        "params": {
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "header_notices": [
+            {
+                "view": {
+                    "title": "Example header",
+                    "description": "Example",
+                    "link": "/pricing",
+                    "text_color": null
+                },
+                "config": {
+                    "unauthorized": true
+                }
+            }
+        ],
+        "job_set_notices": [
+            {
+                "job_set_types": [
+                    "seedance1_5"
+                ],
+                "params": {},
+                "variant": "info",
+                "badge": {
+                    "label": "Seedance 1.5 Pro is being retired",
+                    "tooltip": "This model is outdated and will no longer be available after 11 November. We recommend switching to Seedance 2.0, Seedance 2.0 Mini — it's faster and delivers better results."
+                },
+                "popup": {
+                    "title": "Seedance 1.5 Pro is being retired",
+                    "description": "This model is outdated and will no longer be available after 11 November. We recommend switching to Seedance 2.0, Seedance 2.0 Mini — it's faster and delivers better results."
+                }
+            },
+            {
+                "job_set_types": [
+                    "ai_influencer"
+                ],
+                "params": {},
+                "variant": "warning",
+                "badge": {
+                    "label": "Temporary Issues",
+                    "tooltip": "AI Influencer is facing issues due to high user load. Generation may fail, credits auto-refunded."
+                },
+                "popup": {
+                    "title": "Temporary Issues",
+                    "description": "AI Influencer is facing issues due to high user load. Generation may fail, credits auto-refunded."
+                }
+            },
+            {
+                "job_set_types": [
+                    "wan2_2_animate_faceswap"
+                ],
+                "params": {},
+                "variant": "warning",
+                "badge": {
+                    "label": "Temporary Issues",
+                    "tooltip": "Video Face Swap is experiencing temporary issues. Generation may fail, credits auto-refunded."
+                },
+                "popup": {
+                    "title": "Temporary Issues",
+                    "description": "Video Face Swap is experiencing temporary issues. Generation may fail, credits auto-refunded."
+                }
+            },
+            {
+                "job_set_types": [
+                    "veo3",
+                    "veo3_speak"
+                ],
+                "params": {},
+                "variant": "info",
+                "badge": {
+                    "label": "Veo 3 is being retired",
+                    "tooltip": "This model is outdated and will no longer be available after 30 Sept. We recommend switching to Veo 3.1 — it's faster and delivers better results."
+                },
+                "popup": {
+                    "title": "Veo 3 is being retired",
+                    "description": "This model is outdated and will no longer be available after 30 Sept. We recommend switching to Veo 3.1 — it's faster and delivers better results."
+                }
+            }
+        ]
+    }
+}

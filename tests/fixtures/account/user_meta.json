@@ -1,0 +1,14 @@
+{
+    "meta": {
+        "endpoint": "account_user_meta",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user/meta",
+        "params": {},
+        "fetched_at": "2026-11-26T10:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "country_code": "ZZ",
+        "region_code": "ZZ-1",
+        "cohort": "c_synthetic"
+    }
+}

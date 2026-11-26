@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from decimal import Decimal
 from typing import Any, Optional
 
-from .constants import ENDPOINTS, SOURCE_PAGE
+from .constants import ENDPOINTS, LOGGED_IN_PRICE_ENDPOINTS, SOURCE_PAGE
 from .parsers.costs import category_of, family_of, humanize
 from .schemas import Dataset
 from .selection import Selection
@@ -17,6 +17,59 @@ log = logging.getLogger(__name__)
 
 def _d(v: Any) -> Optional[Decimal]:
     return None if v is None else Decimal(str(v))
+
+
+_COMPARE_SKIP = ("source", "visibility", "costs_version")
+
+
+def _same_row(a: dict, b: dict) -> bool:
+    strip = lambda d: {k: v for k, v in d.items() if k not in _COMPARE_SKIP}  # noqa: E731
+    return strip(a) == strip(b)
+
+
+def merge_logged_in(plans: list[dict], models: list[dict], attempted: bool,
+                    warnings: list[str]) -> tuple[list[dict], list[dict], Optional[dict]]:
+    """Opt-in --logged-in-prices. Rows parsed from the logged-in responses carry `visibility="logged_in"`.
+    Anonymous rows are kept exactly as they are (same order, no new key); a logged-in row is added (still tagged) only
+    when the anonymous response has no row with the same natural key (plan_id / model_id). Without logged-in rows and
+    without the flag this returns the inputs untouched and no meta."""
+    anon_p = [p for p in plans if not p.get("visibility")]
+    li_p = [p for p in plans if p.get("visibility")]
+    anon_m = [m for m in models if not m.get("visibility")]
+    li_m = [m for m in models if m.get("visibility")]
+    if not (li_p or li_m or attempted):
+        return plans, models, None
+    differing: list[str] = []
+
+    def extras(anon: list[dict], li: list[dict], key: str, tag: str) -> list[dict]:
+        known = {r[key]: r for r in anon}
+        out, seen = [], set()
+        for r in li:
+            k = r[key]
+            if k in seen:
+                continue
+            seen.add(k)
+            if k not in known:
+                out.append(r)
+            elif not _same_row(known[k], r):
+                differing.append(f"{tag}:{k}")
+        return out
+
+    extra_p = extras(anon_p, li_p, "plan_id", "plan")
+    extra_m = extras(anon_m, li_m, "model_id", "model")
+    if attempted and not (li_p or li_m):
+        warnings.append("--logged-in-prices: no logged-in plans/costs response was parsed (login missing or failed)")
+    if differing:
+        warnings.append("--logged-in-prices: rows differ between anonymous and logged-in responses (anonymous kept): "
+                        + ", ".join(differing))
+    meta = {
+        "costs_version_anonymous": next((m.get("costs_version") for m in anon_m if m.get("costs_version")), None),
+        "costs_version_logged_in": next((m.get("costs_version") for m in li_m if m.get("costs_version")), None),
+        "logged_in_only_plan_ids": [p["plan_id"] for p in extra_p],
+        "logged_in_only_model_ids": [m["model_id"] for m in extra_m],
+        "differing_rows": differing,
+    }
+    return anon_p + extra_p, anon_m + extra_m, meta
 
 
 def build_dataset(entities: dict[str, list[dict]], sel: Selection, *, run_id: Optional[str] = None,
@@ -29,6 +82,8 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, *, run_id: Op
             x.pop("kind", None)
     plans, cards, models = E.get("plan", []), E.get("benefit_card", []), E.get("model", [])
     comparisons = E.get("comparison", [])
+    attempted = any(ep in sel.endpoints() for ep in LOGGED_IN_PRICE_ENDPOINTS)
+    plans, models, logged_in_meta = merge_logged_in(plans, models, attempted, warnings)
 
     # ---- seats from /compare (matched on stripe price id)
     seats = {p["stripe_price_id"]: p["seats"] for c in comparisons for p in c["plans"]
@@ -101,6 +156,7 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, *, run_id: Op
             "usd_per_credit_before_offer": p["price_per_credit"]["before_offer"],
             "usd_per_credit_after_offer": p["price_per_credit"]["after_offer"],
             "credits_per_usd_after_offer": float(round(1 / after, 4)) if after else None,
+            **({"visibility": p["visibility"]} if p.get("visibility") else {}),
         })
     usd_ref = None
     ref_type, _, ref_period = sel.usd_reference.partition(":")
@@ -138,6 +194,9 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, *, run_id: Op
         "benefit_cards": len(out_cards), "comparisons": len(comparisons), "marketing_plans": len(marketing),
         "credit_packages": len(E.get("credit_package", [])), "auth_payloads": len(E.get("auth_payload", [])),
     }
+    account = E.get("pricing_account", [])
+    if account:                                         # opt-in --sections account (key absent otherwise)
+        counts["account_records"] = len(account)
     doc = {
         "meta": {
             "run_id": run_id, "label": label,
@@ -156,6 +215,7 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, *, run_id: Op
             "counts": counts,
             "endpoints": {k: ENDPOINTS[k][0] for k in sel.endpoints()},
             "warnings": warnings,
+            "logged_in_prices": logged_in_meta,         # None -> left out of the output
         },
         "plan_sets": plan_sets if "plans" in sel.sections else [],
         "credit_values": credit_values if "plans" in sel.sections else [],
@@ -165,6 +225,7 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, *, run_id: Op
         "comparisons": comparisons if "compare" in sel.sections else [],
         "marketing": marketing,
         "auth": {"credit_packages": E.get("credit_package", []), "payloads": E.get("auth_payload", [])},
+        "account": {"records": account} if account else None,   # None -> left out of the output
     }
     if "plans" not in sel.sections:
         doc["meta"]["counts"].update(plan_sets=0, plans=0)

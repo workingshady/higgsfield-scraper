@@ -463,7 +463,7 @@ def parse_submissions(env, sel: Selection) -> list[dict]:
     return [parse_submission(i, env, sel) for i in items if isinstance(i, dict) and i.get("id")]
 
 
-# ------------------------------------------------------------------ original series (login only)
+# ------------------------------------------------------------------ original series (fnf-series, public)
 SERIES_USED = {
     "id", "slug", "name", "short_description", "full_description", "author_type", "author", "is_series", "state",
     "portrait", "portrait_url", "landscape", "landscape_url", "background", "background_url", "logo", "logo_url",
@@ -570,6 +570,8 @@ PARSERS: dict[str, Callable[[Any, Selection], list[dict]]] = {
     "projects_contest_submissions": parse_submissions,
     "projects_series": parse_series_list,
     "projects_series_detail": parse_series_detail,
+    "projects_series_public": parse_series_list,          # --public-series: same body, same entities
+    "projects_series_public_detail": parse_series_detail,
 }
 
 

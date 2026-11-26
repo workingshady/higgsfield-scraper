@@ -1,0 +1,120 @@
+{
+    "_meta": {
+        "request": "GET https://fnf-api-gw.higgsfield.ai/fnf-cms-api/applications/explore?apps_per_category=20",
+        "auth": "none (public)",
+        "captured": "2026-11-26",
+        "note": "8 categories; truncated"
+    },
+    "data": [
+        {
+            "id": "<redacted>",
+            "slug": "camera-motion",
+            "name": "Professional",
+            "description": "Generate shots, angles, and seamless transitions",
+            "icon": "clapperboard",
+            "priority": 0,
+            "apps": [
+                {
+                    "id": "<redacted>",
+                    "slug": "virality-predictor",
+                    "name": "Virality Predictor",
+                    "short_description": "",
+                    "cover_description": "Predict how viral your video hook is before you post",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/application_main/<uuid>.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 600,
+                        "optimized_url": "https://cdn.higgsfield.ai/application_main/<uuid>.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/application_main/<uuid>.webp"
+                    },
+                    "media_description": "",
+                    "cost": 50,
+                    "tags": []
+                },
+                {
+                    "id": "<redacted>",
+                    "slug": "expand-image",
+                    "name": "Expand image",
+                    "short_description": "Expand any image beyond its edges - AI fills in the scene so your photos never feel cropped again",
+                    "cover_description": "Expand any image beyond its edges",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/application_main/<uuid>.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 600,
+                        "optimized_url": "https://cdn.higgsfield.ai/application_main/<uuid>.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/application_main/<uuid>.webp"
+                    },
+                    "media_description": "Expand any image beyond its edges - AI fills in the scene so your photos never feel cropped again",
+                    "cost": 50,
+                    "tags": []
+                }
+            ],
+            "seo_title": "AI Camera Shots, Angles & Transitions | Higgsfield",
+            "seo_description": "Generate cinematic shots, dynamic angles, and seamless transitions from a single image. AI-powered camera movement and composition tools for video creators.",
+            "seo_keywords": "ai camera angles, shot generator, ai transitions, zoom effect ai, cinematic shots ai, video composition, camera movement ai"
+        },
+        {
+            "id": "<redacted>",
+            "slug": "enhance-style",
+            "name": "Enhance & Style",
+            "description": "Perfect your photos with AI enhancement",
+            "icon": "sparkles",
+            "priority": 1,
+            "apps": [
+                {
+                    "id": "<redacted>",
+                    "slug": "skin-enhancer",
+                    "name": "Skin Enhancer",
+                    "short_description": "Natural, realistic skin textures",
+                    "cover_description": "Natural, realistic skin textures",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/application_main/<uuid>.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 600,
+                        "optimized_url": "https://cdn.higgsfield.ai/application_main/<uuid>.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/application_main/<uuid>.webp"
+                    },
+                    "media_description": "",
+                    "cost": 50,
+                    "tags": [
+                        {
+                            "text": "Pro",
+                            "color": "#ffffff",
+                            "bg_color": "#9D4EDD"
+                        }
+                    ]
+                },
+                {
+                    "id": "<redacted>",
+                    "slug": "ai-stylist",
+                    "name": "AI Stylist",
+                    "short_description": "Upload your own clothes or mix and match from presets. Change poses, backgrounds, and try on complete outfits instantly.",
+                    "cover_description": "Your AI fitting room. Try everything on — instantly",
+                    "media": {
+                        "url": "https://cdn.higgsfield.ai/application_main/<uuid>.mp4",
+                        "type": "video",
+                        "width": 600,
+                        "height": 600,
+                        "optimized_url": "https://cdn.higgsfield.ai/application_main/<uuid>.webp",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/application_main/<uuid>.webp"
+                    },
+                    "media_description": "",
+                    "cost": 50,
+                    "tags": [
+                        {
+                            "text": "New",
+                            "color": "#000000",
+                            "bg_color": "#D1FE17"
+                        }
+                    ]
+                }
+            ],
+            "seo_title": "AI Photo Enhancement & Styling Tools | Higgsfield",
+            "seo_description": "Enhance skin texture, adjust lighting, and try on outfits with AI. Professional photo retouching and virtual styling tools for flawless content creation.",
+            "seo_keywords": "ai skin enhancer, ai relight, virtual try on, ai stylist, photo enhancement ai, skin retouching, outfit swap ai"
+        }
+    ]
+}

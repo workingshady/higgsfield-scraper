@@ -1,0 +1,383 @@
+{
+    "meta": {
+        "endpoint": "projects_series_public",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-series/series?limit=2",
+        "params": {
+            "limit": "2"
+        },
+        "fetched_at": "2026-11-26T12:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "0d9d7a26-233a-40b5-bce3-69128cde625d",
+                "slug": "cully-hill-boys",
+                "name": "The Cully Hill Boys",
+                "short_description": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+                "author_type": "higgsfield_team",
+                "author": null,
+                "is_series": false,
+                "state": "released",
+                "portrait_url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/portrait/172960a5-a527-4743-a854-09e61f6c61ea_optimized.webp",
+                "landscape_url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/landscape/f12b1542-f6f4-4247-a084-d949b2385084_optimized.webp",
+                "background_url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/background/7216ff5d-dd01-46bc-b4cc-926f7a2c4d33_optimized.webp",
+                "logo_url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/logo/7e260510-7ff5-492d-82bd-24621d5781bd.png",
+                "trailer_url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/trailer/e04ebe06-bec1-4303-8aea-cfeea793c230.mp4",
+                "portrait": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/portrait/172960a5-a527-4743-a854-09e61f6c61ea.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/0d9d7a26-233a-40b5-bce3-69128cde625d/portrait/172960a5-a527-4743-a854-09e61f6c61ea.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/portrait/172960a5-a527-4743-a854-09e61f6c61ea_optimized.webp",
+                        "object_key": "series/0d9d7a26-233a-40b5-bce3-69128cde625d/portrait/172960a5-a527-4743-a854-09e61f6c61ea_optimized.webp"
+                    }
+                },
+                "landscape": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/landscape/f12b1542-f6f4-4247-a084-d949b2385084.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/0d9d7a26-233a-40b5-bce3-69128cde625d/landscape/f12b1542-f6f4-4247-a084-d949b2385084.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/landscape/f12b1542-f6f4-4247-a084-d949b2385084_optimized.webp",
+                        "object_key": "series/0d9d7a26-233a-40b5-bce3-69128cde625d/landscape/f12b1542-f6f4-4247-a084-d949b2385084_optimized.webp"
+                    }
+                },
+                "background": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/background/7216ff5d-dd01-46bc-b4cc-926f7a2c4d33.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/0d9d7a26-233a-40b5-bce3-69128cde625d/background/7216ff5d-dd01-46bc-b4cc-926f7a2c4d33.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/background/7216ff5d-dd01-46bc-b4cc-926f7a2c4d33_optimized.webp",
+                        "object_key": "series/0d9d7a26-233a-40b5-bce3-69128cde625d/background/7216ff5d-dd01-46bc-b4cc-926f7a2c4d33_optimized.webp"
+                    }
+                },
+                "logo": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/logo/7e260510-7ff5-492d-82bd-24621d5781bd.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/0d9d7a26-233a-40b5-bce3-69128cde625d/logo/7e260510-7ff5-492d-82bd-24621d5781bd.png"
+                    }
+                },
+                "trailer": {
+                    "hls": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/hls/series/0d9d7a26-233a-40b5-bce3-69128cde625d/trailer/e04ebe06-bec1-4303-8aea-cfeea793c230.m3u8",
+                        "job_id": "1786554165895-65t2k7",
+                        "status": "ready"
+                    },
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/0d9d7a26-233a-40b5-bce3-69128cde625d/trailer/e04ebe06-bec1-4303-8aea-cfeea793c230.mp4",
+                        "width": 4096,
+                        "bucket": "prod-fnf-series",
+                        "height": 1716,
+                        "object_key": "series/0d9d7a26-233a-40b5-bce3-69128cde625d/trailer/e04ebe06-bec1-4303-8aea-cfeea793c230.mp4"
+                    },
+                    "faststart": true
+                },
+                "is_hero": true,
+                "is_hidden": false,
+                "hero_order": 0,
+                "display_order": 10,
+                "project_url": null,
+                "project_banner_images": [],
+                "categories": [],
+                "cast": [],
+                "tags": [],
+                "vote_count": 179,
+                "subscriber_count": 34,
+                "engagement_score": 0.9867914356130623,
+                "is_vote_triggered": false,
+                "is_notify_triggered": false,
+                "created_at": "2026-08-10T15:40:31.609695+00:00",
+                "updated_at": "2026-11-26T10:32:05.902104+00:00",
+                "full_description": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+                "episodes": [
+                    {
+                        "id": "e2f47f51-6893-4770-b8cb-4ef35396eae3",
+                        "series_id": "0d9d7a26-233a-40b5-bce3-69128cde625d",
+                        "slug": "full-film",
+                        "episode_number": 1,
+                        "title": "Cully Hill Boys",
+                        "description": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+                        "video_url": "https://cdn.higgsfield.ai/hls/video_input/8379c8de-803d-4b40-ae7a-3029142566f6/index.m3u8",
+                        "thumbnail_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTED/75d860f8-6dde-45d6-ae81-756ddbfe563e.jpg",
+                        "video": null,
+                        "thumbnail": null,
+                        "duration_seconds": 6889,
+                        "is_locked": false,
+                        "is_adults_only": false,
+                        "like_count": 1591,
+                        "dislike_count": 0,
+                        "view_count": 364888,
+                        "engagement_score": 0.9867914356130623,
+                        "like_mark": null,
+                        "youtube_url": null,
+                        "project_publication_id": "0efa70c1-07ec-410a-813b-8629502a7de3",
+                        "project_publication": null,
+                        "created_at": "2026-08-10T15:46:56.048456+00:00",
+                        "updated_at": "2026-11-26T10:32:05.751262+00:00"
+                    }
+                ],
+                "duration_seconds": 6889,
+                "project_publication_id": "0efa70c1-07ec-410a-813b-8629502a7de3",
+                "engagement": {
+                    "like_count": 1591,
+                    "view_count": 364888,
+                    "comment_count": 815
+                }
+            },
+            {
+                "id": "c64a2b5f-1a91-4734-8850-e101faf62f5e",
+                "slug": "behind-the-scenes-of-mork-the-tale-of-kael",
+                "name": "Behind The Scenes of “Mork - The Tale of Kael”",
+                "short_description": "Behind the scenes of \"Mork — The Tale of Kael.\" The most terrifying Vikings on screen turn out to be the nicest people on set.",
+                "author_type": "higgsfield_team",
+                "author": null,
+                "is_series": true,
+                "state": "released",
+                "portrait_url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/portrait/ba8a9751-d824-4186-9821-04d79f2643e7_optimized.webp",
+                "landscape_url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/landscape/dfb18a95-e342-4b7b-b9e0-ef792da93368_optimized.webp",
+                "background_url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/background/75f98b1a-2587-4bf1-8a68-798080d3f14f_optimized.webp",
+                "logo_url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/logo/965c570d-a66d-4605-8b9f-cc981a11009e_optimized.webp",
+                "trailer_url": null,
+                "portrait": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/portrait/ba8a9751-d824-4186-9821-04d79f2643e7.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/portrait/ba8a9751-d824-4186-9821-04d79f2643e7.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/portrait/ba8a9751-d824-4186-9821-04d79f2643e7_optimized.webp",
+                        "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/portrait/ba8a9751-d824-4186-9821-04d79f2643e7_optimized.webp"
+                    }
+                },
+                "landscape": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/landscape/dfb18a95-e342-4b7b-b9e0-ef792da93368.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/landscape/dfb18a95-e342-4b7b-b9e0-ef792da93368.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/landscape/dfb18a95-e342-4b7b-b9e0-ef792da93368_optimized.webp",
+                        "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/landscape/dfb18a95-e342-4b7b-b9e0-ef792da93368_optimized.webp"
+                    }
+                },
+                "background": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/background/75f98b1a-2587-4bf1-8a68-798080d3f14f.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/background/75f98b1a-2587-4bf1-8a68-798080d3f14f.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/background/75f98b1a-2587-4bf1-8a68-798080d3f14f_optimized.webp",
+                        "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/background/75f98b1a-2587-4bf1-8a68-798080d3f14f_optimized.webp"
+                    }
+                },
+                "logo": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/logo/965c570d-a66d-4605-8b9f-cc981a11009e.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/logo/965c570d-a66d-4605-8b9f-cc981a11009e.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/logo/965c570d-a66d-4605-8b9f-cc981a11009e_optimized.webp",
+                        "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/logo/965c570d-a66d-4605-8b9f-cc981a11009e_optimized.webp"
+                    }
+                },
+                "trailer": null,
+                "is_hero": false,
+                "is_hidden": false,
+                "hero_order": null,
+                "display_order": 35,
+                "project_url": null,
+                "project_banner_images": [],
+                "categories": [
+                    {
+                        "id": "9d807d72-6bd5-4f89-9b9a-c048f3905fa6",
+                        "name": "First Look",
+                        "slug": "first-look",
+                        "display_order": 1
+                    }
+                ],
+                "cast": [
+                    {
+                        "id": "bfe1ded7-0b9e-4750-a709-0b18384f4b1c",
+                        "series_id": "c64a2b5f-1a91-4734-8850-e101faf62f5e",
+                        "name": "JARL",
+                        "media": {
+                            "original": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/6a868b91-dd10-4f10-b7eb-e641f641922a.png",
+                                "width": null,
+                                "bucket": "prod-fnf-series",
+                                "height": null,
+                                "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/6a868b91-dd10-4f10-b7eb-e641f641922a.png"
+                            },
+                            "optimized": null
+                        },
+                        "media_url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/6a868b91-dd10-4f10-b7eb-e641f641922a.png",
+                        "display_order": 0
+                    },
+                    {
+                        "id": "d7ca3ae9-ddd4-437b-8c65-158e0129159b",
+                        "series_id": "c64a2b5f-1a91-4734-8850-e101faf62f5e",
+                        "name": "KAEL",
+                        "media": {
+                            "original": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/524283f1-b244-400c-bdad-3f754895d062.png",
+                                "width": null,
+                                "bucket": "prod-fnf-series",
+                                "height": null,
+                                "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/524283f1-b244-400c-bdad-3f754895d062.png"
+                            },
+                            "optimized": null
+                        },
+                        "media_url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/524283f1-b244-400c-bdad-3f754895d062.png",
+                        "display_order": 1
+                    },
+                    {
+                        "id": "a6391434-02dd-4679-a63c-1512be01dee1",
+                        "series_id": "c64a2b5f-1a91-4734-8850-e101faf62f5e",
+                        "name": "BJORN",
+                        "media": {
+                            "original": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/3067b5be-5ce3-4645-a9c5-4db2816b24aa.png",
+                                "width": null,
+                                "bucket": "prod-fnf-series",
+                                "height": null,
+                                "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/3067b5be-5ce3-4645-a9c5-4db2816b24aa.png"
+                            },
+                            "optimized": null
+                        },
+                        "media_url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/3067b5be-5ce3-4645-a9c5-4db2816b24aa.png",
+                        "display_order": 2
+                    },
+                    {
+                        "id": "62015ec1-9603-4bcb-b06a-4772a5725b28",
+                        "series_id": "c64a2b5f-1a91-4734-8850-e101faf62f5e",
+                        "name": "MOTHER",
+                        "media": {
+                            "original": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/203db6fc-04fa-462a-8397-13d52031c2ed.png",
+                                "width": null,
+                                "bucket": "prod-fnf-series",
+                                "height": null,
+                                "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/203db6fc-04fa-462a-8397-13d52031c2ed.png"
+                            },
+                            "optimized": null
+                        },
+                        "media_url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/203db6fc-04fa-462a-8397-13d52031c2ed.png",
+                        "display_order": 3
+                    },
+                    {
+                        "id": "e3ad7354-26c1-4c51-a3d7-5c1f1f6f9830",
+                        "series_id": "c64a2b5f-1a91-4734-8850-e101faf62f5e",
+                        "name": "JOANNA",
+                        "media": {
+                            "original": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/ec746f94-ba03-497b-af5a-0350970840b2.png",
+                                "width": null,
+                                "bucket": "prod-fnf-series",
+                                "height": null,
+                                "object_key": "series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/ec746f94-ba03-497b-af5a-0350970840b2.png"
+                            },
+                            "optimized": null
+                        },
+                        "media_url": "https://du4zrvwy3vtek.cloudfront.net/series/c64a2b5f-1a91-4734-8850-e101faf62f5e/cast/ec746f94-ba03-497b-af5a-0350970840b2.png",
+                        "display_order": 4
+                    }
+                ],
+                "tags": [],
+                "vote_count": 654,
+                "subscriber_count": 49,
+                "engagement_score": 0.9840870002795525,
+                "is_vote_triggered": false,
+                "is_notify_triggered": false,
+                "created_at": "2026-04-20T16:28:19.773128+00:00",
+                "updated_at": "2026-11-26T10:30:11.899187+00:00",
+                "full_description": "Behind the scenes of \"Mork — The Tale of Kael.\" The most terrifying Vikings on screen turn out to be the nicest people on set.",
+                "episodes": [
+                    {
+                        "id": "40094aaf-a634-43b7-b399-2d9ea4dae52b",
+                        "series_id": "c64a2b5f-1a91-4734-8850-e101faf62f5e",
+                        "slug": "episode-0",
+                        "episode_number": 0,
+                        "title": "Behind The Scenes of “Mork - The Tale of Kael”",
+                        "description": "Behind the scenes of \"Mork — The Tale of Kael.\" The most terrifying Vikings on screen turn out to be the nicest people on set.",
+                        "video_url": "https://du4zrvwy3vtek.cloudfront.net/episode/40094aaf-a634-43b7-b399-2d9ea4dae52b/video/38f9761a-9a4a-439d-8d7f-2af7e3eebdd7.mov",
+                        "thumbnail_url": "https://du4zrvwy3vtek.cloudfront.net/episode/40094aaf-a634-43b7-b399-2d9ea4dae52b/thumbnail/b2797e45-d6e3-4822-8b6e-c23f8ca9728c_optimized.webp",
+                        "video": {
+                            "hls": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/40094aaf-a634-43b7-b399-2d9ea4dae52b/video/38f9761a-9a4a-439d-8d7f-2af7e3eebdd7.m3u8",
+                                "job_id": "1776718578952-y1jg3n",
+                                "status": "ready"
+                            },
+                            "original": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/episode/40094aaf-a634-43b7-b399-2d9ea4dae52b/video/38f9761a-9a4a-439d-8d7f-2af7e3eebdd7.mov",
+                                "width": 2560,
+                                "bucket": "prod-fnf-series",
+                                "height": 1440,
+                                "object_key": "episode/40094aaf-a634-43b7-b399-2d9ea4dae52b/video/38f9761a-9a4a-439d-8d7f-2af7e3eebdd7.mov"
+                            },
+                            "optimized": null
+                        },
+                        "thumbnail": {
+                            "original": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/episode/40094aaf-a634-43b7-b399-2d9ea4dae52b/thumbnail/b2797e45-d6e3-4822-8b6e-c23f8ca9728c.png",
+                                "width": null,
+                                "bucket": "prod-fnf-series",
+                                "height": null,
+                                "object_key": "episode/40094aaf-a634-43b7-b399-2d9ea4dae52b/thumbnail/b2797e45-d6e3-4822-8b6e-c23f8ca9728c.png"
+                            },
+                            "optimized": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/episode/40094aaf-a634-43b7-b399-2d9ea4dae52b/thumbnail/b2797e45-d6e3-4822-8b6e-c23f8ca9728c_optimized.webp",
+                                "object_key": "episode/40094aaf-a634-43b7-b399-2d9ea4dae52b/thumbnail/b2797e45-d6e3-4822-8b6e-c23f8ca9728c_optimized.webp"
+                            }
+                        },
+                        "duration_seconds": null,
+                        "is_locked": false,
+                        "is_adults_only": true,
+                        "like_count": 547,
+                        "dislike_count": 3,
+                        "view_count": 49787,
+                        "engagement_score": 0.9840870002795525,
+                        "like_mark": null,
+                        "youtube_url": null,
+                        "project_publication_id": null,
+                        "project_publication": null,
+                        "created_at": "2026-04-20T16:45:36.403181+00:00",
+                        "updated_at": "2026-11-26T10:30:11.885578+00:00"
+                    }
+                ],
+                "duration_seconds": null,
+                "project_publication_id": null,
+                "engagement": {
+                    "like_count": 547,
+                    "view_count": 49787,
+                    "comment_count": 0
+                }
+            }
+        ],
+        "total": 35
+    }
+}

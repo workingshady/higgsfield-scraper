@@ -5,7 +5,7 @@ mapped to a typed field (so nothing is lost), `source: Provenance`. Timestamps a
 """
 from __future__ import annotations
 
-from typing import Any, Literal, Optional
+from typing import Any, Literal, Optional, Union
 
 from pydantic import AwareDatetime, Field
 
@@ -223,6 +223,96 @@ class MarketingPreset(GenericPreset):
     category_id: Optional[str] = None
 
 
+# ------------------------------------------------------------------ opt-in extras (2026-11-26)
+ENTITY_SCHEMA_VERSION = 1
+Credits = Optional[Union[int, float]]
+
+
+class _OptInEntity(_Entity):
+    """Opt-in kinds carry their provenance flat as well (project convention for new items)."""
+    source_url: str = Field(description="URL of the API response the record came from")
+    scraped_at: AwareDatetime = Field(description="when that response was fetched (UTC)")
+    schema_version: int = ENTITY_SCHEMA_VERSION
+
+
+class ChainPresetInput(Strict):
+    id: Optional[str] = None
+    type: Optional[str] = Field(None, description="image, ...")
+    min: Optional[int] = Field(None, description="properties.min (inputs of this type required)")
+    max: Optional[int] = Field(None, description="properties.max")
+    properties: dict[str, Any] = Field(default_factory=dict)
+    extra: dict[str, Any] = Field(default_factory=dict)
+
+
+class ChainPreset(_OptInEntity):
+    """GET fnf-cms-api/job-set-chain-presets: a one-click chain ("game character creator") with its credit price."""
+    id: str = Field(description="API preset id (uuid)")
+    product_key: Optional[str] = None
+    name: Optional[str] = None
+    description: Optional[str] = None
+    category: Optional[str] = None
+    priority: Optional[float] = None
+    model: Optional[str] = Field(None, description="underlying video model, e.g. seedance_2_0_fast")
+    preset_family: Optional[str] = None
+    runtime: Optional[str] = Field(None, description="preset_chain")
+    chain_type: Optional[str] = Field(None, description="runtime_params.chain_type")
+    runtime_endpoint: Optional[str] = Field(None, description="runtime_params.endpoint (generation POST path)")
+    runtime_model: Optional[str] = Field(None, description="runtime_params.model")
+    runtime_params: dict[str, Any] = Field(default_factory=dict)
+    pricing_mode: Optional[str] = Field(None, description="fixed | dynamic_chain")
+    pricing_schema: dict[str, Any] = Field(default_factory=dict)
+    cost_credits: Credits = Field(None, description="API cost_credits, in credits (no ÷100, unlike viral "
+                                                    "price_matrix credit units). The app shows it as the price, "
+                                                    "with discount_credits struck through when they differ")
+    discount_credits: Credits = Field(None, description="API discount_credits, in credits: the app shows it alone "
+                                                        "when its discount display is off (= regular price)")
+    is_discounted: bool = Field(False, description="cost_credits and discount_credits both set and different")
+    duration: Optional[float] = None
+    inputs: list[ChainPresetInput] = Field(default_factory=list)
+    is_hidden: bool = Field(False, description="only in the show_hidden=true list (--include-hidden)")
+    has_collaborator: bool = Field(False, description="API `collaborate` is a non-empty creator credit")
+    collaborator: Optional[str] = Field(None, description="API `collaborate` (creator credit): --with-profiles only")
+    image_preview_url: Optional[str] = None
+    lang: Optional[str] = None
+
+
+class Notice(_OptInEntity):
+    """cms.higgsfield.ai/notices: per-model badges/popups (retirements, incidents) and site header bars."""
+    id: str = Field(description="hash of section + sorted job_set_types + badge label / header title")
+    section: Literal["job_set", "header"]
+    job_set_types: list[str] = Field(default_factory=list)
+    variant: Optional[str] = Field(None, description="info | warning | ...")
+    badge_label: Optional[str] = None
+    badge_tooltip: Optional[str] = None
+    popup_title: Optional[str] = None
+    popup_description: Optional[str] = None
+    title: Optional[str] = Field(None, description="header notices: view.title")
+    description: Optional[str] = Field(None, description="header notices: view.description")
+    link: Optional[str] = Field(None, description="header notices: view.link")
+    params: dict[str, Any] = Field(default_factory=dict)
+    lang: Optional[str] = None
+
+
+class RestyleVariant(Strict):
+    id: Optional[str] = None
+    type: Optional[str] = Field(None, description="edit | original | generation")
+    extra: dict[str, Any] = Field(default_factory=dict)
+
+
+class RestylePreset(_OptInEntity):
+    """GET fnf-cms-api/restyle-presets (video restyle styles)."""
+    id: str
+    name: Optional[str] = None
+    title: Optional[str] = None
+    description: Optional[str] = None
+    preset_source: Optional[str] = Field(None, description="API `source` (higgsfield)")
+    job_set_type: Optional[str] = None
+    priority: Optional[float] = None
+    variants: list[RestyleVariant] = Field(default_factory=list, description="media in `media` (role variant_<type>)")
+    image_count: int = 0
+    lang: Optional[str] = None
+
+
 class Page(Strict):
     """One listing response: what the API reported (totals, cursors). Used for totals_available / auditing."""
     page_id: str
@@ -261,6 +351,9 @@ MODEL_BY_KIND = {
     "catalog_camera_setting": GenericPreset,
     "catalog_marketing_category": GenericPreset,
     "catalog_marketing_preset": MarketingPreset,
+    "catalog_chain_preset": ChainPreset,
+    "catalog_notice": Notice,
+    "catalog_restyle_preset": RestylePreset,
     "catalog_page": Page,
 }
 
@@ -320,3 +413,11 @@ class CatalogDataset(Strict):
     marketing_categories: list[GenericPreset] = Field(default_factory=list)
     marketing_presets: list[MarketingPreset] = Field(default_factory=list)
     pages: list[Page] = Field(default_factory=list)
+
+
+class CatalogDatasetFull(CatalogDataset):
+    """CatalogDataset + the opt-in collections. Runs that select none of them keep the exact CatalogDataset
+    output (no extra keys, same per-run schema); `schema` export uses this one."""
+    chain_presets: list[ChainPreset] = Field(default_factory=list)
+    notices: list[Notice] = Field(default_factory=list)
+    restyle_presets: list[RestylePreset] = Field(default_factory=list)

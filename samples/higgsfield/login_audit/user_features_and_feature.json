@@ -1,0 +1,22 @@
+{
+    "_meta": {
+        "request": "GET https://fnf-api-gw.higgsfield.ai/fnf/user/features ; GET https://fnf-api-gw.higgsfield.ai/fnf/feature",
+        "captured": "2026-11-26",
+        "note": "identical logged in and anonymous"
+    },
+    "data": {
+        "user_features_logged_in": {
+            "generate_persisted_cache": false,
+            "has_nb_bonus_seedream_free_gens": false,
+            "has_seedream_batch_gens": false
+        },
+        "user_features_anon": {
+            "generate_persisted_cache": false,
+            "has_nb_bonus_seedream_free_gens": false,
+            "has_seedream_batch_gens": false
+        },
+        "feature_logged_in": {
+            "ZGV5a2hhbg": false
+        }
+    }
+}

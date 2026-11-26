@@ -1,0 +1,142 @@
+{
+    "_meta": {
+        "request": "GET https://fnf-api-gw.higgsfield.ai/fnf-series/series?limit=100",
+        "auth": "none (public)",
+        "captured": "2026-11-26",
+        "note": "35 items; truncated (lists to 2)"
+    },
+    "data": {
+        "items": [
+            {
+                "id": "<redacted>",
+                "slug": "cully-hill-boys",
+                "name": "The Cully Hill Boys",
+                "short_description": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+                "author_type": "higgsfield_team",
+                "author": null,
+                "is_series": false,
+                "state": "released",
+                "portrait_url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/portrait/<uuid>_optimized.webp",
+                "landscape_url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/landscape/<uuid>_optimized.webp",
+                "background_url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/background/<uuid>_optimized.webp",
+                "logo_url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/logo/<uuid>.png",
+                "trailer_url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/trailer/<uuid>.mp4",
+                "portrait": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/portrait/<uuid>.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/<uuid>/portrait/<uuid>.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/portrait/<uuid>_optimized.webp",
+                        "object_key": "series/<uuid>/portrait/<uuid>_optimized.webp"
+                    }
+                },
+                "landscape": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/landscape/<uuid>.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/<uuid>/landscape/<uuid>.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/landscape/<uuid>_optimized.webp",
+                        "object_key": "series/<uuid>/landscape/<uuid>_optimized.webp"
+                    }
+                },
+                "background": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/background/<uuid>.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/<uuid>/background/<uuid>.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/background/<uuid>_optimized.webp",
+                        "object_key": "series/<uuid>/background/<uuid>_optimized.webp"
+                    }
+                },
+                "logo": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/logo/<uuid>.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/<uuid>/logo/<uuid>.png"
+                    }
+                },
+                "trailer": {
+                    "hls": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/hls/series/<uuid>/trailer/<uuid>.m3u8",
+                        "job_id": "<redacted>",
+                        "status": "ready"
+                    },
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/<uuid>/trailer/<uuid>.mp4",
+                        "width": 4096,
+                        "bucket": "prod-fnf-series",
+                        "height": 1716,
+                        "object_key": "series/<uuid>/trailer/<uuid>.mp4"
+                    },
+                    "faststart": true
+                },
+                "is_hero": true,
+                "is_hidden": false,
+                "hero_order": 0,
+                "display_order": 10,
+                "project_url": null,
+                "project_banner_images": [],
+                "categories": [],
+                "cast": [],
+                "tags": [],
+                "vote_count": 179,
+                "subscriber_count": 34,
+                "engagement_score": 0.9867914356130623,
+                "is_vote_triggered": false,
+                "is_notify_triggered": false,
+                "created_at": "2026-08-10T15:40:31.609695+00:00",
+                "updated_at": "2026-11-26T10:22:05.752256+00:00",
+                "full_description": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+                "episodes": [
+                    {
+                        "id": "<redacted>",
+                        "series_id": "<redacted>",
+                        "slug": "full-film",
+                        "episode_number": 1,
+                        "title": "Cully Hill Boys",
+                        "description": "The Cully Hill Boys is an action-comedy that follows three underachieving London rappers who, in an attempt to make a name for themselves, accidentally get caught in a messy drug war. A fast, funny, beat-driven crime movie about loyalty, friendship, and refusing to stay invisible.",
+                        "video_url": "https://cdn.higgsfield.ai/hls/video_input/<uuid>/index.m3u8",
+                        "thumbnail_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDA04/<uuid>.jpg",
+                        "video": null,
+                        "thumbnail": null,
+                        "duration_seconds": 6889,
+                        "is_locked": false,
+                        "is_adults_only": false,
+                        "like_count": 1591,
+                        "dislike_count": 0,
+                        "view_count": 364863,
+                        "engagement_score": 0.9867914356130623,
+                        "like_mark": null,
+                        "youtube_url": null,
+                        "project_publication_id": "<redacted>",
+                        "project_publication": null,
+                        "created_at": "2026-08-10T15:46:56.048456+00:00",
+                        "updated_at": "2026-11-26T10:22:05.701629+00:00"
+                    }
+                ],
+                "duration_seconds": 6889,
+                "project_publication_id": "<redacted>",
+                "engagement": {
+                    "like_count": 1591,
+                    "view_count": 364863,
+                    "comment_count": 815
+                }
+            }
+        ],
+        "total": 35
+    }
+}

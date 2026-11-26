@@ -1,0 +1,69 @@
+{
+    "_meta": {
+        "request": "GET https://fnf-api-gw.higgsfield.ai/fnf-apps-marketplace/api/v1/apps/community",
+        "auth": "none (public)",
+        "captured": "2026-11-26",
+        "note": "50 items per page, next_offset; authors redacted"
+    },
+    "data": {
+        "items": [
+            {
+                "id": "<redacted>",
+                "app_id": "<redacted>",
+                "user_id": "<redacted>",
+                "author": "<redacted>",
+                "name": "Thumbnail Maker",
+                "description": "Cinematic 4K YouTube thumbnails from a reference image — cast the emotion, mount the lighting rig, render on Nano Banana Pro.",
+                "logo_url": "https://silly-finch-177.higgsfield.app/assets/favicon.png",
+                "cover_url": "https://silly-finch-177.higgsfield.app/assets/og-card.jpg",
+                "cover_video_url": "https://d8j0ntlcm91z4.cloudfront.net/user_REDACTEDA01/hf_20260709_125556_<uuid>.mp4",
+                "marketplace_cover_url": null,
+                "category": "ads-marketing",
+                "app_url": "https://silly-finch-177.higgsfield.app",
+                "views_count": 15542,
+                "remixes_count": 0,
+                "likes_count": 50,
+                "dislikes_count": 3,
+                "credits_usage": 15265.4,
+                "my_reaction": null,
+                "is_pinned": false,
+                "is_higgsfield": false,
+                "remix_allowed": false,
+                "is_featured": false,
+                "main_page_position": null,
+                "type": "app",
+                "published_at": "2026-07-04T18:23:43.090017Z",
+                "preview_url": "https://silly-finch-177.higgsfield.app"
+            },
+            {
+                "id": "<redacted>",
+                "app_id": "<redacted>",
+                "user_id": "<redacted>",
+                "author": "<redacted>",
+                "name": "CharacterSHEET",
+                "description": "Upload one reference image and get a locked character sheet plus a short anchor prompt that keeps your character consistent in every AI video shot.",
+                "logo_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDA02/<uuid>.png",
+                "cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDA02/<uuid>.png",
+                "cover_video_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDA03/<uuid>.mp4",
+                "marketplace_cover_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_REDACTEDA02/<uuid>.png",
+                "category": "characters-avatars",
+                "app_url": "https://charlock.higgsfield.app",
+                "views_count": 21149,
+                "remixes_count": 0,
+                "likes_count": 172,
+                "dislikes_count": 25,
+                "credits_usage": 39254.72,
+                "my_reaction": null,
+                "is_pinned": false,
+                "is_higgsfield": false,
+                "remix_allowed": false,
+                "is_featured": false,
+                "main_page_position": null,
+                "type": "app",
+                "published_at": "2026-07-22T15:16:10.966120Z",
+                "preview_url": "https://charlock.higgsfield.app"
+            }
+        ],
+        "next_offset": 50
+    }
+}

@@ -48,6 +48,7 @@ class Selection:
     submission_ordering: str = "newest"
     max_submissions: Optional[int] = None           # per contest
     with_profiles: bool = False                      # opt-in: usernames, names, avatars, handles, profile URLs
+    public_series: bool = False                      # opt-in: series from the public fnf-series service (no login)
 
     def __post_init__(self) -> None:
         self.what = tuple(self.what)
@@ -71,13 +72,16 @@ class Selection:
 
     def to_dict(self) -> dict[str, Any]:
         d = asdict(self)
+        if not d["public_series"]:              # added later: omitted at its default so default meta.options is unchanged
+            del d["public_series"]
         return {k: list(v) if isinstance(v, tuple) else v for k, v in d.items()}
 
     @classmethod
     def build(cls, *, what: Any = None, categories: Any = None, featured: Any = False, scope: Any = None,
               with_details: Any = False, with_submissions: Any = False, contest_status: Any = "all",
               contest_types: Any = None, entry_keys: Any = None, entry_tab: Any = "latest",
-              submission_ordering: Any = "newest", max_submissions: Any = None, with_profiles: Any = False) -> "Selection":
+              submission_ordering: Any = "newest", max_submissions: Any = None, with_profiles: Any = False,
+              public_series: Any = False) -> "Selection":
         ms = None if max_submissions in (None, "", "None") else int(max_submissions)
         return cls(
             what=_choose(_csv(what), ep.WHAT, "--what", ep.WHAT),
@@ -93,13 +97,15 @@ class Selection:
             submission_ordering=str(submission_ordering or "newest"),
             max_submissions=ms,
             with_profiles=_truthy(with_profiles),
+            public_series=_truthy(public_series),
         )
 
 
 def add_args(p: argparse.ArgumentParser) -> None:
     g = p.add_argument_group("projects: what to scrape")
     g.add_argument("--what", default="all",
-                   help=f"comma list of {list(ep.WHAT)} or 'all' (default). 'series' needs a login session")
+                   help=f"comma list of {list(ep.WHAT)} or 'all' (default). 'series' needs a login session "
+                        "unless --public-series")
     g.add_argument("--categories", default=None,
                    help="publication category slugs (server-side filter), e.g. spotlight,open-sourced-by-higgsfield")
     g.add_argument("--featured", action="store_true", help="publications listing: only featured (featured=true)")
@@ -117,6 +123,10 @@ def add_args(p: argparse.ArgumentParser) -> None:
                    help="ordering/tab of the contest-entries listing (default latest = every entry)")
     g.add_argument("--submission-ordering", choices=list(ep.SUBMISSION_ORDERINGS), default="newest")
     g.add_argument("--max-submissions", type=int, default=None, help="cap submissions per contest (default: all)")
+    g.add_argument("--public-series", action="store_true",
+                   help="series: use the public fnf-series service (no login; 35 series, --with-details adds "
+                        "/series/{slug}; --max-items caps the series). Without it series keep the legacy "
+                        "login-only fnf path (skipped without a session)")
     o = p.add_argument_group("projects: personal data")
     o.add_argument("--with-profiles", action="store_true",
                    help="opt-in: include authors'/contestants' usernames, names, avatars, headlines, locations, "
@@ -128,7 +138,8 @@ def make_selection(a: argparse.Namespace) -> Selection:
                            with_details=a.with_details, with_submissions=a.with_submissions,
                            contest_status=a.contest_status, contest_types=a.contest_types, entry_keys=a.entry_keys,
                            entry_tab=a.entry_tab, submission_ordering=a.submission_ordering,
-                           max_submissions=a.max_submissions, with_profiles=a.with_profiles)
+                           max_submissions=a.max_submissions, with_profiles=a.with_profiles,
+                           public_series=getattr(a, "public_series", False))
 
 
 def selection_from_dict(d: dict) -> Selection:
@@ -140,7 +151,7 @@ def selection_from_dict(d: dict) -> Selection:
         with_submissions=d.get("with_submissions", False), contest_status=d.get("contest_status", "all"),
         contest_types=d.get("contest_types"), entry_keys=d.get("entry_keys"), entry_tab=d.get("entry_tab", "latest"),
         submission_ordering=d.get("submission_ordering", "newest"), max_submissions=d.get("max_submissions"),
-        with_profiles=d.get("with_profiles", False))
+        with_profiles=d.get("with_profiles", False), public_series=d.get("public_series", False))
 
 
 def default_label(sel: Selection) -> str:
