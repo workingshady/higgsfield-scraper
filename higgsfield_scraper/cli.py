@@ -81,6 +81,8 @@ def first_requests(a) -> list:
     token = a.token or os.environ.get("HF_TOKEN") or None
     sel = sdef.make_selection(a)
     spider_cls = resolve(sdef.spider_cls)
+    if getattr(spider_cls, "dry_run_keeps_auth", False):   # login-only scrapers: offline session check (no minting)
+        return list(spider_cls(selection=sel, common=common_from_args(a), token=token).build_requests())
     sp = spider_cls(selection=sel, token=token) if sdef.name == "pricing" else \
         spider_cls(selection=sel, common=CommonOptions(**{**common_from_args(a).to_dict(), "auth": "off"}), token=None)
     return list(sp.build_requests())

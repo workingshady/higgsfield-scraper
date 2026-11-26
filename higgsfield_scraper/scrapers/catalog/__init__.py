@@ -10,7 +10,7 @@ from __future__ import annotations
 from ...core.base import ScraperDef
 from . import dataset, options, parsers
 from .endpoints import LOGIN_ENDPOINTS
-from .schemas import ID_FIELD_BY_KIND, MODEL_BY_KIND, CatalogDataset
+from .schemas import ID_FIELD_BY_KIND, MODEL_BY_KIND, CatalogDatasetFull
 
 VIDEO_AUDIO = ("video", "audio")
 
@@ -42,7 +42,7 @@ SCRAPER = ScraperDef(
     default_label=options.default_label,
     optional_endpoints=LOGIN_ENDPOINTS,
     media_urls=media_urls,
-    dataset_model=CatalogDataset,
+    dataset_model=CatalogDatasetFull,   # `schema` export incl. opt-in kinds; per-run schema: dataset.write_outputs
     examples=(
         "python -m higgsfield_scraper scrape catalog",
         "python -m higgsfield_scraper scrape catalog --kinds motion,voice,sound",

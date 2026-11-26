@@ -244,9 +244,14 @@ python -m higgsfield_scraper normalize --run runs/<run>
 * The same publication appears in several listings. Repeats are dropped before they count against `--max-items`,
   and the listing membership is still recorded.
 * `awards[]` was empty in every sample, so it is passed through untyped.
-* `normalize` re-parses every page in `raw/` and does not apply `--max-items`. A capped run therefore normalizes to
-  more publications: in the verification run, 491 publications became 787, because pages had already been fetched
-  past the budget. Contests and submissions come out identical.
+* `normalize` re-parses every page in `raw/` and applies the run's `--max-items` budget (via `RunManager.normalize`,
+  primary kinds in order: publications first). Earlier versions of this note said the budget was not applied; a
+  2026-11-25 verification run had produced 787 publications instead of 491 before the framework started budgeting.
+* Fix 2026-11-26: `normalize` now applies the run's `--max-items` budget in primary-kind order (publications
+  first), so a capped run can keep a contest *detail* whose list row was cut. Such a contest is kept as is, without
+  the publication-only `listing="detail"` fallback (Contest has no `listing` field; that fallback made
+  `normalize --run runs/20261125-131446_projects-smoke` fail with `contests.0.listing … extra_forbidden`).
+  Output for list + detail pairs is unchanged. Test: `tests/test_fixes_20261126.py`.
 * Path ids (publication, contest or series id, and the contest id of a submissions page) are stored in the
   envelope's `params`, so that each detail gets its own `raw/` file. `Envelope.filename` uses only the endpoint and
   the params. These ids are not query parameters of the URL.

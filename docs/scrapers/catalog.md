@@ -112,7 +112,9 @@ every listing once.
 Not part of the default run, of `--kinds public` or of the `login` group, so default output is unchanged. When none
 of them is selected the dataset has no `chain_presets` / `notices` / `restyle_presets` keys, no counts, endpoints or
 summary rows for them, and the per-run `schema/dataset.schema.json` is the plain `CatalogDataset`
-(`CatalogDatasetFull` = + the three collections, only when one is selected). New item fields follow the project
+(`CatalogDatasetFull` = + the three collections, only when one is selected). The `schema` command exports
+`catalog.dataset.schema.json` from `CatalogDatasetFull` (since 2026-11-26), so the opt-in collections are
+documented there too; per-run schemas are unaffected. New item fields follow the project
 convention: `source_url`, `scraped_at`, `schema_version` (plus the usual `source`, `media`, `extra`).
 
 | Kind (id) | Endpoint | Params sent | Paging | Total (2026-11-26) |

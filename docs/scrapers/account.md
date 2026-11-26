@@ -19,6 +19,9 @@ python -m higgsfield_scraper normalize --run runs/<id>                       # r
 
 Login: `python -m higgsfield_scraper login`, or `HF_CLERK_CLIENT` (or `HF_EMAIL`/`HF_PASSWORD`) in `.env`.
 Check it with `python -m higgsfield_scraper auth-check`.
+`scrape account --dry-run` lists the planned requests when a session is configured (offline
+`TokenProvider.from_env().configured` check: no network, no token minted or printed); without one, or with
+`--auth off`, it prints the "needs a login session" message and no requests.
 
 ## Flags
 

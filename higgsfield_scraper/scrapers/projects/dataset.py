@@ -21,11 +21,17 @@ def _strip(e: dict) -> dict:
     return {k: v for k, v in e.items() if k != "kind"}
 
 
-def _merge(base: Optional[dict], detail: dict) -> dict:
-    """List record + detail record: detail values win unless they are missing/empty."""
+def _merge(base: Optional[dict], detail: dict, *, has_listing: bool = True) -> dict:
+    """List record + detail record: detail values win unless they are missing/empty.
+
+    A detail without a list record (e.g. `normalize` of a --max-items run: the budget keeps the list rows of the
+    first primary kind only, while the *_detail rows are not budgeted) is kept as is. Only records with a
+    `listing` field (publications) get the "detail" fallback; Contest has no such field (fix 2026-11-26).
+    """
     if base is None:
         out = dict(detail)
-        out["listing"] = out.get("listing") or "detail"
+        if has_listing:
+            out["listing"] = out.get("listing") or "detail"
         return out
     out = dict(base)
     for k, v in detail.items():
@@ -40,20 +46,20 @@ def _merge(base: Optional[dict], detail: dict) -> dict:
     return out
 
 
-def _merged(rows: list[dict], details: list[dict], key: str) -> list[dict]:
+def _merged(rows: list[dict], details: list[dict], key: str, *, has_listing: bool = True) -> list[dict]:
     by_id: dict[str, dict] = {}
     for r in rows:
         by_id.setdefault(r[key], _strip(r))
     for d in details:
         d = _strip(d)
-        by_id[d[key]] = _merge(by_id.get(d[key]), d)
+        by_id[d[key]] = _merge(by_id.get(d[key]), d, has_listing=has_listing)
     return list(by_id.values())
 
 
 def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) -> dict:
     g = lambda k: entities.get(k) or []  # noqa: E731
     publications = _merged(g("projects_publication"), g("projects_publication_detail"), "publication_id")
-    contests = _merged(g("projects_contest"), g("projects_contest_detail"), "contest_id")
+    contests = _merged(g("projects_contest"), g("projects_contest_detail"), "contest_id", has_listing=False)
     pub_ids = {p["publication_id"] for p in publications}
     warnings: list[str] = []
 

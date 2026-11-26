@@ -25,6 +25,9 @@ class AccountSpider(BaseApiSpider):
     scraper_name = "account"
     primary_kinds = ("account_job",)
     REDACTION_MW = "higgsfield_scraper.scrapers.account.redaction.AccountRedactionMiddleware"
+    # `scrape account --dry-run` (cli.first_requests) builds this spider with the user's real --auth/--token instead
+    # of auth=off, so `authed` is the offline TokenProvider.from_env().configured check (no network, no minting).
+    dry_run_keeps_auth = True
 
     @classmethod
     def update_settings(cls, settings) -> None:
