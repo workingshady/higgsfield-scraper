@@ -1,0 +1,187 @@
+{
+    "meta": {
+        "endpoint": "showcase_reels_preset_detail",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/ai-reels-presets/community-14429df0",
+        "params": {
+            "slug": "community-14429df0",
+            "source": "community"
+        },
+        "fetched_at": "2026-11-26T15:41:38.062146+00:00",
+        "status": 200
+    },
+    "body": {
+        "listed": {
+            "id": "a361ef3b-0955-4837-9fd8-835c5bc65c07",
+            "slug": "community-14429df0",
+            "title": "Dynamic Caption Pop",
+            "description": "Add energetic sans-serif subtitles to an AI presenter video with large white text and bright red keyword highlights that pop with every word.",
+            "thumbnail_media": {
+                "type": "static",
+                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/generation.webp",
+                "width": 600,
+                "height": 1066,
+                "mime_type": "image/webp"
+            },
+            "video_media": {
+                "type": "video",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/78acf078-983d-5f36-9930-e355e1fe0b3c.mp4",
+                "mime_type": "video/mp4",
+                "width": 606,
+                "height": 698,
+                "duration_seconds": 36.666667,
+                "media_id": "78acf078-983d-5f36-9930-e355e1fe0b3c",
+                "media_type": "video_input",
+                "compressed_url": null,
+                "compressed_width": null,
+                "compressed_height": null,
+                "compressed_size_bytes": null,
+                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/original.webp"
+            },
+            "generated_video_media": {
+                "type": "video",
+                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/generation.mp4",
+                "mime_type": "video/mp4",
+                "width": 1080,
+                "height": 1920,
+                "duration_seconds": 19.125651,
+                "media_id": null,
+                "media_type": null,
+                "compressed_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/generation-genjutsu-h264-600-v1.mp4",
+                "compressed_width": 600,
+                "compressed_height": 1066,
+                "compressed_size_bytes": 1591757,
+                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/generation.webp"
+            },
+            "background_media": null,
+            "character_media": null,
+            "category": null,
+            "views": null,
+            "likes": null,
+            "comments": null,
+            "source_url": null,
+            "source_platform": null,
+            "author_handle": null,
+            "hashtags": [],
+            "script": null,
+            "quality": "1080p",
+            "duration_seconds": 19.0,
+            "source": "community",
+            "own_recording": true,
+            "instructions": "Recreate the editing style of the reference video using my uploaded AI presenter video.\n\nUse the reference video ONLY as inspiration for subtitle style, timing, animation, typography, keyword emphasis and overall social media editing style.…",
+            "own_videos": [
+                {
+                    "type": "video",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/own-0.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": 19.041667,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": null,
+                    "compressed_width": null,
+                    "compressed_height": null,
+                    "compressed_size_bytes": null,
+                    "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/own-0.webp"
+                }
+            ],
+            "recreates": 0,
+            "author": {
+                "id_hash": "72bb5a675ae80dae",
+                "id_basis": "username",
+                "badge": null
+            },
+            "likes_count": 0,
+            "publication": {
+                "id": "1d076071-8a7d-4b54-ba28-7c0cb69c7857",
+                "likes_count": 0
+            }
+        },
+        "categories": [
+            {
+                "id": "style-transfer",
+                "label": "Style transfer",
+                "icon_key": "colors"
+            }
+        ],
+        "lang": "en",
+        "detail": {
+            "id": "a361ef3b-0955-4837-9fd8-835c5bc65c07",
+            "slug": "community-14429df0",
+            "title": "Dynamic Caption Pop",
+            "description": "Add energetic sans-serif subtitles to an AI presenter video with large white text and bright red keyword highlights that pop with every word.",
+            "thumbnail_media": {
+                "type": "static",
+                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/generation.webp",
+                "width": 600,
+                "height": 1066,
+                "mime_type": "image/webp"
+            },
+            "video_media": {
+                "type": "video",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/78acf078-983d-5f36-9930-e355e1fe0b3c.mp4",
+                "mime_type": "video/mp4",
+                "width": 606,
+                "height": 698,
+                "duration_seconds": 36.666667,
+                "media_id": "78acf078-983d-5f36-9930-e355e1fe0b3c",
+                "media_type": "video_input",
+                "compressed_url": null,
+                "compressed_width": null,
+                "compressed_height": null,
+                "compressed_size_bytes": null,
+                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/original.webp"
+            },
+            "generated_video_media": {
+                "type": "video",
+                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/generation.mp4",
+                "mime_type": "video/mp4",
+                "width": 1080,
+                "height": 1920,
+                "duration_seconds": 19.125651,
+                "media_id": null,
+                "media_type": null,
+                "compressed_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/generation-genjutsu-h264-600-v1.mp4",
+                "compressed_width": 600,
+                "compressed_height": 1066,
+                "compressed_size_bytes": 1591757,
+                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/generation.webp"
+            },
+            "background_media": null,
+            "character_media": null,
+            "category": null,
+            "views": null,
+            "likes": null,
+            "comments": null,
+            "source_url": null,
+            "source_platform": null,
+            "author_handle": null,
+            "hashtags": [],
+            "script": null,
+            "quality": "1080p",
+            "duration_seconds": 19.0,
+            "source": "community",
+            "own_recording": true,
+            "instructions": "Recreate the editing style of the reference video using my uploaded AI presenter video.\n\nUse the reference video ONLY as inspiration for subtitle style, timing, animation, typography, keyword emphasis and overall social media editing style.…",
+            "own_videos": [
+                {
+                    "type": "video",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/own-0.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": 19.041667,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": null,
+                    "compressed_width": null,
+                    "compressed_height": null,
+                    "compressed_size_bytes": null,
+                    "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/a361ef3b-0955-4837-9fd8-835c5bc65c07/own-0.webp"
+                }
+            ],
+            "prompt": null
+        },
+        "detail_status": 200
+    }
+}

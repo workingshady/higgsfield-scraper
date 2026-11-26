@@ -439,3 +439,183 @@ class CommunityDatasetExt(CommunityDataset):
     feed_items: list[CommunityFeedItem] = Field(default_factory=list)
     creator_stats: list[CommunityCreatorStats] = Field(default_factory=list)
     extra_stats: CommunityExtraStats = Field(default_factory=CommunityExtraStats)
+
+
+# ------------------------------------------------------------------ opt-in gallery / template sources
+# (--feeds music-cards, job-showcase, collections, explore-cards; docs/COMMUNITY_COVERAGE.md §3b and §5).
+# None of these objects has a comment thread (fnf-community /entities/{type}/{id}/comments accepts only
+# generation_publication | project_publication | blog_post) or public engagement counters.
+
+class MusicCardRecipient(Strict):
+    """A recipient of a Music Cards template (example text written by Higgsfield, not a real person's data)."""
+
+    main: Optional[bool] = None
+    name: Optional[str] = Field(None, description="example name used by the template, e.g. Mama")
+    role: Optional[str] = Field(None, description="role key (joins music card option group 'role')")
+    facts_wishes: list[str] = Field(default_factory=list, description="the facts / wishes the lyrics are built from")
+    extra: dict[str, Any] = Field(default_factory=dict)
+
+
+class CommunityMusicCard(Strict):
+    """kind=community_music_card - one Music Cards template (fnf-cms-api GET /music-cards-presets): a personalised
+    song video preset with its example lyrics, recipients and rendered preview video."""
+
+    music_card_id: str = Field(description="API `id` (uuid)")
+    slug: Optional[str] = None
+    position: Optional[int] = Field(None, description="0-based order in the API list (the UI shelf order)")
+    title: Optional[str] = None
+    description: Optional[str] = None
+    category: Optional[str] = Field(None, description="primary category id (joins option group 'category')")
+    categories: list[str] = Field(default_factory=list)
+    occasion: Optional[str] = Field(None, description="occasion key (joins option group 'occasion')")
+    occasion_text: Optional[str] = None
+    tone: Optional[str] = None
+    style: Optional[str] = Field(None, description="visual style key (joins option group 'style')")
+    music: Optional[str] = Field(None, description="music genre key, e.g. ballad")
+    length_seconds: Optional[int] = Field(None, description="API `length` (song length, s)")
+    song_title: Optional[str] = None
+    lyrics: Optional[str] = None
+    recipients: list[MusicCardRecipient] = Field(default_factory=list)
+    senders: list[Any] = Field(default_factory=list)
+    thumbnail_url: Optional[str] = Field(None, description="thumbnail_media.url (static image)")
+    thumbnail_width: Optional[int] = Field(None, description="px")
+    thumbnail_height: Optional[int] = Field(None, description="px")
+    preview_video_url: Optional[str] = Field(None, description="video_media.url (full-size mp4)")
+    preview_video_width: Optional[int] = Field(None, description="px")
+    preview_video_height: Optional[int] = Field(None, description="px")
+    preview_video_duration_seconds: Optional[float] = Field(None, description="s (often null)")
+    preview_video_compressed_url: Optional[str] = Field(None, description="video_media.compressed_url (small mp4)")
+    preview_video_compressed_width: Optional[int] = Field(None, description="px")
+    preview_video_compressed_height: Optional[int] = Field(None, description="px")
+    preview_video_compressed_bytes: Optional[int] = Field(None, description="bytes")
+    preview_video_thumbnail_url: Optional[str] = Field(None, description="video_media.thumbnail_url (poster)")
+    extra: dict[str, Any] = Field(default_factory=dict, description="other non-null API fields")
+    source: Provenance
+
+
+class CommunityMusicCardOption(Strict):
+    """kind=community_music_card_option - one value of a Music Cards option list: category (from the presets
+    response), style, occasion or role (fnf-cms-api /music-cards-{styles,occasions,roles})."""
+
+    option_id: str = Field(description="make_id('music_card_option', group, key)")
+    group: Literal["category", "style", "occasion", "role"]
+    key: str = Field(description="category id / style / occasion key / role key")
+    label: Optional[str] = None
+    hint: Optional[str] = None
+    icon_key: Optional[str] = None
+    parent: Optional[str] = Field(None, description="parent category id (categories only)")
+    thumbnail_url: Optional[str] = None
+    categories: list[str] = Field(default_factory=list, description="occasions: categories they belong to")
+    position: Optional[int] = Field(None, description="0-based order within the group")
+    extra: dict[str, Any] = Field(default_factory=dict)
+    source: Provenance
+
+
+class CommunityShowcaseJob(Strict):
+    """kind=community_showcase_job - one generation of a curated job showcase (fnf GET /jobs/showcase/{slug}; the
+    'movies' of /seedance-2-community). Generation-like: generation_id / generation_key (job:) and media_keys
+    (media:) join scripts/merge_generations.py. The jobs are unpublished (published_at null), so they have no
+    publication id, likes, views or comments."""
+
+    generation_id: str = Field(description="job id (API `id`)")
+    generation_key: str = Field(description="'job:<generation_id>' (merge key)")
+    media_keys: list[str] = Field(default_factory=list, description="'media:<uuid>' of each output file")
+    showcase_slug: str = Field(description="showcase slug, e.g. seedance-2-0")
+    url: Optional[str] = Field(None, description="page that shows the showcase")
+    movie_index: int = Field(description="0-based index of the movie (data[]) in the showcase")
+    movie_position: int = Field(description="0-based position of the job inside its movie")
+    movie_logo_url: Optional[str] = None
+    movie_group_image_url: Optional[str] = None
+    job_set_type: Optional[str] = Field(None, description="joins pricing model_id")
+    job_set_id: Optional[str] = None
+    parent_id: Optional[str] = Field(None, description="job_set_parent_id")
+    media_type: MediaType
+    status: Optional[str] = None
+    prompt: Optional[str] = None
+    negative_prompt: Optional[str] = None
+    settings: Settings
+    params_extra: dict[str, Any] = Field(default_factory=dict, description="every other params.* key")
+    raw_params: Optional[dict[str, Any]] = Field(None, description="only with --with-raw-params")
+    inputs: list[InputMedia] = Field(default_factory=list, description="input images/videos/elements (the assets)")
+    results: list[ResultVariant] = Field(default_factory=list, description="all variants: raw, min, hls, h264")
+    created_at: Optional[AwareDatetime] = None
+    published_at: Optional[AwareDatetime] = None
+    moderation: Moderation
+    board_ids: list[Any] = Field(default_factory=list)
+    client_meta: Optional[dict[str, Any]] = None
+    meta_extra: dict[str, Any] = Field(default_factory=dict)
+    extra: dict[str, Any] = Field(default_factory=dict, description="other non-null top-level job fields")
+    creator: PersonRef
+    source: Provenance
+
+
+class CollectionItem(Strict):
+    """A motion preset in a collection (joins catalog_motion by motion_id)."""
+
+    position: int
+    motion_id: Optional[str] = None
+    name: Optional[str] = None
+    media_url: Optional[str] = Field(None, description="animated preview (webp)")
+    media_type: Optional[str] = None
+    width: Optional[int] = Field(None, description="px")
+    height: Optional[int] = Field(None, description="px")
+    priority: Optional[int] = None
+    tags: list[str] = Field(default_factory=list)
+    params: dict[str, Any] = Field(default_factory=dict, description="preset params (steps, frames, strength…)")
+
+
+class CommunityCollection(Strict):
+    """kind=community_collection - a curated motion collection (fnf GET /collections/{slug}), e.g. Catch the Pulse."""
+
+    collection_id: str = Field(description="API `id`, or the slug when the API sends null")
+    slug: str
+    url: str = Field(description="https://higgsfield.ai/collection/<slug>")
+    name: Optional[str] = None
+    description: Optional[str] = None
+    items_count: int = 0
+    items: list[CollectionItem] = Field(default_factory=list)
+    source: Provenance
+
+
+class CommunityExploreCard(Strict):
+    """kind=community_explore_card - one explore/home card (cms GET /cards): a tile linking to a tool, app or
+    model page with a preview image/video."""
+
+    card_id: str = Field(description="API `id` (int, as text)")
+    position: Optional[int] = Field(None, description="0-based order in the API list")
+    slug: Optional[str] = None
+    name: Optional[str] = None
+    description: Optional[str] = None
+    href: Optional[str] = None
+    href_mobile: Optional[str] = None
+    media_type: Optional[str] = Field(None, description="media.type: image | video")
+    media_url: Optional[str] = None
+    width: Optional[int] = Field(None, description="px")
+    height: Optional[int] = Field(None, description="px")
+    has_placeholder: bool = Field(False, description="media.placeholder (inline blur data URI) present; not stored")
+    extra: dict[str, Any] = Field(default_factory=dict)
+    source: Provenance
+
+
+class CommunityGalleryStats(Strict):
+    music_cards: int = 0
+    music_card_options: int = 0
+    showcase_jobs: int = 0
+    collections: int = 0
+    collection_items: int = 0
+    explore_cards: int = 0
+    music_cards_by_category: dict[str, int] = Field(default_factory=dict)
+    showcase_jobs_by_job_set_type: dict[str, int] = Field(default_factory=dict)
+    explore_cards_by_media_type: dict[str, int] = Field(default_factory=dict)
+
+
+class CommunityDatasetGallery(CommunityDatasetExt):
+    """Dataset of a run that used an opt-in gallery / template source (--feeds music-cards|job-showcase|collections|
+    explore-cards). Other runs keep CommunityDataset / CommunityDatasetExt unchanged."""
+
+    music_cards: list[CommunityMusicCard] = Field(default_factory=list)
+    music_card_options: list[CommunityMusicCardOption] = Field(default_factory=list)
+    showcase_jobs: list[CommunityShowcaseJob] = Field(default_factory=list)
+    collections: list[CommunityCollection] = Field(default_factory=list)
+    explore_cards: list[CommunityExploreCard] = Field(default_factory=list)
+    gallery_stats: CommunityGalleryStats = Field(default_factory=CommunityGalleryStats)

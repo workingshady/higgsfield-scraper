@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/contest-participations/publications/counters",
+        "status": 200,
+        "note": "lists cut to 2 items; people fields redacted"
+    },
+    "body": {
+        "total": 66645,
+        "public_total": 4516,
+        "private_total": 62129
+    }
+}

@@ -1,0 +1,248 @@
+{
+    "meta": {
+        "endpoint": "studios_gallery",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/publications/community/trending?size=50&model=cinematic_studio_3_0&model=cinematic_studio_image&model=cinematic_studio_2_5&model=cinematic_studio_video&model=cinematic_studio_video_v2&model=cinematic_studio_video_3_5&model=cinematic_studio_video_4_0&model=cinema_studio_4_0&model=soul_cinema_studio",
+        "params": {
+            "size": "50",
+            "model": "cinematic_studio_3_0,cinematic_studio_image,cinematic_studio_2_5,cinematic_studio_video,cinematic_studio_video_v2,cinematic_studio_video_3_5,cinematic_studio_video_4_0,cinema_studio_4_0,soul_cinema_studio",
+            "studio": "cinema_studio",
+            "feed": "trending",
+            "page": "1",
+            "rank_base": "0"
+        },
+        "fetched_at": "2026-11-26T15:47:59.569074+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "job_set_type": "soul_cinema_studio",
+                "job_set_id": "24dc647f-1fe0-4204-907f-d1b4774c3265",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "board_ids": [],
+                "params": {
+                    "prompt": "A cinematic ultra-realistic environmental close-up shot of a small ancient samurai camp in a Japanese forest at sunrise, focusing on one traditional canvas tent with nearby wooden crates, rolled bedding, and a lantern beside a small creek, the background softly filled with tall cedar trees, cherry blossoms, and pink morning mist, warm sunrise light touching the fabric and forest floor, peaceful, intimate, idyllic atmosphere, no people, no modern objects, premium film still.",
+                    "width": 2048,
+                    "height": 1152,
+                    "batch_size": 1,
+                    "seed": 49076,
+                    "enhance_prompt": true,
+                    "quality": "1080p",
+                    "style_id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                    "style": {
+                        "id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                        "name": "General",
+                        "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+                        "strength": 1.0
+                    },
+                    "style_strength": null
+                },
+                "meta": {},
+                "id": "528f601a-9744-42e3-954b-bc4b2d803242",
+                "status": "completed",
+                "ip_check_finished": null,
+                "ip_detected": null,
+                "can_bypass_ip": false,
+                "deepfake_consent_required": false,
+                "ip_consent_required": false,
+                "result": {
+                    "type": "image",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake020/hf_20260608_114431_528f601a-9744-42e3-954b-bc4b2d803242.png"
+                },
+                "results": {
+                    "raw": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake020/hf_20260608_114431_528f601a-9744-42e3-954b-bc4b2d803242.png"
+                    },
+                    "min": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake020/hf_20260608_114431_528f601a-9744-42e3-954b-bc4b2d803242.png"
+                    }
+                },
+                "published_at": 1791926281.828662,
+                "created_at": 1780919071.900768,
+                "user_id": "user_Fake020",
+                "trace_id": "528f601a-9744-42e3-954b-bc4b2d803242",
+                "cluster_hash": "bfc20d4874670a5eba1f521729d3131d",
+                "representation": null,
+                "publication": {
+                    "id": "85f03b93-47e6-4a4f-8426-e9b2833c101b",
+                    "views_count": 237,
+                    "likes_count": 3,
+                    "is_liked_by_user": null,
+                    "approved": false,
+                    "pinned_at": null
+                },
+                "profile": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "instagram_handle": "[redacted]",
+                    "twitter_handle": "[redacted]",
+                    "youtube_handle": "[redacted]",
+                    "tiktok_handle": "[redacted]",
+                    "badge": null,
+                    "badges": [
+                        {
+                            "name": "Higgsfield Creative Partner",
+                            "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/729b114d-1c55-48f4-9b21-c6c003582c39.png",
+                            "description": null
+                        }
+                    ]
+                },
+                "drama": null
+            },
+            {
+                "job_set_type": "soul_cinema_studio",
+                "job_set_id": "b13a9b43-fe07-404b-8b99-debd39250aee",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "board_ids": [],
+                "params": {
+                    "prompt": "asdf",
+                    "width": 2048,
+                    "height": 1152,
+                    "batch_size": 1,
+                    "seed": 294085,
+                    "enhance_prompt": true,
+                    "quality": "1080p",
+                    "style_id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                    "style": {
+                        "id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                        "name": "General",
+                        "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+                        "strength": 1.0
+                    },
+                    "style_strength": null
+                },
+                "meta": {},
+                "id": "821b25fc-4dcf-430c-97a9-5518354631da",
+                "status": "completed",
+                "ip_check_finished": null,
+                "ip_detected": null,
+                "can_bypass_ip": false,
+                "deepfake_consent_required": false,
+                "ip_consent_required": false,
+                "result": {
+                    "type": "image",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake021/hf_20261118_182931_821b25fc-4dcf-430c-97a9-5518354631da.png"
+                },
+                "results": {
+                    "raw": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake021/hf_20261118_182931_821b25fc-4dcf-430c-97a9-5518354631da.png"
+                    },
+                    "min": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake021/hf_20261118_182931_821b25fc-4dcf-430c-97a9-5518354631da.png"
+                    }
+                },
+                "published_at": 1795026640.412513,
+                "created_at": 1795026571.955621,
+                "user_id": "user_Fake021",
+                "trace_id": "821b25fc-4dcf-430c-97a9-5518354631da",
+                "cluster_hash": "912ec803b2ce49e4a541068d495ab570",
+                "representation": null,
+                "publication": {
+                    "id": "28896e17-1b87-480d-a78a-32137210fec3",
+                    "views_count": 13,
+                    "likes_count": 0,
+                    "is_liked_by_user": null,
+                    "approved": false,
+                    "pinned_at": null
+                },
+                "profile": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "instagram_handle": null,
+                    "twitter_handle": null,
+                    "youtube_handle": null,
+                    "tiktok_handle": null,
+                    "badge": null,
+                    "badges": []
+                },
+                "drama": null
+            },
+            {
+                "job_set_type": "soul_cinema_studio",
+                "job_set_id": "24043627-a42d-40fe-82b8-d942e654db7c",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "board_ids": [],
+                "params": {
+                    "prompt": "",
+                    "width": 2048,
+                    "height": 1152,
+                    "batch_size": 3,
+                    "seed": 210026,
+                    "enhance_prompt": true,
+                    "quality": "1080p",
+                    "style_id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                    "style": {
+                        "id": "5fbabfac-d27b-4751-b550-fea356ed55ac",
+                        "name": "General",
+                        "url": "https://cdn.higgsfield.ai/soul-cinematic-style/5f42a585-8ddb-4a06-96c6-682afce0afa1.webp",
+                        "strength": 1.0
+                    },
+                    "style_strength": null
+                },
+                "meta": {},
+                "id": "aac4a688-0a48-4a24-b7f4-17afdd22ab71",
+                "status": "completed",
+                "ip_check_finished": null,
+                "ip_detected": null,
+                "can_bypass_ip": false,
+                "deepfake_consent_required": false,
+                "ip_consent_required": false,
+                "result": {
+                    "type": "image",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake022/hf_20260804_124635_aac4a688-0a48-4a24-b7f4-17afdd22ab71.png"
+                },
+                "results": {
+                    "raw": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake022/hf_20260804_124635_aac4a688-0a48-4a24-b7f4-17afdd22ab71.png"
+                    },
+                    "min": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake022/hf_20260804_124635_aac4a688-0a48-4a24-b7f4-17afdd22ab71.png"
+                    }
+                },
+                "published_at": 1793585794.662889,
+                "created_at": 1785847595.445634,
+                "user_id": "user_Fake022",
+                "trace_id": "aac4a688-0a48-4a24-b7f4-17afdd22ab71",
+                "cluster_hash": "d41d8cd98f00b204e9800998ecf8427e",
+                "representation": null,
+                "publication": {
+                    "id": "e90056fc-3cb5-4f6a-94a4-1893fe68f333",
+                    "views_count": 30,
+                    "likes_count": 1,
+                    "is_liked_by_user": null,
+                    "approved": false,
+                    "pinned_at": null
+                },
+                "profile": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "instagram_handle": "[redacted]",
+                    "twitter_handle": "[redacted]",
+                    "youtube_handle": "[redacted]",
+                    "tiktok_handle": "[redacted]",
+                    "badge": "higgs_team",
+                    "badges": [
+                        {
+                            "name": "Higgsfield Team",
+                            "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2576cd81-f6e8-4dcd-afc9-05f9319a463b.png",
+                            "description": "One of the people behind Higgsfield. We build the tools. You make the magic."
+                        }
+                    ]
+                },
+                "drama": null
+            }
+        ],
+        "cursor": 0.0,
+        "has_more": true,
+        "total": 295
+    }
+}

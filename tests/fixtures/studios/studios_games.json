@@ -1,0 +1,93 @@
+{
+    "meta": {
+        "endpoint": "studios_games",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-skills-marketplace/api/v1/games/community?limit=100&offset=0",
+        "params": {
+            "limit": "100",
+            "offset": "0"
+        },
+        "fetched_at": "2026-11-26T15:47:37.706641+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "5ab11256-76ad-4ab5-baff-f5e68db50906",
+                "game_id": "a0ce1180-f367-4ce7-bb8b-44b8a07a6a98",
+                "author_user_id": "user_Fake005",
+                "author": {
+                    "avatar_url": "[redacted]",
+                    "name": "[redacted]",
+                    "user_id": "user_Fake005"
+                },
+                "name": "Gesture Synth",
+                "slug": "swift-carrot-765",
+                "description": "Play music with your hands. Raise your hands to the camera and pinch your fingers to trigger notes — move to change pitch, shape the tone, and use both hands at once to layer two voices. No instrument, no controller, just your hands.",
+                "logo_url": "https://cdn.higgsfield.ai/games/gesture-synth/photo_2026-06-12_01-40-04.jpg",
+                "cover_url": "https://cdn.higgsfield.ai/games/gesture-synth/photo_2026-06-12_01-40-08.jpg",
+                "game_url": "https://swift-carrot-765.higgsfield.app/",
+                "source_url": "https://cdn.higgsfield.ai/games/gesture-synth/gesture-synth-v1.zip",
+                "chat_id": null,
+                "category_id": "music-rhythm",
+                "remixed_from_community_game_id": null,
+                "remixes_count": 591,
+                "unique_players_count": 53287,
+                "plays_count": 409063,
+                "created_at": "2026-06-11T20:42:18.593657Z",
+                "updated_at": "2026-06-11T20:42:18.593665Z"
+            },
+            {
+                "id": "65404c0d-e7cb-4db0-b0c0-3eafbd70b092",
+                "game_id": "adde0b39-6112-440d-8357-84ae627bf609",
+                "author_user_id": "user_Fake006",
+                "author": {
+                    "avatar_url": "[redacted]",
+                    "name": "[redacted]",
+                    "user_id": "user_Fake006"
+                },
+                "name": "Blockfield",
+                "slug": "brisk-stable-638",
+                "description": "Blockfield — a voxel multiplayer team FPS, red vs blue. Build and destroy blocks, fight with rifles, shotguns, snipers and bazookas, chat by text or voice. Up to 22 players in a desert temple arena. WASD to move, LMB to shoot, TAB for the scoreboard.",
+                "logo_url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake007/hf_20260611_225842_3658f296-6d92-476b-9b62-b0e5f7c408f3.png",
+                "cover_url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake007/hf_20260611_225834_0b26af3c-4345-450b-b2c6-3d0d9c398818.png",
+                "game_url": "https://rosy-study-870.higgsfield.gg/",
+                "source_url": null,
+                "chat_id": null,
+                "category_id": "shooter",
+                "remixed_from_community_game_id": null,
+                "remixes_count": 640,
+                "unique_players_count": 23580,
+                "plays_count": 186477,
+                "created_at": "2026-06-12T12:00:00Z",
+                "updated_at": "2026-06-11T23:26:12.547491Z"
+            },
+            {
+                "id": "a265ef04-f9e7-41a1-a660-4fffadbd9d91",
+                "game_id": "5a83a706-9b6f-4304-bffe-504f7eb284f0",
+                "author_user_id": "user_Fake008",
+                "author": {
+                    "avatar_url": "[redacted]",
+                    "name": "[redacted]",
+                    "user_id": "user_Fake008"
+                },
+                "name": "STRIKE PROTOCOL",
+                "slug": "yellow-dune-350",
+                "description": "A fast tactical FPS you play right in your browser. Battle through round-based matches against smart enemy squads, or jump into online deathmatch with friends from a single invite link. Buy your loadout each round, master recoil and headshots, watch the radar — and outgun everyone on a dusty desert arena",
+                "logo_url": "https://cdn.higgsfield.ai/games/strike-protocol/photo_2026-06-12_01-22-42.jpg",
+                "cover_url": "https://cdn.higgsfield.ai/games/strike-protocol/photo_2026-06-12_01-22-53.jpg",
+                "game_url": "https://dev--yellow-dune-350.higgsfield.app/",
+                "source_url": "https://cdn.higgsfield.ai/games/strike-protocol/deb9518b-d3c2-4291-a453-d73e1dfaedba.zip",
+                "chat_id": null,
+                "category_id": "shooter",
+                "remixed_from_community_game_id": null,
+                "remixes_count": 406,
+                "unique_players_count": 20472,
+                "plays_count": 145223,
+                "created_at": "2026-06-11T20:24:50.927015Z",
+                "updated_at": "2026-06-11T20:24:50.927026Z"
+            }
+        ],
+        "next_cursor": null,
+        "next_offset": 100
+    }
+}

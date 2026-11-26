@@ -1,0 +1,22 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/profiles/{UNAME}/preview",
+        "status": 200,
+        "note": "types only"
+    },
+    "body": {
+        "user_id": "str",
+        "username": "str",
+        "full_name": "NoneType",
+        "avatar_url": "str",
+        "bio": "NoneType",
+        "badges": [],
+        "rating_points": "int",
+        "followers_count": "int",
+        "following_count": "int",
+        "views_count": "int",
+        "likes_count": "int",
+        "is_subscribed": "bool"
+    }
+}

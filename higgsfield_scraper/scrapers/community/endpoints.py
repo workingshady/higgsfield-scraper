@@ -86,7 +86,41 @@ ESTIMATE_MODES = ("off", "images", "videos", "all")
 #            -> {users[], total (646), next_cursor, next_offset, limit}
 #   talents  Talents hub list: fnf GET /community/discovery/talents?sort=rating|trending|recent&limit&offset&size
 #            -> {users[], total (80), limit, next_offset}
-EXTRA_FEEDS = ("shots", "posts", "feed", "creators", "talents")
+EXTRA_FEEDS_PAGES = ("shots", "posts", "feed", "creators", "talents")
+# ---- opt-in gallery / template sources (added 2026-11-26, docs/COMMUNITY_COVERAGE.md §3b "Galleries, trends,
+# templates"). Also NOT part of 'all'. All public (identical bodies with and without a session), GET only.
+#   music-cards   /music-cards (feature-flagged page): fnf-cms-api GET /music-cards-presets?lang -> {items[111],
+#                 categories[26], next_cursor: null} + /music-cards-{styles,occasions,roles}?lang -> {items[]}
+#                 (JS chunk Hba1h6PAxZ4rbHsX: Kl() `/music-cards-presets`, Wc(e) `/music-cards-${e}`)
+#   job-showcase  /seedance-2-community "movies": the route loader calls fnf GET /jobs/showcase/{slug} -> {data[{logo,
+#                 group_image_url, jobs[job]}]} (JS chunk Uw0DB7O6OHr8kdkg: T(e) `/jobs/showcase/${e}`, slug
+#                 `seedance-2-0`) and server-renders the result as loaderData.seedanceMovies. The scraper reads that
+#                 public page's SSR state: its own GET of the API answered a Cloudflare "Just a moment" 403 (a bare
+#                 GET got 200) and challenges are never evaded. Same objects, same parser.
+#   collections   /collection/catch-the-pulse: fnf GET /collections/{slug} -> {id, name, description, items[motion]}
+#                 (JS tCLaul HW(e) `/collections/${e}`, route loader bse(`catch-the-pulse`))
+#   explore-cards explore/home "fresh drops" cards: cms GET /cards?size&cursor(page) -> {total (192), cursor, items[]}
+#                 (JS tCLaul NR(e) `/cards`, audience / fresh_drops filters)
+GALLERY_FEEDS = ("music-cards", "job-showcase", "collections", "explore-cards")
+EXTRA_FEEDS = EXTRA_FEEDS_PAGES + GALLERY_FEEDS
+CMS_API_BASE = "https://fnf-api-gw.higgsfield.ai/fnf-cms-api"
+CMS_BASE = "https://cms.higgsfield.ai"
+MUSIC_CARDS_ENDPOINT = "community_music_cards"
+MUSIC_CARDS_PATH = "/music-cards-presets"
+MUSIC_CARD_OPTIONS_ENDPOINT = "community_music_card_options"
+MUSIC_CARD_OPTIONS_PATH = "/music-cards-{group}"
+MUSIC_CARD_OPTION_GROUPS = ("styles", "occasions", "roles")       # + `categories` from the presets response
+JOB_SHOWCASE_ENDPOINT = "community_job_showcase"
+JOB_SHOWCASE_PATH = "/jobs/showcase/{slug}"
+JOB_SHOWCASE_SLUGS = ("seedance-2-0",)          # the only slug in the JS; others answer 404 "Showcase not found"
+JOB_SHOWCASE_PAGES = {"seedance-2-0": "https://higgsfield.ai/seedance-2-community"}
+JOB_SHOWCASE_SSR_KEY = "seedanceMovies"          # loaderData key of /(public)/(explore)/seedance-2-community
+SITE_BASE = "https://higgsfield.ai"
+COLLECTIONS_ENDPOINT = "community_collection"
+COLLECTIONS_PATH = "/collections/{slug}"
+COLLECTION_SLUGS = ("catch-the-pulse",)         # the only slug in the JS (/collection/effects is a 301 to /motion)
+EXPLORE_CARDS_ENDPOINT = "community_explore_cards"
+EXPLORE_CARDS_PATH = "/cards"
 SHOTS_ENDPOINT = "community_shots"
 SHOTS_PATH = "/generations/feed"
 FEED_ENDPOINT = "community_feed"
@@ -103,12 +137,22 @@ ENTITY_COMMENTS_ENDPOINT = "community_entity_comments"
 ENTITY_COMMENTS_PATH = "/entities/{entity_type}/{entity_id}/comments"
 ENTITY_COMMENTS_PAGE_SIZE = 20
 EXTRA_PAGE_SIZE: dict[str, tuple[int, int]] = {      # feed -> (default, maximum we send)
-    "shots": (50, 50), "posts": (50, 50), "feed": (50, 50), "creators": (50, 50), "talents": (50, 50)}
+    "shots": (50, 50), "posts": (50, 50), "feed": (50, 50), "creators": (50, 50), "talents": (50, 50),
+    "explore-cards": (100, 100)}                  # /cards accepted size=200 (all 192); we page by 100
 EXTRA_ENDPOINTS = {"shots": SHOTS_ENDPOINT, "posts": POSTS_LIST_ENDPOINT, "feed": FEED_ENDPOINT,
-                   "creators": CREATORS_ENDPOINT, "talents": TALENTS_ENDPOINT}
+                   "creators": CREATORS_ENDPOINT, "talents": TALENTS_ENDPOINT,
+                   "music-cards": MUSIC_CARDS_ENDPOINT, "job-showcase": JOB_SHOWCASE_ENDPOINT,
+                   "collections": COLLECTIONS_ENDPOINT, "explore-cards": EXPLORE_CARDS_ENDPOINT}
 # feed -> kind it produces (per-feed --max-items cap)
 EXTRA_KINDS = {"shots": "community_shot", "posts": "community_post", "feed": "community_feed_item",
-               "creators": "community_creator_stats", "talents": "community_creator_stats"}
+               "creators": "community_creator_stats", "talents": "community_creator_stats",
+               "music-cards": "community_music_card", "job-showcase": "community_showcase_job",
+               "collections": "community_collection", "explore-cards": "community_explore_card"}
+EXTRA_URLS = {"music-cards": CMS_API_BASE + MUSIC_CARDS_PATH,
+              "job-showcase": "https://higgsfield.ai/seedance-2-community (SSR loaderData.seedanceMovies = fnf "
+                              "/jobs/showcase/{slug})",
+              "collections": "https://fnf-api-gw.higgsfield.ai/fnf" + COLLECTIONS_PATH,
+              "explore-cards": CMS_BASE + EXPLORE_CARDS_PATH}
 FEED_ITEM_ENTITY = {"generation": "generation_publication", "project_publication": "project_publication",
                     "blog_post": "blog_post"}
 

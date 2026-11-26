@@ -5,6 +5,9 @@ Originals) on 2026-11-26: which GET requests each page makes (from the JS route 
 checks), whether they need a login, what the scrapers already collect, and what was added as **opt-in** options.
 Projects, contests and `/@user/projects/...` pages are covered by the `projects` scraper (docs/scrapers/projects.md)
 and are only listed here for completeness.
+A second audit (same day) covers the gallery / trends / per-model gallery / examples / shared-page / character /
+music / moodboard / magazine routes (§3b) and added four more opt-in feeds (`music-cards`, `job-showcase`,
+`collections`, `explore-cards`).
 
 Rules kept: GET only (~1 request/s), no login, no bot-protection bypass, nothing liked/voted/commented/followed.
 Default `scrape community` and `scrape site` runs are unchanged (same requests, same outputs — see "Proof").
@@ -30,7 +33,27 @@ Bases: `fnf` = `https://fnf-api-gw.higgsfield.ai/fnf`, `fnf-community` = `https:
 | **Blogs** `/community/blogs` | `fnf /blog/posts/recommended?cursor&size&sort&query`, `fnf /community/discovery/talents/blog-posts?cursor&size`, `fnf /blog/{folder}/posts/{slug}` | community blog posts + talent blog posts with Markdown bodies | public (`following=true` needs login) | **yes**: `blog --what community` (recommended) and `blog` (talents) | Nothing to add |
 | **Originals** `/community/originals` | SSR loader `snapshot{hero.data[5], originals.data{items[35], total}}`; client `fnf-series /series?order=curated&limit&offset`, `/hero`, `/series/{slug}` | series with views, likes, comments, votes, subscribers, trailer, episodes | public | **yes**: `site --what originals` (35 series, 40 episodes with views/likes) and `projects --public-series` | Nothing to add |
 | Projects `/community/projects`, Contests `/community/contests`, `/@user/projects/...`, `/contests/...` | `fnf /project-publications/trending`, contests APIs | — | public | `projects` scraper (other agent) | Out of scope here |
-| Magazine `/community/magazine/$issue` | route only (3.8 KB chunk, no API strings) | static issue page | public | no | Not added (no data API) |
+| Magazine `/community/magazine/$issue` | route only (3.8 KB chunk, no API strings); re-checked §3b: issue content = bundled JS modules (`En(issue)`, `mountMagazine`), no loader data | static issue page | public | no | Not added (no data API) |
+| Galleries `/gallery`, `/gallery/$` | `/(mobile)/gallery`: the viewer's assets (`/folders/{id}/items/gallery`, `/assets/favourites/job-sets`) | own library | **login** | — | Not added (personal) |
+| `/explore`, `/mob-explore` | `/_private/explore` → CMS `/higgsfield-multiplier/video-explore/v2`; `/mob-explore` redirect | explore feed | public data (page redirects anonymously) | `showcase --what explore_categories` | duplicate |
+| Explore / home cards | cms `/cards?size&cursor` | 192 tool/app cards with preview video/image + link | public | no | **`community --feeds explore-cards`** → `community_explore_card` |
+| `/collection/catch-the-pulse` (`/collection/effects` 301 → `/motion`) | fnf `/collections/catch-the-pulse` | 15 motion presets (ordered) | public | motions in `catalog` | **`community --feeds collections`** → `community_collection` |
+| `/sora-trends` (+ `$category`, `flow`) | client redirect to `/ai/video?model=…` | — | — | — | Not added (legacy redirect, no data) |
+| `/viral-effects` | client WebGL playground | — | — | — | Not added (tool, no API) |
+| `/viral-presets`, `/effects-home` | 301 → `/effects` (fnf `/viral-hub/presets/all`, `/viral-hub/types`); `/effects-home` 307 → `/home` | viral presets + price matrix | public | `catalog --kinds viral_preset,viral_type`, `showcase --what effect_examples` | duplicate |
+| `/higgsfield-genjutsu-presets` | CMS video-explore `source=community` | community genjutsu presets (prompt, source video) | public | `showcase --what explore_categories` | duplicate |
+| Per-model galleries (`/nano-banana-pro-preview`, `/seedance-2-5-community`, `/seedance-2-community`, `/seedance-4k-community`, `/kling-30-community`, `/soul-community`, `/gpt-image-2-community`, `/marketing-studio-community`, `/soul-cinema-community`, `/mixed-media-community`, `/wan-video`, `/motion/$motionId`) | fnf `/publications/community/approved` (or trending) + `model` / `type` / `resolution=4k` / `preset_id` | same publications (ids verified identical) | public | **yes**: `community --feeds approved --models …` | duplicate (no new option) |
+| `…/$publicationId` pages (`/publications/`, `/mixed-media-community/`, `/nano-banana-pro-preview/`, `/wan-video/`, `/mixed-media-presets/publication/`, `/sora-video/` 301, `/motion/$id/publication/` redirect) | fnf `/publications/{id}` | one publication | public | **yes**: `--publication-ids` / `--detail` | duplicate |
+| Seedance 2 "movies" on `/seedance-2-community` | loader `getSeedanceMovies('seedance-2-0')` = fnf `/jobs/showcase/seedance-2-0`, server-rendered as `loaderData.seedanceMovies` | 5 movies, 54 jobs with prompt, inputs, raw/min results | public | no | **`community --feeds job-showcase`** → `community_showcase_job` (read from the page SSR, see §3b) |
+| `/(explore)/$slug` CMS block pages | cms `/blocks/{uuid}`, `/blocks/{uuid}/items` | block sections | public | no | Not added (no block id discoverable) |
+| Examples `/examples/$slug` (= `/editing-room/examples/$slug`), `/videoshop/examples/$slug` (301), `/effects/examples/…` | CMS `/videoshop-examples`, fnf `/videoshop/project-examples`, effect pages | examples | public | **yes**: `showcase --what editing_room_examples,effect_examples` | duplicate |
+| Shared pages (`/genjutsu\|katana\|what-if\|ai-reels\|ai-influencer/shared/$code`, `/shared/$code`, `/share/$id`, `/s/$code`) | `/preset-shares/{code}`, `/what-if/presets/shared/{code}`, shared asset loader | one shared preset / asset | public **per code** | — | **Not enumerable** (codes only from `POST …/share`; never guessed) |
+| `/share/folder` | the viewer's folders | — | **login** | — | Not added (personal) |
+| `/character`, `/character-sheet`, `/moodboard`, `/template`, `/select-template` | custom references, reference elements, job creation, flow steps | the viewer's characters / tools | **login** / tool | — | Not added (personal tools) |
+| `/characters`, `/avatars` (inventory child paths) | `/ads-studio/characters`, `/ads-studio/avatars`; `/avatars` 301 → `/ai-influencer` | — | — | `studios` scraper | skipped (other agent's scope) |
+| `/avatar/*` | fnf `/avatars`, `/avatar-presets` (+ `category`) | avatars, avatar presets | public | **yes**: `catalog` | duplicate |
+| `/music-cards` (flagged page) | fnf-cms-api `/music-cards-presets`, `/music-cards-{styles,occasions,roles}` | 111 song-card templates: lyrics, example recipients, preview videos; 79 options | public API | no | **`community --feeds music-cards`** → `community_music_card`, `community_music_card_option` |
+| Ideas / tips / prompt suggestions | `/tips/random` (401, random single tip), `/users/suggestions` (people) | — | login / personal | — | Not added (no public list) |
 | Favourites (`/publications/community/favourites`, `/project-publications/favourites`, `/community/discovery/v2/creators/favourites`), `/users/feed`, follows | — | the viewer's own lists | **login** | — | Not added (login + personal) |
 
 ## 2. Totals (live, 2026-11-26)
@@ -49,6 +72,11 @@ Bases: `fnf` = `https://fnf-api-gw.higgsfield.ai/fnf`, `fnf-community` = `https:
 | Discovery header / creators / originals / trending projects / contest projects | 3 / 12 (of 658) / 32 (of 35) / 15,160 / 4,518 | SSR snapshot of `/community` |
 | Talent blog posts / recommended blog posts | ~57 / ≈50 per day | docs/scrapers/blog.md |
 | Original series / episodes | 35 (+5 hero) / 40 | docs/scrapers/site.md |
+| Music cards templates / options | 111 / 79 (26 categories, 7 styles, 28 occasions, 18 roles) | full `--feeds music-cards` run |
+| Seedance 2 showcase movies / jobs | 5 / 54 (54 prompts, 116 input media) | full `--feeds job-showcase` run |
+| Collections / items | 1 (Catch the Pulse) / 15 motions | `--feeds collections` |
+| Explore cards | 192 (API `total`; 178 video, 13 static) | `--feeds explore-cards` (2 pages of 100) |
+| Per-model galleries (SSR totals = approved feed totals) | nano_banana_2 image 64, kling 3.0 trio 29, mixed_media video 142, wan2_5_video 61, seedance_2_0 77, text2image_soul_v2 136, imagegen_2_0 17, marketing_studio_video 33, soul_cinematic 4,626 | page SSR + API `total` |
 
 ## 3. Evidence per page (JS + live)
 
@@ -169,6 +197,130 @@ xO(`https://fnf-api-gw.higgsfield.ai/fnf-community`,e)}` exported as `Gj` (impor
 - Originals loader = the `/original-series` snapshot (hero + 35 series); chunk `ywl3` imports the fnf-series base
   (`/series`, `/hero`). Covered by `site --what originals` and `projects --public-series`.
 
+## 3b. Galleries, trends, per-model galleries, examples, shared pages, characters, music, magazine (audit 2026-11-26)
+
+Second audit of the remaining gallery-like routes of `samples/higgsfield/inventory/routes.json`. Method: the route
+tree (`548e0f3a-mebxmR0vvTYTIFO1.js`, `X.update({id, path, getParentRoute})`) resolves each route's full path, the
+route table in `548e0f3a-aXyXjC_KHBp09DNW.js` (`P(`/route`)({loader, beforeLoad, component})`) gives its loader,
+the API chunk `548e0f3a-tCLaulKUdGQfxqgZ.js` gives the fetch functions; 22 missing route chunks were fetched into
+`samples/higgsfield/js2/`; the public pages were fetched once and their TanStack SSR state read with
+`scrapers/blog/tsr.py`; every endpoint was then requested live (GET, ~1 req/s), anonymously and with the cached
+session (token never printed).
+
+**Inventory note.** Several entries of `routes.json` are child segments, not top-level pages (the route tree's
+relative `path`): `/characters` and `/avatars` = `/ads-studio/characters|avatars` (Ads Studio, owned by the
+`studios` scraper), `/template` = `/photodump/_template/template`, `/select-template` =
+`/lipsync-studio/select-template`, `/shared/$code` = `/supercomputer/shared/$code`, `/examples/$slug` =
+`/editing-room/examples/$slug`, `/publication/$publicationId` = `/motion/$motionId/publication/$publicationId`.
+
+### Galleries and trends
+
+| Route | What it is (JS evidence) | Data source | Verdict |
+|---|---|---|---|
+| `/gallery`, `/gallery/$` | `/(mobile)/gallery` (`beforeLoad` access gate, `/gallery/:feed?/:assetId?` = the viewer's own assets; chunk `2Esx1nDOIGxeKocS` uses `/assets/favourites/job-sets`, `/folders/{id}/items/gallery`) | the viewer's library | **login, personal** (anonymous GET redirects to `/generate`). Not added |
+| `/explore` | `/_private/explore`, loader `pde`, chunk `uBUqSEKZIqX571QB`: `/higgsfield-multiplier/video-explore/v2` (+ `/main-feed`, `/market` nav) | CMS video-explore feed | **duplicate**: `showcase --what explore_categories` (sources `higgsfield`/`community`). Anonymous GET redirects to `/generate` |
+| `/mob-explore` | `beforeLoad: throw M({to: lle})` redirect; chunk `BNyOz4W0ADCZy8XL` only static `/mobile-explore/{creative,marketing,production}` images | — | redirect (no data) |
+| `/collection/catch-the-pulse` | loader `bse('catch-the-pulse')` → `HW(e)`: `fetch(k('/collections/${e}'))` → `{id, name, description, items[motion]}` mapped by `xW` | fnf `GET /collections/catch-the-pulse` | **added**: `--feeds collections` (1 collection, 15 motions; motions themselves are in `catalog`) |
+| `/collection/effects` | `loader: throw M({href: '/motion', statusCode: 301})` | — | redirect to `/motion` (catalog motions) |
+| `/sora-trends`, `/sora-trends/$category`, `/sora-trends/flow` | `/_private/sora-trends`, chunk `qQFcAZLo87VHkLMU` (1.7 KB): client `e.replace('/ai/video?model=…&presetPrompt=…')`; `$category`/`flow` have no component | — | **legacy redirect** to the video generator (no list, no data) |
+| `/viral-effects` | `head` "Viral Effects — GL effects playground", chunk `8H6b_60odsDTHaOV`: client-side WebGL editor with two bundled sample media | — | tool, no data API |
+| `/viral-presets` | 301 to `/effects`; SSR loader `presets[]` = fnf `/viral-hub/presets/all`, `presetTypes[]` = `/viral-hub/types` | viral hub | **duplicate**: `catalog --kinds viral_preset,viral_type`; effect sample pages: `showcase --what effect_examples` |
+| `/effects-home` | `beforeLoad` 307 to `/home` | — | redirect |
+| `/higgsfield-genjutsu-presets` | loader `{page: await Que('community')}`, chunk `AsNpZlfn64xC7pfc`; page items carry `presetSource: 'community'` (chunks `XZSXCAwfnxLKLxkA`, `kGHquiI1KbYwi--Y`: `higgsfield_multiplier_video_explore` with `source` `community`, `sort`, `pageNumber`, `principal`) | CMS `/higgsfield-multiplier/video-explore/v2?source=community` | **duplicate**: `showcase --what explore_categories` (community source; prompt, source video, mode `replace-objects`, …). SSR: 17 items |
+| Trending sorts on galleries | `KL()` `/publications/community/trending` (score cursor), `/publications/community/trending/top`, `/publications/community/model-x`; shots / feed snapshots; `/project-publications/trending`; `/contests/trending`; video-explore `sort=trending` | — | **covered**: `community --feeds trending,top,model-x`, `--feeds shots,feed`, `projects`, `showcase --what explore_categories` |
+| Explore / home cards | `NR(e)`: `fetch(O('/cards', lang))` (+ `audience`, `fresh_drops`), filtered to cards with media + `href` | cms `GET /cards?size&cursor` | **added**: `--feeds explore-cards` (192 cards) |
+
+### Per-model community galleries
+
+All per-model gallery loaders call the same function `ua()`/`GL()`/`KL()` (`/publications/community/trending`, or
+`/publications/community/approved` when `approved: true`, with `model`, `type`, `preset_id`, `resolution`):
+
+| Route | Loader (aXyXjC) | = existing option |
+|---|---|---|
+| `/nano-banana-pro-preview/` | `ua({filter:'image', size:50, approved:!0, model:'nano_banana_2'})` | `--feeds approved --models nano_banana_2 --type image` (SSR total 64) |
+| `/seedance-2-5-community` | `ua({approved:!0, model:'seedance_2_5', size:30})` | `--feeds approved --models seedance_2_5` |
+| `/seedance-2-community` | `hoe(80,'seedance_2_0')` = `ZL()` `GL({approved:!0, model})` **+ `getSeedanceMovies('seedance-2-0')`** | publications: `--feeds approved --models seedance_2_0` (total 77); movies: **added `--feeds job-showcase`** |
+| `/seedance-4k-community` | `Mae(80)` = `QL()` `GL({approved:!0, model:'seedance_2_0', resolution:'4k'})` | `--feeds approved --models seedance_2_0 --resolution 4k` |
+| `/kling-30-community` | `ua({model: ['kling_o3_image_reference','kling_o3_flf','kling3_0'], size:40, approved:!0})` | `--feeds approved --models kling_o3_image_reference,kling_o3_flf,kling3_0` (total 29) |
+| `/soul-community`, `/gpt-image-2-community`, `/marketing-studio-community`, `/soul-cinema-community` | `ua({...pc\|sc\|lc\|dc, size:80})`: `text2image_soul_v2`, `imagegen_2_0`, `marketing_studio_video`, `soul_cinematic` (approved) | `--feeds approved --models <that>` (totals 136 / 17 / 33 / 4,626) |
+| `/mixed-media-community/` | `Voe(150)` = `YL()` `GL({filter:'video', approved:!0, model:'mixed_media'})` | `--feeds approved --models mixed_media --type video` (total 142) |
+| `/wan-video/` | `lse(12)` = `qL()` `GL({filter:'video', approved:!0, model:'wan2_5_video'})` | `--feeds approved --models wan2_5_video --type video` (total 61) |
+| `/(explore)/$slug` (e.g. a CMS block page) | `Wi(slug)` = cms `/blocks/{id}`, `Gi(slug)` = cms `/blocks/{id}/items` (`Eo(slug)` must be a UUID; `/blocks/kling-30-community` → 404 "Block not found") | no block id found in the bundle → **not enumerable** |
+| `/motion/$motionId` (gallery of one motion) | `ua({motion_id})` → `preset_id=<motion id>` | `--preset-ids <motion id>` (+ `catalog_motion_sample`) |
+| `/mixed-media-community/$publicationId`, `/nano-banana-pro-preview/$publicationId`, `/wan-video/$publicationId`, `/publications/$publicationId`, `/mixed-media-presets/publication/$publicationId` | `hi(publicationId)` = fnf `GET /publications/{id}` (`/publications/$publicationId` also `HEe()` = the same call for `<head>`) | `--publication-ids` / `--detail` |
+| `/sora-video/$publicationId` | `beforeLoad: throw M({href: Ii(publicationId), statusCode: 301})` (to `/publications/{id}`); `/sora-video/` 301 → `/community` | same |
+| `/motion/$motionId/publication/$publicationId` | `loader: throw M({href: '/motion/${motionId}'})` | redirect |
+
+Live check (2026-11-26): the SSR item ids of `/nano-banana-pro-preview` (50), `/kling-30-community` (29) and
+`/mixed-media-community` (142) are exactly the `publication.id`s returned by `GET /publications/community/approved`
+with the same filters (50/50, 29/29, 142/142; totals 64 / 29 / 142). **They are views of the community
+generations already scraped, so nothing is duplicated.** Their comments are the `generation_publication` threads on
+the same publication ids (`community --feeds shots --with-comments`; e.g. 24 comments on one shot).
+
+### Examples
+
+| Route | Verdict |
+|---|---|
+| `/examples/$slug` | child of `/editing-room` → `/editing-room/examples/$slug` (chunk `GXy-u95mA1pxPJOg`, client component; data = CMS `/videoshop-examples` + fnf `/videoshop/project-examples`): **duplicate** of `showcase --what editing_room_examples` |
+| `/videoshop/examples/$slug` | `beforeLoad: throw M({to: '/editing-room/examples/$slug', statusCode: 301})`: redirect, same |
+| `/effects/examples/$presetSlug[/$sampleId]` | loader `ms({presetSlug, sampleId})`: **duplicate** of `showcase --what effect_examples` |
+
+### Shared pages
+
+| Route | JS | Verdict |
+|---|---|---|
+| `/genjutsu/shared/$code` | `beforeLoad: Vi(code) → throw M({href: '/s/${code}'})` | short-link redirect |
+| `/katana/shared/$code`, `/ai-reels/shared/$code`, `/ai-influencer/shared/$code` | `Pi(code, product)` → `_8()`: `GET /preset-shares/{code}` (product check), then redirect to the preset page | needs a code |
+| `/what-if/shared/$code` | `Pi(code, 'what-if')` → `GET /what-if/presets/shared/{code}` | needs a code |
+| `/shared/$code` | `/supercomputer/shared/$code` (chunk `B-l4F3rotlHRR9t3`) | needs a code |
+| `/marketplace/employees/shared/$shareSlug` | supercomputer marketplace | `studios` scope |
+| `/share/$id` | loader `xoe(id, utm_content, folder_id)`: a shared asset / folder | needs an id |
+| `/share/folder` | `/_private/share/folder` (chunk `qse6zDuyqIB8QZ_x`) | login, the viewer's folders |
+
+Codes are created only by `POST /{product}/presets/{id}/share` (`I_()` validates `share_url = https://higgsfield.ai/s/{code}`
+and `redirect_path`); no list endpoint, sitemap, SSR state or public feed exposes codes (`/preset-shares` and
+`/what-if/presets` without a code → 401). **Not enumerable; codes were never guessed or brute-forced.**
+
+### Characters, avatars, music, moodboard, templates
+
+| Route | What it is | Verdict |
+|---|---|---|
+| `/character`, `/character/`, `/character/upload[/$characterId]`, `/flow/image/character` | Soul ID characters: `/custom-references*`, `/reference-elements*` (the viewer's trained characters) | **login, personal** |
+| `/character-sheet` | tool page (chunk `WsJhCwwd2lxz6NrB`: `POST /jobs/v2/character_sheet`, `/user/settings/character-sheets-consent`) | tool, no list |
+| `/characters`, `/avatars` (inventory) | `/ads-studio/characters` (301), `/ads-studio/avatars` | `studios` scope (skipped). Top-level `/avatars` 301 → `/ai-influencer` (AI influencer = `studios` scope) |
+| `/avatar/*` (`/flow/avatar/preset/*`, `/avatar/$view/$category`, `/lipsync-studio/avatar/select/*`) | `Fte` `/avatars`, `Lte` `/avatar-presets`, `Qi({size, category})` / `Ei(category, orientation)` = `/avatars?category&…`; preset routes use bundled arrays (`aa`, `Doe`, `roe`, …) | **duplicate**: `catalog` avatars (100) and avatar presets |
+| `/music-cards` | `/_private/music-cards` (feature flag `f_52d8e132`; anonymous page 404); chunk `Hba1h6PAxZ4rbHsX`: `Kl()` `fetch(Vc('/music-cards-presets', lang))` (+ `q`, `category`), `Wc(e)` `/music-cards-${e}` for `styles`, `occasions`, `roles` (base `Hc = …/fnf-cms-api`) | **added**: `--feeds music-cards` (111 templates + 79 options). The API is public even though the page is flagged |
+| `/moodboard`, `/moodboard/`, `/moodboard/upload` | moodboard tool (chunk `-iO9s7PRc6AO2Q0F`; `moodboard_share`/`moodboard_code` invite params; upload of a Soul style `preset_id`) | tool / personal |
+| `/template` | `/photodump/_template/template` (flow step) | tool |
+| `/select-template` | `/lipsync-studio/select-template` | tool (lipsync templates = catalog avatars / voices) |
+| `/canvas/templates/$templateId` | canvas template | **duplicate**: `showcase --what canvas_templates` |
+
+### Ideas, tips, prompt suggestions
+
+Searched the bundle for `idea`, `inspir`, `suggest`, `random`, `tips`, `prompt`, `what-if`, `surprise`:
+`/tips/random?plan&job_set_type` (`ji()`: one random tip per plan/model, **401 anonymously**, randomized, not a list),
+`/users/suggestions` (people), `/what-if-styles` (bundled asset path), `/sora-2-prompt-guide`,
+`/nano-banana-pro-prompt-guide` (blog pages → `blog`), `/ai-prompt-generator` (app → `site --what apps`). Prompt
+"ideas" in the product come from the preset catalogs (`catalog`), the video-explore feed with prompts
+(`showcase --what explore_categories`) and community prompts (`community`). **No public ideas list to add.**
+
+### Magazine (re-checked)
+
+`/community/magazine/$issue`: `beforeLoad: En(issue)` looks the issue up in a bundled registry and the component
+(`cyS1CrTvFQ_6QkgK`) lazy-loads `mountMagazine` from `548e0f3a-w5Jybu-3cvBO_fcD.js` plus `issue.load()` (the issue's
+own JS module). The SSR state of `/community/magazine/1` has no loader data. **No data API**: the content ships as
+JS modules (not added; it would mean scraping bundle code, not data).
+
+### Comments on these entities
+
+The JS uses `/entities/{type}/{id}/comments` with `ta = {generation: 'generation_publication', project:
+'project_publication', blog: 'blog_post'}` (chunk `Pl2H2mKz4X6BJdOa`) and default `project_publication`
+(`publication-engagement` module, chunk `epLlmlxrz-fO4lOR`). Live on a shot id: `generation_publication` 200
+(24 comments), `project_publication` / `blog_post` 200 with 0, and `publication`, `post`, `series`, `episode`,
+`room`, `contest`, `community_preset`, `music_card`, `job`, `generation` all **400 "entity type must be
+'project_publication' …"**. So music cards, showcase jobs, collections and cards have no comment threads; per-model
+gallery items have the `generation_publication` thread of their publication id.
+
 ## 4. Reels, videos, assets and templates — where they live
 
 | What | Source (GET) | Prompt / assets | Command |
@@ -181,10 +333,21 @@ xO(`https://fnf-api-gw.higgsfield.ai/fnf-community`,e)}` exported as `Gj` (impor
 | Original series episodes (HLS video) | `/original-series` SSR, `fnf-series` | trailer/episode video URLs | `site --what originals`, `projects --public-series` |
 | App templates (apps) and their credit cost | `/apps` SSR | template inputs, cost per template | `site --what apps`; catalog apps in `catalog` |
 | Viral presets ("effects", reels templates) | `fnf /viral-hub/presets/all`, `/viral-hub/types` | preset media, price matrix | `catalog --kinds viral_preset,viral_type` |
+| Shorts Studio reels presets (ex "Genjutsu for Reels" / AI Reels): 40 curated + 75 community example reels | fnf-cms-api `/ai-reels-presets?lang=en[&source=community]` + `/ai-reels-presets/{slug}` (`prompt`) | `prompt`, `script`, `instructions`; output video (+ compressed/thumbnail); inputs (reference reel, character, own recordings); reference-reel Instagram stats; `recreates`, publication likes | `showcase --what reels_presets` (opt-in; see `docs/scrapers/showcase.md` §10) |
+| Comments on community reels presets (73 threads, 0 comments on 2026-11-26) | fnf-community `/entities/generation_publication/{publication.id}/comments` | comment text, likes, replies | `showcase --what reels_comments` (opt-in) |
+| Users' own Shorts Studio generations (`ai_reels_v1`, `ai_reels_result`) | per-user history only; 0 in the community gallery (395 raw files checked) | — | not public; not collected |
+| Reels share links `/ai-reels/shared/{ps…}` | `fnf /preset-shares/{code}` (a code is required; codes come only from `POST …/share`) | redirects to the preset | not enumerable |
+| Reel apps (ClipCut "Instant Outfit Reel Maker", Urban Cuts) | `/apps/{slug}` SSR | template inputs, cost | `site --what apps` |
 | Chain presets | fnf-cms-api `/job-set-chain-presets` | chain steps/params | `catalog --kinds chain_preset` |
 | Marketing presets | CMS `/marketing-studio-v2/...` | preset prompts/media | `catalog --kinds marketing_category,marketing_preset` |
 | Mixed-media presets (+ sample generations) | CMS `/mixed-media-presets`, `/mixed-media-presets/preset/<id>` SSR | sample media | `catalog --kinds mixed_media_preset`, `site --what mixed-media` |
 | Motions / model motions / styles / soul styles / katana / restyle / youtube-faceless presets | `fnf /motions`, CMS lists | preset params and preview media | `catalog` |
+| Per-model community galleries (Nano Banana Pro, Seedance 2/2.5/4K, Kling 3.0, Soul, GPT Image 2, Marketing Studio, Soul Cinema, Mixed Media, Wan) | `fnf /publications/community/approved?model=…` | prompt, settings, inputs, all result variants, likes/views | `community --feeds approved --models <job_set_type>` (+ `--type`, `--resolution 4k`) |
+| Seedance 2 showcase "movies" (curated jobs) | page SSR `seedanceMovies` (= `fnf /jobs/showcase/seedance-2-0`) | prompt with `<<<image_n>>>` mentions, input images (assets), settings, raw + min video | `community --feeds job-showcase` |
+| Music Cards templates (song videos) | `fnf-cms-api /music-cards-presets` | lyrics, recipients' facts/wishes, style/tone/music, preview video (+ compressed) | `community --feeds music-cards` |
+| Motion collection (Catch the Pulse) | `fnf /collections/catch-the-pulse` | motion ids, params, animated previews | `community --feeds collections` |
+| Explore / home cards | `cms /cards` | card video/image + link | `community --feeds explore-cards` |
+| Genjutsu community presets | CMS video-explore `source=community` | prompt, source video | `showcase --what explore_categories` |
 
 ## 5. Data model
 
@@ -328,6 +491,79 @@ tags[], author_user_ids[] (pseudonymous), created_at (UTC)`.
 ### `site_room_discussion` (`csv/room_discussions.csv` + `csv/room_discussion_media.csv`) — key `post_id`
 Same fields as `community_post` + `room_slug`.
 
+### Galleries and templates (opt-in, `CommunityDatasetGallery`)
+
+```mermaid
+erDiagram
+    COMMUNITY_MUSIC_CARD ||--o{ MUSIC_CARD_RECIPIENT : "recipients[]"
+    COMMUNITY_MUSIC_CARD }o--o| COMMUNITY_MUSIC_CARD_OPTION : "category / style / occasion = key"
+    MUSIC_CARD_RECIPIENT }o--o| COMMUNITY_MUSIC_CARD_OPTION : "role = key (group role)"
+    COMMUNITY_SHOWCASE_JOB ||--o{ SHOWCASE_JOB_INPUT : "inputs[]"
+    COMMUNITY_SHOWCASE_JOB ||--o{ SHOWCASE_JOB_RESULT : "results[] (raw, min)"
+    COMMUNITY_SHOWCASE_JOB }o--o| COMMUNITY_GENERATION : "job: / media: keys (merge_generations)"
+    COMMUNITY_COLLECTION ||--o{ COLLECTION_ITEM : "items[]"
+    COLLECTION_ITEM }o--o| CATALOG_MOTION : "motion_id"
+    COMMUNITY_EXPLORE_CARD }o--o| PAGE : "href"
+```
+
+Every record has `source` (endpoint, URL, params, `fetched_at`); `scraped_at` / `schema_version` are on the dataset.
+
+#### `community_music_card` (`csv/music_cards.csv` + `csv/music_card_recipients.csv`) — key `music_card_id`
+| Field | Type | Unit | Source | Null | Example |
+|---|---|---|---|---|---|
+| music_card_id, slug | str | — | `id`, `slug` | no / yes | `28e85fc3-…`, `happy-birthday-dear-mama` |
+| position | int | rank | list order | yes | 0 |
+| title, description | str | — | same | yes | `Happy birthday, dear Mama` |
+| category, categories[] | str, list | — | same | yes / [] | `birthday` |
+| occasion, occasion_text, tone, style, music | str | — | same | yes | `birthday`, `warm`, `anime`, `ballad` |
+| length_seconds | int | s | `length` | yes | 30 |
+| song_title, lyrics | str | — | same | yes | |
+| recipients[] (`main, name, role, facts_wishes[], extra`) | list | — | `recipients[]` (template example text) | [] | `Mama`, `mom` |
+| senders[] | list | — | same | [] | |
+| thumbnail_url / _width / _height | str / int | px | `thumbnail_media.*` | yes | 1080×1920 |
+| preview_video_url / _width / _height / _duration_seconds | str / int / float | px, s | `video_media.*` | yes | |
+| preview_video_compressed_url / _width / _height / _bytes | str / int | px, bytes | `video_media.compressed_*` | yes | 2,801,132 |
+| preview_video_thumbnail_url | str | — | `video_media.thumbnail_url` | yes | `…webp` |
+| extra | dict | — | other non-null fields | {} | |
+
+#### `community_music_card_option` (`csv/music_card_options.csv`) — key `option_id = make_id("music_card_option", group, key)`
+`group` (category | style | occasion | role), `key` (category `id` / `style` / occasion `key` / role `key`), `label`,
+`hint`, `icon_key`, `parent`, `thumbnail_url` (`thumbnail_media.url`), `categories[]` (occasions), `position`, `extra`.
+
+#### `community_showcase_job` (`csv/showcase_jobs.csv` + `csv/showcase_job_inputs.csv` + `csv/showcase_job_results.csv`) — key `generation_id`
+| Field | Type | Unit | Source | Null |
+|---|---|---|---|---|
+| generation_id | str | — | job `id` | no |
+| generation_key, media_keys[] | str, list | — | `job:<id>`, `media:<uuid>` of raw/min outputs (merge keys) | no / [] |
+| showcase_slug, url | str | — | slug `seedance-2-0`; page `https://higgsfield.ai/seedance-2-community` | no / yes |
+| movie_index, movie_position | int | rank | `data[i]`, `jobs[j]` | no |
+| movie_logo_url, movie_group_image_url | str | — | `logo`, `group_image_url` | yes |
+| job_set_type, job_set_id, parent_id | str | — | same (`job_set_parent_id`) | yes |
+| media_type | enum | — | result type | no |
+| status | str | — | same (`completed`) | yes |
+| prompt, negative_prompt | str | — | `params.prompt` (`<<<image_1>>>` mention tokens kept) | yes |
+| settings.* | typed | px, s | `params` (width, height, resolution, aspect_ratio, duration, genre, mode, model, multi_shots, …) | yes |
+| params_extra | dict | — | other params (`multi_prompt`, …) | {} |
+| raw_params | dict | — | only `--with-raw-params` | yes |
+| inputs[] (`index, param, role, url, id, type, name, width, height, extra`) | list | px | `params.medias[]`, `reference_elements[]` | [] |
+| results[] (`name, type, url, thumbnail_url, extra`) | list | — | `results.{raw,min}` (`hls`, `h264` null in this showcase) | [] |
+| created_at, published_at | datetime | UTC | same (published_at null: not published) | yes |
+| moderation.* | bool | — | `ip_check_finished`, `ip_detected`, `deepfake_consent_required`, `can_bypass_ip` | yes |
+| board_ids, client_meta, meta_extra, extra | — | — | same | [] / null / {} |
+| creator (`user_id`, `username`, `full_name`, `avatar_url`, …) | PersonRef | — | `user_id`, `user{…}` | names **personal** (null unless `--with-profiles`) |
+
+No likes, views or comments (unpublished jobs).
+
+#### `community_collection` (`csv/collections.csv` + `csv/collection_items.csv`) — key `collection_id`
+`collection_id` (API `id`, null → slug), `slug`, `url` (`/collection/<slug>`), `name`, `description`, `items_count`,
+`items[]` (`position`, `motion_id` (joins `catalog_motion`), `name`, `media_url` (animated webp), `media_type`,
+`width`, `height` (px), `priority`, `tags[]`, `params` (steps, frames, strength, guide_scale)).
+
+#### `community_explore_card` (`csv/explore_cards.csv`) — key `card_id`
+`card_id` (int id as text), `position`, `slug`, `name`, `description`, `href`, `href_mobile`, `media_type`
+(`video` | `static`), `media_url`, `width`, `height` (px), `has_placeholder` (the inline blur data URI is not
+stored), `extra`.
+
 ## 6. Options added
 
 | Scraper | Option | Kinds | Default |
@@ -339,6 +575,10 @@ Same fields as `community_post` + `room_slug`.
 | community | `--with-comments` + one of the feeds above | `community_comment` from `/entities/…/comments` and `/publications/{post}/comments` | off; without opt-in feeds `--with-comments` behaves exactly as before |
 | site | `--what room-list` | `site_room` (+ room-stats) | off (not part of `--what all`) |
 | site | `--what room-content` | + `site_room_item`, `site_room_discussion` | off |
+| community | `--feeds music-cards` | `community_music_card`, `community_music_card_option` | off (not part of `--feeds all`) |
+| community | `--feeds job-showcase` | `community_showcase_job` | off |
+| community | `--feeds collections` | `community_collection` | off |
+| community | `--feeds explore-cards` | `community_explore_card` | off |
 
 `--max-items` caps each opt-in feed (and rooms / room items / room discussions) separately; the page size never
 exceeds what is left. `--max-pages` caps pages per feed, per room list and per comment thread. `--type image|video`
@@ -351,6 +591,13 @@ Live checks (`--max-items 20`, 2026-11-26):
   shot 66, post 12) from 68 thread requests.
 - `site --what room-content`: 20 rooms, 20 room items (10 projects, 9 blog posts, 1 shot), 1 discussion, 61 requests.
 - `site --what room-list` (no cap): 88 rooms in 90 requests (2 list pages + 88 room-stats), 0 active calls.
+- `community --feeds music-cards,job-showcase,collections,explore-cards` (no cap): 111 music cards, 79 options,
+  54 showcase jobs, 1 collection (15 items), 192 explore cards; 8 GET requests, all 200; SUCCESS. The first attempt
+  read the showcase from `fnf /jobs/showcase/seedance-2-0` and got a Cloudflare challenge (403, twice), so the feed
+  now reads the public page's SSR state instead (no evasion).
+- Proof the defaults did not change: `scrape community --dry-run`, `--feeds all`, `--feeds all --with-comments
+  --estimate-cost all` and `--feeds shots,posts,feed,creators,talents --with-comments` print byte-identical
+  stdout and stderr before (git HEAD) and after the change.
 
 ## 7. Not scraped, and why
 - Room chat / voice calls: no public message stream (no WebSocket/SSE in the bundle; calls need a login).
@@ -362,6 +609,11 @@ Live checks (`--max-items 20`, 2026-11-26):
   objects (search needs a query).
 - Discovery as a separate kind: every section is an object covered elsewhere (see table).
 - Magazine issues: route without a data API.
+- Shared pages (`…/shared/$code`, `/share/$id`, `/s/$code`): public per code, but no list exposes codes; never guessed.
+- `/gallery`, `/share/folder`, `/character*`, `/moodboard`: the viewer's own content (login).
+- `/sora-trends`, `/viral-effects`, `/effects-home`, `/mob-explore`, `/collection/effects`: redirects or client tools.
+- CMS block pages `/(explore)/$slug`: need a block UUID that nothing public lists.
+- `/tips/random`: login, one random tip (no list).
 
 ## 7a. Anonymous vs logged in (checked 2026-11-26)
 
@@ -387,6 +639,9 @@ in, and keys that are `null` anonymously but filled when logged in.
 | fnf `/blog/posts/recommended`, `/community/discovery/talents/blog-posts` | 200 / 200 | 10 / 10 | `liked_by_me` filled |
 | fnf-series `/series?order=curated`, `/hero` | 200 / 200 | total 35 / 35, 5 / 5 | — |
 | fnf `/publications/community/trending`, `/publications/{id}` (gallery) | 200 / 200 | total 75,528 / 75,528 | `publication.is_liked_by_user` filled |
+| fnf-cms-api `/music-cards-presets`, `/music-cards-{styles,occasions,roles}` | 200 / 200 | 111 / 111, 7, 28, 18 — **byte-identical bodies** | — |
+| fnf `/jobs/showcase/seedance-2-0` (bare GET), fnf `/collections/catch-the-pulse`, cms `/cards?size=200` | 200 / 200 | 5 movies, 15 items, 192 / 192 — **byte-identical bodies** | — |
+| fnf `/tips/random`, `/collections` (no slug), `/preset-shares`, `/what-if/presets` | 401 / — | — | login-only or not a list |
 | fnf-community `/users/feed`, fnf `/publications/community/favourites`, `/community/discovery/v2/creators/favourites` | **401 / 200** | — / 0 items (the test account follows / favourites nothing) | the viewer's own following feed and favourites |
 
 A single run also showed `/rooms/{id}` 200 → 401 and `/rooms/{id}/items` 500 → 200; repeated a minute later both
@@ -417,5 +672,7 @@ python -m higgsfield_scraper scrape blog --what blog,talents,community          
 python -m higgsfield_scraper scrape projects                                                # projects / contests (projects scraper)
 python -m higgsfield_scraper scrape catalog --kinds public                                   # templates: viral/chain/marketing/mixed-media presets
 python -m higgsfield_scraper scrape site --what apps,mixed-media                            # app templates + cost, mixed-media samples
+python -m higgsfield_scraper scrape community --feeds music-cards,job-showcase,collections,explore-cards   # galleries/templates
+python -m higgsfield_scraper scrape community --feeds approved --models kling_o3_image_reference,kling_o3_flf,kling3_0  # a per-model gallery
 ```
 Add `--max-items N` for a sample and `--download-media thumbs|full` for media files.

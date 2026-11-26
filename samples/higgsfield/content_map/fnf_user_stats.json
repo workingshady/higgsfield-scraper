@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user/{UID}/stats",
+        "status": 200,
+        "note": "types only"
+    },
+    "body": {
+        "posts_count": "int",
+        "likes_count": "int",
+        "views_count": "int"
+    }
+}

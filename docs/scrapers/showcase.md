@@ -10,13 +10,14 @@ python -m higgsfield_scraper scrape showcase --what api_models,canvas_templates
 python -m higgsfield_scraper scrape showcase --what explore --explore-sort both --explore-pages 10
 python -m higgsfield_scraper scrape showcase --what effect_examples --effects acid,vanish
 python -m higgsfield_scraper scrape showcase --what property_studio_examples --lang de --download-media thumbs
-python -m higgsfield_scraper scrape showcase --what all --max-items 30          # + login-only season
+python -m higgsfield_scraper scrape showcase --what reels_presets,reels_comments --max-items 20   # opt-in reels
+python -m higgsfield_scraper scrape showcase --what all --max-items 30          # + opt-in reels, login-only season
 python -m higgsfield_scraper normalize --run runs/<id>                         # re-parse raw/ offline
 python scripts/merge_generations.py --latest community,catalog,projects,site,showcase
 ```
 
 Contents: 1 sources · 2 evidence (JS + live) · 3 HTTP flow · 4 endpoint table · 5 schema (ER, fields, CSV) ·
-6 options · 7 privacy · 8 dedupe · 9 skipped sources and gaps.
+6 options · 7 privacy · 8 dedupe · 9 skipped sources and gaps · 10 Reels (Shorts Studio).
 
 ---
 
@@ -36,8 +37,11 @@ Contents: 1 sources · 2 evidence (JS + live) · 3 HTTP flow · 4 endpoint table
 | `seedance_presets` | `showcase_seedance_preset` | Seedance 2.0 preset previews (CMS `/seedance-2-0`) | yes | 14 |
 | `motion_control_presets` | `showcase_motion_control_preset` | Kling motion-control presets (preview + source video) | yes | 36 |
 | `season` | `showcase_season` | `fnf-score` season | **login only**, per user | `null` (no active season) |
+| `reels_presets` (**opt-in**) | `showcase_reels_preset` | Shorts Studio (ex "Genjutsu for Reels" / AI Reels) presets: finished example reel (output video + variants), prompt, script, instructions, reference reel (+ its platform stats), character/own-video inputs, recreates, publication likes. See §10 | yes | 40 curated + 75 community |
+| `reels_comments` (**opt-in**) | `showcase_reels_comment` | comments on community Shorts Studio presets (fnf-community `generation_publication` threads). See §10 | yes | 73 threads, 0 comments |
 
-`--what` default = all public sources; `all` = public + `season`.
+`--what` default = `public` = every public source **except the opt-in reels sources** (unchanged since before
+they were added); `all` = public + `reels_presets` + `reels_comments` + `season`.
 
 ## 2. Evidence (JS call site + live check)
 
@@ -265,8 +269,8 @@ comments, uses}` (`uses` = `times_made`).
 
 | CSV | Rows | Keys |
 |---|---|---|
-| `<collection>.csv` (16 collections) | one per entity, child lists removed, nested dicts → dotted columns, scalar lists → JSON text | `id` |
-| `editing_room_examples__media/__edits`, `editing_room_projects__edits/__scenes`, `editing_room_renders__media`, `property_studio_examples__media`, `explore_variants__media/__inputs`, `effect_samples__media/__inputs`, `api_models__parameters/__prices`, `cinema_controls__media/__segments`, `<cms>__media` | one per child | `parent_id` (= parent `id`), `position` |
+| `<collection>.csv` (18 collections) | one per entity, child lists removed, nested dicts → dotted columns, scalar lists → JSON text | `id` |
+| `editing_room_examples__media/__edits`, `editing_room_projects__edits/__scenes`, `editing_room_renders__media`, `property_studio_examples__media`, `explore_variants__media/__inputs`, `effect_samples__media/__inputs`, `api_models__parameters/__prices`, `cinema_controls__media/__segments`, `<cms>__media`, `reels_presets__media/__inputs`, `reels_comments__reactions` | one per child | `parent_id` (= parent `id`), `position` |
 | `run_meta.csv` | key/value of `meta` | `key` |
 
 Completeness is tested (`test_dataset_and_csvs_complete`): every JSON leaf has a column, rows 1:1.
@@ -282,7 +286,8 @@ Completeness is tested (`test_dataset_and_csvs_complete`): every JSON leaf has a
 | `--explore-pages N` | 3 | pages of 20 per feed; `0` = to the end (≈2467 pages for community/new) |
 | `--explore-categories LIST\|all` | off | also crawl `community/new` per category |
 | `--effects LIST` | all sitemap slugs | only these `/effects/examples` slugs |
-| `--with-profiles` | off | keep explore authors / effect-sample users (`creator`) |
+| `--reels-sources` | `higgsfield,community` | Shorts Studio lists for `reels_presets` / `reels_comments` (comments: community only) |
+| `--with-profiles` | off | keep explore authors / effect-sample users / reels preset authors and commenters (`creator`) and the reference reel's `reference_author_handle` |
 | common | | `--max-items` (**per kind**), `--max-pages` (per feed / chunk discovery / effect pages), `--download-media none\|thumbs\|full\|all`, `--auth`, `--delay` … (see `CLI.md`) |
 
 ## 7. Privacy
@@ -324,3 +329,109 @@ themselves are not re-exported).
 | `GW/fnf-apps-marketplace/api/v1/apps/community` | not in this scraper | community apps marketplace with views/likes/remixes (see `docs/ENGAGEMENT.md`); app-centric, belongs to `site`/`community` |
 | `fnf-score /v1/season/weekly-canvas` | 404 | |
 | Personal "my likes" (`checkPublicationLikes`, `is_liked_by_user`) | never fetched | per-viewer personal data |
+
+## 10. Reels (Shorts Studio, ex "Genjutsu for Reels" / "AI Reels")
+
+Recon 2026-11-26. The local JS copy is build `548e0f3a` (`samples/higgsfield/js2/`). The live site serves the same
+asset prefix with different chunk names and l10n build `451ce68bf291c7cb`. Live chunks fetched for this section:
+the route chunk `G3VOJnj8pukYIeFi` and the module chunk `mkcBPJ35mFABKor6`. Everything below is GET only.
+
+### 10.1 What each "reels" feature is
+
+| Route / name | What it is (JS evidence) | Public content? |
+|---|---|---|
+| `/shorts-studio` (`/_private/shorts-studio`) | **Shorts Studio**, the current name of Genjutsu for Reels / AI Reels. It is a creation tool: you pick a preset (an example reel), "Recreate" it with your character, script, voice or own recording, and it starts an `ai_reels_v1` job set. The page has an **Explore** tab with two sources, `higgsfield` (curated) and `community` (`Tt` tabs `[{value:"higgsfield"},{value:"community"}]`), and a History tab (your own `ai_reels_v1`/`ai_reels_result` job sets; login only). | **yes**: both preset lists |
+| `/shorts-studio/$id` | The detail page of a curated preset. The `$id` is the preset **UUID**; a slug gives 404. The SSR loader is the server function `$De({id,locale})`. It adds `description`, `ranking`, `performance{viewsOverTime,recreations,engagementRate}` and `reactions{likes,dislikes}`. Apart from `preset`, `author.handle` and `reactions.likes`, these values are **identical placeholders on every preset** (same 31-point curve, `recreations` 2400, `dislikes` 140, same description). Community preset ids give 404. | the real data equals the API (not scraped) |
+| `/genjutsu-for-reels`, `/genjutsu-for-reels/$id`, `/start/genjutsu-for-reels`, `/_private/genjutsu-for-reels`, `/flow/shorts-studio`, `/shorts`, `/shorts/$id` | Legacy routes. Their `beforeLoad` throws `M({href:Fm(fl…),statusCode:301})` with `fl="/shorts-studio"`, `pl="/start/shorts-studio"`, `dl(id)="/shorts-studio/"+id` (router chunk `aXyXjC_KHBp09DNW`, module `ml()`). | redirects only |
+| `/start/shorts-studio` | Landing page; `307 → /shorts-studio` | redirect |
+| `/ai-reels/shared/$code` | Share link. `Vi(code)` checks `^ps[0-9a-f]{32}$`, then `Pi(code,"ai-reels")` = `GET fnf /preset-shares/{code}` → `{share_code,product,preset_id,…}` → redirect to `/shorts-studio/{preset_id}`. Codes are created by `POST /ai-reels/presets/{presetId}/share` (never called). | **not enumerable**, see 10.5 |
+| `/reels` | No such route: `404` (only a l10n/nav string) | — |
+| `/sora-2-reels` | Marketing redirect `301 → /seedance/2.5` | — |
+| Blog `reels-studio-intro`, `genjutsu-for-reels-intro`, `shorts-intro` | Redirect table `KE=[{from:"/reels-studio-intro",to:"/shorts-studio-intro",status:301},…]` | covered by `blog` / `site` |
+| ClipCut (`/apps/clipcut`, "Instant Outfit Reel Maker", 15 credits) and Urban Cuts (`/apps/urban-cuts`, beat-synced outfit reels, 25 credits) | Apps (stepper pages) | already collected by `scrape site --what apps` (`apps.json`); not duplicated |
+| "optimized for Instagram Reels, TikTok, YouTube Shorts" presets | l10n strings of other preset catalogs (marketing, viral) | covered by `catalog` |
+
+**Job types and models.** The job set type enum includes `AI_REELS="ai_reels_v1"`, `AI_REELS_RESULT="ai_reels_result"`
+and `REELS_STUDIO="reels_studio"` (chunk `H2odSMT_fOKI1GMn`). The create call is `POST /ai-reels/compose`
+(`authMode:"required"`; never called). Its body is `{avatar_images, avatar_videos, reference_video_id, script,
+own_recording, instructions | duration_seconds, video_model, voice, preset_slug}`. The defaults come from module
+`ai-reels-settings`: `quality "1080p"`, **`video_model "magi_2"`**, durations `[15,30,60,120]`. The validator
+(`xIsn2xMLJ4o75d85`) allows duration 5–120 s, instructions ≤ 2000 chars, ≤ 40 medias with roles
+`character|other|reference|voice`, and 1–10 own recordings. The Supercomputer agent also has tools
+`reels_studio_list_presets|create_preset|create|status|list_sessions` (login only). Sora 2 is unrelated:
+`/sora-2-reels` is only a marketing redirect.
+
+**Already in other feeds?** I counted `ai_reels_v1` / `ai_reels_result` / `reels_studio` in `job_set_type` across
+the **395** `runs/*/raw/community_*.json` files: **0**. None of the 73 community preset publication ids and none of
+the 115 preset ids occur in any existing raw file. The explore `hf_mult_*` items are Multiplier `motion_control` /
+`replace_object` trends, not reels. So no existing command collects these reels. `reels_presets` is new data.
+
+### 10.2 Endpoints
+
+| Endpoint (GET) | JS | Response | Notes |
+|---|---|---|---|
+| `fnf-api-gw…/fnf-cms-api/ai-reels-presets?lang=en` | module `ai-reels-preset-queries`: ``a(e){let n=Ne(l,`/ai-reels-presets`);for(…)n.searchParams.set(t,r);fetch(n)}``, `o(lang)=a({lang})`, `l=Je().replace(/\/fnf\/?$/,"/fnf-cms-api")`; queryKey `["ai-reels-presets","list",lang]` | `{items[40], next_cursor:null, categories[{id:"style-transfer",label,icon_key}]}` | curated; the whole list comes in one response (`size`/`cursor` are ignored) |
+| `…/ai-reels-presets?lang=en&source=community` | `s(lang)=a({lang,source:"community"})`; queryKey `[…,"community-list",lang]` | `{items[75], next_cursor:null, categories}` | community; adds `author{username,avatar_url,badge}`, `likes_count`, `publication{id,likes_count}` |
+| `…/ai-reels-presets/{slug}` | ``c(e){Ne(l,`/ai-reels-presets/${encodeURIComponent(e)}`)}``; queryKey `[…,slug,"prompt"]`, zod `T=B({prompt:g})` | one preset **+ `prompt`** (no `author/publication/recreates`) | 404 `AI Reels preset not found.` for a UUID; the scraper merges the list item with the detail |
+| `fnf-api-gw…/fnf-community/entities/generation_publication/{publication.id}/comments?limit=20[&cursor][&parent_id]` | community `na=({kind,id})=>N(`/entities/${ta[kind]}/${id}/comments`)`, `ta.generation="generation_publication"` | `{items[comment], total, next_cursor?}` | random id → 404 `publication not found` (so the ids are real publications); `/stats` → 400 (only `project_publication|blog_post`) |
+| `fnf /preset-shares/{code}` | `_8(e,t)`: ``h8(t===`what-if`?…:`/preset-shares/${encodeURIComponent(e)}`)`` | `{share_code, product, preset_id, …}` | needs a code; not scraped |
+
+`GET fnf /ai-reels/presets` and `/ai-reels/categories` do not exist: 401 without a login, 404 with one.
+
+### 10.3 Field map (`showcase_reels_preset`)
+
+| API field | Record field | Notes |
+|---|---|---|
+| `id` | `preset_id` (natural key) | `id = make_id("showcase_reels_preset", id)` |
+| `slug`, `source`, `title`, `description`, `category` (+ `categories[].label`) | `slug`, `preset_source`, `title`, `description`, `category`, `category_label` | |
+| detail `prompt`; `script`; `instructions`; `hashtags`; `quality`; `duration_seconds`; `own_recording` | `prompt`, `script`, `instructions`, `hashtags`, `quality`, `duration_s`, `own_recording` | `prompt` is present on curated presets and on most community presets |
+| `generated_video_media{url,compressed_url,compressed_width/height,thumbnail_url,media_id,width,height,duration_seconds}` | `media[]` roles `output`, `output_compressed`, `output_thumbnail` | **the output video** |
+| `thumbnail_media.url` | `media[]` role `thumbnail` | |
+| `video_media{…}` | `inputs[]` `reference`, `reference_compressed`, `reference_thumbnail` | the reel being recreated (community: an upload on `d2ol7oe51mr4n9`) |
+| `character_media`, `background_media` | `inputs[]` `character`, `background` | |
+| `own_videos[i]{…}` | `inputs[]` `own_video_{i}` (+ `_thumbnail`) | own recordings (community) |
+| `source_url`, `source_platform`, `views`, `likes`, `comments`, `author_handle` | `reference_url`, `reference_platform`, `reference_engagement{views,likes,comments}`, `reference_author_handle` | stats of the **reference reel on Instagram** (curated only; the JS nulls them for community). Handle only with `--with-profiles` |
+| `recreates`; `publication.likes_count` (else `likes_count`) | `engagement.uses`; `engagement.likes` | Higgsfield engagement |
+| `publication.id` | `publication_id`, `media_keys += pub:<id>` | community comment thread |
+| `author{username,avatar_url,badge}` | `creator_key` + `creator_key_basis`, `creator_badge`, `creator` (`--with-profiles`) | The API has no user id. The Clerk id is taken from the avatar path `/user_<id>/` (basis `user_id`; same key as the other scrapers, 42 of 75). Otherwise the key is the hash of `username:<name>` (basis `username`, 31 of 75) |
+| — | `job_set_type="ai_reels_v1"`, `generation_key` = `media:<output media id>` | for `scripts/merge_generations.py` |
+
+`showcase_reels_comment` has these fields: `comment_id`, `publication_id`, `preset_id`, `parent_id`, `text` (`content`),
+`created_at`, `updated_at`, `likes` (`like_count`), `dislikes`, `reply_count`, `reactions[]`, `creator_key`
+(hash of `user_id`) and `creator` (only with `--with-profiles`). The scraper follows `next_cursor` and fetches one
+level of replies (`parent_id`), like the community scraper.
+
+CSV files: `reels_presets.csv`, `reels_presets__media.csv`, `reels_presets__inputs.csv`, `reels_comments.csv` and
+`reels_comments__reactions.csv`.
+
+### 10.4 Anonymous vs logged in
+
+| Request | Anonymous | Logged in |
+|---|---|---|
+| `fnf-cms-api /ai-reels-presets?lang=en` | 200, 40 items (98 807 B) | 200, byte-identical |
+| `…&source=community` | 200, 75 items (234 447 B) | 200, byte-identical |
+| `…/ai-reels-presets/{slug}` | 200 (+`prompt`) | 200, identical |
+| `fnf-community …/generation_publication/{id}/comments` | 200 `{items:[],total:0}` | 200, identical |
+| `fnf /preset-shares/{code}` | 422 bad format / 404 `preset_share_not_found` | same |
+| `fnf /ai-reels/presets`, `/ai-reels/categories` | 401 | 404 (no such API) |
+| `/shorts-studio`, `/shorts-studio/{uuid}` SSR | 200 (same 40 presets; detail placeholders) | not compared (SSR ignores a bare session cookie, see `docs/LOGIN_COVERAGE.md`) |
+| own reels history (`ai_reels_v1` job sets), `POST /ai-reels/compose`, share creation | — | per-user or write: never fetched |
+
+The scraper therefore never sends a token for reels (`auth=False`).
+
+### 10.5 Totals and what is not available
+
+The live counts on 2026-11-26 were 40 curated presets (3 562 recreates; reference reels 21.0 M views and 1.52 M
+likes on Instagram) and 75 community presets (229 recreates; 24 publication likes; 73 have a publication, 5 use own
+recordings). Of the 73 community comment threads, all 73 were fetched without a cap, and they hold **0 comments**.
+The JSON schema is ready for comments when they appear; the parser is tested on a synthetic fixture that has the
+real fnf-community shape.
+
+| Not available | Why |
+|---|---|
+| `/ai-reels/shared/$code` share pages | Codes are `ps` + 32 hex (128 bit). Only `POST …/presets/{id}/share` creates them (out of bounds). No list returns a code (`share` does not appear in either preset list). Not enumerable. |
+| Users' own Shorts Studio generations (`ai_reels_v1`, `ai_reels_result`) | They exist only in each user's history (login, per user). They are not in the community gallery (0 of 395 raw files). The community presets are the public subset that users chose to publish. |
+| Job ids of the example reels | The API exposes no job or job-set id. Curated outputs carry `media_id`. Community outputs live under `community-presets/{preset_id}/…`, so their `media:` key is the preset id, and they also carry `pub:<publication id>`. |
+| Detail-page `performance` / `ranking` / `dislikes` | They are placeholders: identical values on every curated preset. |
+| Higgsfield views of a preset | The API returns none (`views` is the reference reel's Instagram count). |
+| Community preset detail pages | `/shorts-studio/{community id}` gives 404; the API has all the data. |

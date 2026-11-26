@@ -1,0 +1,178 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://cms.higgsfield.ai/ai-influencer-config?lang=en",
+        "status": 200,
+        "note": "lists cut to 2 items; people fields redacted"
+    },
+    "body": {
+        "categories": [
+            {
+                "label": "Core",
+                "key": "core",
+                "media": null,
+                "icon": "IconImageAvatarSparkle",
+                "is_advanced": false,
+                "subcategories": [
+                    {
+                        "label": "Character Type",
+                        "key": "character_type",
+                        "max_selections": 1,
+                        "default_option": null,
+                        "required_selections": 0,
+                        "columns_count": 3,
+                        "icon": "IconImagine",
+                        "icon_color": "",
+                        "options": [
+                            {
+                                "label": "Human",
+                                "key": "human",
+                                "type": "text",
+                                "media": {
+                                    "url": "https://cdn.higgsfield.ai/ai_influencer_option/977e0927-1320-426b-9de3-e3a3434dbe7a.webp",
+                                    "type": "static",
+                                    "width": 1080,
+                                    "height": 1080
+                                }
+                            },
+                            {
+                                "label": "Ant",
+                                "key": "ant",
+                                "type": "text",
+                                "media": {
+                                    "url": "https://cdn.higgsfield.ai/ai_influencer_option/d950aa8c-7f58-4277-9f7c-a4c0f073ae99.webp",
+                                    "type": "static",
+                                    "width": 1080,
+                                    "height": 1080
+                                }
+                            },
+                            "<+11 more>"
+                        ]
+                    },
+                    {
+                        "label": "Gender",
+                        "key": "gender",
+                        "max_selections": 1,
+                        "default_option": null,
+                        "required_selections": 0,
+                        "columns_count": 3,
+                        "icon": "IconImageAvatarSparkle",
+                        "icon_color": "#77F3ED",
+                        "options": [
+                            {
+                                "label": "Female",
+                                "key": "female",
+                                "type": "card",
+                                "media": {
+                                    "url": "https://cdn.higgsfield.ai/ai_influencer_option/f9fa514b-620d-433e-bd4e-eadd880de118.webp",
+                                    "type": "static",
+                                    "width": 1080,
+                                    "height": 1080
+                                }
+                            },
+                            {
+                                "label": "Male",
+                                "key": "male",
+                                "type": "card",
+                                "media": {
+                                    "url": "https://cdn.higgsfield.ai/ai_influencer_option/fb91b108-27fc-4e7c-a8fd-876dc8c30ecf.webp",
+                                    "type": "static",
+                                    "width": 1080,
+                                    "height": 1100
+                                }
+                            },
+                            "<+3 more>"
+                        ]
+                    },
+                    "<+5 more>"
+                ]
+            },
+            {
+                "label": "Face",
+                "key": "face",
+                "media": {
+                    "url": "https://cdn.higgsfield.ai/ai_influencer_parent_category/e0805c7f-c1b0-4c68-bbc7-bab5ae86d6df.webp",
+                    "type": "static",
+                    "width": 1080,
+                    "height": 1056
+                },
+                "icon": "IconHead",
+                "is_advanced": true,
+                "subcategories": [
+                    {
+                        "label": "Eyes - Type",
+                        "key": "eyes_type",
+                        "max_selections": -1,
+                        "default_option": null,
+                        "required_selections": 0,
+                        "columns_count": 3,
+                        "icon": "IconEyesType",
+                        "icon_color": "#898A8B",
+                        "options": [
+                            {
+                                "label": "Human",
+                                "key": "eyes_human",
+                                "type": "text",
+                                "media": {
+                                    "url": "https://cdn.higgsfield.ai/ai_influencer_option/ce3bb1ff-d120-4539-8aea-51bacb9e96f9.webp",
+                                    "type": "static",
+                                    "width": 1080,
+                                    "height": 1080
+                                }
+                            },
+                            {
+                                "label": "Reptile",
+                                "key": "eyes_reptile",
+                                "type": "text",
+                                "media": {
+                                    "url": "https://cdn.higgsfield.ai/ai_influencer_option/76b1c85d-dba3-43d6-b6b0-27f2923bdab8.webp",
+                                    "type": "static",
+                                    "width": 1080,
+                                    "height": 1080
+                                }
+                            },
+                            "<+1 more>"
+                        ]
+                    },
+                    {
+                        "label": "Eyes - Details",
+                        "key": "eyes_details",
+                        "max_selections": -1,
+                        "default_option": null,
+                        "required_selections": 0,
+                        "columns_count": 3,
+                        "icon": "IconEyeOpen",
+                        "icon_color": "#898A8B",
+                        "options": [
+                            {
+                                "label": "Different eye colors",
+                                "key": "eyes_different_colors",
+                                "type": "text",
+                                "media": {
+                                    "url": "https://cdn.higgsfield.ai/ai_influencer_option/199bb0e7-41e8-40af-aae7-77c0c659b260.webp",
+                                    "type": "static",
+                                    "width": 1080,
+                                    "height": 1080
+                                }
+                            },
+                            {
+                                "label": "Blind eye",
+                                "key": "eyes_blind",
+                                "type": "text",
+                                "media": {
+                                    "url": "https://cdn.higgsfield.ai/ai_influencer_option/a1b256a6-45a1-4008-adff-fb0fa1b52c30.webp",
+                                    "type": "static",
+                                    "width": 1080,
+                                    "height": 1080
+                                }
+                            },
+                            "<+2 more>"
+                        ]
+                    },
+                    "<+5 more>"
+                ]
+            },
+            "<+2 more>"
+        ]
+    }
+}

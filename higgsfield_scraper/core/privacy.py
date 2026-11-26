@@ -17,6 +17,8 @@ PERSONAL_KEYS = frozenset({
     "instagram_handle", "twitter_handle", "youtube_handle", "tiktok_handle", "x_handle", "discord_handle",
     "instagram", "twitter", "youtube", "tiktok", "website", "socials", "social_links", "profile_url",
     "owner_username",   # folder/room owner handle (projects nested folders, rooms): was only blanked per scraper
+    "author_handle",    # social handle of a Shorts Studio reference reel's author (showcase reels_presets)
+    "name",             # only inside person containers (author.name on apps/games/skills is a username)
 })
 PERSON_CONTAINERS = frozenset({"profile", "author", "authors", "owner", "creator", "user", "team", "members",
                                "judges", "contestants", "some_contestants", "winner", "participants"})

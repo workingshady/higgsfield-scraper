@@ -1,0 +1,39 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-skills-marketplace/api/v1/skills/builtin?limit=2",
+        "status": 200,
+        "note": "lists cut to 2 items; people fields redacted"
+    },
+    "body": {
+        "items": [
+            {
+                "display_name": "Video Reangler",
+                "id": "5e566424-e2ed-4bd6-9777-490d8391a10f",
+                "name": "video-reangler",
+                "description": "Adds a different camera-angle variation to an existing video — same person, same scene, new viewpoint (top shot, behind, profile, bird's-eye). Triggers: \"re-angle\", \"show it from behind / above / the side\".",
+                "sub_title": "Add a different angle variation to any clip",
+                "examples_section": null,
+                "color": "#7A5CFF",
+                "preview_urls": [],
+                "agents": null,
+                "usage_total": [],
+                "usage_personal": []
+            },
+            {
+                "display_name": "Musical Cards",
+                "id": "b830d0f2-571c-4608-95d4-abb39896a048",
+                "name": "music-cards",
+                "description": "A musical card: a 20-120 second vertical cartoon with an original song written about one named person, as a greeting for a birthday, New Year, Christmas, wedding, anniversary, new baby, thank-you, any occasion the user names or just because, in a warm, funny or friendly-roast tone. The user gives th",
+                "sub_title": "A 20-30 second cartoon with a song written about one person: pick the occasion and the tone, write their name and a few facts, add a photo",
+                "examples_section": null,
+                "color": "#F2A93B",
+                "preview_urls": [],
+                "agents": null,
+                "usage_total": [],
+                "usage_personal": []
+            }
+        ],
+        "next_cursor": "eyJ1IjogIjIwMjYtMTEtMjVUMjM6MzE6MTIuOTI0ODcyKzAwOjAwIiwgImlkIjogImI4MzBkMGYyLTU3MWMtNDYwOC05NWQ0LWFiYjM5ODk2YTA0OCJ9"
+    }
+}

@@ -12,8 +12,9 @@ from ...core.exporting import flatten, row, without, write_standard_outputs
 from ...estimate import EstimatedCost, formula_version_in_schema, skipped
 from .endpoints import (COMMUNITY_BASE, CREATORS_PATH, ENTITY_COMMENTS_PATH, FEED_PATH, FEED_PATHS, POSTS_PATH,
                         SHOTS_PATH, TALENTS_PATH)
+from .endpoints import CMS_API_BASE, EXTRA_URLS, GALLERY_FEEDS, MUSIC_CARD_OPTIONS_PATH
 from .options import Selection
-from .schemas import CommunityDataset, CommunityDatasetExt
+from .schemas import CommunityDataset, CommunityDatasetExt, CommunityDatasetGallery
 
 log = logging.getLogger(__name__)
 
@@ -218,7 +219,13 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
         return CommunityDataset.model_validate(ds).model_dump(mode="json")
     ds.update(ext)
     ds["extra_stats"] = _extra_stats(ext, comments)
-    return CommunityDatasetExt.model_validate(ds).model_dump(mode="json")
+    if not any(f in GALLERY_FEEDS for f in sel.extra_feeds):
+        return CommunityDatasetExt.model_validate(ds).model_dump(mode="json")
+    gal = _gallery_collections(entities)          # only runs with an opt-in gallery / template source
+    ds["meta"]["counts"].update({k: len(v) for k, v in gal.items()})
+    ds.update(gal)
+    ds["gallery_stats"] = _gallery_stats(gal)
+    return CommunityDatasetGallery.model_validate(ds).model_dump(mode="json")
 
 
 # ------------------------------------------------------------------ opt-in Community pages
@@ -237,7 +244,10 @@ def _extra_endpoints(sel: Selection) -> dict[str, str]:
     fnf = "https://fnf-api-gw.higgsfield.ai/fnf"
     urls = {"shots": COMMUNITY_BASE + SHOTS_PATH, "posts": COMMUNITY_BASE + POSTS_PATH, "feed": COMMUNITY_BASE + FEED_PATH,
             "creators": fnf + CREATORS_PATH, "talents": fnf + TALENTS_PATH}
+    urls.update(EXTRA_URLS)
     out = {f: urls[f] for f in sel.extra_feeds}
+    if "music-cards" in sel.extra_feeds:
+        out["music-cards-options"] = CMS_API_BASE + MUSIC_CARD_OPTIONS_PATH
     if sel.with_comments:
         out["entity_comments"] = COMMUNITY_BASE + ENTITY_COMMENTS_PATH
     return out
@@ -284,6 +294,80 @@ def extra_summary_md(ds: dict) -> str:
     lines += ["Files: `csv/shots.csv`, `csv/posts.csv` + `csv/post_media.csv`, `csv/feed_items.csv`, "
               "`csv/creator_stats.csv` + `csv/creator_works.csv`, `csv/extra_stats.csv` (only in runs with opt-in "
               "feeds). Creator names, bios and avatars only with --with-profiles.", ""]
+    return "\n".join(lines)
+
+
+# ------------------------------------------------------------------ opt-in gallery / template sources
+GALLERY_COLLECTIONS = {"music_cards": "community_music_card", "music_card_options": "community_music_card_option",
+                       "showcase_jobs": "community_showcase_job", "collections": "community_collection",
+                       "explore_cards": "community_explore_card"}
+GALLERY_ORDER = {"music_cards": ("position",), "music_card_options": ("group", "position"),
+                 "showcase_jobs": ("showcase_slug", "movie_index", "movie_position"), "collections": ("slug",),
+                 "explore_cards": ("position",)}
+
+
+def _gallery_collections(entities: dict[str, list[dict]]) -> dict[str, list[dict]]:
+    out = {}
+    for c, k in GALLERY_COLLECTIONS.items():
+        rows = [without(e, "kind") for e in entities.get(k, [])]
+        rows.sort(key=lambda x: tuple((x.get(f) is None, x.get(f) if x.get(f) is not None else 0)
+                                      for f in GALLERY_ORDER[c]))
+        out[c] = rows
+    return out
+
+
+def _gallery_stats(g: dict[str, list[dict]]) -> dict:
+    return {**{k: len(v) for k, v in g.items()},
+            "collection_items": sum(len(c["items"]) for c in g["collections"]),
+            "music_cards_by_category": _top(Counter(x.get("category") or "?" for x in g["music_cards"])),
+            "showcase_jobs_by_job_set_type": _top(Counter(x.get("job_set_type") or "?" for x in g["showcase_jobs"])),
+            "explore_cards_by_media_type": _top(Counter(x.get("media_type") or "?" for x in g["explore_cards"]))}
+
+
+def gallery_csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
+    """Complete CSVs of the gallery / template collections (child tables for nested lists)."""
+    cards, jobs, cols = ds["music_cards"], ds["showcase_jobs"], ds["collections"]
+    jkey = lambda j: {"generation_id": j["generation_id"], "showcase_slug": j["showcase_slug"]}  # noqa: E731
+    return {
+        "music_cards": ([flatten(without(x, "recipients")) for x in cards], ["music_card_id", "slug", "position",
+                                                                             "title"]),
+        "music_card_recipients": ([row(r, music_card_id=c["music_card_id"], index=i) for c in cards
+                                   for i, r in enumerate(c["recipients"])], ["music_card_id", "index"]),
+        "music_card_options": ([flatten(x) for x in ds["music_card_options"]], ["option_id", "group", "key",
+                                                                                 "position"]),
+        "showcase_jobs": ([flatten(without(x, "inputs", "results")) for x in jobs],
+                          ["generation_id", "showcase_slug", "movie_index", "movie_position", "job_set_type",
+                           "prompt"]),
+        "showcase_job_inputs": ([row(i, **jkey(j)) for j in jobs for i in j["inputs"]],
+                                ["generation_id", "showcase_slug", "index", "param", "role", "url"]),
+        "showcase_job_results": ([row(r, **jkey(j), position=n) for j in jobs for n, r in enumerate(j["results"])],
+                                 ["generation_id", "showcase_slug", "position", "name", "type", "url"]),
+        "collections": ([flatten(without(x, "items")) for x in cols], ["collection_id", "slug", "name"]),
+        "collection_items": ([row(i, collection_id=c["collection_id"], slug=c["slug"]) for c in cols
+                              for i in c["items"]], ["collection_id", "slug", "position", "motion_id", "name"]),
+        "explore_cards": ([flatten(x) for x in ds["explore_cards"]], ["card_id", "position", "name"]),
+        "gallery_stats": ([{"dimension": k, "value": v2, "count": n} for k, v in ds["gallery_stats"].items()
+                           if isinstance(v, dict) for v2, n in v.items()] +
+                          [{"dimension": k, "value": None, "count": v} for k, v in ds["gallery_stats"].items()
+                           if not isinstance(v, dict)], ["dimension", "value", "count"]),
+    }
+
+
+def gallery_summary_md(ds: dict) -> str:
+    st = ds["gallery_stats"]
+    lines = ["## Opt-in galleries and templates", "",
+             _md_table([[k, st[k]] for k in ("music_cards", "music_card_options", "showcase_jobs", "collections",
+                                             "collection_items", "explore_cards")], ["collection", "rows"]), ""]
+    for title, key in (("Music cards by category", "music_cards_by_category"),
+                       ("Showcase jobs by model", "showcase_jobs_by_job_set_type"),
+                       ("Explore cards by media type", "explore_cards_by_media_type")):
+        if st.get(key):
+            lines += [f"### {title}", "", _md_table([[k, v] for k, v in list(st[key].items())[:15]],
+                                                     ["value", "count"]), ""]
+    lines += ["Files: `csv/music_cards.csv` + `csv/music_card_recipients.csv`, `csv/music_card_options.csv`, "
+              "`csv/showcase_jobs.csv` + `csv/showcase_job_inputs.csv` + `csv/showcase_job_results.csv`, "
+              "`csv/collections.csv` + `csv/collection_items.csv`, `csv/explore_cards.csv`, `csv/gallery_stats.csv` "
+              "(only in runs with these opt-in feeds). Showcase creators' names only with --with-profiles.", ""]
     return "\n".join(lines)
 
 
@@ -397,6 +481,10 @@ def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
         json_parts.update({k: ds[k] for k in (*EXTRA_COLLECTIONS, "extra_stats")})
         tables.update(extra_csv_tables(ds))
         model, md = CommunityDatasetExt, md + "\n" + extra_summary_md(ds)
+    if "music_cards" in ds:    # opt-in gallery / template sources were used (CommunityDatasetGallery)
+        json_parts.update({k: ds[k] for k in (*GALLERY_COLLECTIONS, "gallery_stats")})
+        tables.update(gallery_csv_tables(ds))
+        model, md = CommunityDatasetGallery, md + "\n" + gallery_summary_md(ds)
     with formula_version_in_schema(v2):
         return write_standard_outputs(ds, out_dir, json_parts=json_parts, csv_tables=tables, dataset_model=model,
                                       summary_md=md)

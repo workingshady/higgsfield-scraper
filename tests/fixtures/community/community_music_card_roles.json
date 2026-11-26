@@ -1,0 +1,34 @@
+{
+    "meta": {
+        "endpoint": "community_music_card_options",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/music-cards-roles?lang=en",
+        "params": {
+            "lang": "en",
+            "group": "roles"
+        },
+        "fetched_at": "2026-11-26T18:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "key": "friend",
+                "role": "friend",
+                "role_text": null,
+                "label": "Friend"
+            },
+            {
+                "key": "wife",
+                "role": "other",
+                "role_text": "wife",
+                "label": "Wife"
+            },
+            {
+                "key": "husband",
+                "role": "other",
+                "role_text": "husband",
+                "label": "Husband"
+            }
+        ]
+    }
+}

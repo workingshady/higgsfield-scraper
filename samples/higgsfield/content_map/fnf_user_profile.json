@@ -1,0 +1,31 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user/{UNAME}",
+        "status": 200,
+        "note": "types only"
+    },
+    "body": {
+        "user_id": "str",
+        "created_at": "str",
+        "account_created_at": "str",
+        "username": "str",
+        "avatar_url": "str",
+        "background_image_url": "NoneType",
+        "bio": "NoneType",
+        "headline": "NoneType",
+        "instagram_handle": "NoneType",
+        "twitter_handle": "NoneType",
+        "youtube_handle": "NoneType",
+        "tiktok_handle": "NoneType",
+        "discord_handle": "NoneType",
+        "linkedin_handle": "NoneType",
+        "show_full_name": "bool",
+        "full_name": "NoneType",
+        "location": "NoneType",
+        "badge": "NoneType",
+        "badges": [],
+        "total_projects_views": "int",
+        "total_projects_likes": "int"
+    }
+}

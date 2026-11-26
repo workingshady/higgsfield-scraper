@@ -30,6 +30,8 @@ CHILD_LISTS: dict[str, tuple[str, ...]] = {
     "intone_examples": ("media",),
     "seedance_presets": ("media",),
     "motion_control_presets": ("media",),
+    "reels_presets": ("media", "inputs"),
+    "reels_comments": ("reactions",),
 }
 # nested lists inside a child row (e.g. project edit references) become JSON text via flatten()
 
@@ -55,6 +57,7 @@ def _summary(ds: dict, rm: RunMeta, sel: Any) -> dict:
     cat("property_studio_example.format", [x["format"] for x in ds["property_studio_examples"]])
     cat("cinema_control.group", [x["group"] for x in ds["cinema_controls"]])
     cat("editing_room_render.tool", [x["tool"] for x in ds["editing_room_renders"]])
+    cat("reels_preset.preset_source", [x["preset_source"] for x in ds["reels_presets"]])
     keys = {x.get("generation_key") for c in COLLECTION_OF.values() for x in ds.get(c) or []
             if isinstance(x, dict) and x.get("generation_key")}
     login = {}
@@ -78,6 +81,7 @@ def build_dataset(entities: dict[str, list[dict]], sel: Any, rm: RunMeta) -> dic
     ds["explore_items"].sort(key=lambda x: (x["feed_source"], -(x["priority"] or 0), x["item_id"]))
     ds["api_models"].sort(key=lambda x: x["endpoint_id"])
     ds["property_studio_examples"].sort(key=lambda x: x["preset_index"])
+    ds["reels_presets"].sort(key=lambda x: (x["preset_source"] != "higgsfield", x["preset_id"]))
     summary = _summary(ds, rm, sel)
     endpoints = {ep: ENDPOINT_URLS[ep] for w in sel.resolve() for ep in WHAT[w][1]}
     meta = make_meta("showcase", sel, rm, counts=summary["counts"], endpoints=endpoints,

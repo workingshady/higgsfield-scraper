@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "endpoint": "community_explore_cards",
+        "url": "https://cms.higgsfield.ai/cards?size=3",
+        "params": {
+            "size": "3",
+            "page": "1"
+        },
+        "fetched_at": "2026-11-26T18:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "total": 192,
+        "cursor": "2",
+        "items": [
+            {
+                "id": 241,
+                "slug": "sale-11-11",
+                "name": "Up to 69% OFF Black Friday",
+                "description": "The moment you’ve been waiting for",
+                "href": "https://higgsfield.ai/pricing",
+                "href_mobile": "https://higgsfield.ai/pricing",
+                "media": {
+                    "url": "https://static-public-media.higgsfield.ai/cards/0e494c9b-1293-4c33-8187-15ca1cee7cb6.mp4",
+                    "type": "video",
+                    "width": 1080,
+                    "height": 608,
+                    "main_url": null,
+                    "main_width": null,
+                    "main_height": null,
+                    "placeholder": "data:image/webp;base64,UklGRi4nAABXRUJQ",
+                    "optimized_url": null,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/cards/b790f029-d511-47af-9fe2-c37a7e1aea41.webp"
+                }
+            },
+            {
+                "id": 248,
+                "slug": null,
+                "name": "MAGI-2. only on Higgsfield",
+                "description": "1080p video at 2.5 credits/sec. Also available via API",
+                "href": "https://higgsfield.ai/ai/video?model=magi_2",
+                "href_mobile": "https://higgsfield.ai/start/agent?mode=video&model=magi_2",
+                "media": {
+                    "url": "https://static-public-media.higgsfield.ai/cards/f3943641-1202-46cc-81ca-7fd0610c6332.mp4",
+                    "type": "video",
+                    "width": 1080,
+                    "height": 608,
+                    "main_url": null,
+                    "main_width": null,
+                    "main_height": null,
+                    "placeholder": "data:image/webp;base64,UklGRi4nAABXRUJQ",
+                    "optimized_url": null,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/cards/fadbafd0-9e61-4f03-afea-403181b774fb.webp"
+                }
+            },
+            {
+                "id": 245,
+                "slug": null,
+                "name": "CLOUD COMPUTER WITH GPU",
+                "description": "Run Blender, creative apps and your own LoRAs through MCP",
+                "href": "https://higgsfield.ai/gpu",
+                "href_mobile": "https://higgsfield.ai/gpu",
+                "media": {
+                    "url": "https://static-public-media.higgsfield.ai/cards/c96e6a3f-ac70-40e1-b586-576bb97bd8ba.mp4",
+                    "type": "video",
+                    "width": 1080,
+                    "height": 608,
+                    "main_url": null,
+                    "main_width": null,
+                    "main_height": null,
+                    "placeholder": "data:image/webp;base64,UklGRi4nAABXRUJQ",
+                    "optimized_url": null,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/cards/0a910af5-93fc-42ae-ab38-4bfc93067acf.webp"
+                }
+            }
+        ]
+    }
+}

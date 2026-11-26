@@ -226,7 +226,7 @@ Community generations: model (job_set_type), prompt, settings, inputs, results, 
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--feeds` | `trending` | FEEDS | comma list of feeds: trending (main feed, ~78.6k), approved (curated, ~6.7k, mostly video), top (single page, &lt;=100), model-x (featured model showcase), 'all', or 'none' (only --publication-ids) (default: trending). Opt-in Community pages, never part of 'all': shots (/community/generations, fnf-community generations feed), posts (Community posts, ~24k), feed (the /community/feed mix of shots, projects, blogs and posts), creators (/community/creators, ~650, aggregate stats; names only with --with-profiles), talents (Talents hub, ~80). --max-items caps each opt-in feed separately |
+| `--feeds` | `trending` | FEEDS | comma list of feeds: trending (main feed, ~78.6k), approved (curated, ~6.7k, mostly video), top (single page, &lt;=100), model-x (featured model showcase), 'all', or 'none' (only --publication-ids) (default: trending). Opt-in Community pages, never part of 'all': shots (/community/generations, fnf-community generations feed), posts (Community posts, ~24k), feed (the /community/feed mix of shots, projects, blogs and posts), creators (/community/creators, ~650, aggregate stats; names only with --with-profiles), talents (Talents hub, ~80), music-cards (Music Cards templates: lyrics, recipients, preview videos, ~111 + option lists), job-showcase (Seedance 2 community 'movies': 54 jobs with prompt, inputs, all result variants), collections (motion collection Catch the Pulse), explore-cards (explore/home cards, ~192). --max-items caps each opt-in feed separately |
 | `--type` | `all` | `all` `image` `video` `speak` `upscale` | media type filter (API `type`). image\|video are also enforced client-side because the approved feed ignores it; speak\|upscale are server-side only (default: all) |
 | `--models` | — | JOB_SET_TYPES | job_set_type filter, comma list and/or repeatable, e.g. --models seedance_2_5,nano_banana_2 (API `model`, trending/approved; enforced client-side for top/model-x) |
 | `--preset-ids` | — | IDS | preset/motion id filter (API `preset_id`, repeatable). Passed through; server effect unverified |
@@ -380,18 +380,19 @@ python -m higgsfield_scraper scrape account --with-jobs --compare-estimate --max
 
 ### `scrape showcase`
 
-Showcase/example content: Canvas templates, Editing Room examples, Property Studio presets, video-explore feeds (+likes), effect sample generations, public API models, Cinema Studio controls, faceless/Intone/Seedance/motion-control showcases; opt-in login `season`
+Showcase/example content: Canvas templates, Editing Room examples, Property Studio presets, video-explore feeds (+likes), effect sample generations, public API models, Cinema Studio controls, faceless/Intone/Seedance/motion-control showcases; opt-in Shorts Studio reels presets/comments and login `season`
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--what` | — | WHAT | comma list of sources, 'public' (default: every public source) or 'all' (+ login-only `season`). Available: canvas_templates, editing_room_examples, property_studio_examples, explore_categories, effect_examples, api_models, cinema_controls, faceless_showcases, intone_examples, seedance_presets, motion_control_presets, season |
+| `--what` | — | WHAT | comma list of sources, 'public' (default: every public source except the opt-in ones) or 'all' (+ opt-in reels_comments, reels_presets and login-only `season`). Available: canvas_templates, editing_room_examples, property_studio_examples, explore_categories, effect_examples, api_models, cinema_controls, faceless_showcases, intone_examples, seedance_presets, motion_control_presets, season, reels_presets, reels_comments |
 | `--lang` | `en` | LANG | language for CMS lists and Property Studio titles (en, es, de, ja, ko; zh titles only) |
 | `--explore-sources` | `higgsfield,community` | EXPLORE_SOURCES | video explore feeds: higgsfield (curated, ~35), community (~49k) (default: both) |
 | `--explore-sort` | `new` | `new` `trending` `both` | community explore sort: new (page-numbered, has `total`), trending (opaque cursor), both |
 | `--explore-pages` | `3` | EXPLORE_PAGES | pages (20 items) per explore feed (default 3; 0 = until the end; --max-pages also applies) |
 | `--explore-categories` | — | EXPLORE_CATEGORIES | also crawl the community feed per category: comma list or 'all' (from /categories) |
 | `--effects` | — | EFFECTS | only these /effects/examples slugs (comma list); default: every slug in the sitemap |
-| `--with-profiles` | off | flag | opt-in: keep creator user_id/username/avatar on explore variants and effect samples (default: only a pseudonymous creator_key hash) |
+| `--reels-sources` | `higgsfield,community` | REELS_SOURCES | Shorts Studio preset lists for reels_presets/reels_comments: higgsfield (curated, ~40), community (user-published, ~75) (default: both) |
+| `--with-profiles` | off | flag | opt-in: keep creator user_id/username/avatar on explore variants, effect samples and reels presets/comments, and the reference reel's author handle (default: only a pseudonymous creator_key hash) |
 
 ```bash
 python -m higgsfield_scraper scrape showcase
@@ -399,7 +400,8 @@ python -m higgsfield_scraper scrape showcase --what api_models,canvas_templates
 python -m higgsfield_scraper scrape showcase --what explore --explore-sort both --explore-pages 10
 python -m higgsfield_scraper scrape showcase --what effect_examples --effects acid,vanish
 python -m higgsfield_scraper scrape showcase --what property_studio_examples --lang de --download-media thumbs
-python -m higgsfield_scraper scrape showcase --what all --max-items 30   # + login-only season
+python -m higgsfield_scraper scrape showcase --what reels_presets,reels_comments --max-items 20
+python -m higgsfield_scraper scrape showcase --what all --max-items 30   # + opt-in reels, login season
 ```
 <!-- END scraper-options -->
 
@@ -636,8 +638,11 @@ flow, field tables and gaps: [`docs/scrapers/showcase.md`](docs/scrapers/showcas
 | `seedance_presets` | `cms /seedance-2-0` | `showcase_seedance_preset` | 14 |
 | `motion_control_presets` | `cms /kling-motion-control-presets` | `showcase_motion_control_preset` | 36 |
 | `season` | `fnf-api-gw /fnf-score/v1/season` | `showcase_season` | **login only**; `null` (no active season) |
+| `reels_presets` (alias `reels`; **opt-in**) | `fnf-cms-api /ai-reels-presets?lang=[&source=community]` + `/ai-reels-presets/{slug}` | `showcase_reels_preset` → `reels_presets` (Shorts Studio example reels: output video, prompt, script, inputs, reference reel stats, recreates) | 40 curated + 75 community |
+| `reels_comments` (**opt-in**) | `fnf-community /entities/generation_publication/{id}/comments` | `showcase_reels_comment` → `reels_comments` | 73 threads, 0 comments |
 
-`--what` default = every public source (`public`); `all` = public + `season`. `season` is skipped cleanly without
+`--what` default = every public source except the opt-in reels sources (`public`, unchanged); `all` = public +
+`reels_presets` + `reels_comments` + `season`. `season` is skipped cleanly without
 a session and not scheduled with `--auth off`.
 
 | Option | Default | Effect |
@@ -648,8 +653,9 @@ a session and not scheduled with `--auth off`.
 | `--explore-pages N` | 3 | pages of 20 per explore feed; `0` = to the end (≈2,467 pages for community/new); `--max-pages` also applies |
 | `--explore-categories LIST\|all` | off | also crawl the community feed per category (names from `/categories`) |
 | `--effects LIST` | every sitemap slug | only these `/effects/examples` slugs |
-| `--with-profiles` | off | keep creator `user_id` / `username` / avatar on explore variants and effect samples (default: only a pseudonymous `creator_key`) |
-| `--max-items` | no limit | **per kind** |
+| `--reels-sources` | both | Shorts Studio lists: `higgsfield` (curated, ~40), `community` (~75); comments exist only on community presets |
+| `--with-profiles` | off | keep creator `user_id` / `username` / avatar on explore variants, effect samples and reels presets/comments, plus the reference reel's author handle (default: only a pseudonymous `creator_key`) |
+| `--max-items` | no limit | **per kind** (reels presets: per list, curated and community; reels comments: per thread count) |
 | `--max-pages` | — | per explore feed, per JS-chunk discovery, per effect page sequence |
 | `--download-media` | `none` | `thumbs` / `full` / `all` into `<run>/media/` |
 
@@ -662,6 +668,7 @@ python -m higgsfield_scraper scrape showcase --what explore_categories --explore
 python -m higgsfield_scraper scrape showcase --what effect_examples --effects acid,vanish
 python -m higgsfield_scraper scrape showcase --what property_studio_examples --lang de --download-media thumbs
 python -m higgsfield_scraper scrape showcase --what editing_room_examples,cinema_controls,faceless_showcases,intone_examples,seedance_presets,motion_control_presets
+python -m higgsfield_scraper scrape showcase --what reels_presets,reels_comments --max-items 20   # opt-in Shorts Studio reels + comments
 python -m higgsfield_scraper scrape showcase --what all --max-items 30                         # + login-only season
 ```
 

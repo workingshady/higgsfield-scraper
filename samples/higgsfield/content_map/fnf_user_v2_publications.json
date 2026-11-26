@@ -1,0 +1,145 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user/{UID}/v2/publications?limit=2",
+        "status": 200,
+        "note": "lists cut to 2 items; people fields redacted"
+    },
+    "body": {
+        "total": 3,
+        "publications": [
+            {
+                "publication_type": "asset",
+                "data": {
+                    "job_set_type": "seedream_v5_lite",
+                    "job_set_id": "135fc917-631b-4872-bab8-f656800d1377",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "board_ids": [],
+                    "params": {
+                        "prompt": "Luxury advertising still life: a \"Красная Москва\" perfume bottle is placed in the center on a glossy mirror-like surface. The rectangular bottle is made of clear glass with a massive clear-glass base; inside is a liquid of a delicate golden amber shade. The bottle is crowned with a bright red ribbed",
+                        "medias": [],
+                        "batch_size": 2,
+                        "aspect_ratio": "auto",
+                        "width": 2048,
+                        "height": 2048,
+                        "quality": "basic",
+                        "seed": 90110,
+                        "reference_elements": []
+                    },
+                    "meta": {},
+                    "id": "da8bb03a-5f75-4b6e-b9f2-b91c2656f91d",
+                    "status": "completed",
+                    "ip_check_finished": null,
+                    "ip_detected": null,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_<redacted>/hf_20261110_112738_da8bb03a-5f75-4b6e-b9f2-b91c2656f91d.png"
+                        },
+                        "min": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_<redacted>/hf_20261110_112738_da8bb03a-5f75-4b6e-b9f2-b91c2656f91d_min.webp"
+                        },
+                        "hls": null,
+                        "h264": null
+                    },
+                    "published_at": 1795673672.130524,
+                    "created_at": 1794310058.00646,
+                    "user_id": "<redacted>",
+                    "trace_id": "da8bb03a-5f75-4b6e-b9f2-b91c2656f91d",
+                    "cluster_hash": "7527272d610bafa227f338d08f5dbbc8",
+                    "representation": null,
+                    "publication": {
+                        "id": "89e33a69-878d-4d29-9f74-50051eab3096",
+                        "views_count": 1,
+                        "likes_count": 0,
+                        "is_liked_by_user": null,
+                        "approved": false,
+                        "pinned_at": null
+                    },
+                    "profile": "<redacted>",
+                    "drama": null
+                },
+                "id_": "89e33a69-878d-4d29-9f74-50051eab3096",
+                "views": 1280,
+                "clones": 64
+            },
+            {
+                "publication_type": "asset",
+                "data": {
+                    "job_set_type": "nano_banana_2_1",
+                    "job_set_id": "8abaec43-0542-4763-b4b9-c29c946ea4f3",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": null,
+                    "board_ids": [],
+                    "params": {
+                        "width": 768,
+                        "height": 1376,
+                        "aspect_ratio": "9:16",
+                        "resolution": "1k",
+                        "batch_size": 2,
+                        "is_inpaint": false,
+                        "prompt": "Shot is made from the top. Bottle of drink is placed on lots of lemons and limes, some cinnamon quills, clove buds, and gentian root pieces - everything is placed in the red colour mesh bag. the bag is placed on the swimming pool floor small size tiles of orange colour. Add pattern of light and shad",
+                        "medias": [
+                            {
+                                "data": {
+                                    "id": "2a139eff-c567-4610-a9e6-27c2b70b90f8",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_<redacted>/2a139eff-c567-4610-a9e6-27c2b70b90f8.jpg",
+                                    "type": "media_input"
+                                },
+                                "role": "image"
+                            }
+                        ],
+                        "reference_elements": [],
+                        "thinking_level": "medium",
+                        "enable_web_search": false,
+                        "enable_image_search": false
+                    },
+                    "meta": {},
+                    "id": "6301c461-adb6-4f08-bca0-7b7f2d91e11c",
+                    "status": "completed",
+                    "ip_check_finished": null,
+                    "ip_detected": null,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_<redacted>/hf_20261106_022427_6301c461-adb6-4f08-bca0-7b7f2d91e11c.png"
+                        },
+                        "min": {
+                            "type": "image",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_<redacted>/hf_20261106_022427_6301c461-adb6-4f08-bca0-7b7f2d91e11c_min.webp"
+                        }
+                    },
+                    "published_at": 1795673671.434953,
+                    "created_at": 1793931867.677357,
+                    "user_id": "<redacted>",
+                    "trace_id": "6301c461-adb6-4f08-bca0-7b7f2d91e11c",
+                    "cluster_hash": "9d5515f34c760adaed60f932bddbaa63",
+                    "representation": null,
+                    "publication": {
+                        "id": "af29d29e-94af-4c45-83c4-776cf2494ab1",
+                        "views_count": 91,
+                        "likes_count": 4,
+                        "is_liked_by_user": null,
+                        "approved": false,
+                        "pinned_at": null
+                    },
+                    "profile": "<redacted>",
+                    "drama": null
+                },
+                "id_": "af29d29e-94af-4c45-83c4-776cf2494ab1",
+                "views": 1280,
+                "clones": 64
+            }
+        ],
+        "has_more": true,
+        "cursor": 1795673671.434953
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "meta": {
+        "endpoint": "community_music_card_options",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/music-cards-occasions?lang=en",
+        "params": {
+            "lang": "en",
+            "group": "occasions"
+        },
+        "fetched_at": "2026-11-26T18:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "key": "birthday",
+                "occasion": "birthday",
+                "occasion_text": null,
+                "label": "Birthday",
+                "icon_key": "gift-1",
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-occasions/059875ac-364f-400d-b208-9266936ceed5.webp",
+                    "width": 578,
+                    "height": 578,
+                    "mime_type": "image/webp"
+                },
+                "categories": [
+                    "birthday"
+                ]
+            },
+            {
+                "key": "newyear",
+                "occasion": "newyear",
+                "occasion_text": null,
+                "label": "New Year",
+                "icon_key": "snow-flakes",
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-occasions/06278e56-65bf-4449-af4e-47dee1d05e7e.webp",
+                    "width": 578,
+                    "height": 578,
+                    "mime_type": "image/webp"
+                },
+                "categories": [
+                    "right-now",
+                    "holidays"
+                ]
+            },
+            {
+                "key": "christmas",
+                "occasion": "christmas",
+                "occasion_text": null,
+                "label": "Christmas",
+                "icon_key": "moon-star",
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-occasions/d227a004-ac9a-49f2-aff1-b05fc9e6a27d.webp",
+                    "width": 578,
+                    "height": 578,
+                    "mime_type": "image/webp"
+                },
+                "categories": [
+                    "right-now",
+                    "holidays"
+                ]
+            }
+        ]
+    }
+}

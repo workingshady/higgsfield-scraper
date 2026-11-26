@@ -1,0 +1,186 @@
+{
+    "meta": {
+        "endpoint": "studios_employees",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-skills-marketplace/api/v1/ai-agents/community?limit=100",
+        "params": {
+            "limit": "100",
+            "rank_base": "0"
+        },
+        "fetched_at": "2026-11-26T15:47:40.421411+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "7fad6387-c98f-4cc9-b0bb-838e55b55a7c",
+                "author_user_id": "",
+                "author": null,
+                "is_builtin": true,
+                "owned_by_current_user": false,
+                "name": "shorts_maker",
+                "display_name": "[redacted]",
+                "description": "Restyles ONE source video (4s–2min) into a vertical 9:16 reel in a style preset the USER picks — this employee always asks the user to choose the preset and aspect ratio first, then an AI director applies that look automatically. Use when the user wants to \"restyle\", \"make a reel/short in <style>\", or pick a look for a clip. Not for cutting existing YouTube footage (that is Personal Clipper).",
+                "public_md": "## Shorts Maker\n\nTurns one video into a styled vertical reel — pick a look, it does the rest.\n\n**⚡ Agent overview**\nGive it one source video (4s–2min) and a style preset. An AI director restyles\nthe footage into vertical fragments and renders them in parallel:\n\n`Source video → Style preset → Restyled fragments → One 9:16 reel`\n\n**⚡ Key features**\n- 🎨 Preset styles — pick a look, no prompting\n- 🎞️ AI restyle — video-to-video, not just a filter\n- ⚡ Parallel render — fragments generated at once\n- 📱 Vertical-ready — one 9:16 reel out\n",
+                "sub_title": "Restyles a video into a vertical reel",
+                "example_prompt": null,
+                "examples_section": {
+                    "examples": [
+                        {
+                            "src": "https://static.higgsfield.ai/claudesfield/agent-employees/shorts-maker/plastilin.mp4",
+                            "aspect_ratio": "9:16"
+                        },
+                        {
+                            "src": "https://static.higgsfield.ai/claudesfield/agent-employees/shorts-maker/retro-collage.mp4",
+                            "aspect_ratio": "9:16"
+                        },
+                        {
+                            "src": "https://static.higgsfield.ai/claudesfield/agent-employees/shorts-maker/yellow-burst.mp4",
+                            "aspect_ratio": "9:16"
+                        },
+                        {
+                            "src": "https://static.higgsfield.ai/claudesfield/agent-employees/shorts-maker/polka-pop.mp4",
+                            "aspect_ratio": "9:16"
+                        },
+                        {
+                            "src": "https://static.higgsfield.ai/claudesfield/agent-employees/shorts-maker/marker-scribble.mp4",
+                            "aspect_ratio": "9:16"
+                        },
+                        {
+                            "src": "https://static.higgsfield.ai/claudesfield/agent-employees/shorts-maker/warm-glow.mp4",
+                            "aspect_ratio": "9:16"
+                        }
+                    ]
+                },
+                "features": [
+                    {
+                        "icon": "keyframe",
+                        "title": "Pick a look",
+                        "description": "Choose a style preset and an AI director restyles your video — no prompting needed"
+                    },
+                    {
+                        "icon": "target-arrow",
+                        "title": "Vertical-ready",
+                        "description": "Outputs a 9:16 reel optimized for Reels, TikTok, and Shorts"
+                    },
+                    {
+                        "icon": "chart",
+                        "title": "Parallel render",
+                        "description": "Fragments are generated in parallel on the backend for a fast turnaround"
+                    }
+                ],
+                "category_id": "content_creation",
+                "orchestrated_skills": [],
+                "skill_pool_mode": "augment",
+                "connectors": [],
+                "connector_pool_mode": "replace",
+                "preview_urls": [
+                    "https://cdn.higgsfield.ai/card/7d948d7b-43e8-4fce-b8e6-8557c84075a5.mp4"
+                ],
+                "avatar_url": "[redacted]",
+                "color": "#F7AE99",
+                "visibility": "public",
+                "share_slug": null,
+                "canonical_slug": "shorts-maker",
+                "references": [],
+                "installs_count": 0,
+                "unique_users_count": 754,
+                "usage_count": 1076,
+                "installed_ai_agent_id": "d89ff7db-191e-49d4-acd5-78fb80e3f39c",
+                "installed_ai_agent": {
+                    "id": "d89ff7db-191e-49d4-acd5-78fb80e3f39c",
+                    "internal_name": "shorts_maker"
+                },
+                "created_at": "2026-07-03T17:21:48.486332Z",
+                "updated_at": "2026-09-02T23:05:53.381740Z",
+                "usage_total": [],
+                "usage_personal": []
+            },
+            {
+                "id": "e1bcb055-8a76-4289-ab9e-d8e0ec7d4577",
+                "author_user_id": "user_Fake011",
+                "author": {
+                    "avatar_url": "[redacted]",
+                    "name": "[redacted]",
+                    "user_id": "user_Fake011"
+                },
+                "is_builtin": false,
+                "owned_by_current_user": false,
+                "name": "marketing-expert",
+                "display_name": "[redacted]",
+                "description": "Full-stack marketing strategist — brand analysis, copy, MENA campaigns, social trends, ad scripts, and content planning.",
+                "public_md": "",
+                "sub_title": null,
+                "example_prompt": null,
+                "examples_section": {
+                    "examples": []
+                },
+                "features": [],
+                "category_id": "marketing_and_sales",
+                "orchestrated_skills": [],
+                "skill_pool_mode": "augment",
+                "connectors": [],
+                "connector_pool_mode": "replace",
+                "preview_urls": [],
+                "avatar_url": "[redacted]",
+                "color": "#EF64FF",
+                "visibility": "public",
+                "share_slug": null,
+                "canonical_slug": null,
+                "references": [],
+                "installs_count": 3288,
+                "unique_users_count": 611,
+                "usage_count": 1549,
+                "installed_ai_agent_id": null,
+                "installed_ai_agent": null,
+                "created_at": "2026-06-20T19:09:55.410221Z",
+                "updated_at": "2026-06-20T19:09:55.410230Z",
+                "usage_total": [],
+                "usage_personal": []
+            },
+            {
+                "id": "6763d605-b5a1-4847-853f-7ac39b7a643f",
+                "author_user_id": "user_Fake012",
+                "author": {
+                    "avatar_url": "[redacted]",
+                    "name": "[redacted]",
+                    "user_id": "user_Fake012"
+                },
+                "is_builtin": false,
+                "owned_by_current_user": false,
+                "name": "ai-cinematographer",
+                "display_name": "[redacted]",
+                "description": "Converts video scripts into production-ready Higgsfield cinematic scene prompts. 9:16 TikTok-optimized, Hollywood-grade visual direction.",
+                "public_md": "",
+                "sub_title": null,
+                "example_prompt": null,
+                "examples_section": {
+                    "examples": []
+                },
+                "features": [],
+                "category_id": "content_creation",
+                "orchestrated_skills": [],
+                "skill_pool_mode": "augment",
+                "connectors": [],
+                "connector_pool_mode": "replace",
+                "preview_urls": [],
+                "avatar_url": "[redacted]",
+                "color": "#EF64FF",
+                "visibility": "public",
+                "share_slug": null,
+                "canonical_slug": null,
+                "references": [],
+                "installs_count": 2700,
+                "unique_users_count": 539,
+                "usage_count": 1475,
+                "installed_ai_agent_id": null,
+                "installed_ai_agent": null,
+                "created_at": "2026-06-23T01:50:55.088836Z",
+                "updated_at": "2026-06-23T01:50:55.088847Z",
+                "usage_total": [],
+                "usage_personal": []
+            }
+        ],
+        "next_cursor": "eyJzIjogNjQsICJpZCI6ICJmZmQ0MzY3Mi1mNjFhLTRlNWYtOTkyMi05NWViZTQ3ZDIzN2UifQ==",
+        "next_offset": null
+    }
+}

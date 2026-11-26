@@ -1,0 +1,116 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://cms.higgsfield.ai/music-cards-presets?lang=en",
+        "status": 200,
+        "note": "lists cut to 2 items; people fields redacted"
+    },
+    "body": {
+        "items": [
+            {
+                "id": "28e85fc3-49da-4778-b02b-6766d1aa0e62",
+                "slug": "happy-birthday-dear-mama",
+                "title": "Happy birthday, dear Mama",
+                "description": "Mama's windowsill flowers wake up for her birthday, and so does the whole family",
+                "category": "birthday",
+                "categories": [
+                    "birthday"
+                ],
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/d90c31fd-d369-4316-9107-760885385146.jpg",
+                    "width": 1080,
+                    "height": 1920,
+                    "mime_type": "image/jpeg"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/b94fd108-68cf-474f-ab9a-0de3ab87c4b5.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": null,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": "https://static-public-media.higgsfield.ai/music-cards-presets/a7139f9a-b1f1-45d6-8382-0583b66a2fda.mp4",
+                    "compressed_width": 600,
+                    "compressed_height": 1066,
+                    "compressed_size_bytes": 2801132,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/music-cards-presets/8c365c83-cdfa-4b84-9e3f-77ed7666be1b.webp"
+                },
+                "occasion": "birthday",
+                "occasion_text": null,
+                "tone": "warm",
+                "style": "anime",
+                "music": "ballad",
+                "length": 30,
+                "recipients": "<redacted>",
+                "senders": "<redacted>",
+                "song_title": "Happy birthday, dear Mama",
+                "lyrics": "Your flowers on the windowsill\nAre waking, reaching out for you\nJust like we do\n\nHappy birthday, dear Mama!\nAll your family is here with you"
+            },
+            {
+                "id": "748ac9f2-d792-40cb-b844-7463af812c86",
+                "slug": "happy-new-year-rosa",
+                "title": "Happy New Year, Rosa!",
+                "description": "A retired music teacher mum gets a New Year trip to the sunny sea",
+                "category": "right-now",
+                "categories": [
+                    "right-now",
+                    "holidays",
+                    "<+1 more>"
+                ],
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/a692baff-706a-4ed7-8844-410eaf6a60ee.jpg",
+                    "width": 1080,
+                    "height": 1920,
+                    "mime_type": "image/jpeg"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/7e206012-378d-4aa1-9787-c16bdadc5e2c.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": null,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": "https://static-public-media.higgsfield.ai/music-cards-presets/7ffc5a06-f50b-441d-abbf-d62af4aed000.mp4",
+                    "compressed_width": 600,
+                    "compressed_height": 1066,
+                    "compressed_size_bytes": 4547242,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/music-cards-presets/d71561a1-2dc3-4c7d-9113-145de40f0b77.webp"
+                },
+                "occasion": "newyear",
+                "occasion_text": null,
+                "tone": "warm",
+                "style": "clay",
+                "music": "ballad",
+                "length": 30,
+                "recipients": "<redacted>",
+                "senders": "<redacted>",
+                "song_title": "Happy New Year, Rosa",
+                "lyrics": "Retired music teacher\nStill at the piano, every family party\nShe knits a scarf for every neighbour\nEvery one a different colour\n\nHappy New Year, Rosa\nIn the kitchen while the dinner cooks\n\nMum, we wish you a journey\nTo the warm and sunny sea\n\nHappy New Year, Rosa"
+            },
+            "<+109 more>"
+        ],
+        "next_cursor": null,
+        "categories": [
+            {
+                "id": "right-now",
+                "label": "Right now",
+                "icon_key": "",
+                "parent": null
+            },
+            {
+                "id": "birthday",
+                "label": "Birthday",
+                "icon_key": "",
+                "parent": null
+            },
+            "<+24 more>"
+        ],
+        "search": null
+    }
+}

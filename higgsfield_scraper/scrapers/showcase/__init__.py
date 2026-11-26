@@ -4,7 +4,8 @@ Canvas workflow templates, Editing Room examples (CMS + 6 full example projects 
 Property Studio example presets (JS table + lingui titles), video-explore (Higgsfield Multiplier) feeds with
 engagement, /effects/examples sample generations, the public API model docs (docs.higgsfield.ai), Cinema Studio 4.0
 creative controls, YouTube-faceless showcases, Intone examples, Seedance 2.0 presets, Kling motion-control presets,
-and (login-only, opt-in) the fnf-score season. See docs/scrapers/showcase.md.
+(opt-in) Shorts Studio / AI Reels presets + their comment threads, and (login-only, opt-in) the fnf-score season.
+See docs/scrapers/showcase.md.
 """
 from __future__ import annotations
 
@@ -30,7 +31,8 @@ SCRAPER = ScraperDef(
     name="showcase",
     description="Showcase/example content: Canvas templates, Editing Room examples, Property Studio presets, "
                 "video-explore feeds (+likes), effect sample generations, public API models, Cinema Studio "
-                "controls, faceless/Intone/Seedance/motion-control showcases; opt-in login `season`",
+                "controls, faceless/Intone/Seedance/motion-control showcases; opt-in Shorts Studio reels presets/"
+                "comments and login `season`",
     spider_cls="higgsfield_scraper.scrapers.showcase.spider:ShowcaseSpider",
     model_by_kind=MODEL_BY_KIND,
     id_field_by_kind=ID_FIELD_BY_KIND,
@@ -53,6 +55,7 @@ SCRAPER = ScraperDef(
         "python -m higgsfield_scraper scrape showcase --what effect_examples --effects acid,vanish",
         "python -m higgsfield_scraper scrape showcase --what property_studio_examples --lang de "
         "--download-media thumbs",
-        "python -m higgsfield_scraper scrape showcase --what all --max-items 30   # + login-only season",
+        "python -m higgsfield_scraper scrape showcase --what reels_presets,reels_comments --max-items 20",
+        "python -m higgsfield_scraper scrape showcase --what all --max-items 30   # + opt-in reels, login season",
     ),
 )

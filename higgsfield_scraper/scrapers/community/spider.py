@@ -5,6 +5,7 @@
 """
 from __future__ import annotations
 
+import json
 from collections import Counter
 from typing import Any, Iterator, Optional
 
@@ -20,11 +21,18 @@ from .endpoints import (COMMENTS_ENDPOINT, COMMENTS_PAGE_SIZE, COMMENTS_PATH, CO
 from .endpoints import (CREATORS_PATH, ENTITY_COMMENTS_ENDPOINT, ENTITY_COMMENTS_PAGE_SIZE, ENTITY_COMMENTS_PATH,
                         EXTRA_ENDPOINTS, EXTRA_KINDS, EXTRA_PAGE_SIZE, FEED_ITEM_ENTITY, FEED_PATH, SHOTS_PATH,
                         TALENTS_PATH)
+from .endpoints import (CMS_API_BASE, CMS_BASE, COLLECTION_SLUGS, COLLECTIONS_PATH, EXPLORE_CARDS_PATH,
+                        GALLERY_FEEDS, JOB_SHOWCASE_SLUGS, MUSIC_CARD_OPTION_GROUPS,
+                        MUSIC_CARD_OPTIONS_ENDPOINT, MUSIC_CARD_OPTIONS_PATH, MUSIC_CARDS_PATH,
+                        JOB_SHOWCASE_PAGES, JOB_SHOWCASE_SSR_KEY, SITE_BASE)
 from .parsers import _items_of, parse_posts, repr_cursor
 
 EXTRA_FEED_OF = {v: k for k, v in EXTRA_ENDPOINTS.items()}
+HTML_HEADERS = {"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
 EXTRA_ID_FIELD = {"community_shot": "shot_id", "community_post": "post_id", "community_feed_item": "feed_item_id",
-                  "community_creator_stats": "record_id"}
+                  "community_creator_stats": "record_id", "community_music_card": "music_card_id",
+                  "community_showcase_job": "generation_id", "community_collection": "collection_id",
+                  "community_explore_card": "card_id"}
 
 
 def next_page(body: Any, sent_cursor: Optional[str], new_ids: int) -> tuple[Optional[str], str]:
@@ -129,6 +137,9 @@ class CommunitySpider(BaseApiSpider):
         if sel.with_comments and not sel.wants("posts"):   # with --feeds posts the listing itself finds threads
             yield self._posts()
         for feed in sel.extra_feeds:
+            if feed in GALLERY_FEEDS:
+                yield from self._gallery_first(feed)
+                continue
             r = self._extra(feed)
             if r is not None:
                 yield r
@@ -173,6 +184,96 @@ class CommunitySpider(BaseApiSpider):
                                                         "cursor": cursor}, labels=labels)
         return self.api_request(ep, TALENTS_PATH, {"sort": "rating", "limit": size, "offset": offset})
 
+    # ------------------------------------------------------------ opt-in gallery / template sources
+    def _gallery_first(self, feed: str) -> Iterator[Any]:
+        """First requests of --feeds music-cards | job-showcase | collections | explore-cards (all public; sent
+        without a session like the other opt-in pages)."""
+        if not self.page_allowed(feed):
+            return
+        ep = EXTRA_ENDPOINTS[feed]
+        if feed == "music-cards":
+            yield self.api_request(ep, MUSIC_CARDS_PATH, {"lang": "en"}, base=CMS_API_BASE)
+            for group in MUSIC_CARD_OPTION_GROUPS:
+                yield self.api_request(MUSIC_CARD_OPTIONS_ENDPOINT, MUSIC_CARD_OPTIONS_PATH.format(group=group),
+                                       {"lang": "en"}, base=CMS_API_BASE, labels={"group": group}, priority=2)
+        elif feed == "job-showcase":                   # public page; its SSR state holds the showcase JSON
+            for slug in JOB_SHOWCASE_SLUGS:
+                path = JOB_SHOWCASE_PAGES[slug].removeprefix(SITE_BASE)
+                yield self.api_request(ep, path, None, base=SITE_BASE, labels={"slug": slug, "page": path},
+                                       headers=HTML_HEADERS, callback=self.parse_ssr)
+        elif feed == "collections":
+            for slug in COLLECTION_SLUGS:
+                yield self.api_request(ep, COLLECTIONS_PATH.format(slug=slug), None, labels={"slug": slug})
+        elif feed == "explore-cards":
+            r = self._explore_cards(1, 0)
+            if r is not None:
+                yield r
+
+    def parse_ssr(self, response, **kw):
+        """HTML page -> the JSON its TanStack SSR state carries (loaderData[JOB_SHOWCASE_SSR_KEY] as {data: [...]}),
+        then the normal parse_api path (raw archive, parser, follow-up). Non-200 / unparsable pages go through
+        parse_api unchanged (logged there; nothing is retried or evaded)."""
+        if response.status == 200 and hasattr(response, "text"):
+            from ..blog.tsr import router_matches          # seroval SSR state parser (read-only reuse)
+            try:
+                matches = router_matches(response.text)
+            except Exception:                              # noqa: BLE001 - unparsable state: logged as non-JSON
+                matches = []
+            for m in matches:
+                ld = m.get("l") if isinstance(m, dict) else None
+                if isinstance(ld, dict) and isinstance(ld.get(JOB_SHOWCASE_SSR_KEY), list):
+                    body = {"data": ld[JOB_SHOWCASE_SSR_KEY], "ssr_route": m.get("i")}
+                    response = response.replace(body=json.dumps(body, ensure_ascii=False).encode("utf-8"),
+                                                encoding="utf-8")
+                    break
+        yield from self.parse_api(response, **kw)
+
+    def _explore_cards(self, page: int, offset: int):
+        left = self._extra_left("explore-cards")
+        if left is not None and left <= 0:
+            self.limit_hit(f"max_items={self.common.max_items} reached for explore-cards")
+            return None
+        size = self.page_size(*EXTRA_PAGE_SIZE["explore-cards"])
+        if left is not None:
+            size = max(1, min(size, left))
+        return self.api_request(EXTRA_ENDPOINTS["explore-cards"], EXPLORE_CARDS_PATH,
+                                {"size": size, "cursor": page if page > 1 else None}, base=CMS_BASE,
+                                labels={"offset": offset, "page": page})
+
+    def _gallery_follow_up(self, env, feed: str) -> Iterator[Any]:
+        """Only explore-cards paginates (cursor = next page number); the other sources are single responses."""
+        body = env.body if isinstance(env.body, dict) else {}
+        if feed != "explore-cards":
+            self.stop_reasons.setdefault(feed, "single response")
+            return
+        n = len(_items_of(body))
+        page, offset = int(env.params.get("page") or 1), int(env.params.get("offset") or 0)
+        if page == 1 and body.get("total") is not None:
+            self.totals.setdefault(feed, body.get("total"))
+        nxt = body.get("cursor")
+        reason = "next"
+        if n == 0:
+            reason = "empty page"
+        elif nxt in (None, "") or str(nxt) == str(page):
+            reason = "no next cursor"
+        left = self._extra_left(feed)
+        if reason == "next" and left is not None and left <= 0:
+            reason = "max_items reached"
+            self.limit_hit(f"max_items={self.common.max_items} reached for {feed}")
+        self.stop_reasons[feed] = reason
+        if reason != "next":
+            emit(self.logger, "info", "listing.finished", f"feed {feed}: stop after page {self.pages[feed]} "
+                 f"({reason})", listing=feed, pages__count=self.pages[feed], reason=reason)
+            return
+        try:
+            nxt_page = int(nxt)
+        except (TypeError, ValueError):
+            return
+        if self.page_allowed(feed):
+            r = self._explore_cards(nxt_page, offset + n)
+            if r is not None:
+                yield r
+
     def _entity_comments(self, entity_type: str, entity_id: str, cursor: Optional[str] = None,
                          parent_id: Optional[str] = None):
         params = {"limit": ENTITY_COMMENTS_PAGE_SIZE, "cursor": cursor, "parent_id": parent_id}
@@ -207,6 +308,9 @@ class CommunitySpider(BaseApiSpider):
     def _extra_follow_up(self, env, entities) -> Iterator[Any]:
         sel = self.selection
         feed = EXTRA_FEED_OF[env.endpoint]
+        if feed in GALLERY_FEEDS:
+            yield from self._gallery_follow_up(env, feed)
+            return
         body = env.body if isinstance(env.body, dict) else {}
         kept = [e for e in entities if str(e.get(EXTRA_ID_FIELD.get(e.get("kind"), ""), "")) in self._extra_ids]
         if sel.with_comments:                                 # comment threads of the kept items

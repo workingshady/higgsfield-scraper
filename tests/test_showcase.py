@@ -375,3 +375,126 @@ def test_merge_project_publication_id_is_not_a_generation_key(tmp_path):
          "22222222-2222-2222-2222-222222222222.mp4"}]})
     rows, _, _ = m.merge(m.load_records([proj]))
     assert len(rows) == 2
+
+
+# ------------------------------------------------------------------ Shorts Studio (AI Reels), opt-in
+# Fixtures: trimmed copies of a live run (2026-11-26). showcase_reels_comments.json is SYNTHETIC (no live thread had
+# comments yet) and follows the real fnf-community entity-comments shape (tests/fixtures/community).
+REELS_HF = "showcase_reels_preset_detail_higgsfield.json"
+REELS_COMMUNITY = "showcase_reels_preset_detail_community.json"
+
+
+def test_reels_curated_preset(sel):
+    env = load(REELS_HF)
+    (e,) = parse_envelope(env, sel)
+    detail = env.body["detail"]
+    assert e["kind"] == "showcase_reels_preset" and e["preset_source"] == "higgsfield"
+    assert e["source_url"] == f"https://higgsfield.ai/shorts-studio/{e['preset_id']}"
+    assert e["prompt"] == detail["prompt"] and e["prompt"] and e["script"]
+    assert e["job_set_type"] == "ai_reels_v1" and e["category_label"] == "Style transfer"
+    assert e["reference_platform"] == "instagram" and e["reference_url"].startswith("https://www.instagram.com/")
+    assert e["reference_engagement"]["views"] == detail["views"]           # the REFERENCE reel's stats
+    assert e["engagement"]["uses"] == env.body["listed"]["recreates"] and e["engagement"]["likes"] is None
+    assert e["reference_author_handle"] is None and "creator" not in e     # handle only with --with-profiles
+    roles = [m["role"] for m in e["media"]]
+    assert roles[:3] == ["output", "output_compressed", "output_thumbnail"]
+    assert e["generation_key"] == f"media:{detail['generated_video_media']['media_id']}"
+    assert {m["role"] for m in e["inputs"]} >= {"reference", "character"}
+    assert not any(k.startswith("media:") and k[6:] in json.dumps(e["inputs"]) for k in e["media_keys"])
+    validate_entity(e)
+
+
+def test_reels_community_preset(sel):
+    (e,) = parse_envelope(load(REELS_COMMUNITY), sel)
+    assert e["preset_source"] == "community" and e["own_recording"] is True and e["instructions"]
+    assert e["publication_id"] and f"pub:{e['publication_id']}" in e["media_keys"]
+    assert e["creator_key"] and e["creator_key_basis"] in ("user_id", "username") and "creator" not in e
+    assert any(m["role"].startswith("own_video_0") for m in e["inputs"])
+    assert e["reference_engagement"] is None and e["source_url"].endswith("?source=community")
+    validate_entity(e)
+
+
+def _reels_env(listed: dict, detail=None) -> Envelope:
+    env = load(REELS_COMMUNITY)
+    env.body = {"listed": listed, "detail": detail, "detail_status": 404 if detail is None else 200,
+                "categories": [], "lang": "en"}
+    return env
+
+
+def test_reels_profiles_and_missing_detail():
+    listed = {"id": "00000000-0000-4000-8000-0000000000a1", "slug": "community-fake1", "source": "community",
+              "title": "Fake", "generated_video_media": {"url": "https://d8j0ntlcm91z4.cloudfront.net/community-"
+                                                                "presets/00000000-0000-4000-8000-0000000000a1/g.mp4"},
+              "author_handle": "fake_handle",
+              "author": {"username": "fake_creator",
+                         "avatar_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_FakeReelsAuthor1/a.png"}}
+    (e,) = parse_envelope(_reels_env(listed), build())                  # detail 404: kept from the list item
+    assert e["prompt"] is None and e["creator_key"] == creator_key("user_FakeReelsAuthor1")
+    assert e["creator_key_basis"] == "user_id" and "fake_creator" not in json.dumps(e)
+    assert "fake_handle" not in json.dumps(e)
+    (p,) = parse_envelope(_reels_env(listed), build(with_profiles=True))
+    assert p["creator"] == {"user_id": "user_FakeReelsAuthor1", "username": "fake_creator",
+                            "avatar_url": listed["author"]["avatar_url"]}
+    assert p["reference_author_handle"] == "fake_handle"
+    no_avatar = {**listed, "author": {"username": "fake_creator", "avatar_url": None}}
+    (n,) = parse_envelope(_reels_env(no_avatar), build())
+    assert n["creator_key_basis"] == "username" and n["creator_key"] != e["creator_key"]
+    other = {"id": "different", "prompt": "not mine"}                    # a detail for another id is ignored
+    (o,) = parse_envelope(_reels_env(listed, other), build())
+    assert o["prompt"] is None and o["preset_id"] == listed["id"]
+
+
+def test_reels_comments(sel):
+    (c,) = parse_envelope(load("showcase_reels_comments.json"), sel)
+    assert c["kind"] == "showcase_reels_comment" and c["preset_id"] and c["publication_id"]
+    assert c["creator_key"] == creator_key("user_FakeReelsCommenter1") and "creator" not in c
+    assert c["likes"] == 2 and c["reply_count"] == 1 and c["reactions"] == [{"emoji": "🔥", "count": 1}]
+    validate_entity(c)
+
+
+def test_reels_are_opt_in():
+    from higgsfield_scraper.scrapers.showcase.endpoints import OPT_IN_WHATS, PUBLIC_WHATS
+    assert OPT_IN_WHATS == {"reels_presets", "reels_comments"}
+    assert not OPT_IN_WHATS & set(DEFAULT_WHATS) and not OPT_IN_WHATS & set(PUBLIC_WHATS)
+    assert OPT_IN_WHATS <= set(build(what="all").resolve())
+    assert parse_what("reels") == ["reels_presets"] and parse_what("reels_comment") == ["reels_comments"]
+    reqs, _ = _requests(None)
+    assert not any("ai-reels" in r.url for r in reqs)
+    reqs, _ = _requests("reels_presets")
+    assert [r.url.split("?")[1] for r in reqs] == ["lang=en", "lang=en&source=community"]
+    assert all(r.meta["auth"] is False and "Authorization" not in r.headers for r in reqs)
+    reqs, _ = _requests("reels_comments")                               # curated presets have no threads
+    assert [r.meta["params"]["list"] for r in reqs] == ["community"]
+    reqs, sp = _requests("reels_comments", reels_sources="higgsfield")
+    assert reqs == [] and sp.limits_hit
+    with pytest.raises(ValueError):
+        build(reels_sources="tiktok")
+    s = build(what="reels_presets", reels_sources="community")
+    assert selection_from_dict(s.to_dict()) == s
+
+
+def test_reels_follow_up_caps():
+    import scrapy
+    from scrapy.http import TextResponse
+    sp = ShowcaseSpider(selection=build(what="reels_presets,reels_comments"), common=CommonOptions(max_items=1))
+    sp.whats = sp.selection.resolve()
+    env = load("showcase_reels_presets_community.json")
+    resp = TextResponse(url=env.url, body=b"{}", request=scrapy.Request(env.url, meta={"reels_source": "community"}))
+    out = [r for r in sp.follow_up(env, [], resp) if isinstance(r, scrapy.Request)]
+    eps = [r.meta["endpoint"] for r in out]
+    assert eps.count("showcase_reels_preset_detail") == 1 and eps.count("showcase_reels_comments") == 1
+    det = next(r for r in out if r.meta["endpoint"] == "showcase_reels_preset_detail")
+    author = det.meta["reels"]["listed"].get("author")
+    assert author is None or set(author) == {"id_hash", "id_basis", "badge"}   # archive: no username/avatar
+    assert sp.totals["reels_presets_community"] == 3 and any("max_items=1" in x for x in sp.limits_hit)
+    com = next(r for r in out if r.meta["endpoint"] == "showcase_reels_comments")
+    assert "/entities/generation_publication/" in com.url and com.meta["auth"] is False
+
+
+def test_reels_generation_keys_for_merge(sel):
+    m = _merge_module()
+    ds = SCRAPER.build_dataset(all_entities(sel), build(what="all"), RunMeta())
+    for rec in ds["reels_presets"]:
+        keys = m.record_keys("showcase", "reels_presets", rec)
+        assert rec["generation_key"] in keys and any(k.startswith("media:") for k in keys)
+    assert m.record_keys("showcase", "reels_comments", ds["reels_comments"][0]) == []

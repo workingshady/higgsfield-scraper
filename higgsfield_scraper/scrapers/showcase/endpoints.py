@@ -12,6 +12,8 @@ CANVAS = "https://canvas-worker.higgsfield.ai"
 DOCS = "https://docs.higgsfield.ai"
 STATIC = "https://static.higgsfield.ai"
 ASSETS = "https://assets.higgsfield.ai"
+FNF_CMS = "https://fnf-api-gw.higgsfield.ai/fnf-cms-api"          # JS: Je().replace(/\/fnf\/?$/,`/fnf-cms-api`)
+COMMUNITY = "https://fnf-api-gw.higgsfield.ai/fnf-community"
 
 # endpoint name -> (base, path)   (paths with {x} are filled by the spider; recorded params say which)
 ENDPOINTS: dict[str, tuple[str, str]] = {
@@ -34,11 +36,15 @@ ENDPOINTS: dict[str, tuple[str, str]] = {
     "showcase_intone_explore": (CMS, "/intone/explore"),
     "showcase_seedance_presets": (CMS, "/seedance-2-0"),
     "showcase_motion_control_presets": (CMS, "/kling-motion-control-presets"),
+    # Shorts Studio (ex Genjutsu for Reels / AI Reels), opt-in; verified live 2026-11-26 (assets build 548e0f3a)
+    "showcase_reels_presets": (FNF_CMS, "/ai-reels-presets"),                    # lang, source=community
+    "showcase_reels_preset_detail": (FNF_CMS, "/ai-reels-presets/{slug}"),      # + `prompt`
+    "showcase_reels_comments": (COMMUNITY, "/entities/generation_publication/{publication_id}/comments"),
 }
 ENDPOINT_URLS = {k: b + p for k, (b, p) in ENDPOINTS.items()}
 # a non-200 here does not make the run "partial" (login-only / best-effort discovery requests)
 OPTIONAL_ENDPOINTS = frozenset({"showcase_season", "showcase_property_studio_chunk", "showcase_l10n",
-                                "showcase_api_openapi"})
+                                "showcase_api_openapi", "showcase_reels_preset_detail", "showcase_reels_comments"})
 LOGIN_ENDPOINTS = frozenset({"showcase_season"})
 
 # --what short name -> (entity kinds it produces, endpoints it calls, login-only?)
@@ -60,9 +66,13 @@ WHAT: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
     "seedance_presets": (("showcase_seedance_preset",), ("showcase_seedance_presets",), False),
     "motion_control_presets": (("showcase_motion_control_preset",), ("showcase_motion_control_presets",), False),
     "season": (("showcase_season",), ("showcase_season",), True),
+    "reels_presets": (("showcase_reels_preset",), ("showcase_reels_presets", "showcase_reels_preset_detail"), False),
+    "reels_comments": (("showcase_reels_comment",), ("showcase_reels_presets", "showcase_reels_comments"), False),
 }
 WHATS = tuple(WHAT)
-PUBLIC_WHATS = tuple(w for w, (_, _, login) in WHAT.items() if not login)
+# public but opt-in: only by name or `all` (never part of `public` / the default, which stay as they were)
+OPT_IN_WHATS = frozenset({"reels_presets", "reels_comments"})
+PUBLIC_WHATS = tuple(w for w, (_, _, login) in WHAT.items() if not login and w not in OPT_IN_WHATS)
 DEFAULT_WHATS = PUBLIC_WHATS                    # `season` (login-only, per-user) only by name or `all`
 KIND_OF_WHAT = {k: w for w, (ks, _, _) in WHAT.items() for k in ks}
 KINDS = tuple(k for w in WHATS for k in WHAT[w][0])
@@ -87,6 +97,11 @@ PROPERTY_FORMAT_APP = {"flash-tour": "speedramp_walkthrough", "enhance": "enhanc
 PROPERTY_PRESET_MARKER = "realty-studio/app-presets"
 PROPERTY_ROUTE = "/_private/property-studio/"
 MAX_CHUNK_PROBES = 14                            # imported chunks fetched to find the preset table
+
+# Shorts Studio presets: GET /ai-reels-presets?lang=  (curated) and &source=community -> {items, next_cursor: null,
+# categories}; the whole list in one response (no paging params in the JS; size/cursor are ignored).
+REELS_SOURCES = ("higgsfield", "community")
+REELS_COMMENTS_PAGE_SIZE = 20                    # fnf-community entity comments (JS page size ea=20)
 
 # CDN hosts whose files are user INPUTS (uploads); never used as generation keys
 INPUT_HOSTS = ("d2ol7oe51mr4n9.cloudfront.net",)

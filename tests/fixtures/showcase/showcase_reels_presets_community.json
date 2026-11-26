@@ -1,0 +1,256 @@
+{
+    "meta": {
+        "endpoint": "showcase_reels_presets",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/ai-reels-presets?lang=en&source=community",
+        "params": {
+            "lang": "en",
+            "source": "community",
+            "list": "community"
+        },
+        "fetched_at": "2026-11-26T15:40:47.329976+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "8223ddb6-7692-4235-903b-76680ad516ac",
+                "slug": "community-00aaefae",
+                "title": "Educational Tech Guide",
+                "description": "Create a fast-paced talking head video featuring dynamic text overlays, screen recordings, and cinematic cutaway shots to explain complex topics.",
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8223ddb6-7692-4235-903b-76680ad516ac/generation.webp",
+                    "width": 600,
+                    "height": 1066,
+                    "mime_type": "image/webp"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/e87dc174-c172-5c76-8d08-efc9a695dc7a.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 720,
+                    "height": 1280,
+                    "duration_seconds": 52.68,
+                    "media_id": "e87dc174-c172-5c76-8d08-efc9a695dc7a",
+                    "media_type": "video_input",
+                    "compressed_url": null,
+                    "compressed_width": null,
+                    "compressed_height": null,
+                    "compressed_size_bytes": null,
+                    "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8223ddb6-7692-4235-903b-76680ad516ac/original.webp"
+                },
+                "generated_video_media": {
+                    "type": "video",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8223ddb6-7692-4235-903b-76680ad516ac/generation.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": 52.0,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8223ddb6-7692-4235-903b-76680ad516ac/generation-genjutsu-h264-600-v1.mp4",
+                    "compressed_width": 600,
+                    "compressed_height": 1066,
+                    "compressed_size_bytes": 5099043,
+                    "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8223ddb6-7692-4235-903b-76680ad516ac/generation.webp"
+                },
+                "background_media": null,
+                "character_media": {
+                    "type": "static",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/18bc863f-c15b-5fe5-b862-a000bd8aa646.webp",
+                    "width": 1774,
+                    "height": 887,
+                    "mime_type": "image/webp"
+                },
+                "category": null,
+                "views": null,
+                "likes": null,
+                "comments": null,
+                "source_url": null,
+                "source_platform": null,
+                "author_handle": null,
+                "hashtags": [],
+                "script": "You can cancel two subscriptions and barely lose a thing.\n\nChatGPT and Claude both opened up their main tools for free, and here's what that actually gets you.\n\nUntil now, the useful stuff sat behind a paywall, and most of us just paid it.\n…",
+                "quality": "1080p",
+                "duration_seconds": 52.0,
+                "source": "community",
+                "own_recording": false,
+                "instructions": null,
+                "own_videos": [],
+                "recreates": 0,
+                "author": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "badge": null
+                },
+                "likes_count": 0,
+                "publication": {
+                    "id": "e4e69d5a-ee99-4258-8746-64e5dc50aceb",
+                    "likes_count": 0
+                }
+            },
+            {
+                "id": "1e4f59aa-2b37-483d-9715-2521feba3ba5",
+                "slug": "community-b227e26b",
+                "title": "Creative Layout Layers",
+                "description": "Combine character footage with dynamic background animations and on-screen graphics to produce professional social media content.",
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/1e4f59aa-2b37-483d-9715-2521feba3ba5/generation.webp",
+                    "width": 600,
+                    "height": 1066,
+                    "mime_type": "image/webp"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/422d2e33-57ec-5eef-9b87-9e8219dd5c09.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": 31.866667,
+                    "media_id": "422d2e33-57ec-5eef-9b87-9e8219dd5c09",
+                    "media_type": "video_input",
+                    "compressed_url": null,
+                    "compressed_width": null,
+                    "compressed_height": null,
+                    "compressed_size_bytes": null,
+                    "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/1e4f59aa-2b37-483d-9715-2521feba3ba5/original.webp"
+                },
+                "generated_video_media": {
+                    "type": "video",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/1e4f59aa-2b37-483d-9715-2521feba3ba5/generation.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": 31.0,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/1e4f59aa-2b37-483d-9715-2521feba3ba5/generation-genjutsu-h264-600-v1.mp4",
+                    "compressed_width": 600,
+                    "compressed_height": 1066,
+                    "compressed_size_bytes": 3680379,
+                    "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/1e4f59aa-2b37-483d-9715-2521feba3ba5/generation.webp"
+                },
+                "background_media": null,
+                "character_media": {
+                    "type": "static",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/2171335c-8635-520f-8a5f-69631c3f465f.webp",
+                    "width": 2688,
+                    "height": 1520,
+                    "mime_type": "image/webp"
+                },
+                "category": null,
+                "views": null,
+                "likes": null,
+                "comments": null,
+                "source_url": null,
+                "source_platform": null,
+                "author_handle": null,
+                "hashtags": [],
+                "script": "Gün batımı neden turuncu, hiç düşündün mü? Cevap gökyüzünde değil, oraya giden yolda. Bak şu pencereye. Güneş ufka indikçe ışık atmosferde çok daha uzun bir yol gidiyor. Mavi dalga boyları yolda dağılıyor, sana kızıllar kalıyor. Yani güneş …",
+                "quality": "1080p",
+                "duration_seconds": 31.0,
+                "source": "community",
+                "own_recording": false,
+                "instructions": null,
+                "own_videos": [],
+                "recreates": 0,
+                "author": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "badge": null
+                },
+                "likes_count": 0,
+                "publication": {
+                    "id": "a5548ea4-e564-422b-a4fe-2925b72f4b1c",
+                    "likes_count": 0
+                }
+            },
+            {
+                "id": "51b9599c-5ec1-4873-a7ed-4a5ea9ddca5f",
+                "slug": "community-0d68f5b5",
+                "title": "Insight Board Overlay",
+                "description": "A presenter shares professional tips while a dynamic dashboard adds graphic icons to tracked categories at the top of the frame.",
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/51b9599c-5ec1-4873-a7ed-4a5ea9ddca5f/generation.webp",
+                    "width": 600,
+                    "height": 1066,
+                    "mime_type": "image/webp"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/fbc0499b-51a6-5713-aa56-74aad3e41351.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 720,
+                    "height": 1280,
+                    "duration_seconds": 73.233333,
+                    "media_id": "fbc0499b-51a6-5713-aa56-74aad3e41351",
+                    "media_type": "video_input",
+                    "compressed_url": null,
+                    "compressed_width": null,
+                    "compressed_height": null,
+                    "compressed_size_bytes": null,
+                    "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/51b9599c-5ec1-4873-a7ed-4a5ea9ddca5f/original.webp"
+                },
+                "generated_video_media": {
+                    "type": "video",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/51b9599c-5ec1-4873-a7ed-4a5ea9ddca5f/generation.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": 59.0,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/51b9599c-5ec1-4873-a7ed-4a5ea9ddca5f/generation-genjutsu-h264-600-v1.mp4",
+                    "compressed_width": 600,
+                    "compressed_height": 1066,
+                    "compressed_size_bytes": 6658984,
+                    "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/51b9599c-5ec1-4873-a7ed-4a5ea9ddca5f/generation.webp"
+                },
+                "background_media": null,
+                "character_media": {
+                    "type": "static",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/667cabd6-16cd-5a9e-8d22-67a6e85feb3f.webp",
+                    "width": 868,
+                    "height": 1282,
+                    "mime_type": "image/webp"
+                },
+                "category": null,
+                "views": null,
+                "likes": null,
+                "comments": null,
+                "source_url": null,
+                "source_platform": null,
+                "author_handle": null,
+                "hashtags": [],
+                "script": "Mager itu bukan karena lu males. Lu cuma nunggu momen yang nggak pernah dateng.\n\nWaktu yang sempurna? Nggak ada. Lu nggak harus siap dulu buat mulai. Justru pas lu start apa adanya, lu belajar buat jadi lebih siap — kesiapan itu datang sete…",
+                "quality": "1080p",
+                "duration_seconds": 59.0,
+                "source": "community",
+                "own_recording": false,
+                "instructions": null,
+                "own_videos": [],
+                "recreates": 0,
+                "author": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "badge": null
+                },
+                "likes_count": 0,
+                "publication": {
+                    "id": "00c4e71e-1577-4d1c-9b50-fbb9296c4784",
+                    "likes_count": 0
+                }
+            }
+        ],
+        "next_cursor": null,
+        "categories": [
+            {
+                "id": "style-transfer",
+                "label": "Style transfer",
+                "icon_key": "colors"
+            }
+        ]
+    }
+}

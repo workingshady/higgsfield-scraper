@@ -1,0 +1,236 @@
+{
+    "meta": {
+        "endpoint": "studios_gallery",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/publications/community/trending?size=50&model=canvas&model=canvas_soul",
+        "params": {
+            "size": "50",
+            "model": "canvas,canvas_soul",
+            "studio": "canvas",
+            "feed": "trending",
+            "page": "1",
+            "rank_base": "0"
+        },
+        "fetched_at": "2026-11-26T15:48:58.897366+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "cf79c821-535a-4138-a469-fb2fd8e46c84",
+                "status": "completed",
+                "can_bypass_ip": false,
+                "result": {
+                    "type": "image",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake017/hf_20260131_221337_cf79c821-535a-4138-a469-fb2fd8e46c84.png"
+                },
+                "results": {
+                    "raw": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake017/hf_20260131_221337_cf79c821-535a-4138-a469-fb2fd8e46c84.png"
+                    },
+                    "min": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake017/hf_20260131_221337_cf79c821-535a-4138-a469-fb2fd8e46c84_min.webp"
+                    }
+                },
+                "board_ids": [],
+                "published_at": 1770099778.935925,
+                "meta": {},
+                "created_at": 1769897617.19716,
+                "user_id": "user_Fake017",
+                "trace_id": "cf79c821-535a-4138-a469-fb2fd8e46c84",
+                "job_set_type": "canvas_soul",
+                "job_set_id": "39014f90-790e-49d3-afa4-d28a378e8bed",
+                "job_set_parent_id": "f258b8a4-e12d-4844-aca3-798c95d71bc8",
+                "job_set_client_meta": null,
+                "params": {
+                    "width": 2048,
+                    "height": 2048,
+                    "prompt": "A close-up shot of a woman seated in a modern coffee shop, holding a plastic cup of iced coffee with natural, soft lighting illuminating her face. She is dressed in a comfortable yet fashionable Lululemon outfit featuring a sleek, fitted athletic top and matching high-waisted leggings in a muted color that complements her complexion. She accessorizes with large gold hoop earrings, layered gold necklaces, multiple gold rings, and a gold watch, which add a touch of elegance to her sporty ensemble. Her dark hair is styled loosely, framing her face with natural texture. The background softly blurs the busy café scene, highlighting her calm and contemplative expression, with cinematic lighting enhancing the clarity, depth, and warmth of the photograph from an eye-level perspective.",
+                    "batch_size": 4,
+                    "seed": 204542,
+                    "quality": "1080p",
+                    "input_image": {
+                        "id": "03268e9a-a463-4dbf-9f7a-6bc035c0c795",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake017/hf_20260130_031320_03268e9a-a463-4dbf-9f7a-6bc035c0c795.png",
+                        "type": "nano_banana_2_job"
+                    },
+                    "mask_input_image": {
+                        "id": "00562250-8ea2-462c-80de-b2bc3812ce9f",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake017/00562250-8ea2-462c-80de-b2bc3812ce9f.png",
+                        "type": "media_input"
+                    },
+                    "combined_image": {
+                        "id": "46626888-8633-4c90-88f4-c90a00e5c0ad",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake017/46626888-8633-4c90-88f4-c90a00e5c0ad.png",
+                        "type": "media_input"
+                    }
+                },
+                "publication": {
+                    "id": "5cc175f6-80a4-422d-973c-641f1e0bdd4a",
+                    "views_count": 1000,
+                    "likes_count": 12,
+                    "is_liked_by_user": null,
+                    "approved": false,
+                    "pinned_at": null
+                },
+                "profile": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "instagram_handle": null,
+                    "twitter_handle": null,
+                    "youtube_handle": null,
+                    "tiktok_handle": null,
+                    "badge": null,
+                    "badges": []
+                },
+                "drama": null
+            },
+            {
+                "id": "b456809f-486e-42e7-a920-b2ae11c29f7c",
+                "status": "completed",
+                "can_bypass_ip": false,
+                "result": {
+                    "type": "image",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake018/0ee51de2-b44b-448d-b330-7b5c9a4390dd.png"
+                },
+                "results": {
+                    "raw": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake018/0ee51de2-b44b-448d-b330-7b5c9a4390dd.png"
+                    },
+                    "min": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake018/0ee51de2-b44b-448d-b330-7b5c9a4390dd_min.webp"
+                    }
+                },
+                "board_ids": [],
+                "published_at": 1763184254.745015,
+                "meta": {},
+                "created_at": 1763184081.081305,
+                "user_id": "user_Fake018",
+                "trace_id": null,
+                "job_set_type": "canvas_soul",
+                "job_set_id": "ba78836c-c3ce-4665-a08b-87f27adcca6e",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "params": {
+                    "width": 1536,
+                    "height": 2048,
+                    "prompt": "A close-up portrait of a young Black woman with neat, long black braids cascading down her shoulders. She wears a dark jacket with pink accents, and a distinctive earring featuring a blue design. Her skin has a smooth, natural texture with a warm glow, and her lips are slightly parted showing a subtle, natural shine. Her eyes are realistic, natural, and looking confidently to the side, seamlessly integrated into the high-definition image. The background is an artistic collage of torn paper with text and abstract shapes, enhancing the layered, creative atmosphere. The lighting is soft and even, highlighting the contours of her face and hair with cinematic clarity and a shallow depth of field focusing on her profile.",
+                    "batch_size": 4,
+                    "seed": 511685,
+                    "quality": "1080p",
+                    "input_image": {
+                        "id": "b46f90e3-141a-4496-ab97-f2756a684ee2",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake018/9b78d837-396f-44df-b708-63ce5d86ec63.png",
+                        "type": "text2image_soul_job"
+                    },
+                    "mask_input_image": {
+                        "id": "5162a70c-0e67-4b5b-8cd4-467f80bc22a2",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/anon_user_id/5162a70c-0e67-4b5b-8cd4-467f80bc22a2.png",
+                        "type": "media_input"
+                    },
+                    "combined_image": {
+                        "id": "50194bf3-87e4-465b-8e4c-f137d947c272",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/anon_user_id/50194bf3-87e4-465b-8e4c-f137d947c272.png",
+                        "type": "media_input"
+                    }
+                },
+                "publication": {
+                    "id": "4abe1e6f-1f35-413c-896b-6482bf99d53e",
+                    "views_count": 127,
+                    "likes_count": 7,
+                    "is_liked_by_user": null,
+                    "approved": false,
+                    "pinned_at": null
+                },
+                "profile": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "instagram_handle": null,
+                    "twitter_handle": null,
+                    "youtube_handle": null,
+                    "tiktok_handle": null,
+                    "badge": null,
+                    "badges": []
+                },
+                "drama": null
+            },
+            {
+                "id": "b3af9444-0c4b-4a85-ae23-accd0541c5e1",
+                "status": "completed",
+                "can_bypass_ip": false,
+                "result": {
+                    "type": "image",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake019/3065d0b1-e5d8-40e1-98de-be5997aeaa97.png"
+                },
+                "results": {
+                    "raw": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake019/3065d0b1-e5d8-40e1-98de-be5997aeaa97.png"
+                    },
+                    "min": {
+                        "type": "image",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake019/3065d0b1-e5d8-40e1-98de-be5997aeaa97_min.webp"
+                    }
+                },
+                "board_ids": [],
+                "published_at": 1764110766.606376,
+                "meta": {},
+                "created_at": 1764110664.595705,
+                "user_id": "user_Fake019",
+                "trace_id": "b3af9444-0c4b-4a85-ae23-accd0541c5e1",
+                "job_set_type": "canvas_soul",
+                "job_set_id": "2f48bb88-b28e-4b0f-b7d1-dcf716b8122b",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "params": {
+                    "width": 928,
+                    "height": 1152,
+                    "prompt": "A bustling urban scene outside a graffiti-covered concrete building with multiple windows, featuring a crowd of casually dressed people engaged in conversation. In the foreground, a man in a dark leather jacket with dark jeans and casual shoes is animatedly talking with friends, his face showing authentic expressions, blending seamlessly with the relaxed group atmosphere. To the left, a man in a blue suit and red tie stands calmly among the casually dressed crowd. The street is paved with concrete and small cobblestone sections, while a leafy green tree is visible to the right. The photo has high definition clarity with natural daylight and a slightly overcast sky, captured from an eye-level perspective with a wide shot, emphasizing the social interaction and urban environment. The lighting is even and soft, highlighting textures of clothing and graffiti with subtle contrast, creating a candid, lively street photography feel.",
+                    "batch_size": 4,
+                    "seed": 17680,
+                    "quality": "1080p",
+                    "input_image": {
+                        "id": "75f14ab1-7b0c-45aa-9220-6b5693c148f3",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake019/cabcdd09-a3bd-427b-9f65-3aae9435c72c.png",
+                        "type": "nano_banana_2_job"
+                    },
+                    "mask_input_image": {
+                        "id": "9c7a1ae5-dc1b-4046-b739-613e916c41a2",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake019/9c7a1ae5-dc1b-4046-b739-613e916c41a2.png",
+                        "type": "media_input"
+                    },
+                    "combined_image": {
+                        "id": "32323001-cf0c-4d29-9bf4-9a7f79509f87",
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake019/32323001-cf0c-4d29-9bf4-9a7f79509f87.png",
+                        "type": "media_input"
+                    }
+                },
+                "publication": {
+                    "id": "fe728e21-b48a-4328-82eb-74cd294ab7f0",
+                    "views_count": 217,
+                    "likes_count": 3,
+                    "is_liked_by_user": null,
+                    "approved": false,
+                    "pinned_at": null
+                },
+                "profile": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "instagram_handle": null,
+                    "twitter_handle": null,
+                    "youtube_handle": null,
+                    "tiktok_handle": null,
+                    "badge": null,
+                    "badges": []
+                },
+                "drama": null
+            }
+        ],
+        "cursor": 0.0,
+        "has_more": false,
+        "total": 47
+    }
+}

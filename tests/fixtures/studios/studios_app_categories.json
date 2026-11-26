@@ -1,0 +1,43 @@
+{
+    "meta": {
+        "endpoint": "studios_app_categories",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-apps-marketplace/api/v1/apps/categories",
+        "params": {},
+        "fetched_at": "2026-11-26T15:47:34.777951+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "slug": "viral-trends",
+                "label": "Viral Trends",
+                "description": "Trending effects, formats and presets — the live curated front door, refreshed constantly.",
+                "position": 1,
+                "app_types": [
+                    "website",
+                    "app"
+                ]
+            },
+            {
+                "slug": "ads-marketing",
+                "label": "Ads & Marketing",
+                "description": "Marketing Studio, URL-to-Ad, Ad Reference, product ads.",
+                "position": 2,
+                "app_types": [
+                    "website",
+                    "app"
+                ]
+            },
+            {
+                "slug": "ugc-social",
+                "label": "UGC & Social",
+                "description": "Shorts Studio, Personal Clipper, Explainer.",
+                "position": 3,
+                "app_types": [
+                    "website",
+                    "app"
+                ]
+            }
+        ]
+    }
+}

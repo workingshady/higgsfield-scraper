@@ -20,8 +20,9 @@ from ...core.api_spider import HANDLED, BaseApiSpider
 from ...raw import Envelope
 from ...run.logging_setup import emit
 from . import parsers
-from .endpoints import (ASSETS, CANVAS, CANVAS_PAGE_SIZE, CMS, CMS_LANGS, DOCS, EXPLORE_PAGE_SIZE, GW, API,
-                        MAX_CHUNK_PROBES, PRIMARY_KINDS, PROPERTY_PRESET_MARKER, PROPERTY_ROUTE, SITE, CMS_PAGE_SIZE)
+from .endpoints import (ASSETS, CANVAS, CANVAS_PAGE_SIZE, CMS, CMS_LANGS, COMMUNITY, DOCS, EXPLORE_PAGE_SIZE, FNF_CMS,
+                        GW, API, MAX_CHUNK_PROBES, PRIMARY_KINDS, PROPERTY_PRESET_MARKER, PROPERTY_ROUTE,
+                        REELS_COMMENTS_PAGE_SIZE, SITE, CMS_PAGE_SIZE)
 from .schemas import ID_FIELD_BY_KIND
 
 HTML_HEADERS = {"Accept": "text/html,application/xhtml+xml,*/*;q=0.8"}
@@ -74,6 +75,7 @@ class ShowcaseSpider(BaseApiSpider):
                                     "titles": {}, "route": False}
         self._openapi: Any = None
         self.whats: list[str] = []
+        self._reels_scheduled: Counter = Counter()       # detail / comment-thread requests per source
 
     # ------------------------------------------------------------ request helpers
     @property
@@ -96,6 +98,13 @@ class ShowcaseSpider(BaseApiSpider):
     def _cap_reached(self, kind: str) -> bool:
         mx = self.common.max_items
         return mx is not None and self._kept[kind] >= mx
+
+    @staticmethod
+    def _cap_key(item: Any) -> str:
+        """--max-items is per kind; Shorts Studio presets are capped per list (curated / community) so one list
+        does not starve the other."""
+        kind = item["kind"]
+        return f"{kind}:{item.get('preset_source')}" if kind == "showcase_reels_preset" else kind
 
     # ------------------------------------------------------------ first requests
     def build_requests(self) -> Iterator[scrapy.Request]:
@@ -145,6 +154,96 @@ class ShowcaseSpider(BaseApiSpider):
                 yield self.req("showcase_seedance_presets", CMS, "/seedance-2-0", {"lang": L})
             elif w == "motion_control_presets":
                 yield self.req("showcase_motion_control_presets", CMS, "/kling-motion-control-presets", {"lang": L})
+        yield from self._reels_lists()
+
+    # ------------------------------------------------------------ Shorts Studio (AI Reels), opt-in
+    def _reels_lists(self) -> Iterator[scrapy.Request]:
+        presets, comments = "reels_presets" in self.whats, "reels_comments" in self.whats
+        if not (presets or comments):
+            return
+        srcs = self.selection.reels_sources
+        if comments and not presets and "community" not in srcs:
+            self.limit_hit("reels_comments skipped: comment threads exist only on community presets "
+                           "(--reels-sources excludes community)")
+        for src in srcs:
+            if src == "higgsfield" and not presets:
+                continue                                  # curated presets have no Higgsfield comment threads
+            p = {"lang": self.cms_lang}
+            if src == "community":
+                p["source"] = "community"
+            yield self.req("showcase_reels_presets", FNF_CMS, "/ai-reels-presets", p, labels={"list": src},
+                           meta={"reels_source": src})
+
+    def _reels_budget(self, key: str) -> bool:
+        mx = self.common.max_items
+        if mx is not None and self._reels_scheduled[key] >= mx:
+            self.limit_hit(f"max_items={mx} reached for {key}")
+            return False
+        self._reels_scheduled[key] += 1
+        return True
+
+    def _reels_listed(self, it: dict) -> dict:
+        """The list item as archived in the detail envelope: author pseudonymised unless --with-profiles."""
+        x = dict(it)
+        a = x.get("author")
+        if isinstance(a, dict) and not self.selection.with_profiles:
+            ck, basis = parsers.reels_creator_key(a)
+            x["author"] = {"id_hash": ck, "id_basis": basis, "badge": a.get("badge")}
+        return x
+
+    def _reels_detail(self, it: dict, src: str, categories: list) -> Iterator[Any]:
+        body = {"listed": self._reels_listed(it), "categories": categories, "lang": self.cms_lang}
+        slug = it.get("slug")
+        if not slug:                                      # nothing to enrich: emit from the list item alone
+            req = scrapy.Request(f"{FNF_CMS}/ai-reels-presets", dont_filter=True,
+                                 meta={"endpoint": "showcase_reels_preset_detail", "auth": False,
+                                       "params": {"id": str(it.get("id")), "source": src}})
+            yield from self.parse_api(self._fake(None, {**body, "detail": None, "detail_status": None}, req))
+            return
+        yield self.req("showcase_reels_preset_detail", FNF_CMS, f"/ai-reels-presets/{slug}", fmt="reels_detail",
+                       labels={"slug": slug, "source": src}, meta={"reels": body}, priority=1)
+
+    def _reels_comments(self, pub: str, preset: Optional[str], cursor: Optional[str] = None,
+                        parent: Optional[str] = None) -> scrapy.Request:
+        return self.req("showcase_reels_comments", COMMUNITY, f"/entities/generation_publication/{pub}/comments",
+                        {"limit": REELS_COMMENTS_PAGE_SIZE, "cursor": cursor, "parent_id": parent},
+                        labels={"publication_id": pub, "preset_id": preset}, priority=2)
+
+    def _reels_follow(self, env: Envelope, response) -> Iterator[Any]:
+        b = env.body
+        if env.endpoint == "showcase_reels_presets" and isinstance(b, dict):
+            src = response.meta.get("reels_source") or env.params.get("list") or "higgsfield"
+            items = [x for x in b.get("items") or [] if isinstance(x, dict) and x.get("id")]
+            cats = [c for c in b.get("categories") or [] if isinstance(c, dict)]
+            self.totals[f"reels_presets_{src}"] = len(items)
+            if b.get("next_cursor") not in (None, ""):
+                self.limit_hit(f"reels {src}: next_cursor {b['next_cursor']!r} not followed (the web app sends none)")
+            if "reels_presets" in self.whats:
+                for it in items:
+                    if not self._reels_budget(f"showcase_reels_preset:{src}"):
+                        break
+                    yield from self._reels_detail(it, src, cats)
+            if "reels_comments" in self.whats and src == "community":
+                pubs = [(x["publication"]["id"], x["id"]) for x in items
+                        if isinstance(x.get("publication"), dict) and x["publication"].get("id")]
+                self.totals["reels_comment_threads"] = len(pubs)
+                for pub, pid in pubs:
+                    if not self._reels_budget("reels_comment_threads"):
+                        break
+                    yield self._reels_comments(pub, pid)
+        elif env.endpoint == "showcase_reels_comments" and isinstance(b, dict):
+            pub, pid = env.params.get("publication_id"), env.params.get("preset_id")
+            parent, sent = env.params.get("parent_id"), env.params.get("cursor")
+            if parent is None and sent is None and b.get("total") is not None:
+                self.totals["reels_comments"] = (self.totals.get("reels_comments") or 0) + int(b["total"] or 0)
+            nxt = b.get("next_cursor")
+            if nxt and b.get("items") and nxt != sent and not self._cap_reached("showcase_reels_comment") \
+                    and self.page_allowed(f"reels_comments:{pub}:{parent or ''}"):
+                yield self._reels_comments(pub, pid, nxt, parent)
+            if parent is None:                            # replies, one level (as in the web app)
+                for c in b.get("items") or []:
+                    if isinstance(c, dict) and (c.get("reply_count") or 0) > 0 and c.get("id"):
+                        yield self._reels_comments(pub, pid, parent=c["id"])
 
     def _explore(self, source: str, sort: str, cursor: Any, category: Optional[str] = None) -> Optional[scrapy.Request]:
         key = f"explore:{source}:{sort}:{category or '-'}"
@@ -225,6 +324,13 @@ class ShowcaseSpider(BaseApiSpider):
             return {"slug": slug, "loader": {k: loader.get(k) for k in ("preset", "initialSamples", "sample")}}
         if fmt == "text":
             return {"text": text, "openapi": self._openapi}
+        if fmt == "reels_detail":
+            try:
+                detail = json.loads(text)
+            except ValueError:
+                detail = None
+            return {**response.meta["reels"], "detail": detail if isinstance(detail, dict) else None,
+                    "detail_status": response.status}
         return {"_non_json": text[:2000]}
 
     def parse_api(self, response, **kw):
@@ -239,12 +345,13 @@ class ShowcaseSpider(BaseApiSpider):
                     continue
                 ident = str(x.get(ID_FIELD_BY_KIND[kind]))
                 if (kind, ident) not in self._seen:
-                    if self._cap_reached(kind):
-                        self.limit_hit(f"max_items={self.common.max_items} reached for {kind}")
+                    cap = self._cap_key(x)
+                    if self._cap_reached(cap):
+                        self.limit_hit(f"max_items={self.common.max_items} reached for {cap}")
                         if kind in NATURAL:
                             self._dropped.setdefault(kind, set()).add(str(x.get(NATURAL[kind])))
                         continue
-                    self._kept[kind] += 1
+                    self._kept[cap] += 1
                     self._seen.add((kind, ident))
             yield x
 
@@ -271,6 +378,11 @@ class ShowcaseSpider(BaseApiSpider):
             yield from self._ps_next()
         elif ep == "showcase_effect_page":
             yield from self._next_effects(1)
+        elif ep == "showcase_reels_preset_detail" and response.meta.get("reels"):
+            # detail unavailable: still keep the preset from its list item (prompt stays null)
+            body = {**response.meta["reels"], "detail": None, "detail_status": response.status}
+            req = response.request.replace(meta={k: v for k, v in response.meta.items() if k != "fmt"})
+            yield from self.parse_api(self._fake(response, body, req))
 
     @staticmethod
     def _fake(response, body: Any, request: Optional[scrapy.Request] = None) -> TextResponse:
@@ -297,6 +409,9 @@ class ShowcaseSpider(BaseApiSpider):
     # ------------------------------------------------------------ follow-ups
     def follow_up(self, env: Envelope, entities: list[dict], response) -> Iterator[Any]:
         ep, b = env.endpoint, env.body
+        if ep in ("showcase_reels_presets", "showcase_reels_comments"):
+            yield from self._reels_follow(env, response)
+            return
         if ep == "showcase_canvas_templates" and isinstance(b, dict):
             self.totals.setdefault("canvas_templates", b.get("total"))
             nxt = int(b.get("offset") or 0) + len(b.get("items") or [])

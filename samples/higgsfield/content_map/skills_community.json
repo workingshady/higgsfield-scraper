@@ -1,0 +1,70 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-skills-marketplace/api/v1/skills/community?limit=2",
+        "status": 200,
+        "note": "lists cut to 2 items; people fields redacted"
+    },
+    "body": {
+        "items": [
+            {
+                "display_name": "Seedance Cinematic Prompter",
+                "id": "42322eab-d394-440f-8cb8-9befef94702c",
+                "author_user_id": "<redacted>",
+                "author": "<redacted>",
+                "is_builtin": false,
+                "name": "seedance-cinematic-prompter",
+                "canonical_slug": null,
+                "description": "Shadow probe for seedance-cinematic-prompter",
+                "short_description": "Conducts shadow probes for the seedance cinematic",
+                "sub_title": null,
+                "examples_section": null,
+                "example_prompt": null,
+                "installs_count": 670,
+                "unique_users_count": 77991,
+                "usage_count": 152815,
+                "color": "#D79642",
+                "preview_urls": [],
+                "category_id": null,
+                "created_at": "2026-11-18T00:04:14.169319Z",
+                "updated_at": "2026-11-18T00:04:14.169331Z",
+                "installed_user_skill_id": null,
+                "reference_paths": [],
+                "references": [],
+                "usage_total": [],
+                "usage_personal": [],
+                "content_url": "/api/v1/skills/community/42322eab-d394-440f-8cb8-9befef94702c/content"
+            },
+            {
+                "display_name": "Seedance Cinematic Prompter",
+                "id": "f44e4b80-0441-4d1f-bec0-4f17c2e7c075",
+                "author_user_id": "<redacted>",
+                "author": "<redacted>",
+                "is_builtin": false,
+                "name": "seedance-cinematic-prompter",
+                "canonical_slug": null,
+                "description": "Shadow probe for seedance-cinematic-prompter",
+                "short_description": "Runs shadow probes for the seedance cinematic prompter.",
+                "sub_title": null,
+                "examples_section": null,
+                "example_prompt": null,
+                "installs_count": 108,
+                "unique_users_count": 77991,
+                "usage_count": 152815,
+                "color": "#D79642",
+                "preview_urls": [],
+                "category_id": null,
+                "created_at": "2026-11-21T04:44:49.241106Z",
+                "updated_at": "2026-11-21T04:44:49.241118Z",
+                "installed_user_skill_id": null,
+                "reference_paths": [],
+                "references": [],
+                "usage_total": [],
+                "usage_personal": [],
+                "content_url": "/api/v1/skills/community/f44e4b80-0441-4d1f-bec0-4f17c2e7c075/content"
+            }
+        ],
+        "next_cursor": "eyJzIjogNzgwOTksICJpZCI6ICJmNDRlNGI4MC0wNDQxLTRkMWYtYmVjMC00ZjE3YzJlN2MwNzUifQ==",
+        "next_offset": null
+    }
+}

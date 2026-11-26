@@ -1,0 +1,328 @@
+{
+    "meta": {
+        "endpoint": "studios_gallery",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/publications/community/approved?size=50&model=marketing_studio_video&model=marketing_studio_image&model=marketing_studio_2_image&model=marketing_studio_v2_video&model=marketing_studio_v2_reference2video&model=marketing_storyboard&model=marketing_studio_hook&approved=true",
+        "params": {
+            "size": "50",
+            "model": "marketing_studio_video,marketing_studio_image,marketing_studio_2_image,marketing_studio_v2_video,marketing_studio_v2_reference2video,marketing_storyboard,marketing_studio_hook",
+            "approved": "true",
+            "studio": "marketing_studio",
+            "feed": "approved",
+            "page": "1",
+            "rank_base": "0"
+        },
+        "fetched_at": "2026-11-26T15:47:41.624393+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "job_set_type": "marketing_studio_video",
+                "job_set_id": "77f9befe-3c72-4191-b4a1-c273deaaf961",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "board_ids": [],
+                "params": {
+                    "width": 1280,
+                    "height": 720,
+                    "prompt": "chocolate japanese style commercial, with chocolate crunching, pieces breaking, hands passing chocolate to each other, japanese happy people smiling while biting, and these little characters animated ",
+                    "genre": "auto",
+                    "medias": [
+                        {
+                            "data": {
+                                "id": "bc4090a9-5485-48ea-ada3-5d721ff608e6",
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake014/bc4090a9-5485-48ea-ada3-5d721ff608e6.png",
+                                "type": "media_input",
+                                "asset_id": "6fd9b927-7274-4b34-9a15-7329bbda49e2"
+                            },
+                            "role": "image"
+                        }
+                    ],
+                    "duration": 12,
+                    "resolution": "720p",
+                    "aspect_ratio": "16:9",
+                    "generate_audio": true,
+                    "multi_shots": false,
+                    "multi_shot_mode": "custom",
+                    "multi_prompt": [],
+                    "speedramp": "auto",
+                    "reference_elements": [],
+                    "prompt_language": "en",
+                    "enhanced_prompt": "Create a 12s premium CGI + live-action hybrid Japanese snack commercial (TVCM vibe), ultra-saturated candy colors, kawaii energy, crisp studio lighting with glossy specular highlights, subtle film grain, chromatic aberration accents, and meticulous macro food cinematography; Cut 1: wide establishing on a retro pastel neon grid set (lavender/yellow/blue), soft bokeh sparkles drifting, the exact product package from the reference image slides into frame and skids to a stop, camera doing a fast dolly-in with a tiny speed-ramp; Cut 2: extreme macro (100mm) on the wrapper’s print texture and ink dots as the illustrated girl, cat, and tiny mascots subtly blink and “inflate” into dimensional embossing, micro-glitter twinkling along the edges; Cut 3: a clean top-light blooms and the chocolate bar rises from the opened wrapper in a precise mechanical lift, each segment catching sharp rim light, camera tilt-up revealing the full bar with pristine edges; Cut 4: snap-cut to ultra slow-motion macro of a single segment being snapped off—perfect fracture line, shower of crunchy crumbs and micro flakes (high-detail particle sim) popping toward lens, with tactile, loud, dry “CRUNCH” foley emphasis; Cut 5: whip-pan to a hand-off—one hand passes the snapped piece to another hand across frame, motion blur streaks and a manga-style burst of abstract shapes (no readable text) trails the movement; Cut 6: match cut to live-action close-up of a smiling young adult in colorful Harajuku-inspired styling taking a bite, eyes bright, chocolate flecks catching the light as the bite lands with a satisfying crunch; Cut 7: cut to an even tighter macro of the bitten edge—teeth marks and layered crisp structure visible, crumbs tumbling in slow motion onto a glossy pastel surface, shallow depth of field; Cut 8: the wrapper’s illustrated characters fully hop out as tiny 3D mascots (same designs/colors as the packaging art), landing on the chocolate segment and waving as they surf the falling crumbs, camera doing a playful handheld-style micro-shake; Cut 9: rapid rhythmic cut montage—two hands break a second piece, then immediately pass it onward, then a third hand catches it (three beats in one cut via whip-pan stitching), each pass punctuated by crunchy shard particles; Cut 10: overhead shot of multiple chocolate segments arranged like a clock, hands enter from all sides and grab a piece at once, the mascots zip between fingers leaving glitter trails, lighting turns slightly more festival-like with soft volumetric rays; Cut 11: dynamic 360° orbit around a small group in a bright arcade-photo-booth environment as they share and bite in sequence (one after another), big genuine smiles, perfectly timed crunchy bites, confetti-like crumbs floating as if in low gravity; Cut 12: final hero pack shot—product package front and center perfectly sharp (exact artwork preserved), chocolate bar segments fanned behind with glossy highlights, the tiny mascots pose around the wrapper and wave, sparkles pulse in the background grid as the camera eases in and holds for a clean premium finish (no added end text).",
+                    "mode": "product_showcase",
+                    "specific_mode": "default",
+                    "avatars": [],
+                    "products": [],
+                    "web_products": [],
+                    "web_product_ids": [],
+                    "web_product_type": null,
+                    "storyboard_id": null,
+                    "title": null,
+                    "panels": [],
+                    "hook": null,
+                    "setting": null,
+                    "ad_reference_id": null,
+                    "ad_reference_summary": null,
+                    "batch_size": 1
+                },
+                "meta": {},
+                "id": "1fb8253c-0338-4648-933d-c1e53e84eeb7",
+                "status": "completed",
+                "ip_check_finished": true,
+                "ip_detected": false,
+                "can_bypass_ip": false,
+                "deepfake_consent_required": false,
+                "ip_consent_required": false,
+                "result": null,
+                "results": {
+                    "raw": {
+                        "type": "video",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake014/hf_20260414_170749_3474b08b-9dc4-49e6-b6e2-4af862eff61d.mp4",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake014/hf_20260414_170749_3474b08b-9dc4-49e6-b6e2-4af862eff61d_thumbnail.webp"
+                    },
+                    "min": {
+                        "type": "video",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake014/hf_20260414_170749_3474b08b-9dc4-49e6-b6e2-4af862eff61d.mp4",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake014/hf_20260414_170749_3474b08b-9dc4-49e6-b6e2-4af862eff61d_thumbnail.webp"
+                    },
+                    "hls": null,
+                    "h264": null
+                },
+                "published_at": 1776866604.407778,
+                "created_at": 1776463701.226167,
+                "user_id": "content_user_id",
+                "trace_id": null,
+                "cluster_hash": null,
+                "representation": null,
+                "publication": {
+                    "id": "ffa3da9e-feec-447d-9277-266c81ee27c7",
+                    "views_count": 72964,
+                    "likes_count": 626,
+                    "is_liked_by_user": null,
+                    "approved": true,
+                    "pinned_at": null
+                },
+                "profile": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "instagram_handle": null,
+                    "twitter_handle": null,
+                    "youtube_handle": null,
+                    "tiktok_handle": null,
+                    "badge": null,
+                    "badges": []
+                },
+                "drama": null
+            },
+            {
+                "job_set_type": "marketing_studio_video",
+                "job_set_id": "170f8d54-d913-4397-9727-9f7f536761a9",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "board_ids": [],
+                "params": {
+                    "width": 720,
+                    "height": 960,
+                    "prompt": "A young stylish female influencer <<<avatar:cd6fb78c-e1a2-42f1-8b1e-902c15511877>>> s in a cozy modern apartment with soft natural daylight. She records herself using the front camera of her phone (selfie mode), holding the phone in one hand and the AURA <<<product:fe148564-c941-4c97-b817-97a909233f5d>>> Tumbler 40oz in the other. The camera has slight natural hand movement, casual framing, and feels real and unpolished.\nShe looks directly into the camera, relaxed and natural, like talking to a friend. While speaking, she casually rotates the tumbler, shows the handle and lid, lightly taps it, and takes a small sip.\nDialogue (natural, calm, ~15 sec):\n\"I’ve been using this tumbler every day lately, and I didn’t expect to like it this much.\nMy drinks stay cold literally all day, which is kind of crazy.\nIt doesn’t leak, it fits in my car, and the handle is actually super comfortable.\nI just end up taking it with me everywhere now.\"",
+                    "genre": "auto",
+                    "medias": [],
+                    "duration": 15,
+                    "resolution": "720p",
+                    "aspect_ratio": "3:4",
+                    "generate_audio": true,
+                    "multi_shots": false,
+                    "multi_shot_mode": "custom",
+                    "multi_prompt": [],
+                    "speedramp": "auto",
+                    "reference_elements": [],
+                    "prompt_language": "zh",
+                    "enhanced_prompt": "@Image1 is the product reference. ANGLE LOCK: the product shows ONLY its front-facing label side as visible in @Image1 — this is the locked angle. The person interacts with it without rotating it to reveal unseen sides. No exceptions. @Image2 is the person/creator reference. <<<product:fe148564-c941-4c97-b817-97a909233f5d>>> is the AURA Tumbler 40oz. <<<avatar:cd6fb78c-e1a2-42f1-8b1e-902c15511877>>> is the person/creator. Style & Mood: 15s vertical 9:16 UGC selfie aesthetic, filmed on an iPhone front camera vibe, soft natural daylight from a nearby window, casual and unpolished, slight micro-wobble like real phone footage. Narrative Summary: In a modern walk-in-closet style room, a stylish influencer gives a quick real-life review of the AURA 40oz tumbler and takes a sip. Dynamic Description: Shot 1 (jump-cut pacing, same framing throughout): Phone is propped at chest height on a shelf/dresser, medium close-up; she leans in slightly with a curious look, eyebrows flick up, then glances down at the tumbler and back to camera while holding the tumbler at chest level with the AURA logo facing forward (handle visible on the same side as @Image1). Shot 2: She shifts her weight and tucks a strand of hair behind her ear, bringing the tumbler a little closer to the lens (keeping the logo facing forward), then uses her free fingertips to point at the lid and straw and trace along the handle to show it off; she gives the metal body two light taps with a fingernail (no rotation). Shot 3: She tilts her head with a small shoulder-shrug as if impressed, then wraps her fingers comfortably around the handle (no squeezing), nodding while she talks; at the end of the sentence she brings the straw straight to her lips and takes one small sip, eyes widening slightly. Shot 4: She lowers the tumbler back to chest height, exhales a satisfied little breath, gives an emphatic nod and a warm half-smile, briefly glancing at the logo then back to camera to finish her recommendation. Static Description: Cozy modern apartment walk-in closet/dressing area background with built-in wooden shelves, hanging clothes, and shoes; daylight fills the room; casual home ambience, no other people. Audio: She speaks to camera, iPhone microphone audio with natural room tone (fast, casual delivery to fit ~15s): \"I’ve been using this tumbler every day lately, and I didn’t expect to like it this much. My drinks stay cold literally all day, which is kind of crazy. It doesn’t leak, it fits in my car, and the handle is actually super comfortable. I just end up taking it with me everywhere now.\" Facial features clear and undistorted, consistent clothing throughout. Shot on iPhone, natural lighting, social media aesthetic, slight natural handheld micro-shake. No on-screen text, no subtitles, no captions, no watermarks.",
+                    "mode": "ugc",
+                    "specific_mode": "default",
+                    "avatars": [
+                        {
+                            "id": "cd6fb78c-e1a2-42f1-8b1e-902c15511877",
+                            "url": "https://cdn.higgsfield.ai/marketing_studio_avatar/67d87b01-e3c3-4e39-8a94-ed9b23f3c232.webp",
+                            "type": "preset"
+                        }
+                    ],
+                    "products": [
+                        {
+                            "id": "fe148564-c941-4c97-b817-97a909233f5d",
+                            "title": "AURA",
+                            "images": [
+                                "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake015/cb631ed5-287b-439f-a150-0e3c2b49d587.png"
+                            ],
+                            "description": "AURA Tumbler 40oz — Insulated Stainless Steel with Handle & Straw\nYour new everyday carry. AURA keeps drinks ice-cold for 24 hours or hot for 12, wrapped in a matte soft-touch finish that looks as good as it performs. Ergonomic handle, leak-proof 3-position lid, fits standard car cup holders.\nDouble-wall vacuum insulated. Sweat-proof exterior. BPA-free. Dishwasher-safe straw and brush included."
+                        }
+                    ],
+                    "web_products": [],
+                    "web_product_ids": [],
+                    "web_product_type": null,
+                    "storyboard_id": null,
+                    "title": null,
+                    "panels": [],
+                    "hook": null,
+                    "setting": null,
+                    "ad_reference_id": null,
+                    "ad_reference_summary": null,
+                    "batch_size": 1
+                },
+                "meta": {},
+                "id": "70de35cc-8a02-43d3-be72-27547d78ff94",
+                "status": "completed",
+                "ip_check_finished": true,
+                "ip_detected": false,
+                "can_bypass_ip": false,
+                "deepfake_consent_required": false,
+                "ip_consent_required": false,
+                "result": null,
+                "results": {
+                    "raw": {
+                        "type": "video",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake015/hf_20260413_121933_7dfa9582-a536-4a83-9041-ee5aa102ff8c.mp4",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake015/hf_20260413_121933_7dfa9582-a536-4a83-9041-ee5aa102ff8c_thumbnail.webp"
+                    },
+                    "min": {
+                        "type": "video",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake015/hf_20260413_121933_7dfa9582-a536-4a83-9041-ee5aa102ff8c.mp4",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake015/hf_20260413_121933_7dfa9582-a536-4a83-9041-ee5aa102ff8c_thumbnail.webp"
+                    },
+                    "hls": null,
+                    "h264": null
+                },
+                "published_at": 1776866209.020085,
+                "created_at": 1776093017.951912,
+                "user_id": "content_user_id",
+                "trace_id": null,
+                "cluster_hash": null,
+                "representation": null,
+                "publication": {
+                    "id": "19f9c5f8-9ca4-4369-937b-16baa3ace52f",
+                    "views_count": 305119,
+                    "likes_count": 918,
+                    "is_liked_by_user": null,
+                    "approved": true,
+                    "pinned_at": null
+                },
+                "profile": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "instagram_handle": null,
+                    "twitter_handle": null,
+                    "youtube_handle": null,
+                    "tiktok_handle": null,
+                    "badge": null,
+                    "badges": []
+                },
+                "drama": null
+            },
+            {
+                "job_set_type": "marketing_studio_video",
+                "job_set_id": "201fd2ca-81b0-4c44-b123-1c75260ddd8a",
+                "job_set_parent_id": null,
+                "job_set_client_meta": null,
+                "board_ids": [],
+                "params": {
+                    "width": 720,
+                    "height": 1280,
+                    "prompt": "Style: UGC, get ready with me, iPhone front camera, fashion vlog, playful energy\nPrompt:\nA stylish young girl is filming herself in her room while getting dressed. The room is aesthetic — mirror, clothes, soft natural daylight, немного творческого беспорядка.\nShot on iPhone front camera, vertical 9:16, natural HDR, slight handheld movement, real skin tones, no color grading.\nOutfit is laid out or partially worn:\nwhite top with red stars\ncamo skirt\nbold red furry boots\n\nAction (one continuous shot):\nShe walks into frame adjusting her top, looks into camera:\n\"Okay, I’m getting ready and I don’t know if this outfit is crazy or—\"\n\nInterrupt moment (hook):\nSuddenly, someone (guy/friend) walks into frame casually from the side.\nShe immediately reacts, pushes him out of frame:\n\"Hey— no, get out!\"\nсмеётся\n\nShe turns back to camera like nothing happened:\n\"Anyway… I kinda love it.\"\n\nShe steps back slightly to show full outfit.\n\nDialogue:\n\"It’s a little chaotic…\"\n\"But it works.\"\n\nEnding:\nShe poses slightly:\n\"I’m wearing this.\"\n\nDetails:\nnatural messy UGC vibe\nplayful interruption moment\nconfident energy\noutfit visible full body\nlight humor",
+                    "genre": "auto",
+                    "medias": [],
+                    "duration": 13,
+                    "resolution": "720p",
+                    "aspect_ratio": "9:16",
+                    "generate_audio": true,
+                    "multi_shots": false,
+                    "multi_shot_mode": "custom",
+                    "multi_prompt": [],
+                    "speedramp": "auto",
+                    "reference_elements": [],
+                    "prompt_language": "en",
+                    "enhanced_prompt": "[@Image1 is the outfit reference. The person wears this exact coordinated set—white short-sleeve top with red star prints layered over a red camisole, camouflage cargo pants, and matching red faux fur leg warmers—matching color, pattern, fit, and details as shown in @Image1 throughout all worn shots. @Image2 is the person reference.] Style & Mood: UGC try-on, get ready with me, playful energy, filmed on iPhone front camera on a tripod, vertical 9:16, natural daylight, natural HDR, real skin tones, no cinematic grading, casual fashion vlog vibe with slight natural micro-shake. Narrative Summary: A stylish creator in her room does a quick GRWM try-on of a bold star-and-camo set, gets briefly interrupted off-camera, then confidently commits to the look. Dynamic Description: Shot 1 (own clothes): In a softly lit bedroom with a little творческого беспорядка, she’s in a simple neutral lounge outfit and holds the white star-print top up close to the phone so the red stars are clear, with the camo cargo pants and red faux-fur leg warmers laid out on the bed behind her. HARD CUT. Shot 2 (reveal): Full-body, she’s now already wearing the exact set—white star top with visible red camisole straps, camo cargo pants, and red faux fur leg warmers—and she walks into frame and does a single quick sleeve/hem adjust while looking into the camera, eyebrows raised like she’s unsure, then glances down at the outfit and back up. HARD CUT. Shot 3 (interrupt hook): Still in full-body view, she hears a sudden off-camera door/room interruption, snaps her gaze sideways and makes one firm shooing gesture toward the doorway, then смеётся and turns her eyes back to the camera like nothing happened, playful and unfazed. HARD CUT. Shot 4 (show full outfit + ending): She steps back to give a clean full-body view, shifts into a confident hip-pop stance and does a quick 180 turn to show the side/back, hair bouncing, then settles facing forward with a satisfied nod like she’s decided. Static Description: Real bedroom setting with a window spilling warm daylight, a mirror leaning in the corner (camera never filming into the mirror), a chair with a couple clothing items, and a casually lived-in vibe. Audio: She speaks to camera, iPhone microphone audio with natural room tone: \"Okay, I’m getting ready and I don’t know if this outfit is crazy or—\" \"Hey— no, get out!\" \"Anyway… I kinda love it.\" \"It’s a little chaotic…\" \"But it works.\" \"I’m wearing this.\" Facial features clear and undistorted, consistent outfit throughout. Shot on iPhone, natural lighting, social media aesthetic, slight natural handheld micro-shake. No on-screen text, no subtitles, no captions, no watermarks.",
+                    "mode": "ugc_virtual_try_on",
+                    "specific_mode": "default",
+                    "avatars": [
+                        {
+                            "id": "f0fd9868-b172-406c-b418-02768f3ef8b6",
+                            "url": "https://cdn.higgsfield.ai/marketing_studio_avatar/464ec4fc-b6e1-4a14-8d74-c35b279b1e10.webp",
+                            "type": "preset"
+                        }
+                    ],
+                    "products": [
+                        {
+                            "id": "e4f4cbe5-5b62-4342-b0ed-c79004ab9ed6",
+                            "title": "Girls' Star Print Top with Camo Cargo Pants and Faux Fur Leg Warmers Set",
+                            "images": [
+                                "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake016/54ff2d05-1575-40f2-bb5b-45fe7c1a7029.jpg"
+                            ],
+                            "description": "A coordinated kids outfit featuring a white short-sleeve star-print top layered over a red camisole, paired with camouflage cargo pants. Includes matching red faux fur leg warmers for a bold, playful look."
+                        }
+                    ],
+                    "web_products": [],
+                    "web_product_ids": [],
+                    "web_product_type": null,
+                    "storyboard_id": null,
+                    "title": null,
+                    "panels": [],
+                    "hook": null,
+                    "setting": null,
+                    "ad_reference_id": null,
+                    "ad_reference_summary": null,
+                    "batch_size": 1
+                },
+                "meta": {},
+                "id": "356a3954-be05-4036-98ea-c933634e351a",
+                "status": "completed",
+                "ip_check_finished": true,
+                "ip_detected": false,
+                "can_bypass_ip": false,
+                "deepfake_consent_required": false,
+                "ip_consent_required": false,
+                "result": null,
+                "results": {
+                    "raw": {
+                        "type": "video",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake016/hf_20260415_014636_4873f538-b114-48c3-b604-05e32945d184.mp4",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake016/hf_20260415_014636_4873f538-b114-48c3-b604-05e32945d184_thumbnail.webp"
+                    },
+                    "min": {
+                        "type": "video",
+                        "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake016/hf_20260415_014636_4873f538-b114-48c3-b604-05e32945d184.mp4",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake016/hf_20260415_014636_4873f538-b114-48c3-b604-05e32945d184_thumbnail.webp"
+                    },
+                    "hls": null,
+                    "h264": null
+                },
+                "published_at": 1776863663.648838,
+                "created_at": 1776463312.343925,
+                "user_id": "content_user_id",
+                "trace_id": null,
+                "cluster_hash": null,
+                "representation": null,
+                "publication": {
+                    "id": "bbbc4150-f6fb-488f-8e45-0842c7bdfb86",
+                    "views_count": 164215,
+                    "likes_count": 652,
+                    "is_liked_by_user": null,
+                    "approved": true,
+                    "pinned_at": null
+                },
+                "profile": {
+                    "username": "[redacted]",
+                    "avatar_url": "[redacted]",
+                    "instagram_handle": null,
+                    "twitter_handle": null,
+                    "youtube_handle": null,
+                    "tiktok_handle": null,
+                    "badge": null,
+                    "badges": []
+                },
+                "drama": null
+            }
+        ],
+        "cursor": 1776821755.533942,
+        "has_more": false,
+        "total": 33
+    }
+}

@@ -1,0 +1,163 @@
+{
+    "meta": {
+        "endpoint": "showcase_reels_preset_detail",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/ai-reels-presets/an-unforgettable-party",
+        "params": {
+            "slug": "an-unforgettable-party",
+            "source": "higgsfield"
+        },
+        "fetched_at": "2026-11-26T15:41:58.541213+00:00",
+        "status": 200
+    },
+    "body": {
+        "listed": {
+            "id": "71e5083a-2374-47ae-a1ac-83fe4c227af2",
+            "slug": "an-unforgettable-party",
+            "title": "An Unforgettable Party",
+            "description": "Five essentials that make a party memorable: music, lighting, timing, food, and thoughtful details.",
+            "thumbnail_media": {
+                "type": "static",
+                "url": "https://static-public-media.higgsfield.ai/ai-reels-presets/20de8006-e5bc-4092-bb11-e3a173572e65.jpg",
+                "width": 720,
+                "height": 1280,
+                "mime_type": "image/jpeg"
+            },
+            "video_media": {
+                "type": "video",
+                "url": "https://static-public-media.higgsfield.ai/ai-reels-presets/334711f5-f936-4eb0-90ae-cc791ac61e68.mp4",
+                "mime_type": "video/mp4",
+                "width": 360,
+                "height": 640,
+                "duration_seconds": null,
+                "media_id": "bfb65f68-0247-4a8a-b977-e75e81546725",
+                "media_type": "video_input",
+                "compressed_url": null,
+                "compressed_width": null,
+                "compressed_height": null,
+                "compressed_size_bytes": null,
+                "thumbnail_url": "https://static-public-media.higgsfield.ai/ai-reels-presets/110fe1cb-a6b2-489d-8399-99436e2252e3.webp"
+            },
+            "generated_video_media": {
+                "type": "video",
+                "url": "https://static-public-media.higgsfield.ai/ai-reels-presets/9d3a368d-6681-4157-897b-a4bfd7dd2a7f.mp4",
+                "mime_type": "video/mp4",
+                "width": 1080,
+                "height": 1920,
+                "duration_seconds": null,
+                "media_id": "1da61492-47f7-4a7c-be9d-45023cb71ece",
+                "media_type": "video_input",
+                "compressed_url": "https://static-public-media.higgsfield.ai/ai-reels-presets/7427d6be-b0eb-41f6-ae97-d08bcf12d568.mp4",
+                "compressed_width": 600,
+                "compressed_height": 1066,
+                "compressed_size_bytes": 5066905,
+                "thumbnail_url": "https://static-public-media.higgsfield.ai/ai-reels-presets/542a9b20-78f5-40fb-a70b-7f35fc04b39d.webp"
+            },
+            "background_media": null,
+            "character_media": {
+                "type": "static",
+                "url": "https://static-public-media.higgsfield.ai/ai-reels-presets/cb42d7bd-4b4b-49e5-9be6-d9e2e2661614.png",
+                "width": 864,
+                "height": 1152,
+                "mime_type": "image/png"
+            },
+            "category": "style-transfer",
+            "views": 453244,
+            "likes": 39217,
+            "comments": 18899,
+            "source_url": "https://www.instagram.com/reels/DBZJRlZoD7R/",
+            "source_platform": "instagram",
+            "author_handle": "[redacted]",
+            "hashtags": [
+                "partyplanning",
+                "eventtips"
+            ],
+            "script": "This is your reminder that your party is not boring. It probably just needs a little direction to feel unforgettable. Five lessons of throwing an unforgettable party.\n\nLesson one. I spent eight years planning weddings and parties people sti…",
+            "quality": "1080p",
+            "duration_seconds": 45.583659,
+            "source": "higgsfield",
+            "own_recording": false,
+            "instructions": null,
+            "own_videos": [],
+            "recreates": 270
+        },
+        "categories": [
+            {
+                "id": "style-transfer",
+                "label": "Style transfer",
+                "icon_key": "colors"
+            }
+        ],
+        "lang": "en",
+        "detail": {
+            "id": "71e5083a-2374-47ae-a1ac-83fe4c227af2",
+            "slug": "an-unforgettable-party",
+            "title": "An Unforgettable Party",
+            "description": "Five essentials that make a party memorable: music, lighting, timing, food, and thoughtful details.",
+            "thumbnail_media": {
+                "type": "static",
+                "url": "https://static-public-media.higgsfield.ai/ai-reels-presets/20de8006-e5bc-4092-bb11-e3a173572e65.jpg",
+                "width": 720,
+                "height": 1280,
+                "mime_type": "image/jpeg"
+            },
+            "video_media": {
+                "type": "video",
+                "url": "https://static-public-media.higgsfield.ai/ai-reels-presets/334711f5-f936-4eb0-90ae-cc791ac61e68.mp4",
+                "mime_type": "video/mp4",
+                "width": 360,
+                "height": 640,
+                "duration_seconds": null,
+                "media_id": "bfb65f68-0247-4a8a-b977-e75e81546725",
+                "media_type": "video_input",
+                "compressed_url": null,
+                "compressed_width": null,
+                "compressed_height": null,
+                "compressed_size_bytes": null,
+                "thumbnail_url": "https://static-public-media.higgsfield.ai/ai-reels-presets/110fe1cb-a6b2-489d-8399-99436e2252e3.webp"
+            },
+            "generated_video_media": {
+                "type": "video",
+                "url": "https://static-public-media.higgsfield.ai/ai-reels-presets/9d3a368d-6681-4157-897b-a4bfd7dd2a7f.mp4",
+                "mime_type": "video/mp4",
+                "width": 1080,
+                "height": 1920,
+                "duration_seconds": null,
+                "media_id": "1da61492-47f7-4a7c-be9d-45023cb71ece",
+                "media_type": "video_input",
+                "compressed_url": "https://static-public-media.higgsfield.ai/ai-reels-presets/7427d6be-b0eb-41f6-ae97-d08bcf12d568.mp4",
+                "compressed_width": 600,
+                "compressed_height": 1066,
+                "compressed_size_bytes": 5066905,
+                "thumbnail_url": "https://static-public-media.higgsfield.ai/ai-reels-presets/542a9b20-78f5-40fb-a70b-7f35fc04b39d.webp"
+            },
+            "background_media": null,
+            "character_media": {
+                "type": "static",
+                "url": "https://static-public-media.higgsfield.ai/ai-reels-presets/cb42d7bd-4b4b-49e5-9be6-d9e2e2661614.png",
+                "width": 864,
+                "height": 1152,
+                "mime_type": "image/png"
+            },
+            "category": "style-transfer",
+            "views": 453244,
+            "likes": 39217,
+            "comments": 18899,
+            "source_url": "https://www.instagram.com/reels/DBZJRlZoD7R/",
+            "source_platform": "instagram",
+            "author_handle": "[redacted]",
+            "hashtags": [
+                "partyplanning",
+                "eventtips"
+            ],
+            "script": "This is your reminder that your party is not boring. It probably just needs a little direction to feel unforgettable. Five lessons of throwing an unforgettable party.\n\nLesson one. I spent eight years planning weddings and parties people sti…",
+            "quality": "1080p",
+            "duration_seconds": 45.583659,
+            "source": "higgsfield",
+            "own_recording": false,
+            "instructions": null,
+            "own_videos": [],
+            "prompt": "A party planner shares five essentials for an unforgettable event: music, lighting, timing, food, and personal details."
+        },
+        "detail_status": 200
+    }
+}

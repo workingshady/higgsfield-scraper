@@ -10,6 +10,8 @@ from ...core.dataset import make_id
 from .endpoints import (BENEFITS_ENDPOINT, COMMENTS_ENDPOINT, COMPARE_ENDPOINT, CREATORS_ENDPOINT, DETAIL_ENDPOINT,
                         ENDPOINT_FEEDS, ENTITY_COMMENTS_ENDPOINT, FEED_ENDPOINT, JOB_COSTS_ENDPOINT, PLANS_ENDPOINT,
                         POSTS_LIST_ENDPOINT, SHOTS_ENDPOINT, TALENTS_ENDPOINT, VIRAL_ENDPOINT)
+from .endpoints import (COLLECTIONS_ENDPOINT, EXPLORE_CARDS_ENDPOINT, JOB_SHOWCASE_ENDPOINT, JOB_SHOWCASE_PAGES,
+                        MUSIC_CARD_OPTIONS_ENDPOINT, MUSIC_CARDS_ENDPOINT)
 from .options import Selection
 
 # settings key -> accepted python types (a value of another type stays in params_extra, so nothing is lost)
@@ -577,6 +579,17 @@ def parse_envelope(env, sel: Selection) -> list[dict]:
         return parse_creators(env.body, listing, _int(env.params.get("offset")) or 0, sel, prov)
     if ep == ENTITY_COMMENTS_ENDPOINT:
         return parse_comments(env.body, env.params.get("entity_id", ""), sel, prov)
+    # ---- opt-in gallery / template sources (never requested by default runs)
+    if ep == MUSIC_CARDS_ENDPOINT:
+        return parse_music_cards(env.body, prov)
+    if ep == MUSIC_CARD_OPTIONS_ENDPOINT:
+        return parse_music_card_options(env.body, env.params.get("group", ""), prov)
+    if ep == JOB_SHOWCASE_ENDPOINT:
+        return parse_job_showcase(env.body, env.params.get("slug", ""), sel, prov)
+    if ep == COLLECTIONS_ENDPOINT:
+        return parse_collection(env.body, env.params.get("slug", ""), prov)
+    if ep == EXPLORE_CARDS_ENDPOINT:
+        return parse_explore_cards(env.body, _int(env.params.get("offset")) or 0, prov)
     return []
 
 
@@ -600,3 +613,173 @@ def keep(entity: dict, sel: Selection) -> bool:
     if sel.type in ("image", "video") and entity.get("media_type") in MEDIA_TYPES and entity["media_type"] != sel.type:
         return False
     return True
+
+
+# ------------------------------------------------------------------ opt-in gallery / template sources
+# (--feeds music-cards, job-showcase, collections, explore-cards; docs/COMMUNITY_COVERAGE.md §3b)
+UUID_RE = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", re.I)
+MUSIC_CARD_USED = {"id", "slug", "title", "description", "category", "categories", "thumbnail_media", "video_media",
+                   "occasion", "occasion_text", "tone", "style", "music", "length", "recipients", "senders",
+                   "song_title", "lyrics"}
+OPTION_GROUP = {"styles": "style", "occasions": "occasion", "roles": "role"}
+OPTION_KEY = {"style": "style", "occasion": "key", "role": "key"}
+OPTION_USED = {"key", "style", "occasion", "role", "label", "hint", "icon_key", "parent", "thumbnail_media",
+               "categories", "id"}
+SHOWCASE_TOP = KNOWN_TOP | {"user"}
+CARD_USED = ("id", "slug", "name", "description", "href", "href_mobile", "media")
+
+
+def _dict(v: Any) -> dict:
+    return v if isinstance(v, dict) else {}
+
+
+def _strs(v: Any) -> list[str]:
+    return [str(x) for x in v if x is not None] if isinstance(v, list) else []
+
+
+def parse_music_cards(body: Any, prov: dict) -> list[dict]:
+    """fnf-cms-api /music-cards-presets -> community_music_card (+ the `categories` option list)."""
+    b = _dict(body)
+    out = []
+    for n, it in enumerate(_items_of(b)):
+        if not it.get("id"):
+            continue
+        th, vm = _dict(it.get("thumbnail_media")), _dict(it.get("video_media"))
+        recipients = [{"main": _bool(r.get("main")), "name": _nz(r.get("name")), "role": _nz(r.get("role")),
+                       "facts_wishes": _strs(r.get("facts_wishes")),
+                       "extra": {k: v for k, v in r.items() if k not in ("main", "name", "role", "facts_wishes")
+                                 and v is not None}}
+                      for r in it.get("recipients") or [] if isinstance(r, dict)]
+        out.append({
+            "kind": "community_music_card", "music_card_id": str(it["id"]), "slug": _nz(it.get("slug")),
+            "position": n, "title": _nz(it.get("title")), "description": _nz(it.get("description")),
+            "category": _nz(it.get("category")), "categories": _strs(it.get("categories")),
+            "occasion": _nz(it.get("occasion")), "occasion_text": _nz(it.get("occasion_text")),
+            "tone": _nz(it.get("tone")), "style": _nz(it.get("style")), "music": _nz(it.get("music")),
+            "length_seconds": _int(it.get("length")), "song_title": _nz(it.get("song_title")),
+            "lyrics": _nz(it.get("lyrics")), "recipients": recipients,
+            "senders": it.get("senders") if isinstance(it.get("senders"), list) else [],
+            "thumbnail_url": _nz(th.get("url")), "thumbnail_width": _int(th.get("width")),
+            "thumbnail_height": _int(th.get("height")),
+            "preview_video_url": _nz(vm.get("url")), "preview_video_width": _int(vm.get("width")),
+            "preview_video_height": _int(vm.get("height")),
+            "preview_video_duration_seconds": _float(vm.get("duration_seconds")),
+            "preview_video_compressed_url": _nz(vm.get("compressed_url")),
+            "preview_video_compressed_width": _int(vm.get("compressed_width")),
+            "preview_video_compressed_height": _int(vm.get("compressed_height")),
+            "preview_video_compressed_bytes": _int(vm.get("compressed_size_bytes")),
+            "preview_video_thumbnail_url": _nz(vm.get("thumbnail_url")),
+            "extra": {k: v for k, v in it.items() if k not in MUSIC_CARD_USED and v is not None}, "source": prov})
+    cats = b.get("categories") if isinstance(b.get("categories"), list) else []
+    out += _options([c for c in cats if isinstance(c, dict)], "category", "id", prov)
+    return out
+
+
+def _options(items: list[dict], group: str, key_field: str, prov: dict) -> list[dict]:
+    out = []
+    for n, it in enumerate(items):
+        key = _nz(it.get(key_field))
+        if key is None:
+            continue
+        out.append({"kind": "community_music_card_option", "option_id": make_id("music_card_option", group, key),
+                    "group": group, "key": key, "label": _nz(it.get("label")), "hint": _nz(it.get("hint")),
+                    "icon_key": _nz(it.get("icon_key")), "parent": _nz(it.get("parent")),
+                    "thumbnail_url": _nz(_dict(it.get("thumbnail_media")).get("url")),
+                    "categories": _strs(it.get("categories")), "position": n,
+                    "extra": {k: v for k, v in it.items() if k not in OPTION_USED and v is not None},
+                    "source": prov})
+    return out
+
+
+def parse_music_card_options(body: Any, group_path: str, prov: dict) -> list[dict]:
+    """fnf-cms-api /music-cards-{styles|occasions|roles} -> community_music_card_option."""
+    group = OPTION_GROUP.get(group_path)
+    if group is None:
+        return []
+    return _options(_items_of(body), group, OPTION_KEY[group], prov)
+
+
+def _media_keys(results: list[dict]) -> list[str]:
+    """'media:<uuid>' of every output file (the HLS playlist has no file id of its own)."""
+    keys = []
+    for r in results:
+        if r.get("name") == "hls":
+            continue
+        found = UUID_RE.findall(str(r.get("url") or "").split("?")[0])
+        if found:
+            keys.append(f"media:{found[-1].lower()}")
+    return list(dict.fromkeys(keys))
+
+
+def parse_showcase_job(job: dict, slug: str, movie: dict, mi: int, pos: int, sel: Selection, prov: dict) -> dict:
+    params = job.get("params") if isinstance(job.get("params"), dict) else {}
+    text, settings, extra, inputs = split_params(params)
+    results = parse_results(job)
+    gid = str(job["id"])
+    return {
+        "kind": "community_showcase_job", "generation_id": gid, "generation_key": f"job:{gid.lower()}",
+        "media_keys": _media_keys(results), "showcase_slug": slug, "url": JOB_SHOWCASE_PAGES.get(slug),
+        "movie_index": mi, "movie_position": pos, "movie_logo_url": _nz(movie.get("logo")),
+        "movie_group_image_url": _nz(movie.get("group_image_url")),
+        "job_set_type": _str(job.get("job_set_type")), "job_set_id": _str(job.get("job_set_id")),
+        "parent_id": _str(job.get("job_set_parent_id")), "media_type": media_type_of(job),
+        "status": _str(job.get("status")), "prompt": text["prompt"], "negative_prompt": text["negative_prompt"],
+        "settings": settings, "params_extra": extra, "raw_params": params if sel.with_raw_params else None,
+        "inputs": inputs, "results": results, "created_at": iso_ts(job.get("created_at")),
+        "published_at": iso_ts(job.get("published_at")),
+        "moderation": {k: _bool(job.get(k)) for k in ("ip_check_finished", "ip_detected",
+                                                       "deepfake_consent_required", "can_bypass_ip")},
+        "board_ids": job.get("board_ids") if isinstance(job.get("board_ids"), list) else [],
+        "client_meta": job.get("job_set_client_meta") if isinstance(job.get("job_set_client_meta"), dict) else None,
+        "meta_extra": _dict(job.get("meta")),
+        "extra": {k: v for k, v in job.items() if k not in SHOWCASE_TOP and v is not None},
+        "creator": person_ref(job.get("user"), job.get("user_id"), sel), "source": prov}
+
+
+def parse_job_showcase(body: Any, slug: str, sel: Selection, prov: dict) -> list[dict]:
+    """fnf /jobs/showcase/{slug} -> community_showcase_job (one per job of every movie)."""
+    movies = _dict(body).get("data")
+    out = []
+    for mi, m in enumerate(movies if isinstance(movies, list) else []):
+        if not isinstance(m, dict):
+            continue
+        for pos, j in enumerate(m.get("jobs") or []):
+            if isinstance(j, dict) and j.get("id"):
+                out.append(parse_showcase_job(j, slug, m, mi, pos, sel, prov))
+    return out
+
+
+def parse_collection(body: Any, slug: str, prov: dict) -> list[dict]:
+    """fnf /collections/{slug} -> community_collection (items = motion presets, joined to catalog_motion)."""
+    b = _dict(body)
+    if not slug or not isinstance(b.get("items"), list):
+        return []
+    items = []
+    for n, it in enumerate(x for x in b["items"] if isinstance(x, dict)):
+        m = _dict(it.get("media"))
+        items.append({"position": n, "motion_id": _nz(it.get("id")), "name": _nz(it.get("name")),
+                      "media_url": _nz(m.get("url")), "media_type": _nz(m.get("type")), "width": _int(m.get("width")),
+                      "height": _int(m.get("height")), "priority": _int(it.get("priority")),
+                      "tags": _strs(it.get("tags")), "params": _dict(it.get("params"))})
+    return [{"kind": "community_collection", "collection_id": _nz(b.get("id")) or slug, "slug": slug,
+             "url": f"{SITE}/collection/{slug}", "name": _nz(b.get("name")), "description": _nz(b.get("description")),
+             "items_count": len(items), "items": items, "source": prov}]
+
+
+def parse_explore_cards(body: Any, offset: int, prov: dict) -> list[dict]:
+    """cms /cards -> community_explore_card (the inline blur placeholder is not stored)."""
+    out = []
+    for n, it in enumerate(_items_of(body)):
+        if it.get("id") is None:
+            continue
+        m = _dict(it.get("media"))
+        extra = {k: v for k, v in it.items() if k not in CARD_USED and v is not None}
+        extra.update({f"media.{k}": v for k, v in m.items()
+                      if k not in ("url", "type", "width", "height", "placeholder") and v is not None})
+        out.append({"kind": "community_explore_card", "card_id": str(it["id"]), "position": offset + n,
+                    "slug": _nz(it.get("slug")), "name": _nz(it.get("name")),
+                    "description": _nz(it.get("description")), "href": _nz(it.get("href")),
+                    "href_mobile": _nz(it.get("href_mobile")), "media_type": _nz(m.get("type")),
+                    "media_url": _nz(m.get("url")), "width": _int(m.get("width")), "height": _int(m.get("height")),
+                    "has_placeholder": bool(m.get("placeholder")), "extra": extra, "source": prov})
+    return out

@@ -1,0 +1,151 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "https://cms.higgsfield.ai/main-feed?lang=en&size=2",
+        "status": 200,
+        "note": "lists cut to 2 items; people fields redacted"
+    },
+    "body": {
+        "cursor": "eyJ2ZXJzaW9uIjoyLCJjb21tdW5pdHlfY3Vyc29yIjoiTTJZeU56ZGxPV0l0TjJaaFlpMDBaalkxTFRnMVlXUXRNVFZqTlRJMk1tRXhPV0UyT21Oc2RYTjBaWEp6TFdGaU1pMUZSem95T2pBeFlUSXhPRGRtTFRsbU56a3ROemM0WWkxaE9XUmlMVFZpT0ROak5tRXlPREkxTURveiIsImxhc3RfZ2FtZSI6bnVsbH0",
+        "request_id": "01a2187f-9f79-778b-a9db-5b83c6a28250",
+        "feed_session_id": "01a2187f-9f79-778b-a9db-5b83c6a28250",
+        "items": [
+            {
+                "type": "genjutsu",
+                "position": 1,
+                "genjutsu": {
+                    "id": "969df601-a8cb-477b-a496-13b7c7659a7e",
+                    "source": "community",
+                    "title": "Speedboat Getaway Driver",
+                    "description": "Replace the driver of a high-speed boat in a cinematic neon city setting with any character or person of your choice.",
+                    "job_set_type": "hf_mult_replace_object",
+                    "original_video": {
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d7886989-323b-58fb-a732-0ed0b35f6a46.mp4",
+                        "type": "video",
+                        "width": 1664,
+                        "height": 1248,
+                        "duration": 15.041997,
+                        "media_id": "d7886989-323b-58fb-a732-0ed0b35f6a46",
+                        "media_type": "video_input",
+                        "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/original.webp"
+                    },
+                    "variants": [
+                        {
+                            "id": "67710a6b-07a6-4117-ade4-a929f03de5f4",
+                            "type": "edit",
+                            "media": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/edit.mp4",
+                                "type": "video",
+                                "width": 1280,
+                                "height": 960,
+                                "duration": 15.041667,
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/edit.webp",
+                                "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/edit.mp4",
+                                "main_width": 1280,
+                                "main_height": 960
+                            },
+                            "prompt": null,
+                            "input_assets": [],
+                            "params": {},
+                            "priority": 0
+                        },
+                        {
+                            "id": "930a3a0e-7eff-4c0c-a8b9-af3061ba2549",
+                            "type": "original",
+                            "media": {
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d7886989-323b-58fb-a732-0ed0b35f6a46.mp4",
+                                "type": "video",
+                                "width": 1664,
+                                "height": 1248,
+                                "duration": 15.041997,
+                                "media_id": "d7886989-323b-58fb-a732-0ed0b35f6a46",
+                                "media_type": "video_input",
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/original.webp"
+                            },
+                            "prompt": null,
+                            "input_assets": [],
+                            "params": {},
+                            "priority": 1
+                        },
+                        "<+1 more>"
+                    ],
+                    "priority": 0,
+                    "likes_count": 308,
+                    "views_count": null,
+                    "comments_count": 2,
+                    "trend_id": "f460847",
+                    "times_made": 1528,
+                    "category": null
+                }
+            },
+            {
+                "type": "genjutsu",
+                "position": 2,
+                "genjutsu": {
+                    "id": "8ff1cd0d-9e38-43d6-81f9-54af3361a247",
+                    "source": "community",
+                    "title": "Gamer Apocalypse Swap",
+                    "description": "Swap the character playing video games to see your own subject react as a dramatic meteor strikes the city skyline.",
+                    "job_set_type": "hf_mult_replace_object",
+                    "original_video": {
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/35d9152c-e878-51e9-a8b3-d107df4c5b68.mp4",
+                        "type": "video",
+                        "width": 960,
+                        "height": 720,
+                        "duration": 18.833333,
+                        "media_id": "35d9152c-e878-51e9-a8b3-d107df4c5b68",
+                        "media_type": "video_input",
+                        "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/original.webp"
+                    },
+                    "variants": [
+                        {
+                            "id": "d770d0bd-537a-4a8d-8813-ad56dcedc180",
+                            "type": "edit",
+                            "media": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/edit.mp4",
+                                "type": "video",
+                                "width": 1280,
+                                "height": 960,
+                                "duration": 18.708333,
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/edit.webp",
+                                "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/edit.mp4",
+                                "main_width": 1280,
+                                "main_height": 960
+                            },
+                            "prompt": null,
+                            "input_assets": [],
+                            "params": {},
+                            "priority": 0
+                        },
+                        {
+                            "id": "2d03021c-a6a8-4eea-a982-9cd1959c2c67",
+                            "type": "original",
+                            "media": {
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/35d9152c-e878-51e9-a8b3-d107df4c5b68.mp4",
+                                "type": "video",
+                                "width": 960,
+                                "height": 720,
+                                "duration": 18.833333,
+                                "media_id": "35d9152c-e878-51e9-a8b3-d107df4c5b68",
+                                "media_type": "video_input",
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/original.webp"
+                            },
+                            "prompt": null,
+                            "input_assets": [],
+                            "params": {},
+                            "priority": 1
+                        },
+                        "<+1 more>"
+                    ],
+                    "priority": 0,
+                    "likes_count": 336,
+                    "views_count": null,
+                    "comments_count": 2,
+                    "trend_id": "f435374",
+                    "times_made": 1511,
+                    "category": "fun"
+                }
+            }
+        ]
+    }
+}

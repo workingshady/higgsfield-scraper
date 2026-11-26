@@ -1,0 +1,71 @@
+{
+    "meta": {
+        "endpoint": "community_collection",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/collections/catch-the-pulse",
+        "params": {
+            "slug": "catch-the-pulse"
+        },
+        "fetched_at": "2026-11-26T18:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "name": "Catch the Pulse",
+        "description": "A high-energy collection of iconic human moves—skate flips, boxing punches, basketball dunks, baseball kicks, and more. Raw motion, real power. Feel the rhythm. Catch the pulse.",
+        "items": [
+            {
+                "id": "c99c3417-31d0-47f0-8cc9-1b25dc5de023",
+                "name": "Snowboard Powder",
+                "media": {
+                    "width": 320,
+                    "height": 242,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/b928a301-9609-4948-a045-5a4a79481b5c.webp",
+                    "type": "animated"
+                },
+                "priority": -253,
+                "tags": [],
+                "params": {
+                    "steps": 20,
+                    "frames": 81,
+                    "strength": 1.0,
+                    "guide_scale": 6.0
+                }
+            },
+            {
+                "id": "9ac92661-d0f7-4b5e-85b1-f3654cb4627b",
+                "name": "Moonwalk Left",
+                "media": {
+                    "width": 320,
+                    "height": 424,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/9fdd4463-2e38-4419-a956-aa9645a9343e.webp",
+                    "type": "animated"
+                },
+                "priority": -250,
+                "tags": [],
+                "params": {
+                    "steps": 20,
+                    "frames": 81,
+                    "strength": 1.0,
+                    "guide_scale": 6.0
+                }
+            },
+            {
+                "id": "17a55db6-8775-4a9f-a2c9-d0d373bee590",
+                "name": "Boxing",
+                "media": {
+                    "width": 320,
+                    "height": 210,
+                    "url": "https://d1xarpci4ikg0w.cloudfront.net/4921b0b7-b524-4365-955a-39949123aaaa.webp",
+                    "type": "animated"
+                },
+                "priority": -249,
+                "tags": [],
+                "params": {
+                    "steps": 20,
+                    "frames": 81,
+                    "strength": 1.0,
+                    "guide_scale": 6.0
+                }
+            }
+        ]
+    }
+}

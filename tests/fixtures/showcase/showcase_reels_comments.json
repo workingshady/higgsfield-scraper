@@ -1,0 +1,48 @@
+{
+    "meta": {
+        "endpoint": "showcase_reels_comments",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/entities/generation_publication/1dd92189-04f1-41d0-a428-f46a44211f3f/comments?limit=20",
+        "params": {
+            "limit": "20",
+            "publication_id": "1dd92189-04f1-41d0-a428-f46a44211f3f",
+            "preset_id": "1105270a-2d67-4bb9-8b26-721d46fc5494"
+        },
+        "fetched_at": "2026-11-26T15:41:31.000000+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "00000000-0000-4000-8000-00000000c001",
+                "entity_type": "generation_publication",
+                "publication_id": "1dd92189-04f1-41d0-a428-f46a44211f3f",
+                "user_id": "user_FakeReelsCommenter1",
+                "content": "love the captions",
+                "author": {
+                    "id": "user_FakeReelsCommenter1",
+                    "username": "[redacted]",
+                    "full_name": "",
+                    "avatar_url": "[redacted]",
+                    "headline": "",
+                    "badge": "",
+                    "rating_points": null
+                },
+                "reply_count": 1,
+                "like_count": 2,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [
+                    {
+                        "emoji": "🔥",
+                        "count": 1
+                    }
+                ],
+                "mentions": [],
+                "created_at": "2026-11-20T10:00:00.000000Z",
+                "updated_at": "2026-11-20T10:00:00.000000Z"
+            }
+        ],
+        "total": 1,
+        "next_cursor": null
+    }
+}

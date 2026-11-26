@@ -6,6 +6,9 @@ the same small JSON bodies:
   showcase_property_studio_presets     {"chunk", "lang", "rows": [[format, path, title_id, inputs, w, h]], "titles"}
   showcase_api_docs                    {"text": <llms-full.txt>, "openapi": <openapi.json or null>}
   showcase_effects_sitemap             {"slugs": [...]}             (no entities)
+  showcase_reels_preset_detail         {"listed": <list item>, "detail": <detail or null>, "detail_status",
+                                        "categories", "lang"}       (one Shorts Studio preset per envelope)
+  showcase_reels_presets               the preset list itself (no entities; the spider fans out to details)
   showcase_property_studio_page/_route_chunk                          (no entities; discovery only)
 """
 from __future__ import annotations
@@ -698,6 +701,158 @@ def parse_motion_control(env: Any, sel: Any) -> list[dict]:
     return out
 
 
+# ------------------------------------------------------------------ Shorts Studio (AI Reels) presets — opt-in
+USER_PATH_RE = re.compile(r"/(user_[A-Za-z0-9]+)/")
+REELS_PAGE = f"{SITE}/shorts-studio"
+
+
+def reels_user_id(author: Any) -> Optional[str]:
+    """Clerk id of a community preset author: the API gives no id, but the avatar path is /user_<id>/…"""
+    if not isinstance(author, dict):
+        return None
+    m = USER_PATH_RE.search(str(author.get("avatar_url") or ""))
+    return m.group(1) if m else None
+
+
+def _reels_video(role: str, d: Any) -> list[dict]:
+    """ai-reels media object: url (+ compressed_url/compressed_width/height, thumbnail_url, media_id,
+    duration_seconds)."""
+    m = _media(role, d)
+    if not m:
+        return []
+    m["duration_s"] = _f(d.get("duration_seconds"))
+    out = [m]
+    if _s(d.get("compressed_url")) and d["compressed_url"] != d["url"]:
+        out.append({"role": f"{role}_compressed", "type": _type(d.get("type"), d["compressed_url"]),
+                    "url": d["compressed_url"], "width": _i(d.get("compressed_width")),
+                    "height": _i(d.get("compressed_height")), "duration_s": m["duration_s"],
+                    "media_key": media_key(d["compressed_url"])})
+    if _s(d.get("thumbnail_url")) and d["thumbnail_url"] != d["url"]:
+        out.append({"role": f"{role}_thumbnail", "type": "image", "url": d["thumbnail_url"], "width": None,
+                    "height": None, "duration_s": None, "media_key": media_key(d["thumbnail_url"])})
+    return out
+
+
+def reels_creator_key(author: Any) -> tuple[Optional[str], Optional[str]]:
+    """(creator_key, basis): sha256-16 of the Clerk id found in the avatar path (same key as the other scrapers),
+    else of `username:<name>` (authors without an avatar; not joinable with other scrapers)."""
+    if not isinstance(author, dict):
+        return None, None
+    uid = reels_user_id(author)
+    if uid:
+        return creator_key(uid), "user_id"
+    name = _s(author.get("username"))
+    return (make_id("creator", f"username:{name}"), "username") if name else (None, None)
+
+
+def _reels_author(a: Any, sel: Any) -> tuple[Optional[str], Optional[str], Optional[dict], Optional[str]]:
+    if not isinstance(a, dict):
+        return None, None, None, None
+    if a.get("id_hash"):                                   # archive pseudonymised by the spider
+        ck, basis = a["id_hash"], _s(a.get("id_basis"))
+    else:
+        ck, basis = reels_creator_key(a)
+    prof = None
+    if getattr(sel, "with_profiles", False):
+        prof = {"user_id": reels_user_id(a), "username": _s(a.get("username")), "avatar_url": _s(a.get("avatar_url"))}
+    return ck, basis, prof, _s(a.get("badge"))
+
+
+def reels_preset(env: Any, sel: Any, listed: dict, detail: Optional[dict], categories: list,
+                 lang: str) -> Optional[dict]:
+    """One preset = the list item (author, publication, recreates, likes_count) + the detail (`prompt`)."""
+    x = dict(detail or {})
+    x.update({k: v for k, v in listed.items() if v is not None or k not in x})
+    pid = _s(x.get("id"))
+    if not pid:
+        return None
+    src = _s(x.get("source")) or "higgsfield"
+    media = _reels_video("output", x.get("generated_video_media"))
+    th = _media("thumbnail", x.get("thumbnail_media"))
+    if th:
+        th["type"] = "image"
+        media.append(th)
+    inputs = _reels_video("reference", x.get("video_media"))
+    for role in ("character", "background"):
+        m = _media(role, x.get(f"{role}_media"))
+        if m:
+            inputs.append(m)
+    for i, ov in enumerate(x.get("own_videos") or []):
+        inputs += _reels_video(f"own_video_{i}", ov)
+    keys = _keys(media, ("output",))
+    pub = x.get("publication") if isinstance(x.get("publication"), dict) else {}
+    pub_id = _s(pub.get("id"))
+    if pub_id:
+        keys.append(f"pub:{pub_id.lower()}")               # a generation_publication = one generation
+    ck, basis, prof, badge = _reels_author(x.get("author"), sel)
+    cat = _s(x.get("category"))
+    label = next((_s(c.get("label")) for c in categories or [] if isinstance(c, dict) and c.get("id") == cat), None)
+    ref_eng = None
+    if any(x.get(k) is not None for k in ("views", "likes", "comments")):
+        ref_eng = {"views": _i(x.get("views")), "likes": _i(x.get("likes")), "comments": _i(x.get("comments")),
+                   "uses": None}
+    page = f"{REELS_PAGE}/{quote(pid)}" if src == "higgsfield" else f"{REELS_PAGE}?source=community"
+    own = x.get("own_recording")
+    e = _base("showcase_reels_preset", env, (pid,), page)
+    e.update(preset_id=pid, slug=_s(x.get("slug")), preset_source=src, title=_s(x.get("title")),
+             description=_s(x.get("description")), category=cat, category_label=label,
+             prompt=_s(x.get("prompt")), script=_s(x.get("script")), instructions=_s(x.get("instructions")),
+             hashtags=[str(h) for h in x.get("hashtags") or [] if _s(h)], quality=_s(x.get("quality")),
+             duration_s=_f(x.get("duration_seconds")), own_recording=own if isinstance(own, bool) else None,
+             job_set_type="ai_reels_v1",
+             media=media, inputs=inputs, reference_url=_s(x.get("source_url")),
+             reference_platform=_s(x.get("source_platform")), reference_engagement=ref_eng,
+             reference_author_handle=_s(x.get("author_handle")) if getattr(sel, "with_profiles", False) else None,
+             engagement={"likes": _i(pub.get("likes_count", x.get("likes_count"))), "views": None,
+                         "comments": None, "uses": _i(x.get("recreates"))},
+             publication_id=pub_id, creator_key=ck, creator_key_basis=basis, creator_badge=badge, creator=prof,
+             lang=lang,
+             generation_key=keys[0] if keys else None, media_keys=list(dict.fromkeys(keys)))
+    if not prof:
+        e.pop("creator")
+    return e
+
+
+def parse_reels_detail(env: Any, sel: Any) -> list[dict]:
+    """Spider-built body {listed, detail, detail_status, categories, lang} (one preset per envelope)."""
+    b = env.body if isinstance(env.body, dict) else {}
+    listed = b.get("listed") if isinstance(b.get("listed"), dict) else {}
+    detail = b.get("detail") if isinstance(b.get("detail"), dict) else None
+    if detail and listed and detail.get("id") != listed.get("id"):
+        detail = None
+    e = reels_preset(env, sel, listed or (detail or {}), detail, b.get("categories") or [],
+                     b.get("lang") or _lang(env, sel))
+    return [e] if e else []
+
+
+def parse_reels_comments(env: Any, sel: Any) -> list[dict]:
+    """fnf-community GET /entities/generation_publication/{id}/comments -> {items, total, next_cursor?}."""
+    out = []
+    p = env.params
+    pub = p.get("publication_id") or ""
+    for c in _items(env.body):
+        cid = _s(c.get("id"))
+        if not cid:
+            continue
+        a = c.get("author") if isinstance(c.get("author"), dict) else {}
+        uid = _s(c.get("user_id") or a.get("id"))
+        prof = None
+        if getattr(sel, "with_profiles", False):
+            prof = {"user_id": uid, "username": _s(a.get("username")), "avatar_url": _s(a.get("avatar_url"))}
+        e = _base("showcase_reels_comment", env, (cid,), f"{REELS_PAGE}?source=community")
+        e.update(comment_id=cid, publication_id=_s(c.get("publication_id")) or pub, preset_id=p.get("preset_id"),
+                 parent_id=_s(c.get("parent_id")), text=_s(c.get("content") or c.get("text")),
+                 created_at=_ts(c.get("created_at")), updated_at=_ts(c.get("updated_at")),
+                 likes=_i(c.get("like_count")), dislikes=_i(c.get("dislike_count")),
+                 reply_count=_i(c.get("reply_count")),
+                 reactions=[r for r in c.get("reactions") or [] if isinstance(r, dict)],
+                 creator_key=creator_key(uid), creator=prof)
+        if not prof:
+            e.pop("creator")
+        out.append(e)
+    return out
+
+
 PARSERS = {
     "showcase_canvas_templates": parse_canvas_templates,
     "showcase_videoshop_examples": parse_videoshop_examples,
@@ -713,6 +868,8 @@ PARSERS = {
     "showcase_intone_explore": parse_intone,
     "showcase_seedance_presets": parse_seedance,
     "showcase_motion_control_presets": parse_motion_control,
+    "showcase_reels_preset_detail": parse_reels_detail,
+    "showcase_reels_comments": parse_reels_comments,
 }
 
 

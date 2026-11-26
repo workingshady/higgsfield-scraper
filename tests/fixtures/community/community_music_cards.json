@@ -1,0 +1,210 @@
+{
+    "meta": {
+        "endpoint": "community_music_cards",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/music-cards-presets?lang=en",
+        "params": {
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T18:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "28e85fc3-49da-4778-b02b-6766d1aa0e62",
+                "slug": "happy-birthday-dear-mama",
+                "title": "Happy birthday, dear Mama",
+                "description": "Mama's windowsill flowers wake up for her birthday, and so does the whole family",
+                "category": "birthday",
+                "categories": [
+                    "birthday"
+                ],
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/d90c31fd-d369-4316-9107-760885385146.jpg",
+                    "width": 1080,
+                    "height": 1920,
+                    "mime_type": "image/jpeg"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/b94fd108-68cf-474f-ab9a-0de3ab87c4b5.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": null,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": "https://static-public-media.higgsfield.ai/music-cards-presets/a7139f9a-b1f1-45d6-8382-0583b66a2fda.mp4",
+                    "compressed_width": 600,
+                    "compressed_height": 1066,
+                    "compressed_size_bytes": 2801132,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/music-cards-presets/8c365c83-cdfa-4b84-9e3f-77ed7666be1b.webp"
+                },
+                "occasion": "birthday",
+                "occasion_text": null,
+                "tone": "warm",
+                "style": "anime",
+                "music": "ballad",
+                "length": 30,
+                "recipients": [
+                    {
+                        "main": true,
+                        "name": "Mama",
+                        "role": "mom",
+                        "facts_wishes": [
+                            "Mom loves her flowers and waters the pots on the windowsill every morning",
+                            "Her geraniums on the windowsill are blooming",
+                            "We all reach out to her, just like her flowers reach for the light",
+                            "The whole family is together to surprise her on her birthday",
+                            "Happy birthday, Mama, we are all here with you"
+                        ]
+                    }
+                ],
+                "senders": [],
+                "song_title": "Happy birthday, dear Mama",
+                "lyrics": "Your flowers on the windowsill\nAre waking, reaching out for you\nJust like we do\n\nHappy birthday, dear Mama!\nAll your family is here with you"
+            },
+            {
+                "id": "748ac9f2-d792-40cb-b844-7463af812c86",
+                "slug": "happy-new-year-rosa",
+                "title": "Happy New Year, Rosa!",
+                "description": "A retired music teacher mum gets a New Year trip to the sunny sea",
+                "category": "right-now",
+                "categories": [
+                    "right-now",
+                    "holidays",
+                    "new-year"
+                ],
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/a692baff-706a-4ed7-8844-410eaf6a60ee.jpg",
+                    "width": 1080,
+                    "height": 1920,
+                    "mime_type": "image/jpeg"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/7e206012-378d-4aa1-9787-c16bdadc5e2c.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": null,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": "https://static-public-media.higgsfield.ai/music-cards-presets/7ffc5a06-f50b-441d-abbf-d62af4aed000.mp4",
+                    "compressed_width": 600,
+                    "compressed_height": 1066,
+                    "compressed_size_bytes": 4547242,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/music-cards-presets/d71561a1-2dc3-4c7d-9113-145de40f0b77.webp"
+                },
+                "occasion": "newyear",
+                "occasion_text": null,
+                "tone": "warm",
+                "style": "clay",
+                "music": "ballad",
+                "length": 30,
+                "recipients": [
+                    {
+                        "main": true,
+                        "name": "Rosa",
+                        "role": "mom",
+                        "facts_wishes": [
+                            "My mum Rosa is a retired music teacher and still plays the piano at every family party",
+                            "She knits a scarf for every neighbour, each one in a different colour",
+                            "She's always in the kitchen cooking dinner for all of us",
+                            "For New Year we're giving her a trip to the warm, sunny sea"
+                        ]
+                    }
+                ],
+                "senders": [],
+                "song_title": "Happy New Year, Rosa",
+                "lyrics": "Retired music teacher\nStill at the piano, every family party\nShe knits a scarf for every neighbour\nEvery one a different colour\n\nHappy New Year, Rosa\nIn the kitchen while the dinner cooks\n\nMum, we wish you a journey\nTo the warm and sunny sea\n\nHappy New Year, Rosa"
+            },
+            {
+                "id": "ea1aa658-da60-4f16-b1df-4f5093f055af",
+                "slug": "my-favorite-sound-is-you",
+                "title": "My favorite sound is you",
+                "description": "A thank-you to Alice the cellist for the music that fills every Sunday morning",
+                "category": "any-day",
+                "categories": [
+                    "any-day",
+                    "thank-you"
+                ],
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/a6ee0a34-8908-4bd5-8265-36258c9c9f65.jpg",
+                    "width": 1080,
+                    "height": 1920,
+                    "mime_type": "image/jpeg"
+                },
+                "video_media": {
+                    "type": "video",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-presets/1a0dad23-6f48-4db1-a7c3-688defa3e0e4.mp4",
+                    "mime_type": "video/mp4",
+                    "width": 1080,
+                    "height": 1920,
+                    "duration_seconds": null,
+                    "media_id": null,
+                    "media_type": null,
+                    "compressed_url": "https://static-public-media.higgsfield.ai/music-cards-presets/cc943e92-6811-4bac-94a8-3b13d942979e.mp4",
+                    "compressed_width": 600,
+                    "compressed_height": 1066,
+                    "compressed_size_bytes": 5074674,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/music-cards-presets/e98e8297-8274-423f-9269-33cab3785d58.webp"
+                },
+                "occasion": "thanks",
+                "occasion_text": null,
+                "tone": "warm",
+                "style": "ink",
+                "music": "ballad",
+                "length": 45,
+                "recipients": [
+                    {
+                        "main": true,
+                        "name": "Alice",
+                        "role": "partner",
+                        "facts_wishes": [
+                            "Alice plays cello in an orchestra, and her sticker-covered case is taller than she is",
+                            "She rehearses at home every evening and hums her parts while she cooks, so I know them all by heart",
+                            "She's fearless about everything except moths flying near the lamp",
+                            "She loves pistachio ice cream and late-night trams, and she'll play her cello right there on the tram",
+                            "I hope every concert hall gives her a standing ovation at her last note"
+                        ]
+                    }
+                ],
+                "senders": [],
+                "song_title": "Thank you, Alice, for the music",
+                "lyrics": "Alice plays the cello in the orchestra glow\nHer sticker case is taller than she is, you know\nEvenings at home, rehearsing every part\nShe hums it while she cooks, I know it all by heart\n\nThank you, Alice, for the music\nI wake up to on Sundays\n\nFearless, fearless, fearless girl\nExcept when moths fly near the light\nPistachio ice cream, late trams in the night\n\"Shh, my favorite part is coming,\" she says\n\"I'm not late, I'm coming in on the upbeat\"\nYou make a night tram sound like a concert\nMay every hall rise to its feet at your last note\n\nThank you, Alice, for the music\nI wake up to on Sundays"
+            }
+        ],
+        "next_cursor": null,
+        "categories": [
+            {
+                "id": "right-now",
+                "label": "Right now",
+                "icon_key": "",
+                "parent": null
+            },
+            {
+                "id": "birthday",
+                "label": "Birthday",
+                "icon_key": "",
+                "parent": null
+            },
+            {
+                "id": "roast",
+                "label": "Roast",
+                "icon_key": "",
+                "parent": null
+            },
+            {
+                "id": "life-events",
+                "label": "Life events",
+                "icon_key": "",
+                "parent": null
+            }
+        ],
+        "search": null
+    }
+}

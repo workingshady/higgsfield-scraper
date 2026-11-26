@@ -1,0 +1,377 @@
+{
+    "meta": {
+        "endpoint": "community_job_showcase",
+        "url": "https://higgsfield.ai/seedance-2-community",
+        "params": {
+            "slug": "seedance-2-0",
+            "page": "/seedance-2-community"
+        },
+        "fetched_at": "2026-11-26T18:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "data": [
+            {
+                "jobs": [
+                    {
+                        "job_set_type": "seedance_2_0",
+                        "job_set_id": "da0139ab-5b04-458f-86cd-cac363fdde9f",
+                        "job_set_parent_id": null,
+                        "job_set_client_meta": null,
+                        "board_ids": [],
+                        "params": {
+                            "width": 1280,
+                            "height": 720,
+                            "prompt": "A dynamic, wide-angle shot inside a dimly lit urban apartment <<<image_1>>> as a young man with curly dark hair and a thin mustache levitates violently off the ground <<<image_2>>>, his body consumed by crackling neon-green energy that arcs from his limbs like electric tendrils. Objects — furniture, papers, cups — fly outward in a telekinetic shockwave. The room is cluttered and lived-in: a leathe",
+                            "genre": "auto",
+                            "medias": [
+                                {
+                                    "data": {
+                                        "id": "73fadd97-b8ea-47a5-bcd6-9cb1081bfe5a",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED201/73fadd97-b8ea-47a5-bcd6-9cb1081bfe5a.jpg",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                },
+                                {
+                                    "data": {
+                                        "id": "1773f576-27c1-42b4-8925-b031f24d335b",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED201/1773f576-27c1-42b4-8925-b031f24d335b.jpg",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                }
+                            ],
+                            "duration": 5,
+                            "resolution": "720p",
+                            "aspect_ratio": "16:9",
+                            "generate_audio": true,
+                            "multi_shots": true,
+                            "multi_shot_mode": "auto",
+                            "multi_prompt": [],
+                            "speedramp": "auto",
+                            "reference_elements": [],
+                            "prompt_language": "en",
+                            "mode": "std",
+                            "model": "seedance_2_0",
+                            "bitrate_mode": "standard"
+                        },
+                        "meta": {},
+                        "id": "57b655be-950f-44d6-8110-851c64228d72",
+                        "status": "completed",
+                        "ip_check_finished": true,
+                        "ip_detected": true,
+                        "can_bypass_ip": false,
+                        "deepfake_consent_required": false,
+                        "result": null,
+                        "results": {
+                            "raw": {
+                                "type": "video",
+                                "url": "https://dqv0cqkoy5oj7.cloudfront.net/user_REDACTED201/hf_20260331_050612_013b16c8-db5b-4395-8a05-37295823c21a.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED201/hf_20260331_050612_013b16c8-db5b-4395-8a05-37295823c21a_thumbnail.webp"
+                            },
+                            "min": {
+                                "type": "video",
+                                "url": "https://cdn.higgsfield.ai/user_REDACTED201/hf_20260331_050612_013b16c8-db5b-4395-8a05-37295823c21a_min.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED201/hf_20260331_050612_013b16c8-db5b-4395-8a05-37295823c21a_thumbnail_min.webp"
+                            },
+                            "hls": null,
+                            "h264": null
+                        },
+                        "published_at": null,
+                        "created_at": 1774933572.176747,
+                        "user_id": "user_REDACTED202",
+                        "trace_id": null,
+                        "cluster_hash": null,
+                        "representation": null,
+                        "drama": null,
+                        "user": {
+                            "id": "user_REDACTED202",
+                            "full_name": "<redacted>",
+                            "username": "<redacted>",
+                            "avatar_url": "<redacted>"
+                        }
+                    },
+                    {
+                        "job_set_type": "seedance_2_0",
+                        "job_set_id": "e60f96b1-d723-4554-bcd0-cbcae760d621",
+                        "job_set_parent_id": null,
+                        "job_set_client_meta": null,
+                        "board_ids": [],
+                        "params": {
+                            "width": 1280,
+                            "height": 720,
+                            "prompt": "A visceral, speed-blurred shot of a young man with curly dark hair <<<image_1>>> hurtling through an infinite radial tunnel of smeared light — warm amber, deep teal, electric blue, and soft pink — streaking outward from a central vanishing point. He tumbles backward in freefall, arms outstretched, mouth wrenched open in a scream, wearing a loose dark jacket over a white t-shirt. The camera is fixe",
+                            "genre": "auto",
+                            "medias": [
+                                {
+                                    "data": {
+                                        "id": "1773f576-27c1-42b4-8925-b031f24d335b",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED201/1773f576-27c1-42b4-8925-b031f24d335b.jpg",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                }
+                            ],
+                            "duration": 5,
+                            "resolution": "720p",
+                            "aspect_ratio": "16:9",
+                            "generate_audio": true,
+                            "multi_shots": true,
+                            "multi_shot_mode": "auto",
+                            "multi_prompt": [],
+                            "speedramp": "auto",
+                            "reference_elements": [],
+                            "prompt_language": "en",
+                            "mode": "std",
+                            "model": "seedance_2_0",
+                            "bitrate_mode": "standard"
+                        },
+                        "meta": {},
+                        "id": "bb119dc2-6298-4b8f-86c7-be7646597fc0",
+                        "status": "completed",
+                        "ip_check_finished": true,
+                        "ip_detected": false,
+                        "can_bypass_ip": false,
+                        "deepfake_consent_required": false,
+                        "result": null,
+                        "results": {
+                            "raw": {
+                                "type": "video",
+                                "url": "https://dqv0cqkoy5oj7.cloudfront.net/user_REDACTED201/hf_20260331_050625_15e9243a-4678-4eba-817b-599f0925bde0.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED201/hf_20260331_050625_15e9243a-4678-4eba-817b-599f0925bde0_thumbnail.webp"
+                            },
+                            "min": {
+                                "type": "video",
+                                "url": "https://cdn.higgsfield.ai/user_REDACTED201/hf_20260331_050625_15e9243a-4678-4eba-817b-599f0925bde0_min.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED201/hf_20260331_050625_15e9243a-4678-4eba-817b-599f0925bde0_thumbnail_min.webp"
+                            },
+                            "hls": null,
+                            "h264": null
+                        },
+                        "published_at": null,
+                        "created_at": 1774933585.841618,
+                        "user_id": "user_REDACTED202",
+                        "trace_id": null,
+                        "cluster_hash": null,
+                        "representation": null,
+                        "drama": null,
+                        "user": {
+                            "id": "user_REDACTED202",
+                            "full_name": "<redacted>",
+                            "username": "<redacted>",
+                            "avatar_url": "<redacted>"
+                        }
+                    }
+                ],
+                "logo": "https://cdn.higgsfield.ai/cinema_studio_3_0/601bc149-7674-47d9-9a01-e63e20d638f6.webp",
+                "group_image_url": "https://cdn.higgsfield.ai/cinema_studio_3_0/9946223b-28e7-42fa-89fb-f7f85947c9ad.webp"
+            },
+            {
+                "jobs": [
+                    {
+                        "job_set_type": "seedance_2_0",
+                        "job_set_id": "cbd18108-c710-42d0-abde-72dfa65e6513",
+                        "job_set_parent_id": null,
+                        "job_set_client_meta": null,
+                        "board_ids": [],
+                        "params": {
+                            "width": 1280,
+                            "height": 720,
+                            "prompt": "Realism, Hollywood live-action VFX, ARRI 35, tilt-shift lens, high-contrast cinematic lighting effects. Not 3D animation. Lighting effect reference <<<image_1>>>. \n<<<image_5>>> is lying on the ground in the position of <<<image_2>>>. <<<image_3>>> can be seen through the cockpit observation window, holding a lollipop in its mouth. A <<<image_4>>> comes rushing in and jumps directly onto <<<image_",
+                            "genre": "auto",
+                            "medias": [
+                                {
+                                    "data": {
+                                        "id": "fff4bf0d-d6bd-421e-afba-acff48e0a1f3",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED203/fff4bf0d-d6bd-421e-afba-acff48e0a1f3.png",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                },
+                                {
+                                    "data": {
+                                        "id": "31d5e606-53e9-4d31-93b2-4679df82067d",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED203/31d5e606-53e9-4d31-93b2-4679df82067d.png",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                },
+                                {
+                                    "data": {
+                                        "id": "d4fb6a11-fbd0-4ad6-8ff8-32a3d549cab0",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED203/d4fb6a11-fbd0-4ad6-8ff8-32a3d549cab0_resize.jpg",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                },
+                                {
+                                    "data": {
+                                        "id": "dd57541a-67df-422a-9e41-4c7c50338d3d",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED203/dd57541a-67df-422a-9e41-4c7c50338d3d_resize.jpg",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                },
+                                {
+                                    "data": {
+                                        "id": "e35867f4-c22e-4c94-b2b0-ea6f9ca7acf2",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED203/e35867f4-c22e-4c94-b2b0-ea6f9ca7acf2_resize.png",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                },
+                                {
+                                    "data": {
+                                        "id": "01de964c-dfad-4a98-b99a-a7ec97e8d8ec",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED203/01de964c-dfad-4a98-b99a-a7ec97e8d8ec_resize.png",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                }
+                            ],
+                            "duration": 9,
+                            "resolution": "720p",
+                            "aspect_ratio": "16:9",
+                            "generate_audio": true,
+                            "multi_shots": false,
+                            "multi_shot_mode": "custom",
+                            "multi_prompt": [],
+                            "speedramp": "auto",
+                            "reference_elements": [],
+                            "prompt_language": "zh",
+                            "mode": "std",
+                            "model": "seedance_2_0",
+                            "bitrate_mode": "standard"
+                        },
+                        "meta": {},
+                        "id": "e5d09f7e-158e-4d66-88a1-0935135ff916",
+                        "status": "completed",
+                        "ip_check_finished": false,
+                        "ip_detected": null,
+                        "can_bypass_ip": false,
+                        "deepfake_consent_required": false,
+                        "result": null,
+                        "results": {
+                            "raw": {
+                                "type": "video",
+                                "url": "https://dqv0cqkoy5oj7.cloudfront.net/user_REDACTED203/hf_20260326_194524_7288d8a1-a62f-4293-acbe-19c9c8d095df.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED203/hf_20260326_194524_7288d8a1-a62f-4293-acbe-19c9c8d095df_thumbnail.webp"
+                            },
+                            "min": {
+                                "type": "video",
+                                "url": "https://dqv0cqkoy5oj7.cloudfront.net/user_REDACTED203/hf_20260326_194524_7288d8a1-a62f-4293-acbe-19c9c8d095df.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED203/hf_20260326_194524_7288d8a1-a62f-4293-acbe-19c9c8d095df_thumbnail.webp"
+                            },
+                            "hls": null,
+                            "h264": null
+                        },
+                        "published_at": null,
+                        "created_at": 1774554324.345013,
+                        "user_id": "user_REDACTED202",
+                        "trace_id": null,
+                        "cluster_hash": null,
+                        "representation": null,
+                        "drama": null,
+                        "user": {
+                            "id": "user_REDACTED202",
+                            "full_name": "<redacted>",
+                            "username": "<redacted>",
+                            "avatar_url": "<redacted>"
+                        }
+                    },
+                    {
+                        "job_set_type": "seedance_2_0",
+                        "job_set_id": "299b5b69-b6b2-4cfa-9a34-dfe7ab6ca651",
+                        "job_set_parent_id": null,
+                        "job_set_client_meta": null,
+                        "board_ids": [],
+                        "params": {
+                            "width": 1280,
+                            "height": 720,
+                            "prompt": "Photorealistic, Hollywood live-action VFX, ARRI 35, anamorphic lens, high-contrast cinematic lighting. Not 3D animation. Lighting reference: <<<image_3>>>.\n\nInterior medium shot of <<<image_2>>>. The camera is static, slightly looking down at <<<image_1>>> from above. She looks upward. Expression — subtle fear, barely restrained.\n\nSound effects only. No music.",
+                            "genre": "auto",
+                            "medias": [
+                                {
+                                    "data": {
+                                        "id": "b1ac65c5-1462-4700-9093-80f1a95619b7",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED203/b1ac65c5-1462-4700-9093-80f1a95619b7_resize.jpg",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                },
+                                {
+                                    "data": {
+                                        "id": "ad69d017-0f1d-46a7-9fe9-39781862b722",
+                                        "url": "https://dqv0cqkoy5oj7.cloudfront.net/user_REDACTED204/hf_20260325_204836_ad69d017-0f1d-46a7-9fe9-39781862b722.png",
+                                        "type": "image_job"
+                                    },
+                                    "role": "image"
+                                },
+                                {
+                                    "data": {
+                                        "id": "781ad232-9bf8-4dbe-ace4-5a8f68739c99",
+                                        "url": "https://d20rwh69pn04qo.cloudfront.net/user_REDACTED203/781ad232-9bf8-4dbe-ace4-5a8f68739c99.png",
+                                        "type": "media_input"
+                                    },
+                                    "role": "image"
+                                }
+                            ],
+                            "duration": 5,
+                            "resolution": "720p",
+                            "aspect_ratio": "16:9",
+                            "generate_audio": true,
+                            "multi_shots": false,
+                            "multi_shot_mode": "custom",
+                            "multi_prompt": [],
+                            "speedramp": "auto",
+                            "reference_elements": [],
+                            "prompt_language": "zh",
+                            "mode": "std",
+                            "model": "seedance_2_0",
+                            "bitrate_mode": "standard"
+                        },
+                        "meta": {},
+                        "id": "f52a3a21-a118-4a2d-a60d-63585a757ed7",
+                        "status": "completed",
+                        "ip_check_finished": null,
+                        "ip_detected": null,
+                        "can_bypass_ip": false,
+                        "deepfake_consent_required": false,
+                        "result": null,
+                        "results": {
+                            "raw": {
+                                "type": "video",
+                                "url": "https://dqv0cqkoy5oj7.cloudfront.net/user_REDACTED203/hf_20260326_214342_43247df2-c1b2-47e5-98e4-704962c22513.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED203/hf_20260326_214342_43247df2-c1b2-47e5-98e4-704962c22513_thumbnail.webp"
+                            },
+                            "min": {
+                                "type": "video",
+                                "url": "https://dqv0cqkoy5oj7.cloudfront.net/user_REDACTED203/hf_20260326_214342_43247df2-c1b2-47e5-98e4-704962c22513.mp4",
+                                "thumbnail_url": "https://cdn.higgsfield.ai/user_REDACTED203/hf_20260326_214342_43247df2-c1b2-47e5-98e4-704962c22513_thumbnail.webp"
+                            },
+                            "hls": null,
+                            "h264": null
+                        },
+                        "published_at": null,
+                        "created_at": 1774561422.624112,
+                        "user_id": "user_REDACTED202",
+                        "trace_id": null,
+                        "cluster_hash": null,
+                        "representation": null,
+                        "drama": null,
+                        "user": {
+                            "id": "user_REDACTED202",
+                            "full_name": "<redacted>",
+                            "username": "<redacted>",
+                            "avatar_url": "<redacted>"
+                        }
+                    }
+                ],
+                "logo": "https://cdn.higgsfield.ai/cinema_studio_3_0/5d1b6daa-beb0-4134-8b5a-19ca0e9e42fc.webp",
+                "group_image_url": "https://cdn.higgsfield.ai/cinema_studio_3_0/3c971327-4a89-47c1-8ebb-2e6556c58363.webp"
+            }
+        ],
+        "ssr_route": "/(public)/(explore)/seedance-2-community"
+    }
+}

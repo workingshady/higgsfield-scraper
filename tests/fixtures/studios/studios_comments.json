@@ -1,0 +1,41 @@
+{
+    "meta": {
+        "endpoint": "studios_comments",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/entities/generation_publication/18d5e4b4-723d-4b26-9fb7-91d23c7819aa/comments?limit=20",
+        "params": {
+            "limit": "20",
+            "publication_id": "18d5e4b4-723d-4b26-9fb7-91d23c7819aa"
+        },
+        "fetched_at": "2026-11-26T15:48:30.853671+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "01e64f95-f701-4608-9ab1-56be2a1fe740",
+                "entity_type": "generation_publication",
+                "publication_id": "18d5e4b4-723d-4b26-9fb7-91d23c7819aa",
+                "user_id": "user_Fake013",
+                "content": "is the character ai?",
+                "author": {
+                    "id": "user_Fake013",
+                    "username": "[redacted]",
+                    "full_name": "",
+                    "avatar_url": "[redacted]",
+                    "headline": "",
+                    "badge": "",
+                    "rating_points": 0
+                },
+                "reply_count": 0,
+                "like_count": 0,
+                "dislike_count": 0,
+                "is_mine": false,
+                "reactions": [],
+                "mentions": [],
+                "created_at": "2026-10-31T22:21:22.060428Z",
+                "updated_at": "2026-10-31T22:21:22.060428Z"
+            }
+        ],
+        "total": 1
+    }
+}

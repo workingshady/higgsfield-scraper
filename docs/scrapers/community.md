@@ -86,7 +86,7 @@ Common framework flags apply (`--max-items`, `--max-pages`, `--page-size` (clamp
 
 | Flag | Default | Meaning |
 |---|---|---|
-| `--feeds` | `trending` | comma list of `trending, approved, top, model-x`, `all`, or `none` (only `--publication-ids`). Opt-in, not in `all`: `shots` (fnf-community `/generations/feed` → `community_shot`), `posts` (Community posts → `community_post`), `feed` (`/community/feed` cards → `community_feed_item`), `creators` / `talents` (aggregate creator stats → `community_creator_stats`; names only with `--with-profiles`). `--max-items` caps each opt-in feed separately |
+| `--feeds` | `trending` | comma list of `trending, approved, top, model-x`, `all`, or `none` (only `--publication-ids`). Opt-in, not in `all`: `shots` (fnf-community `/generations/feed` → `community_shot`), `posts` (Community posts → `community_post`), `feed` (`/community/feed` cards → `community_feed_item`), `creators` / `talents` (aggregate creator stats → `community_creator_stats`; names only with `--with-profiles`), `music-cards` (Music Cards templates → `community_music_card` + `community_music_card_option`), `job-showcase` (Seedance 2 community "movies" → `community_showcase_job`), `collections` (motion collection Catch the Pulse → `community_collection`), `explore-cards` (explore/home cards → `community_explore_card`). `--max-items` caps each opt-in feed separately (see "Opt-in galleries and templates") |
 | `--type` | `all` | `all|image|video|speak|upscale`; image/video also enforced client-side |
 | `--models` | all | job_set_types, comma list and/or repeatable |
 | `--preset-ids` | — | API `preset_id` (repeatable); effect unverified |
@@ -115,6 +115,54 @@ scrapy crawl community -a feeds=approved -a type=video -a max_items=100
 `--download-media`: `thumbs` → `min` image (for video: the `.webp` thumbnail); `full` → `raw` (+ `h264` mp4 for
 video); `all` → every result variant except the HLS playlist, plus thumbnails and input media. Note: for images
 `min` is usually the same URL as `raw` (full-size PNG, several MB).
+
+### Opt-in galleries and templates (added 2026-11-26)
+
+Reverse-engineered with the gallery / trends / examples / shared-pages audit (docs/COMMUNITY_COVERAGE.md §3b). None
+is part of `--feeds all`; default runs and `--feeds all` send exactly the same requests as before (dry-runs are
+byte-identical). All are public: each answered **200 with identical bodies with and without a session**, so they are
+always requested without one (`meta.auth = False`). None of these objects has comments (fnf-community
+`/entities/{type}/{id}/comments` only accepts `generation_publication`, `project_publication`, `blog_post`), likes or
+views.
+
+| `--feeds` | Source (GET) | Kind(s) | Live 2026-11-26 | Requests |
+|---|---|---|---:|---:|
+| `music-cards` | fnf-cms-api `/music-cards-presets?lang=en` (`items[]` + `categories[]`, `next_cursor` null) and `/music-cards-{styles,occasions,roles}?lang=en` | `community_music_card`, `community_music_card_option` (group `category\|style\|occasion\|role`) | 111 templates; 79 options (26 categories, 7 styles, 28 occasions, 18 roles) | 4 |
+| `job-showcase` | page `https://higgsfield.ai/seedance-2-community`: its SSR state `loaderData.seedanceMovies` = the route loader's fnf `/jobs/showcase/seedance-2-0` (`data[{logo, group_image_url, jobs[]}]`) | `community_showcase_job` (generation-like) | 5 movies, 54 jobs (all `seedance_2_0`, 54 prompts, 116 input media, variants `raw` + `min`; `hls`/`h264` null) | 1 |
+| `collections` | fnf `/collections/catch-the-pulse` | `community_collection` (+ `items[]` = motion presets, join `catalog_motion` by `motion_id`) | 1 collection, 15 motions | 1 |
+| `explore-cards` | cms `/cards?size=100&cursor=<page>` (`{total, cursor, items[]}`) | `community_explore_card` | 192 (178 video, 13 static, 1 without media) | 2 |
+
+Why the page for `job-showcase`: the scraper's own GET of `fnf /jobs/showcase/seedance-2-0` answered a Cloudflare
+"Just a moment" 403 twice (a bare GET from the same machine got 200). Challenges are never evaded, so the spider reads
+the public page instead and extracts the same JSON from its TanStack SSR state (`parse_ssr`, read-only reuse of
+`scrapers/blog/tsr.py`), then parses it like any API response. The HTML body is withheld from `http/` (personal-data
+scraper); `raw/` keeps the extracted JSON with names redacted.
+
+Limits: `--max-items N` caps music cards, showcase jobs, collections and explore cards separately (the option lists
+are not capped; the explore-cards page size never exceeds what is left); `--max-pages` caps explore-cards pages.
+Showcase slugs (`seedance-2-0`) and collection slugs (`catch-the-pulse`) are the only ones in the JS; other slugs
+answer 404 (`Showcase not found`). Privacy: showcase jobs carry `user{id, username, full_name, avatar_url}` → only
+`creator.user_id` unless `--with-profiles`; CDN URLs keep `user_…` ids (owner decision). Music-card recipients are
+the templates' example names (e.g. "Mama"), not user data.
+
+Merge keys: `community_showcase_job` has `generation_id`, `generation_key = job:<id>` and `media_keys = [media:<uuid>]`
+(raw/min outputs) for `scripts/merge_generations.py`. Music cards, options, collections and cards are templates /
+navigation, not generations (no merge markers: `preview_video_url`, not `video_url`).
+
+`--download-media`: showcase jobs like generations (`thumbs` poster, `full` raw (+h264), `all` every variant + inputs);
+music cards `thumbs` thumbnail, `full` + poster + video, `all` + compressed video; explore cards their media (images
+only for `thumbs`); collections the item previews.
+
+Output (only in runs with these feeds; dataset model `CommunityDatasetGallery`): `music_cards[]`,
+`music_card_options[]`, `showcase_jobs[]`, `collections[]`, `explore_cards[]`, `gallery_stats`; CSVs
+`music_cards.csv` + `music_card_recipients.csv`, `music_card_options.csv`, `showcase_jobs.csv` +
+`showcase_job_inputs.csv` + `showcase_job_results.csv`, `collections.csv` + `collection_items.csv`,
+`explore_cards.csv`, `gallery_stats.csv`. Field tables: docs/COMMUNITY_COVERAGE.md §5.
+
+```
+python -m higgsfield_scraper scrape community --feeds music-cards,job-showcase,collections,explore-cards
+python -m higgsfield_scraper scrape community --feeds job-showcase --with-raw-params --download-media full
+```
 
 ## Output
 
@@ -217,3 +265,8 @@ reason in `notes` and `meta.warnings`). It is the **list price today for those s
 - `resolution`/`preset_id` filter semantics unverified (see above).
 - `normalize` re-parses every item in `raw/`, so it can contain up to one page more than the crawl's `--max-items`.
 - Media `type` values other than image/video/audio map to `media_type=unknown` (raw type stays in `results[].type`).
+- Per-model community pages (`/nano-banana-pro-preview`, `/seedance-2-5-community`, `/kling-30-community`,
+  `/soul-community`, `/gpt-image-2-community`, `/marketing-studio-community`, `/soul-cinema-community`,
+  `/mixed-media-community`, `/wan-video`, `/seedance-4k-community`, …) are the approved feed with a `model` filter
+  (+ `resolution=4k` for 4K): use `--feeds approved --models <job_set_type>`. Their `/…/$publicationId` pages are
+  `GET /publications/{id}` (`--publication-ids`). Details: docs/COMMUNITY_COVERAGE.md §3b.

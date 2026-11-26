@@ -314,6 +314,65 @@ class MotionControlPreset(_CmsItem):
     pass
 
 
+# ------------------------------------------------------------------ Shorts Studio (AI Reels) — opt-in
+class ReelsPreset(_Generation):
+    """One Shorts Studio (ex "Genjutsu for Reels" / "AI Reels") preset = a finished example reel (output) plus the
+    reference reel it recreates and the inputs used. `source` higgsfield = curated (reference = a public Instagram
+    reel), community = published by a Higgsfield user (Recreate → Publish). See docs/scrapers/showcase.md §Reels."""
+    preset_id: str = Field(description="API `id` (UUID); /shorts-studio/{preset_id} for curated presets")
+    slug: Optional[str] = Field(None, description="detail key: GET /fnf-cms-api/ai-reels-presets/{slug}")
+    preset_source: str = Field(description="higgsfield (curated) | community (user-published)")
+    title: Optional[str] = None
+    description: Optional[str] = None
+    category: Optional[str] = Field(None, description="category id (only `style-transfer` today)")
+    category_label: Optional[str] = None
+    prompt: Optional[str] = Field(None, description="detail endpoint `prompt` (the brief behind the reel)")
+    script: Optional[str] = Field(None, description="voice-over / caption script of the reel")
+    instructions: Optional[str] = Field(None, description="free-text edit instructions (community presets)")
+    hashtags: list[str] = Field(default_factory=list)
+    quality: Optional[str] = Field(None, description="output quality, e.g. 1080p")
+    duration_s: Optional[float] = Field(None, description="preset duration (seconds)")
+    own_recording: Optional[bool] = Field(None, description="true = made from the author's own recording(s)")
+    job_set_type: str = Field("ai_reels_v1", description="job set type a Recreate launches (JS Dt.AI_REELS)")
+    media: list[Media] = Field(default_factory=list, description="the generated reel: output, output_compressed, "
+                                                                 "output_thumbnail, thumbnail")
+    inputs: list[Media] = Field(default_factory=list, description="reference (+_compressed/_thumbnail), character, "
+                                                                  "background, own_video_N (+_thumbnail)")
+    reference_url: Optional[str] = Field(None, description="the reference reel on its platform (curated only)")
+    reference_platform: Optional[str] = Field(None, description="instagram|tiktok|youtube")
+    reference_engagement: Optional[Engagement] = Field(None, description="the REFERENCE reel's own views/likes/"
+                                                                         "comments on its platform (curated only)")
+    reference_author_handle: Optional[str] = Field(None, description="reference reel author's handle; only with "
+                                                                     "--with-profiles")
+    engagement: Engagement = Field(default_factory=Engagement, description="on Higgsfield: likes (publication "
+                                   "likes, community), uses = `recreates`")
+    publication_id: Optional[str] = Field(None, description="community: fnf-community generation_publication id "
+                                                            "(comment thread)")
+    creator_key: Optional[str] = Field(None, description="community: sha256-16 of the author's Clerk id (from the "
+                                                         "avatar path), else of `username:<name>`")
+    creator_key_basis: Optional[str] = Field(None, description="user_id | username (what creator_key hashes)")
+    creator_badge: Optional[str] = None
+    creator: Optional[Creator] = None
+    lang: Optional[str] = None
+
+
+class ReelsComment(_Entity):
+    """A comment on a community Shorts Studio preset (fnf-community generation_publication thread)."""
+    comment_id: str
+    publication_id: str
+    preset_id: Optional[str] = None
+    parent_id: Optional[str] = Field(None, description="set on replies")
+    text: Optional[str] = None
+    created_at: Optional[AwareDatetime] = None
+    updated_at: Optional[AwareDatetime] = None
+    likes: Optional[int] = None
+    dislikes: Optional[int] = None
+    reply_count: Optional[int] = None
+    reactions: list[dict[str, Any]] = Field(default_factory=list)
+    creator_key: Optional[str] = None
+    creator: Optional[Creator] = None
+
+
 MODEL_BY_KIND: dict[str, type[_Entity]] = {
     "showcase_canvas_template": CanvasTemplate,
     "showcase_editing_room_example": EditingRoomExample,
@@ -331,6 +390,8 @@ MODEL_BY_KIND: dict[str, type[_Entity]] = {
     "showcase_intone_example": IntoneExample,
     "showcase_seedance_preset": SeedancePreset,
     "showcase_motion_control_preset": MotionControlPreset,
+    "showcase_reels_preset": ReelsPreset,
+    "showcase_reels_comment": ReelsComment,
 }
 ID_FIELD_BY_KIND = {k: "id" for k in MODEL_BY_KIND}
 
@@ -352,6 +413,8 @@ COLLECTION_OF = {
     "showcase_intone_example": "intone_examples",
     "showcase_seedance_preset": "seedance_presets",
     "showcase_motion_control_preset": "motion_control_presets",
+    "showcase_reels_preset": "reels_presets",
+    "showcase_reels_comment": "reels_comments",
 }
 
 
@@ -383,3 +446,5 @@ class ShowcaseDataset(Strict):
     intone_examples: list[IntoneExample] = Field(default_factory=list)
     seedance_presets: list[SeedancePreset] = Field(default_factory=list)
     motion_control_presets: list[MotionControlPreset] = Field(default_factory=list)
+    reels_presets: list[ReelsPreset] = Field(default_factory=list)
+    reels_comments: list[ReelsComment] = Field(default_factory=list)

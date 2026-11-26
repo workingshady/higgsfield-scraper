@@ -1,0 +1,110 @@
+{
+    "meta": {
+        "endpoint": "studios_skills",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-skills-marketplace/api/v1/skills/community?limit=100",
+        "params": {
+            "limit": "100",
+            "rank_base": "0"
+        },
+        "fetched_at": "2026-11-26T15:47:38.885942+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "display_name": "[redacted]",
+                "id": "42322eab-d394-440f-8cb8-9befef94702c",
+                "author_user_id": "user_Fake009",
+                "author": {
+                    "avatar_url": "[redacted]",
+                    "name": "[redacted]",
+                    "user_id": "user_Fake009"
+                },
+                "is_builtin": false,
+                "name": "seedance-cinematic-prompter",
+                "canonical_slug": null,
+                "description": "Shadow probe for seedance-cinematic-prompter",
+                "short_description": "Conducts shadow probes for the seedance cinematic",
+                "sub_title": null,
+                "examples_section": null,
+                "example_prompt": null,
+                "installs_count": 671,
+                "unique_users_count": 77991,
+                "usage_count": 152815,
+                "color": "#D79642",
+                "preview_urls": [],
+                "category_id": null,
+                "created_at": "2026-11-18T00:04:14.169319Z",
+                "updated_at": "2026-11-18T00:04:14.169331Z",
+                "installed_user_skill_id": null,
+                "reference_paths": [],
+                "references": [],
+                "usage_total": [],
+                "usage_personal": [],
+                "content_url": "/api/v1/skills/community/42322eab-d394-440f-8cb8-9befef94702c/content"
+            },
+            {
+                "display_name": "[redacted]",
+                "id": "f44e4b80-0441-4d1f-bec0-4f17c2e7c075",
+                "author_user_id": "user_Fake010",
+                "author": {
+                    "avatar_url": "[redacted]",
+                    "name": "[redacted]",
+                    "user_id": "user_Fake010"
+                },
+                "is_builtin": false,
+                "name": "seedance-cinematic-prompter",
+                "canonical_slug": null,
+                "description": "Shadow probe for seedance-cinematic-prompter",
+                "short_description": "Runs shadow probes for the seedance cinematic prompter.",
+                "sub_title": null,
+                "examples_section": null,
+                "example_prompt": null,
+                "installs_count": 108,
+                "unique_users_count": 77991,
+                "usage_count": 152815,
+                "color": "#D79642",
+                "preview_urls": [],
+                "category_id": null,
+                "created_at": "2026-11-21T04:44:49.241106Z",
+                "updated_at": "2026-11-21T04:44:49.241118Z",
+                "installed_user_skill_id": null,
+                "reference_paths": [],
+                "references": [],
+                "usage_total": [],
+                "usage_personal": [],
+                "content_url": "/api/v1/skills/community/f44e4b80-0441-4d1f-bec0-4f17c2e7c075/content"
+            },
+            {
+                "display_name": "[redacted]",
+                "id": "582a3126-6953-449a-ac20-106906312b9e",
+                "author_user_id": "",
+                "author": null,
+                "is_builtin": true,
+                "name": "seedance-cinematic-prompter",
+                "canonical_slug": null,
+                "description": "How to write a Seedance 2.0 / 2.5 (or Sora, Veo, Kling) video prompt with the CINEDANCE prompt layer: decide the scene, then write the prompt yourself from its reference copies; the CINEDANCE writer, higgsfield_enhancer(flow=\"seedance-prompt\"), is optional for 30s+ sequences split into several generations or on request. Use when the user asks to write, fix or audit a Seedance prompt, after a failed or weak Seedance render, for a cinematic one-off clip, or to turn a supplied storyboard into one clip. Lazy input (\"epic sci-fi scene\") means you invent the scene first; only when the user explicitly hands the content to the video model does the call use mode \"random\". For a one-off anime or stylized scene, decide the look and scene yourself and use this; stylized-animation is for full multi-clip productions. Not for genre workflows with their own skills (UGC, podcast, motion design, ads), not for editing or re-angling existing footage (video-reangler), not for MiniMax H3 or Gemini Omni workflows.",
+                "short_description": null,
+                "sub_title": "Decide the scene, then write a production-safe Seedance 2.5 prompt with CINEDANCE",
+                "examples_section": null,
+                "example_prompt": "Write a Seedance prompt for a single-take wide shot of a cyclist crossing a flooded neon market at dawn",
+                "installs_count": 0,
+                "unique_users_count": 77991,
+                "usage_count": 152815,
+                "color": "#1A1A2E",
+                "preview_urls": [],
+                "category_id": "content_creation",
+                "created_at": "2026-08-10T09:46:10.657138Z",
+                "updated_at": "2026-11-25T14:07:10.444421Z",
+                "installed_user_skill_id": null,
+                "reference_paths": [],
+                "references": [],
+                "usage_total": [],
+                "usage_personal": [],
+                "content_url": null
+            }
+        ],
+        "next_cursor": "eyJzIjogMTY1MCwgImlkIjogIjAzZDk3NzdiLTE4ODMtNDIyYi05ZWFmLWZhMDkzYjA1MjIyYSJ9",
+        "next_offset": null
+    }
+}

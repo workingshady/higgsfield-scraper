@@ -1,0 +1,52 @@
+{
+    "meta": {
+        "endpoint": "community_music_card_options",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-cms-api/music-cards-styles?lang=en",
+        "params": {
+            "lang": "en",
+            "group": "styles"
+        },
+        "fetched_at": "2026-11-26T18:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "style": "feature3d",
+                "label": "3D cartoon",
+                "hint": null,
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-styles/166d1a1b-266a-4d1d-83b6-0600041fa73d.jpg",
+                    "width": 1024,
+                    "height": 1024,
+                    "mime_type": "image/jpeg"
+                }
+            },
+            {
+                "style": "clay",
+                "label": "Claymation",
+                "hint": null,
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-styles/2f3f14c3-3bd6-48c8-b721-5af1de615f53.jpg",
+                    "width": 1024,
+                    "height": 1024,
+                    "mime_type": "image/jpeg"
+                }
+            },
+            {
+                "style": "anime",
+                "label": "Anime",
+                "hint": null,
+                "thumbnail_media": {
+                    "type": "static",
+                    "url": "https://static-public-media.higgsfield.ai/music-cards-styles/b964e059-f797-4d6a-9a86-3aeb653e23f9.jpg",
+                    "width": 1024,
+                    "height": 1024,
+                    "mime_type": "image/jpeg"
+                }
+            }
+        ]
+    }
+}

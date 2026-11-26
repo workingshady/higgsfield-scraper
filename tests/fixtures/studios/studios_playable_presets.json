@@ -1,0 +1,360 @@
+{
+    "meta": {
+        "endpoint": "studios_playable_presets",
+        "url": "https://cms.higgsfield.ai/playable-ads-presets?size=100&cursor=1&lang=en",
+        "params": {
+            "size": "100",
+            "cursor": "1",
+            "lang": "en"
+        },
+        "fetched_at": "2026-11-26T15:47:37.439508+00:00",
+        "status": 200
+    },
+    "body": {
+        "total": 112,
+        "cursor": 2,
+        "items": [
+            {
+                "id": "067af789-4b6f-4c12-9327-0c9f3dc728a1",
+                "title": "Lantern Depths",
+                "category": "maze",
+                "poster": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/6af705ef0461967c2d7cbb76c692c2ff15505a2ed1475fa311a5de4a6cc5ca93",
+                    "type": "static",
+                    "width": 2352,
+                    "height": 1760,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/1c92e4c939ea1a0c0d75e0921eb9b5ff42b88a96a7dacca819c820dc7c237b82"
+                },
+                "vertical_poster": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/eb769aeb-5575-4d44-b8f1-6f356cecf2fd.png",
+                    "type": "static",
+                    "width": 1520,
+                    "height": 2688,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/1c784ee4-e572-425c-8d7e-2d2edebafebe.webp"
+                },
+                "game": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/512231692d7b22b3008d888f03f3a0a16d613e84921dbe1c26a482940e49c1cc",
+                    "type": "file"
+                },
+                "widescreen_game": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/78461eaf2206819d79fde734196a8af2e82b6ab7d17a258929c41179cc81f435",
+                    "type": "file"
+                },
+                "video": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/60fd4418d68a9fd259235e367b032f6daed01daa649302999246b9798a99ba77",
+                    "type": "video",
+                    "width": 1080,
+                    "height": 1920,
+                    "main_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/60fd4418d68a9fd259235e367b032f6daed01daa649302999246b9798a99ba77",
+                    "main_width": 1080,
+                    "main_height": 1920,
+                    "placeholder": "data:image/webp;base64,UklGRpoBAABXRUJQVlA4II4BAACwCACdASogADkAPkkcikQioaEb/VQAKASEs4BdkIm4M95FIk4X6Ot5rv04up1tLaa/bqu2u5JcxxVcjnOJpQoTQmDR1Jf7lqSVwYZbkAAA/v7lHbLjW+6mPJsSTxwZS8iZ0LDBIqK4T05t/AiylvDgNASseaKF5JgE3sjEYoeSXgyTYSXcc2KEdExCD4Gvk8Qrzw53V5VLx3JgKh8owm+nVpxJNs+PnUTPBvOs1yO8GlqwfEIeHPFfhRzSTORtQkA8UmqHzXotEZ1mzLPnoySEHxTc/InQzeRIaovGdK4fnf/s9KGFIPd3Bszipw8/Fz3zrUWSsioE5emIG+SwyTf1QNxkxDkk3/X5eI+LUgRL02JOwK2osSRVtPY/8D/802AygNU+gQFvGKqaClle1CUMtPe2XsKqU3z3EjZ/nbqukH0ndfzlYiEEdLSkFmZr/MpFL6rpwIlfIEuhdtvGbmgq2FsYHvyNZfNynisHrnEPiBXnfjzMJfl5wXIhfyBSLXFwy79pM4+6BUaCD+GAAA==",
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/e2e70bb5e13163f7426109173ae6bd2e4c83aea2b1f314e31e91d2850fe03fc8",
+                    "compressed_video": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/93ef9f4919a470b1c049ddeca8719419bd2d5d5f442bdc205ed708fa27ea3e37",
+                        "width": 600,
+                        "height": 1066,
+                        "status": "ready",
+                        "profile": "playable-ads-h264-600-1200k-v1",
+                        "duration": 105.933333,
+                        "size_bytes": 9301036,
+                        "source_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/60fd4418d68a9fd259235e367b032f6daed01daa649302999246b9798a99ba77",
+                        "audio_streams": 1
+                    }
+                },
+                "widescreen_video": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/0906f20ede5dc3e74331ad3ec4009613c915113e309008b552922c734fbadd0d",
+                    "type": "video",
+                    "width": 1920,
+                    "height": 1080,
+                    "main_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/0906f20ede5dc3e74331ad3ec4009613c915113e309008b552922c734fbadd0d",
+                    "main_width": 1920,
+                    "main_height": 1080,
+                    "placeholder": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAwBQCdASogABIAPlEijESjoiEUBqg4BQSzgFiPy1OTpERzJZLvUs153gb1mHkWyNs9oAD+/R6s2bdDneh9iYc+dvDk7kRk979UqAwSVblj/DY1lWQKZR32Ftgritzz1KqoNArn1Vj/1wi274rsc7Z4inbWGM4959+ji+SyUkXOz4Q1foez+KuLcF4Pnq7+mz1lSGin10uiUhYAoWPjDAexbeP24cBng/0vEnmMusCUMmvAELy5IPC8gX3NwVv+gsMFeFoAAAA=",
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/6c423f47c45a8a204dc36a4a77fe8e11b9a6a41351f1f991538d26ebddc383f2",
+                    "compressed_video": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/e9bc27f5a859c0c13c7da0a95accf0c1b5a5d7610c73791e6b2d1bfabdf1fd91",
+                        "width": 600,
+                        "height": 338,
+                        "status": "ready",
+                        "profile": "playable-ads-h264-600-1200k-v1",
+                        "duration": 94.166667,
+                        "size_bytes": 6074978,
+                        "source_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/0906f20ede5dc3e74331ad3ec4009613c915113e309008b552922c734fbadd0d",
+                        "audio_streams": 1
+                    }
+                },
+                "input_video": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/fef62f08-bad4-44d0-ae78-cb65958bb246.mp4",
+                    "type": "video",
+                    "width": 1080,
+                    "height": 1920,
+                    "placeholder": "data:image/webp;base64,UklGRiIDAABXRUJQVlA4IBYDAACQDQCdASogADkAPlEejEQjoaEYCgb8OAUEtgBUlqCpruv+Yfif7AlLftuK7wDtuN5gPKI9QHngdTh6AHSdOCeGaH6xpHkuSrRgCqb3W5oAbcgBJ9qEgv+ArTDCzSIywHPY/EWA/je82zanigJ+w1mYGkf92pwA/vQSbMqXnboD9C69bpdt/+MyB0z7MSwTBijTQdX3+78WnzeJINOQA13FBi4aQm9152Lo7tZgUsnV3be+XHF2cCSp+mMFzQt5CrP23krvDDfk9ugTL8r0yrbbyS51A0JFVAU2M2Q8I6Xm/VC6Tew4D8WQflwG/PpdI+sTYYiMxM/EfYsBGNQwX2ijqYRu/gB43ZefusefqQyVHmiHlIgyTn0OBQZiLmVsFLSEsktQle0pFS+J/MNv3Z4ExXgLmOu1dYEUH3aF2GH+E5m2WGZ/BtSsuMudVLjn6ao9xZO9eqqyyk53ZLepR3FmR/gBaGhONlNQbR0n+hCmjqLhAePdH6hnxU+u+hGAeU+sfBSsJMtxwcefwDS17fCivvtpxnMQsvvXZslRfWXiZdJSpLitUulADk4NH3YzLIqA95J4fMsEP5qyo4tPgqMm5zxEBI7uwWPQXlzJl+iofm7QV3rrJGJrM1LGeEcK1TmS4klv/3zLyYf+kurwYlw+OOVSxYuNWhtRySuhL9C7AeqUwti3ehNwQVFSluyzA0W5Pm3liv0emq1f336frS6FyC1vqJU7XCP61+NZP1nTOlrv89Ref5dr7Xown15Y7ThgHEQkL/CtgsCiOglCtwYYqQnN4lXNL1/nDpNWGf3265X7inodY7vwdWaR+x2Z6qu8l2s9qIbXpB2kmlSzr7OVKaVpK1zjFmkPP1G9yfzYqgUV4868BeISoGlWLaliCVuSxj7tigXtV455+C7917//X/pcA1vEDeHv4D6OrBDZsshsNG1Sc2Y9cNUg6PGJYWhkvpqV0r934wN6dKwq+fyqUAkxqHSZfNpbuZjqQMGH+v/NJ/4ugNg8ut/DDDof/9Ou/xGvRrsT+VGewxNcGGskqiwsAAAA",
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/69f15390-9bd4-43d6-9cea-0452d768cbd7.webp"
+                },
+                "covers": [
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/131bca6a083e5db655252e4757aef987b22c58b4c07939be2daf7043a01ef993",
+                        "type": "static",
+                        "width": 2352,
+                        "height": 1760,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/47277ea1b642a93dfc494aabcdea9b65a970f2d62f3399f5a39da112de232d01"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/19b52e7785b90b51229c7f5418167f63251b40a8066563d867cd95031d6f19a1",
+                        "type": "static",
+                        "width": 2352,
+                        "height": 1760,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/1ba8891298c1fb5487c9f78e39763c3a9ecf068458e1f77d0bcc1068649f778c"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/665e75d7d86863afcd6a4e7abad11a6e299736f90f6b8ba7a0ccd6490018a583",
+                        "type": "static",
+                        "width": 2352,
+                        "height": 1760,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/fdf74f11f78a4bbd752a2b497f82588bd177c148e63b2a767e0e514e35b3b21f"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/2b60d8837592afb040e957464aa49fcc2564e93e68c1c5ae7ef978809f5fe254",
+                        "type": "static",
+                        "width": 2352,
+                        "height": 1760,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/3a27fc3f637dc18fb1bf240f9197b6d1ccffdce56252f083cad82470adc9336c"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/7cdb6c6bf39053d2bfd1203f902ff66190192be1ea29be6de2bd731530996928",
+                        "type": "static",
+                        "width": 2352,
+                        "height": 1760,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/16504f24c89babeb5c10b1898e7007a9730c82b37a45595182f21c05bc82397a"
+                    }
+                ],
+                "priority": 0,
+                "recreate": {
+                    "prompt": "Create a 2D adventure platformer where a lantern-carrying explorer searches dark underground ruins for treasure. Your goal is to find the bronze and silver keys, open locked chambers and reach the hidden vault. You run and jump between stone platforms, stomp slimes, dodge swooping bats and spikes, pull levers and push a stone block onto a pressure plate to open new paths. Collect gems, treasure and protective charms, find feather boots that let you double-jump, and defeat the guardian by dodging its dives and jumping on its head.",
+                    "game_type": "maze",
+                    "dimension": "2d",
+                    "mode": "auto"
+                }
+            },
+            {
+                "id": "0a0d32af-8464-4b33-a8d3-93881eb8feae",
+                "title": "Pixel Legion",
+                "category": "strategy",
+                "poster": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/b1e16365bc1893d2818d0c5ba08d6f55b41a49a46637d3f490644526c9f7affc",
+                    "type": "static",
+                    "width": 2352,
+                    "height": 1760,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/727f1b29eb97242f28e2393f372f17b9b86b2e258b4a599017d2c35c3395ca40"
+                },
+                "vertical_poster": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/9eaae572-d999-4a79-be2a-c002834dd036.png",
+                    "type": "static",
+                    "width": 1520,
+                    "height": 2688,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/1139597c-bc49-4892-90fc-070f0642818d.webp"
+                },
+                "game": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/a28dee620a66c9f1c26b2958d7943591281505ea80ddba3dfe8106fba47803a3",
+                    "type": "file"
+                },
+                "widescreen_game": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/37dfbbf1f7a25a868785bcba4f0e8bbd2d517ed4664483e1990dd32103096185",
+                    "type": "file"
+                },
+                "video": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/65ecf93df733c1bc2fb78b75cf7870dd793d9c8947b39ed96eeeaf9dd567d369",
+                    "type": "video",
+                    "width": 1080,
+                    "height": 1920,
+                    "main_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/65ecf93df733c1bc2fb78b75cf7870dd793d9c8947b39ed96eeeaf9dd567d369",
+                    "main_width": 1080,
+                    "main_height": 1920,
+                    "placeholder": "data:image/webp;base64,UklGRigCAABXRUJQVlA4IBwCAAAQDQCdASogADkAPlEkjkUjoiEUDAVUOAUEtQBb+Mb/AOiGsP0/8cuQJergV7avnjucA62D0JfLH9ll9j16CfXhRmRdJ+ww4CR9XmBt5Pu3HDig8GytG298abj6ZHq/eu4fUAaPUQzLt/Rxjwhz8KWWAAD+94J3M0O5TrP1e27cYkhcVH+M/nePXgDQY/2FOTdY+DRQfAwfl8e+wfDizmV/wkO5Y2frM/mViP+N5f/RvhuLE91ekYa0AvbE2mUTujaMxJ/G1bUb0xanG3LRdZoj0kcJpjWBIY2L5JWGJa9om58o/N3b3CwM9HWOzkshYFOgIuNFd6lWphq2g2F2WmYHP9iyBVGHKaMxYx0NaH8O8huolJH4rIrErfyMpf+SHZSS8aBEoIkpf/lpeUdIfb385KpQMDCkddAUT9OSc0wXxtWKwE2aEDsbi4HoQm+g5R/GMUuV9WpKGw67YS0flHJQrYfFjl6zNBZIGf+q6arKjf6snsqVImT2f2fKZ9Uc3r5jrUZdHKemrADb4GWY934pCqiOGMLLq67XW6FsP+5g8e7R+k1ZBi6ynJzVdnZyl/289rnnRxrliFxengbqd2IxLbM1UyJb1c+S2/9muf8LDttl0b8nVWDo2oQ5Apx00m+ewN+N+va/83x91lFhkR/PYH3SEtFnEpXwTr8N5goDh8mSdEyt314FR6OJ8n1iUS2vq9VSpdBt5wQAAAA=",
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/b80138fc30ad540f14b1537990c8c0fecf237eac2b78791e33a844368e070af3",
+                    "compressed_video": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/f9aad53deec0b9cb49b81f543ff73ea8925cb89dc3c774ad182e99d999619b15",
+                        "width": 600,
+                        "height": 1066,
+                        "status": "ready",
+                        "profile": "playable-ads-h264-600-1200k-v1",
+                        "duration": 20.4,
+                        "size_bytes": 3500911,
+                        "source_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/65ecf93df733c1bc2fb78b75cf7870dd793d9c8947b39ed96eeeaf9dd567d369",
+                        "audio_streams": 1
+                    }
+                },
+                "widescreen_video": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/81b350276ad7998e4816ad5ae75796bb0dfa45914eb7239b711232fd7af1601f",
+                    "type": "video",
+                    "width": 1920,
+                    "height": 1080,
+                    "main_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/81b350276ad7998e4816ad5ae75796bb0dfa45914eb7239b711232fd7af1601f",
+                    "main_width": 1920,
+                    "main_height": 1080,
+                    "placeholder": "data:image/webp;base64,UklGRiwBAABXRUJQVlA4ICABAAAQBwCdASogABIAPlEgjUSjoiEYDAQAOAUEtQBOmUI4G9Vtw7QPXV6EF3Kbzn/4CLDI4Bq/dYfUQ8U7R8rtV0QOQAD+96wA1DbqrHdt63wuFr5h4eVBTD44N3WRtnLWNy+Gr6TN8ZoQJmwlFYYOJppGveEN7MqZrXYzn7UBjqVr94vzeI4r34ZU6ZUk0vnt9JsEmp+iugKvX9oD9qJZVFZom0TgW1GWtzrx7C3k06yrPz0AOOfpa+5UWid10B43daAKp5NZAGEyLb8gsqRbsoQIIG2MC9x7EKFJxMcWXX9hS34BMbRMmmia9mEjFo6JnfFXhsKJLSfyVt/90TP8lbfqw3t/2m5bb/5fO+s5UV+m5LmNOWMKgkEwkdRvE5IAAAA=",
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/ca14fc9d79d8586418b46a4a0c80340977c0bbeb24da11dee7995659935ceac7",
+                    "compressed_video": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/c06630d0b9fdbfac2c72881df7b0f36c68c4768eec23032a46ac22bb929b18cd",
+                        "width": 600,
+                        "height": 338,
+                        "status": "ready",
+                        "profile": "playable-ads-h264-600-1200k-v1",
+                        "duration": 20.4,
+                        "size_bytes": 2157395,
+                        "source_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/81b350276ad7998e4816ad5ae75796bb0dfa45914eb7239b711232fd7af1601f",
+                        "audio_streams": 1
+                    }
+                },
+                "input_video": null,
+                "covers": [
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/a3dda843f76979e46ccaa0e2cd94abaef2ad48c2e3bca6f5822ac3421236bfe7",
+                        "type": "static",
+                        "width": 2352,
+                        "height": 1760,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/c572e9d245ecd868f08b4bd15a9f983d5e257a7878aa6791a59e6e5716c3ff7a"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/62e44a7a044a6136ad53bb58725815fdf2a2af40a7f05ff664ce694d219a1e76",
+                        "type": "static",
+                        "width": 2336,
+                        "height": 1744,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/2104cf83f2bf4b8de45fea773deed6b20f7b78de0603322d8b99135efba24759"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/3fdd3feff8b13771c1b5d18bc2f5a672b3b3da88231c4b41a9c4af1003a5ec14",
+                        "type": "static",
+                        "width": 2336,
+                        "height": 1744,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/92891e0fb37492cd37383f7d117037b3e634997285676894c55b928adaca6322"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/a74eccac29995538e21675f00a0851b30c1ee2f77a3d24c305e7d0d381610930",
+                        "type": "static",
+                        "width": 2336,
+                        "height": 1744,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/bd69d85863bacdcbc79ed19ba01b7a86321578792acb9e468ea1706496005de8"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/af2e22aae769732dcf60e4ad959cff4e5edb7855c9751b5bcf42204d4b3bdc50",
+                        "type": "static",
+                        "width": 2336,
+                        "height": 1744,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/ad36056e2d9225d0b7aff19c395b0cc7a7e0b614abed4d23a862068cc68c285c"
+                    }
+                ],
+                "priority": 0,
+                "recreate": {
+                    "prompt": "Create a casual 2D pixel-art mobile crowd runner in 16-bit SNES style, playable in portrait and landscape. You lead a growing legion of tiny soldiers down a meadow road, dragging left and right to steer through gates that add, multiply, subtract or divide your army, and class gates that turn soldiers into archers, shield bearers and wizards. Dodge spike traps, rolling logs and catapult rocks, grab tents, war drums and mana crystals, and cast Fireball, Frost and Rally spells to break goblin lines before sunset makes them stronger. Smash Captain Grub's goblin wall, storm the Goblin Fortress and defeat the three-phase Ogre Chief to win back the Sun Crown. You lose only if your whole army falls, and each level awards up to three stars for army size, beating the sunset and losing no soldiers.",
+                    "game_type": "strategy",
+                    "dimension": "2d",
+                    "mode": "auto"
+                }
+            },
+            {
+                "id": "0fc0a20c-9da8-4294-8d43-58fc9516c298",
+                "title": "Summit Rush",
+                "category": "runners",
+                "poster": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/3bcf1c5c0f4b5a655c5f2676dfce1cef851d6e1cc56fa7620a376f401131a400",
+                    "type": "static",
+                    "width": 3312,
+                    "height": 2480,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/6e24bb49dd7cd25bd5b8b982bf6e8b4ca9de3b16a9f7c93af65126d815bf259c"
+                },
+                "vertical_poster": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/219ba667-c5c3-429b-8560-14fbc0af1f25.png",
+                    "type": "static",
+                    "width": 1536,
+                    "height": 2720,
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/37e0b622-245c-48b1-9ce7-0df0353d0e16.webp"
+                },
+                "game": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/819d46780ce96e286783397bf66564ae85c9269f5db7773c88b05892026242cc",
+                    "type": "file"
+                },
+                "widescreen_game": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/6e647d0dd9156536a5c227b78f7cc3f1af56e8ff9e9c763333091deddeded9eb",
+                    "type": "file"
+                },
+                "video": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/1548d2693d34223825a39feed96ba1c4fd041ce0d93b3be51d83b30c1f0df1a9",
+                    "type": "video",
+                    "width": 1080,
+                    "height": 1920,
+                    "main_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/1548d2693d34223825a39feed96ba1c4fd041ce0d93b3be51d83b30c1f0df1a9",
+                    "main_width": 1080,
+                    "main_height": 1920,
+                    "placeholder": "data:image/webp;base64,UklGRsACAABXRUJQVlA4ILQCAADQDACdASogADkAPkkei0QioaEZ+zaoKASEoAtRschx/gvj+WL0L+dv00n0AOla/a+hTMt6Ut9uWPEWtAhh9QzO5pm8ojiOcC+2P8zlQ0Oir/yncEwPyh5U1SNS/R65K1RQMdDXPfMPyKhm3akvQgAA/v0UGPZL0Ks57V3o9BJU1+5L2qM9Zigd4XWnphPJ/cJ0g1nPZ8LlyLV7bJ2Q1m8SXLCDwM6MnnJCHgeaKhyQYK6pGG4DgVxLbR+mXJURXWwWgcf4bO9eLMPadsMb/5rmgD5WSzRt0KSLfxAwYyLl+oriyJTWDU9CDJSt6v3ST6jM1YNuAuNvCLbth6z4gQm/6lCdtfF19wBuBUiiyd5d+44MXjz3qsMVh6v1I+dE0DEu9kIwDtDsZfdyQO+ddU2h0YXKG3iC8hQeGcdPsH40RApeQuNiXNosgn2UsJYFAyxdK9qrahskFCqL542xAJg9+yHLF39YpGx+WRVHUPsZQWEmP7uGhZfnLBMfy1plSCRyt4dRLxFxurnV+tHMWgWEp2+yq2kFvjcMyEPD5f87CQuBwoCzANp3ElrP6l2aS8QxXKlNE30lCyBQQ0BPl7OSkTzccFbSNhhKJxBO8+tX39b+tmX2//p3cD9JyAAyqIBFey3tb+inIwkbUbnU4V6kq4UqlsyaMyasxgoFZube4zYWfTFzRbWV8SZ9PN9Udx6Di/Nz0hCurRNgbGdoUUE2zngSxzctPfZPmMSLWXEwxGSchdRnGwtoYbFUCqe0sK3fmEXb6Ma2WFFJ9JP+MJMi7ul862r/LRr/wrwK3H78UJ/l/BFvol3vcE8v834nun7KXCxRK7e5Dhs08nCQdV3+1Fia9BwoNXNKLRlzVzAEZu1HRUG5gPI1nW+nrq5nURDRnRKL921609N483HIQbQr1tAAAA==",
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/484267ab60fbe8d5f4db0976f27a43658f4fb080eb0e0310a138227ae1d03d74",
+                    "compressed_video": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/64d08b47af4841ace8a5fb68b4d562092df41373975ab6b9acbb550aaed969e8",
+                        "width": 600,
+                        "height": 1066,
+                        "status": "ready",
+                        "profile": "playable-ads-h264-600-1200k-v1",
+                        "duration": 20,
+                        "size_bytes": 3541680,
+                        "source_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/1548d2693d34223825a39feed96ba1c4fd041ce0d93b3be51d83b30c1f0df1a9",
+                        "audio_streams": 1
+                    }
+                },
+                "widescreen_video": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/7f742e4d752d6d34e7a0eb34d01654da62dc4cf81f5867cbe8955294a53e92d9",
+                    "type": "video",
+                    "width": 1920,
+                    "height": 1080,
+                    "main_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/7f742e4d752d6d34e7a0eb34d01654da62dc4cf81f5867cbe8955294a53e92d9",
+                    "main_width": 1920,
+                    "main_height": 1080,
+                    "placeholder": "data:image/webp;base64,UklGRjoBAABXRUJQVlA4IC4BAADwBgCdASogABIAPk0ci0QioaEYBgAoBMSxgE6ZddhS3+YQDsw9AKAYYK6X9kMxPFmnLeMkn+bE1qN2ox1qsyZAAP145rdyeDVKFulzb3fI0qLdx/wta4X1WYUmjvOxT8hqqLJfXortGFsfkHq4Fo70HKmAifFXBeihvCGwBVbXgfyq0gPj16tniZBs7ybzEjzgnuYgHrGnSnsZg1OGXjLekx8UphxZIB2+7nfS+6Kc0VcqujeDhQAqv+CqibEzjogBF8ykpLawMjCS6ZsKJcchTAJn9lVhmryKwTQxeIbXEUr15QjuMdLFgYFrWgRnd9xlDVkCwYsixxV6ZEmINGuiOB0tvDTTGY9ITliawxXof00ny1p+yAD8jo/8CQJF1w6LM7H8UwSvB6y0h5AAAA==",
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/5ed36d2b5446d7151b75c178681a364bf35866fa5a3df17e047a2730dd60f944",
+                    "compressed_video": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/13e75317c8d8891392c8b9c6c8394c0116cf1995ba0165e844a22e280f598a6a",
+                        "width": 600,
+                        "height": 338,
+                        "status": "ready",
+                        "profile": "playable-ads-h264-600-1200k-v1",
+                        "duration": 20,
+                        "size_bytes": 2555645,
+                        "source_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/7f742e4d752d6d34e7a0eb34d01654da62dc4cf81f5867cbe8955294a53e92d9",
+                        "audio_streams": 1
+                    }
+                },
+                "input_video": {
+                    "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/8809414a-d7b8-4499-87b0-3b86d023aa46.mp4",
+                    "type": "video",
+                    "width": 1080,
+                    "height": 1920,
+                    "placeholder": "data:image/webp;base64,UklGRlACAABXRUJQVlA4IEQCAABQCwCdASogADkAPlEgjUSjoiEWCq5kOAUEtgBOnKCpXyQms+7bBwTsZV9VeiAdJTvH/7XkbqMmn/UuHObEHXCm9Py28TKiHZYdzoud2j+gnJHfB7zzFGG/RFLteZ4law7fCRgA+QUn9MfwXWqlJ37b1gdp4SSV1ZlNVd0OXbqfgIUCaWAsmdIYCiraeT7gWNm0NmsBLhaWFN8flLzbKrbtBs33v2f0jZAnpuUNFOt+G5Rx/zPSm/ShZrBkKbDOU7BDZqECdmKfTRfEjzyx9uxL27UR5Zz9tvjhiaXyNWxTOkOJzaJM8HLDt4gmdaFY4y8qpnFMkkfw2SkExxV6Z8yyS4dtQgAwm70f+xuwA/RnpndG+e3SlHfF02R9864b6igELF3Ed+GqhdYF5pJAfjbJxalWsjvbQRA45hyn1agojI/+jibSsIOr5FUo54qyovYK/utZGFXJQ/sTVZE85JETQq+oeh7Z03OCb4triueGf31ZuWvCkCMpvq2J0/Y/mQ/F7uNCtNXmgUOS2vWVNIi2fAyGOLTtXn3kzcf48oSOnurqlAg/aQztx91KTkN6O2WhK3gx2sHVdcG1hkV3DXVwKiDYeh1bLN1Wl1yjdSLKjqkx6Ym/Mld4GNFeShY1ICxyRt8ijX+GoJcA1ddmcG4sF6X4Beh2rS9vRLeCNUvGEoVOvPnmFQWuCQB+bsfOCmvEjykKXs8w3iqf3iQlrQ3PT/Rc74+/P6S4kA47waJF+FbnsUBaD/8NSA3+3sWvquBJfIAA",
+                    "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/70e572d7-812c-477d-a9df-ddbd64398c52.webp"
+                },
+                "covers": [
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/599dcbc28984ab7b41efbbdc40a492b32a293a91f72a0b0b72f091313375b4b8",
+                        "type": "static",
+                        "width": 3312,
+                        "height": 2480,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/0dc99450f69899664dc2f2bcf84a1726b173d53b0a1f61f6815a0497f045e4ac"
+                    },
+                    {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/979332d7e84c94432c506812f67c65dbd9158827d55a4daa4bff40a2f076388b",
+                        "type": "static",
+                        "width": 3312,
+                        "height": 2480,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/da28e2aa2b6a9ae333254bff84ab16ccf6722c5985da5cef78722221d3fa924f"
+                    }
+                ],
+                "priority": 0,
+                "recreate": {
+                    "prompt": "Create a 3D downhill racing runner on a snowy mountain slope lined with trees and flags, where your character races against three rivals. Your goal is to reach the finish line in first place before the timer runs out, keeping your 3 lives and collecting crystals for points. You switch lanes to dodge giant snowballs and boulders rolling down the red warning paths, and you hit ice boost pads and grab glowing orbs for bursts of speed to pass your rivals, while a hit knocks you down and costs you a life and some ground.",
+                    "game_type": "runner",
+                    "dimension": "3d",
+                    "mode": "auto"
+                }
+            }
+        ]
+    }
+}
