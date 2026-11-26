@@ -248,7 +248,7 @@ Each reference video or audio must be 2–30 s, and the total audio is capped at
 
 **Text-to-video vs image-to-video.** Both use the same job type and endpoint. Text-to-video sends `medias: []`.
 Image-to-video adds `role:"image"` (a reference, free placement) or `start_image`/`end_image` (first/last frame).
-Adding a `video` reference switches the price to the `with_video` row, unless a start or end frame is present.
+Adding a `video` reference switches the price to the `with_video` row. (An earlier version of this line added "unless a start or end frame is present"; a re-check of the cost function on 2026-11-26 found it tests only for *any* video input, so that exception is unverified.)
 
 ### 4.2 Cost formula
 

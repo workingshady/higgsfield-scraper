@@ -235,7 +235,8 @@ Chunk `SFmCACe0YcBh5r-G.js`, plus `MODEL_LOADING.md` §6.
 - **Confirm triggers moderation.** A `nsfw` or `ip_detected` result raises an error before any job exists.
 - **Guests** use `POST /media/anon`. Their files land under `anon_user_id/`.
 - Images may be compressed or resized in the browser first. The `do-not-compress-image` localStorage switch turns
-  that off. Server-side `_resize` copies exist (§4).
+  that off. Server-side `_resize` copies are referenced in the JS (§4), but none existed for 110 sampled public
+  reference inputs checked on 2026-11-26, so they may be created only for some upload paths.
 - **Where inputs are stored:** `https://d2ol7oe51mr4n9.cloudfront.net/user_<id>/<media id>.<ext>` (verified in
   params of public posts).
 
