@@ -24,3 +24,6 @@ samples/higgsfield/js_urls.txt
 samples/higgsfield/inventory/bodies/
 samples/higgsfield/probe/
 samples/higgsfield/recon2/
+
+# Private analysis (competitive/economics notes): kept local, never committed
+/private/
