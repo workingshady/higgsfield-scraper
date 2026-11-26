@@ -105,7 +105,8 @@ python -m higgsfield_scraper scrape [--sections S] [--plan-sets P] [--billing B]
 | | `--log-level` | `INFO` (env `HF_LOG_LEVEL`) | `DEBUG INFO WARNING ERROR` (console) |
 | | `--file-log-level` | `DEBUG` | level for `run.log` and `events.jsonl` |
 | | `--scrapy-log-level` | `INFO` | level for Scrapy's own loggers |
-| Access | `--token` | env `HF_TOKEN` | Clerk session JWT (only for `auth`) |
+| Access | `--auth` | `auto` | `auto` (use the saved login when there is one), `off`, `required`. Login: `login` (see §6) |
+| | `--token` | env `HF_TOKEN` | deprecated one-off Clerk JWT; prefer `login` |
 | Dev | `--cache` | off | flag: Scrapy HTTP cache in `runs/.httpcache` (1 h) |
 | | `--no-http-archive` | off (the archive is on) | flag: don't write `<run>/http/` |
 | Robots | `--obey-robots` | off (robots.txt **not** obeyed) | flag: fetch robots.txt and skip disallowed URLs. Plain Scrapy: `-s ROBOTSTXT_OBEY=True` |
@@ -333,14 +334,14 @@ python -m higgsfield_scraper scrape site --what all,rooms --max-items 20 --label
 | `models` | `/job-sets/costs` **+ `plan-benefits` + `plans`** for names, entitlements and USD | `models[]` | Credit cost of every model and option |
 | `marketing` | `pricing.higgsfield.ai/v2/pricing-config` | `marketing[]` | Card copy, taglines, feature lists, version history |
 | `auth` | 4 login-only endpoints | `auth.credit_packages[]`, `auth.payloads[]` | Top-up packs, unlimited bundles, credit price. **Needs `--token`** |
-| `all` | every section above (`auth` only if a token is set) | everything | Full snapshot |
+| `all` | every section above; `auth` is included when you are logged in (`login`, `HF_CLERK_CLIENT` or `--token`), or when you write `all,auth` | everything | Full snapshot |
 
 Enrichment requests are fetched so the joins work, but their sections only appear in the output if you selected
 them. For example, `--sections models` also calls `plans` (so it can compute USD estimates) but writes no
 `plan_sets`.
 
 ```bash
-$ python -m higgsfield_scraper scrape --sections auth --token x --dry-run
+$ python -m higgsfield_scraper scrape --sections auth --dry-run
 GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/packages   [auth]
 GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/bundle/unlim-catalog   [auth]
 GET https://fnf-api-gw.higgsfield.ai/fnf/workspaces/credit-price   [auth]
@@ -483,8 +484,30 @@ python -m higgsfield_scraper scrape --sections auth,plans --token "eyJhbGciOi…
 HF_TOKEN=eyJ… python -m higgsfield_scraper scrape --sections all      # also picks up auth
 ```
 
-Without a token, `auth` endpoints return 401. The run is still `success` because these are optional, and the
+### Logged-in pricing (`auth` section)
+
+With a saved login (`login`), every pricing scrape adds the login-only endpoints automatically when you use
+`--sections all` (or name `auth`). Tokens are minted and refreshed by the shared auth layer (refresh + one retry on
+`401`), exactly like the other scrapers. Verified 2026-11-26:
+
+| Endpoint | Logged in (personal account) | Output |
+|---|---|---|
+| `/subscriptions/v2/packages` | 200: 6 credit top-up packs (100 … 4,000 credits) | `auth.credit_packages[]`, `csv/auth_credit_packages.csv` |
+| `/subscriptions/bundle/unlim-catalog` | 200: `{"bundles": []}` | `auth.payloads[]` |
+| `/subscriptions/v2/adjustable-credits` | 200: 12 credit-slider tiers | `auth.payloads[]` |
+| `/workspaces/credit-price` | **500** for accounts without a team workspace (the site only calls it from the team credit-purchase screen) | warning `auth.endpoint.failed`, stat `higgs/auth/http_error/credit_price/500`; the run stays `success` |
+
+| `--auth` | Effect on pricing |
+|---|---|
+| `auto` (default) | Use the saved login when present; `--sections all` then includes `auth` |
+| `required` | Same, but if there is no login the `auth` requests are skipped with a warning (`higgs/auth/skipped/…`) |
+| `off` | Never send a token; `--sections all` excludes `auth` |
+
+Without any login, `auth` endpoints return 401; the run is still `success` because they are optional, and the
 manifest records `responses.credit_packages.401`.
+
+`normalize` never looks at this machine's login: it re-parses `auth` only when the source run contains login
+responses in `raw/` (or when you pass `--sections …,auth`).
 
 ### `--no-http-archive`
 
@@ -872,7 +895,7 @@ models     (default)
     https://fnf-api-gw.higgsfield.ai/fnf/job-sets/costs
 marketing  (default)
     https://pricing.higgsfield.ai/v2/pricing-config
-auth       (needs --token)
+auth       (needs login)
     https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/packages   [auth]
     …
 ```

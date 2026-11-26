@@ -18,7 +18,9 @@ from pathlib import Path
 SOURCE = "runs/20261125-112609_everything-full-csv"
 # v2 (2026-11-26): same data as v1 (runs/20261125-122450_pricing-baseline) except meta.label, which v1 had wrong
 # ("Soul V2 & Cinema"; fixed in assemble.py). Only that one line per file differed.
-BASELINE = "runs/20261126-094534_pricing-baseline-v2/output"
+# v3 (2026-11-26): = v2 except schema/dataset.schema.json, where CreditPackage declares the live-observed fields
+# (price_id, discount, credits_per_dollar, features, ...). All 30 data files identical to v2.
+BASELINE = "runs/20261126-100141_pricing-baseline-v3/output"
 CHECK_LABEL = "pricing-identity-check"
 NORMALIZE_ARGS = ["--sections", "all", "--plan-sets", "all", "--marketing-versions", "all",
                   "--include-raw-cost", "--include-hidden-plans"]

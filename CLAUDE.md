@@ -79,7 +79,7 @@ runs/                                      # run output (gitignored)
 - `/job-sets/costs` has many cost shapes; new shapes go in `parsers/costs.py` + a test in `tests/test_parsers.py`.
 - After changing a parser, re-parse old data offline: `python -m higgsfield_scraper normalize --run runs/<id>`.
 - Before every commit: `python -m pytest -q` + `python scripts/check_pricing_identity.py` (pricing output must stay
-  31/31 identical to the baseline `runs/20261126-094534_pricing-baseline-v2`), and check `git diff --name-status HEAD` for unintended deletions.
+  31/31 identical to the baseline `runs/20261126-100141_pricing-baseline-v3`), and check `git diff --name-status HEAD` for unintended deletions.
 
 ## Commands
 

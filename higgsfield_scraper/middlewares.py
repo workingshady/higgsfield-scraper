@@ -347,7 +347,8 @@ class RetryEventsMiddleware(RetryMiddleware):
                  retry__attempt=new.meta.get("retry_times"), **f)
         else:
             request.meta["_gave_up"] = True          # the spider errback then logs at debug only (log once)
-            emit(log, "error", "external.call.failed",
+            # optional login-only endpoints (e.g. team-only /workspaces/credit-price) don't fail the run: warn
+            emit(log, "warning" if request.meta.get("auth") else "error", "external.call.failed",
                  f"gave up on {request.meta.get('endpoint') or urlsplit(request.url).hostname}: {reason_s}",
                  retry__attempt=request.meta.get("retry_times", 0), **f)
         return new

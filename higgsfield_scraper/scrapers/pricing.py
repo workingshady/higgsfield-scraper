@@ -36,8 +36,31 @@ def add_args(p: argparse.ArgumentParser) -> None:
     o.add_argument("--include-raw-cost", action="store_true", help="embed each model's untouched cost JSON")
 
 
+def _login_available(a: argparse.Namespace) -> bool:
+    """Live scrape: any configured session counts (--token, HF_TOKEN, the cached `login`, HF_CLERK_CLIENT), unless
+    --auth off. `normalize` keeps the original env-only rule so offline re-parses don't depend on this machine's login."""
+    legacy = bool(getattr(a, "token", None) or os.environ.get("HF_TOKEN") or os.environ.get("HF_CLERK_CLIENT"))
+    if getattr(a, "command", None) == "normalize":
+        # depends on the data, not this machine: include auth if the source run captured login-only responses
+        from pathlib import Path
+        raw = Path(getattr(a, "run", "") or ".") / "raw"
+        has_auth_raw = any(next(raw.glob(p), None) is not None
+                           for p in ("credit_packages*.json", "unlim_catalog*.json",
+                                     "adjustable_credits*.json", "credit_price*.json"))
+        return legacy or has_auth_raw
+    if getattr(a, "command", None) != "scrape":
+        return legacy
+    if getattr(a, "auth", "auto") == "off":
+        return False
+    try:
+        from ..core.auth import TokenProvider
+        return legacy or TokenProvider.from_env(getattr(a, "token", None)).configured   # offline check, no network
+    except Exception:
+        return legacy
+
+
 def make_selection(a: argparse.Namespace) -> Selection:
-    has_token = bool(getattr(a, "token", None) or os.environ.get("HF_TOKEN") or os.environ.get("HF_CLERK_CLIENT"))
+    has_token = _login_available(a)
     return Selection.build(
         sections=a.sections, plan_sets=a.plan_sets, billing=a.billing, plan_types=a.plan_types,
         models=a.models, categories=a.categories, marketing_versions=a.marketing_versions, locale=a.locale,

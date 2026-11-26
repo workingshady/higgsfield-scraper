@@ -266,15 +266,14 @@ Plans in v51: `free basic pro ultimate creator team enterprise-plan starter ultr
 Send `Authorization: Bearer <Clerk JWT>` (the `__session` cookie). Without it they return
 `401 {"detail":"Invalid or expired token"}`.
 
-| Endpoint | Contents | Scraper handling |
+| Endpoint | Observed live 2026-11-26 (logged in, personal account) | Scraper handling |
 |---|---|---|
-| `/subscriptions/v2/packages` | `{data: [{id, amount, original_amount, display_amount, credits, tax_amount, offer}], expire_days}`. **amount and credits are ×100** | `credit_package` (÷100, offer normalized, unknown fields kept) |
-| `/subscriptions/bundle/unlim-catalog` | Unlimited add-on bundles | `auth_payload` (raw `data`) |
-| `/workspaces/credit-price` | Price per credit for the workspace | `auth_payload` |
-| `/subscriptions/v2/adjustable-credits` | Credit-slider tiers | `auth_payload` |
+| `/subscriptions/v2/packages` | 200 `{data: [{id, price_id, amount, original_amount, display_amount, credits, currency, credits_per_dollar, discount, features[{display_number, text, type, is_available}], is_highlighted, tax_amount, tax_rate, offer}], expire_days: 90}`. **amount (cents) and credits are ×100.** 6 packs: 100 / 200 / 500 / 1,000 / 2,000 / 4,000 credits; e.g. 100 credits = $6.25 (list $8.50, `discount` 26, `credits_per_dollar` 16) | `credit_package` (÷100, every field declared) → `auth.credit_packages[]`, `csv/auth_credit_packages.csv` |
+| `/subscriptions/bundle/unlim-catalog` | 200 `{"bundles": []}` (no bundles offered to this account) | `auth_payload` (raw) |
+| `/subscriptions/v2/adjustable-credits` | 200 `{data: [12 tiers with the same fields as packages, + is_default], expire_days, iteration: 2000}`, e.g. 5,000 credits = $250.75 (list $425, 41 % off) | `auth_payload` (raw) |
+| `/workspaces/credit-price` | **500** for an account without a team workspace. The site calls it only from the team "buy credits" screen | warning + stat `higgs/auth/http_error/credit_price/500`; run stays `success` |
 
-These shapes were inferred from JS mappers and have not been observed live. Unknown fields are kept rather than
-dropped.
+How to log in and scrape them: `PRICING.md` §10 and `CLI.md` (Logged-in pricing).
 
 ## Bonus: `GET https://higgsfield.ai/pricing.md`
 

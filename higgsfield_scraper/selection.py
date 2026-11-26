@@ -48,8 +48,8 @@ class Selection:
               categories=None, marketing_versions=None, locale="en", include_hidden_plans=False,
               include_raw_cost=False, usd_reference="plus:annual", has_token=False) -> "Selection":
         secs = split_csv(sections) or list(DEFAULT_SECTIONS)
-        if "all" in secs:
-            secs = list(DEFAULT_SECTIONS) + (["auth"] if has_token else [])
+        if "all" in secs:   # `all` = every public section, + auth when a login exists or `auth` is listed too
+            secs = list(DEFAULT_SECTIONS) + (["auth"] if has_token or "auth" in secs else [])
         unknown = set(secs) - set(SECTIONS)
         if unknown:
             raise ValueError(f"unknown section(s): {sorted(unknown)}; choose from {sorted(SECTIONS)}")

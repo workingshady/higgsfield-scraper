@@ -191,9 +191,11 @@ class BaseApiSpider(scrapy.Spider):
 
     def on_error(self, failure):
         from scrapy.exceptions import IgnoreRequest
+        from scrapy.spidermiddlewares.httperror import HttpError
         req = failure.request
         endpoint = req.meta.get("endpoint")
-        if failure.check(IgnoreRequest) and req.meta.get("auth"):
+        # HttpError subclasses IgnoreRequest: a server error on a login-only request is an error, not "no session"
+        if failure.check(IgnoreRequest) and not failure.check(HttpError) and req.meta.get("auth"):
             # login-only request without a session (auth="required"): an expected skip, not an error
             self.crawler.stats.inc_value(f"higgs/auth/skipped/{endpoint}")
             emit(self.logger, "info", "request.skipped", f"skipped login-only {endpoint} (no session): {failure.value}",

@@ -1,0 +1,70 @@
+{
+    "meta": {
+        "endpoint": "credit_packages",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/packages",
+        "params": {},
+        "fetched_at": "2026-11-26T09:56:24.098020+00:00",
+        "status": 200
+    },
+    "body": {
+        "data": [
+            {
+                "id": "prod_UOiUw9O4COsyYE",
+                "price_id": "price_1TPv3BCmk0pn4HuHIgEggGFM",
+                "amount": 625,
+                "original_amount": 850,
+                "credits_per_dollar": 16,
+                "is_highlighted": false,
+                "currency": "usd",
+                "credits": 10000,
+                "features": [
+                    {
+                        "display_number": "50",
+                        "text": "Up to 50 Nano Banana Pro image generations",
+                        "type": "nano_banana_pro",
+                        "is_available": true
+                    },
+                    {
+                        "display_number": "6",
+                        "text": "Up to 6 Seedance 2.5 (5s) video generations",
+                        "type": "seedance_2_5",
+                        "is_available": true
+                    }
+                ],
+                "discount": 26,
+                "tax_amount": 0,
+                "tax_rate": null,
+                "display_amount": 600
+            },
+            {
+                "id": "prod_UOiUxjIOsWLjgT",
+                "price_id": "price_1TPv3CCmk0pn4HuHuO7SNk5r",
+                "amount": 1176,
+                "original_amount": 1700,
+                "credits_per_dollar": 17,
+                "is_highlighted": false,
+                "currency": "usd",
+                "credits": 20000,
+                "features": [
+                    {
+                        "display_number": "100",
+                        "text": "Up to 100 Nano Banana Pro image generations",
+                        "type": "nano_banana_pro",
+                        "is_available": true
+                    },
+                    {
+                        "display_number": "13",
+                        "text": "Up to 13 Seedance 2.5 (5s) video generations",
+                        "type": "seedance_2_5",
+                        "is_available": true
+                    }
+                ],
+                "discount": 29,
+                "tax_amount": 0,
+                "tax_rate": null,
+                "display_amount": 1200
+            }
+        ],
+        "expire_days": 90
+    }
+}

@@ -406,7 +406,7 @@ Raw excerpt (`samples/higgsfield/pc_v51.json`, trimmed):
 ### 2.6–2.9 Login-only endpoints
 
 Send `Authorization: Bearer <Clerk session JWT>`. Without it they return `401 {"detail":"Invalid or expired token"}`.
-See §10 for what is known about them.
+They were observed live on 2026-11-26 while logged in; see §10 (shapes, the 6 top-up packs, the 12 slider tiers).
 
 ### 2.10 `GET https://higgsfield.ai/pricing.md`
 
@@ -886,8 +886,32 @@ model.
 
 ## 10. Login-only pricing
 
-These four endpoints need a Clerk session JWT (`Authorization: Bearer …`). Their shapes come from the JS mappers,
-and **none has been observed live** by this project. The scraper keeps unknown fields instead of dropping them.
+These four endpoints need a Clerk session (`Authorization: Bearer …`, minted automatically after `login`). They were
+**observed live on 2026-11-26** with a personal (non-team) account:
+
+| Endpoint | Observed live 2026-11-26 (logged in, personal account) | Scraper handling |
+|---|---|---|
+| `/subscriptions/v2/packages` | 200 `{data: [{id, price_id, amount, original_amount, display_amount, credits, currency, credits_per_dollar, discount, features[{display_number, text, type, is_available}], is_highlighted, tax_amount, tax_rate, offer}], expire_days: 90}`. **amount (cents) and credits are ×100.** 6 packs: 100 / 200 / 500 / 1,000 / 2,000 / 4,000 credits; e.g. 100 credits = $6.25 (list $8.50, `discount` 26, `credits_per_dollar` 16) | `credit_package` (÷100, every field declared) → `auth.credit_packages[]`, `csv/auth_credit_packages.csv` |
+| `/subscriptions/bundle/unlim-catalog` | 200 `{"bundles": []}` (no bundles offered to this account) | `auth_payload` (raw) |
+| `/subscriptions/v2/adjustable-credits` | 200 `{data: [12 tiers with the same fields as packages, + is_default], expire_days, iteration: 2000}`, e.g. 5,000 credits = $250.75 (list $425, 41 % off) | `auth_payload` (raw) |
+| `/workspaces/credit-price` | **500** for an account without a team workspace. The site calls it only from the team "buy credits" screen | warning + stat `higgs/auth/http_error/credit_price/500`; run stays `success` |
+
+**Credit top-up packs (2026-11-26, US):**
+
+| Credits | You pay | List price | Discount label | Credits per $ |
+|---:|---:|---:|---:|---:|
+| 100 | $6.25 | $8.50 | 26 % | 16 |
+| 200 | $11.76 | $17.00 | 29 % | 17 |
+| 500 | $29.41 | $42.50 | 31 % | 17 |
+| 1,000 | $55.56 | $85.00 | 35 % | 18 |
+| 2,000 | $105.26 | $170.00 | 38 % | 19 |
+| 4,000 (highlighted) | $210.53 | $340.00 | 38 % | 19 |
+
+**Adjustable credits (credit slider, 2026-11-26):** 12 tiers. 5,000 credits = $250.75 · 7,000 = $351.05 · 9,000 = $451.35 · 11,000 = $551.65 ·
+13,000 = $651.95 · 15,000 = $752.25 (41 % off) · 17,000 = $809.52 · 19,000 = $904.76 · 21,000 = $1,000.00 ·
+23,000 = $1,095.24 · 25,000 = $1,190.48 · 100,000 = $4,761.90 (44 % off).
+
+Purchased credits expire after 90 days (`expire_days`). The original JS-based description follows.
 
 | Endpoint | What is known | Scraper output |
 |---|---|---|
@@ -1178,7 +1202,8 @@ Totals are for the whole billing period; `/mo` is per month. Business plans are 
 - **Unlimited and free gens** apply only on higgsfield.ai (not MCP/CLI, Canvas or Supercomputer), only within the
   caps, and only with batch ≤ 1.
 - **`usd_estimate`** assumes the Plus annual rate. Real cost per credit ranges from $0.0130 to $0.0860.
-- **Login-only shapes** (§10) are unobserved; `repeating` discounts are unobserved.
+- **Login-only shapes** (§10) were observed with one personal account; team accounts may differ (credit-price needs a
+  team workspace). `repeating` discounts are unobserved.
 - **Sales move fast:** on 2026-11-25 → 26 the Ultra annual prices changed within a day. Always quote prices with the
   run ID and date.
 
@@ -1203,5 +1228,5 @@ Totals are for the whole billing period; `/mo` is per month. Business plans are 
 | Per-model client formulas (ceil, batch, rounding) | JS chunks, see COST_FORMULAS.md | from JS |
 | Server charges what the UI quotes | JS comment + cost units | inferred |
 | `/datetime-settings` drives banners; prices change in `/plans` | live 2026-11-25 vs 26 | **verified live** |
-| Login-only endpoint shapes | JS mappers | from JS (unobserved) |
+| Login-only endpoint shapes | logged-in GET, 2026-11-26 (personal account) | **verified live** (credit-price: 500 without a team workspace) |
 | Prices can differ per workspace | JS sends workspace header | from JS |

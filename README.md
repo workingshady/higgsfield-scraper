@@ -193,6 +193,18 @@ python -m higgsfield_scraper auth-check            # "ok": true   (--json for sc
 Every scrape has `--auth auto|off|required` (default `auto`: use a session if one is configured, skip login-only
 endpoints cleanly otherwise). Secrets are never printed or logged; `.env` and `runs/.auth/` are gitignored.
 
+Once logged in, just run the normal commands: the login is used automatically. For example, all prices **plus** the
+login-only pricing data:
+
+```bash
+python -m higgsfield_scraper scrape pricing --sections all --plan-sets all --marketing-versions all --include-hidden-plans --include-raw-cost --label all-prices
+```
+
+What logging in adds for pricing (verified 2026-11-26, personal account): **credit top-up packs** (6 packs, 100–4,000
+credits, e.g. 100 credits = $6.25), **adjustable credit tiers** (12 slider tiers) and the **unlimited bundle catalog**.
+`/workspaces/credit-price` only works for team workspaces (500 otherwise; logged as a warning, the run still succeeds).
+Details: [`docs/PRICING.md`](docs/PRICING.md) §10.
+
 ## 6. Options
 
 Full reference with every choice and default: **[`CLI.md`](CLI.md)**. Summary:

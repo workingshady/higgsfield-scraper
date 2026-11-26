@@ -233,7 +233,7 @@ def cmd_plan_sets(a) -> int:
 
 def cmd_sections(a) -> int:
     for s, eps in SECTIONS.items():
-        print(f"{s:10} {'(default)' if s in DEFAULT_SECTIONS else '(needs --token)' if s == 'auth' else ''}")
+        print(f"{s:10} {'(default)' if s in DEFAULT_SECTIONS else '(needs login)' if s == 'auth' else ''}")
         for e in eps:
             print(f"    {ENDPOINTS[e][0]}{'   [auth]' if ENDPOINTS[e][1] else ''}")
     return 0

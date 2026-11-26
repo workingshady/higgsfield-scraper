@@ -225,9 +225,7 @@ class RunManager:
             crawler = process.create_crawler(spider_cls)
             if on_crawler is not None:
                 on_crawler(crawler)
-            kw = dict(selection=sel, token=token, run_ctx=ctx)
-            if sdef.name != "pricing":
-                kw["common"] = common
+            kw = dict(selection=sel, token=token, run_ctx=ctx, common=common)   # pricing uses common.auth too
             process.crawl(crawler, **kw)
             process.start()
             stats = crawler.stats.get_stats() if crawler.stats else {}

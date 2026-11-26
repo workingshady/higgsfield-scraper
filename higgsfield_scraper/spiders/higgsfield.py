@@ -42,9 +42,17 @@ class HiggsfieldSpider(scrapy.Spider):
                 usd_reference=kwargs.get("usd_reference", "plus:annual"), has_token=bool(self.token),
             )
         self.selection = selection
-        if "auth" in selection.sections and not self.token:
+        if "auth" in selection.sections and not self._login_configured():
             emit(self.logger, "warning", "auth.token.missing",
-                 "section 'auth' requested but no token (HF_TOKEN / login); those endpoints will 401")
+                 "section 'auth' requested but no login (run `login`, or set HF_CLERK_CLIENT / HF_TOKEN); "
+                 "those endpoints will 401")
+
+    def _login_configured(self) -> bool:
+        try:
+            from ..core.auth import TokenProvider
+            return TokenProvider.from_env(self.token).configured
+        except Exception:
+            return bool(self.token)
 
     # ------------------------------------------------------------ requests
     def _request(self, endpoint: str, params: Optional[dict[str, str]] = None, auth: bool = False,
@@ -53,12 +61,15 @@ class HiggsfieldSpider(scrapy.Spider):
         params = {k: v for k, v in (params or {}).items() if v is not None}
         url = f"{base}?{urlencode(params)}" if params else base
         headers = dict(extra_headers or {})
-        if auth and self.token:
-            headers["Authorization"] = f"Bearer {self.token}"
-        return scrapy.Request(
-            url, headers=headers, callback=self.parse_api, errback=self.on_error, dont_filter=True,
-            meta={"endpoint": endpoint, "params": params, "handle_httpstatus_list": HANDLED_STATUSES},
-        )
+        meta = {"endpoint": endpoint, "params": params, "handle_httpstatus_list": HANDLED_STATUSES}
+        if auth:
+            # core.auth.AuthMiddleware adds the Bearer token (--token / HF_TOKEN / cached `login` / HF_CLERK_CLIENT),
+            # mints fresh ~60 s tokens and retries once on 401. --auth off: never send one; required: skip if none.
+            mode = getattr(getattr(self, "common", None), "auth", "auto")
+            if mode != "off":
+                meta["auth"] = "required" if mode == "required" else True
+        return scrapy.Request(url, headers=headers, callback=self.parse_api, errback=self.on_error, dont_filter=True,
+                              meta=meta)
 
     def build_requests(self) -> Iterator[scrapy.Request]:
         sel = self.selection
@@ -132,6 +143,23 @@ class HiggsfieldSpider(scrapy.Spider):
     def on_error(self, failure):
         req = failure.request
         endpoint = req.meta.get("endpoint")
+        from scrapy.exceptions import IgnoreRequest
+        from scrapy.spidermiddlewares.httperror import HttpError
+        if req.meta.get("auth") and failure.check(HttpError):
+            # optional login-only endpoint answered with a server error after retries (e.g. /workspaces/credit-price
+            # returns 500 for accounts without a team workspace): visible warning + stat, main data unaffected
+            status = failure.value.response.status
+            self.crawler.stats.inc_value(f"higgs/auth/http_error/{endpoint}/{status}")
+            emit(self.logger, "warning", "auth.endpoint.failed",
+                 f"login-only endpoint {endpoint} returned HTTP {status} (optional; skipped)",
+                 endpoint__name=endpoint, http__response__status_code=status)
+            return
+        if req.meta.get("auth") and failure.check(IgnoreRequest):
+            # login-only endpoint skipped because no session is configured (--auth required): expected, not an error
+            self.crawler.stats.inc_value(f"higgs/auth/skipped/{endpoint}")
+            emit(self.logger, "warning", "auth.skipped", f"skipped {endpoint}: no login configured",
+                 endpoint__name=endpoint)
+            return
         self.crawler.stats.inc_value(f"higgs/request_errors/{endpoint}")
         emit(self.logger, "debug" if req.meta.get("_gave_up") else "error", "external.call.failed",
              f"request failed for {endpoint}: {failure.value!r}", endpoint__name=endpoint,
