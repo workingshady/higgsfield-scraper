@@ -51,5 +51,17 @@ def redact_json_bytes(body: bytes) -> bytes:
     return json.dumps(redact_personal(data), ensure_ascii=False).encode("utf-8")
 
 
+def creator_uid_key(user_id: Any) -> str | None:
+    """One pseudonymous key per Higgsfield user across every scraper: make_id('creator', <clerk user id>).
+
+    Same hash the showcase/studios `creator_key`/`author_key` already use, so new `creator_uid_key` columns in
+    community, projects and catalog join with them. None for missing or redacted ids."""
+    from ..schemas.common import make_id
+    s = None if user_id is None else str(user_id).strip()
+    if not s or s == REDACTED or "REDACTED" in s:
+        return None
+    return make_id("creator", s)
+
+
 def profiles_opt_in(selection: Any) -> bool:
     return bool(getattr(selection, "with_profiles", False))
