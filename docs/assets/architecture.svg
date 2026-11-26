@@ -4,7 +4,7 @@
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d1fe17"/></marker><marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9ce6f3"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6e757e"/></marker></defs>
 <rect width="1280" height="800" rx="18" fill="#0f1113"/>
 <text x="32" y="44" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="800" fill="#ffffff">higgsfield-scraper <tspan fill="#d1fe17">·</tspan> container view of one run</text>
-<text x="34" y="66" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#6e757e">Data flows left → right. Numbers give the order of events. Same machinery for every scraper (pricing, community, catalog, projects, blog).</text>
+<text x="34" y="66" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="13" fill="#6e757e">Data flows left → right. Numbers give the order of events. Same machinery for every scraper (pricing, community, catalog, projects, blog, site).</text>
 <rect x="20" y="78" width="270" height="560" rx="14" fill="#ffffff" fill-opacity="0.015" stroke="#2a2d31" stroke-dasharray="3 6"/>
 <text x="36" y="102" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="700" letter-spacing="1.5" fill="#d1fe17">HIGGSFIELD</text>
 <text x="36" y="120" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">external systems (read-only)</text>
@@ -23,7 +23,7 @@
 <text x="50" y="290" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">pricing-config (marketing copy)</text>
 <rect x="36" y="334" width="238" height="74" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
 <text x="50" y="359" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">higgsfield.ai</text>
-<text x="50" y="380" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">sitemaps · blog · help center</text>
+<text x="50" y="380" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">pages: apps · academy · MCP · blog</text>
 <rect x="36" y="424" width="238" height="92" rx="12" fill="#16181b" stroke="#9ce6f3" stroke-width="1.6" stroke-dasharray="6 5"/>
 <text x="50" y="449" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Clerk auth</text>
 <text x="50" y="470" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">login once (emailed code)</text>
@@ -32,9 +32,9 @@
 <text x="50" y="557" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Media CDN</text>
 <text x="50" y="578" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">images · videos (opt-in)</text>
 <rect x="322" y="136" width="190" height="92" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
-<text x="336" y="161" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">CLI</text>
+<text x="336" y="161" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">CLI · menu</text>
 <text x="336" y="182" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">scrape &lt;scraper&gt; [options]</text>
-<text x="336" y="200" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">normalize · login · show</text>
+<text x="336" y="200" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">menu · diff · login · show</text>
 <rect x="322" y="244" width="190" height="74" rx="12" fill="#16181b" stroke="#2a2d31" stroke-width="1.6"/>
 <text x="336" y="269" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">RunManager</text>
 <text x="336" y="290" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">run folder · logs · manifest</text>
@@ -58,7 +58,7 @@
 <text x="570" y="236" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">(no evasion)</text>
 <rect x="556" y="302" width="196" height="92" rx="12" fill="#16181b" stroke="#d1fe17" stroke-width="1.6"/>
 <text x="570" y="327" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Parsers (pure)</text>
-<text x="570" y="348" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">raw JSON → entities</text>
+<text x="570" y="348" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">raw JSON / HTML → entities</text>
 <text x="570" y="366" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#a7adb5">reused by normalize</text>
 <rect x="556" y="430" width="196" height="92" rx="12" fill="#16181b" stroke="#9ce6f3" stroke-width="1.6" stroke-dasharray="6 5"/>
 <text x="570" y="455" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Cost estimator</text>
@@ -98,7 +98,7 @@
 <text x="1026" y="440" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#ffffff">schema/</text>
 <text x="1026" y="474" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#ffffff">items/  summary.md</text>
 <text x="1004" y="528" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">also: runs/LATEST · runs/index.jsonl</text>
-<text x="1004" y="550" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">exit 0 success · 2 partial · 1 failed</text>
+<text x="1004" y="550" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">exit 0 ok · 3 partial · 4 blocked · 1 fail</text>
 <text x="1004" y="580" font-family="Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" font-size="12" fill="#6e757e">JSON indent 4 · CSVs complete</text>
 <path d="M417 228 V242" fill="none" stroke="#d1fe17" stroke-width="2" marker-end="url(#a)"/>
 <circle cx="440" cy="236" r="11" fill="#d1fe17"/>

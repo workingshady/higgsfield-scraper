@@ -98,6 +98,12 @@ python -m higgsfield_scraper show-config               # resolved settings, secr
 python -m higgsfield_scraper scrape --sections all --label full
 python -m higgsfield_scraper show plans
 python -m higgsfield_scraper show model seedance_2_5   # every option combination + credits + ≈USD
+python -m higgsfield_scraper diff                      # what changed vs the previous pricing run
+python -m higgsfield_scraper crosscheck                # compare with the official pricing.md
+
+# ALL prices and plans: 25 price lists, all marketing versions, hidden plans
+# (+ login-only top-ups/bundles when logged in, see §5; add --auth required to insist on login)
+python -m higgsfield_scraper scrape pricing --sections all --plan-sets all --marketing-versions all --include-hidden-plans --include-raw-cost --label all-prices
 
 # Community generations with prompts and estimated cost
 python -m higgsfield_scraper scrape community --max-items 300 --estimate-cost all
@@ -107,6 +113,7 @@ python -m higgsfield_scraper scrape catalog --kinds motion,voice,sound
 python -m higgsfield_scraper scrape projects --what contests --with-details --with-submissions
 python -m higgsfield_scraper scrape blog --what help,changelog
 python -m higgsfield_scraper scrape site --what apps,academy      # apps (+ credit cost), courses + lessons
+python -m higgsfield_scraper scrape site --what mcp                # all MCP skills + bundles + prompts
 
 # Everything public, one run folder per scraper
 for s in pricing community catalog projects blog site; do python -m higgsfield_scraper scrape $s --label all-$s; done

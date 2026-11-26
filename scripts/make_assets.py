@@ -22,8 +22,7 @@ THEMES = {
 SANS = "Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif"
 MONO = "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
 
-SCRAPERS = [("pricing", 104), ("community", 132), ("catalog", 110), ("projects", 112), ("blog", 78),
-            ("cost estimate", 150)]
+SCRAPERS = [("pricing", 104), ("community", 132), ("catalog", 110), ("projects", 112), ("blog", 78), ("site", 72)]
 
 
 def banner(t: dict) -> str:
@@ -49,7 +48,7 @@ def banner(t: dict) -> str:
         for n, y in [("JSON", 64), ("CSV", 118), ("HAR", 172)])
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
   <title id="title">higgsfield-scraper (unofficial)</title>
-  <desc id="desc">Unofficial, reverse-engineered Scrapy scrapers for public Higgsfield.ai data: pricing, community, catalog, projects, blog, cost estimates.</desc>
+  <desc id="desc">Unofficial, reverse-engineered Scrapy scrapers for public Higgsfield.ai data: pricing, community, catalog, projects, blog, site (apps, academy, MCP); cost estimates, interactive menu.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <path d="M32 0H0V32" fill="none" stroke="{t["grid"]}" stroke-opacity="{t["grid_op"]}" stroke-width="1"/>
@@ -72,7 +71,7 @@ def banner(t: dict) -> str:
   <text x="64" y="184" font-family="{SANS}" font-size="22" fill="{t["sub"]}">Every public Higgsfield.ai dataset — validated, organized, exported.</text>
   <rect x="64" y="200" width="64" height="4" rx="2" fill="{t["lime"]}"/>
   {"".join(pills)}
-  <text x="64" y="294" font-family="{MONO}" font-size="14" fill="{t["muted"]}"><tspan fill="{t["lime_text"]}">$</tspan> python -m higgsfield_scraper scrape community --type video --estimate-cost all</text>
+  <text x="64" y="294" font-family="{MONO}" font-size="14" fill="{t["muted"]}"><tspan fill="{t["lime_text"]}">$</tspan> python -m higgsfield_scraper menu<tspan dx="18" fill="{t["muted"]}"># or: scrape &lt;scraper&gt; · diff · crosscheck</tspan></text>
 
   {flow}
   <circle cx="1084" cy="133" r="17" fill="{t["lime"]}"/>
@@ -137,7 +136,7 @@ def architecture() -> str:
     add(f'<text x="32" y="44" font-family="{SANS}" font-size="22" font-weight="800" fill="{t["text"]}">higgsfield-scraper '
         f'<tspan fill="{t["lime"]}">·</tspan> container view of one run</text>')
     add(f'<text x="34" y="66" font-family="{SANS}" font-size="13" fill="{t["muted"]}">Data flows left → right. '
-        f'Numbers give the order of events. Same machinery for every scraper (pricing, community, catalog, projects, blog).</text>')
+        f'Numbers give the order of events. Same machinery for every scraper (pricing, community, catalog, projects, blog, site).</text>')
 
     # lanes (trust boundaries)
     lane(20, 270, "HIGGSFIELD", "external systems (read-only)")
@@ -147,12 +146,12 @@ def architecture() -> str:
     # external
     box(36, 136, 238, 92, "fnf-api-gw.higgsfield.ai", ["JSON APIs: plans · costs ·", "publications · motions · contests"], core=True)
     box(36, 244, 238, 74, "pricing.higgsfield.ai", ["pricing-config (marketing copy)"])
-    box(36, 334, 238, 74, "higgsfield.ai", ["sitemaps · blog · help center"])
+    box(36, 334, 238, 74, "higgsfield.ai", ["pages: apps · academy · MCP · blog"])
     box(36, 424, 238, 92, "Clerk auth", ["login once (emailed code)", "→ fresh 60 s tokens"], optional=True)
     box(36, 532, 238, 74, "Media CDN", ["images · videos (opt-in)"], optional=True)
 
     # process
-    box(322, 136, 190, 92, "CLI", ["scrape &lt;scraper&gt; [options]", "normalize · login · show"], mono=False)
+    box(322, 136, 190, 92, "CLI · menu", ["scrape &lt;scraper&gt; [options]", "menu · diff · login · show"], mono=False)
     box(322, 244, 190, 74, "RunManager", ["run folder · logs · manifest"])
     add(f'<rect x="322" y="334" width="190" height="272" rx="12" fill="none" stroke="{t["line"]}" stroke-dasharray="4 4"/>')
     add(f'<text x="336" y="356" font-family="{MONO}" font-size="11.5" font-weight="700" letter-spacing="1" '
@@ -161,7 +160,7 @@ def architecture() -> str:
     box(334, 482, 166, 110, "HttpArchive", ["request · response", "body · curl · HAR", "secrets masked"])
 
     box(556, 136, 196, 128, "Spider", ["one per scraper", "requests · pagination", "limits · stop on captcha", "(no evasion)"], core=True)
-    box(556, 302, 196, 92, "Parsers (pure)", ["raw JSON → entities", "reused by normalize"], core=True)
+    box(556, 302, 196, 92, "Parsers (pure)", ["raw JSON / HTML → entities", "reused by normalize"], core=True)
     box(556, 430, 196, 92, "Cost estimator", ["generation → credits", "+ USD (opt-in)"], optional=True)
 
     pipes = [("RawArchive", ["untouched → raw/"]), ("Validation", ["pydantic v2 · drop invalid"]),
@@ -187,7 +186,7 @@ def architecture() -> str:
         if who:
             add(f'<text x="1230" y="{y}" text-anchor="end" font-family="{SANS}" font-size="11.5" fill="{t["muted"]}">← {who}</text>')
     add(f'<text x="1004" y="528" font-family="{SANS}" font-size="12" fill="{t["muted"]}">also: runs/LATEST · runs/index.jsonl</text>')
-    add(f'<text x="1004" y="550" font-family="{SANS}" font-size="12" fill="{t["muted"]}">exit 0 success · 2 partial · 1 failed</text>')
+    add(f'<text x="1004" y="550" font-family="{SANS}" font-size="12" fill="{t["muted"]}">exit 0 ok · 3 partial · 4 blocked · 1 fail</text>')
     add(f'<text x="1004" y="580" font-family="{SANS}" font-size="12" fill="{t["muted"]}">JSON indent 4 · CSVs complete</text>')
 
     # flows (numbered, labelled, edge-to-edge)
