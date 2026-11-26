@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from typing import Any, Optional
 from urllib.parse import quote
 
+from ...core.privacy import creator_uid_key
 from ...schemas.common import make_id
 from .endpoints import INPUT_HOSTS, SITE, SKILLS, STUDIO_OF_MODEL
 
@@ -168,6 +169,13 @@ def _author(uid: Any, prof: Any, sel: Any, name_key: str = "name") -> tuple[Opti
     return key, out
 
 
+def _uid_key(uid: Any, prof: Any) -> Optional[str]:
+    """Shared creator key (core.privacy.creator_uid_key) of the Clerk id `_author` resolves; None when redacted."""
+    prof = prof if isinstance(prof, dict) else {}
+    uid = _s(uid) or _s(prof.get("user_id")) or _s(prof.get("id"))
+    return None if uid is None or uid in REDACTED else creator_uid_key(uid)
+
+
 def _lang(env: Any, sel: Any) -> str:
     return env.params.get("lang") or getattr(sel, "lang", "en") or "en"
 
@@ -205,7 +213,8 @@ def parse_apps(env: Any, sel: Any) -> list[dict]:
         e.update(listing_id=lid, app_id=_s(a.get("app_id")), name=_s(a.get("name")),
                  description=_s(a.get("description")), category=_s(a.get("category") or a.get("category_id")),
                  app_type=_s(a.get("type")), app_url=_s(a.get("app_url")), preview_url=_s(a.get("preview_url")),
-                 media=media, author_key=key, author=prof, is_builtin=None,
+                 media=media, author_key=key, creator_uid_key=_uid_key(a.get("user_id"), a.get("author")),
+                 author=prof, is_builtin=None,
                  engagement={"views": _i(a.get("views_count")), "likes": _i(a.get("likes_count")),
                              "dislikes": _i(a.get("dislikes_count")), "remixes": _i(a.get("remixes_count")),
                              "credits_usage": _f(a.get("credits_usage"))},
@@ -233,7 +242,8 @@ def parse_games(env: Any, sel: Any) -> list[dict]:
                  remixed_from=_s(g.get("remixed_from_community_game_id")), media=media,
                  plays=_i(g.get("plays_count")), unique_players=_i(g.get("unique_players_count")),
                  remixes=_i(g.get("remixes_count")), created_at=_ts(g.get("created_at")),
-                 updated_at=_ts(g.get("updated_at")), author_key=key, author=prof, is_builtin=None,
+                 updated_at=_ts(g.get("updated_at")), author_key=key,
+                 creator_uid_key=_uid_key(g.get("author_user_id"), g.get("author")), author=prof, is_builtin=None,
                  rank=_rank(env, i))
         out.append(e)
     return out
@@ -259,7 +269,8 @@ def parse_skills(env: Any, sel: Any) -> list[dict]:
                  content_url=(SKILLS + content) if content and content.startswith("/") else content,
                  reference_paths=[str(x) for x in s.get("reference_paths") or []],
                  created_at=_ts(s.get("created_at")), updated_at=_ts(s.get("updated_at")),
-                 author_key=key, author=prof, is_builtin=_b(s.get("is_builtin")),
+                 author_key=key, creator_uid_key=_uid_key(s.get("author_user_id"), s.get("author")),
+                 author=prof, is_builtin=_b(s.get("is_builtin")),
                  rank=_rank(env, i))
         out.append(e)
     return out
@@ -303,6 +314,7 @@ def parse_employees(env: Any, sel: Any) -> list[dict]:
                  media=media, installs=_i(a.get("installs_count")), unique_users=_i(a.get("unique_users_count")),
                  usage=_i(a.get("usage_count")), created_at=_ts(a.get("created_at")),
                  updated_at=_ts(a.get("updated_at")), author_key=key if a.get("author") else None,
+                 creator_uid_key=_uid_key(a.get("author_user_id"), a.get("author")) if a.get("author") else None,
                  author=prof if a.get("author") else None, is_builtin=_b(a.get("is_builtin")), rank=_rank(env, i))
         out.append(e)
     return out
@@ -462,7 +474,8 @@ def parse_gallery(env: Any, sel: Any) -> list[dict]:
                  duration_s=_f(dur), settings=settings, inputs=inputs, media=media,
                  engagement={"views": _i(pub.get("views_count")), "likes": _i(pub.get("likes_count"))},
                  published_at=_ts(it.get("published_at")), created_at=_ts(it.get("created_at")),
-                 author_key=key, author=prof, rank=_rank(env, i))
+                 author_key=key, creator_uid_key=_uid_key(it.get("user_id"), it.get("profile")), author=prof,
+                 rank=_rank(env, i))
         out.append(e)
     return out
 
@@ -481,7 +494,7 @@ def parse_comments(env: Any, sel: Any) -> list[dict]:
                  parent_id=_s(c.get("parent_id")), content=_s(c.get("content")), likes=_i(c.get("like_count")),
                  dislikes=_i(c.get("dislike_count")), replies=_i(c.get("reply_count")),
                  created_at=_ts(c.get("created_at")), updated_at=_ts(c.get("updated_at")),
-                 author_key=key, author=prof)
+                 author_key=key, creator_uid_key=_uid_key(c.get("user_id"), c.get("author")), author=prof)
         out.append(e)
     return out
 

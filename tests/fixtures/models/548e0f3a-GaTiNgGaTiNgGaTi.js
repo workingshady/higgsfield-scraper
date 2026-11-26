@@ -1,0 +1,1 @@
+import{xF as lc,CF as Gn}from"./548e0f3a-FlAgSfLaGsFlAgSf.js";var zx,Vx,Hx;function Ux(){return(Ux=t(()=>{Dx(),zx=`seedance_2_5`,Bx={model:`speak-wan-2.5-fast`},Vx=new Set([`sora-2`,`veo3`]),Hx={kling_4_0_flash:{flag:lc,fallback:`kling4_0`},seedance_2_5_flash:{flag:Gn,fallback:`seedance_2_5`,pricedAs:`seedance_2_5_flash`,cobaltComingSoon:!0}}}))()}

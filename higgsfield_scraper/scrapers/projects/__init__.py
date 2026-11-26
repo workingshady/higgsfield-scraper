@@ -36,5 +36,6 @@ SCRAPER = ScraperDef(
         "python -m higgsfield_scraper scrape projects --what recommended --scope ai_film_festival --max-pages 2",
         "python -m higgsfield_scraper scrape projects --what contests --contest-status closed --contest-types weekly",
         "python -m higgsfield_scraper scrape projects --what publications --max-items 50 --download-media thumbs",
+        "python -m higgsfield_scraper scrape projects --what trending,contest-participation --max-pages 2",
     ),
 )

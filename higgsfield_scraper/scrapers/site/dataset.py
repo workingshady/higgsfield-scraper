@@ -10,9 +10,9 @@ from typing import Any, Optional
 from ...core.base import RunMeta
 from ...core.dataset import make_meta
 from ...core.exporting import flatten, row, without, write_standard_outputs
-from .endpoints import ENDPOINT_DOCS, ROOM_ENDPOINT_DOCS
+from .endpoints import ACADEMY_API_ENDPOINT_DOCS, ENDPOINT_DOCS, ROOM_ENDPOINT_DOCS
 from .options import Selection
-from .schemas import SiteDataset, SiteDatasetExt
+from .schemas import SiteDataset, SiteDatasetExt, SiteDatasetFull
 
 COLLECTIONS = {               # dataset key -> (kind, id field used in CSVs)
     "apps": ("site_app", "slug"),
@@ -34,6 +34,11 @@ ROOM_COLLECTIONS = {          # only in runs with --what room-list / room-conten
     "rooms": ("site_room", "room_id"),
     "room_items": ("site_room_item", "room_item_id"),
     "room_discussions": ("site_room_discussion", "post_id"),
+}
+ACADEMY_API_COLLECTIONS = {   # only in runs with --what academy-api (SiteDatasetFull)
+    "academy_api_categories": ("site_academy_api_category", "slug"),
+    "academy_api_courses": ("site_academy_api_course", "slug"),
+    "academy_api_lessons": ("site_academy_api_lesson", "lesson_id"),
 }
 MERGED = ("apps", "courses", "mcp_skills")         # index + page records merged by slug
 EMPTY = (None, "", [], {})
@@ -119,13 +124,75 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
     if rooms is not None:
         counts.update({c: len(v) for c, v in rooms.items()})
         endpoints.update(ROOM_ENDPOINT_DOCS)
+    academy = _academy_api_collections(entities) if getattr(sel, "academy_api", False) else None
+    if academy is not None:
+        counts.update({c: len(v) for c, v in academy.items()})
+        endpoints.update(ACADEMY_API_ENDPOINT_DOCS)
     meta = make_meta("site", sel, rm, counts=counts, endpoints=endpoints, totals_available=dict(rm.totals),
                      warnings=warnings)
+    if academy is not None:
+        ds = SiteDatasetFull.model_validate({"schema_version": 1, "meta": meta, **data, **(rooms or {}), **academy,
+                                             "summary": summary})
+        return ds.model_dump(mode="json", exclude=None if rooms is not None else set(ROOM_COLLECTIONS))
     if rooms is None:
         ds = SiteDataset.model_validate({"schema_version": 1, "meta": meta, **data, "summary": summary})
     else:
         ds = SiteDatasetExt.model_validate({"schema_version": 1, "meta": meta, **data, **rooms, "summary": summary})
     return ds.model_dump(mode="json")
+
+
+def merge_api_courses(records: list[dict]) -> list[dict]:
+    """Course list + course detail records -> one per slug (detail wins; empty fields filled from the list)."""
+    groups: dict[str, list[dict]] = {}
+    for r in records:
+        groups.setdefault(r["slug"], []).append(r)
+    out = []
+    for slug, rs in groups.items():
+        rs.sort(key=lambda r: 0 if r.get("record_source") == "detail" else 1)
+        base = dict(rs[0])
+        for other in rs[1:]:
+            for k, v in other.items():
+                if k not in ("record_key", "record_source", "source", "extra") and base.get(k) in EMPTY \
+                        and v not in EMPTY:
+                    base[k] = v
+            base["extra"] = {**(other.get("extra") or {}), **(base.get("extra") or {})}
+        out.append(base)
+    return out
+
+
+def _academy_api_collections(entities: dict[str, list[dict]]) -> dict[str, list[dict]]:
+    out = {c: [_strip_kind(e) for e in entities.get(kind, [])] for c, (kind, _id) in ACADEMY_API_COLLECTIONS.items()}
+    out["academy_api_courses"] = merge_api_courses(out["academy_api_courses"])
+    out["academy_api_categories"].sort(key=lambda c: c["slug"])
+    out["academy_api_courses"].sort(key=lambda c: (c.get("featured_position") if c.get("featured_position")
+                                                   is not None else 999, c["slug"]))
+    out["academy_api_lessons"].sort(key=lambda x: (x.get("course_slug") or "", x.get("position") or 999, x["slug"]))
+    return out
+
+
+def academy_api_csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
+    t: dict[str, tuple[list[dict], list[str]]] = {}
+    kids = {"academy_api_courses": ("slug", ["objectives", "authors", "examples", "lessons"]),
+            "academy_api_lessons": ("lesson_id", ["video_subtitles", "video_cues", "resources"]),
+            "academy_api_categories": ("slug", [])}
+    for coll, (idf, children) in kids.items():
+        t[coll] = ([_main_row(x, children) for x in ds[coll]], [idf, "slug", "title", "url"])
+        for child in children:
+            t[f"{coll}_{child}"] = ([row(c if isinstance(c, dict) else {"value": c}, **{idf: x[idf], "position": i})
+                                     for x in ds[coll] for i, c in enumerate(x.get(child) or [])], [idf, "position"])
+    return t
+
+
+def academy_api_summary_md(ds: dict) -> str:
+    lines = ["## Academy JSON API (fnf-academy)", "", "| collection | items |", "|---|---:|"]
+    lines += [f"| {c} | {len(ds[c])} |" for c in ACADEMY_API_COLLECTIONS]
+    courses = ds["academy_api_courses"]
+    if courses:
+        lines += ["", "| course | lessons | tests | free generations | difficulty |", "|---|---:|---:|---:|---|"]
+        lines += [f"| {c['slug']} | {c.get('lesson_count') if c.get('lesson_count') is not None else len(c['lessons'])}"
+                  f" | {c.get('test_count')} | {c.get('free_generations')} | {c.get('difficulty')} |" for c in courses]
+    lines.append("")
+    return "\n".join(lines)
 
 
 def _room_collections(entities: dict[str, list[dict]]) -> dict[str, list[dict]]:
@@ -280,6 +347,10 @@ def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
         parts.update({c: ds[c] for c in ROOM_COLLECTIONS})
         tables.update(room_csv_tables(ds))
         model, md = SiteDatasetExt, md + "\n" + room_summary_md(ds)
+    if "academy_api_courses" in ds:    # --what academy-api (SiteDatasetFull)
+        parts.update({c: ds[c] for c in ACADEMY_API_COLLECTIONS})
+        tables.update(academy_api_csv_tables(ds))
+        model, md = SiteDatasetFull, md + "\n" + academy_api_summary_md(ds)
     files = write_standard_outputs(ds, out_dir, json_parts=parts, csv_tables=tables,
                                    dataset_model=model, summary_md=md)
     if (ds["meta"].get("options") or {}).get("write_markdown", True):

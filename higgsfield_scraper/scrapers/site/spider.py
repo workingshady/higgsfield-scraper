@@ -18,8 +18,9 @@ from ...raw import Envelope
 from ..blog.parsers import extract_sitemap
 from . import endpoints as E
 from .extract import extract_page
-from .parsers import (academy_index_slugs, app_category_slugs, app_index_slugs, course_lesson_paths,
-                      is_landing_path, mcp_index_slugs, originals_total, sitemap_urls)
+from .parsers import (academy_api_course_slugs, academy_api_lessons, academy_index_slugs, app_category_slugs,
+                      app_index_slugs, course_lesson_paths, is_landing_path, mcp_index_slugs, originals_total,
+                      sitemap_urls)
 from .schemas import ID_FIELD_BY_KIND, PRIMARY_KINDS
 
 HTML_HEADERS = {"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
@@ -104,7 +105,46 @@ class SiteSpider(BaseApiSpider):
             reqs.append(self.sitemap("marketing_sitemap", "marketing"))
         if s.rooms_api:                                   # opt-in: --what room-list / room-content
             reqs.append(self.rooms_list())
+        if s.academy_api:                                 # opt-in: --what academy-api (fnf-academy JSON)
+            reqs += [self.academy_api("academy_api_categories", E.ACADEMY_API_CATEGORIES),
+                     self.academy_api("academy_api_courses", E.ACADEMY_API_COURSES)]
         yield from (r for r in reqs if r is not None)
+
+    # ------------------------------------------------------------ academy JSON API (fnf-academy, opt-in)
+    def academy_api(self, endpoint: str, path: str, *, budget_key: Optional[str] = None,
+                    page_path: Optional[str] = None, labels: Optional[dict] = None,
+                    priority: int = 8) -> Optional[scrapy.Request]:
+        """GET on the academy API. Detail requests (budget_key set) honour --only (on the public page path) and
+        --max-items per endpoint, like `page()`."""
+        if budget_key is not None:
+            if path in self._scheduled or not self.selection.path_ok(page_path):
+                return None
+            mx = self.common.max_items
+            if mx is not None and self._page_budget[budget_key] >= mx:
+                self.limit_hit(f"max_items={mx} reached for {budget_key} (further requests not sent)")
+                return None
+            self._page_budget[budget_key] += 1
+            self._scheduled.add(path)
+        return self.api_request(endpoint, path, base=E.ACADEMY_API, priority=priority, labels=labels)
+
+    def _academy_api_follow_up(self, env: Envelope) -> list[Optional[scrapy.Request]]:
+        out: list[Optional[scrapy.Request]] = []
+        if not self.selection.with_content:
+            return out
+        if env.endpoint == "academy_api_courses":
+            slugs = academy_api_course_slugs(env.body)
+            self.totals["academy_api_courses"] = len(slugs)
+            out += [self.academy_api("academy_api_course", E.ACADEMY_API_COURSE.format(slug=x),
+                                     budget_key="academy_api_course", page_path=f"/academy/courses/{x}",
+                                     labels={"slug": x}, priority=6) for x in slugs]
+        elif env.endpoint == "academy_api_course":
+            for les in academy_api_lessons(env.body):
+                out.append(self.academy_api(
+                    "academy_api_lesson", E.ACADEMY_API_LESSON.format(lesson_id=les["lesson_id"]),
+                    budget_key="academy_api_lesson", page_path=f"/academy/courses/{les['course_slug']}/{les['slug']}",
+                    labels={"lesson_id": les["lesson_id"], "course_slug": les["course_slug"],
+                            "course_id": les["course_id"], "position": les["position"]}, priority=4))
+        return out
 
     # ------------------------------------------------------------ community rooms (fnf-community JSON, opt-in)
     def rooms_list(self, cursor: Optional[str] = None, offset: int = 0) -> Optional[scrapy.Request]:
@@ -215,6 +255,8 @@ class SiteSpider(BaseApiSpider):
         out: list[Optional[scrapy.Request]] = []
         if ep in ("rooms_api", "room_items", "room_discussions"):
             out += self._rooms_follow_up(env)
+        elif ep in ("academy_api_courses", "academy_api_course"):
+            out += self._academy_api_follow_up(env)
         elif ep == "apps_index":
             self._app_categories |= app_category_slugs(env.body)
             slugs = app_index_slugs(env.body)

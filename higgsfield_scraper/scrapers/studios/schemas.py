@@ -50,6 +50,9 @@ class _Entity(Strict):
 
 class _Authored(_Entity):
     author_key: Optional[str] = Field(None, description="pseudonymous author: make_id('creator', user_id)")
+    creator_uid_key: Optional[str] = Field(None, description="shared creator key across scrapers: "
+                                                             "core.privacy.creator_uid_key(<Clerk user id>) (same "
+                                                             "hash as author_key)")
     author: Optional[Author] = Field(None, description="only with --with-profiles")
     is_builtin: Optional[bool] = Field(None, description="made by Higgsfield (no community author)")
 
@@ -245,6 +248,9 @@ class GalleryItem(_Generation):
     created_at: Optional[AwareDatetime] = None
     author_key: Optional[str] = Field(None, description="pseudonymous author (sha of `user_id` if real, else of "
                                                         "the profile username)")
+    creator_uid_key: Optional[str] = Field(None, description="shared creator key across scrapers: "
+                                                             "core.privacy.creator_uid_key(<Clerk user id>); null when "
+                                                             "author_key falls back to the username")
     author: Optional[Author] = None
     rank: Optional[int] = Field(None, description="0-based position in the feed (page*size + index)")
 
@@ -261,6 +267,7 @@ class Comment(_Entity):
     created_at: Optional[AwareDatetime] = None
     updated_at: Optional[AwareDatetime] = None
     author_key: Optional[str] = None
+    creator_uid_key: Optional[str] = Field(None, description="shared creator key across scrapers (same hash)")
     author: Optional[Author] = None
 
 

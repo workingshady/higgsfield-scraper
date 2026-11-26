@@ -1,0 +1,141 @@
+{
+    "meta": {
+        "endpoint": "academy_api_course",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-academy/api/v1/courses/blockbuster-4k",
+        "params": {
+            "slug": "blockbuster-4k"
+        },
+        "fetched_at": "2026-11-26T16:40:49.615583+00:00",
+        "status": 200
+    },
+    "body": {
+        "id": "7c614759-9e65-5fb8-90ab-287175068a9b",
+        "slug": "blockbuster-4k",
+        "title": "Blockbuster 4K: The AI Filmmaking Pipeline",
+        "description": "One 40-minute tutorial — scripting, asset creation, and scene-by-scene prompt engineering — chaptered into sections you can follow along with, shot by shot.",
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__cover__course-thumbnail.d3aeddb8.webp",
+        "has_certificate": false,
+        "difficulty": "Intermediate",
+        "duration_minutes": 40,
+        "free_generations": 0,
+        "categories": [
+            "movie-making"
+        ],
+        "preview_media": {
+            "url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__video__lesson-video.f4c9f07a.mp4",
+            "kind": "video",
+            "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__cover.3b23bed5.webp"
+        },
+        "featured_position": 0,
+        "objectives": [
+            {
+                "title": "Plan a cinematic story as a sequence of producible beats",
+                "description": ""
+            },
+            {
+                "title": "Build reusable character, prop, and location assets, then turn story beats into controlled generations",
+                "description": ""
+            },
+            {
+                "title": "Review and assemble selected takes into a finished short",
+                "description": ""
+            }
+        ],
+        "examples": [],
+        "certificate_unlocked": false,
+        "has_creator_drop": false,
+        "author": {
+            "name": "[redacted]",
+            "role": "Director of Hell Grind",
+            "bio": "[redacted]",
+            "avatar_url": "[redacted]"
+        },
+        "authors": [
+            {
+                "name": "[redacted]",
+                "role": "Director of Hell Grind",
+                "bio": "[redacted]",
+                "avatar_url": "[redacted]"
+            }
+        ],
+        "metadata": {
+            "skills": [],
+            "models": [],
+            "languages": [],
+            "tools": []
+        },
+        "published_at": "2026-07-18",
+        "updated_at": "2026-10-16",
+        "lessons": [
+            {
+                "access": {
+                    "allowed": true,
+                    "reason": null,
+                    "blocking_lesson_id": null
+                },
+                "homework_required": false,
+                "homework_submitted": false,
+                "id": "ccf398a6-5b6b-58a3-8e72-235d6d312e47",
+                "slug": "one-character-many-worlds-watch-the-film",
+                "title": "One Character, Many Worlds: Watch the Film",
+                "position": 1,
+                "completed": false,
+                "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__cover.3b23bed5.webp",
+                "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__video__lesson-video.f4c9f07a.mp4",
+                "video_poster": null,
+                "reading_minutes": 3,
+                "verified": null,
+                "layout": null,
+                "surface": null,
+                "surface_mode": null,
+                "surface_scene": null
+            },
+            {
+                "access": {
+                    "allowed": true,
+                    "reason": null,
+                    "blocking_lesson_id": null
+                },
+                "homework_required": false,
+                "homework_submitted": false,
+                "id": "f5173c85-0313-5262-8700-2f277c6fb313",
+                "slug": "stage-1-writing-the-script-with-claude",
+                "title": "Stage 1: Writing the Script with Claude",
+                "position": 2,
+                "completed": false,
+                "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-1-writing-the-script-with-claude__cover.2aa9ce3a.webp",
+                "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-1-writing-the-script-with-claude__video__lesson-video.8a43535a.mp4",
+                "video_poster": null,
+                "reading_minutes": 3,
+                "verified": null,
+                "layout": null,
+                "surface": null,
+                "surface_mode": null,
+                "surface_scene": null
+            },
+            {
+                "access": {
+                    "allowed": true,
+                    "reason": null,
+                    "blocking_lesson_id": null
+                },
+                "homework_required": false,
+                "homework_submitted": false,
+                "id": "afd3d7a3-2d88-556e-95b7-23a54008473d",
+                "slug": "stage-2-building-character-location-and-prop-assets",
+                "title": "Stage 2: Building Character, Location, and Prop Assets",
+                "position": 3,
+                "completed": false,
+                "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-2-building-character-location-and-prop-assets__cover.9d211c46.webp",
+                "video": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__stage-2-building-character-location-and-prop-assets__video__lesson-video.b8eae65e.mp4",
+                "video_poster": null,
+                "reading_minutes": 3,
+                "verified": null,
+                "layout": null,
+                "surface": null,
+                "surface_mode": null,
+                "surface_scene": null
+            }
+        ]
+    }
+}

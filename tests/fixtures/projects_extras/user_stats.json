@@ -1,0 +1,17 @@
+{
+    "meta": {
+        "endpoint": "projects_user_stats",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user/user_Fake03xxxxxxxxxxxxxxxxxxxxx/stats",
+        "params": {
+            "creator_uid_key": "LABEL",
+            "creator_key": "LABEL"
+        },
+        "fetched_at": "2026-11-26T18:31:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "posts_count": 0,
+        "likes_count": 279,
+        "views_count": 22568
+    }
+}

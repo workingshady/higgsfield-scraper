@@ -1,0 +1,142 @@
+{
+    "meta": {
+        "endpoint": "projects_series_public",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-series/series?limit=1",
+        "params": {
+            "limit": "1"
+        },
+        "fetched_at": "2026-11-26T18:31:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "id": "1b93ce43-1393-4c75-9405-51c111b5d132",
+                "slug": "alright-alright-alright",
+                "name": "ALRIGHT ALRIGHT ALRIGHT",
+                "short_description": "Two crypto hustlers are hired by a powerful cartel leader to digitize his massive cash reserves into Bitcoin. Instead of following the plan, they steal the money and trigger a global market collapse. With the cartel closing in and the digital world in ruins, they must survive the chaos of their own making.",
+                "author_type": "higgsfield_team",
+                "author": null,
+                "is_series": true,
+                "state": "released",
+                "portrait_url": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/portrait/36e7dfd3-ea9d-40be-8d3c-cebd7bedd2f1_optimized.webp",
+                "landscape_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/a2811fd2-ecd9-4310-bd87-b3f1cd37c62c.webp",
+                "background_url": null,
+                "logo_url": null,
+                "trailer_url": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/trailer/0dbb443b-ba19-4ed8-aebc-00cb34184125.mp4",
+                "portrait": {
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/portrait/36e7dfd3-ea9d-40be-8d3c-cebd7bedd2f1.png",
+                        "width": null,
+                        "bucket": "prod-fnf-series",
+                        "height": null,
+                        "object_key": "series/1b93ce43-1393-4c75-9405-51c111b5d132/portrait/36e7dfd3-ea9d-40be-8d3c-cebd7bedd2f1.png"
+                    },
+                    "optimized": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/portrait/36e7dfd3-ea9d-40be-8d3c-cebd7bedd2f1_optimized.webp",
+                        "object_key": "series/1b93ce43-1393-4c75-9405-51c111b5d132/portrait/36e7dfd3-ea9d-40be-8d3c-cebd7bedd2f1_optimized.webp"
+                    }
+                },
+                "landscape": null,
+                "background": null,
+                "logo": null,
+                "trailer": {
+                    "hls": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/hls/series/1b93ce43-1393-4c75-9405-51c111b5d132/trailer/0dbb443b-ba19-4ed8-aebc-00cb34184125.m3u8",
+                        "job_id": "1773930692412-19cxua",
+                        "status": "ready"
+                    },
+                    "original": {
+                        "url": "https://du4zrvwy3vtek.cloudfront.net/series/1b93ce43-1393-4c75-9405-51c111b5d132/trailer/0dbb443b-ba19-4ed8-aebc-00cb34184125.mp4",
+                        "width": 1920,
+                        "bucket": "prod-fnf-series",
+                        "height": 1080,
+                        "object_key": "series/1b93ce43-1393-4c75-9405-51c111b5d132/trailer/0dbb443b-ba19-4ed8-aebc-00cb34184125.mp4"
+                    },
+                    "faststart": true,
+                    "optimized": null
+                },
+                "is_hero": false,
+                "is_hidden": false,
+                "hero_order": null,
+                "display_order": 24,
+                "project_url": null,
+                "project_banner_images": [],
+                "categories": [
+                    {
+                        "id": "3530d6b1-129a-46fa-9403-c2f30b2bd165",
+                        "name": "On Our Radar",
+                        "slug": "on-our-radar",
+                        "display_order": 3
+                    }
+                ],
+                "cast": [],
+                "tags": [],
+                "vote_count": 1413,
+                "subscriber_count": 102,
+                "engagement_score": 0.9764356055412531,
+                "is_vote_triggered": false,
+                "is_notify_triggered": false,
+                "created_at": "2026-03-18T17:41:14.382117+00:00",
+                "updated_at": "2026-11-26T10:45:05.851889+00:00",
+                "full_description": "Two crypto hustlers are hired by a powerful cartel leader to digitize his massive cash reserves into Bitcoin. Instead of following the plan, they steal the money and trigger a global market collapse. With the cartel closing in and the digital world in ruins, they must survive the chaos of their own making.",
+                "episodes": [
+                    {
+                        "id": "46f5150c-9437-4505-90a0-31832d1add8c",
+                        "series_id": "1b93ce43-1393-4c75-9405-51c111b5d132",
+                        "slug": "episode-1",
+                        "episode_number": 1,
+                        "title": "Trailer",
+                        "description": null,
+                        "video_url": "https://du4zrvwy3vtek.cloudfront.net/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d.mp4",
+                        "thumbnail_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/3aa5361f-4315-4039-ba08-ed30ccd4a57e.webp",
+                        "video": {
+                            "hls": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/hls/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d.m3u8",
+                                "job_id": "1773930752733-kon4km",
+                                "status": "ready"
+                            },
+                            "shimmer": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d_shimmer.webp",
+                                "width": 1920,
+                                "bucket": "prod-fnf-series",
+                                "height": 1080,
+                                "object_key": "episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d_shimmer.webp"
+                            },
+                            "original": {
+                                "url": "https://du4zrvwy3vtek.cloudfront.net/episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d.mp4",
+                                "width": 1920,
+                                "bucket": "prod-fnf-series",
+                                "height": 1080,
+                                "object_key": "episode/46f5150c-9437-4505-90a0-31832d1add8c/video/2eb9ed7a-572c-4dec-a63d-77671ee75e6d.mp4"
+                            },
+                            "optimized": null
+                        },
+                        "thumbnail": null,
+                        "duration_seconds": null,
+                        "is_locked": false,
+                        "is_adults_only": false,
+                        "like_count": 367,
+                        "dislike_count": 3,
+                        "view_count": 48644,
+                        "engagement_score": 0.9764356055412531,
+                        "like_mark": null,
+                        "youtube_url": null,
+                        "project_publication_id": null,
+                        "project_publication": null,
+                        "created_at": "2026-03-18T17:49:08.325213+00:00",
+                        "updated_at": "2026-11-26T10:45:05.842952+00:00"
+                    }
+                ],
+                "duration_seconds": null,
+                "project_publication_id": null,
+                "engagement": {
+                    "like_count": 367,
+                    "view_count": 48644,
+                    "comment_count": 0
+                }
+            }
+        ],
+        "total": 1
+    }
+}

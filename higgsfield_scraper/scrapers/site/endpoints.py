@@ -50,9 +50,21 @@ ROOM_ITEMS = "/rooms/{room_id}/items"                     # ?limit<=50&cursor ->
 ROOM_DISCUSSIONS = "/publications/feed"                   # ?room_id&kind=discussion&offset&limit -> {publications[], has_more}
 ROOMS_PAGE_SIZE = 50
 
+# --- Academy JSON API (fnf-academy, public; opt-in --what academy-api) ----------------------------------------------
+# JS evidence (build 548e0f3a, chunk H2odSMT_fOKI1GMn.js): rD(path) only allows `${base}/api/v1/...` on the academy
+# origin; oD() = GET /api/v1/courses (parseCourseSummaries), sD(slug) = GET /api/v1/courses/${slug}
+# (parseCourseResponse), yge(id) = GET /api/v1/lessons/${id} (parseLessonResponse). Public without a session
+# (verified 2026-11-26); /api/v1/categories answers too. Not used: /api/v1/user/certificates* (login, own),
+# /api/v1/certificates/{id} (one certificate by id, not enumerable).
+ACADEMY_API = "https://fnf-api-gw.higgsfield.ai/fnf-academy"
+ACADEMY_API_CATEGORIES = "/api/v1/categories"           # [{id, slug, title, description, artwork}]
+ACADEMY_API_COURSES = "/api/v1/courses"                 # [course summary + free_generations, test_count] (17)
+ACADEMY_API_COURSE = "/api/v1/courses/{slug}"           # course + objectives, authors, metadata, lessons[] (+access)
+ACADEMY_API_LESSON = "/api/v1/lessons/{lesson_id}"      # lesson + mdx source, xp_reward, video tracks, resources
+
 # --- what= values ---------------------------------------------------------------------------------------------------
 WHAT = ("apps", "academy", "mcp", "originals", "mixed-media", "landings", "rooms", "promos", "room-list",
-        "room-content")
+        "room-content", "academy-api")
 DEFAULT_WHAT = ("apps", "academy", "mcp", "originals", "mixed-media", "landings", "promos")   # rooms: opt-in
 
 # marketing-sitemap paths that are not landings (covered elsewhere or by another --what value)
@@ -88,4 +100,10 @@ ROOM_ENDPOINT_DOCS = {           # added to meta.endpoints only in runs with --w
     "room_stats": COMMUNITY_API + ROOM_STATS + "?room_id={room_id}",
     "room_items": COMMUNITY_API + ROOM_ITEMS,
     "room_discussions": COMMUNITY_API + ROOM_DISCUSSIONS + "?room_id={room_id}&kind=discussion",
+}
+ACADEMY_API_ENDPOINT_DOCS = {    # added to meta.endpoints only in runs with --what academy-api
+    "academy_api_categories": ACADEMY_API + ACADEMY_API_CATEGORIES,
+    "academy_api_courses": ACADEMY_API + ACADEMY_API_COURSES,
+    "academy_api_course": ACADEMY_API + ACADEMY_API_COURSE,
+    "academy_api_lesson": ACADEMY_API + ACADEMY_API_LESSON,
 }

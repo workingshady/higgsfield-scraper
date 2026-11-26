@@ -40,9 +40,14 @@ def user_key(handle: str) -> str:
     return h[4:] if h.startswith("key:") else make_id("handle", h.lstrip("@"))
 
 
-WHAT_EXTRA = ("user-projects",)          # accepted by --what but not part of 'all' (needs --users)
+# accepted by --what but NOT part of 'all' (so `--what all` plans the same requests as before they existed):
+# user-projects needs --users; trending (ranking + total, 2026-11-26) and contest-participation (counters + config,
+# 2026-11-26) are opt-in. `--what all,trending` = all + trending.
+WHAT_OPT_IN = ("trending", "contest-participation")
+WHAT_EXTRA = ("user-projects",) + WHAT_OPT_IN
 OPT_IN_KEYS = ("public_series", "with_project_assets", "with_project_brief", "with_project_stats",
-               "with_project_comments", "with_project_related", "users", "contests", "contest_tabs")
+               "with_project_comments", "with_project_related", "users", "contests", "contest_tabs",
+               "with_user_works", "trending_sort", "trending_filter", "trending_with_contest")
 
 
 @dataclass
@@ -71,6 +76,11 @@ class Selection:
     users: tuple[str, ...] = ()                      # --users: handles whose public projects are listed (input only)
     contests: tuple[str, ...] = ()                   # --contest: contest slugs (fetched by slug instead of listed)
     contest_tabs: tuple[str, ...] = ()               # --contest-tabs: entry tabs of a --contest (default: --entry-tab)
+    # ---- opt-in extras (added 2026-11-26; omitted from to_dict() at their defaults, like the nested flags)
+    with_user_works: bool = False                    # works + stats of users already found in the run (by user id)
+    trending_sort: Optional[str] = None              # --what trending: sort (None/'default' = not sent)
+    trending_filter: Optional[str] = None            # --what trending: filter (None = not sent)
+    trending_with_contest: bool = False              # --what trending: with_contest=true (ignored with a filter, as JS)
 
     def __post_init__(self) -> None:
         self.what = tuple(self.what)
@@ -94,6 +104,17 @@ class Selection:
             raise ValueError(f"--entry-tab must be one of {list(ep.ENTRY_TABS)}")
         if self.submission_ordering not in ep.SUBMISSION_ORDERINGS:
             raise ValueError(f"--submission-ordering must be one of {list(ep.SUBMISSION_ORDERINGS)}")
+        if self.trending_sort == "default":
+            self.trending_sort = None
+        if self.trending_sort is not None and self.trending_sort not in ep.TRENDING_SORTS:
+            raise ValueError(f"--trending-sort must be one of {list(ep.TRENDING_SORTS)}")
+        if self.trending_filter is not None and self.trending_filter not in ep.TRENDING_FILTERS:
+            raise ValueError(f"--trending-filter must be one of {list(ep.TRENDING_FILTERS)}")
+
+    @property
+    def extras(self) -> bool:
+        """Any opt-in extra collection requested (trending, contest participation, user works)."""
+        return self.wants("trending") or self.wants("contest-participation") or self.with_user_works
 
     @property
     def statuses(self) -> tuple[str, ...]:
@@ -128,11 +149,17 @@ class Selection:
               submission_ordering: Any = "newest", max_submissions: Any = None, with_profiles: Any = False,
               public_series: Any = False, with_project_assets: Any = False, with_project_brief: Any = False,
               with_project_stats: Any = False, with_project_comments: Any = False, with_project_related: Any = False,
-              users: Any = None, contests: Any = None, contest_tabs: Any = None) -> "Selection":
+              users: Any = None, contests: Any = None, contest_tabs: Any = None, with_user_works: Any = False,
+              trending_sort: Any = None, trending_filter: Any = None,
+              trending_with_contest: Any = False) -> "Selection":
         ms = None if max_submissions in (None, "", "None") else int(max_submissions)
         tabs = _csv(contest_tabs)
+        whats = _csv(what)
+        chosen = _choose(whats, ep.WHAT + WHAT_EXTRA, "--what", ep.WHAT)
+        if "all" in whats:                         # 'all' = the default parts; opt-in parts listed with it are kept
+            chosen = chosen + tuple(w for w in dict.fromkeys(whats) if w in WHAT_OPT_IN)
         return cls(
-            what=_choose(_csv(what), ep.WHAT + WHAT_EXTRA, "--what", ep.WHAT),
+            what=chosen,
             categories=tuple(_csv(categories)),
             featured=_truthy(featured),
             scopes=_choose(_csv(scope), ep.RECOMMENDED_SCOPES, "--scope", ep.RECOMMENDED_SCOPES),
@@ -154,6 +181,10 @@ class Selection:
             users=tuple(dict.fromkeys(u.lstrip("@") for u in _csv(users))),
             contests=tuple(dict.fromkeys(_csv(contests))),
             contest_tabs=ep.CONTEST_TABS if "all" in tabs else tuple(dict.fromkeys(tabs)),
+            with_user_works=_truthy(with_user_works),
+            trending_sort=None if trending_sort in (None, "", "None") else str(trending_sort),
+            trending_filter=None if trending_filter in (None, "", "None") else str(trending_filter),
+            trending_with_contest=_truthy(trending_with_contest),
         )
 
 
@@ -161,7 +192,7 @@ def add_args(p: argparse.ArgumentParser) -> None:
     g = p.add_argument_group("projects: what to scrape")
     g.add_argument("--what", default="all",
                    help=f"comma list of {list(ep.WHAT)} or 'all' (default). 'series' needs a login session "
-                        "unless --public-series")
+                        f"unless --public-series. Opt-in (not in 'all'): {list(WHAT_OPT_IN)}")
     g.add_argument("--categories", default=None,
                    help="publication category slugs (server-side filter), e.g. spotlight,open-sourced-by-higgsfield")
     g.add_argument("--featured", action="store_true", help="publications listing: only featured (featured=true)")
@@ -202,6 +233,18 @@ def add_args(p: argparse.ArgumentParser) -> None:
     n.add_argument("--contest-tabs", default=None,
                    help=f"entry tabs of a --contest that has an entries listing (talent-contest, festival): "
                         f"{list(ep.CONTEST_TABS)} or 'all' (default: --entry-tab). Needs --with-submissions")
+    x = p.add_argument_group("projects: opt-in extras (not part of the default run or of --what all)")
+    x.add_argument("--trending-sort", default=None, choices=list(ep.TRENDING_SORTS),
+                   help="--what trending: ranking order (default: the site's default ranking; not sent)")
+    x.add_argument("--trending-filter", default=None, choices=list(ep.TRENDING_FILTERS),
+                   help="--what trending: filter (default: not sent = every project)")
+    x.add_argument("--trending-with-contest", action="store_true",
+                   help="--what trending: with_contest=true (ignored when --trending-filter is given, like the site)")
+    x.add_argument("--with-user-works", action="store_true",
+                   help="published works (generations with prompt/params/results, projects, folders, contest "
+                        "submissions) + stats of users ALREADY found in this run (owners of --users projects, "
+                        "contest entrants and submitters); never enumerates users. Pseudonymous (creator_uid_key) "
+                        "unless --with-profiles")
     o = p.add_argument_group("projects: personal data")
     o.add_argument("--with-profiles", action="store_true",
                    help="opt-in: include authors'/contestants' usernames, names, avatars, headlines, locations, "

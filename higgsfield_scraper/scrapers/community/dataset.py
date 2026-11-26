@@ -13,6 +13,7 @@ from ...estimate import EstimatedCost, formula_version_in_schema, skipped
 from .endpoints import (COMMUNITY_BASE, CREATORS_PATH, ENTITY_COMMENTS_PATH, FEED_PATH, FEED_PATHS, POSTS_PATH,
                         SHOTS_PATH, TALENTS_PATH)
 from .endpoints import CMS_API_BASE, EXTRA_URLS, GALLERY_FEEDS, MUSIC_CARD_OPTIONS_PATH
+from .endpoints import FEED_ONGOING_PATH
 from .options import Selection
 from .schemas import CommunityDataset, CommunityDatasetExt, CommunityDatasetGallery
 
@@ -230,13 +231,24 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
 
 # ------------------------------------------------------------------ opt-in Community pages
 EXTRA_COLLECTIONS = {"shots": "community_shot", "posts": "community_post", "feed_items": "community_feed_item",
-                     "creator_stats": "community_creator_stats"}
+                     "creator_stats": "community_creator_stats", "creator_works": "community_creator_work",
+                     "shot_model_facets": "community_shot_model_facet",
+                     "feed_categories": "community_feed_category"}
 
 
 def _extra_collections(entities: dict[str, list[dict]]) -> dict[str, list[dict]]:
     out = {c: [without(e, "kind") for e in entities.get(k, [])] for c, k in EXTRA_COLLECTIONS.items()}
     out["feed_items"].sort(key=lambda x: (x.get("position") is None, x.get("position") or 0))
     out["creator_stats"].sort(key=lambda x: (x["listing"], x.get("position") is None, x.get("position") or 0))
+    # creator works: only those of kept creator cards (a card cut by --max-items drops its works), card order + rank
+    order = {c["record_id"]: n for n, c in enumerate(out["creator_stats"])}
+    out["creator_works"] = sorted((w for w in out["creator_works"] if w["record_id"] in order),
+                                  key=lambda w: (order[w["record_id"]], w["rank"]))
+    per_model = Counter(x.get("job_set_type") for x in out["shots"])
+    out["shot_model_facets"] = sorted(({**f, "shots_in_run": per_model.get(f["model"], 0)}
+                                       for f in out["shot_model_facets"]),
+                                      key=lambda x: (x.get("position") is None, x.get("position") or 0, x["model"]))
+    out["feed_categories"].sort(key=lambda x: (x["source_list"], x.get("position") is None, x.get("position") or 0))
     return out
 
 
@@ -246,6 +258,8 @@ def _extra_endpoints(sel: Selection) -> dict[str, str]:
             "creators": fnf + CREATORS_PATH, "talents": fnf + TALENTS_PATH}
     urls.update(EXTRA_URLS)
     out = {f: urls[f] for f in sel.extra_feeds}
+    if "feed-categories" in sel.extra_feeds:
+        out["feed-ongoing"] = COMMUNITY_BASE + FEED_ONGOING_PATH
     if "music-cards" in sel.extra_feeds:
         out["music-cards-options"] = CMS_API_BASE + MUSIC_CARD_OPTIONS_PATH
     if sel.with_comments:
@@ -259,21 +273,52 @@ def _extra_stats(ext: dict[str, list[dict]], comments: list[dict]) -> dict:
             "feed_items_by_type": _top(Counter(x["item_type"] for x in ext["feed_items"])),
             "shots_by_job_set_type": _top(Counter(x.get("job_set_type") or "?" for x in ext["shots"])),
             "shots_by_media_type": _top(Counter(x["media_type"] for x in ext["shots"])),
-            "comments_by_thread_type": _top(Counter(c.get("thread_type") or "?" for c in comments))}
+            "comments_by_thread_type": _top(Counter(c.get("thread_type") or "?" for c in comments)),
+            "creator_works": len(ext["creator_works"]),
+            "creator_works_by_type": _top(Counter(w["item_type"] for w in ext["creator_works"])),
+            "shot_model_facets": len(ext["shot_model_facets"]), "feed_categories": len(ext["feed_categories"])}
 
 
 def extra_csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
     """Complete CSVs of the opt-in collections (one row per record + child tables for nested lists)."""
     posts, creators = ds["posts"], ds["creator_stats"]
+    works = {(w["record_id"], w["rank"]): w for w in ds.get("creator_works") or []}
+    wkey = lambda w: {"work_id": w["work_id"], "record_id": w["record_id"], "rank": w["rank"]}  # noqa: E731
+
+    def work_row(c: dict, i: int, w: dict) -> dict:
+        """The creator_works row (light card entry) + every column of the full work (never overwriting)."""
+        r = row(w, record_id=c["record_id"], user_id=c["user_id"], listing=c["listing"], position=i)
+        full = works.get((c["record_id"], i))
+        if full:
+            r.update({k: v for k, v in flatten(without(full, "inputs", "results", "gallery_media")).items()
+                      if k not in r})
+        return r
+
+    full_works = ds.get("creator_works") or []
+    feed_items = ds["feed_items"]
     return {
         "shots": ([flatten(x) for x in ds["shots"]], ["shot_id", "generation_id", "job_set_type", "media_type"]),
         "posts": ([flatten(without(x, "media")) for x in posts], ["post_id", "title", "text"]),
         "post_media": ([row(m, post_id=p["post_id"]) for p in posts for m in p["media"]], ["post_id", "index", "type"]),
-        "feed_items": ([flatten(x) for x in ds["feed_items"]], ["feed_item_id", "position", "item_type", "item_id"]),
+        "feed_items": ([flatten(x) for x in feed_items],          # media[] as JSON + one row each below
+                       ["feed_item_id", "position", "item_type", "item_id"]),
+        "feed_item_media": ([row(m, feed_item_id=x["feed_item_id"], item_id=x["item_id"]) for x in feed_items
+                             for m in x.get("media") or []], ["feed_item_id", "item_id", "index", "type"]),
         "creator_stats": ([flatten(without(x, "works")) for x in creators], ["record_id", "listing", "position",
                                                                              "user_id"]),
-        "creator_works": ([row(w, record_id=c["record_id"], user_id=c["user_id"], listing=c["listing"], position=i)
-                           for c in creators for i, w in enumerate(c["works"])], ["record_id", "user_id", "position"]),
+        "creator_works": ([work_row(c, i, w) for c in creators for i, w in enumerate(c["works"])],
+                          ["record_id", "user_id", "position"]),
+        "creator_work_inputs": ([row(i, **wkey(w), job_set_type=w.get("job_set_type")) for w in full_works
+                                 for i in w.get("inputs") or []], ["work_id", "record_id", "rank", "index", "param"]),
+        "creator_work_results": ([row(r, **wkey(w), position=n) for w in full_works
+                                  for n, r in enumerate(w.get("results") or [])],
+                                 ["work_id", "record_id", "rank", "position", "name", "type", "url"]),
+        "creator_work_media": ([row(m, **wkey(w)) for w in full_works for m in w.get("gallery_media") or []],
+                               ["work_id", "record_id", "rank", "role", "index", "url"]),
+        "shot_model_facets": ([flatten(x) for x in ds.get("shot_model_facets") or []],
+                              ["facet_id", "model", "media_type", "position", "shots_in_run"]),
+        "feed_categories": ([flatten(x) for x in ds.get("feed_categories") or []],
+                            ["category_id", "source_list", "position", "slug", "title", "post_count"]),
         "extra_stats": ([{"dimension": k, "value": v2, "count": n} for k, v in ds["extra_stats"].items()
                          if isinstance(v, dict) for v2, n in v.items()] +
                         [{"dimension": k, "value": None, "count": v} for k, v in ds["extra_stats"].items()
@@ -284,16 +329,20 @@ def extra_csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
 def extra_summary_md(ds: dict) -> str:
     st = ds["extra_stats"]
     lines = ["## Opt-in Community pages", "",
-             _md_table([[k, st[k]] for k in ("shots", "posts", "feed_items", "creator_stats")], ["collection", "rows"]),
+             _md_table([[k, st[k]] for k in ("shots", "posts", "feed_items", "creator_stats", "creator_works",
+                                             "shot_model_facets", "feed_categories")], ["collection", "rows"]),
              ""]
     for title, key in (("Feed items by type", "feed_items_by_type"), ("Shots by model", "shots_by_job_set_type"),
-                       ("Comments by thread type", "comments_by_thread_type")):
+                       ("Comments by thread type", "comments_by_thread_type"),
+                       ("Creator works by type", "creator_works_by_type")):
         if st.get(key):
             lines += [f"### {title}", "", _md_table([[k, v] for k, v in list(st[key].items())[:15]],
                                                      ["value", "count"]), ""]
     lines += ["Files: `csv/shots.csv`, `csv/posts.csv` + `csv/post_media.csv`, `csv/feed_items.csv`, "
-              "`csv/creator_stats.csv` + `csv/creator_works.csv`, `csv/extra_stats.csv` (only in runs with opt-in "
-              "feeds). Creator names, bios and avatars only with --with-profiles.", ""]
+              "`csv/creator_stats.csv` + `csv/creator_works.csv` (one row per work, full fields) + "
+              "`csv/creator_work_{inputs,results,media}.csv`, `csv/feed_item_media.csv`, `csv/shot_model_facets.csv`, "
+              "`csv/feed_categories.csv`, `csv/extra_stats.csv` (only in runs with opt-in feeds). Creator names, bios "
+              "and avatars only with --with-profiles.", ""]
     return "\n".join(lines)
 
 

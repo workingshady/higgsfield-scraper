@@ -29,7 +29,7 @@ Contents: 1 sources · 2 evidence (JS + live) · 3 HTTP flow · 4 endpoint table
 | `editing_room_examples` | `showcase_editing_room_example`, `…_project`, `…_render` | Editing Room (videoshop) CMS examples + 6 complete example projects with every edit's tool parameters and every rendered version | yes | 11 examples, 6 projects, 41 renders |
 | `property_studio_examples` | `showcase_property_studio_example` | Property Studio explore presets (before/after/tour) from the JS preset table + lingui titles | yes | 69 |
 | `explore_categories` | `showcase_explore_category`, `…_item`, `…_variant` | Higgsfield Multiplier "video explore": categories, curated trends (`higgsfield`) and community trends (`community`, with likes) + their variants (original / edit / generation, prompt, params, publication id) | yes | 6 categories; 35 curated; 49 322 community |
-| `effect_examples` | `showcase_effect_sample` | Approved sample generations on `/effects/examples/{slug}` (job, prompt, params, output, inputs) | yes | 87 pages × first SSR page of samples |
+| `effect_examples` | `showcase_effect_sample`, `showcase_effect_preset` | Approved sample generations on `/effects/examples/{slug}` (job, prompt, params, verbatim `raw_params`, output, inputs with their raw role) + the page's effect template (inputs, param choices, credit price matrix, preview media; §5.3) | yes | 87 pages × first SSR page of samples |
 | `api_models` | `showcase_api_model` | Public API docs: every `vendor/model/variant` endpoint with parameters (JSON schema) and listed prices | yes | 83 endpoints, 580 parameters |
 | `cinema_controls` | `showcase_cinema_control` | Cinema Studio 4.0 creative controls (camera model/lens/aperture/movement, color, pacing, light, genre, era) with sample media | yes | 78 |
 | `faceless_showcases` | `showcase_faceless_showcase` | YouTube-faceless showcase videos | yes | 9 |
@@ -39,9 +39,12 @@ Contents: 1 sources · 2 evidence (JS + live) · 3 HTTP flow · 4 endpoint table
 | `season` | `showcase_season` | `fnf-score` season | **login only**, per user | `null` (no active season) |
 | `reels_presets` (**opt-in**) | `showcase_reels_preset` | Shorts Studio (ex "Genjutsu for Reels" / AI Reels) presets: finished example reel (output video + variants), prompt, script, instructions, reference reel (+ its platform stats), character/own-video inputs, recreates, publication likes. See §10 | yes | 40 curated + 75 community |
 | `reels_comments` (**opt-in**) | `showcase_reels_comment` | comments on community Shorts Studio presets (fnf-community `generation_publication` threads). See §10 | yes | 73 threads, 0 comments |
+| `main_feed` (**by name only**) | `showcase_main_feed_item`, `showcase_main_feed_variant` | the home "Explore" main feed (`cms /main-feed`): Genjutsu community presets (title, description, `job_set_type`, original video, likes/views/comments/`times_made`, original/edit/generation variants with prompt, params, inputs, publication) and playable-ad game rows. See §11 | yes | no total (cursor); page 1 = 17 genjutsu + 3 game rows |
 
 `--what` default = `public` = every public source **except the opt-in reels sources** (unchanged since before
-they were added); `all` = public + `reels_presets` + `reels_comments` + `season`.
+they were added); `all` = public + `reels_presets` + `reels_comments` + `season`. `main_feed` is selected **only by
+name** (`--what main_feed` or `--what all,main_feed`): it is in neither `public` nor `all`, so existing `--what all`
+runs plan exactly the same requests as before it was added.
 
 ## 2. Evidence (JS call site + live check)
 
@@ -202,6 +205,8 @@ comments, uses}` (`uses` = `times_made`).
 | editing_room_project | **project_id** | uuid | `project.id` | no | |
 | | name, created_at, updated_at | str, ISO (from epoch s) | `project.*` | yes | |
 | | take (Media), take_duration_ms | | `project.take` | yes | 3840×2160, 15041 ms |
+| | take_poster_url, take_preview_url, take_storyboard_vtt_url | url | `take.assets.poster.url`, `.preview.url`, `.storyboard.vtt_url` | yes | `…/storyboard/board.vtt` |
+| | take_thumbnail_url, take_filename | url, str | `take.thumbnail_url`, `take.filename` | yes | `Input (1).mp4` |
 | | scenes[] | `{start_ms,end_ms}` | `project.scenes` | `[]` | |
 | | timeline_schema_version | int | `timeline.schemaVersion` | yes | 3 |
 | | edits[] | `{edit_id, number, tool, tool_mode (genjutsuWay), layer, start_ms, end_ms, hidden, resolution, prompt_enabled, prompt, params{relight,brush,cameraMove,angle}, references[Media], placed_version_id}` | `timeline.edits[]` (`startMs`…) | `[]` | relight `{preset:"bold-02", lights:[{az:45, el:35, color:"#FFBC70", brightness:100, diffuse:10}]}` |
@@ -211,6 +216,7 @@ comments, uses}` (`uses` = `times_made`).
 | | tool, prompt, made_with | | `madeWith` | yes | relight |
 | | start_ms, end_ms | ms | `rangeMs` | yes | |
 | | media[] | Media | `media{id,url}` | `[]` | `media_key` = media.id |
+| | thumbnail_url | url | `versions[].thumbnailUrl` | yes | |
 | property_studio_example | **format + path + lang** | | JS row | no | `flash-tour`, `02-walnut-loft-house` |
 | | preset_index | int | row position (app id = index + 100) | no | 0 |
 | | app | str | `$t[format]` | yes | speedramp_walkthrough |
@@ -230,8 +236,10 @@ comments, uses}` (`uses` = `times_made`).
 | | variant_type | original\|edit\|generation | `type` | yes | |
 | | prompt, params, priority | | same | yes / `{}` | `{width, height, resolution}` |
 | | media[], inputs[] | Media | `media` (+ main_url, hls_url, thumbnail_url), `input_assets` | `[]` | |
+| | inputs[].source_role, inputs[].source_type | str | `input_assets[].role` (image, …), `input_assets[].media_type` (media_input, video_input); `role` stays `input` | yes | image, media_input |
 | | publication_id, publication_engagement | | `publication{id,likes_count,views_count}` | yes | |
 | | creator_key, creator_badge | hash, str | `author.user_id` (hashed), `author.badge` | yes | |
+| | creator_uid_key | hash | `core.privacy.creator_uid_key(author.user_id)` = same hash as `creator_key`, shared column name across scrapers; null for redacted ids | yes | |
 | | creator `{user_id, username, avatar_url}` | | `author` | **only `--with-profiles`** | |
 | effect_sample | **preset_slug + sample_id** | | page + `items[].id` | no | acid |
 | | preset_id, preset_kind, preset_name, catalog_ref | | `loader.preset` | yes | `catalog_viral_preset:92e39a66…` |
@@ -240,8 +248,22 @@ comments, uses}` (`uses` = `times_made`).
 | | prompt, params | | `prompt` / `job.params.prompt`, `job.rawParams` (input URLs removed) | yes / `{}` | |
 | | created_at, published_at | ISO (from epoch s) | `job.createdAt`, `publishedAt` | yes | |
 | | media[], inputs[] | Media | `output{source,rawUrl,posterUrl,hlsUrl}`, `attachments[].inputMedia` | `[]` | |
+| | inputs[].source_role, inputs[].source_type | str | `job.rawParams.medias[].role` / `.data.type` matched by media id (else `inputMedia.type`) | yes | start_image, media_input |
 | | creator_key / creator | | `job.user` | creator only `--with-profiles` | |
+| | creator_uid_key | hash | shared key (= `creator_key`, the archive keeps `job.user.id_hash`) | yes | |
 | | samples_total | int | `initialSamples.total` | yes | 5 |
+| | raw_params | dict | `job.rawParams` **verbatim** (input media URLs, chain_preset/preset with preview media) | `{}` | |
+| | provider, prompt_enhance, is_reference | str, bool, bool | `job.params.provider`, `job.params.prompt.enhance`, `job.isReference` | yes | unknown, false, false |
+| | preset_preview_url, preset_poster_url | url | `presetPreview.source`, `presetPreview.posterUrl` | yes | |
+| effect_preset | **preset_id** | uuid | `loader.preset.id` (emitted only when the page has `inputs`/`param_choices`/`price_matrix`) | no | |
+| | slug, preset_kind, name, description, job_set_type, priority, duration_s | | `slug, kind, name, description, job_set_type, priority, duration` | yes | cutout, chain, 8 |
+| | is_main_page, ip_check_required, tags, categories | | same names | yes / `[]` | |
+| | preset_inputs[] `{input_id, type, label, min, max, required, media_input_id, allow_upload, options[], binds_to[{node, port}]}` | | `inputs[]` (a single `binds_to` object is wrapped in a list) | `[]` | image, Upload image, 1, 1 |
+| | param_choices, param_inputs | dict, list | `param_choices` `{node: {param: {choices, default}}}`, `param_inputs` | `{}`/`[]` | resolution 480p…4k, default 720p |
+| | pricing_type, price_matrix[] `{key, params, credit_units}` | credit units (not converted) | `pricing.type`, `price_matrix[]` (`key` = `<node>.<param>=<value>,…`; `""` = default price) | yes / `[]` | `resolution=1080p` → 7200 |
+| | media[] | Media | `preview_media` (+ main/thumbnail/optimized), `widescreen_media`, `preview_image`, `widescreen_image`, `preview_url`, `thumbnail_url` (deduplicated) | `[]` | |
+| | preview_duration_ms, samples_total, catalog_ref | int, int, str | `preview_media.duration_ms`, `initialSamples.total`, `catalog_viral_preset:<id>` | yes | 8103 |
+| | extra | dict | every other preset field (samples_settings, default_settings_sample_preview, …) | `{}` | |
 | api_model | **endpoint_id** | str | `**Endpoint ID:**` | no | minimax/hailuo-2.3/standard/image-to-video |
 | | vendor, model, variant | | split of endpoint_id | model/variant yes | minimax, hailuo-2.3, standard/image-to-video |
 | | http_method, endpoint_url | | `POST https://api.higgsfield.ai/{id}` | no | |
@@ -261,6 +283,12 @@ comments, uses}` (`uses` = `times_made`).
 | | extra | dict | every other API field (blur placeholders dropped) | `{}` | |
 | | cinema: group, tag, is_auto, segments[] | s | `tag, is_auto, segments` | | genre / robot-arm |
 | | seedance: duration_s | s | `duration` | yes | 12 |
+| | intone: media[] role `video_compressed` | Media + `extra` | `video.compressed_video{url,width,height,duration}`; `extra` = `size_bytes, profile, status, audio_streams, source_url`. Appended last; not in `media_keys`; not downloaded | yes | 600×338, 772644 bytes |
+| reels_preset (§10) | recreates | int | `recreates` (also `engagement.uses`) | yes | 270 |
+| | creator_uid_key | hash | = `creator_key` when `creator_key_basis` = `user_id`, else null | yes | |
+| reels_comment | creator_uid_key | hash | `creator_uid_key(user_id)` | yes | |
+| main_feed_item (§11) | **item_type + item_id** | | `items[].type`, `genjutsu.id` / `game.id` | no | genjutsu |
+| main_feed_variant (§11) | **item_id + variant_id** | | same fields as explore_variant | | |
 
 ### 5.4 Output layout
 
@@ -269,8 +297,8 @@ comments, uses}` (`uses` = `times_made`).
 
 | CSV | Rows | Keys |
 |---|---|---|
-| `<collection>.csv` (18 collections) | one per entity, child lists removed, nested dicts → dotted columns, scalar lists → JSON text | `id` |
-| `editing_room_examples__media/__edits`, `editing_room_projects__edits/__scenes`, `editing_room_renders__media`, `property_studio_examples__media`, `explore_variants__media/__inputs`, `effect_samples__media/__inputs`, `api_models__parameters/__prices`, `cinema_controls__media/__segments`, `<cms>__media`, `reels_presets__media/__inputs`, `reels_comments__reactions` | one per child | `parent_id` (= parent `id`), `position` |
+| `<collection>.csv` (21 collections) | one per entity, child lists removed, nested dicts → dotted columns, scalar lists → JSON text | `id` |
+| `editing_room_examples__media/__edits`, `editing_room_projects__edits/__scenes`, `editing_room_renders__media`, `property_studio_examples__media`, `explore_variants__media/__inputs`, `effect_samples__media/__inputs`, `api_models__parameters/__prices`, `cinema_controls__media/__segments`, `<cms>__media`, `reels_presets__media/__inputs`, `reels_comments__reactions`, `effect_presets__preset_inputs/__price_matrix/__media`, `main_feed_items__media`, `main_feed_variants__media/__inputs` | one per child | `parent_id` (= parent `id`), `position` |
 | `run_meta.csv` | key/value of `meta` | `key` |
 
 Completeness is tested (`test_dataset_and_csvs_complete`): every JSON leaf has a column, rows 1:1.
@@ -287,13 +315,17 @@ Completeness is tested (`test_dataset_and_csvs_complete`): every JSON leaf has a
 | `--explore-categories LIST\|all` | off | also crawl `community/new` per category |
 | `--effects LIST` | all sitemap slugs | only these `/effects/examples` slugs |
 | `--reels-sources` | `higgsfield,community` | Shorts Studio lists for `reels_presets` / `reels_comments` (comments: community only) |
-| `--with-profiles` | off | keep explore authors / effect-sample users / reels preset authors and commenters (`creator`) and the reference reel's `reference_author_handle` |
+| `--main-feed-pages N` | 3 | `main_feed` only: pages of 20 rows; `0` = until the cursor ends; `--max-pages` and `--max-items` (per kind, `showcase_main_feed_item`) also stop paging |
+| `--with-profiles` | off | keep explore / main-feed variant authors / effect-sample users / reels preset authors and commenters (`creator`) and the reference reel's `reference_author_handle` |
 | common | | `--max-items` (**per kind**), `--max-pages` (per feed / chunk discovery / effect pages), `--download-media none\|thumbs\|full\|all`, `--auth`, `--delay` … (see `CLI.md`) |
 
 ## 7. Privacy
 
 - Default: no usernames, avatars, names or Clerk ids in the dataset. Creators become `creator_key` =
   `make_id("creator", user_id)` (stable pseudonym, joinable across runs). `--with-profiles` adds `creator`.
+- `creator_uid_key` (explore/main-feed variants, effect samples, reels presets/comments) is the same hash under the
+  column name every scraper shares (`core.privacy.creator_uid_key`), so one creator has one key across sources. It is
+  null when the id is redacted or when a reels author is only known by username (`creator_key_basis = username`).
 - Archives: `personal_data=True` → `raw/` and `http/` bodies are redacted by the framework (usernames, avatars);
   the effect-page conversion additionally replaces `job.user` with `{id_hash}` (the SSR uses `fullname`/`avatarUrl`,
   which the core redactor does not know).
@@ -311,8 +343,10 @@ catalog, projects, site, showcase), unions records sharing a key (`job:`, `media
 prompt/model/media/likes/views/comments) + `duplicates.json` (counts per source pair). Inputs
 (`d2ol7oe51mr4n9.cloudfront.net`) are never keys, so two generations made from the same upload stay separate.
 Overlaps by design: effect samples ↔ community generations (same job ids when published), explore community
-variants ↔ community generations (`publication_id`), effect presets ↔ catalog viral presets (`catalog_ref`, presets
-themselves are not re-exported).
+variants ↔ community generations (`publication_id`), effect presets ↔ catalog viral presets (`catalog_ref`; the
+`effect_presets` table keeps the page's template, the catalog keeps the preset list). Main-feed variants use the
+explore keys (`media:` of the output files) and also list `pub:<publication id>` in `media_keys`, so they merge with
+explore variants and community generations (13 of the first 20 main-feed ids are explore items).
 
 ## 9. Skipped sources and gaps
 
@@ -435,3 +469,37 @@ real fnf-community shape.
 | Detail-page `performance` / `ranking` / `dislikes` | They are placeholders: identical values on every curated preset. |
 | Higgsfield views of a preset | The API returns none (`views` is the reference reel's Instagram count). |
 | Community preset detail pages | `/shorts-studio/{community id}` gives 404; the API has all the data. |
+
+## 11. CMS main feed (`--what main_feed`, opt-in by name)
+
+The home page "Explore" feed (Content map GAP §16.1 #1). JS chunk `uBUqSEKZIqX571QB`:
+`Sn('/main-feed')` + `lang`, `size=20`, `cursor` only when not null, `user_id` only for a logged-in principal (never
+sent here: every request is anonymous, `auth=False`). Response schema in the JS: `{cursor (1..1024 chars, nullable),
+request_id, feed_session_id, items[{type, position ≥ 1, genjutsu?, game?}]}`.
+
+```
+GET https://cms.higgsfield.ai/main-feed?lang=en&size=20                 -> {cursor, request_id, feed_session_id, items}
+GET https://cms.higgsfield.ai/main-feed?lang=en&size=20&cursor=<opaque> -> next page (until cursor is null / no items)
+```
+
+- Paging stops at `--main-feed-pages` (default 3; 0 = to the end), `--max-pages`, `--max-items` (per kind
+  `showcase_main_feed_item`), a null/empty cursor, an empty page, or a cursor that does not change.
+- Anonymous page 1 (2026-11-26): 17 `genjutsu` + 3 `game` rows (Content map §15 saw 20 genjutsu earlier: the mix is
+  personalised per session). No total is reported.
+- `genjutsu` = the same object as a video-explore item (`item_id` joins `explore_items`); its variants are parsed by
+  the explore code into `main_feed_variants` (same fields as `explore_variants`, incl. `inputs[].source_role`,
+  `creator_key` / `creator_uid_key`, `publication_id`). `game` rows are playable-ad presets (join studios
+  `playable_presets` by id): their media (poster, vertical_poster, video (+`_compressed`), game, widescreen_game,
+  covers…) go to `media`, the rest (e.g. `recreate`) to `extra`.
+
+| main_feed_item field | Source |
+|---|---|
+| item_id, item_type, position | `genjutsu.id`/`game.id`, `type`, `position` (first sighting) |
+| feed_session_id, request_id, lang | page body / request |
+| feed_source, title, description, job_set_type, priority, category, trend_id | genjutsu `source`, same names |
+| engagement `{likes, views, comments, uses}` | `likes_count, views_count, comments_count, times_made` |
+| original_video (Media) | `original_video` |
+| media[] (MediaWithExtra) | game media objects (blur placeholders dropped) |
+| variant_ids, publication_ids | `variants[].id`, `variants[].publication.id` |
+| extra | every other field of the row object |
+

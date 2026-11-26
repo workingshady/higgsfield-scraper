@@ -5,7 +5,8 @@ import argparse
 from dataclasses import asdict, dataclass
 from typing import Any, Iterable, Optional
 
-from .endpoints import AUX_KINDS, DEFAULT_PUBLIC, KIND_OF, KINDS, LOGIN_ONLY, OPT_IN, PUBLIC, SHORT_OF
+from .endpoints import (AUX_KINDS, DEFAULT_PUBLIC, KIND_OF, KINDS, LOGIN_ONLY, NAMED_ONLY, OPT_IN, PUBLIC,
+                        SELECTABLE, SHORT_OF)
 
 LOGIN_MODES = ("auto", "yes", "no")
 
@@ -15,7 +16,8 @@ def add_args(p: argparse.ArgumentParser) -> None:
     g.add_argument("--kinds", default=None,
                    help="comma list of catalog kinds (short names like motion,voice or catalog_motion), or "
                         "'public' (default), 'login', 'all'. Opt-in extras (only by name or 'all'): "
-                        + ", ".join(OPT_IN) + ". Available: " + ", ".join(KINDS))
+                        + ", ".join(OPT_IN) + ". Name-only (not even in 'all'): " + ", ".join(NAMED_ONLY)
+                        + ". Available: " + ", ".join(SELECTABLE))
     g.add_argument("--with-samples", action="store_true",
                    help="also fetch the sample videos of every motion (1 request per motion, ~419; "
                         "--max-pages caps the number of sample requests)")
@@ -77,7 +79,7 @@ class Selection:
                 ks += list(LOGIN_ONLY)
         if self.with_samples and "motion_sample" not in ks:
             ks.append("motion_sample")
-        return [k for k in KINDS if k in ks]       # canonical order
+        return [k for k in SELECTABLE if k in ks]  # canonical order
 
     @property
     def samples(self) -> bool:
@@ -104,19 +106,19 @@ def parse_kinds(value: Any) -> Optional[list[str]]:
         if not k:
             continue
         if k == "all":
-            out += list(KINDS)
+            out += list(KINDS)                            # name-only kinds (NAMED_ONLY) stay out of `all`
         elif k == "public":
             out += list(PUBLIC)
         elif k in ("login", "login_only"):
             out += list(LOGIN_ONLY)
-        elif k in KINDS:
+        elif k in SELECTABLE:
             out.append(k)
         elif k in SHORT_OF:
             out.append(SHORT_OF[k])
-        elif k.rstrip("s") in KINDS:                      # plural convenience: motions, voices
+        elif k.rstrip("s") in SELECTABLE:                 # plural convenience: motions, voices
             out.append(k.rstrip("s"))
         else:
-            raise ValueError(f"unknown catalog kind {raw!r}; available: {', '.join(KINDS)}")
+            raise ValueError(f"unknown catalog kind {raw!r}; available: {', '.join(SELECTABLE)}")
     return list(dict.fromkeys(out))
 
 
@@ -168,6 +170,8 @@ def default_label(sel: Selection) -> str:
         base = "public"
     elif set(sel.kinds) == set(KINDS):
         base = "all"
+    elif set(sel.kinds) == set(SELECTABLE):
+        base = "all-" + "-".join(NAMED_ONLY)
     elif len(sel.kinds) <= 3:
         base = "-".join(sel.kinds)
     else:

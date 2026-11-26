@@ -21,8 +21,8 @@ from ...raw import Envelope
 from ...run.logging_setup import emit
 from . import parsers
 from .endpoints import (ASSETS, CANVAS, CANVAS_PAGE_SIZE, CMS, CMS_LANGS, COMMUNITY, DOCS, EXPLORE_PAGE_SIZE, FNF_CMS,
-                        GW, API, MAX_CHUNK_PROBES, PRIMARY_KINDS, PROPERTY_PRESET_MARKER, PROPERTY_ROUTE,
-                        REELS_COMMENTS_PAGE_SIZE, SITE, CMS_PAGE_SIZE)
+                        GW, API, MAIN_FEED_PAGE_SIZE, MAX_CHUNK_PROBES, PRIMARY_KINDS, PROPERTY_PRESET_MARKER,
+                        PROPERTY_ROUTE, REELS_COMMENTS_PAGE_SIZE, SITE, CMS_PAGE_SIZE)
 from .schemas import ID_FIELD_BY_KIND
 
 HTML_HEADERS = {"Accept": "text/html,application/xhtml+xml,*/*;q=0.8"}
@@ -32,8 +32,10 @@ CHUNK_RE = re.compile(r"/tanstack/assets/([A-Za-z0-9_-]+\.js)")
 IMPORT_RE = re.compile(r"""(?:from|import)\s*"\./([A-Za-z0-9_-]+\.js)\"""")
 L10N_RE = re.compile(r"https://l10n\.higgsfield\.ai/[^\"'\s]+\.json")
 PARENT_OF = {"showcase_explore_variant": ("showcase_explore_item", "item_id"),
-             "showcase_editing_room_render": ("showcase_editing_room_project", "project_id")}
-NATURAL = {"showcase_explore_item": "item_id", "showcase_editing_room_project": "project_id"}
+             "showcase_editing_room_render": ("showcase_editing_room_project", "project_id"),
+             "showcase_main_feed_variant": ("showcase_main_feed_item", "item_id")}
+NATURAL = {"showcase_explore_item": "item_id", "showcase_editing_room_project": "project_id",
+           "showcase_main_feed_item": "item_id"}
 
 
 def route_chunk_of(js: str) -> Optional[str]:
@@ -154,6 +156,10 @@ class ShowcaseSpider(BaseApiSpider):
                 yield self.req("showcase_seedance_presets", CMS, "/seedance-2-0", {"lang": L})
             elif w == "motion_control_presets":
                 yield self.req("showcase_motion_control_presets", CMS, "/kling-motion-control-presets", {"lang": L})
+            elif w == "main_feed":
+                r = self._main_feed(None)
+                if r is not None:
+                    yield r
         yield from self._reels_lists()
 
     # ------------------------------------------------------------ Shorts Studio (AI Reels), opt-in
@@ -264,6 +270,26 @@ class ShowcaseSpider(BaseApiSpider):
         return self.req("showcase_explore_feed", CMS, "/higgsfield-multiplier/video-explore/v2", p,
                         labels={"page": self._feed_pages[key], "feed": f"{source}-{sort}"},
                         meta={"explore": {"source": source, "sort": sort, "category": category}})
+
+    # ------------------------------------------------------------ CMS main feed (home Explore), opt-in by name
+    def _main_feed(self, cursor: Optional[str]) -> Optional[scrapy.Request]:
+        """GET cms /main-feed?lang&size=20[&cursor]: the JS sends `cursor` only when not null and `user_id` only with
+        a session (never here: anonymous, auth=False)."""
+        key = "showcase_main_feed"
+        mx = self.selection.main_feed_pages
+        if mx and self._feed_pages[key] >= mx:
+            self.limit_hit(f"main_feed_pages={mx} reached")
+            return None
+        if self._cap_reached("showcase_main_feed_item"):
+            self.limit_hit(f"max_items={self.common.max_items} reached for showcase_main_feed_item")
+            return None
+        if not self.page_allowed(key):
+            return None
+        self._feed_pages[key] += 1
+        p: dict[str, Any] = {"lang": self.cms_lang, "size": MAIN_FEED_PAGE_SIZE}
+        if cursor:
+            p["cursor"] = cursor
+        return self.req("showcase_main_feed", CMS, "/main-feed", p, labels={"page": self._feed_pages[key]})
 
     def _next_effects(self, n: int = 1) -> Iterator[scrapy.Request]:
         for _ in range(n):
@@ -438,6 +464,12 @@ class ShowcaseSpider(BaseApiSpider):
                     yield r
             elif self._cap_reached("showcase_explore_item"):
                 self.limit_hit(f"max_items={self.common.max_items} reached for showcase_explore_item")
+        elif ep == "showcase_main_feed" and isinstance(b, dict):
+            cur = b.get("cursor")
+            if b.get("items") and cur not in (None, "") and cur != env.params.get("cursor"):
+                r = self._main_feed(str(cur))
+                if r is not None:
+                    yield r
         elif ep == "showcase_effects_sitemap" and isinstance(b, dict):
             slugs = b.get("slugs") or []
             self.totals["effect_pages"] = len(slugs)

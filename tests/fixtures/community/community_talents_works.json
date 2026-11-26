@@ -1,0 +1,978 @@
+{
+    "meta": {
+        "endpoint": "community_talents",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/community/discovery/talents?sort=rating&limit=20&offset=0",
+        "params": {
+            "sort": "rating",
+            "limit": "20",
+            "offset": "0"
+        },
+        "fetched_at": "2026-11-26T13:31:06.887387+00:00",
+        "status": 200
+    },
+    "body": {
+        "total": 80,
+        "limit": 20,
+        "next_offset": 20,
+        "users": [
+            {
+                "id": "user_Fake001",
+                "rating_points": 471,
+                "username": "<redacted>",
+                "avatar_url": "<redacted>",
+                "bio": "<redacted>",
+                "headline": "<redacted>",
+                "location": "<redacted>",
+                "background_image_url": "<redacted>",
+                "badge": null,
+                "badges": [
+                    {
+                        "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                        "name": "Higgsfield Talent",
+                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                        "description": null
+                    }
+                ],
+                "full_name": null,
+                "verified_projects_count": 2,
+                "latest_verified_at": "2026-10-13T14:16:19.951772Z",
+                "is_pinned": false,
+                "followers_count": 126,
+                "following_count": 15,
+                "is_subscribed": false,
+                "likes_count": 374,
+                "views_count": 27017,
+                "items": [
+                    {
+                        "type": "project",
+                        "is_pinned": false,
+                        "item": {
+                            "publication_id": "9f4beee4-723c-4aac-be6e-1f7708078b68",
+                            "duration_seconds": 246.291667,
+                            "state": "published",
+                            "type": "film",
+                            "is_ongoing": false,
+                            "project_id": "9f4beee4-723c-4aac-be6e-1f7708078b68",
+                            "snapshot_folder_id": "20dab9f6-3f2a-4c44-8b6d-260075f37495",
+                            "has_changes_since_publish": false,
+                            "project_updated_at": "2026-11-25T16:38:58.243683+00:00",
+                            "final_submitted_at": "2026-11-25T16:38:58.239796+00:00",
+                            "is_open_source": true,
+                            "name": "Tharā",
+                            "slug": "thar",
+                            "description": "A fallen soldier is reborn from the soil in a garden grown from the war, and walks toward the one thing he left behind.",
+                            "cover": {
+                                "id": "a6550cc6-57c1-4ee2-a9a3-03f99e1a8d8f",
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake001/a6550cc6-57c1-4ee2-a9a3-03f99e1a8d8f.png",
+                                "type": "media",
+                                "width": 2048,
+                                "height": 1152,
+                                "min_url": null,
+                                "duration": null,
+                                "object_fit": "cover",
+                                "thumbnail_url": null
+                            },
+                            "gallery_media": [
+                                {
+                                    "id": "0c8ce768-ecf7-45ee-99d2-73a8156f1735",
+                                    "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/0c8ce768-ecf7-45ee-99d2-73a8156f1735/533b4f90-8461-4440-9cb1-624227de5f9b/index.m3u8?v=533b4f90-8461-4440-9cb1-624227de5f9b",
+                                    "type": "video",
+                                    "width": 3840,
+                                    "height": 1646,
+                                    "min_url": null,
+                                    "duration": 246.291667,
+                                    "object_fit": "contain",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/0c8ce768-ecf7-45ee-99d2-73a8156f1735/533b4f90-8461-4440-9cb1-624227de5f9b/thumbnail.webp?v=533b4f90-8461-4440-9cb1-624227de5f9b",
+                                    "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake001/0c8ce768-ecf7-45ee-99d2-73a8156f1735.mp4",
+                                    "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/0c8ce768-ecf7-45ee-99d2-73a8156f1735/compressed.mp4",
+                                    "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/0c8ce768-ecf7-45ee-99d2-73a8156f1735/533b4f90-8461-4440-9cb1-624227de5f9b/download.mp4?v=533b4f90-8461-4440-9cb1-624227de5f9b&download=0c8ce768-ecf7-45ee-99d2-73a8156f1735.mp4"
+                                }
+                            ],
+                            "trailer": null,
+                            "author_user_ids": [
+                                "user_Fake001"
+                            ],
+                            "tags": [],
+                            "categories": [],
+                            "show_prompts": true,
+                            "show_canvas": true,
+                            "is_discoverable": false,
+                            "featured_episode_id": null,
+                            "is_featured": false,
+                            "created_at": "2026-11-18T09:06:35.812616Z",
+                            "authors": [
+                                {
+                                    "id": "user_Fake001",
+                                    "full_name": null,
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "headline": "<redacted>",
+                                    "location": "<redacted>",
+                                    "is_owner": true,
+                                    "is_followed": false,
+                                    "total_projects_views": 181,
+                                    "total_projects_likes": 7,
+                                    "followers_count": 126,
+                                    "badges": [
+                                        {
+                                            "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                                            "name": "Higgsfield Talent",
+                                            "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                                            "description": null
+                                        }
+                                    ]
+                                }
+                            ],
+                            "team": null,
+                            "views": 164,
+                            "likes": 14,
+                            "comments": 8,
+                            "is_liked_by_user": null,
+                            "awards": [],
+                            "contest_badges": [],
+                            "can_receive_audience_choice_votes": false,
+                            "is_higgsfield_featured": false,
+                            "is_talents_hub": false,
+                            "contest_key": "talent_contest"
+                        }
+                    },
+                    {
+                        "type": "shot",
+                        "is_pinned": false,
+                        "item": {
+                            "job_set_type": "seedance_2_5",
+                            "job_set_id": "f7ecf3bb-acd5-43f9-b780-7fb65b430e2e",
+                            "job_set_parent_id": null,
+                            "job_set_client_meta": null,
+                            "board_ids": [],
+                            "params": {
+                                "width": 1920,
+                                "height": 1080,
+                                "prompt": "SCENE CONTEXT\nA thirty-second cinematic stylized 3D sequence on a littered beach beside a small coastal dune. Clickety watches Sean flying with quiet amazement. A wing binding slips, Sean loses stability, and the wind turns him toward the camera before he crashes onto damp shoreline sand. Five adult seabirds react dismissively. Clickety approaches and shares Sean’s disappointment. A storm gradually overtakes the beach, forcing the birds to leave their log.\n\nACTIVE REFERENCES\n<<<video_1>>>: authoritative reference for the six shots, framing, camera paths, cut times, spatial layout and major action timing. Use the video for cinematography and staging. Replace its geometric proxies with finished characters, props and natural scenery.\n\nDo not copy the cubes’ fixed expressions or simplified movement. Follow the expressive acting, fluid motion and physical weight described below.\n\n: beach and dune appearance, sand and golden-hour environment. The dune is a small, low mound of sand immediately beside the shore.\n\n: storm lighting, clouds, surf and environmental palette only. Apply this weather to the existing beach geography. Do not reproduce offshore rocks from this reference.\n\n<<<image_1>>>: Sean’s orange hermit-crab anatomy, stone-tan spiral shell and shell-mounted wing placement.\n\n<<<image_2>>>: authoritative reference for the intact assembled wing rig, its proportions, panel orientation, colors and attachments. Two crossed tan reeds form an X, with a kite panel on one side, tarp on the other, and olive seaweed bindings. Preserve the asset’s anatomical left-right arrangement through every body rotation. No plastic ring hub or plastic-bag component in the rig.\n\n<<<40147c82-eb88-4eb0-8203-10a604527382>>>: Clickety’s purple speckled body, pale cream legs and closely fitted weathered red bottle cap with its ribbed edge and pale-grey crack.\n\n<<<44fb8935-583e-4ad7-ad4f-de6a042c3aa5>>>: one continuous driftwood log on the shore, angled inland as positioned in the video.\n\n<<<d2322971-ba0d-4f63-94df-ae5feaaba4c4>>>: appearance of exactly FIVE ADULT seabirds. No juvenile and no additional birds.\n\n<<<39cd794f-7931-49b1-9ad8-dafa761651a9>>>\n<<<0fd3ae6d-acd3-4a47-a48a-e1c4b61edf45>>>\n<<<0da83a25-e0c7-421b-9809-f2d043e537d8>>>\nThese references define scattered environmental beach litter. Preserve their supplied colors, materials and wear. They are loose beach objects only, never parts of Sean’s wings.\n\nREFERENCE PRIORITY\nThe video controls camera work, staging, cuts and major action timing.\nCharacter references control finished anatomy and identity.\n<<<image_2>>> controls wing construction and orientation.\nThe written performance directions control expressions and natural movement.\nThe storm reference controls weather, not geography.\n\nEvery visible proxy must become its intended character, prop or natural surface. No cubes, block faces, rectangular wave bands or graphic eye reflections remain in the finished image.\n\nLOCATION MAP\nOne continuous beach geography throughout.\n\nSean’s flight and crash occur beside a small coastal dune. The crash point is firm damp sand a few body lengths above the retreating foam. Clickety’s watching position is nearby, allowing a short approach to Sean.\n\nThe low mound on the right is a SMALL SAND DUNE. Preserve its reduced size from the video and match the surrounding sand. It is not a grey rock, boulder, cliff or large hill.\n\nThe five adult birds occupy one shoreline log. Their positions and sightlines remain coherent with Sean’s descent and landing point across every shot.\n\nThe sea is open water to the horizon. No offshore rock, sea stack, island or boulder in the ocean. The final composition contains the empty log, beach, ocean and storm sky, without rocks.\n\nScatter recognizable beach litter naturally here and there in the supplied asset palette. Keep faces, the landing point and Clickety’s approach unobstructed.\n\nFIRST FRAME / BLOCKING\nBegin directly in a tight close-up of Clickety looking upward from his sheltered watching position beside the low sandy mound. Match the video’s composition. There is no introductory wide flight shot.\n\nSean is already flying offscreen. His winged reflection travels SCREEN-RIGHT TO SCREEN-LEFT across Clickety’s glossy eyes, while a corresponding shadow passes across his face and bottle cap.\n\nSean initially faces his flight direction toward the birds. He is not flying face-first toward the camera. Aerodynamic instability subsequently rotates him toward the camera during the fall.\n\nFORMAT MODE\nExactly 30 seconds, 720 frames at 24 fps.\nSix shots with hard cuts after frames 96, 216, 288, 432 and 600.\n\n0–4s: Clickety watches.\n4–9s: held wing detail, rapid opening-out, airborne turn and crash.\n9–12s: collective bird dismissal.\n12–18s: quiet support.\n18–25s: static storm transition.\n25–30s: bird departure and empty-log ending.\n\nNo additional cuts, dissolves, hidden transitions or camera resets.\n\nCAMERA & ACTION\n0–4s — CLICKETY WATCHES\nTight close-up at Clickety’s eye height. Preserve the barely perceptible push-in over the full four seconds.\n\nClickety begins cautiously looking upward. As Sean’s winged reflection crosses his eyes right to left, his expression opens into unmistakable amazement. His pupils track smoothly, his eyestalks rise and his body subtly lifts.\n\nHis eyes become bright with admiration through natural sky reflections and catchlights, almost glowing with wonder but never emitting light. The moving shadow crosses his face and red cap. Integrate the winged reflection into the curved eye surfaces rather than placing a graphic symbol over them.\n\nLet his impressed expression settle before the cut.\n\n4–9s — THE FALL\nOne continuous camera move with four connected beats.\n\nBEAT A — HELD MACRO\nBegin extremely close on one specific seaweed binding at the kite-side reed joint. Match the video’s held detail composition. The binding slowly slips under tension, making the impending failure readable. Keep surrounding anatomy outside the tight frame.\n\nSean is still facing his flight direction toward the birds. His airborne posture is open and confident; any glimpse of his face conveys exhilaration.\n\nBEAT B — RAPID OPENING-OUT\nFollow the video’s sharply accelerating pullback and upward move. Open from the tiny failure point to Sean’s complete body and attached wings. A slight developing camera roll can match the source’s restrained disorientation.\n\nThe kite panel buckles, the frame shudders and the overstressed reed gives way. The binding loosens without releasing the rig. All major pieces remain tethered to Sean.\n\nSmall irregular shakes pass through the wings and into his body. His heavy shell responds with a slight delay. His joy changes into uncertainty, then alarm.\n\nBEAT C — THE TURN\nThe intact tarp catches air unevenly while the kite side loses lift. This imbalance drives one continuous partial roll and yaw, turning Sean’s face toward the camera at the moment established in the video.\n\nHis eyes widen and his claws reach instinctively as he tries to recover. His body, shell and attached rig turn together with believable inertia and overlapping movement.\n\nThe birds and log now read behind him because Sean has rotated. Keep the log and coastline fixed. Do not mirror the wing asset or relocate background elements.\n\nNo repeated spins, complete somersaults, exaggerated vibration or comic windmilling.\n\nBEAT D — IMPACT AND HARD STOP\nSean accelerates downward under gravity and hits the damp sand at the video’s impact beat, around 7 seconds.\n\nThe camera decelerates decisively into the landing and then holds perfectly still for the remainder of the shot. No residual drift or floating correction after impact.\n\nHis limbs absorb the contact while his hard shell retains its shape. A compact, low spray of damp sand spreads outward. The damaged rig settles around him with delayed fabric and reed movement.\n\nSean’s alarm drains into stunned disappointment. His eyes blink through the impact, then reopen with lowered eyestalks. Hold his heavy, defeated posture as the last sand and wing movement settles.\n\n9–12s — THE BIRDS’ DISMISSAL\nMedium group composition on all five adult birds, following the video’s tiny push and return to stillness. No individual bird receives a separate close-up.\n\nTheir glances point toward Sean’s established landing site. A few turn, exchange brief sideways looks, lift their beaks and resume preening with pointed indifference. The timing suggests dismissive mockery of his failed attempt.\n\nUse natural bird behavior and short dry calls. No laughter, human smiles, pointing or exaggerated gestures. Small balance and feather adjustments keep the group alive. All five remain on the log.\n\n12–18s — QUIET SUPPORT\nBegin low and close on Sean alone. Follow the video’s slow widening into a two-shot, settling into a static composition well before the shot ends.\n\nSean lies tipped over at the same landing point. His eyes linger on the damaged wing, then drop toward the sand. His claws curl inward and his posture carries the weight of disappointment.\n\nClickety approaches from his established watching position. His earlier wonder has become concern and shared sadness. His eyes remain on Sean, his eyestalks lower and his steps shorten as he gets closer.\n\nUse smooth acceleration and deceleration, staggered foot placement and subtle body adjustments. He eases to a stop beside Sean and lowers himself, resting a claw on the sand near Sean’s claw.\n\nSean notices him with his eyes first, then makes a small delayed movement to meet his gaze. Hold the shared look. Sean softens slightly at the companionship but remains sad. Clickety is supportive and subdued, never cheerful.\n\nProtect the quiet pacing with subtle breathing, a slow blink and small changes in eye focus.\n\n18–25s — THE STORM BUILDS\nUse the video’s low, wide, completely static composition. Both characters remain readable throughout. The lighting transition carries the mood change; do not add a camera move.\n\n18–20s: fine sand begins moving and the golden light weakens. Both characters notice the change through small eye and body reactions.\n\n20–22s: Sean gathers himself and rights his body. Show preparation, effort, his shell’s weight shifting over planted limbs, and a controlled recovery of balance. The damaged wings follow with a slight delay. Clickety lowers his stance beside him.\n\n22–25s: cloud shadow spreads across the same beach. Warm directional light fades into cool diffuse storm illumination. Contrast flattens, the ocean darkens and surf becomes rougher. Gusts move loose litter and fine sand.\n\nThe intact tarp pulls against its bindings; the compromised kite side rattles. Sean and Clickety resist the wind with small braced shifts and recoveries. Their movement is independent, not synchronized rocking.\n\nComplete the gradual golden-to-grey transition by 25 seconds. The low mound on the right remains a small sand dune throughout. No growing landforms, grey boulders, location transformation or abrupt day-to-night switch.\n\n25–30s — DEPARTURE\nBegin on the same five adults at the log. Follow the video’s outward and rising camera move, easing into the final static composition.\n\nThe birds briefly lower their bodies, push off with their feet and launch in quick staggered succession. Wingbeats follow the leg impulse. Their paths preserve the video’s overall blocking with natural differences in speed and spacing.\n\nExactly the same five adults leave. No juvenile, new birds or duplicated flock members.\n\nThey clear the composition before the end. Hold on the complete empty log, rough open ocean and grey storm sky. No rocks are visible.\n\nSean and Clickety remain together at their established crash position offscreen.\n\nMOVEMENT & PERFORMANCE\nUse the previz for spatial paths and action timing, not for literal movement interpolation.\n\nAnimate natural anticipation, acceleration, deceleration, follow-through and settling. Avoid linear waypoint motion, abrupt keyed starts and stops, frozen poses or limbs moving in unison.\n\nKeep the intentional rapid camera opening and firm impact stop. Do not soften these into a uniformly slow camera move.\n\nGravity accelerates the fall; impact interrupts it; the attached materials settle afterward. Sean’s shell supplies consistent mass. Fabric responds first to air pressure, the frame transfers the force, and his body follows with inertia.\n\nFacial expressions must visibly evolve:\nSean: exhilaration → uncertainty → alarm → stunned disappointment → sadness softened by companionship → strained alertness.\nClickety: cautious observation → bright admiration → concern → shared sadness → alert bracing.\n\nUse expressive eyes, eyelids, eyestalks, mouth shapes and posture within each character’s established design. No fixed smiles or empty expressions.\n\nWINGS & PHYSICS\nPreserve the finished rig’s size, construction and anatomical panel arrangement through every rotation.\n\nThe kite-side binding slips and its support gives way, producing loss of stability. The two recognizable wing panels remain attached throughout. Any compromised reed section stays tethered by seaweed.\n\nThe tarp remains whole. No wing separates, disappears or flies away. No replacement rig or new plastic hub appears.\n\nSean and the rig fall and land as one connected assembly. Keep their contact with damp sand physically coherent. Show Sean’s recovery before he braces upright.\n\nSurf remains behind the landing point. Neither character is swept away during this sequence.\n\nLIGHTING & COLOR GRADE\nBegin in warm, low golden-hour light with soft sand bounce and readable faces. Preserve the exact reference colors of the characters, wings, birds and litter.\n\nClickety’s bright eyes come from natural catchlights and reflections, not emitted light.\n\nAcross 18–25 seconds, reduce the warm sun’s intensity, cool the illumination and flatten contrast progressively. Cloud shadows affect the characters, sand, dune and ocean together.\n\nKeep enough fill to read expressions and wing construction. Hold the storm palette through the final shot.\n\nAUDIO\nSynchronized natural sound design only.\n\nSoft surf and airflow during Clickety’s close-up.\nSeaweed tension and fabric strain during the held binding detail.\nA dry reed crack, uneven flutter and rushing air through the loss of control.\nA dull damp-sand impact, compact grit spray and settling wing materials.\nBrief dry bird calls during their dismissive reaction.\nClickety’s careful foot contacts and a soft bottle-cap scrape during his approach.\n\nGive the shared look space with surf and light wind only.\n\nBuild wind, rough wash, sand hiss and wing rattles gradually through the seven-second storm transition. Finish with urgent bird calls, wingbeats, strong wind and surf.\n\nNo dialogue, laughter, music, score, instruments, musical accents or transition stings.\n\nSTYLE\nCinematic stylized 3D with tactile materials, expressive but restrained acting, fluid movement and believable physical weight. Preserve the video’s deliberate compositions and crab-scale perspective.\n\nOUTPUT SETTINGS\nExactly 30 seconds, 16:9 widescreen, 24 fps, 4K.\n\nPOSITIVE LOCKS\nSix shots; hard cuts at 4, 9, 12, 18 and 25 seconds.\nPreserve the video’s camera paths, staging and major action timing.\nOpening reflection and shadow travel right to left.\nSean initially faces his flight direction; aerodynamic imbalance turns him toward camera.\nHeld wing macro, rapid opening-out, readable airborne turn, driftless impact hold.\nExactly five adult birds, no juvenile.\nAll major wing components remain attached; tarp stays whole.\nSlow supportive approach and a sustained shared look.\nStatic camera throughout the seven-second storm transition.\nThe mound on the right is a small sand dune, never a grey rock.\nFinal frame: full empty log and open ocean, with no rocks visible.\nReplace all geometric proxies with finished assets or natural scenery.\nNo dialogue, laughter or music.",
+                                "genre": "auto",
+                                "medias": [
+                                    {
+                                        "data": {
+                                            "id": "036138ad-5f42-4e3b-8d68-c8a4ae2aa6f3",
+                                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260905_122320_036138ad-5f42-4e3b-8d68-c8a4ae2aa6f3.png",
+                                            "type": "nano_banana_flash_job"
+                                        },
+                                        "role": "image"
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "12787f74-837f-42c6-b6f3-e858a3c7c59a",
+                                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260905_122046_12787f74-837f-42c6-b6f3-e858a3c7c59a.png",
+                                            "type": "image_job"
+                                        },
+                                        "role": "image"
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "f52ca50b-fd7a-4252-a38b-08a37cf94e30",
+                                            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake001/f52ca50b-fd7a-4252-a38b-08a37cf94e30.mp4",
+                                            "type": "video_input"
+                                        },
+                                        "role": "video"
+                                    }
+                                ],
+                                "duration": 30,
+                                "resolution": "1080p",
+                                "aspect_ratio": "16:9",
+                                "generate_audio": true,
+                                "multi_shots": false,
+                                "multi_shot_mode": "custom",
+                                "multi_prompt": [],
+                                "speedramp": "auto",
+                                "reference_elements": [
+                                    {
+                                        "id": "0da83a25-e0c7-421b-9809-f2d043e537d8",
+                                        "name": "plastic_bag_strip",
+                                        "medias": [
+                                            {
+                                                "id": "bc646331-b636-4843-af0e-d5501f1d19e5",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260816_090257_bc646331-b636-4843-af0e-d5501f1d19e5_min.webp",
+                                                "type": "image_job",
+                                                "width": 2048,
+                                                "height": 1152
+                                            }
+                                        ],
+                                        "category": "auto:prop",
+                                        "description": null,
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "0fd3ae6d-acd3-4a47-a48a-e1c4b61edf45",
+                                        "name": "sixpack_rings",
+                                        "medias": [
+                                            {
+                                                "id": "84f2a7d6-d288-49cd-8d5f-22d368e28581",
+                                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake001/84f2a7d6-d288-49cd-8d5f-22d368e28581.png",
+                                                "type": "media_input"
+                                            }
+                                        ],
+                                        "category": "prop",
+                                        "description": "",
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "39cd794f-7931-49b1-9ad8-dafa761651a9",
+                                        "name": "crushed_can",
+                                        "medias": [
+                                            {
+                                                "id": "efefd931-ded7-46c4-a3dd-6762e8601067",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260816_090131_efefd931-ded7-46c4-a3dd-6762e8601067_min.webp",
+                                                "type": "image_job",
+                                                "width": 2048,
+                                                "height": 1152
+                                            }
+                                        ],
+                                        "category": "auto:prop",
+                                        "description": null,
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "40147c82-eb88-4eb0-8203-10a604527382",
+                                        "name": "clickety-2",
+                                        "medias": [
+                                            {
+                                                "id": "b9f59f5e-8c9a-44b2-99dd-dbcf039d4c6f",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260815_153536_b9f59f5e-8c9a-44b2-99dd-dbcf039d4c6f_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "character",
+                                        "description": "",
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "44fb8935-583e-4ad7-ad4f-de6a042c3aa5",
+                                        "name": "driftwood_perch",
+                                        "medias": [
+                                            {
+                                                "id": "f9c16c27-4c7e-4031-bf43-60be833bc2b5",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260816_094458_f9c16c27-4c7e-4031-bf43-60be833bc2b5_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:environment",
+                                        "description": null,
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "d2322971-ba0d-4f63-94df-ae5feaaba4c4",
+                                        "name": "seabird_adult",
+                                        "medias": [
+                                            {
+                                                "id": "533916e5-1f7b-4c92-b4de-ea6cc6b07374",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260816_091218_533916e5-1f7b-4c92-b4de-ea6cc6b07374_min.webp",
+                                                "type": "image_job",
+                                                "width": 2048,
+                                                "height": 1152
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    }
+                                ],
+                                "prompt_language": "en",
+                                "model": "default",
+                                "extension_mode": null,
+                                "bitrate_mode": "high",
+                                "draft": false,
+                                "seed": null,
+                                "draft_job_id": null
+                            },
+                            "meta": {},
+                            "id": "6713af26-3d5c-40fe-9e02-ff49afbef4e4",
+                            "status": "completed",
+                            "ip_check_finished": true,
+                            "ip_detected": false,
+                            "can_bypass_ip": false,
+                            "deepfake_consent_required": false,
+                            "result": null,
+                            "results": {
+                                "raw": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260906_164925_6713af26-3d5c-40fe-9e02-ff49afbef4e4.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake001/hf_20260906_164925_6713af26-3d5c-40fe-9e02-ff49afbef4e4_thumbnail.webp"
+                                },
+                                "min": {
+                                    "type": "video",
+                                    "url": "https://cdn.higgsfield.ai/user_Fake001/hf_20260906_164925_6713af26-3d5c-40fe-9e02-ff49afbef4e4_min.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake001/hf_20260906_164925_6713af26-3d5c-40fe-9e02-ff49afbef4e4_thumbnail_min.webp"
+                                },
+                                "hls": null,
+                                "h264": null
+                            },
+                            "published_at": 1792604094.032862,
+                            "created_at": 1788713365.768737,
+                            "user_id": "user_Fake001",
+                            "trace_id": "6713af26-3d5c-40fe-9e02-ff49afbef4e4",
+                            "cluster_hash": "4bc73c2e6d43f22bd8e03bd186fb39d3",
+                            "representation": null,
+                            "can_upgrade_to_4k": false,
+                            "upgrade_options": [],
+                            "expires_at": null,
+                            "publication": {
+                                "id": "e4ce2e88-1ac7-4332-805c-7679ac7d994c",
+                                "views_count": 254,
+                                "likes_count": 3,
+                                "is_liked_by_user": null,
+                                "approved": false,
+                                "pinned_at": null
+                            },
+                            "profile": {
+                                "username": "<redacted>",
+                                "avatar_url": "<redacted>",
+                                "instagram_handle": "<redacted>",
+                                "twitter_handle": null,
+                                "youtube_handle": null,
+                                "tiktok_handle": null,
+                                "badge": null,
+                                "badges": [
+                                    {
+                                        "name": "Higgsfield Talent",
+                                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                                        "description": null
+                                    }
+                                ]
+                            },
+                            "drama": null
+                        }
+                    },
+                    {
+                        "type": "shot",
+                        "is_pinned": false,
+                        "item": {
+                            "job_set_type": "seedance_2_5",
+                            "job_set_id": "dc847685-79c4-42a8-b3b2-8a302d42817b",
+                            "job_set_parent_id": null,
+                            "job_set_client_meta": null,
+                            "board_ids": [],
+                            "params": {
+                                "width": 1920,
+                                "height": 1080,
+                                "prompt": "BLOCK — CHARACTER INTRODUCTIONS — 20 SECONDS\n\nOVERALL CREATIVE DIRECTION\nA highly stylized character-introduction sequence rendered as a living mixed-media analog illustration: candid cinematic photography transformed into expressive gouache, watercolor, rough acrylic brushwork, vintage screen printing, distressed offset lithography, coarse CMYK halftone dots, imperfect ink registration, chromatic color separation, visible pigment, paper grain, paint bleeding, broken edges, and tactile hand-made print texture.\n\nThe result must NOT look like clean digital animation, conventional anime, glossy CGI, polished concept art, or a photograph with a simple filter applied.\n\nEvery frame should feel individually illustrated and physically printed, while all motion remains fluid, cinematic, anatomically coherent, and temporally stable.\n\nThink:\ndocumentary cinematography + expressive painted illustration + vintage editorial poster + underground screen print + imperfect offset-printed graphic novel.\n\nThe animation must preserve:\n— stable character identity\n— stable anatomy\n— stable costume design\n— stable weapons\n— consistent proportions\n— coherent motion\n— readable silhouettes\n\nwhile allowing the surface treatment of every frame to remain richly painterly, irregular, tactile, and analog.\n\n--------------------------------------------------\nREFERENCES\n--------------------------------------------------\n\n<<<442c9eb4-cf3d-4bab-8e5b-0a87cf7a1475>>> and <<<2360bd92-c7ac-4582-a131-ce8cb0a0d4f2>>> are the EXACT character references.\n\n<<<9782b557-2e3b-4c8e-8c75-caae060b4ef3>>> is the EXACT reference for the rival’s blade.\n\nPreserve exactly from the references:\n— anatomy\n— silhouette\n— facial structure\n— fur distribution\n— hairstyle\n— clothing\n— accessories\n— weapon design\n— weapon dimensions\n— weapon proportions\n— costume proportions\n— overall character scale\n— recognizable colors\n\nDO NOT redesign the characters.\n\nThe mixed-media treatment affects only:\n— rendering\n— pigmentation\n— shading\n— texture\n— edges\n— print treatment\n— lighting interpretation\n\nnot the established designs.\n\n--------------------------------------------------\nVISUAL STYLE — LIVING ANALOG PRINT\n--------------------------------------------------\n\nRender the sequence using expressive mixed-media painting combined with mechanically reproduced analog print.\n\nUse visible combinations of:\n\n— opaque gouache strokes\n— translucent watercolor washes\n— rough acrylic daubs\n— dry-brush marks\n— pigment stains\n— scraped paint\n— overlapping painted patches\n— irregular pigment density\n— coarse halftone-dot fields\n— CMYK-style color separation\n— offset-print imperfections\n— imperfect screen-print registration\n— slight ink spread\n— paper grain\n— film grain\n— subtle scratches\n— speckled ink\n— broken contours\n— occasional pigment bleeding\n\nThe image should constantly oscillate between recognizable cinematic imagery and painterly abstraction.\n\nImportant forms remain clearly readable, but close inspection reveals that fur, clothing, water, blades, highlights, and shadows are all assembled from irregular patches of pigment and printed dots.\n\nDo NOT use uniformly applied halftone.\n\nSome regions may be almost painterly.\nOthers may dissolve heavily into large visible printed dots.\n\nHalftone density changes naturally according to light and shadow.\n\n--------------------------------------------------\nCOLOR PHILOSOPHY\n--------------------------------------------------\n\nColor is expressive rather than physically literal.\n\nPreserve the established character colors, but construct them from multiple neighboring pigments rather than clean digital gradients.\n\nShadows must remain chromatic.\n\nAvoid gray or black-only shading.\n\nUse subtle mixtures of:\n\n— jade\n— turquoise\n— cyan\n— ultramarine\n— deep blue-green\n— emerald\n— crimson\n— vermilion\n— burnt orange\n— ochre\n— mustard\n— violet\n— dark maroon\n\nHighlights may break into:\ncream, pale yellow, aqua, peach, or nearly white pigment.\n\nDark areas may contain visible red, violet, navy, emerald, and brown pigment rather than flat black.\n\nAdjacent colors occasionally overlap imperfectly, creating slight analog registration shifts.\n\n--------------------------------------------------\nEDGE LANGUAGE\n--------------------------------------------------\n\nAvoid clean digital outlines.\n\nUse a constantly changing mixture of:\n\n— crisp silhouette fragments\n— dry-brush edges\n— watercolor diffusion\n— broken paint boundaries\n— halftone erosion\n— color bleeding\n— lost-and-found contours\n— partially dissolved shadows\n\nHair, fur, cloth, and rapidly moving limbs may partially fragment into painted streaks during movement.\n\nHowever, character anatomy must NEVER become ambiguous or deformed.\n\n--------------------------------------------------\nANIMATION BEHAVIOR\n--------------------------------------------------\n\nMotion remains physically convincing and fluid.\n\nDo not animate the paint independently as random noise.\n\nInstead, texture should remain materially attached to the objects it describes.\n\nBrushwork follows the form.\nHalftone patterns remain spatially coherent.\nPaint texture moves with clothing and fur.\nWeapon details remain stable frame to frame.\n\nFast movements may generate restrained painterly motion trails:\nstreaks of pigment,\nbroken halftone fragments,\ndry-brush echoes,\nbrief offset-color separation.\n\nThese should enhance movement without creating duplicate limbs or ghost characters.\n\n--------------------------------------------------\nSETUP\n--------------------------------------------------\n\nThis is a stylized insert sequence.\n\nIt does NOT take place in the main valley.\n\nBoth characters stand ankle-deep in a thin, perfectly shallow reflective plane of water.\n\nThis water plane is the ONLY physical environmental element.\n\nEverything beyond the character’s hooves and the narrow reflective surface dissolves directly into an abstract jade-turquoise void.\n\nNo architecture.\nNo landscape.\nNo valley.\nNo mountains.\nNo trees.\nNo sky.\nNo physical horizon.\nNo recognizable location.\n\n--------------------------------------------------\nBACKGROUND — ANALOG GRADIENT VOID\n--------------------------------------------------\n\nThe background remains a completely abstract gradient in the lagoon’s jade-turquoise family.\n\nCore palette:\n\n#1FA6A0 jade turquoise\ndeepening toward\n#0D5C63 blue-green at the outer frame\n\nand becoming progressively lighter toward\n#8FE0D6 pale aqua\nthrough the inner image.\n\nThere must be NO environmental information inside this gradient.\n\nHowever, the gradient itself is rendered through analog pigment rather than pristine digital interpolation.\n\nIt may contain extremely subtle:\n\n— watercolor variation\n— paper tooth\n— screen-print grain\n— halftone transitions\n— ink density fluctuation\n— slight pigment mottling\n\nThese are MATERIAL TEXTURES ONLY.\n\nThey must never suggest:\nclouds,\nterrain,\nwalls,\nfog banks,\nlandscape,\nhorizon,\nor physical scenery.\n\nThe gradient still reads immediately as a clean isolated void.\n\n--------------------------------------------------\nWATER PLANE\n--------------------------------------------------\n\nA thin, still sheet of water sits beneath each character.\n\nIt reflects:\n— the character\n— the weapon\n— the surrounding turquoise pigment\n\nReflections are imperfect and painterly.\n\nRepresent them through:\n— broken watercolor shapes\n— smeared pigment\n— interrupted halftone patterns\n— slightly distorted color patches\n\nNo physically perfect ray-traced reflection.\n\nSmall movements create restrained concentric ripples.\n\nThe water never develops into a lake, shoreline, or recognizable environment.\n\n--------------------------------------------------\nCOMPOSITION\n--------------------------------------------------\n\nPoster-quality character presentation.\n\nNEVER CENTER EITHER CHARACTER.\n\nEvery major framing follows the rule of thirds.\n\nUse:\n\n— bold asymmetry\n— extreme perspective\n— dramatic negative space\n— foreground intrusion\n— graphic silhouette\n— strong diagonals\n— committed dutch angles\n— aggressive foreshortening\n\nThe camera should constantly discover new poster-like compositions without feeling random.\n\nThink of every important freeze-frame as a powerful hand-painted editorial poster.\n\n--------------------------------------------------\nCAMERA LANGUAGE\n--------------------------------------------------\n\nExtremely dynamic cinematic camera work.\n\nUse:\n\n— low-angle pushes\n— lateral arcs\n— rapid foreground passes\n— controlled orbiting\n— dramatic push-ins\n— close perspective compression\n— bold dutch tilts\n— extreme foreshortening\n\nCamera movement should feel confident and intentional.\n\nAvoid:\ngeneric orbit shots,\nsmooth showroom camera motion,\nperfectly horizontal framing,\ncentered hero shots.\n\nThe movement may include tiny traces of analog handheld imperfection, but never uncontrolled shake.\n\nDuring aggressive moves, pigment and halftone may visually stretch for 1–3 frames into expressive printed motion accents.\n\n--------------------------------------------------\nSEGMENT 1\n<<<442c9eb4-cf3d-4bab-8e5b-0a87cf7a1475>>>\n0:00–0:10\n--------------------------------------------------\n\nSTART FRAME\n\n<<<442c9eb4-cf3d-4bab-8e5b-0a87cf7a1475>>> stands ankle-deep in the reflective water plane.\n\nPlace him decisively on the RIGHT THIRD of the composition.\n\nSword already in hand.\n\nHis cream-gold fur, blue mantle, and dark sunglasses remain completely faithful to the reference.\n\nRender the cream-gold fur not as smooth digital fur, but through layered mustard, cream, pale yellow, ochre, burnt orange, muted violet, and turquoise shadow accents.\n\nHis blue mantle contains overlapping cobalt, cyan, turquoise, navy, violet, and small crimson pigment contamination.\n\nHis sunglasses remain unmistakably dark but contain fragmented blue-green reflections and coarse printed shadow texture.\n\n--------------------------------------------------\n0:00–0:03 — INTRODUCTION FLOURISH\n\nBegin from a strong low-angle dutch composition.\n\nThe camera is close enough that perspective already feels exaggerated.\n\n<<<442c9eb4-cf3d-4bab-8e5b-0a87cf7a1475>>> immediately commits to a broad sword flourish.\n\nThe blade sweeps through foreground space.\n\nStrong foreshortening.\n\nAt the fastest portion of the swing, allow the weapon motion to briefly break into:\n\n— dry-brush streaks\n— split cyan/red registration echoes\n— elongated halftone fragments\n— painterly pigment trails\n\nbut preserve the exact physical blade underneath those effects.\n\nSmall droplets rise from the water around his hooves.\n\nEach droplet reads like scattered gouache or ink speckles.\n\nThe camera moves laterally while remaining on a pronounced dutch angle.\n\n--------------------------------------------------\n0:03–0:05 — WRIST SPIN\n\nHe spins the sword once cleanly around his wrist.\n\nONE complete controlled rotation.\n\nThe movement is elegant, readable, and confident.\n\nCamera pushes close enough that the hand and weapon briefly dominate the foreground.\n\nExtreme foreshortening.\n\nThe blade occasionally crosses almost the entire frame.\n\nThe rotating sword catches highly stylized pale-yellow and aqua highlights.\n\nInstead of polished CGI specular reflections, highlights appear as broken strokes of bright pigment.\n\nHis body remains primarily on the right side of the composition even when the sword crosses center.\n\n--------------------------------------------------\n0:05–0:07 — HERO PRESENTATION\n\nHe catches the weapon decisively.\n\nThe camera drops slightly lower.\n\nHe presents the blade edge-on toward the lens.\n\nThe weapon dominates foreground perspective.\n\nHis face remains behind it, clearly visible.\n\nLow, confident stance.\n\nWeight settled.\n\nShoulders relaxed.\n\nHe is enjoying himself.\n\nThe composition should momentarily resemble a hand-painted vintage action poster.\n\nAt this moment, increase graphic contrast:\n\nbright cream-yellow highlights,\ndeep jade shadows,\nblue mantle,\nsmall crimson/orange accents,\ndense coarse halftone in darker areas.\n\n--------------------------------------------------\n0:07–0:10 — FOURTH-WALL MOMENT\n\nHe steps directly toward the camera.\n\nOne hoof creates a visible shallow ripple.\n\nThe camera subtly retreats while preserving the aggressive perspective.\n\nHe extends the sword toward the lens.\n\nThe point approaches closer and closer until it stops JUST SHORT OF THE CAMERA.\n\nThe tip becomes an enormous foreshortened foreground object.\n\nDo NOT allow the weapon to physically penetrate the lens.\n\nHold the blade very close.\n\nBehind it, <<<442c9eb4-cf3d-4bab-8e5b-0a87cf7a1475>>> grins directly past the sword toward the viewer.\n\nHis expression communicates:\n\nconfidence,\nplayfulness,\ndelight,\ncomplete awareness of the audience.\n\nThis is an intentional fourth-wall interaction.\n\nThe final frame should be especially graphic:\n\nblade tip close to camera,\ncharacter occupying right third,\nlarge negative turquoise space,\nstrong diagonal geometry,\nbold dutch tilt,\nvisible painterly pigment,\nlarge coarse halftone clusters,\ndistressed printed texture.\n\nHARD CUT.\n\nNo dissolve.\nNo morph.\nNo paint transition.\n\n--------------------------------------------------\nSEGMENT 2\n<<<2360bd92-c7ac-4582-a131-ce8cb0a0d4f2>>>\n0:10–0:20\n--------------------------------------------------\n\nImmediate hard cut to <<<2360bd92-c7ac-4582-a131-ce8cb0a0d4f2>>>.\n\nHe stands ankle-deep in the same abstract reflective plane.\n\nPlace him decisively on the LEFT THIRD.\n\n<<<9782b557-2e3b-4c8e-8c75-caae060b4ef3>>> remains SHEATHED at his hip throughout the entire segment.\n\nDo not draw or unsheathe the weapon.\n\nPreserve exactly:\n— blade reference\n— sheath dimensions\n— attachment position\n— scale\n— orientation\n\nHis charcoal fur, pale hair, and crimson cloak remain faithful to the character reference.\n\nCharcoal fur should be constructed from navy, dark jade, violet, maroon, deep brown and near-black halftone patches.\n\nPale hair should contain cream, cool aqua, pale yellow, muted lavender, and paper-white pigment.\n\nHis crimson cloak should be exceptionally tactile:\nvermilion,\ndeep crimson,\nburnt orange,\nwine-red,\ndark violet shadows,\ncoarse black-red halftone.\n\n--------------------------------------------------\n0:10–0:13 — EXTREME CAMERA, ZERO REACTION\n\nCamera begins with an aggressive low-angle dutch composition.\n\nIt rapidly reframes around him.\n\nThe cinematic language is just as energetic as Segment 1.\n\nHowever:\n\n<<<2360bd92-c7ac-4582-a131-ce8cb0a0d4f2>>> barely moves.\n\nHe does not pose.\nHe does not react.\nHe does not acknowledge the spectacle.\n\nHe simply stands there.\n\nRelaxed.\nUnimpressed.\nAlmost bored.\n\nThis contrast is the central joke.\n\n--------------------------------------------------\n0:13–0:17 — CAMERA CONTINUES TO PERFORM\n\nCamera sweeps into another extreme thirds-based composition.\n\nPush close to his sheathed weapon.\n\nArc upward toward his face.\n\nShift into another pronounced dutch tilt.\n\nBriefly allow his cloak to dominate foreground perspective.\n\nDespite the dramatic visual treatment, he remains almost perfectly still.\n\nOnly subtle natural secondary motion:\n\n— breathing\n— slight cloak settling\n— tiny hair movement\n— minimal weight shift\n\nThe analog rendering remains highly alive around him:\n\nvisible halftone patterns,\nbroken brush edges,\ncolor separation,\nwatercolor shadows,\npigment variation.\n\nBut his demeanor remains completely deadpan.\n\n--------------------------------------------------\n0:17–0:19 — THE YAWN\n\nWithout changing posture significantly, he yawns once.\n\nA complete, slow, effortless yawn.\n\nNo exaggeration.\n\nNo comedic cartoon stretching.\n\nNatural jaw motion.\n\nEyes slightly close.\n\nOne restrained breath.\n\nHe is genuinely bored.\n\nThe camera meanwhile executes one of its most dramatic moves:\n\na close low-angle reframing with pronounced dutch tilt and strong foreshortening.\n\nThis absurd mismatch between camera intensity and character indifference carries the humor.\n\n--------------------------------------------------\n0:19–0:20 — FINAL HOLD\n\nHis mouth closes.\n\nHe returns to exactly the same indifferent expression.\n\nNo pose.\n\nNo reaction.\n\nNo acknowledgment of camera.\n\nCamera settles for only a brief instant into another left-third poster composition.\n\nEnd on a tactile printed frame dominated by:\n\ncharcoal,\ncrimson,\njade,\nturquoise,\ncream,\ndeep chromatic shadows,\ncoarse halftone,\nvisible gouache.\n\nCUT.\n\n--------------------------------------------------\nLIGHTING\n--------------------------------------------------\n\nLighting follows the mixed-media analog aesthetic rather than pristine digital studio rendering.\n\nUse one broad soft key source for each character.\n\nIts purpose is to clearly sculpt anatomy and preserve poster-like readability.\n\nThe light itself should feel like a mixture of soft photographic character lighting and expressive painted interpretation.\n\nHighlights are allowed to bloom slightly and become nearly paper-white or pale yellow.\n\nUse localized bright accents on:\n\n— face\n— shoulders\n— fur\n— cloth folds\n— sword edges\n\nShadows remain deeply chromatic rather than neutral.\n\nUse jade, turquoise, navy, crimson, violet, deep brown, and occasional burnt orange in the shadow structure.\n\nAllow slight complementary contamination:\nwarm pigment within cool regions,\ncool pigment inside warm highlights.\n\nRim accents should be subtle and appear as irregular dry-brush strokes rather than perfect digital outlines.\n\nNO harsh black cast shadows.\nNO polished three-point CGI illumination.\nNO neon rim-light cliché.\n\nThe image should retain the sensation of imperfect photographed light transformed through paint and print.\n\n--------------------------------------------------\nANALOG EXPOSURE CHARACTER\n--------------------------------------------------\n\nAllow restrained vintage photographic imperfections:\n\n— slight underexposure in selected shadows\n— localized highlight blooming\n— occasional clipped pale-yellow highlights\n— mild color contamination\n— subtle film grain\n— print grain\n— slight softness during rapid movement\n— tiny registration errors\n— occasional chromatic edge splitting\n\nNever apply these uniformly.\n\nThe imperfections must feel physically generated.\n\n--------------------------------------------------\nCHARACTER COLOR CLARITY\n--------------------------------------------------\n\nDespite the expressive treatment, both characters must remain immediately identifiable.\n\n<<<442c9eb4-cf3d-4bab-8e5b-0a87cf7a1475>>>:\n— cream-gold fur\n— blue mantle\n— dark sunglasses\n\n<<<2360bd92-c7ac-4582-a131-ce8cb0a0d4f2>>>:\n— charcoal fur\n— pale hair\n— crimson cloak\n\nThese established colors must remain visually dominant.\n\nDo not recolor costumes according to the environment.\n\nThe turquoise void may contaminate shadow edges slightly, but never enough to alter established costume identity.\n\n--------------------------------------------------\nSOUND DESIGN\n--------------------------------------------------\n\nWORDLESS.\n\nNo dialogue.\n\nNo vocal performance except the rival’s soft yawn exhale.\n\nSEGMENT 1:\n\nUse a sharp confident musical sting corresponding naturally to important beats in <<<442c9eb4-cf3d-4bab-8e5b-0a87cf7a1475>>>’s sword performance.\n\nBuild energy gradually through:\n\n— initial flourish\n— wrist spin\n— blade presentation\n— final fourth-wall extension\n\nSword sound design should feel crisp but stylized.\n\nAdd restrained:\n\n— blade whooshes\n— cloth movement\n— tiny water splashes\n— shallow ripple sounds\n\nDo not make the weapon sound excessively massive.\n\nSEGMENT 2:\n\nAt the hard cut, remove almost all musical energy.\n\nNear silence.\n\nRetain only subtle water ambience and cloth movement.\n\nDuring the yawn:\none soft natural exhale.\n\nDo not underline the joke with comedy music.\n\nThe contrast itself creates the humor.\n\n--------------------------------------------------\nTEMPORAL AND VISUAL CONTINUITY\n--------------------------------------------------\n\nMaintain exceptional temporal consistency.\n\nAbsolutely avoid:\n\n— flickering costume details\n— changing fur markings\n— unstable faces\n— unstable sunglasses\n— weapon reshaping\n— weapon length changes\n— blade bending\n— random cloak changes\n— changing character height\n— uncontrolled texture crawling\n— halftone flicker\n— random brush marks teleporting frame-to-frame\n\nPainterly texture must behave as though physically attached to each surface.\n\nThe sequence should look like a coherent animated painting, not 24 unrelated AI illustrations every second.\n\n--------------------------------------------------\nCONSTRAINTS RECAP\n--------------------------------------------------\n\nNO valley.\n\nNO main environment.\n\nNO landscape.\n\nNO horizon.\n\nNO mountains.\n\nNO architecture.\n\nNO location detail.\n\nNO atmospheric scenery.\n\nONLY:\n\n1. the jade-turquoise abstract printed gradient void\n2. the narrow shallow reflective water plane\n3. one character at a time\n\nEvery major composition obeys the rule of thirds.\n\nNever center either character.\n\nSEGMENT 1:\n<<<442c9eb4-cf3d-4bab-8e5b-0a87cf7a1475>>> is highly kinetic, confident, playful, and directly engages the viewer at the end.\n\nSEGMENT 2:\n<<<2360bd92-c7ac-4582-a131-ce8cb0a0d4f2>>> remains almost entirely static while the CAMERA maintains the same absurdly dramatic energy.\n\nHe yawns exactly once.\n\n<<<9782b557-2e3b-4c8e-8c75-caae060b4ef3>>> remains sheathed.\n\n--------------------------------------------------\nFINAL ART-DIRECTION TARGET\n--------------------------------------------------\n\nThe finished sequence should look as though highly dynamic cinematic character footage was:\n\nshot on imperfect analog film,\nenlarged,\nrepainted manually with gouache and watercolor,\noverworked with acrylic,\ncolor-separated into printing inks,\ncovered selectively with coarse halftone,\nscreen-printed,\nmisregistered slightly,\nthen reproduced through a distressed vintage offset press —\n\nyet somehow brought back to life as fluid animation.\n\nEvery frame should feel tactile, handmade, emotionally saturated, chromatically rich, graphically bold, imperfect, and collectible enough to function as a standalone printed character poster.\n\nNOT clean animation.\nNOT glossy digital fantasy art.\nNOT photoreal CGI.\nNOT generic anime rendering.\n\nExpressive pigment.\nCoarse halftone.\nChromatic shadows.\nBroken contours.\nAnalog grain.\nImperfect registration.\nPainted motion.\nPoster-level compositions.\nCinematic movement.\nStable characters.\nFluid action.",
+                                "genre": "auto",
+                                "medias": [],
+                                "duration": 20,
+                                "resolution": "1080p",
+                                "aspect_ratio": "16:9",
+                                "generate_audio": true,
+                                "multi_shots": false,
+                                "multi_shot_mode": "custom",
+                                "multi_prompt": [],
+                                "speedramp": "auto",
+                                "reference_elements": [
+                                    {
+                                        "id": "2360bd92-c7ac-4582-a131-ce8cb0a0d4f2",
+                                        "name": "rival",
+                                        "medias": [
+                                            {
+                                                "id": "36555814-f0d9-4665-9c10-b236c6d2c3fc",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260821_010633_36555814-f0d9-4665-9c10-b236c6d2c3fc_min.webp",
+                                                "type": "image_job",
+                                                "width": 2048,
+                                                "height": 1152
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "442c9eb4-cf3d-4bab-8e5b-0a87cf7a1475",
+                                        "name": "lamarana",
+                                        "medias": [
+                                            {
+                                                "id": "29bbb8b7-7f25-4b0a-8415-0b59364a2b31",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260821_130133_29bbb8b7-7f25-4b0a-8415-0b59364a2b31_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "9782b557-2e3b-4c8e-8c75-caae060b4ef3",
+                                        "name": "rivalsword",
+                                        "medias": [
+                                            {
+                                                "id": "2d7f22e7-54a5-4a7c-b524-ede205498a06",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260821_022257_2d7f22e7-54a5-4a7c-b524-ede205498a06_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:prop",
+                                        "description": null,
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    }
+                                ],
+                                "prompt_language": "en",
+                                "model": "default",
+                                "extension_mode": null,
+                                "bitrate_mode": "high",
+                                "draft": false,
+                                "seed": null,
+                                "draft_job_id": null
+                            },
+                            "meta": {},
+                            "id": "028b8cbd-c54f-4cbd-8313-98d4e653bb3f",
+                            "status": "completed",
+                            "ip_check_finished": true,
+                            "ip_detected": false,
+                            "can_bypass_ip": false,
+                            "deepfake_consent_required": false,
+                            "result": null,
+                            "results": {
+                                "raw": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake001/hf_20260830_005003_028b8cbd-c54f-4cbd-8313-98d4e653bb3f.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake001/hf_20260830_005003_028b8cbd-c54f-4cbd-8313-98d4e653bb3f_thumbnail.webp"
+                                },
+                                "min": {
+                                    "type": "video",
+                                    "url": "https://cdn.higgsfield.ai/user_Fake001/hf_20260830_005003_028b8cbd-c54f-4cbd-8313-98d4e653bb3f_min.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake001/hf_20260830_005003_028b8cbd-c54f-4cbd-8313-98d4e653bb3f_thumbnail_min.webp"
+                                },
+                                "hls": null,
+                                "h264": null
+                            },
+                            "published_at": 1792604093.417534,
+                            "created_at": 1788051003.226028,
+                            "user_id": "user_Fake001",
+                            "trace_id": "028b8cbd-c54f-4cbd-8313-98d4e653bb3f",
+                            "cluster_hash": "1b436b91030336cd3c55269830eb52e9",
+                            "representation": null,
+                            "can_upgrade_to_4k": false,
+                            "upgrade_options": [],
+                            "expires_at": null,
+                            "publication": {
+                                "id": "3b3a61fd-e5a4-4800-b131-b7efab2b070a",
+                                "views_count": 204,
+                                "likes_count": 3,
+                                "is_liked_by_user": null,
+                                "approved": false,
+                                "pinned_at": null
+                            },
+                            "profile": {
+                                "username": "<redacted>",
+                                "avatar_url": "<redacted>",
+                                "instagram_handle": "<redacted>",
+                                "twitter_handle": null,
+                                "youtube_handle": null,
+                                "tiktok_handle": null,
+                                "badge": null,
+                                "badges": [
+                                    {
+                                        "name": "Higgsfield Talent",
+                                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                                        "description": null
+                                    }
+                                ]
+                            },
+                            "drama": null
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "user_Fake002",
+                "rating_points": 446,
+                "username": "<redacted>",
+                "avatar_url": "<redacted>",
+                "bio": "<redacted>",
+                "headline": "<redacted>",
+                "location": "<redacted>",
+                "background_image_url": null,
+                "badge": null,
+                "badges": [
+                    {
+                        "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                        "name": "Higgsfield Talent",
+                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                        "description": null
+                    }
+                ],
+                "full_name": null,
+                "verified_projects_count": 1,
+                "latest_verified_at": "2026-10-12T18:27:42.655005Z",
+                "is_pinned": false,
+                "followers_count": 61,
+                "following_count": 4,
+                "is_subscribed": false,
+                "likes_count": 294,
+                "views_count": 13213,
+                "items": [
+                    {
+                        "type": "project",
+                        "is_pinned": true,
+                        "item": {
+                            "publication_id": "16c6e5e6-43f8-4921-897a-8f0feeb2e253",
+                            "duration_seconds": 545.291667,
+                            "state": "published",
+                            "type": "film",
+                            "is_ongoing": false,
+                            "project_id": "16c6e5e6-43f8-4921-897a-8f0feeb2e253",
+                            "snapshot_folder_id": "4001a963-cc46-4325-b1f1-ed5b3499daf3",
+                            "has_changes_since_publish": false,
+                            "project_updated_at": "2026-11-25T03:43:19.301680+00:00",
+                            "final_submitted_at": "2026-09-16T19:20:08.004825+00:00",
+                            "is_open_source": true,
+                            "name": "The Elevator",
+                            "slug": "the-elevator",
+                            "description": "A man's elevator ride spirals through nine increasingly surreal floors, each one pulling him closer to a reckoning he can't see coming.",
+                            "cover": {
+                                "id": "17f8d3c0-0d0f-4c27-b04b-88cf8f84fdd7",
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake002/17f8d3c0-0d0f-4c27-b04b-88cf8f84fdd7.png",
+                                "name": null,
+                                "type": "media",
+                                "width": 2720,
+                                "height": 1536,
+                                "min_url": null,
+                                "duration": null,
+                                "object_fit": "cover",
+                                "thumbnail_url": null
+                            },
+                            "gallery_media": [
+                                {
+                                    "id": "d38b8678-9893-49a2-b716-6f5c9673e0ae",
+                                    "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/d38b8678-9893-49a2-b716-6f5c9673e0ae/088f11c4-38b8-4da1-9216-6d1f31f9abfd/index.m3u8?v=088f11c4-38b8-4da1-9216-6d1f31f9abfd",
+                                    "type": "video",
+                                    "width": 3380,
+                                    "height": 1440,
+                                    "min_url": null,
+                                    "duration": 545.291667,
+                                    "object_fit": "contain",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/d38b8678-9893-49a2-b716-6f5c9673e0ae/088f11c4-38b8-4da1-9216-6d1f31f9abfd/thumbnail.webp?v=088f11c4-38b8-4da1-9216-6d1f31f9abfd",
+                                    "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake002/d38b8678-9893-49a2-b716-6f5c9673e0ae.mp4",
+                                    "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/d38b8678-9893-49a2-b716-6f5c9673e0ae/088f11c4-38b8-4da1-9216-6d1f31f9abfd/download.mp4?v=088f11c4-38b8-4da1-9216-6d1f31f9abfd&download=d38b8678-9893-49a2-b716-6f5c9673e0ae.mp4"
+                                }
+                            ],
+                            "trailer": {
+                                "id": "f0be8764-7e04-49ab-a82b-c40f570a5a2f",
+                                "url": "https://cdn.higgsfield.ai/da15f2eb-29f3-4039-bd4f-4194102f92c2.mp4",
+                                "type": "video",
+                                "width": 1080,
+                                "height": 460,
+                                "duration": 15.637,
+                                "thumbnail_url": "https://cdn.higgsfield.ai/01f43f62-716c-4137-b5dc-5d36f59d2c8c.webp"
+                            },
+                            "author_user_ids": [
+                                "user_Fake002"
+                            ],
+                            "tags": [],
+                            "categories": [],
+                            "show_prompts": true,
+                            "show_canvas": true,
+                            "is_discoverable": false,
+                            "featured_episode_id": null,
+                            "is_featured": false,
+                            "created_at": "2026-09-05T05:41:18.359833Z",
+                            "authors": [
+                                {
+                                    "id": "user_Fake002",
+                                    "full_name": null,
+                                    "username": "<redacted>",
+                                    "avatar_url": "<redacted>",
+                                    "headline": "<redacted>",
+                                    "location": "<redacted>",
+                                    "is_owner": true,
+                                    "is_followed": false,
+                                    "total_projects_views": 1737,
+                                    "total_projects_likes": 26,
+                                    "followers_count": 61,
+                                    "badges": [
+                                        {
+                                            "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                                            "name": "Higgsfield Talent",
+                                            "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                                            "description": null
+                                        }
+                                    ]
+                                }
+                            ],
+                            "team": null,
+                            "views": 9906,
+                            "likes": 107,
+                            "comments": 27,
+                            "is_liked_by_user": null,
+                            "awards": [],
+                            "contest_badges": [],
+                            "can_receive_audience_choice_votes": true,
+                            "is_higgsfield_featured": false,
+                            "is_talents_hub": false,
+                            "contest_key": "ai_film_festival"
+                        }
+                    },
+                    {
+                        "type": "shot",
+                        "is_pinned": false,
+                        "item": {
+                            "job_set_type": "hf_mult_motion_control",
+                            "job_set_id": "4105dc02-8611-47e5-b730-4f4c49b293f6",
+                            "job_set_parent_id": null,
+                            "job_set_client_meta": {
+                                "is_free_generation": false
+                            },
+                            "board_ids": [],
+                            "params": {
+                                "width": 768,
+                                "height": 576,
+                                "medias": [
+                                    {
+                                        "data": {
+                                            "id": "78291e48-a5ce-4b78-a86f-37dc71460344",
+                                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261004_135458_78291e48-a5ce-4b78-a86f-37dc71460344.png",
+                                            "type": "image_job"
+                                        },
+                                        "role": "image"
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "e0dc0ab8-040d-47bb-aca6-656980f84bfa",
+                                            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake002/e0dc0ab8-040d-47bb-aca6-656980f84bfa.mp4",
+                                            "type": "video_input"
+                                        },
+                                        "role": "video"
+                                    }
+                                ],
+                                "prompt": "Replace the performer in the reference video with the man from the character sheet: bald on top with big wild curly dark hair sticking out on both sides, thin pencil mustache, long face, olive-brown double-breasted tweed suit, cream shirt, burgundy striped tie, brown leather shoes. He wears this exact same suit, shirt, tie and shoes in every single shot, including the dirt bike shot. No hoodie, no motocross gear, no outfit changes.\n\nCopy the reference performance exactly: same dance moves, head bobs, arm swings, leans, mouth movements and expressions, with the same timing on every beat and cut.\n\nIn the dirt bike shot, he is the rider: still in his full tweed suit and tie, no helmet so his face and curly side hair are visible, riding the dirt bike down the forest trail toward camera with the same wheelie, line and speed as the reference. His tie and suit jacket flap in the wind, his curly hair blows back, and dust kicks up from the tires.\n\nKeep the original look of the video: black and white 16mm film, heavy grain, high contrast, round fisheye peephole vignette with black edges, bare photo studio with softbox lights, light stands and a backdrop, the forest dirt trail in the bike shot, same camera angles and framing as the reference.\n\nOnly the person changes. Backgrounds, lighting, camera moves and edit stay the same.",
+                                "scene_mode": "off",
+                                "location_character_media_id": null,
+                                "duration": 22,
+                                "resolution": "720p",
+                                "aspect_ratio": "4:3",
+                                "generate_audio": false,
+                                "bitrate_mode": "high",
+                                "batch_size": 1,
+                                "folder_id": null
+                            },
+                            "meta": {},
+                            "id": "c32b03e3-e2dc-4f91-950d-d7fbabace6b8",
+                            "status": "completed",
+                            "ip_check_finished": true,
+                            "ip_detected": false,
+                            "can_bypass_ip": false,
+                            "deepfake_consent_required": false,
+                            "result": null,
+                            "results": {
+                                "raw": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_124923_c32b03e3-e2dc-4f91-950d-d7fbabace6b8.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake002/hf_20261009_124923_c32b03e3-e2dc-4f91-950d-d7fbabace6b8_thumbnail.webp"
+                                },
+                                "min": {
+                                    "type": "video",
+                                    "url": "https://cdn.higgsfield.ai/user_Fake002/hf_20261009_124923_c32b03e3-e2dc-4f91-950d-d7fbabace6b8_min.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake002/hf_20261009_124923_c32b03e3-e2dc-4f91-950d-d7fbabace6b8_thumbnail_min.webp"
+                                },
+                                "hls": null,
+                                "h264": null,
+                                "split_screen": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_124923_c32b03e3-e2dc-4f91-950d-d7fbabace6b8_split_screen.mp4"
+                                }
+                            },
+                            "published_at": 1791558708.685075,
+                            "created_at": 1791550163.126987,
+                            "user_id": "user_Fake002",
+                            "trace_id": "c32b03e3-e2dc-4f91-950d-d7fbabace6b8",
+                            "cluster_hash": "4c81a59dedf10db0178459728aea0624",
+                            "representation": null,
+                            "publication": {
+                                "id": "2e48efb1-f757-4523-9e1b-361f004a94dc",
+                                "views_count": 317,
+                                "likes_count": 157,
+                                "is_liked_by_user": null,
+                                "approved": false,
+                                "pinned_at": null
+                            },
+                            "profile": {
+                                "username": "<redacted>",
+                                "avatar_url": "<redacted>",
+                                "instagram_handle": "<redacted>",
+                                "twitter_handle": null,
+                                "youtube_handle": "<redacted>",
+                                "tiktok_handle": null,
+                                "badge": null,
+                                "badges": [
+                                    {
+                                        "name": "Higgsfield Talent",
+                                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                                        "description": null
+                                    }
+                                ]
+                            },
+                            "drama": null
+                        }
+                    },
+                    {
+                        "type": "shot",
+                        "is_pinned": false,
+                        "item": {
+                            "job_set_type": "seedance_2_5",
+                            "job_set_id": "48e36819-8dc0-4282-9058-595e5dc49d2f",
+                            "job_set_parent_id": null,
+                            "job_set_client_meta": null,
+                            "board_ids": [],
+                            "params": {
+                                "width": 720,
+                                "height": 1280,
+                                "prompt": "4 shots. Total 8 seconds. Shot 1 runs 0.0–2.0s, shot 2 runs 2.0–4.0s, shot 3 runs 4.0–6.0s, shot 4 runs 6.0–8.0s. Hard cuts between them, no transitions, no dissolves. All shots real-time, no slow motion, no overcranking, no ramping, no speed change anywhere in this sequence.\r\n\r\nStyle: 8K, photorealism, real organic film grain and halation, high dynamic range, shot on large-format film. Candid behind-the-scenes Hollywood premiere coverage. NOT a 3D render, NOT a game engine, NOT a game-cutscene aesthetic, NOT a cartoon.\r\nOperating style: observational red-carpet candids, caught-in-the-moment framing, long-lens intimacy, tactile fabrics, shallow depth of field on faces, warm celebratory glamour.\r\nTexture: velvet, satin, crepe, Thai silk and metallic lame with real weave, deep plush carpet pile, brushed brass, no digital gloss, no plastic sheen.\r\nSkin: pore-level realism, visible pores, fine vellus hair, natural asymmetry, polished red-carpet grooming, no smoothing, no retouching.\r\nTechnical: 8K, real-time 24fps, true 180-degree shutter with a real 1/48 second exposure on every frame, genuine photographic motion blur, each frame blending smoothly into the next. Smooth stable motion, no flicker, no warping, no morphing, no frame interpolation, no frame blending, no ghosting, no double-imaging, no high-shutter video crispness. The bright bursts in this sequence come entirely from press camera flashes firing, never from broken or choppy footage; motion stays continuous through every flash.\r\n\r\nNO ON-SCREEN TEXT — CRITICAL: no on-screen text of any kind anywhere in frame at any point. No captions, no subtitles, no burned-in dialogue, no auto-captions, no lower thirds, no titles, no title cards, no credits, no watermarks, no timecode, no UI overlays, no social-media overlays, no interface elements, no Chinese characters, no Korean characters. The frame is clean of all overlay graphics from first frame to last.\r\n\r\nSEVEN DISTINCT STARS — CRITICAL: seven different people, each with their own face and single outfit, never merging, never swapping wardrobe, each appearing only in their assigned shot: oxblood velvet jacket on the massive bodybuilder and peacock-teal Thai silk mandarin-collar suit in shot 1; black velvet gown with opera gloves and dusty-rose satin gown in shot 2; bronze-gold metallic gown and sapphire-blue gown in shot 3; ivory dinner jacket with red rose in shot 4. No other stars on the carpet.\r\n\r\nTHE CANDID FEEL — CRITICAL: these are unposed in-between moments, warm and genuine. Stars talk, laugh, greet and react to each other naturally, eyelines on each other, not the lens, until a photographer pulls their attention. Real friendship and delight, easy body language, laughter that reaches the eyes. Conversation is inaudible under the crowd and shutters: mouths move in casual chat and laughter, but no words are ever heard.\r\n\r\nTHE STAGING — CRITICAL: shot 1 the bodybuilder at frame-left, the man in teal at frame-right. Shot 2 the woman in black velvet at frame-left, the woman in dusty rose at frame-right. Shot 3 the woman in bronze-gold at frame-left, the woman in sapphire at frame-right. Shot 4 the man in ivory at frame-right beside the rope line, photographers behind the rope at frame-left. Nobody swaps sides.\r\n\r\nASSETS:\r\n<<<dde12718-8825-451f-90f6-751fc86b7295>>> = 188cm, massive heavily muscled bodybuilder build, fair skin, brown eyes, dark brown skin-fade crop with a sharp line-up, light stubble. Oxblood velvet dinner jacket with black satin peak lapels, white pleated shirt, black silk bow tie, black trousers, black patent oxfords, gold watch, brass elevator-call-button pin. THIS SCENE: greets the man in teal with a hand-clasp and bro-hug, laughing. 100% match to the reference.\r\n<<<196cd159-d243-4493-8ffa-b1a750bfb7a0>>> = 172cm, lean athletic build, warm tan skin, dark brown eyes, black hair combed back, short sides. Peacock-teal Thai silk suit with standing mandarin collar, five gold buttons, gold flame-motif embroidery at collar and cuffs, gold pocket square, brass elevator-call-button pin. THIS SCENE: playfully raises a fighting guard at the bodybuilder, then laughs into the hug. 100% match to the reference.\r\n<<<6f2f529f-3c32-40b8-aac3-df2282b6fa0c>>> = 160cm, petite curvy build, warm medium skin, dark brown eyes, never glasses, jet-black chin-length finger-wave bob, true-red lip. Black velvet off-shoulder mermaid gown, black satin opera gloves, diamond earrings and bracelet, brass elevator-button clutch. THIS SCENE: greets the woman in dusty rose with a delighted cheek-to-cheek air kiss. 100% match to the reference.\r\n<<<830e68cb-96f0-431f-9d6f-53477539edc0>>> = 168cm, slim build, fair rosy skin with faint freckles, green-hazel eyes, long glossy chestnut Hollywood waves. Dusty-rose satin off-shoulder gown, pearl drop earrings, brass elevator-button clutch. THIS SCENE: returns the air kiss, hands clasped with the woman in black, both laughing. 100% match to the reference.\r\n<<<b671ee86-3d60-4409-a9f7-0f20c911d7a6>>> = 175cm, strong athletic build, warm fair skin, brown eyes, sleek high auburn-toned ponytail. Bronze-gold metallic lame gown, structured shoulders, high mock neck, gold belt, geometric gold earrings. THIS SCENE: leans in to share a joke with the woman in sapphire, then both turn and pose. 100% match to the reference.\r\n<<<1f5bbd9c-166b-42ec-81be-ff0656222d45>>> = 168cm, slim build, fair skin, light brown eyes, dark brown low chignon with face-framing tendrils. Sapphire-blue off-shoulder crossover gown, sapphire drop earrings, brass elevator-button clutch. THIS SCENE: bursts out laughing at the joke, hand to her chest, then poses. 100% match to the reference.\r\n<<<67476904-6b45-4c5c-9e17-02a79475ccfe>>> = 183cm, lean athletic build, fair skin with light freckles, brown eyes, dark brown polished side-part hair, clean-shaven. Ivory shawl-lapel dinner jacket, white pleated shirt, black bow tie, black trousers, black patent oxfords, red rose boutonniere and brass elevator-call-button pin. THIS SCENE: plays to a photographer at the rope line. 100% match to the reference.\r\n<<<f0ccc979-c87d-4b0a-a268-62b064f833f4>>> = matte black step-and-repeat wall printed in a repeating grid alternating \"THE ELEVATOR\" in brushed-gold art deco capitals and \"HIGGSFIELD GLOBAL FILM FESTIVAL\" in white sans-serif capitals, every logo crisp and legible; crimson carpet, brass stanchions with red velvet ropes, glowing round brass floor marker at carpet centre. Controls geography, materials, printed logos and light direction only.\r\n<<<eb224bbb-152e-4b8a-b32a-3db18523ba3a>>> = art deco theater facade at night, marquee reading \"HIGGSFIELD GLOBAL FILM FESTIVAL\" and \"WORLD PREMIERE: THE ELEVATOR\" in black capitals on a glowing white panel, brass elevator-style doors, long crimson carpet with brass stanchions and red velvet ropes, black barricade banners printed \"THE ELEVATOR\" in gold. Controls geography, materials, printed text and light direction only.\r\nPress and fans: photographers in dark clothing with professional cameras behind the ropes, fans holding up glowing phones, never crossing onto the carpet.\r\n\r\nGEOMETRY MAP: Shots 1 and 3 at the logo wall: wall background, the pair mid-ground on the carpet, photographers' shoulders and lenses soft in the foreground corners. Shot 2 on the arrival carpet: marquee glowing soft behind, the two women mid-ground, fans soft at frame-right. Shot 4 on the arrival carpet: rope line running diagonally from foreground frame-left into the background, a cluster of photographers behind it at frame-left mid-ground, the man in ivory at frame-right mid-ground leaning toward them, marquee soft behind.\r\n\r\nFIRST FRAME: the man in teal is already raising his playful guard as the bodybuilder steps toward him, flashes already firing. No empty establishing frame, no static hold.\r\n\r\nLENS LOCK SHOT 1 = 34° (65mm) short tele, waist-up two-shot, compressed wall behind.\r\nLENS LOCK SHOT 2 = 29° (85mm) chest-up two-shot, background thrown soft.\r\nLENS LOCK SHOT 3 = 34° (65mm) short tele, waist-up two-shot.\r\nLENS LOCK SHOT 4 = 47° (50mm) over the photographers' shoulders, waist up on the man, rope line in frame.\r\nSpherical large-format glass, natural halation on flash highlights, no anamorphic streaks, no fisheye. No focal drift mid-shot.\r\n\r\nCAMERA: gentle-to-lively handheld, candid press-pen operator, 4–8° cant swinging gently, never passing through level. Shot 1 quick reframe to follow the hug. Shot 2 drifting push toward the two faces. Shot 3 holds, then a small whip-reframe as they turn to pose. Shot 4 jostled over-the-shoulder from among the photographers. Never locked, never stabilized, never mechanically smooth, never gimbal-glide, never floaty drone; real shoulder-mounted mass, weight shifts, breath, human over-correction, every frame mid-move but always smooth and continuous in its own travel.\r\n\r\nLIGHT: bright, flattering premiere light, a soft frontal wash from softboxes near the press pen, warm golden accent light from the marquee and wall uplights, crisp white camera-flash kicks across faces and fabric. Faces fully and evenly lit, faithful skin tones.\r\nCOLOUR: ~70% deep matte black wall, night facade and rich crimson carpet; ~20% warm gold from brass stanchions, gold logos, marquee bulbs and the bronze gown; ~10% cool white from camera flashes. Each outfit holds its own saturated colour: oxblood, peacock teal, black velvet, dusty rose, bronze-gold, sapphire, ivory.\r\n\r\nATMOSPHERE: clean night air with light natural density, depth in layers: soft photographers or fans in the foreground, crisp stars mid-ground, logo wall or theater facade behind with gentle falloff. Natural bloom around flashes and marquee bulbs. No haze, no fog, no plumes, no volumetric shafts, no god rays.\r\n\r\nACTION TIMING:\r\n0.0–2.0s (SHOT 1, the fighters): at the logo wall the man in teal at frame-right throws up a playful fighting guard, grinning; the bodybuilder at frame-left laughs, grabs his hand in a firm clasp and pulls him into a back-slapping bro-hug, both cracking up. Photographers fire.\r\n2.0s HARD CUT\r\n2.0–4.0s (SHOT 2, old friends): on the arrival carpet the woman in black velvet at frame-left and the woman in dusty rose at frame-right spot each other, light up, clasp hands and lean in for a cheek-to-cheek air kiss, then pull back laughing and chatting, the dusty-rose woman squeezing the gloved hands. Fans cheer behind.\r\n4.0s HARD CUT\r\n4.0–6.0s (SHOT 3, the joke): at the logo wall the woman in bronze-gold at frame-left leans close to whisper to the woman in sapphire at frame-right, who bursts out laughing with a hand to her chest; a photographer calls out and both turn to camera mid-laugh, straightening into a pose, flashes bursting.\r\n6.0s HARD CUT\r\n6.0–8.0s (SHOT 4, playing to the press): at the rope line the man in ivory at frame-right leans toward the photographers at frame-left, points at one of them with a grin, then strikes a quick playful pose, buttoning his jacket with a wink as the photographers laugh and fire a volley of flashes.\r\n\r\nPHYSICS: real bodyweight, the hug landing with real impact and back slaps thumping velvet and silk, the bodybuilder's jacket creasing tight across his shoulders, gowns swaying and settling, the ponytail swinging as she turns, gloves and satin creasing at the hands, footsteps pressing into the deep carpet pile. Accurate contact shadows on the carpet. Nothing floats, nothing slides.\r\n\r\nACTING: natural blinking, active brows and forehead, laughter that crinkles the eyes and lifts the cheeks. Eyelines on each other during the greetings and the joke; to the photographers at the end of shot 3 and throughout shot 4. Brows rise with surprise and delight, expressions alive and individual, no frozen mask-face, no dead eyes. Casual chatting mouth movement and open laughter only, no intelligible words.\r\n\r\nAUDIO: diegetic premiere sound only: rapid camera shutter clicks and flash pops, photographers calling out wordlessly, an excited crowd cheering, warm bursts of laughter from the stars, back slaps on velvet, soft muffled footsteps on thick carpet, rustle of satin and silk. All conversation is buried under the crowd and shutters, no intelligible words. No music, no score, no lyrics, no singing, no ambient pad, no swell, no drone, no rising tone, no subtitles.\r\n\r\nLOCKS: the sequence runs in order: the man in teal raises a playful guard and the bodybuilder pulls him into a laughing bro-hug, the women in black velvet and dusty rose greet with an air kiss and laugh, the woman in bronze-gold whispers a joke and the woman in sapphire laughs before both turn to pose, the man in ivory points at a photographer and strikes a playful pose with a wink. Seven identities continuous and distinct, positions locked as set in THE STAGING. Wardrobe identical to each tagged reference, one look per figure. The logo wall and marquee text stay legible and unchanged. Every shot a different angle and height. Light direction and colour temperature consistent across all shots. Skin reads true cinematic matte, real fine even pore texture, real peach fuzz at the jaw and hairline, never plastic, never doll-skin, no acne, no blemishes, fine flattering texture that keeps every face looking good. No CGI, no rendered look, no AI smoothness, no skin smoothing, no stiffness, no frozen posing, no stabilized camera, no gimbal glide, no frame interpolation, no dropped frames.",
+                                "genre": "auto",
+                                "medias": [],
+                                "duration": 8,
+                                "resolution": "720p",
+                                "aspect_ratio": "9:16",
+                                "generate_audio": true,
+                                "multi_shots": false,
+                                "multi_shot_mode": "custom",
+                                "multi_prompt": [],
+                                "speedramp": "auto",
+                                "reference_elements": [
+                                    {
+                                        "id": "196cd159-d243-4493-8ffa-b1a750bfb7a0",
+                                        "name": "char_elev_muaythai_premiere",
+                                        "medias": [
+                                            {
+                                                "id": "58f2c731-f2ce-4201-ade9-f532256e3f55",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_132457_58f2c731-f2ce-4201-ade9-f532256e3f55_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": null,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "1f5bbd9c-166b-42ec-81be-ff0656222d45",
+                                        "name": "char_elev_redcar_premiere",
+                                        "medias": [
+                                            {
+                                                "id": "fa65b826-2601-4221-8246-47ae193bfbbe",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_132136_fa65b826-2601-4221-8246-47ae193bfbbe_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": null,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "67476904-6b45-4c5c-9e17-02a79475ccfe",
+                                        "name": "char_elev_man_premiere",
+                                        "medias": [
+                                            {
+                                                "id": "282f03a5-b5be-49c9-9299-10ca624a4dd9",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_131651_282f03a5-b5be-49c9-9299-10ca624a4dd9_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": null,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "6f2f529f-3c32-40b8-aac3-df2282b6fa0c",
+                                        "name": "char_elev_woman8_premiere",
+                                        "medias": [
+                                            {
+                                                "id": "b9cd4ccf-fdec-4be9-be56-b8b4adc200f9",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_131732_b9cd4ccf-fdec-4be9-be56-b8b4adc200f9_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": null,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "830e68cb-96f0-431f-9d6f-53477539edc0",
+                                        "name": "char_elev_mother_premiere",
+                                        "medias": [
+                                            {
+                                                "id": "a2526f51-8ff1-4e63-afd6-5873c47d3722",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_132702_a2526f51-8ff1-4e63-afd6-5873c47d3722_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": null,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "b671ee86-3d60-4409-a9f7-0f20c911d7a6",
+                                        "name": "char_elev_guardian_premiere",
+                                        "medias": [
+                                            {
+                                                "id": "e88673c0-c41f-4978-8b65-95bb7d8b9f88",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_132342_e88673c0-c41f-4978-8b65-95bb7d8b9f88_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": null,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "dde12718-8825-451f-90f6-751fc86b7295",
+                                        "name": "char_elev_jacked_premiere",
+                                        "medias": [
+                                            {
+                                                "id": "ff455cc8-6f0d-4d4f-8b7c-ad61759f5896",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_132237_ff455cc8-6f0d-4d4f-8b7c-ad61759f5896_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:character",
+                                        "description": null,
+                                        "ip_detected": null,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "eb224bbb-152e-4b8a-b32a-3db18523ba3a",
+                                        "name": "loc_elev_premiere_arrival",
+                                        "medias": [
+                                            {
+                                                "id": "a3faf398-15fa-42b5-a4eb-618d4a1b22d7",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_133137_a3faf398-15fa-42b5-a4eb-618d4a1b22d7_min.webp",
+                                                "type": "image_job",
+                                                "width": 2048,
+                                                "height": 1152
+                                            }
+                                        ],
+                                        "category": "environment_ip_verified",
+                                        "description": null,
+                                        "ip_detected": false,
+                                        "video_medias": []
+                                    },
+                                    {
+                                        "id": "f0ccc979-c87d-4b0a-a268-62b064f833f4",
+                                        "name": "loc_elev_premiere_wall",
+                                        "medias": [
+                                            {
+                                                "id": "cdd3c583-7dcf-4059-943d-34e0abea48fc",
+                                                "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_133301_cdd3c583-7dcf-4059-943d-34e0abea48fc_min.webp",
+                                                "type": "image_job",
+                                                "width": 2752,
+                                                "height": 1536
+                                            }
+                                        ],
+                                        "category": "auto:environment",
+                                        "description": null,
+                                        "ip_detected": null,
+                                        "video_medias": []
+                                    }
+                                ],
+                                "prompt_language": "en",
+                                "model": "default",
+                                "extension_mode": null,
+                                "bitrate_mode": "high",
+                                "draft": false,
+                                "seed": null,
+                                "draft_job_id": null
+                            },
+                            "meta": {},
+                            "id": "c1c0406c-c011-4680-a234-05d53e29db35",
+                            "status": "completed",
+                            "ip_check_finished": true,
+                            "ip_detected": false,
+                            "can_bypass_ip": false,
+                            "deepfake_consent_required": false,
+                            "result": null,
+                            "results": {
+                                "raw": {
+                                    "type": "video",
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake002/hf_20261009_141801_c1c0406c-c011-4680-a234-05d53e29db35.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake002/hf_20261009_141801_c1c0406c-c011-4680-a234-05d53e29db35_thumbnail.webp"
+                                },
+                                "min": {
+                                    "type": "video",
+                                    "url": "https://cdn.higgsfield.ai/user_Fake002/hf_20261009_141801_c1c0406c-c011-4680-a234-05d53e29db35_min.mp4",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake002/hf_20261009_141801_c1c0406c-c011-4680-a234-05d53e29db35_thumbnail_min.webp"
+                                },
+                                "hls": null,
+                                "h264": null
+                            },
+                            "published_at": 1791558658.373662,
+                            "created_at": 1791555481.250551,
+                            "user_id": "user_Fake002",
+                            "trace_id": "c1c0406c-c011-4680-a234-05d53e29db35",
+                            "cluster_hash": "8553534c8521a9ce9af5686cea718f29",
+                            "representation": null,
+                            "can_upgrade_to_4k": false,
+                            "upgrade_options": [],
+                            "expires_at": null,
+                            "publication": {
+                                "id": "705ccf5d-a220-4f1b-92ae-cf0a72e8ebcd",
+                                "views_count": 186,
+                                "likes_count": 0,
+                                "is_liked_by_user": null,
+                                "approved": false,
+                                "pinned_at": null
+                            },
+                            "profile": {
+                                "username": "<redacted>",
+                                "avatar_url": "<redacted>",
+                                "instagram_handle": "<redacted>",
+                                "twitter_handle": null,
+                                "youtube_handle": "<redacted>",
+                                "tiktok_handle": null,
+                                "badge": null,
+                                "badges": [
+                                    {
+                                        "name": "Higgsfield Talent",
+                                        "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                                        "description": null
+                                    }
+                                ]
+                            },
+                            "drama": null
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

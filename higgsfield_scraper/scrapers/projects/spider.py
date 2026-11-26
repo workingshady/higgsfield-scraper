@@ -12,10 +12,11 @@ from urllib.parse import quote
 from scrapy.http import TextResponse
 
 from ...core.api_spider import BaseApiSpider
+from ...core.privacy import creator_uid_key
 from ...run.logging_setup import emit
 from . import endpoints as ep
 from .options import user_key
-from .parsers import _listing_name
+from .parsers import _listing_name, author_key
 
 def _path_params(**kw: Any) -> dict:
     """Record path parameters in the envelope params (URL unchanged) so raw/ file names stay unique per id
@@ -23,7 +24,10 @@ def _path_params(**kw: Any) -> dict:
     return {"params": {k: str(v) for k, v in kw.items() if v is not None}}
 
 
-LISTINGS = ("projects_publications", "projects_recommended", "projects_contest_entries")
+LISTINGS = ("projects_publications", "projects_recommended", "projects_contest_entries",
+            "projects_trending")                       # projects_trending: --what trending (opt-in, 2026-11-26)
+# responses whose users are followed by --with-user-works (users already found in the run; never a broad listing)
+USER_SOURCES = ("projects_user_publications", "projects_contest_entries", "projects_contest_submissions")
 
 
 def _blank_keys(obj: Any, keys: frozenset) -> Any:
@@ -54,6 +58,7 @@ class ProjectsSpider(BaseApiSpider):
         self._items_seen: dict[str, int] = {}
         self._replies_requested: set[str] = set()
         self._contest_listings: dict[str, int] = {}     # entries listings started by --contest -> items seen
+        self._users_followed: set[str] = set()          # --with-user-works: Clerk ids already requested
         # Drop repeats before they are counted against --max-items (the same publication shows up in several
         # listings; its listing entry is still emitted). The pipeline would drop them anyway, but after counting.
         base_keep, ids, seen = self.sdef.keep, self.sdef.id_field_by_kind, set()
@@ -112,6 +117,14 @@ class ProjectsSpider(BaseApiSpider):
                          endpoint__name="projects_user_publications", reason="no_handle")
                     continue
                 yield self._user_page(handle, None)
+        if sel.wants("trending"):                          # opt-in (not in --what all)
+            yield self._trending_page(None)
+        if sel.wants("contest-participation"):             # opt-in (not in --what all)
+            for key in sel.entry_keys:
+                yield self.api_request("projects_participation_counters", ep.PARTICIPATION_COUNTERS,
+                                       {"contest_key": key}, priority=5)
+                yield self.api_request("projects_participation_config", ep.PARTICIPATION_CONFIG,
+                                       {"contest_key": key}, priority=5)
 
     # ------------------------------------------------------------ request builders
     def _publications_page(self, base: dict, cursor):
@@ -141,6 +154,23 @@ class ProjectsSpider(BaseApiSpider):
                                     ep.MAX_USER_PUBLICATIONS_LIMIT, ep.MAX_USER_PUBLICATIONS_LIMIT), "cursor": cursor},
                                 labels={"user_key": user_key(handle)}, meta={"handle": handle})
 
+    def _trending_page(self, cursor):
+        sel = self.selection
+        params = {"limit": self.page_size(ep.MAX_TRENDING_LIMIT, ep.MAX_TRENDING_LIMIT),
+                  "filter": sel.trending_filter,
+                  "with_contest": "true" if sel.trending_with_contest and not sel.trending_filter else None,
+                  "sort": sel.trending_sort, "cursor": cursor}
+        return self.api_request("projects_trending", ep.TRENDING, params)
+
+    def _user_works_page(self, uid: str, cursor, offset: int = 0):
+        key = creator_uid_key(uid)
+        return self.api_request("projects_user_works", ep.USER_WORKS.format(user_id=quote(uid, safe="")),
+                                {"limit": self.page_size(ep.MAX_USER_WORKS_LIMIT, ep.MAX_USER_WORKS_LIMIT),
+                                 "cursor": cursor},
+                                priority=1, labels={"creator_uid_key": key, "creator_key": author_key(uid),
+                                                    "offset": offset or None},
+                                meta={"uid": uid})
+
     def _contests_page(self, ctype, cursor):
         sel = self.selection
         statuses = list(sel.statuses) if sel.contest_status != "all" else None
@@ -166,6 +196,8 @@ class ProjectsSpider(BaseApiSpider):
     # ------------------------------------------------------------ follow-ups
     def follow_up(self, env, entities, response) -> Iterator:
         body = env.body if isinstance(env.body, dict) else {}
+        if self.selection.with_user_works and env.endpoint in USER_SOURCES:
+            yield from self._follow_users(env)
         if env.endpoint in LISTINGS:
             yield from self._follow_listing(env, body, entities)
         elif env.endpoint == "projects_contests":
@@ -176,6 +208,8 @@ class ProjectsSpider(BaseApiSpider):
             yield from self._follow_contest_by_slug(env, body, entities)
         elif env.endpoint == "projects_user_publications":
             yield from self._follow_user(env, body, entities, response)
+        elif env.endpoint == "projects_user_works":
+            yield from self._follow_user_works(env, body, response)
         elif env.endpoint == "projects_publication_detail" and self.selection.nested:
             yield from self._nested_requests(body)
         elif env.endpoint == "projects_folder_children":
@@ -232,6 +266,8 @@ class ProjectsSpider(BaseApiSpider):
             yield self._publications_page({"category": p.get("category")}, nxt)
         elif env.endpoint == "projects_recommended":
             yield self._recommended_page(p.get("scope"), nxt)
+        elif env.endpoint == "projects_trending":
+            yield self._trending_page(nxt)
         else:
             yield self._entries_page(p.get("contest_key"), nxt, tab=p.get("tab"))
 
@@ -315,6 +351,37 @@ class ProjectsSpider(BaseApiSpider):
         self._cursors_seen.add((listing, str(cursor)))
         if self.page_allowed(listing):
             yield self._user_page(response.meta.get("handle"), cursor)
+
+    # ------------------------------------------------------------ --with-user-works (opt-in)
+    def _follow_users(self, env) -> Iterator:
+        """Works + stats of the users found in this response (project owners of --users / contest entries, contest
+        submitters). Each user once; the Clerk id is only used in the request URL."""
+        from .extras import owner_user_ids
+        for uid in owner_user_ids(env):
+            if uid in self._users_followed or not creator_uid_key(uid):
+                continue
+            self._users_followed.add(uid)
+            yield self.api_request("projects_user_stats", ep.USER_STATS.format(user_id=quote(uid, safe="")),
+                                   priority=1, labels={"creator_uid_key": creator_uid_key(uid),
+                                                       "creator_key": author_key(uid)})
+            yield self._user_works_page(uid, None)
+
+    def _follow_user_works(self, env, body: dict, response) -> Iterator:
+        key = (env.params or {}).get("creator_uid_key")
+        listing = f"user_works:{key}"
+        if body.get("total") is not None:
+            self.totals[listing] = body.get("total")
+        cursor = body.get("cursor")
+        items = body.get("publications") or []
+        if not body.get("has_more") or cursor in (None, "") or not items:
+            return
+        if (listing, str(cursor)) in self._cursors_seen:
+            return
+        self._cursors_seen.add((listing, str(cursor)))
+        uid = response.meta.get("uid")
+        if uid and self.page_allowed(listing):
+            offset = int((env.params or {}).get("offset") or 0) + len(items)
+            yield self._user_works_page(uid, cursor, offset)
 
     # ------------------------------------------------------------ nested project data
     def _detail_request(self, pid: Optional[str]) -> Iterator:

@@ -11,12 +11,23 @@ from ...raw import Envelope
 from ...run.logging_setup import emit
 from .endpoints import KIND_OF, PAGE_KIND, PRIMARY_KINDS, SHORT_OF, SOURCE_BY_ENDPOINT, Source, sources_for
 from .parsers import next_params
+from .privacy import CatalogPrivacyMiddleware
 
 
 class CatalogSpider(BaseApiSpider):
     name = "catalog"
     scraper_name = "catalog"
     primary_kinds = PRIMARY_KINDS
+    PRIVACY_MW = "higgsfield_scraper.scrapers.catalog.privacy.CatalogPrivacyMiddleware"
+
+    @classmethod
+    def update_settings(cls, settings) -> None:
+        """Add the katana-author redaction middleware (privacy.py) to the project's DOWNLOADER_MIDDLEWARES (a plain
+        custom_settings dict would REPLACE the project's middlewares in this Scrapy version; see AccountSpider)."""
+        super().update_settings(settings)
+        mws = dict(settings.getdict("DOWNLOADER_MIDDLEWARES"))
+        mws[cls.PRIVACY_MW] = CatalogPrivacyMiddleware.PRIORITY
+        settings.set("DOWNLOADER_MIDDLEWARES", mws, priority="spider")
 
     # ------------------------------------------------------------ requests
     def _request(self, src: Source, params: Optional[dict] = None, *, path_id: Optional[str] = None,

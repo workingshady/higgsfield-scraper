@@ -9,6 +9,7 @@ the same small JSON bodies:
   showcase_reels_preset_detail         {"listed": <list item>, "detail": <detail or null>, "detail_status",
                                         "categories", "lang"}       (one Shorts Studio preset per envelope)
   showcase_reels_presets               the preset list itself (no entities; the spider fans out to details)
+  showcase_main_feed                   cms /main-feed page as served {cursor, request_id, feed_session_id, items}
   showcase_property_studio_page/_route_chunk                          (no entities; discovery only)
 """
 from __future__ import annotations
@@ -20,6 +21,7 @@ from decimal import Decimal, InvalidOperation
 from typing import Any, Optional
 from urllib.parse import quote
 
+from ...core.privacy import creator_uid_key
 from ...schemas.common import make_id
 from .endpoints import INPUT_HOSTS, PROPERTY_FORMAT_APP, SITE, STATIC
 
@@ -129,6 +131,19 @@ def _media_set(role: str, d: Any) -> list[dict]:
     return out
 
 
+def _compressed(role: str, d: Any) -> list[dict]:
+    """`<media>.compressed_video` (CMS lists: Intone, main feed games): a second, smaller video file. Role
+    `<role>_compressed`; its other raw fields (size_bytes, profile, status, …) go to the entry's `extra`."""
+    cv = d.get("compressed_video") if isinstance(d, dict) else None
+    if not isinstance(cv, dict) or not _s(cv.get("url")):
+        return []
+    url = str(cv["url"]).strip()
+    return [{"role": f"{role}_compressed", "type": _type(cv.get("type") or "video", url), "url": url,
+             "width": _i(cv.get("width")), "height": _i(cv.get("height")), "duration_s": _f(cv.get("duration")),
+             "media_key": media_key(url),
+             "extra": {k: v for k, v in cv.items() if k not in ("url", "width", "height", "duration", "type")}}]
+
+
 def _keys(media: list[dict], roles: tuple[str, ...] = ()) -> list[str]:
     out = []
     for m in media:
@@ -159,6 +174,16 @@ def _creator(d: Any, sel: Any) -> tuple[Optional[str], Optional[dict]]:
         prof = {"user_id": _s(uid), "username": _s(d.get("username")),
                 "avatar_url": _s(d.get("avatar_url") or d.get("avatarUrl"))}
     return creator_key(uid), prof
+
+
+def _uid_key(d: Any) -> Optional[str]:
+    """Shared creator key (core.privacy.creator_uid_key of the Clerk id). A spider-pseudonymised archive keeps only
+    `id_hash` = make_id('creator', <Clerk id>), which is the same hash."""
+    if not isinstance(d, dict):
+        return None
+    if d.get("id_hash"):
+        return d["id_hash"]
+    return creator_uid_key(d.get("user_id") or d.get("id"))
 
 
 def _lang(env: Any, sel: Any) -> str:
@@ -249,12 +274,21 @@ def parse_videoshop_project_examples(env: Any, sel: Any) -> list[dict]:
                      prompt=_s(mw.get("prompt")), made_with=mw if isinstance(mw, dict) else {},
                      start_ms=_i((v.get("rangeMs") or {}).get("startMs")),
                      end_ms=_i((v.get("rangeMs") or {}).get("endMs")), media=media,
+                     thumbnail_url=_s(v.get("thumbnailUrl") or v.get("thumbnail_url")),
                      generation_key=keys[0] if keys else None, media_keys=keys)
             children.append(r)
         e = _base("showcase_editing_room_project", env, (pid,), page)
+        assets = take.get("assets") if isinstance(take.get("assets"), dict) else {}
+
+        def asset(name: str, key: str = "url") -> Optional[str]:
+            a = assets.get(name)
+            return _s(a.get(key)) if isinstance(a, dict) else None
+
         e.update(project_id=pid, name=_s(p.get("name")), created_at=_ts(p.get("created_at")),
                  updated_at=_ts(p.get("updated_at")), take=_media("take", take, id_key="id"),
-                 take_duration_ms=_i(take.get("duration_ms")),
+                 take_duration_ms=_i(take.get("duration_ms")), take_poster_url=asset("poster"),
+                 take_preview_url=asset("preview"), take_storyboard_vtt_url=asset("storyboard", "vtt_url"),
+                 take_thumbnail_url=_s(take.get("thumbnail_url")), take_filename=_s(take.get("filename")),
                  scenes=[s for s in p.get("scenes") or [] if isinstance(s, dict)],
                  timeline_schema_version=_i(tl.get("schemaVersion")), edits=edits, render_ids=render_ids,
                  tools=sorted({x["tool"] for x in edits if x["tool"]}))
@@ -331,6 +365,50 @@ def _engagement(d: dict) -> dict:
             "comments": _i(d.get("comments_count")), "uses": _i(d.get("times_made"))}
 
 
+def _explore_input(a: Any) -> Optional[dict]:
+    m = _media("input", a)
+    if m:
+        m["source_role"], m["source_type"] = _s(a.get("role")), _s(a.get("media_type"))
+    return m
+
+
+def _explore_variants(kind: str, env: Any, sel: Any, iid: str, it: dict, page: str,
+                      pub_keys: bool = False) -> tuple[list[str], list[str], list[dict]]:
+    """Variants of a video-explore item (also the main-feed `genjutsu` object, same shape): (ids, publication ids,
+    variant entities). `pub_keys`: also list `pub:<publication id>` in media_keys (collections the merge script does
+    not know as single-generation publications)."""
+    vids, pubs, children = [], [], []
+    for v in it.get("variants") or []:
+        vid = _s(v.get("id"))
+        if not vid:
+            continue
+        vids.append(vid)
+        media = _media_set("output", v.get("media"))
+        inputs = [m for m in (_explore_input(a) for a in v.get("input_assets") or []) if m]
+        pub = v.get("publication") if isinstance(v.get("publication"), dict) else None
+        if pub and _s(pub.get("id")):
+            pubs.append(pub["id"])
+        ck, prof = _creator(v.get("author"), sel)
+        # the `original` variant is the source clip, not a generation: no dedup keys
+        keys = [] if _s(v.get("type")) == "original" else _keys(media, ("output",))
+        mkeys = list(keys)
+        if pub_keys and keys and pub and _s(pub.get("id")):
+            mkeys.append(f"pub:{str(pub['id']).strip().lower()}")
+        ve = _base(kind, env, (iid, vid), page)
+        ve.update(variant_id=vid, item_id=iid, variant_type=_s(v.get("type")), prompt=_s(v.get("prompt")),
+                  params=v.get("params") if isinstance(v.get("params"), dict) else {},
+                  priority=_i(v.get("priority")), media=media, inputs=inputs,
+                  publication_id=_s(pub.get("id")) if pub else None,
+                  publication_engagement=_engagement(pub) if pub else None,
+                  creator_key=ck, creator_uid_key=_uid_key(v.get("author")),
+                  creator_badge=_s((v.get("author") or {}).get("badge")) if v.get("author") else None,
+                  creator=prof, generation_key=keys[0] if keys else None, media_keys=mkeys)
+        if not prof:
+            ve.pop("creator")
+        children.append(ve)
+    return vids, pubs, children
+
+
 def parse_explore_feed(env: Any, sel: Any) -> list[dict]:
     out = []
     p = env.params
@@ -339,31 +417,7 @@ def parse_explore_feed(env: Any, sel: Any) -> list[dict]:
         if not iid:
             continue
         page = f"{SITE}/higgsfield-multiplier?trend={iid}"
-        vids, pubs, children = [], [], []
-        for v in it.get("variants") or []:
-            vid = _s(v.get("id"))
-            if not vid:
-                continue
-            vids.append(vid)
-            media = _media_set("output", v.get("media"))
-            inputs = [m for m in (_media("input", a) for a in v.get("input_assets") or []) if m]
-            pub = v.get("publication") if isinstance(v.get("publication"), dict) else None
-            if pub and _s(pub.get("id")):
-                pubs.append(pub["id"])
-            ck, prof = _creator(v.get("author"), sel)
-            # the `original` variant is the source clip, not a generation: no dedup keys
-            keys = [] if _s(v.get("type")) == "original" else _keys(media, ("output",))
-            ve = _base("showcase_explore_variant", env, (iid, vid), page)
-            ve.update(variant_id=vid, item_id=iid, variant_type=_s(v.get("type")), prompt=_s(v.get("prompt")),
-                      params=v.get("params") if isinstance(v.get("params"), dict) else {},
-                      priority=_i(v.get("priority")), media=media, inputs=inputs,
-                      publication_id=_s(pub.get("id")) if pub else None,
-                      publication_engagement=_engagement(pub) if pub else None,
-                      creator_key=ck, creator_badge=_s((v.get("author") or {}).get("badge")) if v.get("author") else None,
-                      creator=prof, generation_key=keys[0] if keys else None, media_keys=keys)
-            if not prof:
-                ve.pop("creator")
-            children.append(ve)
+        vids, pubs, children = _explore_variants("showcase_explore_variant", env, sel, iid, it, page)
         e = _base("showcase_explore_item", env, (iid,), page)
         e.update(item_id=iid, feed_source=_s(it.get("source")) or p.get("source") or "unknown",
                  sort=p.get("sort"), category_filter=p.get("category"), title=_s(it.get("title")),
@@ -408,6 +462,8 @@ def parse_effect_page(env: Any, sel: Any) -> list[dict]:
             _media("output_raw", o.get("rawUrl")) if o.get("rawUrl") != o.get("source") else None,
             _media("output_poster", o.get("posterUrl")), _media("output_hls", o.get("hlsUrl")),
         ) if m]
+        raw = job.get("rawParams") if isinstance(job.get("rawParams"), dict) else {}
+        roles = _raw_media_roles(raw)
         inputs = []
         for a in s.get("attachments") or []:
             im = a.get("inputMedia") or {}
@@ -415,11 +471,17 @@ def parse_effect_page(env: Any, sel: Any) -> list[dict]:
                                  "width": a.get("width"), "height": a.get("height")})
             if m:
                 m["media_key"] = media_key(m["url"], im.get("id"))
+                role, typ = roles.get(str(im.get("id") or "").lower()) or roles.get(m["url"]) or (None, None)
+                m["source_role"], m["source_type"] = role, typ or _s(im.get("type"))
                 inputs.append(m)
         user = job.get("user") if isinstance(job.get("user"), dict) else None
         ck, prof = _creator(user, sel)
         jid = _s(job.get("id"))
         keys = _keys(media, ("output",))
+        jp = job.get("params") if isinstance(job.get("params"), dict) else {}
+        pp = s.get("presetPreview") if isinstance(s.get("presetPreview"), dict) else {}
+        enh = (jp.get("prompt") or {}).get("enhance") if isinstance(jp.get("prompt"), dict) else None
+        isref = job.get("isReference", job.get("is_reference"))
         e = _base("showcase_effect_sample", env, (slug, sid), f"{page}/{sid}")
         e.update(sample_id=sid, preset_slug=slug, preset_id=_s(preset.get("id")), preset_kind=_s(preset.get("kind")),
                  preset_name=_s(s.get("presetName")) or _s(preset.get("name")),
@@ -429,12 +491,98 @@ def parse_effect_page(env: Any, sel: Any) -> list[dict]:
                  status=_s(job.get("status")), prompt=_s(s.get("prompt")) or _prompt_of(job),
                  params=_clean_params(job.get("rawParams")), created_at=_ts(job.get("createdAt")),
                  published_at=_ts(s.get("publishedAt")), media=media, inputs=inputs, creator_key=ck,
-                 creator=prof, samples_total=_i(samples.get("total")),
+                 creator_uid_key=_uid_key(user), creator=prof, samples_total=_i(samples.get("total")),
+                 raw_params=raw, provider=_s(jp.get("provider")),
+                 prompt_enhance=enh if isinstance(enh, bool) else None,
+                 is_reference=isref if isinstance(isref, bool) else None,
+                 preset_preview_url=_s(pp.get("source")), preset_poster_url=_s(pp.get("posterUrl")),
                  generation_key=f"job:{jid}" if jid else (keys[0] if keys else None), media_keys=keys)
         if not prof:
             e.pop("creator")
         out.append(e)
+    # the template (inputs / param choices / price matrix) of the page, after its samples; pages without template
+    # data add nothing new over the catalog preset and emit no row
+    if _s(preset.get("id")) and slug and any(preset.get(k) for k in ("inputs", "param_choices", "price_matrix")):
+        out.append(effect_preset(env, preset, slug, page, _i(samples.get("total"))))
     return out
+
+
+def _raw_media_roles(raw: dict) -> dict[str, tuple[Optional[str], Optional[str]]]:
+    """job rawParams.medias[] -> {media id (lower) | url: (role, data.type)}."""
+    out: dict[str, tuple[Optional[str], Optional[str]]] = {}
+    for m in raw.get("medias") or []:
+        if not isinstance(m, dict):
+            continue
+        d = m.get("data") if isinstance(m.get("data"), dict) else {}
+        v = (_s(m.get("role")), _s(d.get("type")))
+        if _s(d.get("id")):
+            out.setdefault(str(d["id"]).strip().lower(), v)
+        if _s(d.get("url")):
+            out.setdefault(str(d["url"]).strip(), v)
+    return out
+
+
+PRESET_USED = ("id", "slug", "kind", "name", "description", "job_set_type", "priority", "duration", "is_main_page",
+               "ip_check_required", "tags", "categories", "inputs", "param_choices", "param_inputs", "pricing",
+               "price_matrix", "preview_media", "widescreen_media", "preview_image", "widescreen_image",
+               "preview_url", "thumbnail_url")
+
+
+def _binds(v: Any) -> list[dict]:
+    if isinstance(v, dict):
+        return [v]
+    return [x for x in v or [] if isinstance(x, dict)] if isinstance(v, list) else []
+
+
+def _price_params(key: str) -> dict[str, str]:
+    out = {}
+    for part in (key or "").split(","):
+        if "=" in part:
+            k, v = part.split("=", 1)
+            out[k.strip()] = v.strip()
+    return out
+
+
+def effect_preset(env: Any, preset: dict, slug: str, page: str, total: Optional[int]) -> dict:
+    """The effect template of the page (`loader.preset`): inputs, param choices, credit price matrix, media."""
+    pid = str(preset["id"]).strip()
+    media = (_media_set("preview", preset.get("preview_media")) + _media_set("widescreen", preset.get("widescreen_media"))
+             + _media_set("preview_image", preset.get("preview_image"))
+             + _media_set("widescreen_image", preset.get("widescreen_image")))
+    for role, k in (("preview", "preview_url"), ("thumbnail", "thumbnail_url")):
+        u = _s(preset.get(k))
+        if u and not any(m["url"] == u for m in media):
+            media.append(_media(role, u))
+    inputs = [{"input_id": _s(x.get("id")), "type": _s(x.get("type")), "label": _s(x.get("label")),
+               "min": _i(x.get("min")), "max": _i(x.get("max")),
+               "required": x.get("required") if isinstance(x.get("required"), bool) else None,
+               "media_input_id": _s(x.get("media_input_id")),
+               "allow_upload": x.get("allow_upload") if isinstance(x.get("allow_upload"), bool) else None,
+               "options": [o for o in x.get("options") or [] if isinstance(o, dict)]
+               if isinstance(x.get("options"), list) else [],
+               "binds_to": _binds(x.get("binds_to"))}
+              for x in preset.get("inputs") or [] if isinstance(x, dict)]
+    prices = [{"key": str(r.get("key") or ""), "params": _price_params(str(r.get("key") or "")),
+               "credit_units": _i(r.get("credit_units"))}
+              for r in preset.get("price_matrix") or [] if isinstance(r, dict)]
+    pricing = preset.get("pricing") if isinstance(preset.get("pricing"), dict) else {}
+    flag = lambda k: preset.get(k) if isinstance(preset.get(k), bool) else None      # noqa: E731
+    e = _base("showcase_effect_preset", env, (pid,), page)
+    e.update(preset_id=pid, slug=slug, preset_kind=_s(preset.get("kind")), name=_s(preset.get("name")),
+             description=_s(preset.get("description")), job_set_type=_s(preset.get("job_set_type")),
+             priority=_i(preset.get("priority")), duration_s=_f(preset.get("duration")),
+             is_main_page=flag("is_main_page"), ip_check_required=flag("ip_check_required"),
+             tags=list(preset.get("tags") or []) if isinstance(preset.get("tags"), list) else [],
+             categories=list(preset.get("categories") or []) if isinstance(preset.get("categories"), list) else [],
+             preset_inputs=inputs,
+             param_choices=preset.get("param_choices") if isinstance(preset.get("param_choices"), dict) else {},
+             param_inputs=list(preset.get("param_inputs") or []) if isinstance(preset.get("param_inputs"), list) else [],
+             pricing_type=_s(pricing.get("type")), price_matrix=prices, media=media,
+             preview_duration_ms=_i((preset.get("preview_media") or {}).get("duration_ms"))
+             if isinstance(preset.get("preview_media"), dict) else None, samples_total=total,
+             catalog_ref=f"catalog_viral_preset:{pid}",
+             extra=_no_placeholders({k: v for k, v in preset.items() if k not in PRESET_USED}))
+    return e
 
 
 def _prompt_of(job: dict) -> Optional[str]:
@@ -674,6 +822,7 @@ def parse_intone(env: Any, sel: Any) -> list[dict]:
         e = _cms("showcase_intone_example", env, sel, x, f"{SITE}/intone", title_key="title", media=media,
                  used=("video", "image"))
         if e:
+            e["media"] = e["media"] + _compressed("video", x.get("video"))    # appended: keys/order unchanged
             out.append(e)
     return out
 
@@ -805,7 +954,9 @@ def reels_preset(env: Any, sel: Any, listed: dict, detail: Optional[dict], categ
              reference_author_handle=_s(x.get("author_handle")) if getattr(sel, "with_profiles", False) else None,
              engagement={"likes": _i(pub.get("likes_count", x.get("likes_count"))), "views": None,
                          "comments": None, "uses": _i(x.get("recreates"))},
-             publication_id=pub_id, creator_key=ck, creator_key_basis=basis, creator_badge=badge, creator=prof,
+             recreates=_i(x.get("recreates")),
+             publication_id=pub_id, creator_key=ck, creator_key_basis=basis,
+             creator_uid_key=ck if basis == "user_id" else None, creator_badge=badge, creator=prof,
              lang=lang,
              generation_key=keys[0] if keys else None, media_keys=list(dict.fromkeys(keys)))
     if not prof:
@@ -846,10 +997,72 @@ def parse_reels_comments(env: Any, sel: Any) -> list[dict]:
                  likes=_i(c.get("like_count")), dislikes=_i(c.get("dislike_count")),
                  reply_count=_i(c.get("reply_count")),
                  reactions=[r for r in c.get("reactions") or [] if isinstance(r, dict)],
-                 creator_key=creator_key(uid), creator=prof)
+                 creator_key=creator_key(uid), creator_uid_key=creator_uid_key(uid), creator=prof)
         if not prof:
             e.pop("creator")
         out.append(e)
+    return out
+
+
+# ------------------------------------------------------------------ CMS main feed (home Explore) — opt-in
+MAIN_FEED_GENJUTSU_USED = ("id", "source", "title", "description", "job_set_type", "original_video", "variants",
+                           "priority", "likes_count", "views_count", "comments_count", "trend_id", "times_made",
+                           "category")
+
+
+def _object_media(obj: dict) -> tuple[list[dict], set[str]]:
+    """Every media object of a non-genjutsu row (game: poster, vertical_poster, video, game, widescreen_game, …)."""
+    media: list[dict] = []
+    used: set[str] = set()
+    for k, v in obj.items():
+        if isinstance(v, dict) and _s(v.get("url")):
+            media += _media_set(k, v) + _compressed(k, v)
+            used.add(k)
+        elif isinstance(v, list) and v and all(isinstance(x, dict) and _s(x.get("url")) for x in v):
+            for j, x in enumerate(v):
+                media += _media_set(f"{k}{j}", x) + _compressed(f"{k}{j}", x)
+            used.add(k)
+    return media, used
+
+
+def parse_main_feed(env: Any, sel: Any) -> list[dict]:
+    """cms GET /main-feed?lang&size=20[&cursor] -> {cursor, request_id, feed_session_id, items[{type, position,
+    genjutsu|game}]}. Genjutsu rows are video-explore items (same object, same variant keys)."""
+    b = env.body if isinstance(env.body, dict) else {}
+    sess, rid, lang = _s(b.get("feed_session_id")), _s(b.get("request_id")), _lang(env, sel)
+    out = []
+    for row in b.get("items") or []:
+        if not isinstance(row, dict):
+            continue
+        t = _s(row.get("type"))
+        obj = row.get(t) if t and isinstance(row.get(t), dict) else None
+        iid = _s(obj.get("id")) if obj else None
+        if not iid:
+            continue
+        children: list[dict] = []
+        vids: list[str] = []
+        pubs: list[str] = []
+        media: list[dict] = []
+        if t == "genjutsu":
+            page = f"{SITE}/higgsfield-multiplier?trend={iid}"
+            vids, pubs, children = _explore_variants("showcase_main_feed_variant", env, sel, iid, obj, page,
+                                                     pub_keys=True)
+            used = set(MAIN_FEED_GENJUTSU_USED)
+        else:
+            page = f"{SITE}/playable-ads" if t == "game" else f"{SITE}/"
+            media, used = _object_media(obj)
+            used |= {"id", "title", "description", "job_set_type", "priority", "category", "trend_id"}
+        e = _base("showcase_main_feed_item", env, (t, iid), page)
+        e.update(item_id=iid, item_type=t, position=_i(row.get("position")), feed_session_id=sess, request_id=rid,
+                 lang=lang, feed_source=_s(obj.get("source")) if t == "genjutsu" else None,
+                 title=_s(obj.get("title")), description=_s(obj.get("description")),
+                 job_set_type=_s(obj.get("job_set_type")), priority=_i(obj.get("priority")),
+                 category=_s(obj.get("category")), trend_id=_s(obj.get("trend_id")), engagement=_engagement(obj),
+                 original_video=_media("original", obj.get("original_video")), media=media, variant_ids=vids,
+                 publication_ids=pubs,
+                 extra=_no_placeholders({k: v for k, v in obj.items() if k not in used}))
+        out.append(e)
+        out.extend(children)                 # parent first: per-kind caps drop children of dropped parents
     return out
 
 
@@ -870,6 +1083,7 @@ PARSERS = {
     "showcase_motion_control_presets": parse_motion_control,
     "showcase_reels_preset_detail": parse_reels_detail,
     "showcase_reels_comments": parse_reels_comments,
+    "showcase_main_feed": parse_main_feed,
 }
 
 

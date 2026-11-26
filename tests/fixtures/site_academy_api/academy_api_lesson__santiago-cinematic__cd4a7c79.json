@@ -1,0 +1,39 @@
+{
+    "meta": {
+        "endpoint": "academy_api_lesson",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-academy/api/v1/lessons/cd4a7c79-1c00-5543-abac-5d73aa00a8de",
+        "params": {
+            "lesson_id": "cd4a7c79-1c00-5543-abac-5d73aa00a8de",
+            "course_slug": "santiago-cinematic",
+            "course_id": "393a510f-1187-5a76-a56f-1db7df074fd2",
+            "position": "1"
+        },
+        "fetched_at": "2026-11-26T16:40:51.660427+00:00",
+        "status": 200
+    },
+    "body": {
+        "access": {
+            "allowed": true
+        },
+        "id": "cd4a7c79-1c00-5543-abac-5d73aa00a8de",
+        "slug": "emotional-short-film-showcase",
+        "title": "Thinking like a director",
+        "mdx": "A short film doesn't move you because the idea was good — it moves you because of the colors, the camera angles, the storytelling. That's the whole thesis of this course: you're not learning to prompt an AI film, you're learning to think like the director who decides what every shot should feel like before a single frame gets generated.\n\nThe film behind this course — a football drama about a striker replaying the penalty he missed — was built entirely inside Higgsfield AI, with Claude Fable 5 writing the screenplay and Seedance 2.0 4K shooting every scene. Every technique in the lessons that follow — locking a character on a grey reference sheet, framing a 3/4 angle for depth, cutting on a Dutch angle to build tension, timing a whip pan or a speed ramp — exists to serve one thing: making an AI-generated shot read as *directed*, not generated.\n\n> [!TIP]\n> Before you touch a single prompt, watch the finished film once as an audience member, not a builder. Notice what makes you feel something — that's the shot list you're about to learn to write.",
+        "xp_reward": 20,
+        "progress_pct": 0,
+        "completed": false,
+        "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__cover.10418591.webp",
+        "video": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video__lesson-video.4583f137.mp4",
+        "video_poster": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video_poster__cover.10418591.webp",
+        "video_subtitles": [],
+        "video_cues": [],
+        "resources": [],
+        "author": {
+            "name": "[redacted]",
+            "role": "Director of Hell Grind",
+            "bio": "[redacted]",
+            "avatar_url": "[redacted]"
+        },
+        "updated_at": "2026-07-21"
+    }
+}

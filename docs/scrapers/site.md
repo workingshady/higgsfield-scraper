@@ -107,7 +107,7 @@ are included with `preset: secondary`. Landing `offer_price` comes from JSON-LD 
 
 | Option | Default | Meaning |
 |---|---|---|
-| `--what` | all but `rooms`, `room-list`, `room-content` | comma list of `apps, academy, mcp, originals, mixed-media, landings, rooms, promos, room-list, room-content` or `all` (`all` never adds the three room values). `--max-items` caps rooms, room items and room discussions separately |
+| `--what` | all but `rooms`, `room-list`, `room-content`, `academy-api` | comma list of `apps, academy, mcp, originals, mixed-media, landings, rooms, promos, room-list, room-content, academy-api` or `all` (`all` never adds the three room values nor `academy-api`). `--max-items` caps rooms, room items and room discussions separately (and academy-api courses / lessons) |
 | `--with-content` / `--no-content` | on | `--no-content` = index pages only where an index exists (apps, academy, mcp, originals): ≈ 15 requests, no lesson/landing text |
 | `--only` | — | keep only detail pages whose URL path contains one of these strings (`kling,/plugins/,blockbuster-4k`) |
 | `--with-profiles` | off | keep creators' usernames (app authors, episode uploaders, mixed-media sample creators, series cast) |
@@ -126,6 +126,42 @@ python -m higgsfield_scraper scrape site --what landings --only /plugins/,kling 
 python -m higgsfield_scraper scrape site --what all,rooms --max-items 20 --label smoke-site
 python -m higgsfield_scraper normalize --run runs/<id> --scraper site      # re-parse raw/ offline
 ```
+
+## Academy JSON API (opt-in `--what academy-api`, added 2026-11-26)
+
+`site --what academy` reads the SSR pages (`$_TSR` loader state). The same data also comes from a public JSON API on
+the `fnf-academy` service, which adds fields the pages do not render: `free_generations` and `test_count` per
+course, the lesson's **MDX source**, `xp_reward`, subtitle tracks (`video_subtitles`), the thumbnail-sprite VTT
+(`video_thumbnails`), and per-lesson `access` for an anonymous visitor. It was listed as "401 without login" because
+the first guess was `fnf/api/v1/courses` (the `fnf` gateway answers 401 to any path without a token); the frontend
+calls it on `https://fnf-api-gw.higgsfield.ai/fnf-academy` (JS chunk `H2odSMT_fOKI1GMn`: `rD()` only allows
+`<base>/api/v1/…`; `oD()` = course list, `sD(slug)` = course, `yge(id)` = lesson). Verified anonymous 2026-11-26.
+
+| Endpoint (GET, anonymous) | Kind (id) | Notes |
+|---|---|---|
+| `/fnf-academy/api/v1/categories` | `site_academy_api_category` (`slug`) | 3 categories |
+| `/fnf-academy/api/v1/courses` | `site_academy_api_course` (`record_key` = `<slug>@list`) | 17 courses: + `free_generations`, `test_count` |
+| `/fnf-academy/api/v1/courses/{slug}` | `site_academy_api_course` (`<slug>@detail`) | objectives, authors (staff), metadata, `lessons[]` with `access` |
+| `/fnf-academy/api/v1/lessons/{lesson_id}` | `site_academy_api_lesson` (`lesson_id`) | `content_mdx`, `word_count`, `xp_reward`, video tracks, `resources`, `author`, `updated_at` |
+
+Not used: `/api/v1/user/certificates*` (login, the user's own), `/api/v1/certificates/{id}` (one certificate by id,
+not enumerable). Separate kinds / collections (`academy_api_categories`, `academy_api_courses` — list + detail
+merged by slug, detail wins —, `academy_api_lessons`), so `--what academy` output is unchanged. Per-viewer state
+(`completed`, `progress_pct`, `homework_submitted`, `certificate_unlocked`) is never stored. `--no-content` = only
+categories + course list (no detail / lesson requests); `--only` filters course / lesson requests by their page path;
+`--max-items N` caps course details and lessons separately. Runs without `academy-api` keep the plain `SiteDataset`
+(no new keys / counts / endpoints); with it the dataset model is `SiteDatasetFull` (rooms keys only when a room
+value is selected too). Outputs: `json/academy_api_*.json`, CSVs `academy_api_courses` (+ `_objectives`,
+`_authors`, `_examples`, `_lessons`), `academy_api_lessons` (+ `_video_subtitles`, `_video_cues`, `_resources`),
+`academy_api_categories`, and a summary table (lessons, tests, free generations per course).
+
+```bash
+python -m higgsfield_scraper scrape site --what academy-api                       # 2 + 17 + ~180 requests
+python -m higgsfield_scraper scrape site --what academy-api --no-content          # 2 requests
+python -m higgsfield_scraper scrape site --what academy-api --only blockbuster-4k --max-items 5
+```
+
+Live check 2026-11-26 (`--what academy-api --max-items 2`): 6 requests, success, 3 categories, 2 courses, 2 lessons.
 
 ## Outputs
 
@@ -151,7 +187,7 @@ published staff bylines and are kept in the dataset; note that the `raw/` redact
 | `/effects`, `/effects/examples/<preset>` (87) | The presets are the same objects as `catalog` → `viral_presets` (`/viral-hub/presets/all`, incl. price matrix); the example generations are community generations (`community --preset …`) |
 | `/community/rooms/<slug>` chat | There is no public message stream (no WebSocket/SSE in the bundle; calls need a login). The room's works and discussion posts are public JSON: `--what room-content`. Room followers lists (people only) are not collected |
 | `/feature`, `/user/meta`, `/user/features`, `/youtube-faceless/hot-right-now`, `/contests/trending` | Anonymous feature flags / your IP's country / empty lists — no catalog data |
-| Academy JSON API (`/api/v1/courses`, `/academy/_catalog`) | 401 without login; the SSR pages carry the same data |
+| Academy JSON API | Built since 2026-11-26 as the opt-in `--what academy-api` (public on `fnf-academy`; the 401 was the `fnf` gateway). `/academy/_catalog` is a frontend route, not an API |
 | Localized landing copies (`/es`, `/ja`, `/ko`, `/de`), `sitemap-es.xml`, `sitemap-ko.xml` | Duplicates of English pages |
 | `/@user/projects/<slug>` (`sitemap-projects.xml`) | Covered by the `projects` scraper (`/project-publications`) |
 

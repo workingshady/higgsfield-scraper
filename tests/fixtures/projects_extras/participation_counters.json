@@ -1,0 +1,16 @@
+{
+    "meta": {
+        "endpoint": "projects_participation_counters",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/contest-participations/publications/counters?contest_key=ai_film_festival",
+        "params": {
+            "contest_key": "ai_film_festival"
+        },
+        "fetched_at": "2026-11-26T18:31:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "total": 66645,
+        "public_total": 4516,
+        "private_total": 62129
+    }
+}

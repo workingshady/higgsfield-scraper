@@ -1,0 +1,1 @@
+var h;function m(){return(m=t(()=>{h={keyframes_faceswap:`v2/keyframes_faceswap`,hf_fnf_video:`v2/hf_fnf_video`,seedance_2_5:`v2/seedance_2_5`,kling3_0:`v2/kling3_0`,wan3_0:`v2/wan3_0`,character_swap_v2:`character-swap/v2`}}))()}export{h as t}

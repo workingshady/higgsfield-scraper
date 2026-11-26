@@ -14,6 +14,7 @@ from .schemas import (CommunityComment, CommunityCostBasis, CommunityCreator, Co
                       CommunityFeedItem, CommunityGeneration, CommunityPage, CommunityPost, CommunityShot)
 from .schemas import (CommunityCollection, CommunityExploreCard, CommunityMusicCard, CommunityMusicCardOption,
                       CommunityShowcaseJob)
+from .schemas import CommunityCreatorWork, CommunityFeedCategory, CommunityShotModelFacet
 
 
 def media_urls(entity: dict, mode: str) -> list[tuple[str, str]]:
@@ -25,6 +26,11 @@ def media_urls(entity: dict, mode: str) -> list[tuple[str, str]]:
         return _extra_media(entity, mode)
     if entity.get("kind") in GALLERY_MEDIA_KINDS:
         return _gallery_media(entity, mode)
+    if entity.get("kind") == "community_creator_work":
+        return _creator_work_media(entity, mode)
+    if entity.get("kind") == "community_feed_category":
+        return [(f"preview{i}", u) for i, u in enumerate(entity.get("previews") or [])
+                if mode != "none" and u.startswith("http")]
     if entity.get("kind") != "community_generation":
         return []
     res = {r["name"]: r for r in entity.get("results") or []}
@@ -69,6 +75,27 @@ def _extra_media(e: dict, mode: str) -> list[tuple[str, str]]:
             for k in ("card_cover_url", "video_thumbnail_url", "video_url", "url"):
                 if m.get(k):
                     out.append((f"media{m['index']}_{k.removesuffix('_url')}", m[k]))
+    seen: set[str] = set()
+    return [(r, u) for r, u in out if u.startswith("http") and ".m3u8" not in u and not (u in seen or seen.add(u))]
+
+
+def _creator_work_media(e: dict, mode: str) -> list[tuple[str, str]]:
+    """Creator / talent works: shots like community generations; projects: thumbs = cover, full/all = + gallery
+    videos (original / download / preview mp4, never the HLS playlist) and the trailer."""
+    if e.get("item_type") != "project":
+        return media_urls({**e, "kind": "community_generation"}, mode) if e.get("results") else []
+    out: list[tuple[str, str]] = []
+    if e.get("cover_url"):
+        out.append(("thumb", e["cover_url"]))
+    if mode in ("full", "all"):
+        for m in e.get("gallery_media") or []:
+            if m.get("role") == "cover":
+                continue
+            u = m.get("original_url") or m.get("download_url") or m.get("preview_url") or m.get("url")
+            if u:
+                out.append((f"{m['role']}{m['index']}", u))
+            if mode == "all" and m.get("thumbnail_url"):
+                out.append((f"{m['role']}{m['index']}_thumb", m["thumbnail_url"]))
     seen: set[str] = set()
     return [(r, u) for r, u in out if u.startswith("http") and ".m3u8" not in u and not (u in seen or seen.add(u))]
 
@@ -125,14 +152,18 @@ SCRAPER = ScraperDef(
                    "community_creator_stats": CommunityCreatorStats, "community_music_card": CommunityMusicCard,
                    "community_music_card_option": CommunityMusicCardOption,
                    "community_showcase_job": CommunityShowcaseJob, "community_collection": CommunityCollection,
-                   "community_explore_card": CommunityExploreCard},
+                   "community_explore_card": CommunityExploreCard, "community_creator_work": CommunityCreatorWork,
+                   "community_shot_model_facet": CommunityShotModelFacet,
+                   "community_feed_category": CommunityFeedCategory},
     id_field_by_kind={"community_generation": "generation_id", "community_creator": "user_id",
                       "community_comment": "comment_id", "community_page": "page_id",
                       "community_cost_basis": "basis_id", "community_shot": "shot_id",
                       "community_post": "post_id", "community_feed_item": "feed_item_id",
                       "community_creator_stats": "record_id", "community_music_card": "music_card_id",
                       "community_music_card_option": "option_id", "community_showcase_job": "generation_id",
-                      "community_collection": "collection_id", "community_explore_card": "card_id"},
+                      "community_collection": "collection_id", "community_explore_card": "card_id",
+                      "community_creator_work": "work_id", "community_shot_model_facet": "facet_id",
+                      "community_feed_category": "category_id"},
     add_args=add_args,
     make_selection=make_selection,
     selection_from_dict=selection_from_dict,
@@ -154,5 +185,6 @@ SCRAPER = ScraperDef(
         "scrape community --max-items 50 --with-profiles --download-media thumbs",
         "scrape community --feeds shots,posts,feed --max-items 100 --with-comments",
         "scrape community --feeds creators,talents",
+        "scrape community --feeds feed-categories",
     ),
 )

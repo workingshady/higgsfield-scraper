@@ -1,0 +1,38 @@
+{
+    "meta": {
+        "endpoint": "community_feed_categories",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-community/feed/categories",
+        "params": {},
+        "fetched_at": "2026-11-26T18:00:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "categories": [
+            {
+                "slug": "discord-3-years-300k",
+                "short_title": "Discord Birthday & 300K Contest",
+                "title": "Discord Contest: our server turns 3 years and passes 300K members",
+                "description": "Stories told in three images for the contest celebrating 3 years and 300K members of the Higgsfield Discord server. To join, start your caption with #HiggsfieldDiscord300K and submit your post on Discord",
+                "hashtag": "HiggsfieldDiscord300K",
+                "post_count": 217,
+                "previews": [
+                    "https://cdn.higgsfield.ai/ea968aeb-e3bb-4d2a-9714-c449bf43d370.webp",
+                    "https://d8j0ntlcm91z4.cloudfront.net/user_Fake901/hf_20261117_152817_9bf26405-66ea-4346-8020-582720bddd1e_min.webp",
+                    "https://d8j0ntlcm91z4.cloudfront.net/user_Fake902/hf_20261116_205400_31cf7146-06dc-4534-aad1-0cf047e28c85_min.webp"
+                ]
+            },
+            {
+                "slug": "best-trailers-by-katana",
+                "short_title": "Best trailers by Katana",
+                "title": "Contest Edits: Katana edits of best films from Higgsfield Film Contest",
+                "description": "Trailers cut with Katana from the best films of the Higgsfield Film Contest.",
+                "post_count": 104,
+                "previews": [
+                    "https://cdn.higgsfield.ai/908874f4-1069-4b91-8070-7c31bfd68d71.webp",
+                    "https://cdn.higgsfield.ai/d10fa8fb-fd68-4e93-90f8-ad7cde44f639.webp",
+                    "https://cdn.higgsfield.ai/9fe5a051-8c84-4c2b-9d3b-7e6f24b93fd1.webp"
+                ]
+            }
+        ]
+    }
+}

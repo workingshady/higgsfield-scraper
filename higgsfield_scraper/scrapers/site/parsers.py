@@ -410,6 +410,142 @@ def parse_lesson_page(env: Envelope, sel: Selection) -> list[dict]:
     return [e]
 
 
+# ================================================================== academy JSON API (opt-in --what academy-api)
+
+# per-viewer state: identical for every anonymous request and personal with a session -> never stored
+ACADEMY_VIEWER_KEYS = {"completed", "progress_pct", "homework_submitted", "certificate_unlocked"}
+API_COURSE_USED = COURSE_USED | {"test_count", "free_generations", "author"} | ACADEMY_VIEWER_KEYS
+API_LESSON_REF_USED = {"id", "slug", "title", "position", "reading_minutes", "thumbnail", "video", "video_poster",
+                       "homework_required", "access"} | ACADEMY_VIEWER_KEYS
+API_LESSON_USED = {"access", "id", "slug", "title", "mdx", "xp_reward", "thumbnail", "video", "video_poster",
+                   "video_subtitles", "video_thumbnails", "video_cues", "resources", "author", "updated_at"} \
+    | ACADEMY_VIEWER_KEYS
+
+
+def _author(a: Any) -> Optional[dict]:
+    if not isinstance(a, dict):
+        return None
+    return {"name": _s(a.get("name")), "role": _s(a.get("role")), "bio": _s(a.get("bio")),
+            "avatar_url": _s(a.get("avatar_url"))}
+
+
+def _resources(v: Any) -> list[dict]:
+    return [{"type": _s(r.get("type")), "name": _s(r.get("name")), "download_url": _s(r.get("download_url")),
+             "thumbnail_url": _s(r.get("thumbnail_url")), "page_count": _int(r.get("page_count"))} for r in _dicts(v)]
+
+
+def api_course_record(c: dict, env: Envelope, *, record_source: str) -> dict:
+    slug = str(c.get("slug"))
+    meta = c.get("metadata") if isinstance(c.get("metadata"), dict) else {}
+    lessons = []
+    for les in _dicts(c.get("lessons")):
+        if not les.get("slug"):
+            continue
+        acc = les.get("access") if isinstance(les.get("access"), dict) else {}
+        lessons.append({"lesson_id": str(les.get("id") or make_id("lesson", slug, les["slug"])),
+                        "slug": str(les["slug"]), "url": f"{SITE}/academy/courses/{slug}/{les['slug']}",
+                        "title": _s(les.get("title")), "position": _int(les.get("position")),
+                        "reading_minutes": _int(les.get("reading_minutes")), "thumbnail_url": _s(les.get("thumbnail")),
+                        "video_url": _s(les.get("video")), "video_poster_url": _s(les.get("video_poster")),
+                        "homework_required": _bool(les.get("homework_required")),
+                        "access_allowed": _bool(acc.get("allowed")), "access_reason": _s(acc.get("reason")),
+                        "blocking_lesson_id": _s(acc.get("blocking_lesson_id")),
+                        "extra": _extra(les, API_LESSON_REF_USED)})
+    authors = [_author(a) for a in _dicts(c.get("authors"))]
+    if not authors and _author(c.get("author")):
+        authors = [_author(c.get("author"))]
+    return {
+        "kind": "site_academy_api_course", "record_key": f"{slug}@{record_source}",
+        "course_id": str(c.get("id") or make_id("course", slug)), "slug": slug,
+        "url": f"{SITE}/academy/courses/{slug}", "title": _s(c.get("title")), "description": _s(c.get("description")),
+        "difficulty": _s(c.get("difficulty")), "duration_minutes": _int(c.get("duration_minutes")),
+        "reading_minutes": _int(c.get("reading_minutes")), "lesson_count": _int(c.get("lesson_count")),
+        "test_count": _int(c.get("test_count")), "free_generations": _int(c.get("free_generations")),
+        "categories": _strs(c.get("categories")), "thumbnail_url": _s(c.get("thumbnail")),
+        "preview_media": media(c.get("preview_media")), "has_certificate": _bool(c.get("has_certificate")),
+        "has_examples": _bool(c.get("has_examples")), "has_creator_drop": _bool(c.get("has_creator_drop")),
+        "featured_position": _int(c.get("featured_position")), "published_at": iso(c.get("published_at")),
+        "updated_at": iso(c.get("updated_at")),
+        "objectives": [{"title": str(o["title"]), "description": _s(o.get("description"))}
+                       for o in _dicts(c.get("objectives")) if _s(o.get("title"))],
+        "authors": authors, "skills": _strs(meta.get("skills")), "models": _strs(meta.get("models")),
+        "languages": _strs(meta.get("languages")), "tools": _strs(meta.get("tools")),
+        "examples": _dicts(c.get("examples")), "lessons": lessons, "record_source": record_source,
+        "extra": _extra(c, API_COURSE_USED), "source": env.provenance(),
+    }
+
+
+def parse_academy_api_categories(env: Envelope, sel: Selection) -> list[dict]:
+    out = []
+    for c in _dicts(env.body):
+        slug = _s(c.get("slug")) or _s(c.get("id"))
+        if slug:
+            out.append({"kind": "site_academy_api_category", "category_id": str(c.get("id") or slug), "slug": slug,
+                        "title": _s(c.get("title")), "description": _s(c.get("description")),
+                        "artwork": _s(c.get("artwork")),
+                        "extra": _extra(c, {"id", "slug", "title", "description", "artwork"}),
+                        "source": env.provenance()})
+    return out
+
+
+def _courses_of(body: Any) -> Any:
+    return body.get("courses") if isinstance(body, dict) else body
+
+
+def parse_academy_api_courses(env: Envelope, sel: Selection) -> list[dict]:
+    return [api_course_record(c, env, record_source="list") for c in _dicts(_courses_of(env.body)) if c.get("slug")]
+
+
+def academy_api_course_slugs(body: Any) -> list[str]:
+    return [str(c["slug"]) for c in _dicts(_courses_of(body)) if c.get("slug")]
+
+
+def _course_of(body: Any) -> Optional[dict]:
+    c = body.get("course") if isinstance(body, dict) and isinstance(body.get("course"), dict) else body
+    return c if isinstance(c, dict) and c.get("slug") else None
+
+
+def parse_academy_api_course(env: Envelope, sel: Selection) -> list[dict]:
+    c = _course_of(env.body)
+    return [api_course_record(c, env, record_source="detail")] if c else []
+
+
+def academy_api_lessons(body: Any) -> list[dict]:
+    """[{lesson_id, slug, position, course_slug, course_id}] of a course detail body (lesson requests)."""
+    c = _course_of(body)
+    if not c:
+        return []
+    return [{"lesson_id": str(x["id"]), "slug": str(x["slug"]), "position": _int(x.get("position")),
+             "course_slug": str(c["slug"]), "course_id": _s(c.get("id"))}
+            for x in _dicts(c.get("lessons")) if x.get("id") and x.get("slug")]
+
+
+def parse_academy_api_lesson(env: Envelope, sel: Selection) -> list[dict]:
+    les = env.body
+    if not isinstance(les, dict) or not les.get("id"):
+        return []
+    course_slug = _s(env.params.get("course_slug"))
+    slug = _s(les.get("slug")) or str(les["id"])
+    acc = les.get("access") if isinstance(les.get("access"), dict) else {}
+    mdx = _s(les.get("mdx"))
+    acc_extra = _extra(acc, {"allowed"})
+    return [{
+        "kind": "site_academy_api_lesson", "lesson_id": str(les["id"]), "slug": slug, "course_slug": course_slug,
+        "course_id": _s(env.params.get("course_id")),
+        "url": f"{SITE}/academy/courses/{course_slug}/{slug}" if course_slug else f"{SITE}/academy",
+        "title": _s(les.get("title")), "position": _int(env.params.get("position")),
+        "xp_reward": _int(les.get("xp_reward")), "thumbnail_url": _s(les.get("thumbnail")),
+        "video_url": _s(les.get("video")), "video_poster_url": _s(les.get("video_poster")),
+        "video_subtitles": _dicts(les.get("video_subtitles")), "video_thumbnails_url": _s(les.get("video_thumbnails")),
+        "video_cues": _dicts(les.get("video_cues")), "resources": _resources(les.get("resources")),
+        "author": _author(les.get("author")), "access_allowed": _bool(acc.get("allowed")),
+        "updated_at": iso(les.get("updated_at")),
+        "content_mdx": mdx, "word_count": len(re.findall(r"\w+", mdx)) if mdx else None,
+        "extra": {**_extra(les, API_LESSON_USED), **({"access": acc_extra} if acc_extra else {})},
+        "source": env.provenance(),
+    }]
+
+
 # ================================================================== MCP
 
 def agents(items: Any) -> list[dict]:
@@ -875,6 +1011,10 @@ PARSERS = {
     "room_stats": parse_room_stats,
     "room_items": parse_room_items,
     "room_discussions": parse_room_discussions,
+    "academy_api_categories": parse_academy_api_categories,
+    "academy_api_courses": parse_academy_api_courses,
+    "academy_api_course": parse_academy_api_course,
+    "academy_api_lesson": parse_academy_api_lesson,
 }
 
 

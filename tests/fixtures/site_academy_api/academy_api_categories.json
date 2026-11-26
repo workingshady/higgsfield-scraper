@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "endpoint": "academy_api_categories",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-academy/api/v1/categories",
+        "params": {},
+        "fetched_at": "2026-11-26T16:40:46.641703+00:00",
+        "status": 200
+    },
+    "body": [
+        {
+            "id": "movie-making",
+            "slug": "movie-making",
+            "title": "Movie making",
+            "description": "A short film from idea to a finished reel, shot by shot.",
+            "artwork": "movie"
+        },
+        {
+            "id": "ugc-social-content",
+            "slug": "ugc-social-content",
+            "title": "UGC & Social Content",
+            "description": "Reels, ads, and faceless channels that actually perform on feed.",
+            "artwork": "ugc"
+        },
+        {
+            "id": "automate-agents",
+            "slug": "automate-agents",
+            "title": "Automate & Agents",
+            "description": "Brief an agent in plain words and let it run the whole pipeline.",
+            "artwork": "agents"
+        }
+    ]
+}

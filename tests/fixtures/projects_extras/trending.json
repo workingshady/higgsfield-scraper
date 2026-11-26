@@ -1,0 +1,190 @@
+{
+    "meta": {
+        "endpoint": "projects_trending",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/project-publications/trending?limit=2",
+        "params": {
+            "limit": "2"
+        },
+        "fetched_at": "2026-11-26T18:31:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "items": [
+            {
+                "publication_id": "4b312522-ba5f-4bd6-badd-a3e874687c78",
+                "duration_seconds": 417.791667,
+                "state": "published",
+                "type": "film",
+                "is_ongoing": false,
+                "project_id": "4b312522-ba5f-4bd6-badd-a3e874687c78",
+                "snapshot_folder_id": "94897bca-deb9-4ee3-a793-cc46ac553e45",
+                "has_changes_since_publish": false,
+                "project_updated_at": "2026-11-22T02:24:40.530815+00:00",
+                "final_submitted_at": "2026-11-22T02:24:40.493774+00:00",
+                "is_open_source": true,
+                "name": "RATS VS ROACHES",
+                "slug": "rats-vs-roaches",
+                "description": "A thousand years after humanity’s fall, a cockroach deserter and a rat scout, born enemies, carry the one thing that could end the war.",
+                "cover": {
+                    "id": "7c393479-7770-4168-8bee-5904b6499035",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake01xxxxxxxxxxxxxxxxxxxxx/hf_20261117_190854_7c393479-7770-4168-8bee-5904b6499035_min.webp",
+                    "type": "job",
+                    "width": 5504,
+                    "height": 3072,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "7f7a0af2-0982-41b3-93d8-ed8b83d1a472",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/7f7a0af2-0982-41b3-93d8-ed8b83d1a472/52d3f4f6-9504-4825-befb-acb10fa234b0/index.m3u8?v=52d3f4f6-9504-4825-befb-acb10fa234b0",
+                        "type": "video",
+                        "width": 1920,
+                        "height": 1080,
+                        "min_url": null,
+                        "duration": 417.791667,
+                        "object_fit": "cover",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/7f7a0af2-0982-41b3-93d8-ed8b83d1a472/52d3f4f6-9504-4825-befb-acb10fa234b0/thumbnail.webp?v=52d3f4f6-9504-4825-befb-acb10fa234b0",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake01xxxxxxxxxxxxxxxxxxxxx/7f7a0af2-0982-41b3-93d8-ed8b83d1a472.mp4",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/7f7a0af2-0982-41b3-93d8-ed8b83d1a472/compressed.mp4",
+                        "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/7f7a0af2-0982-41b3-93d8-ed8b83d1a472/52d3f4f6-9504-4825-befb-acb10fa234b0/download.mp4?v=52d3f4f6-9504-4825-befb-acb10fa234b0&download=7f7a0af2-0982-41b3-93d8-ed8b83d1a472.mp4"
+                    }
+                ],
+                "trailer": null,
+                "author_user_ids": [
+                    "user_Fake01xxxxxxxxxxxxxxxxxxxxx"
+                ],
+                "tags": [],
+                "categories": [],
+                "show_prompts": true,
+                "show_canvas": true,
+                "is_discoverable": false,
+                "featured_episode_id": null,
+                "is_featured": false,
+                "created_at": "2026-11-17T17:52:08.535903Z",
+                "authors": [
+                    {
+                        "id": "user_Fake01xxxxxxxxxxxxxxxxxxxxx",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "[redacted]",
+                        "location": "[redacted]",
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 14,
+                        "total_projects_likes": 0,
+                        "followers_count": 8,
+                        "badges": []
+                    }
+                ],
+                "team": null,
+                "views": 1633,
+                "likes": 95,
+                "comments": 45,
+                "is_liked_by_user": null,
+                "awards": [],
+                "contest_badges": [],
+                "can_receive_audience_choice_votes": false,
+                "is_higgsfield_featured": false,
+                "is_talents_hub": false,
+                "contest_key": "talent_contest",
+                "feed_lane": "algorithm",
+                "feed_position": 1
+            },
+            {
+                "publication_id": "00a1ba84-2302-4f47-8c09-8fc0b95e2815",
+                "duration_seconds": 347.431315,
+                "state": "published",
+                "type": "film",
+                "is_ongoing": false,
+                "project_id": "00a1ba84-2302-4f47-8c09-8fc0b95e2815",
+                "snapshot_folder_id": "a5434d95-15e7-4017-a972-101e2727d646",
+                "has_changes_since_publish": false,
+                "project_updated_at": "2026-11-25T21:16:24.338335+00:00",
+                "final_submitted_at": "2026-11-25T21:16:24.325212+00:00",
+                "is_open_source": true,
+                "name": "Frank & the Little Guy",
+                "slug": "frank-the-little-guy",
+                "description": "One old man. One stolen stash of chestnuts. One very determined little squirrel. ",
+                "cover": {
+                    "id": "de6f182e-91eb-43d2-9217-85ec7d2c1afd",
+                    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake02xxxxxxxxxxxxxxxxxxxxx/hf_20261125_210537_de6f182e-91eb-43d2-9217-85ec7d2c1afd_min.webp",
+                    "type": "job",
+                    "width": 2752,
+                    "height": 1536,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "08d500d4-1c01-466e-ae00-2aa0826f9380",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/08d500d4-1c01-466e-ae00-2aa0826f9380/870cfa7c-6c68-4be0-b673-ed92fe975fbb/index.m3u8?v=870cfa7c-6c68-4be0-b673-ed92fe975fbb",
+                        "type": "video",
+                        "width": 1920,
+                        "height": 1080,
+                        "min_url": null,
+                        "duration": 347.431315,
+                        "object_fit": "contain",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/08d500d4-1c01-466e-ae00-2aa0826f9380/870cfa7c-6c68-4be0-b673-ed92fe975fbb/thumbnail.webp?v=870cfa7c-6c68-4be0-b673-ed92fe975fbb",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake02xxxxxxxxxxxxxxxxxxxxx/08d500d4-1c01-466e-ae00-2aa0826f9380.mp4",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/08d500d4-1c01-466e-ae00-2aa0826f9380/compressed.mp4",
+                        "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/08d500d4-1c01-466e-ae00-2aa0826f9380/870cfa7c-6c68-4be0-b673-ed92fe975fbb/download.mp4?v=870cfa7c-6c68-4be0-b673-ed92fe975fbb&download=08d500d4-1c01-466e-ae00-2aa0826f9380.mp4"
+                    }
+                ],
+                "trailer": null,
+                "author_user_ids": [
+                    "user_Fake02xxxxxxxxxxxxxxxxxxxxx"
+                ],
+                "tags": [],
+                "categories": [],
+                "show_prompts": true,
+                "show_canvas": true,
+                "is_discoverable": false,
+                "featured_episode_id": null,
+                "is_featured": false,
+                "created_at": "2026-11-20T09:52:47.232028Z",
+                "authors": [
+                    {
+                        "id": "user_Fake02xxxxxxxxxxxxxxxxxxxxx",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "",
+                        "location": "[redacted]",
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 0,
+                        "total_projects_likes": 0,
+                        "followers_count": 0,
+                        "badges": []
+                    }
+                ],
+                "team": null,
+                "views": 126,
+                "likes": 14,
+                "comments": 11,
+                "is_liked_by_user": null,
+                "awards": [],
+                "contest_badges": [],
+                "can_receive_audience_choice_votes": false,
+                "is_higgsfield_featured": false,
+                "is_talents_hub": false,
+                "contest_key": "talent_contest",
+                "feed_lane": "algorithm",
+                "feed_position": 2
+            }
+        ],
+        "total": 15360,
+        "next_cursor": "rc1:eyJzIjoiYjdjY2JlZGM5YTBjOWFlMGNiNTVhMjkyNmI1ZmRiMTA0ZDk2Y2Y1NzM5OGJiNDY4Y2FkMDJkNWUxZWJmZDZhNyIsImUiOiJjb21tdW5pdHlfcHJvamVjdHMiLCJwIjoiYWxsIiwibyI6Mn0",
+        "feed": {
+            "source": "prepared",
+            "version": "projects-jury-mix/v0/jury=0.3/review_top=0.3/project-batches/v2",
+            "snapshot_id": "b7ccbedc9a0c9ae0cb55a2926b5fdb104d96cf57398bb468cad02d5e1ebfd6a7"
+        }
+    }
+}

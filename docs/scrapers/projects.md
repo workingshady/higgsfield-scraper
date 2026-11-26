@@ -512,6 +512,14 @@ nested), code → fenced block, table → pipe table (`<br>` inside cells), link
 | `name`, `slug`, `type`, `contest_key` | str | | item | yes | `CAT LAST`, `film` |
 | `views`, `likes`, `comments` | int | | item | yes | `2201` |
 | `cover_url`, `author_keys[]`, `feed_source` | | | `cover.url`, authors, `feed.source` | yes | `ranking` |
+| `title`, `description`, `duration_seconds`, `tags[]`, `show_prompts`, `created_at` | | s | `name`, item | yes | `CAT LAST`, `180.958` |
+| `cover_width`, `cover_height` | int | px | `cover.{width,height}` | yes | `2352` |
+| `trailer_url`, `trailer_thumbnail_url`, `trailer_width`, `trailer_height`, `trailer_duration_seconds` | | px, s | `trailer.*` (mp4 preferred over HLS) | yes | |
+| `gallery_media[]` | list | | `gallery_media[]`: `position, media_id, type, name, url, original_url, preview_url, thumbnail_url, download_url, width, height, duration` | no | |
+| `team` | Person | | `team` (pseudonymous) | yes | |
+| `creator_uid_keys[]` | list | | `core.privacy.creator_uid_key(author id)` | no | |
+
+(Card fields added 2026-11-26, COMPLETENESS #6; `csv/project_related.csv` keeps `gallery_media` as a JSON cell.)
 
 ### Options
 
@@ -634,6 +642,76 @@ that was a stale cached token (`TokenProvider.get()` without refresh); with a fr
   not scraped.
 * The brief decoder handles the node types seen (paragraph, heading, quote, callout, list, listitem, code, table,
   link, horizontal rule); other decorator nodes are kept as HTML comments.
+
+## Additive fields (2026-11-26, docs/COMPLETENESS.md #6, #10, #15–#17)
+
+Only new fields; nothing renamed or removed; every request unchanged.
+
+| where | new fields | source |
+|---|---|---|
+| every `Person` (authors, team, winner, contestants, submitter, commenter, series author) | `creator_uid_key` | `core.privacy.creator_uid_key(<Clerk id>)` = `make_id("creator", id)`: the same key as showcase/studios `creator_key`, so creators join across scrapers. The existing `author_key` (`make_id("user", id)`) stays |
+| `publications` | `creator_uid_keys[]` | the authors' keys (next to `author_keys[]`) |
+| `folders`, `assets` | `creator_uid_key` | owner / creator id (next to `owner_key` / `creator_key`) |
+| `contests[].judges[]` | `creator_uid_key` | judge `user_id` (the id itself stays `--with-profiles` only) |
+| `related` | card media (see the field table above) | #6 |
+| `series` | `portrait/landscape/background/logo_optimized_url`, `trailer_width`, `trailer_height`, `trailer_hls_job_id` | `*.optimized.url`, `trailer.original.{width,height}`, `trailer.hls.job_id` (#15) |
+| `episodes` (public series) | `thumbnail_optimized_url`, `hls_url`, `hls_job_id`, `hls_status`, `video_original_width/height`, `shimmer_url/width/height` | `thumbnail.optimized`, `video.{hls,original,shimmer}` (#15); null for publication-gallery episodes |
+| `publications` (from `--users`) | `listing_credits_spent`, `listing_model_usage[]` | `stats.credits_spent` / `stats.stack[]` of `/user/{handle}/v2/publications` (#16). **Different unit** than the detail's `credits_spent` (observed: listing 506400 = detail 5064.0 × 100), so it is kept apart and the detail merge never overwrites it |
+| `folders` | `path` | raw id path `/<root>/<folder>/…/` (#17) |
+
+## Trending, contest participation, user works (opt-in, 2026-11-26)
+
+None of these is part of the default run or of `--what all` (`--what all` = `publications, recommended, contests,
+entries, series`, exactly as before; adding them to `all` would have changed the `--what all` request plan).
+Ask for them explicitly; `--what all,trending` = all + trending.
+
+| option | endpoint(s) (GET, anonymous) | kinds → collections / CSVs |
+|---|---|---|
+| `--what trending` (+ `--trending-sort`, `--trending-filter`, `--trending-with-contest`) | `/project-publications/trending?limit≤50&cursor&sort&filter&with_contest` | `projects_publication` + `projects_listing_entry` (listing `trending[:filter=…][:sort=…][:with_contest]`), `projects_trending_row` → `trending`, `csv/trending.csv` |
+| `--what contest-participation` (per `--entry-keys`, default both) | `/contest-participations/publications/counters?contest_key`, `/contest-participations/config?contest_key` | `projects_participation_counters` + `projects_participation_config`, merged → `contest_participation`, `csv/contest_participation.csv` |
+| `--with-user-works` | `/user/{user_id}/v2/publications?limit≤50&cursor` (no `publication_type` = all), `/user/{user_id}/stats` | `projects_user_work` → `user_works` (+ `user_work_variants.csv`, `user_work_inputs.csv`), `projects_user_stats` → `user_stats` |
+
+Enums (from the API's 422 messages, 2026-11-26): trending `sort` = `default` (not sent, like the web app),
+`most_viewed`, `most_liked`, `newest`, `oldest`; `filter` = `all`, `non_contest`, `contest`, `talents_hub`;
+`limit` ≤ 50. `contest_key` = `ai_film_festival` | `talent_contest` only. User works `publication_type` =
+`asset_video`, `asset_image`, `generation`, `project`, `project_publication`, `folder`, `contest_submission`,
+`blog_post`, `all`; `limit` ≤ 50. The web app (chunk `3On2TPGk30aH8MrG`) parses `asset`, `project_publication` /
+`project`, `folder` and `contest_submission` items and drops `blog_post`; so does the parser.
+
+**Trending.** `total` was 15,360–15,383 live (the only project listing with a total; in `meta.totals_available`
+and in every row's `total_reported`). Cursors are opaque (`rc1:…`); `position` = `feed_position − 1`.
+`feed.snapshot_id` / `version` identify the ranking snapshot; `feed_lane` (e.g. `review_top`) is per item. The
+publications are ordinary `projects_publication` rows (count against `--max-items`; `--with-details` /
+`--with-project-*` follow them like any listing).
+
+**Contest participation.** One row per `contest_key`: `total`, `public_total`, `private_total` (66,645 / 4,516 /
+62,129 for the festival) + the config (stage, windows, team size, votes per user, `timeline.*`, `limits.*`,
+`countries[]`).
+
+**User works** (privacy: opt-in, pseudonymous).
+
+* Users are only those **already found in the run**: the owner (`is_owner` author, else the first author id) of
+  every project in a `--users` listing and in the contest entries listing, and every contest submitter. Broad
+  listings (publications, recommended, trending) never add users. Each user once; `--max-pages` caps their pages.
+* Rows carry `creator_uid_key` (+ `creator_key` = the projects `author_key`); `source_url` / `source.url` have the
+  Clerk id replaced by `key:<creator_uid_key>`. `user_id`, `username`, `avatar_url` only with `--with-profiles`.
+  The Clerk id stays in the request URL (raw/ meta, http/, logs) like every other id in the archives; the archives'
+  `profile` blocks (username, avatar, social handles) are redacted by `core/privacy` unless `--with-profiles`.
+  Result URLs on the CDN contain the Clerk id in their path (as for every project asset).
+* `asset` works are full generations: `job_id`, `generation_key = job:<id>`, `media_keys = [media:<uuid>…]` (last
+  UUID of each output URL, inputs host excluded), `prompt`, verbatim `params`, model, size, seed, inputs, results
+  (`url`, `min_url`, `hls_url`, `thumbnail_url`, `variants[]`), likes / views (`publication.*_count`), listing
+  `views` / `clones`, `approved`, dates. `scripts/merge_generations.py` merges them with community generations by
+  `job:` key (test `test_user_works_merge_with_scripts_merge_generations`).
+* `project_publication` / `folder` / `contest_submission` works are summary rows (name, cover / thumbnail, likes,
+  views, `credits_spent_raw` + `generations_count` for projects, contest ids and video for submissions) with
+  `generation_key` null, so merge_generations ignores them.
+* `user_stats`: `posts_count`, `likes_count`, `views_count` + `works_total` (the works listing's `total`).
+
+Live check (2026-11-26, `--what trending,contest-participation,contests --contest talent-contest --with-submissions
+--max-submissions 2 --with-user-works --max-items 5 --page-size 5 --max-pages 1`): 5 trending rows (total 15,383),
+2 participation rows, 2 entrants → 2 `user_stats` + their works; archives redacted. Fixtures:
+`tests/fixtures/projects_extras/` (fake `user_Fake…` ids, redacted names); tests `tests/test_projects_extras.py`.
 
 ## Gaps and notes
 

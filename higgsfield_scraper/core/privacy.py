@@ -58,7 +58,7 @@ def creator_uid_key(user_id: Any) -> str | None:
     community, projects and catalog join with them. None for missing or redacted ids."""
     from ..schemas.common import make_id
     s = None if user_id is None else str(user_id).strip()
-    if not s or s == REDACTED or "REDACTED" in s:
+    if not s or s == REDACTED or "redacted" in s.lower():
         return None
     return make_id("creator", s)
 

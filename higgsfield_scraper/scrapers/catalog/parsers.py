@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from typing import Any, Optional
 from urllib.parse import urlsplit
 
+from ...core.privacy import creator_uid_key
 from ...schemas.common import make_id
 from .endpoints import MOTION_DETAIL_KIND, PAGE_KIND, PLACEHOLDER_URL, SOURCE_BY_ENDPOINT, Source
 
@@ -374,8 +375,20 @@ def _profiles(sel: Any) -> bool:
     return bool(getattr(sel, "with_profiles", False))
 
 
+def author_keys(item: dict) -> dict:
+    """{author_key, creator_uid_key} from the raw item's author user id (katana: author.user_id). Pseudonymous
+    hashes, kept with and without --with-profiles; None when the id is missing or redacted."""
+    a = item.get("author") if isinstance(item.get("author"), dict) else {}
+    uid = a.get("user_id") or a.get("id") or item.get("user_id")
+    if isinstance(uid, str) and "redacted" in uid.lower():       # "<redacted>" in older samples / archives
+        uid = None
+    key = creator_uid_key(uid)
+    return {"author_key": key, "creator_uid_key": key}
+
+
 def p_generic(item: dict, env, sel, src: Source) -> Optional[dict]:
     kp = _kp(sel)
+    keys = author_keys(item) if src.kind == "catalog_katana_preset" else {}
     if not _profiles(sel):
         item = redact_people(item)
     group = src.group or env.params.get("category_id")
@@ -403,6 +416,7 @@ def p_generic(item: dict, env, sel, src: Source) -> Optional[dict]:
     field = GENERIC_GROUP_FIELD.get(src.kind)
     if field:
         d[field] = group
+    d.update(keys)
     return d
 
 
@@ -525,12 +539,20 @@ def p_notices(body: Any, env) -> list[dict]:
     return out
 
 
+def p_outfit_character(item: dict, env, sel) -> dict:
+    url = item.get("url") if _usable(item.get("url")) else None
+    return {"id": str(item["id"]), "api_type": _str(item.get("type")), "url": url, "width": _int(item.get("width")),
+            "height": _int(item.get("height")), "media": media_refs(item, "image", _kp(sel)),
+            "extra": _extra(item, {"id", "type", "url", "width", "height"}), **_flat_prov(env)}
+
+
 ITEM_PARSERS = {
     "catalog_motion": p_motion, MOTION_DETAIL_KIND: p_motion_detail, "catalog_style": p_style,
     "catalog_motion_sample": p_motion_sample, "catalog_avatar": p_avatar, "catalog_avatar_preset": p_avatar_preset,
     "catalog_voice": p_voice, "catalog_reference_voice": p_reference_voice, "catalog_sound": p_sound,
     "catalog_soul_sample": p_soul_sample, "catalog_viral_type": p_viral_type, "catalog_viral_preset": p_viral_preset,
     "catalog_chain_preset": p_chain_preset, "catalog_restyle_preset": p_restyle_preset,
+    "catalog_outfit_character": p_outfit_character,
 }
 
 
@@ -548,6 +570,8 @@ def parse_envelope(env, sel) -> list[dict]:
         notices = p_notices(body, env)
         items = []
         out += [{"kind": src.kind, **n, "source": prov} for n in notices]
+    elif src.kind == "catalog_outfit_character":       # {characters: [...]}
+        items = body.get("characters") if isinstance(body, dict) and isinstance(body.get("characters"), list) else []
     else:
         items = items_of(body)
     for item in items:

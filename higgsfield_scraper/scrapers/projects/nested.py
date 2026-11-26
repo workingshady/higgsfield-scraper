@@ -14,8 +14,10 @@ import re
 from typing import Any, Optional
 
 from ...core.dataset import make_id
+from ...core.privacy import creator_uid_key
 from .options import Selection
-from .parsers import _float, _int, _list, _rest, _str, author_key, iso, parse_publication_list, person
+from .parsers import (_float, _int, _list, _rest, _str, author_key, best_video_url, iso, media,
+                      parse_publication_list, person)
 
 NESTED_SCHEMA_VERSION = 1
 ARCHIVE_REDACTED = "[redacted]"
@@ -45,7 +47,7 @@ def _prompts_visible(env) -> bool:
 def _owner(d: dict, sel: Selection, prefix: str) -> dict[str, Any]:
     user = d.get("user") if isinstance(d.get("user"), dict) else {}
     uid = _str(d.get("user_id") or user.get("id"))
-    out: dict[str, Any] = {f"{prefix}_key": author_key(uid)}
+    out: dict[str, Any] = {f"{prefix}_key": author_key(uid), "creator_uid_key": creator_uid_key(uid) if uid else None}
     if sel.with_profiles:
         out[f"{prefix}_user_id"] = uid
         out[f"{prefix}_username"] = _str(d.get("owner_username") or user.get("username"))
@@ -102,6 +104,7 @@ def parse_folder_obj(d: dict, env, sel: Selection, *, position: Optional[int]) -
         "updated_at": iso(d.get("updated_at")),
         "archived_at": iso(d.get("archived_at")),
         "hidden_at": iso(d.get("hidden_at")),
+        "path": _str(d.get("path")),
         **_owner(d, sel, "owner"),
         "extra": _rest(d, FOLDER_USED, PERSONAL_EXTRA),
     }
@@ -414,6 +417,8 @@ def parse_related(env, sel: Selection) -> list[dict]:
             continue
         authors = [p for a in _list(item.get("authors")) if (p := person(a, "author", sel))]
         cover = item.get("cover") if isinstance(item.get("cover"), dict) else {}
+        trailer = media(item.get("trailer"), "trailer", 0)
+        gallery = [m for i, g in enumerate(_list(item.get("gallery_media"))) if (m := media(g, "gallery", i))]
         out.append({
             **_base(env, "projects_related"),
             "related_id": make_id(pid, rid, scope),
@@ -431,6 +436,27 @@ def parse_related(env, sel: Selection) -> list[dict]:
             "cover_url": _str(cover.get("url")),
             "author_keys": [a["author_key"] for a in authors if a["author_key"]],
             "feed_source": _str(feed.get("source")),
+            # card media + text (COMPLETENESS #6)
+            "title": item.get("name"),
+            "description": item.get("description"),
+            "duration_seconds": _float(item.get("duration_seconds")),
+            "tags": [str(t) for t in _list(item.get("tags"))],
+            "show_prompts": item.get("show_prompts"),
+            "created_at": iso(item.get("created_at")),
+            "cover_width": _int(cover.get("width")),
+            "cover_height": _int(cover.get("height")),
+            "trailer_url": (best_video_url(trailer) or trailer["url"]) if trailer else None,
+            "trailer_thumbnail_url": trailer["thumbnail_url"] if trailer else None,
+            "trailer_width": trailer["width"] if trailer else None,
+            "trailer_height": trailer["height"] if trailer else None,
+            "trailer_duration_seconds": trailer["duration_seconds"] if trailer else None,
+            "gallery_media": [{"position": m["position"], "media_id": m["media_id"], "type": m["type"],
+                               "name": m["name"], "url": m["url"], "original_url": m["original_url"],
+                               "preview_url": m["preview_url"], "thumbnail_url": m["thumbnail_url"],
+                               "download_url": m["download_url"], "width": m["width"], "height": m["height"],
+                               "duration": m["duration_seconds"]} for m in gallery],
+            "team": person(item.get("team"), "team", sel),
+            "creator_uid_keys": [a["creator_uid_key"] for a in authors if a["creator_uid_key"]],
         })
         pos += 1
     return out

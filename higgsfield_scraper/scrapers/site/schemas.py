@@ -224,6 +224,104 @@ class Lesson(Body):
     source: Provenance
 
 
+# ------------------------------------------------------------------ academy JSON API (opt-in --what academy-api)
+# fnf-academy /api/v1/*. Separate kinds from the SSR academy records above (those stay byte-identical). Per-viewer
+# state (completed, progress_pct, homework_submitted, certificate_unlocked) is never stored.
+
+class AcademyApiCategory(Strict):
+    """kind=site_academy_api_category — GET fnf-academy /api/v1/categories."""
+
+    category_id: str
+    slug: str
+    title: Optional[str] = None
+    description: Optional[str] = None
+    artwork: Optional[str] = None
+    extra: dict[str, Any] = Field(default_factory=dict)
+    source: Provenance
+
+
+class AcademyApiLessonRef(Strict):
+    lesson_id: str
+    slug: str
+    url: str
+    title: Optional[str] = None
+    position: Optional[int] = None
+    reading_minutes: Optional[int] = None
+    thumbnail_url: Optional[str] = None
+    video_url: Optional[str] = None
+    video_poster_url: Optional[str] = None
+    homework_required: Optional[bool] = None
+    access_allowed: Optional[bool] = Field(None, description="access.allowed for an anonymous visitor")
+    access_reason: Optional[str] = None
+    blocking_lesson_id: Optional[str] = None
+    extra: dict[str, Any] = Field(default_factory=dict, description="other API keys (verified, layout, surface…)")
+
+
+class AcademyApiCourse(Strict):
+    """kind=site_academy_api_course — /api/v1/courses (record_source=list) + /api/v1/courses/<slug> (detail),
+    merged by slug in the dataset (detail wins, the list fills e.g. test_count / lesson_count)."""
+
+    record_key: str = Field(description="<slug>@<record_source>")
+    course_id: str
+    slug: str
+    url: str = Field(description="public page of the course")
+    title: Optional[str] = None
+    description: Optional[str] = None
+    difficulty: Optional[str] = None
+    duration_minutes: Optional[int] = None
+    reading_minutes: Optional[int] = None
+    lesson_count: Optional[int] = None
+    test_count: Optional[int] = None
+    free_generations: Optional[int] = Field(None, description="free generations granted by the course (API only)")
+    categories: list[str] = Field(default_factory=list)
+    thumbnail_url: Optional[str] = None
+    preview_media: Optional[Media] = None
+    has_certificate: Optional[bool] = None
+    has_examples: Optional[bool] = None
+    has_creator_drop: Optional[bool] = None
+    featured_position: Optional[int] = None
+    published_at: Optional[AwareDatetime] = None
+    updated_at: Optional[AwareDatetime] = None
+    objectives: list[CourseObjective] = Field(default_factory=list)
+    authors: list[CourseAuthor] = Field(default_factory=list, description="course authors (Higgsfield staff)")
+    skills: list[str] = Field(default_factory=list)
+    models: list[str] = Field(default_factory=list)
+    languages: list[str] = Field(default_factory=list)
+    tools: list[str] = Field(default_factory=list)
+    examples: list[dict[str, Any]] = Field(default_factory=list)
+    lessons: list[AcademyApiLessonRef] = Field(default_factory=list)
+    record_source: Literal["list", "detail"] = "detail"
+    extra: dict[str, Any] = Field(default_factory=dict)
+    source: Provenance
+
+
+class AcademyApiLesson(Strict):
+    """kind=site_academy_api_lesson — GET fnf-academy /api/v1/lessons/<lesson_id> (one request per lesson)."""
+
+    lesson_id: str
+    slug: str
+    course_slug: Optional[str] = None
+    course_id: Optional[str] = None
+    url: str
+    title: Optional[str] = None
+    position: Optional[int] = Field(None, description="from the course's lesson list")
+    xp_reward: Optional[int] = None
+    thumbnail_url: Optional[str] = None
+    video_url: Optional[str] = None
+    video_poster_url: Optional[str] = None
+    video_subtitles: list[dict[str, Any]] = Field(default_factory=list, description="[{src, language, label}] VTT")
+    video_thumbnails_url: Optional[str] = Field(None, description="thumbnail-sprite VTT")
+    video_cues: list[dict[str, Any]] = Field(default_factory=list)
+    resources: list[LessonResource] = Field(default_factory=list)
+    author: Optional[CourseAuthor] = None
+    access_allowed: Optional[bool] = None
+    updated_at: Optional[AwareDatetime] = None
+    content_mdx: Optional[str] = Field(None, description="lesson body as the API sends it (MDX / Markdown source)")
+    word_count: Optional[int] = None
+    extra: dict[str, Any] = Field(default_factory=dict)
+    source: Provenance
+
+
 # ------------------------------------------------------------------ MCP
 
 class AgentLink(Strict):
@@ -593,6 +691,9 @@ MODEL_BY_KIND = {
     "site_room_item": RoomItem,
     "site_room_discussion": RoomDiscussion,
     "site_room_stats": RoomStats,
+    "site_academy_api_category": AcademyApiCategory,
+    "site_academy_api_course": AcademyApiCourse,
+    "site_academy_api_lesson": AcademyApiLesson,
 }
 ID_FIELD_BY_KIND = {
     "site_app": "record_key",
@@ -613,10 +714,14 @@ ID_FIELD_BY_KIND = {
     "site_room_item": "room_item_id",
     "site_room_discussion": "post_id",
     "site_room_stats": "room_id",
+    "site_academy_api_category": "slug",
+    "site_academy_api_course": "record_key",
+    "site_academy_api_lesson": "lesson_id",
 }
 # kinds counted by --max-items (per kind); index-level/aux kinds are never capped
 PRIMARY_KINDS = ("site_app", "site_academy_course", "site_academy_lesson", "site_mcp_skill", "site_original_episode",
-                 "site_mixed_media_preset", "site_landing", "site_room", "site_room_item", "site_room_discussion")
+                 "site_mixed_media_preset", "site_landing", "site_room", "site_room_item", "site_room_discussion",
+                 "site_academy_api_course", "site_academy_api_lesson")
 
 
 class SiteSummary(Strict):
@@ -654,3 +759,12 @@ class SiteDatasetExt(SiteDataset):
     rooms: list[Room] = Field(default_factory=list)
     room_items: list[RoomItem] = Field(default_factory=list)
     room_discussions: list[RoomDiscussion] = Field(default_factory=list)
+
+
+class SiteDatasetFull(SiteDatasetExt):
+    """Dataset of a run with --what academy-api (rooms collections only when room-list / room-content is selected
+    too: build_dataset excludes them otherwise). Runs without academy-api keep SiteDataset / SiteDatasetExt."""
+
+    academy_api_categories: list[AcademyApiCategory] = Field(default_factory=list)
+    academy_api_courses: list[AcademyApiCourse] = Field(default_factory=list)
+    academy_api_lessons: list[AcademyApiLesson] = Field(default_factory=list)

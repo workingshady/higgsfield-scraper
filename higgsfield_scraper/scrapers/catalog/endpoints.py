@@ -76,12 +76,22 @@ KINDS: dict[str, tuple[str, str, bool, str]] = {
     "notice": ("catalog_notice", "notices", False, "per-model notices (retirement / status badges, header bars)"),
     "restyle_preset": ("catalog_restyle_preset", "restyle_presets", False, "video restyle presets (+ variants)"),
 }
-KIND_OF = {short: v[0] for short, v in KINDS.items()}
-SHORT_OF = {v[0]: short for short, v in KINDS.items()}
-COLLECTION_OF = {v[0]: v[1] for v in KINDS.values()}
+# ---- named-only extras (public; added 2026-11-26). Kept OUT of KINDS on purpose: `--kinds all` = every KINDS entry,
+# and adding a request to `all` would change existing `--kinds all` runs. Selected by name only; output like the
+# opt-in extras (no collection / counts / endpoints unless selected or fetched).
+NAMED_KINDS: dict[str, tuple[str, str, bool, str]] = {
+    "outfit_character": ("catalog_outfit_character", "outfit_characters", False,
+                         "outfit model characters (/fnf/outfits/characters; name-only, not in 'all')"),
+}
+SELECTABLE = {**KINDS, **NAMED_KINDS}                     # every short name --kinds accepts (canonical order)
+KIND_OF = {short: v[0] for short, v in SELECTABLE.items()}
+SHORT_OF = {v[0]: short for short, v in SELECTABLE.items()}
+COLLECTION_OF = {v[0]: v[1] for v in SELECTABLE.values()}
 OPT_IN = ("chain_preset", "notice", "restyle_preset")
-OPT_IN_KINDS = frozenset(KIND_OF[k] for k in OPT_IN)
-OPT_IN_COLLECTIONS = frozenset(COLLECTION_OF[KIND_OF[k]] for k in OPT_IN)
+NAMED_ONLY = tuple(NAMED_KINDS)                           # selected only by name: not in `all`, `public`, `login`
+OUTPUT_OPT_IN = OPT_IN + NAMED_ONLY                       # kinds whose collections appear only when selected/fetched
+OPT_IN_KINDS = frozenset(KIND_OF[k] for k in OUTPUT_OPT_IN)
+OPT_IN_COLLECTIONS = frozenset(COLLECTION_OF[KIND_OF[k]] for k in OUTPUT_OPT_IN)
 PUBLIC = tuple(s for s, v in KINDS.items() if not v[2] and s not in OPT_IN)
 LOGIN_ONLY = tuple(s for s, v in KINDS.items() if v[2])
 DEFAULT_PUBLIC = tuple(s for s in PUBLIC if s != "motion_sample")
@@ -89,7 +99,7 @@ DEFAULT_PUBLIC = tuple(s for s in PUBLIC if s != "motion_sample")
 PAGE_KIND = "catalog_page"                    # one per listing response (totals, cursors) — auxiliary
 MOTION_DETAIL_KIND = "catalog_motion_detail"  # /motions/{id}; merged into catalog_motion by build_dataset
 AUX_KINDS = (PAGE_KIND, MOTION_DETAIL_KIND)
-PRIMARY_KINDS = tuple(v[0] for s, v in KINDS.items() if s != "motion_sample")
+PRIMARY_KINDS = tuple(v[0] for s, v in SELECTABLE.items() if s != "motion_sample")
 
 # ------------------------------------------------------------------ sources
 SOURCES: tuple[Source, ...] = (
@@ -158,6 +168,10 @@ SOURCES: tuple[Source, ...] = (
     # {total, cursor (next page number), items}; the web app sends lang + size=20
     Source("catalog_restyle_presets", "catalog_restyle_preset", "/restyle-presets", default_size=100, max_size=100,
            lang=True, base=CMS_API_BASE),
+    # named-only extras (public; verified 2026-11-26 without a session). JS chunk sGxtyi5DXhlNSfix:
+    # GET fnf /outfits/characters -> {characters: [{id, type: media_input, url, width, height}]} (2 items, no paging)
+    Source("catalog_outfit_characters", "catalog_outfit_character", "/outfits/characters", size_param=None,
+           paginate=False),
 )
 SOURCE_BY_ENDPOINT = {s.endpoint: s for s in SOURCES}
 LOGIN_ENDPOINTS = frozenset(s.endpoint for s in SOURCES if s.login)          # need a session (auth="required")

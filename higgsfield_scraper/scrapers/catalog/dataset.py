@@ -8,8 +8,11 @@ from typing import Any, Optional
 from ...core.base import RunMeta
 from ...core.dataset import make_meta
 from ...core.exporting import row, without, write_standard_outputs
-from .endpoints import (COLLECTION_OF, ENDPOINT_URLS, KIND_OF, KINDS, LOGIN_ONLY, MOTION_DETAIL_KIND, OPT_IN,
-                        OPT_IN_COLLECTIONS, OPT_IN_ENDPOINTS, PAGE_KIND, SHORT_OF, SOURCE_BY_ENDPOINT)
+from .endpoints import (COLLECTION_OF, ENDPOINT_URLS, KIND_OF, LOGIN_ONLY, MOTION_DETAIL_KIND, OPT_IN_COLLECTIONS,
+                        OPT_IN_ENDPOINTS, OUTPUT_OPT_IN, PAGE_KIND, SELECTABLE, SHORT_OF, SOURCE_BY_ENDPOINT)
+
+KINDS = SELECTABLE            # summary tables list every selectable kind (opt-in ones only when active)
+OPT_IN = OUTPUT_OPT_IN        # opt-in extras + name-only kinds: left out of the output unless selected or fetched
 from .schemas import CatalogDataset, CatalogDatasetFull
 
 CHILD_LISTS = ("media", "mix", "price_matrix", "inputs")

@@ -322,3 +322,32 @@ def test_merge_generations_dedupes_gallery_items_with_community(tmp_path, sel):
     rows, per_source, pairs = m.merge(recs)
     merged = [r for r in rows if r["job_id"] == item["job_id"]]
     assert len(merged) == 1 and merged[0]["sources"] == ["community:generations", "studios:gallery_items"]
+
+
+# ------------------------------------------------------------------ COMPLETENESS #10: shared creator_uid_key
+def test_creator_uid_key_is_the_shared_author_hash(sel):
+    from higgsfield_scraper.core.privacy import creator_uid_key
+    ents = all_entities(sel)
+    checked = 0
+    for kind in ("studios_app", "studios_game", "studios_skill", "studios_employee", "studios_gallery_item",
+                 "studios_comment"):
+        for e in ents.get(kind, []):
+            assert "creator_uid_key" in e and "author_key" in e, kind          # additive: both columns
+            if e["creator_uid_key"] is not None:
+                assert e["creator_uid_key"] == e["author_key"], kind           # same hash, shared name
+                checked += 1
+    assert checked > 0
+    env = load("studios_comments.json")
+    c = env.body["items"][0]
+    (first, *_) = parse_envelope(env, sel)
+    assert first["creator_uid_key"] == creator_uid_key(c.get("user_id") or (c.get("author") or {}).get("id"))
+
+
+def test_creator_uid_key_is_null_for_username_fallback(sel):
+    env = load("studios_gallery_approved.json")
+    it = dict(env.body["items"][0])
+    it["user_id"] = None
+    it["profile"] = {"username": "fake_name_only"}
+    env.body = {**env.body, "items": [it]}
+    (e,) = parse_envelope(env, sel)
+    assert e["author_key"] == author_key("fake_name_only") and e["creator_uid_key"] is None

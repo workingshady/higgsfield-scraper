@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from typing import Any, Callable, Optional
 
 from ...core.dataset import make_id
+from ...core.privacy import creator_uid_key
 from . import endpoints as ep
 from .options import Selection
 
@@ -95,6 +96,7 @@ def person(d: Any, role: str, sel: Selection) -> Optional[dict]:
     p: dict[str, Any] = {
         "role": role,
         "author_key": author_key(uid),
+        "creator_uid_key": creator_uid_key(uid) if uid else None,
         "is_owner": d.get("is_owner"),
         "total_projects_views": _int(d.get("total_projects_views")),
         "total_projects_likes": _int(d.get("total_projects_likes")),
@@ -157,6 +159,18 @@ def _owner_username(item: dict) -> Optional[str]:
     return str(team["username"]) if isinstance(team, dict) and team.get("username") else None
 
 
+def _listing_stats(stats: dict, env) -> dict:
+    """The profile listing (/user/{handle}/v2/publications) reports stats in another unit than the publication
+    detail (credits_spent 506400 vs 5064.0): kept apart so the detail merge does not overwrite it (COMPLETENESS #16).
+    Other listings: the fields stay at their defaults."""
+    if getattr(env, "endpoint", None) != "projects_user_publications" or not stats:
+        return {}
+    return {"listing_credits_spent": _float(stats.get("credits_spent")),
+            "listing_model_usage": [{"job_set_type": s.get("job_set_type"), "display_name": s.get("display_name"),
+                                     "count": _int(s.get("count")), "credits_spent": _float(s.get("credits_spent"))}
+                                    for s in _list(stats.get("stack")) if isinstance(s, dict)]}
+
+
 def parse_publication(item: dict, env, sel: Selection, *, kind: str = "projects_publication",
                       listing: Optional[str] = None) -> list[dict]:
     pid = _str(item.get("publication_id"))
@@ -204,6 +218,7 @@ def parse_publication(item: dict, env, sel: Selection, *, kind: str = "projects_
         "episode_count": len(gallery) if is_series else None,
         "author_count": len(authors),
         "author_keys": [a["author_key"] for a in authors if a["author_key"]],
+        "creator_uid_keys": [a["creator_uid_key"] for a in authors if a["creator_uid_key"]],
         "authors": authors,
         "team": person(item.get("team"), "team", sel),
         "views": _int(item.get("views")),
@@ -221,6 +236,7 @@ def parse_publication(item: dict, env, sel: Selection, *, kind: str = "projects_
         "model_usage": [{"job_set_type": s.get("job_set_type"), "display_name": s.get("display_name"),
                          "count": _int(s.get("count")), "credits_spent": _float(s.get("credits_spent"))}
                         for s in _list(stats.get("stack")) if isinstance(s, dict)],
+        **_listing_stats(stats, env),
         **{k: iso(item.get(k)) for k in ("created_at", "published_at", "project_updated_at", "final_submitted_at",
                                          "grant_awarded_at")},
         "url": ep.publication_url(_owner_username(item), _str(item.get("slug"))) if sel.with_profiles else None,
@@ -270,6 +286,15 @@ def _listing_name(env) -> str:
         return f"entries:{p.get('contest_key')}:{p.get('tab')}"
     if env.endpoint == "projects_user_publications":                 # --users (key = sha256 of the handle)
         return f"user:{p.get('user_key')}"
+    if env.endpoint == "projects_trending":                          # --what trending
+        name = "trending"
+        if p.get("filter"):
+            name += f":filter={p['filter']}"
+        if p.get("sort"):
+            name += f":sort={p['sort']}"
+        if str(p.get("with_contest", "")).lower() == "true":
+            name += ":with_contest"
+        return name
     return env.endpoint
 
 
@@ -330,6 +355,7 @@ def status_group(status: Optional[str]) -> Optional[str]:
 
 def _judge(j: dict, i: int, sel: Selection) -> dict:
     d = {"position": i, "display_name": j.get("display_name"), "description": j.get("description"),
+         "creator_uid_key": creator_uid_key(j.get("user_id")) if j.get("user_id") else None,
          "extra": _rest(j, {"user_id", "display_name", "description", "avatar_url", "background_url",
                             "external_link"})}
     if sel.with_profiles:
@@ -476,6 +502,13 @@ EPISODE_USED = {"id", "slug", "title", "description", "thumbnail", "thumbnail_ur
                 "duration_seconds", "is_locked", "is_adults_only"}
 
 
+def _variant(obj: Any, name: str, key: str) -> Any:
+    """obj[name][key] of a fnf-series media object ({original, optimized, hls, shimmer}); None when absent."""
+    v = obj.get(name) if isinstance(obj, dict) else None
+    out = v.get(key) if isinstance(v, dict) else None
+    return None if out in (None, "") else out
+
+
 def parse_series(item: dict, env, sel: Selection, *, detail: bool = False) -> list[dict]:
     sid = _str(item.get("id"))
     if not sid:
@@ -504,6 +537,11 @@ def parse_series(item: dict, env, sel: Selection, *, detail: bool = False) -> li
         "trailer_url": _img(trailer, item.get("trailer_url")),
         "trailer_hls_url": _str((trailer.get("hls") or {}).get("url")) if isinstance(trailer, dict)
         and isinstance(trailer.get("hls"), dict) else None,
+        **{f"{k}_optimized_url": _variant(item.get(k), "optimized", "url")
+           for k in ("portrait", "landscape", "background", "logo")},
+        "trailer_width": _int(_variant(trailer, "original", "width")),
+        "trailer_height": _int(_variant(trailer, "original", "height")),
+        "trailer_hls_job_id": _str(_variant(trailer, "hls", "job_id")),
         "project_url": _str(item.get("project_url")),
         "project_publication_id": _str(item.get("project_publication_id")),
         "duration_seconds": _float(item.get("duration_seconds")),
@@ -544,6 +582,15 @@ def parse_series(item: dict, env, sel: Selection, *, detail: bool = False) -> li
             "is_locked": e.get("is_locked"),
             "is_adults_only": e.get("is_adults_only"),
             "url": ep.series_url(slug, _str(e.get("slug"))),
+            "thumbnail_optimized_url": _variant(e.get("thumbnail"), "optimized", "url"),
+            "hls_url": None if e.get("is_locked") else _str(hls),
+            "hls_job_id": _str(_variant(video, "hls", "job_id")),
+            "hls_status": _str(_variant(video, "hls", "status")),
+            "video_original_width": _int(_variant(video, "original", "width")),
+            "video_original_height": _int(_variant(video, "original", "height")),
+            "shimmer_url": _variant(video, "shimmer", "url"),
+            "shimmer_width": _int(_variant(video, "shimmer", "width")),
+            "shimmer_height": _int(_variant(video, "shimmer", "height")),
             "source": src,
             "extra": _rest(e, EPISODE_USED),
         })
@@ -597,6 +644,18 @@ def _nested_parsers() -> dict[str, Callable[[Any, Selection], list[dict]]]:
         "projects_comments": n.parse_comments,
         "projects_related": n.parse_related,
         "projects_user_publications": n.parse_user_publications,
+        **_extra_parsers(),
+    }
+
+
+def _extra_parsers() -> dict[str, Callable[[Any, Selection], list[dict]]]:
+    from . import extras as x                              # opt-in extras (2026-11-26)
+    return {
+        "projects_trending": x.parse_trending,
+        "projects_participation_counters": x.parse_participation_counters,
+        "projects_participation_config": x.parse_participation_config,
+        "projects_user_works": x.parse_user_works,
+        "projects_user_stats": x.parse_user_stats,
     }
 
 

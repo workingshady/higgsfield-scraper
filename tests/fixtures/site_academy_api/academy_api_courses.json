@@ -1,0 +1,89 @@
+{
+    "meta": {
+        "endpoint": "academy_api_courses",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf-academy/api/v1/courses",
+        "params": {},
+        "fetched_at": "2026-11-26T16:40:47.211973+00:00",
+        "status": 200
+    },
+    "body": [
+        {
+            "id": "7c614759-9e65-5fb8-90ab-287175068a9b",
+            "slug": "blockbuster-4k",
+            "title": "Blockbuster 4K: The AI Filmmaking Pipeline",
+            "description": "One 40-minute tutorial — scripting, asset creation, and scene-by-scene prompt engineering — chaptered into sections you can follow along with, shot by shot.",
+            "lesson_count": 10,
+            "test_count": 0,
+            "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__cover__course-thumbnail.d3aeddb8.webp",
+            "has_certificate": false,
+            "has_examples": false,
+            "published_at": "2026-07-18",
+            "updated_at": "2026-10-16",
+            "difficulty": "Intermediate",
+            "reading_minutes": 38,
+            "duration_minutes": 40,
+            "free_generations": 0,
+            "categories": [
+                "movie-making"
+            ],
+            "preview_media": {
+                "url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__video__lesson-video.f4c9f07a.mp4",
+                "kind": "video",
+                "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/blockbuster-4k__one-character-many-worlds-watch-the-film__cover.3b23bed5.webp"
+            },
+            "featured_position": 0
+        },
+        {
+            "id": "393a510f-1187-5a76-a56f-1db7df074fd2",
+            "slug": "santiago-cinematic",
+            "title": "Build an Ultra-Realistic Short Film in 4K",
+            "description": "A 33-minute director's masterclass. A football drama built shot by shot with Claude Fable 5 and Seedance 2.0 4K.",
+            "lesson_count": 19,
+            "test_count": 0,
+            "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__cover__course-thumbnail.789b1f0e.webp",
+            "has_certificate": false,
+            "has_examples": false,
+            "published_at": "2026-07-21",
+            "updated_at": "2026-10-07",
+            "difficulty": "Intermediate",
+            "reading_minutes": 43,
+            "duration_minutes": 33,
+            "free_generations": 0,
+            "categories": [
+                "movie-making"
+            ],
+            "preview_media": {
+                "url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video__lesson-video.4583f137.mp4",
+                "kind": "video",
+                "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/santiago-cinematic__emotional-short-film-showcase__video_poster__cover.10418591.webp"
+            },
+            "featured_position": 1
+        },
+        {
+            "id": "d633d8dd-9afe-5bcd-aae4-451208e682d1",
+            "slug": "ai-vfx-real-footage",
+            "title": "Add AI VFX to Real Footage",
+            "description": "Turn footage you shot on a normal camera into cinematic 4K VFX with Seedance 2.0 — world swaps, creatures, and full handheld showcase shots, one sentence at a time.",
+            "lesson_count": 11,
+            "test_count": 0,
+            "thumbnail": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__cover__course-thumbnail.3771a5bf.webp",
+            "has_certificate": false,
+            "has_examples": false,
+            "published_at": "2026-07-25",
+            "updated_at": "2026-10-07",
+            "difficulty": "Advanced",
+            "reading_minutes": 25,
+            "duration_minutes": 12,
+            "free_generations": 0,
+            "categories": [
+                "movie-making"
+            ],
+            "preview_media": {
+                "url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__the-one-move-video-to-video__video__lesson-video.c74d0c68.mp4",
+                "kind": "video",
+                "poster_url": "https://d2245ubjcvacnx.cloudfront.net/assets/ai-vfx-real-footage__the-one-move-video-to-video__video_poster__cover.033fdc48.webp"
+            },
+            "featured_position": 2
+        }
+    ]
+}

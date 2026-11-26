@@ -7,11 +7,13 @@ from datetime import datetime, timezone
 from typing import Any, Optional
 
 from ...core.dataset import make_id
+from ...core.privacy import creator_uid_key
 from .endpoints import (BENEFITS_ENDPOINT, COMMENTS_ENDPOINT, COMPARE_ENDPOINT, CREATORS_ENDPOINT, DETAIL_ENDPOINT,
                         ENDPOINT_FEEDS, ENTITY_COMMENTS_ENDPOINT, FEED_ENDPOINT, JOB_COSTS_ENDPOINT, PLANS_ENDPOINT,
                         POSTS_LIST_ENDPOINT, SHOTS_ENDPOINT, TALENTS_ENDPOINT, VIRAL_ENDPOINT)
 from .endpoints import (COLLECTIONS_ENDPOINT, EXPLORE_CARDS_ENDPOINT, JOB_SHOWCASE_ENDPOINT, JOB_SHOWCASE_PAGES,
                         MUSIC_CARD_OPTIONS_ENDPOINT, MUSIC_CARDS_ENDPOINT)
+from .endpoints import FEED_CATEGORIES_ENDPOINT, FEED_ONGOING_ENDPOINT
 from .options import Selection
 
 # settings key -> accepted python types (a value of another type stays in params_extra, so nothing is lost)
@@ -229,6 +231,7 @@ def parse_generation(item: dict, feed: str, sel: Selection, provenance: dict, de
         "meta_extra": {k: v for k, v in meta.items() if k not in ("cost", "is_bonus_generation")},
         "extra": {k: v for k, v in item.items() if k not in KNOWN_TOP and v is not None},
         "creator": creator_ref(item, sel.with_profiles),
+        "creator_uid_key": creator_uid_key(item.get("user_id")),
         "estimated_cost": None,
         "source": provenance,
     }
@@ -242,7 +245,7 @@ def parse_creator(item: dict, provenance: dict) -> Optional[dict]:
     return {"kind": "community_creator", "user_id": str(uid),
             **{k: prof.get(k) for k in PROFILE_FIELDS if k != "badges"},
             "badges": prof.get("badges") if isinstance(prof.get("badges"), list) else [],
-            "generations_in_dataset": None, "source": provenance}
+            "generations_in_dataset": None, "creator_uid_key": creator_uid_key(uid), "source": provenance}
 
 
 def _items_of(body: Any) -> list[dict]:
@@ -292,6 +295,7 @@ def parse_comments(body: Any, publication_id: str, sel: Selection, provenance: d
                           for r in c.get("reactions") or [] if isinstance(r, dict)],
             "mention_count": len(mentions),
             "user_id": uid,                                 # pseudonymous id, like creator user_id
+            "creator_uid_key": creator_uid_key(uid),
 
             "username": _str(person.get("username")) if sel.with_profiles else None,
             "author": {k: (None if person.get(k) == "" else person.get(k))
@@ -358,14 +362,32 @@ def parse_shot(it: dict, snapshot_id: Optional[str], sel: Selection, prov: dict)
             "likes": _int(it.get("like_count")), "views": _int(it.get("view_count")),
             "comments": _int(it.get("comment_count")), "aesthetic_score": _float(it.get("aesthetic_score")),
             "aesthetic_label": _bool(it.get("aesthetic_label")), "published_at": iso_ts(it.get("published_at")),
-            "author": person_ref(it.get("author"), it.get("author_id"), sel), "snapshot_id": snapshot_id,
-            "source": prov}
+            "author": (a := person_ref(it.get("author"), it.get("author_id"), sel)),
+            "creator_uid_key": creator_uid_key(a["user_id"]), "snapshot_id": snapshot_id, "source": prov}
 
 
 def parse_shots(body: Any, sel: Selection, prov: dict) -> list[dict]:
     b = body if isinstance(body, dict) else {}
     snap = _str(b.get("snapshot_id"))
-    return [parse_shot(it, snap, sel, prov) for it in _items_of(b) if it.get("id")]
+    return [parse_shot(it, snap, sel, prov) for it in _items_of(b) if it.get("id")] + \
+        parse_shot_model_facets(b, snap, prov)
+
+
+def parse_shot_model_facets(b: dict, snap: Optional[str], prov: dict) -> list[dict]:
+    """available_models[] ({model, media_type}) of a Shots page -> community_shot_model_facet (every page repeats
+    the list; the dedup pipeline keeps the first). No count in the API: shots_in_run is filled by the dataset."""
+    am = b.get("available_models") if isinstance(b.get("available_models"), list) else []
+    out = []
+    for n, m in enumerate(x for x in am if isinstance(x, dict)):
+        model = _nz(m.get("model"))
+        if model is None:
+            continue
+        mt = _nz(m.get("media_type"))
+        out.append({"kind": "community_shot_model_facet", "facet_id": make_id("shot_model_facet", model, mt or ""),
+                    "model": model, "media_type": mt, "position": n, "shots_in_run": None, "snapshot_id": snap,
+                    "extra": {k: v for k, v in m.items() if k not in ("model", "media_type") and v is not None},
+                    "source": prov})
+    return out
 
 
 POST_MEDIA_USED = {"type", "job_result", "url", "project_publication_id", "job_id", "blog_post_id", "card"}
@@ -391,6 +413,7 @@ def _post_media(m: dict, i: int) -> dict:
     card = m.get("card") if isinstance(m.get("card"), dict) else {}
     video = card.get("video") if isinstance(card.get("video"), dict) else {}
     jr = m.get("job_result") if isinstance(m.get("job_result"), dict) else {}
+    mr = m.get("min_result") if isinstance(m.get("min_result"), dict) else {}
     return {"index": i, "type": _nz(m.get("type")), "url": _nz(jr.get("url") or m.get("url")),
             "project_publication_id": _nz(m.get("project_publication_id")), "job_id": _nz(m.get("job_id")),
             "blog_post_id": _nz(m.get("blog_post_id")), "card_id": _nz(card.get("id")),
@@ -401,6 +424,9 @@ def _post_media(m: dict, i: int) -> dict:
             "width": _int(video.get("width")), "height": _int(video.get("height")),
             "duration_seconds": _float(video.get("duration")),
             "card_stats": card.get("stats") if isinstance(card.get("stats"), dict) else None,
+            "card_likes": _int(card.get("like_count")), "card_views": _int(card.get("views_count")),
+            "card_comments": _int(card.get("comment_count")), "card_published_at": iso_ts(card.get("published_at")),
+            "job_result_thumbnail_url": _nz(jr.get("thumbnail_url")), "min_result_thumbnail_url": _nz(mr.get("thumbnail_url")),
             "extra": {k: drop_viewer_flags(v) for k, v in m.items() if k not in POST_MEDIA_USED and v not in (None, "")}}
 
 
@@ -415,7 +441,9 @@ def parse_post(p: dict, sel: Selection, prov: dict) -> dict:
             "likes": _int(p.get("like_count")), "dislikes": _int(p.get("dislike_count")),
             "comments": _int(p.get("comment_count")), "views": _int(p.get("views_count")),
             "shares": _int(p.get("share_count")), "created_at": iso_ts(p.get("created_at")),
-            "updated_at": iso_ts(p.get("updated_at")), "author": person_ref(p.get("author"), p.get("user_id"), sel),
+            "updated_at": iso_ts(p.get("updated_at")),
+            "author": (a := person_ref(p.get("author"), p.get("user_id"), sel)),
+            "creator_uid_key": creator_uid_key(a["user_id"]),
             "extra": {**{k: drop_viewer_flags(v) for k, v in p.items() if k not in POST_USED and v is not None},
                       **{f"content.{k}": drop_viewer_flags(v) for k, v in content.items()
                          if k not in ("title", "text", "medias", "room_id", "kind") and v is not None}},
@@ -464,13 +492,56 @@ def parse_feed_items(body: Any, offset: int, sel: Selection, prov: dict) -> list
             "made_with_model": _nz(mw.get("model_name")), "media_url": _nz(gen.get("media_url")),
             "thumbnail_url": _nz(gen.get("thumbnail_url")) or _nz(video.get("thumbnail_url")),
             "cover_url": _nz(card.get("cover_url")), "video_url": _nz(video.get("url")),
+            "video_hls_url": _nz(video.get("hls_url")), "video_preview_url": _nz(video.get("preview_url")),
+            "width": _int(video.get("width")), "height": _int(video.get("height")),
+            "duration_seconds": _float(video.get("duration")),
+            "text": _nz(pc.get("text")) if t == "post" else None,
+            "media": [_post_media(m, i) for i, m in enumerate(pc.get("medias") or []) if isinstance(m, dict)]
+            if t == "post" else [],
             "likes": _int(it.get("like_count")), "comments": _int(it.get("comment_count")),
             "shares": _int(it.get("share_count")), "views": _int(views),
             "reading_time_minutes": _int(card.get("reading_time_minutes")),
             "project_stats": card.get("stats") if isinstance(card.get("stats"), dict) else None,
             "created_at": iso_ts(it.get("created_at")), "top_comment_id": _nz(tc.get("id")),
             "top_comment_likes": _int(tc.get("like_count")),
-            "author": person_ref(it.get("author"), None, sel), "snapshot_id": snap, "source": prov})
+            "author": (a := person_ref(it.get("author"), None, sel)),
+            "creator_uid_key": creator_uid_key(a["user_id"]), "snapshot_id": snap,
+            "extra": _feed_item_extra(it), "source": prov})
+    return out
+
+
+FEED_ITEM_USED = {"type", "id", "author", "created_at", "like_count", "comment_count", "share_count", "made_with",
+                  "top_comment", "generation", "card", "post"}
+FEED_SUB_USED = {
+    "generation": {"job_id", "model", "media_type", "media_url", "thumbnail_url", "view_count", "author", "id"},
+    "card": {"id", "title", "slug", "description", "cover_url", "video", "stats", "views_count",
+             "reading_time_minutes", "owner"},
+    "post": {"id", "title", "content", "views_count", "author", "created_at", "like_count", "comment_count",
+             "share_count"},
+    "made_with": {"tool", "model_name"},
+    "top_comment": {"id", "like_count", "author"},
+}
+CARD_VIDEO_USED = {"url", "hls_url", "preview_url", "thumbnail_url", "width", "height", "duration"}
+
+
+def _feed_item_extra(it: dict) -> dict:
+    """Every non-null field of a Feed item the typed columns do not hold (people only as ids; viewer flags never)."""
+    out = {k: drop_viewer_flags(v) for k, v in it.items()
+           if k not in FEED_ITEM_USED and k not in VIEWER_FLAGS and v is not None}
+    for sub, used in FEED_SUB_USED.items():
+        d = it.get(sub) if isinstance(it.get(sub), dict) else {}
+        out.update({f"{sub}.{k}": drop_viewer_flags(v) for k, v in d.items()
+                    if k not in used and k not in VIEWER_FLAGS and v is not None})
+    card = it.get("card") if isinstance(it.get("card"), dict) else {}
+    owner = card.get("owner") if isinstance(card.get("owner"), dict) else {}
+    if owner.get("id"):
+        out["card.owner.id"] = str(owner["id"])
+    video = card.get("video") if isinstance(card.get("video"), dict) else {}
+    out.update({f"card.video.{k}": v for k, v in video.items() if k not in CARD_VIDEO_USED and v is not None})
+    post = it.get("post") if isinstance(it.get("post"), dict) else {}
+    pc = post.get("content") if isinstance(post.get("content"), dict) else {}
+    out.update({f"post.content.{k}": drop_viewer_flags(v) for k, v in pc.items()
+                if k not in ("text", "medias") and v not in (None, "")})
     return out
 
 
@@ -501,10 +572,97 @@ def parse_creators(body: Any, listing: str, offset: int, sel: Selection, prov: d
              "latest_verified_at": iso_ts(u.get("latest_verified_at")), "is_pinned": _bool(u.get("is_pinned")),
              "badge": _nz(u.get("badge")),
              "badge_names": [str(x["name"]) for x in u.get("badges") or [] if isinstance(x, dict) and x.get("name")],
-             "works_count": len(works), "works": works, "source": prov}
+             "works_count": len(works), "works": works, "creator_uid_key": creator_uid_key(u["id"]), "source": prov}
         e.update({k: (_nz(u.get(k)) if sel.with_profiles else None) for k in CREATOR_PROFILE})
         out.append(e)
+        rank = 0
+        for w in u.get("items") or []:       # same items (and order) as `works` above: rank == works index
+            if not isinstance(w, dict):
+                continue
+            out.append(parse_creator_work(w, rank, e, sel, prov))
+            rank += 1
     return out
+
+
+WORK_PROJECT_USED = {
+    "publication_id", "project_id", "name", "slug", "description", "type", "state", "duration_seconds", "cover",
+    "gallery_media", "trailer", "tags", "categories", "contest_key", "author_user_ids", "authors", "team", "views",
+    "likes", "comments", "created_at", "published_at"}
+WORK_MEDIA_USED = {"id", "type", "name", "url", "original_url", "preview_url", "thumbnail_url", "min_url",
+                   "download_url", "width", "height", "duration", "object_fit"}
+# shot fields copied from parse_generation (the same parser as community_generation)
+WORK_GEN_FIELDS = ("generation_id", "publication_id", "job_set_type", "job_set_id", "parent_id", "media_type",
+                   "status", "prompt", "negative_prompt", "settings", "params_extra", "raw_params", "inputs", "results",
+                   "moderation", "created_at", "published_at", "expires_at", "can_upgrade_to_4k", "upgrade_options",
+                   "cluster_hash", "trace_id", "board_ids", "client_meta", "is_bonus_generation", "upstream_usage",
+                   "meta_extra")
+
+
+def _work_media(d: Any, role: str, index: int) -> Optional[dict]:
+    if not isinstance(d, dict):
+        return None
+    return {"index": index, "role": role, "media_id": _nz(d.get("id")), "type": _nz(d.get("type")),
+            "name": _nz(d.get("name")), "url": _nz(d.get("url")), "original_url": _nz(d.get("original_url")),
+            "preview_url": _nz(d.get("preview_url")), "thumbnail_url": _nz(d.get("thumbnail_url")),
+            "min_url": _nz(d.get("min_url")), "download_url": _nz(d.get("download_url")),
+            "width": _int(d.get("width")), "height": _int(d.get("height")),
+            "duration_seconds": _float(d.get("duration")), "object_fit": _nz(d.get("object_fit")),
+            "extra": {k: v for k, v in d.items() if k not in WORK_MEDIA_USED and v is not None}}
+
+
+def parse_creator_work(w: dict, rank: int, card: dict, sel: Selection, prov: dict) -> dict:
+    """One users[].items[] entry in full -> community_creator_work. `shot` items are published generation objects
+    (parsed with parse_generation, like the gallery feeds); `project` items are project publication cards."""
+    item = w.get("item") if isinstance(w.get("item"), dict) else {}
+    t = str(w.get("type") or "unknown")
+    uid = card["user_id"]
+    pub = item.get("publication") if isinstance(item.get("publication"), dict) else {}
+    e: dict[str, Any] = {
+        "kind": "community_creator_work", "work_id": make_id("creator_work", card["listing"], uid, rank),
+        "record_id": card["record_id"], "listing": card["listing"], "creator_user_id": uid,
+        "creator_uid_key": creator_uid_key(uid), "rank": rank, "item_type": t,
+        "item_id": _nz(item.get("publication_id")) or _nz(pub.get("id")) or _nz(item.get("id")),
+        "is_pinned": _bool(w.get("is_pinned")), "source": prov}
+    if t == "shot" or (t != "project" and item.get("job_set_type")):
+        g = parse_generation(item, "detail", sel, prov)
+        e.update({k: g[k] for k in WORK_GEN_FIELDS})
+        params = item.get("params") if isinstance(item.get("params"), dict) else {}
+        eng = g["engagement"]
+        e.update({"enhanced_prompt": _nz(params.get("enhanced_prompt")), "likes": eng["likes"], "views": eng["views"],
+                  "approved": eng["approved"], "pinned_at": eng["pinned_at"],
+                  "url": f"{SITE}/community/generations?shot={g['publication_id']}" if g["publication_id"] else None,
+                  "params_extra": drop_viewer_flags(g["params_extra"]),
+                  "extra": drop_viewer_flags(g["extra"])})
+        return e
+    cover = _work_media(item.get("cover"), "cover", 0)
+    trailer = _work_media(item.get("trailer"), "trailer", 0)
+    gallery = [m for i, x in enumerate(item.get("gallery_media") or []) if (m := _work_media(x, "gallery", i))]
+    authors = [str(a) for a in item.get("author_user_ids") or [] if a]
+    team = item.get("team") if isinstance(item.get("team"), dict) else {}
+    extra = {k: drop_viewer_flags(v) for k, v in item.items()
+             if k not in WORK_PROJECT_USED and k not in VIEWER_FLAGS and v is not None}
+    if team.get("id"):
+        extra["team.id"] = str(team["id"])
+    e.update({
+        "title": _nz(item.get("name")), "description": _nz(item.get("description")), "slug": _nz(item.get("slug")),
+        "url": None, "likes": _int(item.get("likes")), "views": _int(item.get("views")),
+        "comments": _int(item.get("comments")), "created_at": iso_ts(item.get("created_at")),
+        "published_at": iso_ts(item.get("published_at")),
+        "project_publication_id": _nz(item.get("publication_id")), "project_id": _nz(item.get("project_id")),
+        "project_type": _nz(item.get("type")), "state": _nz(item.get("state")),
+        "duration_seconds": _float(item.get("duration_seconds")),
+        "cover_url": cover["url"] if cover else None, "cover_width": cover["width"] if cover else None,
+        "cover_height": cover["height"] if cover else None,
+        "trailer_url": trailer["url"] if trailer else None,
+        "trailer_thumbnail_url": trailer["thumbnail_url"] if trailer else None,
+        "trailer_duration_seconds": trailer["duration_seconds"] if trailer else None,
+        "gallery_media": ([cover] if cover else []) + gallery + ([trailer] if trailer else []),
+        "tags": _strs(item.get("tags")),
+        "categories": [str(c.get("slug") or c.get("id")) if isinstance(c, dict) else str(c)
+                       for c in item.get("categories") or [] if c is not None],
+        "contest_key": _nz(item.get("contest_key")), "author_user_ids": authors,
+        "author_uid_keys": [k for a in authors if (k := creator_uid_key(a))], "extra": extra})
+    return e
 
 
 def parse_page(env, feed: str) -> dict:
@@ -590,6 +748,9 @@ def parse_envelope(env, sel: Selection) -> list[dict]:
         return parse_collection(env.body, env.params.get("slug", ""), prov)
     if ep == EXPLORE_CARDS_ENDPOINT:
         return parse_explore_cards(env.body, _int(env.params.get("offset")) or 0, prov)
+    # ---- opt-in Feed hashtag categories (never requested by default runs)
+    if ep in (FEED_CATEGORIES_ENDPOINT, FEED_ONGOING_ENDPOINT):
+        return parse_feed_categories(env.body, "categories" if ep == FEED_CATEGORIES_ENDPOINT else "ongoing", prov)
     return []
 
 
@@ -733,7 +894,8 @@ def parse_showcase_job(job: dict, slug: str, movie: dict, mi: int, pos: int, sel
         "client_meta": job.get("job_set_client_meta") if isinstance(job.get("job_set_client_meta"), dict) else None,
         "meta_extra": _dict(job.get("meta")),
         "extra": {k: v for k, v in job.items() if k not in SHOWCASE_TOP and v is not None},
-        "creator": person_ref(job.get("user"), job.get("user_id"), sel), "source": prov}
+        "creator": (c := person_ref(job.get("user"), job.get("user_id"), sel)),
+        "creator_uid_key": creator_uid_key(c["user_id"]), "source": prov}
 
 
 def parse_job_showcase(body: Any, slug: str, sel: Selection, prov: dict) -> list[dict]:
@@ -782,4 +944,29 @@ def parse_explore_cards(body: Any, offset: int, prov: dict) -> list[dict]:
                     "href_mobile": _nz(it.get("href_mobile")), "media_type": _nz(m.get("type")),
                     "media_url": _nz(m.get("url")), "width": _int(m.get("width")), "height": _int(m.get("height")),
                     "has_placeholder": bool(m.get("placeholder")), "extra": extra, "source": prov})
+    return out
+
+
+# ------------------------------------------------------------------ opt-in Feed hashtag categories
+FEED_CATEGORY_USED = {"slug", "short_title", "title", "description", "hashtag", "post_count", "previews"}
+
+
+def parse_feed_categories(body: Any, source_list: str, prov: dict) -> list[dict]:
+    """fnf-community /feed/categories ({categories[]}) and /feed/ongoing ({items[]}) -> community_feed_category."""
+    b = _dict(body)
+    items = b.get("categories") if isinstance(b.get("categories"), list) else _items_of(b)
+    out = []
+    for n, it in enumerate(x for x in items if isinstance(x, dict)):
+        key = _nz(it.get("slug")) or _nz(it.get("id")) or _nz(it.get("hashtag"))
+        if key is None:
+            continue
+        out.append({"kind": "community_feed_category", "category_id": make_id("feed_category", source_list, key),
+                    "source_list": source_list, "position": n, "slug": _nz(it.get("slug")),
+                    "short_title": _nz(it.get("short_title")), "title": _nz(it.get("title")),
+                    "description": _nz(it.get("description")), "hashtag": _nz(it.get("hashtag")),
+                    "post_count": _int(it.get("post_count")),
+                    "previews": [str(u) for u in it.get("previews") or [] if isinstance(u, str) and u.strip()],
+                    "extra": {k: drop_viewer_flags(v) for k, v in it.items()
+                              if k not in FEED_CATEGORY_USED and k not in VIEWER_FLAGS and v is not None},
+                    "source": prov})
     return out

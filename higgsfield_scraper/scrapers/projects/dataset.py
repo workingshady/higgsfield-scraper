@@ -12,7 +12,8 @@ from ...core.exporting import without, write_standard_outputs
 from . import endpoints as ep
 from .options import Selection
 from .parsers import best_video_url
-from .schemas import NESTED_COLLECTIONS, ProjectsDataset, ProjectsNestedDataset
+from .schemas import (EXTRA_COLLECTIONS, NESTED_COLLECTIONS, ProjectsDataset, ProjectsExtrasDataset,
+                      ProjectsNestedDataset, ProjectsNestedExtrasDataset)
 
 NEVER_OVERRIDE = {"source", "listing", "detail_source", "detail_fetched", "extra"}
 
@@ -102,6 +103,9 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
     nested = _nested(entities, publications, warnings) if getattr(sel, "nested", False) else None
     if nested is not None:
         counts.update({k: len(nested[k]) for k in NESTED_COLLECTIONS})
+    extras = _extras(entities, sel, rm, warnings) if getattr(sel, "extras", False) else None
+    if extras is not None:
+        counts.update({k: len(extras[k]) for k in EXTRA_COLLECTIONS})
     meta = make_meta("projects", sel, rm, counts=counts,
                      endpoints={**{k: f"{API_BASE}{v}" for k, v in ep.ENDPOINTS.items()},
                                 **({k: f"{ep.SERIES_BASE}{v}" for k, v in ep.PUBLIC_SERIES_ENDPOINTS.items()}
@@ -111,9 +115,46 @@ def build_dataset(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta) 
     ds = {"schema_version": 1, "meta": meta, "publications": publications, "episodes": episodes,
           "categories": categories, "contests": contests, "submissions": submissions, "series": series,
           "listing_entries": entries, "summary": summary}
+    if extras is not None:                                    # opt-in extras (2026-11-26)
+        model = ProjectsNestedExtrasDataset if nested is not None else ProjectsExtrasDataset
+        return model.model_validate({**ds, **(nested or {}), **extras}).model_dump(mode="json")
     if nested is None:
         return ProjectsDataset.model_validate(ds).model_dump(mode="json")
     return ProjectsNestedDataset.model_validate({**ds, **nested}).model_dump(mode="json")
+
+
+# ------------------------------------------------------------------ opt-in extras (trending, participation, works)
+def _extras(entities: dict[str, list[dict]], sel: Selection, rm: RunMeta, warnings: list[str]) -> dict:
+    g = lambda k: [_strip(e) for e in entities.get(k) or []]  # noqa: E731
+    trending = sorted(g("projects_trending_row"), key=lambda r: (r["listing"], r.get("position") is None,
+                                                                 r.get("position") or 0))
+    parts: dict[str, dict] = {}
+    for c in g("projects_participation_counters"):
+        row = parts.setdefault(c["contest_key"], {"contest_key": c["contest_key"]})
+        row.update({k: c.get(k) for k in ("total", "public_total", "private_total")},
+                   counters_source_url=c.get("source_url"), scraped_at=row.get("scraped_at") or c.get("scraped_at"))
+        if c.get("extra"):
+            row.setdefault("extra", {})["counters"] = c["extra"]
+    for c in g("projects_participation_config"):
+        row = parts.setdefault(c["contest_key"], {"contest_key": c["contest_key"]})
+        row.update({k: v for k, v in c.items() if k not in ("contest_key", "source", "source_url", "scraped_at",
+                                                              "schema_version", "extra")},
+                   config_source_url=c.get("source_url"), scraped_at=row.get("scraped_at") or c.get("scraped_at"))
+        if c.get("extra"):
+            row.setdefault("extra", {})["config"] = c["extra"]
+    for row in parts.values():
+        row["contest_slug"] = ep.CONTEST_KEY_SLUG.get(row["contest_key"])
+    works, stats = g("projects_user_work"), g("projects_user_stats")
+    totals = rm.totals or {}
+    for st in stats:
+        st["works_total"] = totals.get(f"user_works:{st['creator_uid_key']}")
+    if getattr(sel, "with_user_works", False) and not stats and not works:
+        warnings.append("--with-user-works: no users found in this run (it follows owners of --users projects, "
+                        "contest entries and contest submitters only)")
+    if sel.wants("trending") and not trending:
+        warnings.append("--what trending: no ranking rows scraped")
+    return {"trending": trending, "contest_participation": list(parts.values()), "user_works": works,
+            "user_stats": stats}
 
 
 # ------------------------------------------------------------------ nested project data (opt-in)
@@ -132,9 +173,15 @@ def _nested_endpoints(sel: Selection) -> dict[str, str]:
         keys.append("projects_comments")
     if getattr(sel, "with_project_related", False):
         keys.append("projects_related")
+    if sel.wants("trending"):
+        keys.append("projects_trending")
+    if sel.wants("contest-participation"):
+        keys += ["projects_participation_counters", "projects_participation_config"]
+    if getattr(sel, "with_user_works", False):
+        keys += ["projects_user_works", "projects_user_stats"]
     out = {}
     for k in keys:
-        base, path = ep.NESTED_ENDPOINTS[k]
+        base, path = ep.NESTED_ENDPOINTS.get(k) or ep.EXTRA_ENDPOINTS[k]
         out[k] = f"{base or API_BASE}{path}"
     return out
 
@@ -254,7 +301,33 @@ def csv_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
         "series": ([row(s) for s in ds["series"]], ["series_id", "slug", "title"]),
         "listing_entries": ([row(e) for e in ds["listing_entries"]], ["listing", "position", "publication_id"]),
         **(_nested_tables(ds) if "assets" in ds else {}),
+        **(_extra_tables(ds) if "user_works" in ds else {}),
     }
+
+
+WORK_CHILDREN = ("variants", "input_media", "params")
+
+
+def _extra_tables(ds: dict) -> dict[str, tuple[list[dict], list[str]]]:
+    from ...core.exporting import row
+    wk = lambda w: {"work_id": w["work_id"], "creator_uid_key": w.get("creator_uid_key"),  # noqa: E731
+                    "job_id": w.get("job_id")}
+    return {
+        "trending": ([row(r) for r in ds["trending"]], ["listing", "position", "publication_id"]),
+        "contest_participation": ([row(r) for r in ds["contest_participation"]], ["contest_key", "total"]),
+        "user_works": ([row(without(w, *WORK_CHILDREN), params=_json(w.get("params"))) for w in ds["user_works"]],
+                       ["creator_uid_key", "position", "publication_type", "work_id", "job_set_type"]),
+        "user_work_variants": ([row(v, **wk(w)) for w in ds["user_works"] for v in w["variants"]],
+                               ["work_id", "variant"]),
+        "user_work_inputs": ([row(i, **wk(w)) for w in ds["user_works"] for i in w["input_media"]],
+                             ["work_id", "position"]),
+        "user_stats": ([row(s) for s in ds["user_stats"]], ["creator_uid_key"]),
+    }
+
+
+def _json(v: Any) -> Optional[str]:
+    import json
+    return json.dumps(v, ensure_ascii=False, sort_keys=True) if v else None
 
 
 ASSET_CHILDREN = ("variants", "input_media")
@@ -285,6 +358,8 @@ def json_parts(ds: dict) -> dict[str, Any]:
             "summary"]
     if "assets" in ds:
         keys += list(NESTED_COLLECTIONS) + ["nested_summary"]
+    if "user_works" in ds:
+        keys += list(EXTRA_COLLECTIONS)
     return {k: ds[k] for k in keys}
 
 
@@ -336,6 +411,8 @@ def summary_md(ds: dict) -> str:
         if n.get("assets_by_model"):
             lines += ["", "Assets by model: " + ", ".join(f"{k} {v}" for k, v in
                                                           sorted(n["assets_by_model"].items(), key=lambda kv: -kv[1]))]
+    if "user_works" in ds:
+        lines += _extras_md(ds)
     if m.get("limits_hit"):
         lines += ["", "## Limits hit", ""] + [f"- {x}" for x in m["limits_hit"]]
     if m.get("warnings"):
@@ -343,11 +420,33 @@ def summary_md(ds: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+def _extras_md(ds: dict) -> list[str]:
+    lines: list[str] = []
+    if ds["trending"]:
+        tot = {r["listing"]: r.get("total_reported") for r in ds["trending"]}
+        lines += ["", "## Trending projects", "", "| listing | rows | total reported |", "|---|---:|---:|"]
+        lines += [f"| {k} | {sum(1 for r in ds['trending'] if r['listing'] == k)} | {v} |" for k, v in tot.items()]
+    if ds["contest_participation"]:
+        lines += ["", "## Contest participation", "", "| contest | stage | total | public | private |",
+                  "|---|---|---:|---:|---:|"]
+        lines += [f"| {r['contest_key']} | {r.get('stage')} | {r.get('total')} | {r.get('public_total')} | "
+                  f"{r.get('private_total')} |" for r in ds["contest_participation"]]
+    if ds["user_works"] or ds["user_stats"]:
+        by_type = Counter(w.get("publication_type") or "unknown" for w in ds["user_works"])
+        lines += ["", "## User works (pseudonymous)", "", f"- users: {len(ds['user_stats'])}",
+                  f"- works: {len(ds['user_works'])} ("
+                  + ", ".join(f"{k} {v}" for k, v in sorted(by_type.items())) + ")",
+                  f"- with prompt: {sum(1 for w in ds['user_works'] if w.get('prompt'))}"]
+    return lines
+
+
 def write_outputs(ds: dict, out_dir: Path) -> list[Path]:
     nested = "assets" in ds
+    model = ProjectsNestedDataset if nested else ProjectsDataset
+    if "user_works" in ds:                                    # opt-in extras
+        model = ProjectsNestedExtrasDataset if nested else ProjectsExtrasDataset
     files = write_standard_outputs(ds, out_dir, json_parts=json_parts(ds), csv_tables=csv_tables(ds),
-                                   dataset_model=ProjectsNestedDataset if nested else ProjectsDataset,
-                                   summary_md=summary_md(ds))
+                                   dataset_model=model, summary_md=summary_md(ds))
     for b in ds.get("briefs") or []:                          # --with-project-brief: output/briefs/<slug>.md
         if b.get("file") and b.get("markdown"):
             path = out_dir / b["file"]
@@ -395,6 +494,13 @@ def media_urls(entity: dict, mode: str) -> list[tuple[str, str]]:
         full += [("original", entity["url"])] if entity.get("url") and not str(entity["url"]).split("?")[0] \
             .endswith(".m3u8") else []
         if entity.get("min_url") and entity.get("min_url") not in (thumb, entity.get("url")):
+            other.append(("preview", entity["min_url"]))
+    elif kind == "projects_user_work":                        # --with-user-works: <run>/media/projects_user_work/
+        thumb = entity.get("thumbnail_url") or (entity.get("min_url") if entity.get("media_type") == "image" else None)
+        thumbs += [("thumb", thumb)] if thumb else []
+        main = entity.get("url") or entity.get("video_url")
+        full += [("original", main)] if main and not str(main).split("?")[0].endswith(".m3u8") else []
+        if entity.get("min_url") and entity.get("min_url") not in (thumb, main):
             other.append(("preview", entity["min_url"]))
     if mode == "thumbs":
         return thumbs

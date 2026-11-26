@@ -131,7 +131,7 @@ erDiagram
     INFLUENCER_OPTION { string id PK  string category_key  string subcategory_key  string option_key }
     GALLERY_ITEM { string id PK  string job_id  string job_set_type  string studio  string feed  string publication_id  string generation_key  int views  int likes }
     COMMENT { string id PK  string comment_id  string publication_id FK  string content  int likes }
-    AUTHOR { string author_key PK "sha256-16 of the Clerk user id" }
+    AUTHOR { string author_key PK "sha256-16 of the Clerk user id (= creator_uid_key)" }
 ```
 
 Every entity: `id` = `make_id(kind, natural key)` (16 hex), `source_url`, `scraped_at` (UTC), `schema_version` = 1,
@@ -233,6 +233,10 @@ Login adds nothing public. Pages `/brands`, `/products`, `/ai-host`, `/ai-host/c
 
 - Authors are `author_key` = `make_id("creator", user_id)` (same hash as showcase `creator_key`). With
   `--with-profiles`: `author{user_id, name, avatar_url}`.
+- `creator_uid_key` (apps, games, skills, employees, gallery_items, comments) = `core.privacy.creator_uid_key(<Clerk
+  user id>)`: the same hash as `author_key`, under the column name all scrapers share (COMPLETENESS fix #10). It is
+  null when the id is missing or redacted, and on gallery items whose `author_key` falls back to the profile
+  username (not a Clerk id, so not joinable).
 - Archives (`raw/`, `http/`) are redacted by the framework (`personal_data=True`). `author.name` of apps, games,
   skills and employees is **not** a core `PERSONAL_KEYS` entry, so the spider blanks it before the body is archived in
   `raw/` (`parsers.redact_author_names`). The `http/` archive is written by the core middleware from the raw response

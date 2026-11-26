@@ -44,6 +44,8 @@ class Badge(Strict):
 class Person(Strict):
     role: str = Field(description="author | team | winner | contestant | submitter | series_author")
     author_key: Optional[str] = Field(None, description="pseudonymous stable key = sha256(user id)[:16]")
+    creator_uid_key: Optional[str] = Field(None, description="cross-scraper pseudonymous key = "
+                                                             "core.privacy.creator_uid_key(<clerk user id>)")
     is_owner: Optional[bool] = None
     total_projects_views: Optional[int] = None
     total_projects_likes: Optional[int] = None
@@ -110,6 +112,7 @@ class Publication(Strict):
     episode_count: Optional[int] = Field(None, description="series only: number of gallery videos (= episodes)")
     author_count: int = 0
     author_keys: list[str] = Field(default_factory=list)
+    creator_uid_keys: list[str] = Field(default_factory=list, description="authors' cross-scraper creator_uid_key")
     authors: list[Person] = Field(default_factory=list)
     team: Optional[Person] = None
     views: Optional[int] = None
@@ -123,6 +126,11 @@ class Publication(Strict):
     free_generations: Optional[int] = Field(None, description="detail: generations that cost no credits")
     size_bytes: Optional[int] = Field(None, description="detail: project size")
     model_usage: list[ModelUsage] = Field(default_factory=list, description="detail: models used + credits spent")
+    listing_credits_spent: Optional[float] = Field(
+        None, description="stats.credits_spent as the profile listing (/user/{handle}/v2/publications) reports it: "
+                          "a different unit than the detail's credits_spent (observed = credits_spent x 100)")
+    listing_model_usage: list[ModelUsage] = Field(
+        default_factory=list, description="stats.stack of the profile listing (credits_spent in the listing's unit)")
     created_at: Optional[str] = None
     published_at: Optional[str] = None
     project_updated_at: Optional[str] = None
@@ -158,6 +166,16 @@ class Episode(Strict):
     is_locked: Optional[bool] = None
     is_adults_only: Optional[bool] = None
     url: Optional[str] = None
+    # public series (fnf-series) media variants, added 2026-11-26 (None for publication-gallery episodes)
+    thumbnail_optimized_url: Optional[str] = Field(None, description="thumbnail.optimized.url (webp)")
+    hls_url: Optional[str] = Field(None, description="video.hls.url")
+    hls_job_id: Optional[str] = Field(None, description="video.hls.job_id (transcode job)")
+    hls_status: Optional[str] = Field(None, description="video.hls.status")
+    video_original_width: Optional[int] = Field(None, description="video.original.width")
+    video_original_height: Optional[int] = Field(None, description="video.original.height")
+    shimmer_url: Optional[str] = Field(None, description="video.shimmer.url (animated webp placeholder)")
+    shimmer_width: Optional[int] = None
+    shimmer_height: Optional[int] = None
     source: Provenance
     extra: Extra = Field(default_factory=dict)
 
@@ -207,6 +225,7 @@ class Judge(Strict):
     position: int
     display_name: Optional[str] = None
     description: Optional[str] = None
+    creator_uid_key: Optional[str] = Field(None, description="cross-scraper pseudonymous key of the judge's user id")
     # --with-profiles only
     user_id: Optional[str] = None
     avatar_url: Optional[str] = None
@@ -321,6 +340,13 @@ class Series(Strict):
     logo_url: Optional[str] = None
     trailer_url: Optional[str] = None
     trailer_hls_url: Optional[str] = None
+    portrait_optimized_url: Optional[str] = Field(None, description="portrait.optimized.url (webp)")
+    landscape_optimized_url: Optional[str] = Field(None, description="landscape.optimized.url (webp)")
+    background_optimized_url: Optional[str] = Field(None, description="background.optimized.url (webp)")
+    logo_optimized_url: Optional[str] = Field(None, description="logo.optimized.url")
+    trailer_width: Optional[int] = Field(None, description="trailer.original.width")
+    trailer_height: Optional[int] = Field(None, description="trailer.original.height")
+    trailer_hls_job_id: Optional[str] = Field(None, description="trailer.hls.job_id")
     project_url: Optional[str] = None
     project_publication_id: Optional[str] = None
     duration_seconds: Optional[float] = None
@@ -427,6 +453,8 @@ class ProjectFolder(_NestedBase):
     assets_scraped: Optional[int] = Field(None, description="assets scraped in this folder or below it "
                                                             "(build-time check against asset_count)")
     owner_key: Optional[str] = Field(None, description="pseudonymous owner key = sha256(user id)[:16]")
+    creator_uid_key: Optional[str] = Field(None, description="the owner's cross-scraper creator_uid_key")
+    path: Optional[str] = Field(None, description="raw id path '/<root id>/<folder id>/.../'")
     owner_user_id: Optional[str] = Field(None, description="--with-profiles only")
     owner_username: Optional[str] = Field(None, description="--with-profiles only")
     extra: Extra = Field(default_factory=dict)
@@ -500,6 +528,7 @@ class ProjectAsset(_NestedBase):
     created_at: Optional[str] = None
     uploaded_at: Optional[str] = None
     creator_key: Optional[str] = Field(None, description="pseudonymous creator key = sha256(user id)[:16]")
+    creator_uid_key: Optional[str] = Field(None, description="cross-scraper creator_uid_key of the creator")
     creator_user_id: Optional[str] = Field(None, description="--with-profiles only")
     creator_username: Optional[str] = Field(None, description="--with-profiles only")
     extra: Extra = Field(default_factory=dict)
@@ -578,6 +607,21 @@ class ProjectComment(_NestedBase):
     extra: Extra = Field(default_factory=dict)
 
 
+class RelatedMedia(Strict):
+    position: int
+    media_id: Optional[str] = None
+    type: Optional[str] = None
+    name: Optional[str] = None
+    url: Optional[str] = Field(None, description="primary URL (videos: HLS .m3u8)")
+    original_url: Optional[str] = None
+    preview_url: Optional[str] = None
+    thumbnail_url: Optional[str] = None
+    download_url: Optional[str] = None
+    width: Optional[int] = None
+    height: Optional[int] = None
+    duration: Optional[float] = Field(None, description="seconds")
+
+
 class ProjectRelated(_NestedBase):
     """One entry of the page's related-projects list (recommended?scope=...&current_publication_id=...)."""
 
@@ -596,6 +640,23 @@ class ProjectRelated(_NestedBase):
     cover_url: Optional[str] = None
     author_keys: list[str] = Field(default_factory=list)
     feed_source: Optional[str] = None
+    # project card media (added 2026-11-26, COMPLETENESS #6)
+    title: Optional[str] = Field(None, description="= name (the card title)")
+    description: Optional[str] = None
+    duration_seconds: Optional[float] = None
+    tags: list[str] = Field(default_factory=list)
+    show_prompts: Optional[bool] = None
+    created_at: Optional[str] = None
+    cover_width: Optional[int] = None
+    cover_height: Optional[int] = None
+    trailer_url: Optional[str] = None
+    trailer_thumbnail_url: Optional[str] = None
+    trailer_width: Optional[int] = None
+    trailer_height: Optional[int] = None
+    trailer_duration_seconds: Optional[float] = None
+    gallery_media: list[RelatedMedia] = Field(default_factory=list)
+    team: Optional[Person] = None
+    creator_uid_keys: list[str] = Field(default_factory=list)
 
 
 NESTED_MODEL_BY_KIND = {
@@ -674,3 +735,219 @@ class ProjectsNestedDataset(ProjectsDataset):
 
 
 NESTED_COLLECTIONS = ("folders", "assets", "briefs", "project_stats", "stack_items", "comments", "related")
+
+
+# ====================================================================== opt-in extras (2026-11-26)
+# --what trending, --what contest-participation, --with-user-works. Only built when selected; the default and the
+# nested datasets are unchanged. Docs: docs/scrapers/projects.md "Trending, contest participation, user works".
+class TrendingRow(_NestedBase):
+    """One rank of the trending project ranking (GET /project-publications/trending; the only project listing that
+    reports a `total`). The publication itself is in `publications` (listing 'trending...')."""
+
+    row_id: str = Field(description="sha256(snapshot or listing, publication_id)[:16]")
+    publication_id: str
+    position: Optional[int] = Field(None, description="0-based rank (API feed_position - 1, else page offset + index)")
+    feed_position: Optional[int] = Field(None, description="API feed_position (1-based)")
+    feed_lane: Optional[str] = Field(None, description="API feed_lane")
+    listing: str = Field(description="trending[:filter=...][:sort=...][:with_contest]")
+    sort: Optional[str] = Field(None, description="default | most_viewed | most_liked | newest | oldest")
+    filter: Optional[str] = Field(None, description="all | non_contest | contest | talents_hub (None = not sent)")
+    with_contest: bool = False
+    total_reported: Optional[int] = Field(None, description="API `total` of the ranking")
+    snapshot_id: Optional[str] = Field(None, description="feed.snapshot_id (one ranking snapshot)")
+    feed_source: Optional[str] = None
+    feed_version: Optional[str] = None
+    page_cursor: Optional[str] = None
+    index_in_page: int = 0
+
+
+class ParticipationCounters(_NestedBase):
+    """GET /contest-participations/publications/counters?contest_key=...: entry counts of a contest."""
+
+    contest_key: str = Field(description="ai_film_festival | talent_contest")
+    total: Optional[int] = None
+    public_total: Optional[int] = None
+    private_total: Optional[int] = None
+    extra: Extra = Field(default_factory=dict)
+
+
+class ParticipationConfig(_NestedBase):
+    """GET /contest-participations/config?contest_key=...: stage, windows and rules of a contest."""
+
+    contest_key: str
+    display_name: Optional[str] = None
+    stage: Optional[str] = Field(None, description="upcoming | open | closed | voting")
+    starts_at: Optional[str] = None
+    submissions_close_at: Optional[str] = None
+    create_in_public_closes_at: Optional[str] = None
+    submissions_visible_at: Optional[str] = None
+    voting_opens_at: Optional[str] = None
+    voting_closes_at: Optional[str] = None
+    rules_version: Optional[int] = None
+    allows_multiple_projects: Optional[bool] = None
+    max_projects: Optional[int] = None
+    max_team_size: Optional[int] = None
+    max_public_submissions: Optional[int] = None
+    votes_per_user: Optional[int] = None
+    watch_required: Optional[bool] = None
+    final_submissions_open_at: Optional[str] = Field(None, description="timeline.final_submissions_open_at")
+    judging_closes_at: Optional[str] = Field(None, description="timeline.judging_closes_at")
+    results_announced_at: Optional[str] = Field(None, description="timeline.results_announced_at")
+    final_min_seconds: Optional[float] = Field(None, description="limits.final_min_seconds")
+    final_max_seconds: Optional[float] = Field(None, description="limits.final_max_seconds")
+    min_generations: Optional[int] = Field(None, description="limits.min_generations")
+    live_min_seconds: Optional[float] = Field(None, description="limits.live_min_seconds")
+    countries: Optional[list[Any]] = None
+    extra: Extra = Field(default_factory=dict)
+
+
+class ContestParticipation(Strict):
+    """counters + config of one contest_key, merged by build_dataset (collection `contest_participation`)."""
+
+    contest_key: str
+    contest_slug: Optional[str] = None
+    total: Optional[int] = None
+    public_total: Optional[int] = None
+    private_total: Optional[int] = None
+    display_name: Optional[str] = None
+    stage: Optional[str] = None
+    starts_at: Optional[str] = None
+    submissions_close_at: Optional[str] = None
+    create_in_public_closes_at: Optional[str] = None
+    submissions_visible_at: Optional[str] = None
+    voting_opens_at: Optional[str] = None
+    voting_closes_at: Optional[str] = None
+    rules_version: Optional[int] = None
+    allows_multiple_projects: Optional[bool] = None
+    max_projects: Optional[int] = None
+    max_team_size: Optional[int] = None
+    max_public_submissions: Optional[int] = None
+    votes_per_user: Optional[int] = None
+    watch_required: Optional[bool] = None
+    final_submissions_open_at: Optional[str] = None
+    judging_closes_at: Optional[str] = None
+    results_announced_at: Optional[str] = None
+    final_min_seconds: Optional[float] = None
+    final_max_seconds: Optional[float] = None
+    min_generations: Optional[int] = None
+    live_min_seconds: Optional[float] = None
+    countries: Optional[list[Any]] = None
+    counters_source_url: Optional[str] = None
+    config_source_url: Optional[str] = None
+    scraped_at: Optional[str] = None
+    extra: Extra = Field(default_factory=dict)
+
+
+class UserWork(_NestedBase):
+    """One published work of a user (GET /user/{user_id}/v2/publications, --with-user-works; only users already
+    found in the run). `asset` works are full generations (prompt, params, results) and carry `generation_key` +
+    `media_keys` for scripts/merge_generations.py; other types (project_publication, folder, contest_submission)
+    are summary rows. Pseudonymous: user_id/username/avatar only with --with-profiles."""
+
+    work_id: str = Field(description="sha256(creator_uid_key, publication_type, item id)[:16]")
+    creator_uid_key: Optional[str] = Field(None, description="the profile owner's cross-scraper key")
+    creator_key: Optional[str] = Field(None, description="= the projects author_key of the owner")
+    position: Optional[int] = Field(None, description="0-based order in the profile listing")
+    publication_type: Optional[str] = Field(None, description="asset | project_publication | folder | "
+                                                              "contest_submission")
+    publication_id: Optional[str] = Field(None, description="asset: the generation's publication id (id_); "
+                                                            "project: publication_id")
+    generation_key: Optional[str] = Field(None, description="'job:<job id>' for assets (merge_generations key)")
+    media_keys: list[str] = Field(default_factory=list, description="'media:<uuid>' of the output URLs")
+    job_id: Optional[str] = Field(None, description="asset: data.id (the job)")
+    status: Optional[str] = None
+    job_set_id: Optional[str] = None
+    job_set_type: Optional[str] = Field(None, description="model key, e.g. seedream_v5_lite")
+    job_set_parent_id: Optional[str] = None
+    job_source: Optional[str] = Field(None, description="job_set_client_meta.source")
+    media_type: Optional[str] = Field(None, description="image | video | audio")
+    prompt: Optional[str] = None
+    params: dict[str, Any] = Field(default_factory=dict, description="generation parameters, verbatim")
+    aspect_ratio: Optional[str] = None
+    resolution: Optional[str] = None
+    width: Optional[int] = None
+    height: Optional[int] = None
+    duration_seconds: Optional[float] = None
+    seed: Optional[int] = None
+    batch_size: Optional[int] = None
+    input_media: list[AssetInput] = Field(default_factory=list)
+    url: Optional[str] = Field(None, description="asset: results.raw.url")
+    min_url: Optional[str] = None
+    thumbnail_url: Optional[str] = None
+    hls_url: Optional[str] = None
+    h264_url: Optional[str] = None
+    variants: list[AssetVariant] = Field(default_factory=list)
+    likes: Optional[int] = Field(None, description="asset: publication.likes_count; project: likes")
+    views: Optional[int] = Field(None, description="asset: publication.views_count; project: views")
+    listing_views: Optional[int] = Field(None, description="top-level `views` of the profile item")
+    clones: Optional[int] = Field(None, description="top-level `clones` of the profile item")
+    approved: Optional[bool] = None
+    pinned_at: Optional[str] = None
+    created_at: Optional[str] = None
+    published_at: Optional[str] = None
+    # project_publication / folder / contest_submission summary fields
+    name: Optional[str] = Field(None, description="project name / folder name / submission title")
+    slug: Optional[str] = None
+    description: Optional[str] = None
+    cover_url: Optional[str] = None
+    folder_id: Optional[str] = None
+    submission_id: Optional[str] = None
+    contest_id: Optional[str] = None
+    contest_slug: Optional[str] = None
+    contest_key: Optional[str] = None
+    video_url: Optional[str] = None
+    preview_url: Optional[str] = None
+    credits_spent_raw: Optional[float] = Field(None, description="project: stats.credits_spent (listing unit)")
+    generations_count: Optional[int] = None
+    # --with-profiles only
+    user_id: Optional[str] = None
+    username: Optional[str] = None
+    avatar_url: Optional[str] = None
+    extra: Extra = Field(default_factory=dict)
+
+
+class UserStats(_NestedBase):
+    """GET /user/{user_id}/stats (--with-user-works)."""
+
+    creator_uid_key: str
+    creator_key: Optional[str] = None
+    posts_count: Optional[int] = None
+    likes_count: Optional[int] = None
+    views_count: Optional[int] = None
+    works_total: Optional[int] = Field(None, description="filled by build_dataset: the works listing's `total`")
+    user_id: Optional[str] = Field(None, description="--with-profiles only")
+    extra: Extra = Field(default_factory=dict)
+
+
+EXTRA_MODEL_BY_KIND = {
+    "projects_trending_row": TrendingRow,
+    "projects_participation_counters": ParticipationCounters,
+    "projects_participation_config": ParticipationConfig,
+    "projects_user_work": UserWork,
+    "projects_user_stats": UserStats,
+}
+EXTRA_ID_FIELD_BY_KIND = {
+    "projects_trending_row": "row_id",
+    "projects_participation_counters": "contest_key",
+    "projects_participation_config": "contest_key",
+    "projects_user_work": "work_id",
+    "projects_user_stats": "creator_uid_key",
+}
+MODEL_BY_KIND.update(EXTRA_MODEL_BY_KIND)
+ID_FIELD_BY_KIND.update(EXTRA_ID_FIELD_BY_KIND)
+EXTRA_COLLECTIONS = ("trending", "contest_participation", "user_works", "user_stats")
+
+
+class _Extras(Strict):
+    trending: list[TrendingRow] = Field(default_factory=list)
+    contest_participation: list[ContestParticipation] = Field(default_factory=list)
+    user_works: list[UserWork] = Field(default_factory=list)
+    user_stats: list[UserStats] = Field(default_factory=list)
+
+
+class ProjectsExtrasDataset(_Extras, ProjectsDataset):
+    """ProjectsDataset + the opt-in extras (trending, contest participation, user works / stats)."""
+
+
+class ProjectsNestedExtrasDataset(_Extras, ProjectsNestedDataset):
+    """ProjectsNestedDataset + the opt-in extras."""

@@ -102,7 +102,17 @@ EXTRA_FEEDS_PAGES = ("shots", "posts", "feed", "creators", "talents")
 #   explore-cards explore/home "fresh drops" cards: cms GET /cards?size&cursor(page) -> {total (192), cursor, items[]}
 #                 (JS tCLaul NR(e) `/cards`, audience / fresh_drops filters)
 GALLERY_FEEDS = ("music-cards", "job-showcase", "collections", "explore-cards")
-EXTRA_FEEDS = EXTRA_FEEDS_PAGES + GALLERY_FEEDS
+# ---- opt-in Feed hashtag categories (added 2026-11-26, docs/CONTENT_MAP.md §16 GAP "Feed hashtag categories").
+# Also NOT part of 'all'. Public, GET only, single responses (no pagination):
+#   feed-categories  fnf-community GET /feed/categories -> {categories[{slug, short_title, title, description,
+#                    hashtag?, post_count, previews[]}]} (2 on 2026-11-26) and GET /feed/ongoing -> {items[]} ([] live)
+FEED_CATEGORY_FEEDS = ("feed-categories",)
+SINGLE_RESPONSE_FEEDS = GALLERY_FEEDS + FEED_CATEGORY_FEEDS      # first requests built by _gallery_first
+EXTRA_FEEDS = EXTRA_FEEDS_PAGES + GALLERY_FEEDS + FEED_CATEGORY_FEEDS
+FEED_CATEGORIES_ENDPOINT = "community_feed_categories"
+FEED_CATEGORIES_PATH = "/feed/categories"
+FEED_ONGOING_ENDPOINT = "community_feed_ongoing"
+FEED_ONGOING_PATH = "/feed/ongoing"
 CMS_API_BASE = "https://fnf-api-gw.higgsfield.ai/fnf-cms-api"
 CMS_BASE = "https://cms.higgsfield.ai"
 MUSIC_CARDS_ENDPOINT = "community_music_cards"
@@ -142,17 +152,20 @@ EXTRA_PAGE_SIZE: dict[str, tuple[int, int]] = {      # feed -> (default, maximum
 EXTRA_ENDPOINTS = {"shots": SHOTS_ENDPOINT, "posts": POSTS_LIST_ENDPOINT, "feed": FEED_ENDPOINT,
                    "creators": CREATORS_ENDPOINT, "talents": TALENTS_ENDPOINT,
                    "music-cards": MUSIC_CARDS_ENDPOINT, "job-showcase": JOB_SHOWCASE_ENDPOINT,
-                   "collections": COLLECTIONS_ENDPOINT, "explore-cards": EXPLORE_CARDS_ENDPOINT}
+                   "collections": COLLECTIONS_ENDPOINT, "explore-cards": EXPLORE_CARDS_ENDPOINT,
+                   "feed-categories": FEED_CATEGORIES_ENDPOINT}
 # feed -> kind it produces (per-feed --max-items cap)
 EXTRA_KINDS = {"shots": "community_shot", "posts": "community_post", "feed": "community_feed_item",
                "creators": "community_creator_stats", "talents": "community_creator_stats",
                "music-cards": "community_music_card", "job-showcase": "community_showcase_job",
-               "collections": "community_collection", "explore-cards": "community_explore_card"}
+               "collections": "community_collection", "explore-cards": "community_explore_card",
+               "feed-categories": "community_feed_category"}
 EXTRA_URLS = {"music-cards": CMS_API_BASE + MUSIC_CARDS_PATH,
               "job-showcase": "https://higgsfield.ai/seedance-2-community (SSR loaderData.seedanceMovies = fnf "
                               "/jobs/showcase/{slug})",
               "collections": "https://fnf-api-gw.higgsfield.ai/fnf" + COLLECTIONS_PATH,
-              "explore-cards": CMS_BASE + EXPLORE_CARDS_PATH}
+              "explore-cards": CMS_BASE + EXPLORE_CARDS_PATH,
+              "feed-categories": COMMUNITY_BASE + FEED_CATEGORIES_PATH}
 FEED_ITEM_ENTITY = {"generation": "generation_publication", "project_publication": "project_publication",
                     "blog_post": "blog_post"}
 

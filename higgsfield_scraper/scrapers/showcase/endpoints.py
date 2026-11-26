@@ -40,6 +40,9 @@ ENDPOINTS: dict[str, tuple[str, str]] = {
     "showcase_reels_presets": (FNF_CMS, "/ai-reels-presets"),                    # lang, source=community
     "showcase_reels_preset_detail": (FNF_CMS, "/ai-reels-presets/{slug}"),      # + `prompt`
     "showcase_reels_comments": (COMMUNITY, "/entities/generation_publication/{publication_id}/comments"),
+    # home "Explore" main feed (chunk uBUqSEKZIqX571QB: Sn(`/main-feed`) + lang, size=20, cursor if not null,
+    # user_id only for a session, never sent here); opt-in by name, verified live 2026-11-26
+    "showcase_main_feed": (CMS, "/main-feed"),
 }
 ENDPOINT_URLS = {k: b + p for k, (b, p) in ENDPOINTS.items()}
 # a non-200 here does not make the run "partial" (login-only / best-effort discovery requests)
@@ -58,7 +61,8 @@ WHAT: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
                                   "showcase_l10n", "showcase_property_studio_presets"), False),
     "explore_categories": (("showcase_explore_category", "showcase_explore_item", "showcase_explore_variant"),
                            ("showcase_explore_categories", "showcase_explore_feed"), False),
-    "effect_examples": (("showcase_effect_sample",), ("showcase_effects_sitemap", "showcase_effect_page"), False),
+    "effect_examples": (("showcase_effect_sample", "showcase_effect_preset"),
+                        ("showcase_effects_sitemap", "showcase_effect_page"), False),
     "api_models": (("showcase_api_model",), ("showcase_api_openapi", "showcase_api_docs"), False),
     "cinema_controls": (("showcase_cinema_control",), ("showcase_cinema_controls",), False),
     "faceless_showcases": (("showcase_faceless_showcase",), ("showcase_faceless_showcases",), False),
@@ -68,17 +72,24 @@ WHAT: dict[str, tuple[tuple[str, ...], tuple[str, ...], bool]] = {
     "season": (("showcase_season",), ("showcase_season",), True),
     "reels_presets": (("showcase_reels_preset",), ("showcase_reels_presets", "showcase_reels_preset_detail"), False),
     "reels_comments": (("showcase_reels_comment",), ("showcase_reels_presets", "showcase_reels_comments"), False),
+    "main_feed": (("showcase_main_feed_item", "showcase_main_feed_variant"), ("showcase_main_feed",), False),
 }
-WHATS = tuple(WHAT)
+# public but only by name: never in `public`, the default or `all` (so `--what all` plans the same requests as
+# before it existed); `--what all,main_feed` adds it
+NAME_ONLY_WHATS = frozenset({"main_feed"})
+WHATS = tuple(w for w in WHAT if w not in NAME_ONLY_WHATS)        # the `all` set
+ALL_SOURCE_NAMES = tuple(WHAT)                                     # every accepted --what name
 # public but opt-in: only by name or `all` (never part of `public` / the default, which stay as they were)
 OPT_IN_WHATS = frozenset({"reels_presets", "reels_comments"})
-PUBLIC_WHATS = tuple(w for w, (_, _, login) in WHAT.items() if not login and w not in OPT_IN_WHATS)
+PUBLIC_WHATS = tuple(w for w, (_, _, login) in WHAT.items()
+                     if not login and w not in OPT_IN_WHATS and w not in NAME_ONLY_WHATS)
 DEFAULT_WHATS = PUBLIC_WHATS                    # `season` (login-only, per-user) only by name or `all`
 KIND_OF_WHAT = {k: w for w, (ks, _, _) in WHAT.items() for k in ks}
-KINDS = tuple(k for w in WHATS for k in WHAT[w][0])
+KINDS = tuple(k for w in ALL_SOURCE_NAMES for k in WHAT[w][0])
 # kinds counted by --max-items (per kind; child kinds like variants/renders are not counted)
 PRIMARY_KINDS = tuple(k for k in KINDS if k not in ("showcase_explore_variant", "showcase_editing_room_render",
-                                                     "showcase_explore_category"))
+                                                     "showcase_explore_category", "showcase_effect_preset",
+                                                     "showcase_main_feed_variant"))
 
 # explore feed (JS: sources `higgsfield`|`community`, sort `trending`|`new`; higgsfield has no `new`; size fixed 20)
 EXPLORE_SOURCES = ("higgsfield", "community")
@@ -90,6 +101,8 @@ L10N_LANGS = ("en", "es", "de", "ja", "ko", "zh")
 
 CANVAS_PAGE_SIZE = 50                            # /api/templates -> {items,total,limit:50,offset}
 CMS_PAGE_SIZE = 20                               # faceless/intone: JS sets size=20, cursor paging
+MAIN_FEED_PAGE_SIZE = 20                         # JS: searchParams.set(`size`,`20`); opaque cursor, no total
+MAIN_FEED_DEFAULT_PAGES = 3                      # --main-feed-pages 0 = until the cursor ends (--max-pages applies)
 
 # Property Studio: format -> app make (JS `$t={"flash-tour":"speedramp_walkthrough",...}`)
 PROPERTY_FORMAT_APP = {"flash-tour": "speedramp_walkthrough", "enhance": "enhance", "renovation": "renovation",

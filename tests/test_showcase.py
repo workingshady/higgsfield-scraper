@@ -498,3 +498,211 @@ def test_reels_generation_keys_for_merge(sel):
         keys = m.record_keys("showcase", "reels_presets", rec)
         assert rec["generation_key"] in keys and any(k.startswith("media:") for k in keys)
     assert m.record_keys("showcase", "reels_comments", ds["reels_comments"][0]) == []
+
+
+# ------------------------------------------------------------------ COMPLETENESS fixes (#2, #7, #8, #9, #10, #12, #13)
+# showcase_effect_page_template.json: trimmed copy of a live effect page (2026-11-26) with fake user ids.
+def test_explore_inputs_keep_source_role_and_type(sel):
+    env = load("showcase_explore_feed_community.json")
+    es = parse_envelope(env, sel)
+    inputs = [i for v in kinds(es, "showcase_explore_variant") for i in v["inputs"]]
+    assert inputs and all(i["role"] == "input" for i in inputs)                 # unchanged
+    assert all(i["source_role"] and i["source_type"] for i in inputs)
+    raw = [a for it in env.body["items"] for v in it["variants"] for a in v.get("input_assets") or []]
+    assert [i["source_role"] for i in inputs] == [a["role"] for a in raw]
+
+
+def test_effect_sample_settings_and_source_roles(sel):
+    env = load("showcase_effect_page_template.json")
+    samples = kinds(parse_envelope(env, sel), "showcase_effect_sample")
+    raw = env.body["loader"]["initialSamples"]["items"]
+    assert len(samples) == len(raw) == 2
+    s, r = samples[0], raw[0]
+    assert s["raw_params"] == r["job"]["rawParams"]                             # verbatim
+    assert s["provider"] == r["job"]["params"]["provider"] and s["prompt_enhance"] is False
+    assert s["is_reference"] is False
+    assert s["preset_preview_url"] == r["presetPreview"]["source"]
+    assert s["preset_poster_url"] == r["presetPreview"]["posterUrl"]
+    assert s["inputs"][0]["role"] == "input" and s["inputs"][0]["source_role"] == "start_image"
+    assert s["inputs"][0]["source_type"] == "media_input"
+    assert s["creator_uid_key"] == s["creator_key"] == creator_key("user_FakeEffectUser1")
+    assert all("url" not in json.dumps(v) for v in s["params"].values())        # params unchanged (cleaned)
+    validate_entity(s)
+
+
+def test_effect_preset_template(sel):
+    env = load("showcase_effect_page_template.json")
+    es = parse_envelope(env, sel)
+    assert es[-1]["kind"] == "showcase_effect_preset" and es[0]["kind"] == "showcase_effect_sample"
+    p = es[-1]
+    raw = env.body["loader"]["preset"]
+    assert p["preset_id"] == raw["id"] and p["slug"] == "cutout" and p["catalog_ref"].endswith(raw["id"])
+    first = p["preset_inputs"][0]
+    assert first["input_id"] == raw["inputs"][0]["id"] and first["min"] == 1 and first["required"] is True
+    assert first["binds_to"] == raw["inputs"][0]["binds_to"]
+    assert p["preset_inputs"][1]["binds_to"] == [raw["inputs"][1]["binds_to"]]  # single object -> list
+    assert p["param_choices"] == raw["param_choices"] and p["pricing_type"] == "matrix"
+    assert [x["credit_units"] for x in p["price_matrix"]] == [x["credit_units"] for x in raw["price_matrix"]]
+    assert p["price_matrix"][0]["params"] == {} and p["price_matrix"][1]["params"]
+    roles = {m["role"] for m in p["media"]}
+    assert {"preview", "preview_full", "preview_thumbnail", "widescreen"} <= roles
+    assert p["description"] and p["duration_s"] == raw["duration"]
+    validate_entity(p)
+    assert media_urls(p, "all") == []                    # previews duplicate the catalog preset: never downloaded
+    # the minimal page fixture (no template data) still emits only its samples
+    assert {e["kind"] for e in parse_envelope(load("showcase_effect_page.json"), sel)} == {"showcase_effect_sample"}
+
+
+def test_intone_compressed_video(sel):
+    env = load("showcase_intone_explore.json")
+    es = parse_envelope(env, sel)
+    e, raw = es[0], env.body["items"][0]["video"]["compressed_video"]
+    (c,) = [m for m in e["media"] if m["role"] == "video_compressed"]
+    assert (c["url"], c["width"], c["height"]) == (raw["url"], raw["width"], raw["height"])
+    assert c["extra"]["size_bytes"] == raw["size_bytes"] and c["type"] == "video"
+    assert e["media"][-1] is c and c["media_key"] not in json.dumps(e["media_keys"])   # appended; keys unchanged
+    assert c["url"] not in [u for _, u in media_urls(validate_entity(e), "full")]
+
+
+def test_editing_room_take_and_version_thumbnails(sel):
+    env = load("showcase_videoshop_project_examples.json")
+    es = parse_envelope(env, sel)
+    proj, rends = es[0], kinds(es, "showcase_editing_room_render")
+    take = env.body["items"][0]["project"]["take"]
+    assert proj["take_poster_url"] == take["assets"]["poster"]["url"]
+    assert proj["take_preview_url"] == take["assets"]["preview"]["url"]
+    assert proj["take_storyboard_vtt_url"] == take["assets"]["storyboard"]["vtt_url"]
+    assert proj["take_thumbnail_url"] == take["thumbnail_url"] and proj["take_filename"] == take["filename"]
+    versions = env.body["items"][0]["timeline"]["versions"]
+    assert [r["thumbnail_url"] for r in rends] == [v.get("thumbnailUrl") for v in versions]
+    assert any(r["thumbnail_url"] for r in rends)
+
+
+def test_reels_recreates_and_uid_key(sel):
+    env = load(REELS_HF)
+    (e,) = parse_envelope(env, sel)
+    assert e["recreates"] == env.body["listed"]["recreates"] == e["engagement"]["uses"]
+    (c,) = parse_envelope(load(REELS_COMMUNITY), sel)
+    if c["creator_key_basis"] == "user_id":
+        assert c["creator_uid_key"] == c["creator_key"]
+    else:
+        assert c["creator_uid_key"] is None
+    (cm,) = parse_envelope(load("showcase_reels_comments.json"), sel)
+    assert cm["creator_uid_key"] == cm["creator_key"] == creator_key("user_FakeReelsCommenter1")
+
+
+def test_creator_uid_key_matches_core_helper():
+    from higgsfield_scraper.core.privacy import creator_uid_key
+    es = parse_envelope(load("showcase_main_feed.json"), build())
+    gens = [v for v in kinds(es, "showcase_main_feed_variant") if v["variant_type"] == "generation"]
+    assert gens
+    for i, g in enumerate(gens):
+        assert g["creator_uid_key"] == creator_uid_key(f"user_FakeMainFeedAuthor{i + 1}") == g["creator_key"]
+    # a redacted archive id gives no shared key (the old creator_key stays as it was)
+    red = [v for v in kinds(parse_envelope(load("showcase_explore_feed_community.json"), build()),
+                            "showcase_explore_variant") if v["variant_type"] == "generation"]
+    assert red[0]["creator_key"] and red[0]["creator_uid_key"] is None
+
+
+# ------------------------------------------------------------------ CMS main feed (opt-in by name)
+# showcase_main_feed.json: live page 1 (2026-11-26), cut to 2 genjutsu + 1 game rows, fake author ids.
+def test_main_feed_items_and_variants(sel):
+    env = load("showcase_main_feed.json")
+    es = parse_envelope(env, sel)
+    items, vars_ = kinds(es, "showcase_main_feed_item"), kinds(es, "showcase_main_feed_variant")
+    assert es[0]["kind"] == "showcase_main_feed_item"                          # parent first (cap drops children)
+    assert [i["item_type"] for i in items] == ["genjutsu", "genjutsu", "game"]
+    g = items[0]
+    raw = env.body["items"][0]["genjutsu"]
+    assert g["item_id"] == raw["id"] and g["position"] == 1 and g["feed_session_id"] == env.body["feed_session_id"]
+    assert g["engagement"] == {"likes": raw["likes_count"], "views": raw["views_count"],
+                               "comments": raw["comments_count"], "uses": raw["times_made"]}
+    assert g["job_set_type"] == raw["job_set_type"] and g["title"] and g["description"]
+    assert g["original_video"]["url"] == raw["original_video"]["url"] and g["media"] == []
+    assert g["variant_ids"] == [v["id"] for v in raw["variants"]]
+    gen = next(v for v in vars_ if v["item_id"] == g["item_id"] and v["variant_type"] == "generation")
+    assert gen["prompt"] and gen["params"] and gen["publication_id"] in g["publication_ids"]
+    assert gen["generation_key"].startswith("media:") and f"pub:{gen['publication_id']}" in gen["media_keys"]
+    assert gen["inputs"][0]["source_role"] == "image" and gen["inputs"][0]["role"] == "input"
+    orig = next(v for v in vars_ if v["item_id"] == g["item_id"] and v["variant_type"] == "original")
+    assert orig["generation_key"] is None and orig["media_keys"] == []
+    game = items[2]
+    assert game["source_url"].endswith("/playable-ads") and game["engagement"]["likes"] is None
+    assert {"poster", "video", "game", "video_compressed"} <= {m["role"] for m in game["media"]}
+    assert "data:image" not in json.dumps(game) and "recreate" in game["extra"]
+    for e in es:
+        validate_entity(e)
+
+
+def test_main_feed_privacy(sel):
+    env = load("showcase_main_feed.json")
+    blob = json.dumps([validate_entity(e) for e in parse_envelope(env, sel)])
+    assert '"username"' not in blob and "avatar" not in blob.replace("avatar_url", "") and "REDACTED" not in blob
+    on = [v for v in kinds(parse_envelope(env, build(with_profiles=True)), "showcase_main_feed_variant")
+          if v["variant_type"] == "generation"]
+    assert on[0]["creator"]["user_id"] == "user_FakeMainFeedAuthor1"
+
+
+def test_main_feed_is_opt_in_by_name_only():
+    from higgsfield_scraper.scrapers.showcase.endpoints import ALL_SOURCE_NAMES, NAME_ONLY_WHATS, PUBLIC_WHATS
+    assert NAME_ONLY_WHATS == {"main_feed"} and "main_feed" in ALL_SOURCE_NAMES
+    assert "main_feed" not in DEFAULT_WHATS and "main_feed" not in PUBLIC_WHATS and "main_feed" not in WHATS
+    assert "main_feed" not in build(what="all").resolve() and "main_feed" not in build(what="public").resolve()
+    assert build(what="all,main_feed").resolve()[-1] == "main_feed"
+    assert parse_what("main") == ["main_feed"]
+    for what in (None, "public", "all"):
+        reqs, _ = _requests(what)
+        assert not any("/main-feed" in r.url for r in reqs)
+    reqs, _ = _requests("main_feed")
+    assert [r.url for r in reqs] == ["https://cms.higgsfield.ai/main-feed?lang=en&size=20"]
+    assert reqs[0].meta["auth"] is False and "Authorization" not in reqs[0].headers and "user_id" not in reqs[0].url
+    s = build(what="main_feed", main_feed_pages="2")
+    assert s.main_feed_pages == 2 and selection_from_dict(s.to_dict()) == s
+    assert selection_from_dict({"what": "api_models"}).main_feed_pages == 3     # old manifests: default
+    with pytest.raises(ValueError):
+        build(main_feed_pages=-1)
+
+
+def _main_feed_follow(sp, cursor_sent=None, body_cursor="next-1"):
+    import scrapy
+    from scrapy.http import TextResponse
+    env = load("showcase_main_feed.json")
+    env.body = {**env.body, "cursor": body_cursor}
+    env.params = {**env.params, **({"cursor": cursor_sent} if cursor_sent else {})}
+    resp = TextResponse(url=env.url, body=b"{}", request=scrapy.Request(env.url))
+    return [r for r in sp.follow_up(env, [], resp) if isinstance(r, scrapy.Request)]
+
+
+def test_main_feed_cursor_paging_and_caps():
+    sp = ShowcaseSpider(selection=build(what="main_feed", main_feed_pages=2), common=CommonOptions())
+    first = list(sp.build_requests())
+    nxt = _main_feed_follow(sp)
+    assert len(first) == 1 and len(nxt) == 1 and nxt[0].url.endswith("&cursor=next-1")
+    assert _main_feed_follow(sp, body_cursor="next-2") == [] and any("main_feed_pages=2" in x for x in sp.limits_hit)
+    sp = ShowcaseSpider(selection=build(what="main_feed", main_feed_pages=0), common=CommonOptions())
+    list(sp.build_requests())
+    assert _main_feed_follow(sp, body_cursor=None) == []                       # end of feed
+    assert _main_feed_follow(sp, cursor_sent="same", body_cursor="same") == []  # cursor not advancing
+    assert len(_main_feed_follow(sp)) == 1                                      # 0 = until the cursor ends
+    sp = ShowcaseSpider(selection=build(what="main_feed", main_feed_pages=0), common=CommonOptions(max_pages=1))
+    assert len(list(sp.build_requests())) == 1 and _main_feed_follow(sp) == []  # --max-pages
+    sp = ShowcaseSpider(selection=build(what="main_feed"), common=CommonOptions(max_items=1))
+    list(sp.build_requests())
+    sp._kept["showcase_main_feed_item"] = 1
+    assert _main_feed_follow(sp) == [] and any("max_items=1" in x for x in sp.limits_hit)
+
+
+def test_main_feed_generation_keys_merge_with_explore(tmp_path, sel):
+    m = _merge_module()
+    env = load("showcase_main_feed.json")
+    gen = next(v for v in kinds(parse_envelope(env, sel), "showcase_main_feed_variant")
+               if v["variant_type"] == "generation")
+    keys = m.record_keys("showcase", "main_feed_variants", gen)
+    assert gen["generation_key"] in keys and f"pub:{gen['publication_id']}" in keys
+    other = "media:" + "11111111-1111-1111-1111-111111111111"
+    explore = {"generation_key": other, "media_keys": [other], "publication_id": gen["publication_id"],
+               "prompt": "p"}                                                   # same publication, other file key
+    run = _run(tmp_path, "s", "showcase", {"main_feed_variants": [validate_entity(gen)],
+                                           "explore_variants": [explore]})
+    rows, _, pairs = m.merge(m.load_records([run]))
+    assert len(rows) == 1 and pairs["showcase:explore_variants + showcase:main_feed_variants"] == 1

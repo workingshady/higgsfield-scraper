@@ -64,7 +64,28 @@ NESTED_ENDPOINTS = {                                          # endpoint key -> 
     "projects_related": (None, RECOMMENDED),
     "projects_user_publications": (None, USER_PUBLICATIONS),
 }
-SEPARATE_ITEM_SURFACES = ("watermarks",)                     # sub-folders that items/v2?include_subfolders omits
+# ---- opt-in extras (reverse-engineered 2026-11-26; JS chunks trending-project-publications-api,
+# contest-publication-counters-api, profile publications 3On2TPGk30aH8MrG; enums from the API's 422 messages)
+TRENDING = "/project-publications/trending"                  # limit<=50, cursor ('rc1:…'), sort, filter, with_contest
+PARTICIPATION_COUNTERS = "/contest-participations/publications/counters"   # contest_key -> {total, public_total, private_total}
+PARTICIPATION_CONFIG = "/contest-participations/config"     # contest_key -> stage, windows, rules
+USER_WORKS = "/user/{user_id}/v2/publications"               # by Clerk user id: publication_type (omitted = all), limit<=50, cursor
+USER_STATS = "/user/{user_id}/stats"                         # {posts_count, likes_count, views_count}
+EXTRA_ENDPOINTS = {                                           # endpoint key -> (base, path)
+    "projects_trending": (None, TRENDING),
+    "projects_participation_counters": (None, PARTICIPATION_COUNTERS),
+    "projects_participation_config": (None, PARTICIPATION_CONFIG),
+    "projects_user_works": (None, USER_WORKS),
+    "projects_user_stats": (None, USER_STATS),
+}
+MAX_TRENDING_LIMIT = 50                                      # 422 "less than or equal to 50" above
+MAX_USER_WORKS_LIMIT = 50                                    # the web app sends 50; 422 above 50
+TRENDING_SORTS = ("default", "most_viewed", "most_liked", "newest", "oldest")   # 'default' is not sent (JS)
+TRENDING_FILTERS = ("all", "non_contest", "contest", "talents_hub")
+PARTICIPATION_KEYS = ("ai_film_festival", "talent_contest")  # 422 literal_error lists exactly these two
+USER_WORK_TYPES = ("asset", "project_publication", "project", "folder", "contest_submission")  # parsed item types
+
+SEPARATE_ITEM_SURFACES = ("watermarks",)                    # sub-folders that items/v2?include_subfolders omits
 FOLDER_PERSONAL_KEYS = frozenset({"owner_username"})         # blanked in folder bodies unless --with-profiles
 MAX_FOLDER_ITEMS_SIZE = 100                                  # 422 "less than or equal to 100" above
 MAX_COMMENTS_LIMIT = 100                                     # the web app sends 20; 100 accepted

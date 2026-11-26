@@ -30,6 +30,24 @@ class Media(Strict):
     media_key: Optional[str] = Field(None, description="CDN file id: the API media id, else the last UUID in the URL")
 
 
+class InputMedia(Media):
+    """An input (upload / reference) of a generation. `role` stays `input`; the raw role the job used is kept in
+    `source_role` (COMPLETENESS fix #2)."""
+    source_role: Optional[str] = Field(None, description="raw role of the input in the job: image, start_image, "
+                                                         "end_image, … (explore `input_assets[].role`, effect "
+                                                         "`rawParams.medias[].role`)")
+    source_type: Optional[str] = Field(None, description="raw upload type: media_input|video_input|… (explore "
+                                                         "`input_assets[].media_type`, effect `rawParams.medias[]."
+                                                         "data.type` / `attachments[].inputMedia.type`)")
+
+
+class MediaWithExtra(Media):
+    """Media entry that may carry extra raw fields of its source object (e.g. a compressed video's `size_bytes`)."""
+    extra: Optional[dict[str, Any]] = Field(None, description="other raw fields of this file (compressed video: "
+                                                              "size_bytes, profile, status, audio_streams, "
+                                                              "source_url)")
+
+
 class Engagement(Strict):
     likes: Optional[int] = None
     views: Optional[int] = None
@@ -117,6 +135,12 @@ class EditingRoomProject(_Entity):
     updated_at: Optional[AwareDatetime] = None
     take: Optional[Media] = Field(None, description="the uploaded source video")
     take_duration_ms: Optional[int] = None
+    take_poster_url: Optional[str] = Field(None, description="`take.assets.poster.url`")
+    take_preview_url: Optional[str] = Field(None, description="`take.assets.preview.url` (compressed preview video)")
+    take_storyboard_vtt_url: Optional[str] = Field(None, description="`take.assets.storyboard.vtt_url` (WebVTT "
+                                                                     "thumbnail storyboard)")
+    take_thumbnail_url: Optional[str] = Field(None, description="`take.thumbnail_url`")
+    take_filename: Optional[str] = Field(None, description="`take.filename` (uploaded file name)")
     scenes: list[dict[str, Any]] = Field(default_factory=list)
     timeline_schema_version: Optional[int] = None
     edits: list[ProjectEdit] = Field(default_factory=list)
@@ -140,6 +164,7 @@ class EditingRoomRender(_Generation):
     start_ms: Optional[int] = None
     end_ms: Optional[int] = None
     media: list[Media] = Field(default_factory=list)
+    thumbnail_url: Optional[str] = Field(None, description="version `thumbnailUrl`")
 
 
 # ------------------------------------------------------------------ property studio
@@ -190,10 +215,13 @@ class ExploreVariant(_Generation):
     params: dict[str, Any] = Field(default_factory=dict)
     priority: Optional[int] = None
     media: list[Media] = Field(default_factory=list)
-    inputs: list[Media] = Field(default_factory=list)
+    inputs: list[InputMedia] = Field(default_factory=list)
     publication_id: Optional[str] = None
     publication_engagement: Optional[Engagement] = None
     creator_key: Optional[str] = None
+    creator_uid_key: Optional[str] = Field(None, description="shared creator key across scrapers: "
+                                                             "core.privacy.creator_uid_key(<Clerk user id>) (same "
+                                                             "hash as creator_key)")
     creator_badge: Optional[str] = None
     creator: Optional[Creator] = None
 
@@ -217,10 +245,71 @@ class EffectSample(_Generation):
     created_at: Optional[AwareDatetime] = None
     published_at: Optional[AwareDatetime] = None
     media: list[Media] = Field(default_factory=list)
-    inputs: list[Media] = Field(default_factory=list)
+    inputs: list[InputMedia] = Field(default_factory=list)
     creator_key: Optional[str] = None
+    creator_uid_key: Optional[str] = Field(None, description="shared creator key across scrapers: "
+                                                             "core.privacy.creator_uid_key(<Clerk user id>)")
     creator: Optional[Creator] = None
     samples_total: Optional[int] = Field(None, description="`initialSamples.total` reported on the page")
+    raw_params: dict[str, Any] = Field(default_factory=dict, description="job `rawParams` verbatim (incl. input "
+                                                                         "media and the embedded preset)")
+    provider: Optional[str] = Field(None, description="job `params.provider`")
+    prompt_enhance: Optional[bool] = Field(None, description="job `params.prompt.enhance`")
+    is_reference: Optional[bool] = Field(None, description="job `isReference`")
+    preset_preview_url: Optional[str] = Field(None, description="sample `presetPreview.source` (preset preview "
+                                                                "video)")
+    preset_poster_url: Optional[str] = Field(None, description="sample `presetPreview.posterUrl`")
+
+
+class PresetInput(Strict):
+    input_id: Optional[str] = Field(None, description="`id` (<node>_<port>)")
+    type: Optional[str] = Field(None, description="image|video|text|…")
+    label: Optional[str] = None
+    min: Optional[int] = None
+    max: Optional[int] = None
+    required: Optional[bool] = None
+    media_input_id: Optional[str] = None
+    allow_upload: Optional[bool] = Field(None, description="with `options`: the user may also upload their own")
+    options: list[dict[str, Any]] = Field(default_factory=list, description="preset choices for the input, as "
+                                                                            "served [{id, url, media_input_id}]")
+    binds_to: list[dict[str, Any]] = Field(default_factory=list, description="workflow node ports the input feeds "
+                                                                             "[{node, port}] (a single object is "
+                                                                             "wrapped in a list)")
+
+
+class PriceRow(Strict):
+    key: str = Field(description="raw matrix key: comma list of `<node>.<param>=<value>`; empty = the default price")
+    params: dict[str, str] = Field(default_factory=dict, description="the key parsed: {`<node>.<param>`: value}")
+    credit_units: Optional[int] = Field(None, description="price in credit units (as served; not converted)")
+
+
+class EffectPreset(_Entity):
+    """The effect (viral preset) template of an /effects/examples/{slug} page: inputs, parameter choices and the
+    credit price matrix (COMPLETENESS fix #13). The same preset is in the catalog scraper (`catalog_ref`)."""
+    preset_id: str
+    slug: str
+    preset_kind: Optional[str] = Field(None, description="chain|…")
+    name: Optional[str] = None
+    description: Optional[str] = None
+    job_set_type: Optional[str] = None
+    priority: Optional[int] = None
+    duration_s: Optional[float] = None
+    is_main_page: Optional[bool] = None
+    ip_check_required: Optional[bool] = None
+    tags: list[Any] = Field(default_factory=list)
+    categories: list[Any] = Field(default_factory=list)
+    preset_inputs: list[PresetInput] = Field(default_factory=list)
+    param_choices: dict[str, Any] = Field(default_factory=dict, description="{node: {param: {choices[], default}}}")
+    param_inputs: list[Any] = Field(default_factory=list)
+    pricing_type: Optional[str] = Field(None, description="`pricing.type` (matrix)")
+    price_matrix: list[PriceRow] = Field(default_factory=list)
+    media: list[Media] = Field(default_factory=list, description="preview (+_full/_thumbnail/_optimized), "
+                                                                 "widescreen (+_thumbnail), preview_image, "
+                                                                 "widescreen_image, thumbnail")
+    preview_duration_ms: Optional[int] = Field(None, description="`preview_media.duration_ms`")
+    samples_total: Optional[int] = None
+    catalog_ref: Optional[str] = None
+    extra: dict[str, Any] = Field(default_factory=dict, description="every other preset field, unchanged")
 
 
 # ------------------------------------------------------------------ public API docs
@@ -303,7 +392,8 @@ class FacelessShowcase(_CmsItem):
 
 
 class IntoneExample(_CmsItem):
-    pass
+    media: list[MediaWithExtra] = Field(default_factory=list, description="video (+_full/_thumbnail), "
+                                        "video_compressed (size_bytes etc. in `extra`), image, recreate_*")
 
 
 class SeedancePreset(_CmsItem):
@@ -346,11 +436,15 @@ class ReelsPreset(_Generation):
                                                                      "--with-profiles")
     engagement: Engagement = Field(default_factory=Engagement, description="on Higgsfield: likes (publication "
                                    "likes, community), uses = `recreates`")
+    recreates: Optional[int] = Field(None, description="`recreates` (times the preset was recreated; = "
+                                                       "engagement.uses)")
     publication_id: Optional[str] = Field(None, description="community: fnf-community generation_publication id "
                                                             "(comment thread)")
     creator_key: Optional[str] = Field(None, description="community: sha256-16 of the author's Clerk id (from the "
                                                          "avatar path), else of `username:<name>`")
     creator_key_basis: Optional[str] = Field(None, description="user_id | username (what creator_key hashes)")
+    creator_uid_key: Optional[str] = Field(None, description="shared creator key across scrapers (only when "
+                                                             "creator_key_basis = user_id; same hash)")
     creator_badge: Optional[str] = None
     creator: Optional[Creator] = None
     lang: Optional[str] = None
@@ -370,7 +464,41 @@ class ReelsComment(_Entity):
     reply_count: Optional[int] = None
     reactions: list[dict[str, Any]] = Field(default_factory=list)
     creator_key: Optional[str] = None
+    creator_uid_key: Optional[str] = Field(None, description="shared creator key across scrapers (same hash)")
     creator: Optional[Creator] = None
+
+
+# ------------------------------------------------------------------ CMS main feed — opt-in (by name only)
+class MainFeedItem(_Entity):
+    """One row of the home "Explore" main feed (cms /main-feed): a Genjutsu community preset (same object as a
+    video-explore item: `item_id` joins explore_items) or a playable-ad game (joins studios playable_presets)."""
+    item_id: str = Field(description="`genjutsu.id` / `game.id`")
+    item_type: str = Field(description="`type`: genjutsu | game")
+    position: Optional[int] = Field(None, description="1-based `position` in the feed session where first seen")
+    feed_session_id: Optional[str] = Field(None, description="`feed_session_id` of the page (anonymous session)")
+    request_id: Optional[str] = None
+    lang: Optional[str] = None
+    feed_source: Optional[str] = Field(None, description="genjutsu `source` (community|higgsfield)")
+    title: Optional[str] = None
+    description: Optional[str] = None
+    job_set_type: Optional[str] = None
+    priority: Optional[int] = None
+    category: Optional[str] = None
+    trend_id: Optional[str] = None
+    engagement: Engagement = Field(default_factory=Engagement, description="likes, views, comments, uses = "
+                                                                           "`times_made`")
+    original_video: Optional[Media] = None
+    media: list[MediaWithExtra] = Field(default_factory=list, description="game items: poster, vertical_poster, "
+                                        "video (+_compressed), game, widescreen_game, … (genjutsu: [])")
+    variant_ids: list[str] = Field(default_factory=list)
+    publication_ids: list[str] = Field(default_factory=list, description="community publication ids of the "
+                                                                         "generation variants")
+    extra: dict[str, Any] = Field(default_factory=dict, description="every other API field of the item, unchanged")
+
+
+class MainFeedVariant(ExploreVariant):
+    """A variant (original | edit | generation) of a main-feed Genjutsu preset; same shape and keys as
+    explore_variants, so scripts/merge_generations.py dedupes them (media_keys also carry `pub:<publication id>`)."""
 
 
 MODEL_BY_KIND: dict[str, type[_Entity]] = {
@@ -392,6 +520,9 @@ MODEL_BY_KIND: dict[str, type[_Entity]] = {
     "showcase_motion_control_preset": MotionControlPreset,
     "showcase_reels_preset": ReelsPreset,
     "showcase_reels_comment": ReelsComment,
+    "showcase_effect_preset": EffectPreset,
+    "showcase_main_feed_item": MainFeedItem,
+    "showcase_main_feed_variant": MainFeedVariant,
 }
 ID_FIELD_BY_KIND = {k: "id" for k in MODEL_BY_KIND}
 
@@ -415,6 +546,9 @@ COLLECTION_OF = {
     "showcase_motion_control_preset": "motion_control_presets",
     "showcase_reels_preset": "reels_presets",
     "showcase_reels_comment": "reels_comments",
+    "showcase_effect_preset": "effect_presets",
+    "showcase_main_feed_item": "main_feed_items",
+    "showcase_main_feed_variant": "main_feed_variants",
 }
 
 
@@ -448,3 +582,6 @@ class ShowcaseDataset(Strict):
     motion_control_presets: list[MotionControlPreset] = Field(default_factory=list)
     reels_presets: list[ReelsPreset] = Field(default_factory=list)
     reels_comments: list[ReelsComment] = Field(default_factory=list)
+    effect_presets: list[EffectPreset] = Field(default_factory=list)
+    main_feed_items: list[MainFeedItem] = Field(default_factory=list)
+    main_feed_variants: list[MainFeedVariant] = Field(default_factory=list)

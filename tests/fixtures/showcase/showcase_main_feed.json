@@ -1,0 +1,391 @@
+{
+    "meta": {
+        "endpoint": "showcase_main_feed",
+        "url": "https://cms.higgsfield.ai/main-feed?lang=en&size=20",
+        "status": 200,
+        "params": {
+            "lang": "en",
+            "size": "20",
+            "page": "1"
+        },
+        "fetched_at": "2026-11-26T12:00:00+00:00"
+    },
+    "body": {
+        "cursor": "eyJ2ZXJzaW9uIjoyLCJjb21tdW5pdHlfY3Vyc29yIjoiWlRkaVl6TTJZelF0T1RneE9DMDBNVFZpTFRoa09XTXRNR0kwTW1JeU5HUTBNbVZpT21Oc2RYTjBaWEp6TFdGaU1pMUZSem94Tnpvd01XRXlNVGhpTUMwd01EQXhMVGN3T0RBdFlqSXhaQzFpWkRFeU9URTRZbUkxTnprNk1qRSIsImxhc3RfZ2FtZSI6WzAsIjBmYzBhMjBjLTlkYTgtNDI5NC04ZDQzLTU4ZmM5NTE2YzI5OCJdfQ",
+        "request_id": "00000000-0000-4000-8000-00000000f001",
+        "feed_session_id": "00000000-0000-4000-8000-00000000f001",
+        "items": [
+            {
+                "type": "genjutsu",
+                "position": 1,
+                "genjutsu": {
+                    "id": "969df601-a8cb-477b-a496-13b7c7659a7e",
+                    "source": "community",
+                    "title": "Speedboat Getaway Driver",
+                    "description": "Replace the driver of a high-speed boat in a cinematic neon city setting with any character or person of your choice.",
+                    "job_set_type": "hf_mult_replace_object",
+                    "original_video": {
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d7886989-323b-58fb-a732-0ed0b35f6a46.mp4",
+                        "type": "video",
+                        "width": 1664,
+                        "height": 1248,
+                        "duration": 15.041997,
+                        "media_id": "d7886989-323b-58fb-a732-0ed0b35f6a46",
+                        "media_type": "video_input",
+                        "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/original.webp"
+                    },
+                    "variants": [
+                        {
+                            "id": "67710a6b-07a6-4117-ade4-a929f03de5f4",
+                            "type": "edit",
+                            "media": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/edit.mp4",
+                                "type": "video",
+                                "width": 1280,
+                                "height": 960,
+                                "duration": 15.041667,
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/edit.webp",
+                                "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/edit.mp4",
+                                "main_width": 1280,
+                                "main_height": 960
+                            },
+                            "prompt": null,
+                            "input_assets": [],
+                            "params": {},
+                            "priority": 0
+                        },
+                        {
+                            "id": "930a3a0e-7eff-4c0c-a8b9-af3061ba2549",
+                            "type": "original",
+                            "media": {
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d7886989-323b-58fb-a732-0ed0b35f6a46.mp4",
+                                "type": "video",
+                                "width": 1664,
+                                "height": 1248,
+                                "duration": 15.041997,
+                                "media_id": "d7886989-323b-58fb-a732-0ed0b35f6a46",
+                                "media_type": "video_input",
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/original.webp"
+                            },
+                            "prompt": null,
+                            "input_assets": [],
+                            "params": {},
+                            "priority": 1
+                        },
+                        {
+                            "id": "19ed527c-ca89-4d31-ab6d-1ba02cea1f37",
+                            "type": "generation",
+                            "media": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation-genjutsu-h264-600-v1.mp4",
+                                "type": "video",
+                                "width": 600,
+                                "height": 450,
+                                "duration": 15.041667,
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation.webp",
+                                "compressed_video": {
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation-genjutsu-h264-600-v1.mp4",
+                                    "width": 600,
+                                    "height": 450,
+                                    "status": "ready",
+                                    "profile": "genjutsu-h264-600-v1",
+                                    "duration": 15.041667,
+                                    "size_bytes": 1453946,
+                                    "source_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation.mp4",
+                                    "audio_streams": 1
+                                },
+                                "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/8a9c915e-7740-45e0-a025-cbcb2a530008/generation.mp4",
+                                "main_width": 1664,
+                                "main_height": 1248,
+                                "hls_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/hls/genjutsu-h264-abr-v1/fff47b64b8f3a9bda4e6d415/e7e9f6f1-a2f9-42f4-b67b-c02208b67cfa/master.m3u8"
+                            },
+                            "prompt": "Replace only the boat driver at the wheel in <<<video_1>>> with the character from <<<image_1>>>. Everything else in <<<video_1>>> stays exactly the same: the man in the palm-print shirt, the woman in the leather jacket, the boat, the pier, the buildings, the neon signs, the police, the light, the camera and the timing.\n\nTHE NEW DRIVER: the same face, hair, body shape, colors and outfit as in <<<image_1>>>, in every shot. The new driver copies every move of the original driver one to one: the grip on the wheel, the glances, the arm wave, the turn of the head and the chuckle, with the head at about the same height in the seat.\n\nGRAPHICS MATCH (most important): whatever the style of <<<image_1>>> (a photo, a cartoon, anime, a 3D render or a drawing), the new driver is rendered in the exact video-game graphics of <<<video_1>>>, with the same shading, detail, sharpness, pink dusk and neon light, shadows and color grade as the man and the woman, so the new driver looks native to the same game and never pasted in. An animal keeps its own anatomy and rests plain paws on the wheel.\n\nLIP-SYNC: the new driver's mouth moves exactly like the original driver's mouth and only there: \"come on, come on\" (1.6–3.6 s) and \"Come on!\" (7.3–8.4 s), then a short chuckle at the end.\n\nNEVER: changes to anyone or anything except the driver, a mix of two faces, the driver cut off by the frame edge, size changes, a different art style, a pasted-in look, extra fingers, morphing.",
+                            "input_assets": [
+                                {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/617c65ec-2591-5d8f-843d-e156be0d6593.webp",
+                                    "role": "image",
+                                    "type": "static",
+                                    "width": 1536,
+                                    "height": 2048,
+                                    "media_id": "617c65ec-2591-5d8f-843d-e156be0d6593",
+                                    "media_type": "media_input"
+                                }
+                            ],
+                            "params": {
+                                "width": 1664,
+                                "height": 1248,
+                                "resolution": "1080p"
+                            },
+                            "priority": 2,
+                            "publication": {
+                                "id": "95a82d13-fcc0-40b5-bff7-b73b0fbb2539",
+                                "likes_count": 310
+                            },
+                            "author": {
+                                "user_id": "user_FakeMainFeedAuthor1",
+                                "username": "REDACTED",
+                                "avatar_url": "https://example.invalid/avatar.webp",
+                                "badge": null
+                            }
+                        }
+                    ],
+                    "priority": 0,
+                    "likes_count": 310,
+                    "views_count": null,
+                    "comments_count": 2,
+                    "trend_id": "f460847",
+                    "times_made": 1535,
+                    "category": null
+                }
+            },
+            {
+                "type": "genjutsu",
+                "position": 2,
+                "genjutsu": {
+                    "id": "8ff1cd0d-9e38-43d6-81f9-54af3361a247",
+                    "source": "community",
+                    "title": "Gamer Apocalypse Swap",
+                    "description": "Swap the character playing video games to see your own subject react as a dramatic meteor strikes the city skyline.",
+                    "job_set_type": "hf_mult_replace_object",
+                    "original_video": {
+                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/35d9152c-e878-51e9-a8b3-d107df4c5b68.mp4",
+                        "type": "video",
+                        "width": 960,
+                        "height": 720,
+                        "duration": 18.833333,
+                        "media_id": "35d9152c-e878-51e9-a8b3-d107df4c5b68",
+                        "media_type": "video_input",
+                        "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/original.webp"
+                    },
+                    "variants": [
+                        {
+                            "id": "d770d0bd-537a-4a8d-8813-ad56dcedc180",
+                            "type": "edit",
+                            "media": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/edit.mp4",
+                                "type": "video",
+                                "width": 1280,
+                                "height": 960,
+                                "duration": 18.708333,
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/edit.webp",
+                                "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/edit.mp4",
+                                "main_width": 1280,
+                                "main_height": 960
+                            },
+                            "prompt": null,
+                            "input_assets": [],
+                            "params": {},
+                            "priority": 0
+                        },
+                        {
+                            "id": "2d03021c-a6a8-4eea-a982-9cd1959c2c67",
+                            "type": "original",
+                            "media": {
+                                "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/35d9152c-e878-51e9-a8b3-d107df4c5b68.mp4",
+                                "type": "video",
+                                "width": 960,
+                                "height": 720,
+                                "duration": 18.833333,
+                                "media_id": "35d9152c-e878-51e9-a8b3-d107df4c5b68",
+                                "media_type": "video_input",
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/original.webp"
+                            },
+                            "prompt": null,
+                            "input_assets": [],
+                            "params": {},
+                            "priority": 1
+                        },
+                        {
+                            "id": "7c8c5091-7214-4da2-8c7e-dbc53a63e581",
+                            "type": "generation",
+                            "media": {
+                                "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/generation-genjutsu-h264-600-v1.mp4",
+                                "type": "video",
+                                "width": 600,
+                                "height": 450,
+                                "duration": 18.708333,
+                                "thumbnail_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/generation.webp",
+                                "compressed_video": {
+                                    "url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/generation-genjutsu-h264-600-v1.mp4",
+                                    "width": 600,
+                                    "height": 450,
+                                    "status": "ready",
+                                    "profile": "genjutsu-h264-600-v1",
+                                    "duration": 18.708333,
+                                    "size_bytes": 1147293,
+                                    "source_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/generation.mp4",
+                                    "audio_streams": 1
+                                },
+                                "main_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/074adb1d-e4df-4f94-95e7-0e004524c639/generation.mp4",
+                                "main_width": 1664,
+                                "main_height": 1248,
+                                "hls_url": "https://d8j0ntlcm91z4.cloudfront.net/community-presets/hls/genjutsu-h264-abr-v1/e0e2331f2c7eaf92df28f41c/80708b59-dbdc-49b6-aafe-f71030623d1d/master.m3u8"
+                            },
+                            "prompt": "Replace only the person holding the game controller with the person in img 1. Replace their entire face, hair, body and clothes, leaving no original hair. Preserve the original actions, expressions, lip-sync and hand contact with the controller. Keep the room, window events, props, lighting, camera, cuts, audio and full duration unchanged. Maintain the same identity in every shot.",
+                            "input_assets": [
+                                {
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/61ca30e2-be36-5b44-a335-7f7f15be6788.webp",
+                                    "role": "image",
+                                    "type": "static",
+                                    "width": 1760,
+                                    "height": 2352,
+                                    "media_id": "61ca30e2-be36-5b44-a335-7f7f15be6788",
+                                    "media_type": "media_input"
+                                }
+                            ],
+                            "params": {
+                                "width": 960,
+                                "height": 720,
+                                "resolution": "1080p"
+                            },
+                            "priority": 2,
+                            "publication": {
+                                "id": "34524068-5723-4415-929a-0047bfa1a204",
+                                "likes_count": 339
+                            },
+                            "author": {
+                                "user_id": "user_FakeMainFeedAuthor2",
+                                "username": "REDACTED",
+                                "avatar_url": "https://example.invalid/avatar.webp",
+                                "badge": null
+                            }
+                        }
+                    ],
+                    "priority": 0,
+                    "likes_count": 339,
+                    "views_count": null,
+                    "comments_count": 2,
+                    "trend_id": "f435374",
+                    "times_made": 1519,
+                    "category": "fun"
+                }
+            },
+            {
+                "type": "game",
+                "position": 8,
+                "game": {
+                    "id": "067af789-4b6f-4c12-9327-0c9f3dc728a1",
+                    "title": "Lantern Depths",
+                    "category": "maze",
+                    "poster": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/6af705ef0461967c2d7cbb76c692c2ff15505a2ed1475fa311a5de4a6cc5ca93",
+                        "type": "static",
+                        "width": 2352,
+                        "height": 1760,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/1c92e4c939ea1a0c0d75e0921eb9b5ff42b88a96a7dacca819c820dc7c237b82"
+                    },
+                    "vertical_poster": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/eb769aeb-5575-4d44-b8f1-6f356cecf2fd.png",
+                        "type": "static",
+                        "width": 1520,
+                        "height": 2688,
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/1c784ee4-e572-425c-8d7e-2d2edebafebe.webp"
+                    },
+                    "game": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/512231692d7b22b3008d888f03f3a0a16d613e84921dbe1c26a482940e49c1cc",
+                        "type": "file"
+                    },
+                    "widescreen_game": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/78461eaf2206819d79fde734196a8af2e82b6ab7d17a258929c41179cc81f435",
+                        "type": "file"
+                    },
+                    "video": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/60fd4418d68a9fd259235e367b032f6daed01daa649302999246b9798a99ba77",
+                        "type": "video",
+                        "width": 1080,
+                        "height": 1920,
+                        "main_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/60fd4418d68a9fd259235e367b032f6daed01daa649302999246b9798a99ba77",
+                        "main_width": 1080,
+                        "main_height": 1920,
+                        "placeholder": "data:image/webp;base64,UklGRpoBAABXRUJQVlA4II4BAACwCACdASogADkAPkkcikQioaEb/VQAKASEs4BdkIm4M95FIk4X6Ot5rv04up1tLaa/bqu2u5JcxxVcjnOJpQoTQmDR1Jf7lqSVwYZbkAAA/v7lHbLjW+6mPJsSTxwZS8iZ0LDBIqK4T05t/AiylvDgNASseaKF5JgE3sjEYoeSXgyTYSXcc2KEdExCD4Gvk8Qrzw53V5VLx3JgKh8owm+nVpxJNs+PnUTPBvOs1yO8GlqwfEIeHPFfhRzSTORtQkA8UmqHzXotEZ1mzLPnoySEHxTc/InQzeRIaovGdK4fnf/s9KGFIPd3Bszipw8/Fz3zrUWSsioE5emIG+SwyTf1QNxkxDkk3/X5eI+LUgRL02JOwK2osSRVtPY/8D/802AygNU+gQFvGKqaClle1CUMtPe2XsKqU3z3EjZ/nbqukH0ndfzlYiEEdLSkFmZr/MpFL6rpwIlfIEuhdtvGbmgq2FsYHvyNZfNynisHrnEPiBXnfjzMJfl5wXIhfyBSLXFwy79pM4+6BUaCD+GAAA==",
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/e2e70bb5e13163f7426109173ae6bd2e4c83aea2b1f314e31e91d2850fe03fc8",
+                        "compressed_video": {
+                            "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/93ef9f4919a470b1c049ddeca8719419bd2d5d5f442bdc205ed708fa27ea3e37",
+                            "width": 600,
+                            "height": 1066,
+                            "status": "ready",
+                            "profile": "playable-ads-h264-600-1200k-v1",
+                            "duration": 105.933333,
+                            "size_bytes": 9301036,
+                            "source_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/60fd4418d68a9fd259235e367b032f6daed01daa649302999246b9798a99ba77",
+                            "audio_streams": 1
+                        }
+                    },
+                    "widescreen_video": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/0906f20ede5dc3e74331ad3ec4009613c915113e309008b552922c734fbadd0d",
+                        "type": "video",
+                        "width": 1920,
+                        "height": 1080,
+                        "main_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/0906f20ede5dc3e74331ad3ec4009613c915113e309008b552922c734fbadd0d",
+                        "main_width": 1920,
+                        "main_height": 1080,
+                        "placeholder": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAwBQCdASogABIAPlEijESjoiEUBqg4BQSzgFiPy1OTpERzJZLvUs153gb1mHkWyNs9oAD+/R6s2bdDneh9iYc+dvDk7kRk979UqAwSVblj/DY1lWQKZR32Ftgritzz1KqoNArn1Vj/1wi274rsc7Z4inbWGM4959+ji+SyUkXOz4Q1foez+KuLcF4Pnq7+mz1lSGin10uiUhYAoWPjDAexbeP24cBng/0vEnmMusCUMmvAELy5IPC8gX3NwVv+gsMFeFoAAAA=",
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/6c423f47c45a8a204dc36a4a77fe8e11b9a6a41351f1f991538d26ebddc383f2",
+                        "compressed_video": {
+                            "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/e9bc27f5a859c0c13c7da0a95accf0c1b5a5d7610c73791e6b2d1bfabdf1fd91",
+                            "width": 600,
+                            "height": 338,
+                            "status": "ready",
+                            "profile": "playable-ads-h264-600-1200k-v1",
+                            "duration": 94.166667,
+                            "size_bytes": 6074978,
+                            "source_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/0906f20ede5dc3e74331ad3ec4009613c915113e309008b552922c734fbadd0d",
+                            "audio_streams": 1
+                        }
+                    },
+                    "input_video": {
+                        "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/fef62f08-bad4-44d0-ae78-cb65958bb246.mp4",
+                        "type": "video",
+                        "width": 1080,
+                        "height": 1920,
+                        "placeholder": "data:image/webp;base64,UklGRiIDAABXRUJQVlA4IBYDAACQDQCdASogADkAPlEejEQjoaEYCgb8OAUEtgBUlqCpruv+Yfif7AlLftuK7wDtuN5gPKI9QHngdTh6AHSdOCeGaH6xpHkuSrRgCqb3W5oAbcgBJ9qEgv+ArTDCzSIywHPY/EWA/je82zanigJ+w1mYGkf92pwA/vQSbMqXnboD9C69bpdt/+MyB0z7MSwTBijTQdX3+78WnzeJINOQA13FBi4aQm9152Lo7tZgUsnV3be+XHF2cCSp+mMFzQt5CrP23krvDDfk9ugTL8r0yrbbyS51A0JFVAU2M2Q8I6Xm/VC6Tew4D8WQflwG/PpdI+sTYYiMxM/EfYsBGNQwX2ijqYRu/gB43ZefusefqQyVHmiHlIgyTn0OBQZiLmVsFLSEsktQle0pFS+J/MNv3Z4ExXgLmOu1dYEUH3aF2GH+E5m2WGZ/BtSsuMudVLjn6ao9xZO9eqqyyk53ZLepR3FmR/gBaGhONlNQbR0n+hCmjqLhAePdH6hnxU+u+hGAeU+sfBSsJMtxwcefwDS17fCivvtpxnMQsvvXZslRfWXiZdJSpLitUulADk4NH3YzLIqA95J4fMsEP5qyo4tPgqMm5zxEBI7uwWPQXlzJl+iofm7QV3rrJGJrM1LGeEcK1TmS4klv/3zLyYf+kurwYlw+OOVSxYuNWhtRySuhL9C7AeqUwti3ehNwQVFSluyzA0W5Pm3liv0emq1f336frS6FyC1vqJU7XCP61+NZP1nTOlrv89Ref5dr7Xown15Y7ThgHEQkL/CtgsCiOglCtwYYqQnN4lXNL1/nDpNWGf3265X7inodY7vwdWaR+x2Z6qu8l2s9qIbXpB2kmlSzr7OVKaVpK1zjFmkPP1G9yfzYqgUV4868BeISoGlWLaliCVuSxj7tigXtV455+C7917//X/pcA1vEDeHv4D6OrBDZsshsNG1Sc2Y9cNUg6PGJYWhkvpqV0r934wN6dKwq+fyqUAkxqHSZfNpbuZjqQMGH+v/NJ/4ugNg8ut/DDDof/9Ou/xGvRrsT+VGewxNcGGskqiwsAAAA",
+                        "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/69f15390-9bd4-43d6-9cea-0452d768cbd7.webp"
+                    },
+                    "covers": [
+                        {
+                            "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/131bca6a083e5db655252e4757aef987b22c58b4c07939be2daf7043a01ef993",
+                            "type": "static",
+                            "width": 2352,
+                            "height": 1760,
+                            "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/47277ea1b642a93dfc494aabcdea9b65a970f2d62f3399f5a39da112de232d01"
+                        },
+                        {
+                            "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/19b52e7785b90b51229c7f5418167f63251b40a8066563d867cd95031d6f19a1",
+                            "type": "static",
+                            "width": 2352,
+                            "height": 1760,
+                            "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/1ba8891298c1fb5487c9f78e39763c3a9ecf068458e1f77d0bcc1068649f778c"
+                        },
+                        {
+                            "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/665e75d7d86863afcd6a4e7abad11a6e299736f90f6b8ba7a0ccd6490018a583",
+                            "type": "static",
+                            "width": 2352,
+                            "height": 1760,
+                            "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/fdf74f11f78a4bbd752a2b497f82588bd177c148e63b2a767e0e514e35b3b21f"
+                        },
+                        {
+                            "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/2b60d8837592afb040e957464aa49fcc2564e93e68c1c5ae7ef978809f5fe254",
+                            "type": "static",
+                            "width": 2352,
+                            "height": 1760,
+                            "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/3a27fc3f637dc18fb1bf240f9197b6d1ccffdce56252f083cad82470adc9336c"
+                        },
+                        {
+                            "url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/7cdb6c6bf39053d2bfd1203f902ff66190192be1ea29be6de2bd731530996928",
+                            "type": "static",
+                            "width": 2352,
+                            "height": 1760,
+                            "thumbnail_url": "https://static-public-media.higgsfield.ai/playable-ads-explore-presets/published/16504f24c89babeb5c10b1898e7007a9730c82b37a45595182f21c05bc82397a"
+                        }
+                    ],
+                    "priority": 0,
+                    "recreate": {
+                        "prompt": "Create a 2D adventure platformer where a lantern-carrying explorer searches dark underground ruins for treasure. Your goal is to find the bronze and silver keys, open locked chambers and reach the hidden vault. You run and jump between stone platforms, stomp slimes, dodge swooping bats and spikes, pull levers and push a stone block onto a pressure plate to open new paths. Collect gems, treasure and protective charms, find feather boots that let you double-jump, and defeat the guardian by dodging its dives and jumping on its head.",
+                        "game_type": "maze",
+                        "dimension": "2d",
+                        "mode": "auto"
+                    }
+                }
+            }
+        ]
+    }
+}

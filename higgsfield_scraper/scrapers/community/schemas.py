@@ -141,6 +141,8 @@ class CommunityGeneration(Strict):
     extra: dict[str, Any] = Field(default_factory=dict,
                                   description="any other non-null top-level item fields (representation, drama, …)")
     creator: CreatorRef
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(<clerk user id>): one "
+                                           "pseudonymous key per user across scrapers (= showcase/studios creator_key)")
     estimated_cost: Optional[EstimatedCost] = Field(None, description="None unless --estimate-cost")
     source: Provenance
 
@@ -158,6 +160,8 @@ class CommunityCreator(Strict):
     badge: Optional[Any] = None
     badges: list[Any] = Field(default_factory=list)
     generations_in_dataset: Optional[int] = None
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(<clerk user id>): one "
+                                           "pseudonymous key per user across scrapers (= showcase/studios creator_key)")
     source: Provenance
 
 
@@ -179,6 +183,8 @@ class CommunityComment(Strict):
     reactions: list[dict[str, Any]] = Field(default_factory=list)
     mention_count: int = 0
     user_id: Optional[str] = Field(None, description="pseudonymous commenter id")
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(<clerk user id>): one "
+                                           "pseudonymous key per user across scrapers (= showcase/studios creator_key)")
     username: Optional[str] = Field(None, description="only with --with-profiles")
     author: dict[str, Any] = Field(default_factory=dict, description="badge/rating_points; name, avatar, headline "
                                                                      "only with --with-profiles")
@@ -283,6 +289,8 @@ class CommunityShot(Strict):
     aesthetic_label: Optional[bool] = Field(None, description="passes the aesthetic filter (not shown)")
     published_at: Optional[AwareDatetime] = None
     author: PersonRef
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(<clerk user id>): one "
+                                           "pseudonymous key per user across scrapers (= showcase/studios creator_key)")
     snapshot_id: Optional[str] = Field(None, description="feed snapshot the page came from (cursor-based ranking)")
     source: Provenance
 
@@ -310,6 +318,12 @@ class PostMedia(Strict):
     duration_seconds: Optional[float] = Field(None, description="seconds (card.video.duration)")
     card_stats: Optional[dict[str, Any]] = Field(None, description="project card stats: generations_count, "
                                                  "credits_spent, free_generations, size_bytes, stack[] (per model)")
+    card_likes: Optional[int] = Field(None, description="card.like_count (attached project's likes)")
+    card_views: Optional[int] = Field(None, description="card.views_count")
+    card_comments: Optional[int] = Field(None, description="card.comment_count")
+    card_published_at: Optional[AwareDatetime] = Field(None, description="card.published_at")
+    job_result_thumbnail_url: Optional[str] = Field(None, description="job_result.thumbnail_url (video poster)")
+    min_result_thumbnail_url: Optional[str] = Field(None, description="min_result.thumbnail_url")
     extra: dict[str, Any] = Field(default_factory=dict)
 
 
@@ -332,6 +346,8 @@ class CommunityPost(Strict):
     created_at: Optional[AwareDatetime] = None
     updated_at: Optional[AwareDatetime] = None
     author: PersonRef
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(<clerk user id>): one "
+                                           "pseudonymous key per user across scrapers (= showcase/studios creator_key)")
     extra: dict[str, Any] = Field(default_factory=dict, description="other non-null API fields")
     source: Provenance
 
@@ -357,6 +373,14 @@ class CommunityFeedItem(Strict):
     thumbnail_url: Optional[str] = None
     cover_url: Optional[str] = None
     video_url: Optional[str] = None
+    video_hls_url: Optional[str] = Field(None, description="card.video.hls_url (project cards)")
+    video_preview_url: Optional[str] = Field(None, description="card.video.preview_url (project cards)")
+    width: Optional[int] = Field(None, description="card.video.width, px (project cards)")
+    height: Optional[int] = Field(None, description="card.video.height, px (project cards)")
+    duration_seconds: Optional[float] = Field(None, description="card.video.duration, s (project cards)")
+    text: Optional[str] = Field(None, description="post.content.text (post items)")
+    media: list[PostMedia] = Field(default_factory=list, description="post.content.medias[] (post items; same model "
+                                                                     "as community_post.media)")
     likes: Optional[int] = Field(None, description="item like_count (card counter)")
     comments: Optional[int] = Field(None, description="item comment_count")
     shares: Optional[int] = Field(None, description="item share_count")
@@ -367,7 +391,12 @@ class CommunityFeedItem(Strict):
     top_comment_id: Optional[str] = None
     top_comment_likes: Optional[int] = None
     author: PersonRef
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(<clerk user id>): one "
+                                           "pseudonymous key per user across scrapers (= showcase/studios creator_key)")
     snapshot_id: Optional[str] = None
+    extra: dict[str, Any] = Field(default_factory=dict, description="other non-null API fields (room, post.*, card.*, "
+                                                                    "generation.*, top_comment.text); people only "
+                                                                    "as ids")
     source: Provenance
 
 
@@ -388,6 +417,8 @@ class CommunityCreatorStats(Strict):
     listing: Literal["creators", "talents"]
     position: Optional[int] = Field(None, description="0-based rank in the listing order")
     user_id: str = Field(description="pseudonymous Clerk id")
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(<clerk user id>): one "
+                                           "pseudonymous key per user across scrapers (= showcase/studios creator_key)")
     rating_points: Optional[int] = None
     followers_count: Optional[int] = None
     following_count: Optional[int] = None
@@ -406,6 +437,135 @@ class CommunityCreatorStats(Strict):
     bio: Optional[str] = Field(None, description="only with --with-profiles")
     location: Optional[str] = Field(None, description="only with --with-profiles")
     avatar_url: Optional[str] = Field(None, description="only with --with-profiles")
+    source: Provenance
+
+
+class WorkMedia(Strict):
+    """One media file of a project work (cover, gallery_media[] entry or trailer)."""
+
+    index: int = Field(description="position within gallery_media[] (0 for cover / trailer)")
+    role: Literal["cover", "gallery", "trailer"]
+    media_id: Optional[str] = None
+    type: Optional[str] = Field(None, description="image | video | media")
+    name: Optional[str] = None
+    url: Optional[str] = Field(None, description="main URL (an HLS playlist for gallery videos)")
+    original_url: Optional[str] = None
+    preview_url: Optional[str] = None
+    thumbnail_url: Optional[str] = None
+    min_url: Optional[str] = None
+    download_url: Optional[str] = None
+    width: Optional[int] = Field(None, description="px")
+    height: Optional[int] = Field(None, description="px")
+    duration_seconds: Optional[float] = None
+    object_fit: Optional[str] = None
+    extra: dict[str, Any] = Field(default_factory=dict)
+
+
+class CommunityCreatorWork(Strict):
+    """kind=community_creator_work - one work of a creator / talent card (users[].items[] of --feeds creators /
+    talents), in full. Shots are published generations (the same fields as community_generation, parsed by the same
+    code); projects are publication cards. record_id joins community_creator_stats; generation_id joins
+    community_generation; project_publication_id joins projects_publication."""
+
+    work_id: str = Field(description="make_id('creator_work', listing, creator_user_id, rank)")
+    record_id: str = Field(description="community_creator_stats.record_id of the card")
+    listing: Literal["creators", "talents"]
+    creator_user_id: str = Field(description="pseudonymous Clerk id of the card's creator")
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(creator_user_id)")
+    rank: int = Field(description="0-based position of the work on the card (users[].items[] order)")
+    item_type: str = Field(description="shot (a generation) | project (a project publication) | other raw type")
+    item_id: Optional[str] = Field(None, description="shot publication id / project publication id (as works[].item_id)")
+    is_pinned: Optional[bool] = None
+    title: Optional[str] = Field(None, description="project name")
+    description: Optional[str] = None
+    slug: Optional[str] = None
+    url: Optional[str] = Field(None, description="shot page URL (projects need the owner's username: not built)")
+    likes: Optional[int] = Field(None, description="project likes / shot publication.likes_count")
+    views: Optional[int] = Field(None, description="project views / shot publication.views_count")
+    comments: Optional[int] = Field(None, description="project comments (shots: not sent)")
+    approved: Optional[bool] = Field(None, description="shots: publication.approved")
+    pinned_at: Optional[AwareDatetime] = Field(None, description="shots: publication.pinned_at")
+    created_at: Optional[AwareDatetime] = None
+    published_at: Optional[AwareDatetime] = None
+    # ---- shot (generation) items: same parsing as community_generation
+    generation_id: Optional[str] = Field(None, description="job id (joins community_generation.generation_id)")
+    publication_id: Optional[str] = Field(None, description="gallery publication id")
+    job_set_type: Optional[str] = None
+    job_set_id: Optional[str] = None
+    parent_id: Optional[str] = Field(None, description="job_set_parent_id")
+    media_type: Optional[MediaType] = None
+    status: Optional[str] = None
+    prompt: Optional[str] = None
+    negative_prompt: Optional[str] = None
+    enhanced_prompt: Optional[str] = Field(None, description="params.enhanced_prompt (also kept in params_extra)")
+    settings: Optional[Settings] = None
+    params_extra: dict[str, Any] = Field(default_factory=dict)
+    raw_params: Optional[dict[str, Any]] = Field(None, description="only with --with-raw-params")
+    inputs: list[InputMedia] = Field(default_factory=list)
+    results: list[ResultVariant] = Field(default_factory=list)
+    moderation: Optional[Moderation] = None
+    expires_at: Optional[AwareDatetime] = None
+    can_upgrade_to_4k: Optional[bool] = None
+    upgrade_options: Optional[list[Any]] = None
+    cluster_hash: Optional[str] = None
+    trace_id: Optional[str] = None
+    board_ids: list[Any] = Field(default_factory=list)
+    client_meta: Optional[dict[str, Any]] = None
+    is_bonus_generation: Optional[bool] = None
+    upstream_usage: Optional[dict[str, Any]] = Field(None, description="parsed meta.cost (provider token usage)")
+    meta_extra: dict[str, Any] = Field(default_factory=dict)
+    # ---- project items: publication card
+    project_publication_id: Optional[str] = None
+    project_id: Optional[str] = None
+    project_type: Optional[str] = Field(None, description="item.type, e.g. film | series")
+    state: Optional[str] = None
+    duration_seconds: Optional[float] = None
+    cover_url: Optional[str] = None
+    cover_width: Optional[int] = None
+    cover_height: Optional[int] = None
+    trailer_url: Optional[str] = None
+    trailer_thumbnail_url: Optional[str] = None
+    trailer_duration_seconds: Optional[float] = None
+    gallery_media: list[WorkMedia] = Field(default_factory=list, description="cover + gallery_media[] + trailer")
+    tags: list[str] = Field(default_factory=list)
+    categories: list[str] = Field(default_factory=list)
+    contest_key: Optional[str] = None
+    author_user_ids: list[str] = Field(default_factory=list, description="pseudonymous ids of the project's authors")
+    author_uid_keys: list[str] = Field(default_factory=list, description="creator_uid_key of each author")
+    extra: dict[str, Any] = Field(default_factory=dict, description="other non-null item fields (people only as ids)")
+    source: Provenance
+
+
+class CommunityShotModelFacet(Strict):
+    """kind=community_shot_model_facet - one entry of the Shots tab model filter (fnf-community /generations/feed
+    `available_models[]`: model + media_type). The API sends no per-model count; `shots_in_run` counts the shots of
+    this run with that job_set_type (filled by the dataset)."""
+
+    facet_id: str = Field(description="make_id('shot_model_facet', model, media_type)")
+    model: str = Field(description="job_set_type (joins pricing model_id / community_shot.job_set_type)")
+    media_type: Optional[str] = None
+    position: Optional[int] = Field(None, description="0-based order in available_models[]")
+    shots_in_run: Optional[int] = Field(None, description="community_shot rows of this run with this model")
+    snapshot_id: Optional[str] = None
+    extra: dict[str, Any] = Field(default_factory=dict)
+    source: Provenance
+
+
+class CommunityFeedCategory(Strict):
+    """kind=community_feed_category - a Feed hashtag category / contest (fnf-community GET /feed/categories) or an
+    ongoing item (GET /feed/ongoing)."""
+
+    category_id: str = Field(description="make_id('feed_category', source_list, slug or id)")
+    source_list: Literal["categories", "ongoing"]
+    position: Optional[int] = Field(None, description="0-based order in the API list")
+    slug: Optional[str] = None
+    short_title: Optional[str] = None
+    title: Optional[str] = None
+    description: Optional[str] = None
+    hashtag: Optional[str] = Field(None, description="caption hashtag that files a post into the category")
+    post_count: Optional[int] = None
+    previews: list[str] = Field(default_factory=list, description="preview image URLs")
+    extra: dict[str, Any] = Field(default_factory=dict)
     source: Provenance
 
 
@@ -428,6 +588,10 @@ class CommunityExtraStats(Strict):
     shots_by_job_set_type: dict[str, int] = Field(default_factory=dict)
     shots_by_media_type: dict[str, int] = Field(default_factory=dict)
     comments_by_thread_type: dict[str, int] = Field(default_factory=dict)
+    creator_works: int = 0
+    creator_works_by_type: dict[str, int] = Field(default_factory=dict)
+    shot_model_facets: int = 0
+    feed_categories: int = 0
 
 
 class CommunityDatasetExt(CommunityDataset):
@@ -438,6 +602,10 @@ class CommunityDatasetExt(CommunityDataset):
     posts: list[CommunityPost] = Field(default_factory=list)
     feed_items: list[CommunityFeedItem] = Field(default_factory=list)
     creator_stats: list[CommunityCreatorStats] = Field(default_factory=list)
+    creator_works: list[CommunityCreatorWork] = Field(default_factory=list,
+                                                      description="every users[].items[] of creators / talents")
+    shot_model_facets: list[CommunityShotModelFacet] = Field(default_factory=list)
+    feed_categories: list[CommunityFeedCategory] = Field(default_factory=list)
     extra_stats: CommunityExtraStats = Field(default_factory=CommunityExtraStats)
 
 
@@ -546,6 +714,8 @@ class CommunityShowcaseJob(Strict):
     meta_extra: dict[str, Any] = Field(default_factory=dict)
     extra: dict[str, Any] = Field(default_factory=dict, description="other non-null top-level job fields")
     creator: PersonRef
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(<clerk user id>): one "
+                                           "pseudonymous key per user across scrapers (= showcase/studios creator_key)")
     source: Provenance
 
 

@@ -1,0 +1,516 @@
+{
+    "meta": {
+        "endpoint": "showcase_effect_page",
+        "url": "https://higgsfield.ai/effects/examples/cutout",
+        "status": 200,
+        "params": {
+            "slug": "cutout"
+        },
+        "fetched_at": "2026-11-26T12:00:00+00:00"
+    },
+    "body": {
+        "slug": "cutout",
+        "loader": {
+            "preset": {
+                "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                "slug": "cutout",
+                "kind": "chain",
+                "name": "Cutout",
+                "description": "The surroundings break apart into floating cutout layers, revealing a clean white void around the subject before snapping back into place. Built for surreal fashion edits, mixed-media visuals, and playful architectural transitions.",
+                "preview_url": "https://cdn.higgsfield.ai/viral_hub/a64711ac-93b8-46ee-a9ce-37ee5c18e148.mp4",
+                "thumbnail_url": "https://cdn.higgsfield.ai/viral_hub/b5c90864-c3c5-4b14-87a0-3739250fd00b.webp",
+                "preview_image": null,
+                "preview_media": {
+                    "url": "https://cdn.higgsfield.ai/viral_hub/a64711ac-93b8-46ee-a9ce-37ee5c18e148.mp4",
+                    "type": "video",
+                    "width": 600,
+                    "height": 450,
+                    "duration": 8,
+                    "main_url": "https://cdn.higgsfield.ai/viral_hub/50e19d6b-c8ff-48e5-8b13-afed804f0008.mp4",
+                    "main_width": 1280,
+                    "duration_ms": 8103,
+                    "main_height": 960,
+                    "content_type": "video/mp4",
+                    "optimized_url": "https://cdn.higgsfield.ai/viral_hub/c6447d94-7c69-4bc5-81cf-7dfeea1beefe.webp",
+                    "thumbnail_url": "https://cdn.higgsfield.ai/viral_hub/b5c90864-c3c5-4b14-87a0-3739250fd00b.webp"
+                },
+                "duration": 8,
+                "widescreen_image": null,
+                "widescreen_media": {
+                    "url": "https://cdn.higgsfield.ai/viral_hub/ba9aed65-528d-4ed3-a193-0a3ca9b30efa.mp4",
+                    "type": "video",
+                    "width": 600,
+                    "height": 450,
+                    "duration": 8,
+                    "thumbnail_url": "https://cdn.higgsfield.ai/viral_hub/f6d0c23c-24c5-4765-bad9-c162cd662ab6.webp"
+                },
+                "ip_check_required": false,
+                "is_main_page": true,
+                "tags": [],
+                "priority": 3,
+                "inputs": [
+                    {
+                        "id": "091ceb3e-d27f-4a8e-9210-22ff9242c9af_input_images",
+                        "max": 1,
+                        "min": 1,
+                        "type": "image",
+                        "label": "Upload image",
+                        "binds_to": [
+                            {
+                                "node": "bd65e60f-2cdd-4a43-8847-9fb4a7d0137c",
+                                "port": "input_images"
+                            },
+                            {
+                                "node": "06107d72-f5ac-4c2a-84a1-513d3565c1cd",
+                                "port": "input_images"
+                            }
+                        ],
+                        "required": true
+                    },
+                    {
+                        "id": "bd65e60f-2cdd-4a43-8847-9fb4a7d0137c_user_prompt",
+                        "type": "text",
+                        "label": "Prompt",
+                        "binds_to": {
+                            "node": "bd65e60f-2cdd-4a43-8847-9fb4a7d0137c",
+                            "port": "user_prompt"
+                        }
+                    }
+                ],
+                "param_choices": {
+                    "06107d72-f5ac-4c2a-84a1-513d3565c1cd": {
+                        "resolution": {
+                            "choices": [
+                                "480p",
+                                "720p",
+                                "1080p",
+                                "4k"
+                            ],
+                            "default": "720p"
+                        },
+                        "aspect_ratio": {
+                            "choices": [
+                                "auto",
+                                "21:9",
+                                "16:9",
+                                "4:3",
+                                "1:1",
+                                "3:4",
+                                "9:16"
+                            ],
+                            "default": "9:16"
+                        }
+                    }
+                },
+                "param_inputs": [],
+                "price_matrix": [
+                    {
+                        "key": "",
+                        "credit_units": 3600
+                    },
+                    {
+                        "key": "06107d72-f5ac-4c2a-84a1-513d3565c1cd.aspect_ratio=16:9,06107d72-f5ac-4c2a-84a1-513d3565c1cd.resolution=1080p",
+                        "credit_units": 7200
+                    },
+                    {
+                        "key": "06107d72-f5ac-4c2a-84a1-513d3565c1cd.aspect_ratio=16:9,06107d72-f5ac-4c2a-84a1-513d3565c1cd.resolution=480p",
+                        "credit_units": 2400
+                    },
+                    {
+                        "key": "06107d72-f5ac-4c2a-84a1-513d3565c1cd.aspect_ratio=16:9,06107d72-f5ac-4c2a-84a1-513d3565c1cd.resolution=4k",
+                        "credit_units": 17600
+                    }
+                ],
+                "pricing": {
+                    "type": "matrix"
+                },
+                "job_set_type": "viral_hub_video",
+                "samples_settings": [],
+                "default_settings_sample_preview": null,
+                "categories": []
+            },
+            "initialSamples": {
+                "total": 9,
+                "items": [
+                    {
+                        "attachments": [
+                            {
+                                "height": null,
+                                "inputMedia": {
+                                    "id": "a1d76e3e-288d-45a8-9c88-432b540e626d",
+                                    "type": "media_input",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_FakeEffectUser1/a1d76e3e-288d-45a8-9c88-432b540e626d.png"
+                                },
+                                "source": "https://d2ol7oe51mr4n9.cloudfront.net/user_FakeEffectUser1/a1d76e3e-288d-45a8-9c88-432b540e626d.png",
+                                "width": null,
+                                "type": "image"
+                            }
+                        ],
+                        "id": "890791e6-c92a-431b-82c8-dd3a1e71d91a",
+                        "job": {
+                            "id": "9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153",
+                            "jobSetId": "99dddfe3-2798-4f52-9b42-49c310414f9c",
+                            "jobSetType": "viral_hub_video",
+                            "traceId": "9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153",
+                            "assetTypeLayer": "Video",
+                            "stage": "complete",
+                            "status": "completed",
+                            "params": {
+                                "provider": "unknown",
+                                "preset": {
+                                    "id": "",
+                                    "_tag": "preset-vo"
+                                },
+                                "mixPresetMeta": null,
+                                "presetMeta": {
+                                    "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                    "name": "Cutout",
+                                    "url": "https://cdn.higgsfield.ai/viral_hub_preset/0d4cd007-10c1-4eaf-a9a0-28d102b91d9d.mp4",
+                                    "_tag": "preset-meta-vo"
+                                },
+                                "prompt": {
+                                    "prompt": "",
+                                    "enhance": false,
+                                    "_tag": "prompt-vo"
+                                },
+                                "systemPrompt": null,
+                                "multiPrompt": null,
+                                "enhancedPrompt": null,
+                                "imageRole": {
+                                    "inputImage": {
+                                        "id": "a1d76e3e-288d-45a8-9c88-432b540e626d",
+                                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_FakeEffectUser1/a1d76e3e-288d-45a8-9c88-432b540e626d.png",
+                                        "type": "media_input",
+                                        "object_key": "user_FakeEffectUser1/a1d76e3e-288d-45a8-9c88-432b540e626d.png"
+                                    },
+                                    "_tag": "image-with-role-vo"
+                                },
+                                "images": {
+                                    "images": [],
+                                    "_tag": "images-vo"
+                                },
+                                "videos": null,
+                                "audios": null,
+                                "quality": null,
+                                "seed": null,
+                                "duration": 8,
+                                "model": null,
+                                "aspectRatio": "4:3",
+                                "steps": null,
+                                "audioScale": null,
+                                "audioGuideScale": null,
+                                "klingElements": null,
+                                "sound": null,
+                                "width": 1280,
+                                "height": 960,
+                                "resolution": "1080p",
+                                "cameraFocalLength": null,
+                                "cameraAperture": null,
+                                "cameraLens": null,
+                                "cameraModel": null,
+                                "mixedMediaConfig": null,
+                                "fps": null,
+                                "credits": null,
+                                "settingsType": null,
+                                "referenceElements": null,
+                                "aiInfluencerConfig": null
+                            },
+                            "media": {
+                                "assetType": "video",
+                                "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260820_154224_9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153.mp4",
+                                "resultOnlyUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260820_154224_9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153.mp4",
+                                "hls": {
+                                    "type": "video",
+                                    "url": "https://cdn.higgsfield.ai/hls/job/9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153/0c40ec9e-b27d-4c75-bfba-6f09558cd909/index.m3u8",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_FakeEffectUser1/hf_20260820_154224_9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153_thumbnail.webp"
+                                },
+                                "media": {
+                                    "type": "video",
+                                    "source": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260820_154224_9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153.mp4",
+                                    "thumbnail": "https://cdn.higgsfield.ai/user_FakeEffectUser1/hf_20260820_154224_9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153_thumbnail.webp",
+                                    "width": 1280,
+                                    "height": 960
+                                },
+                                "meta": {
+                                    "width": 1280,
+                                    "height": 960,
+                                    "aspectRatio": "1280:960"
+                                }
+                            },
+                            "createdAt": 1787240544.721574,
+                            "jobSetCost": null,
+                            "artifacts": null,
+                            "rawParams": {
+                                "width": 1280,
+                                "height": 960,
+                                "prompt": "",
+                                "medias": [
+                                    {
+                                        "role": "start_image",
+                                        "data": {
+                                            "id": "a1d76e3e-288d-45a8-9c88-432b540e626d",
+                                            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_FakeEffectUser1/a1d76e3e-288d-45a8-9c88-432b540e626d.png",
+                                            "type": "media_input",
+                                            "object_key": "user_FakeEffectUser1/a1d76e3e-288d-45a8-9c88-432b540e626d.png"
+                                        }
+                                    }
+                                ],
+                                "duration": 8,
+                                "resolution": "1080p",
+                                "aspect_ratio": "4:3",
+                                "chain_preset": {
+                                    "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                    "name": "Cutout",
+                                    "slug": "cutout",
+                                    "preview_media": {
+                                        "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                        "name": "Cutout",
+                                        "main_url": "https://cdn.higgsfield.ai/viral_hub_preset/0d4cd007-10c1-4eaf-a9a0-28d102b91d9d.mp4",
+                                        "optimized_url": "https://cdn.higgsfield.ai/viral_hub_preset/dd4a5804-a7fe-4c1a-9f6e-91cc4c1c4b64.webp"
+                                    }
+                                },
+                                "chain_preset_id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                "preset": {
+                                    "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                    "name": "Cutout",
+                                    "slug": "cutout",
+                                    "preview_media": {
+                                        "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                        "name": "Cutout",
+                                        "main_url": "https://cdn.higgsfield.ai/viral_hub_preset/0d4cd007-10c1-4eaf-a9a0-28d102b91d9d.mp4",
+                                        "optimized_url": "https://cdn.higgsfield.ai/viral_hub_preset/dd4a5804-a7fe-4c1a-9f6e-91cc4c1c4b64.webp"
+                                    }
+                                }
+                            },
+                            "clientMeta": {
+                                "source": "viral_hub_web"
+                            },
+                            "failReason": null,
+                            "clusterHash": null,
+                            "cluster": null,
+                            "user": {
+                                "id_hash": "9298ff315521320d"
+                            },
+                            "isReference": false,
+                            "ipCheckFinished": true,
+                            "ipDetected": false,
+                            "canBypassIp": false,
+                            "expiresAtMs": null
+                        },
+                        "output": {
+                            "height": 960,
+                            "source": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260820_154224_9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153.mp4",
+                            "width": 1280,
+                            "hlsUrl": "https://cdn.higgsfield.ai/hls/job/9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153/0c40ec9e-b27d-4c75-bfba-6f09558cd909/index.m3u8",
+                            "posterUrl": "https://cdn.higgsfield.ai/user_FakeEffectUser1/hf_20260820_154224_9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153_thumbnail.webp",
+                            "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260820_154224_9ebf4f75-ce9c-483b-b19f-8d5dd4f1f153.mp4",
+                            "type": "video"
+                        },
+                        "presetId": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                        "presetName": "Cutout",
+                        "presetPreview": {
+                            "height": null,
+                            "source": "https://cdn.higgsfield.ai/viral_hub_preset/0d4cd007-10c1-4eaf-a9a0-28d102b91d9d.mp4",
+                            "width": null,
+                            "posterUrl": "https://cdn.higgsfield.ai/viral_hub_preset/dd4a5804-a7fe-4c1a-9f6e-91cc4c1c4b64.webp",
+                            "type": "video"
+                        },
+                        "presetSlug": "cutout",
+                        "prompt": null,
+                        "publishedAt": 1788912498.669323
+                    },
+                    {
+                        "attachments": [
+                            {
+                                "height": null,
+                                "inputMedia": {
+                                    "id": "fb208ed2-7d47-45d3-b624-21996b802480",
+                                    "type": "media_input",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_FakeEffectUser1/fb208ed2-7d47-45d3-b624-21996b802480.png"
+                                },
+                                "source": "https://d2ol7oe51mr4n9.cloudfront.net/user_FakeEffectUser1/fb208ed2-7d47-45d3-b624-21996b802480.png",
+                                "width": null,
+                                "type": "image"
+                            }
+                        ],
+                        "id": "d558b284-ff2b-4f8b-bf60-f21b058c45fe",
+                        "job": {
+                            "id": "b89e29c2-c338-44bc-8dc4-d33eab935810",
+                            "jobSetId": "d21321e7-7a12-4bfc-ba2c-f1233a5ece06",
+                            "jobSetType": "viral_hub_video",
+                            "traceId": "b89e29c2-c338-44bc-8dc4-d33eab935810",
+                            "assetTypeLayer": "Video",
+                            "stage": "complete",
+                            "status": "completed",
+                            "params": {
+                                "provider": "unknown",
+                                "preset": {
+                                    "id": "",
+                                    "_tag": "preset-vo"
+                                },
+                                "mixPresetMeta": null,
+                                "presetMeta": {
+                                    "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                    "name": "Cutout",
+                                    "url": "https://cdn.higgsfield.ai/viral_hub/63a196e1-e863-4ead-8608-0bbe2e6e693d.mp4",
+                                    "_tag": "preset-meta-vo"
+                                },
+                                "prompt": {
+                                    "prompt": "",
+                                    "enhance": false,
+                                    "_tag": "prompt-vo"
+                                },
+                                "systemPrompt": null,
+                                "multiPrompt": null,
+                                "enhancedPrompt": null,
+                                "imageRole": {
+                                    "inputImage": {
+                                        "id": "fb208ed2-7d47-45d3-b624-21996b802480",
+                                        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_FakeEffectUser1/fb208ed2-7d47-45d3-b624-21996b802480.png",
+                                        "type": "media_input",
+                                        "object_key": "user_FakeEffectUser1/fb208ed2-7d47-45d3-b624-21996b802480.png"
+                                    },
+                                    "_tag": "image-with-role-vo"
+                                },
+                                "images": {
+                                    "images": [],
+                                    "_tag": "images-vo"
+                                },
+                                "videos": null,
+                                "audios": null,
+                                "quality": null,
+                                "seed": null,
+                                "duration": 8,
+                                "model": null,
+                                "aspectRatio": "1:1",
+                                "steps": null,
+                                "audioScale": null,
+                                "audioGuideScale": null,
+                                "klingElements": null,
+                                "sound": null,
+                                "width": 1024,
+                                "height": 1024,
+                                "resolution": "1080p",
+                                "cameraFocalLength": null,
+                                "cameraAperture": null,
+                                "cameraLens": null,
+                                "cameraModel": null,
+                                "mixedMediaConfig": null,
+                                "fps": null,
+                                "credits": null,
+                                "settingsType": null,
+                                "referenceElements": null,
+                                "aiInfluencerConfig": null
+                            },
+                            "media": {
+                                "assetType": "video",
+                                "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260827_212525_b89e29c2-c338-44bc-8dc4-d33eab935810.mp4",
+                                "resultOnlyUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260827_212525_b89e29c2-c338-44bc-8dc4-d33eab935810.mp4",
+                                "hls": {
+                                    "type": "video",
+                                    "url": "https://cdn.higgsfield.ai/hls/job/b89e29c2-c338-44bc-8dc4-d33eab935810/c5532e18-ca7a-4c2e-8b18-21133be53f45/index.m3u8",
+                                    "thumbnail_url": "https://cdn.higgsfield.ai/user_FakeEffectUser1/hf_20260827_212525_b89e29c2-c338-44bc-8dc4-d33eab935810_thumbnail.webp"
+                                },
+                                "media": {
+                                    "type": "video",
+                                    "source": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260827_212525_b89e29c2-c338-44bc-8dc4-d33eab935810.mp4",
+                                    "thumbnail": "https://cdn.higgsfield.ai/user_FakeEffectUser1/hf_20260827_212525_b89e29c2-c338-44bc-8dc4-d33eab935810_thumbnail.webp",
+                                    "width": 1024,
+                                    "height": 1024
+                                },
+                                "meta": {
+                                    "width": 1024,
+                                    "height": 1024,
+                                    "aspectRatio": "1024:1024"
+                                }
+                            },
+                            "createdAt": 1787865925.346516,
+                            "jobSetCost": null,
+                            "artifacts": null,
+                            "rawParams": {
+                                "width": 1024,
+                                "height": 1024,
+                                "prompt": "",
+                                "medias": [
+                                    {
+                                        "role": "start_image",
+                                        "data": {
+                                            "id": "fb208ed2-7d47-45d3-b624-21996b802480",
+                                            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_FakeEffectUser1/fb208ed2-7d47-45d3-b624-21996b802480.png",
+                                            "type": "media_input",
+                                            "object_key": "user_FakeEffectUser1/fb208ed2-7d47-45d3-b624-21996b802480.png"
+                                        }
+                                    }
+                                ],
+                                "duration": 8,
+                                "resolution": "1080p",
+                                "aspect_ratio": "1:1",
+                                "chain_preset": {
+                                    "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                    "name": "Cutout",
+                                    "slug": "cutout",
+                                    "preview_media": {
+                                        "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                        "name": "Cutout",
+                                        "main_url": "https://cdn.higgsfield.ai/viral_hub/63a196e1-e863-4ead-8608-0bbe2e6e693d.mp4",
+                                        "optimized_url": "https://cdn.higgsfield.ai/viral_hub/ac22fed4-06bd-4e8e-9932-9f5839143255.webp"
+                                    }
+                                },
+                                "chain_preset_id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                "preset": {
+                                    "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                    "name": "Cutout",
+                                    "slug": "cutout",
+                                    "preview_media": {
+                                        "id": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                                        "name": "Cutout",
+                                        "main_url": "https://cdn.higgsfield.ai/viral_hub/63a196e1-e863-4ead-8608-0bbe2e6e693d.mp4",
+                                        "optimized_url": "https://cdn.higgsfield.ai/viral_hub/ac22fed4-06bd-4e8e-9932-9f5839143255.webp"
+                                    }
+                                }
+                            },
+                            "clientMeta": {
+                                "source": "viral_hub_web"
+                            },
+                            "failReason": null,
+                            "clusterHash": null,
+                            "cluster": null,
+                            "user": {
+                                "id_hash": "9298ff315521320d"
+                            },
+                            "isReference": false,
+                            "ipCheckFinished": true,
+                            "ipDetected": false,
+                            "canBypassIp": false,
+                            "expiresAtMs": null
+                        },
+                        "output": {
+                            "height": 1024,
+                            "source": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260827_212525_b89e29c2-c338-44bc-8dc4-d33eab935810.mp4",
+                            "width": 1024,
+                            "hlsUrl": "https://cdn.higgsfield.ai/hls/job/b89e29c2-c338-44bc-8dc4-d33eab935810/c5532e18-ca7a-4c2e-8b18-21133be53f45/index.m3u8",
+                            "posterUrl": "https://cdn.higgsfield.ai/user_FakeEffectUser1/hf_20260827_212525_b89e29c2-c338-44bc-8dc4-d33eab935810_thumbnail.webp",
+                            "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_FakeEffectUser1/hf_20260827_212525_b89e29c2-c338-44bc-8dc4-d33eab935810.mp4",
+                            "type": "video"
+                        },
+                        "presetId": "dd509a98-fffe-4b30-915b-3fd93b31bbc9",
+                        "presetName": "Cutout",
+                        "presetPreview": {
+                            "height": null,
+                            "source": "https://cdn.higgsfield.ai/viral_hub/63a196e1-e863-4ead-8608-0bbe2e6e693d.mp4",
+                            "width": null,
+                            "posterUrl": "https://cdn.higgsfield.ai/viral_hub/ac22fed4-06bd-4e8e-9932-9f5839143255.webp",
+                            "type": "video"
+                        },
+                        "presetSlug": "cutout",
+                        "prompt": null,
+                        "publishedAt": 1788912498.217038
+                    }
+                ],
+                "cursor": 1787779204.997327,
+                "hasMore": true
+            },
+            "sample": null
+        }
+    }
+}

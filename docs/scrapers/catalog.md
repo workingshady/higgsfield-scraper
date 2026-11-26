@@ -104,6 +104,19 @@ The old `fnf/<path>` URLs answer 404 even when logged in — do not use them.
 Parsing stays generic (typed common keys, media-like values → `media`, the rest in `extra`). Person objects inside
 items (`katana_presets[].author = {user_id, username, avatar_url, badge}`) are reduced to non-identifying
 fields + `redacted: true` unless `--with-profiles`.
+
+**Katana authors (added 2026-11-26).** `catalog_katana_preset` rows also carry `author_key` and `creator_uid_key`
+(both `core.privacy.creator_uid_key(author.user_id)` = `make_id("creator", <clerk id>)`, the same hash as the
+showcase/studios `author_key` / `creator_key`; `None` when the id is missing or redacted). They are kept with and
+without `--with-profiles`. **Archives**: `catalog` is not a `personal_data` scraper, so the framework archives
+bodies untouched; katana bodies used to keep the authors' `username` / `avatar_url` in `raw/` and
+`http/…/body.raw` (COMPLETENESS #5). `CatalogPrivacyMiddleware` (`scrapers/catalog/privacy.py`, downloader
+middleware 582, added by `CatalogSpider.update_settings` like the account scraper's) now applies
+`core.privacy.redact_personal` to the `catalog_katana_presets` body *before* the http/ (580) and raw/ archives and the
+parser: `username`, `avatar_url` (and `name`, … inside `author`) become `[redacted]`; the opaque `author.user_id` is
+kept (needed for the keys). `--with-profiles` keeps the body untouched; every other endpoint stays byte-exact.
+Why it escaped before: not the `PERSON_CONTAINERS` list (`author` is in it, and `username` / `avatar_url` are
+redacted anywhere) but `ScraperDef.personal_data=False`, which disables archive redaction for the whole scraper.
 `--max-items` is one budget for the whole run (the first listing can use all of it); use `--max-pages 1` to sample
 every listing once.
 
@@ -147,6 +160,21 @@ convention: `source_url`, `scraped_at`, `schema_version` (plus the usual `source
 Live check 2026-11-26 (`--kinds chain_preset,notice,restyle_preset --include-hidden`): 4 requests, success:
 chain presets 58 (10 hidden, 9 discounted, 13 with a collaborator credit), notices 10, restyle presets 21.
 
+### Name-only kinds (`--kinds outfit_character`) — public, verified 2026-11-26
+
+Selected **only by name**: not in the default run, `public`, `login` **or `all`** (adding a request to `--kinds all`
+would change what existing `all` runs request; `--kinds all` plans byte-identical requests). They live in
+`endpoints.NAMED_KINDS` (outside `KINDS`); `SELECTABLE = KINDS + NAMED_KINDS` is what `--kinds` accepts. Output
+follows the opt-in rule: no collection / counts / endpoints / summary rows unless selected or fetched (runs label
+`all-outfit_character…` when combined with `all`).
+
+| Kind (id) | Endpoint | Params | Paging | Total (2026-11-26) |
+|---|---|---|---|---:|
+| `catalog_outfit_character` (`id` = API uuid) | fnf `/outfits/characters` (JS chunk `sGxtyi5DXhlNSfix`; public, 200 anonymous) | — | none (`{characters: [...]}`) | 2 |
+
+Fields: `id, api_type (API type: media_input), url, width, height, media[role=image], source_url, scraped_at,
+schema_version` (+ `extra`, `source`). The two model images offered by the outfit tool.
+
 Also login-only (not scraped, no catalog value or would need ids): `/mixed-media-presets/preset/{id}`,
 `/test-presets`, `/collections/{id}` (unverified), `/series`. Not found publicly: viral preset details
 (`/viral-hub/presets/{id}`, `/by-slug/{slug}`, `/{id}/how-it-works`, `/viral-hub/chain-presets/{id}` all 404 for every
@@ -180,6 +208,8 @@ height, duration, duration_ms, content_type, placeholder (only --keep-placeholde
 | `catalog_chain_preset` (`id`) | `product_key, name, description, category, priority, model, preset_family, runtime, chain_type, runtime_endpoint, runtime_model, runtime_params, pricing_mode, pricing_schema, cost_credits, discount_credits, is_discounted, duration, inputs[{id, type, min, max, properties}], is_hidden, has_collaborator, collaborator (--with-profiles), image_preview_url, lang, source_url, scraped_at, schema_version` |
 | `catalog_notice` (`id`, hashed) | `section, job_set_types, variant, badge_label, badge_tooltip, popup_title, popup_description, title, description, link, params, lang, source_url, scraped_at, schema_version` |
 | `catalog_restyle_preset` (`id`) | `name, title, description, preset_source, job_set_type, priority, variants[{id, type}], image_count, lang, source_url, scraped_at, schema_version` |
+| `catalog_katana_preset` (`uid`) | opt-in group fields + `author_key`, `creator_uid_key` (pseudonymous; see "Katana authors") |
+| `catalog_outfit_character` (`id`) | `api_type, url, width, height, source_url, scraped_at, schema_version` (name-only kind) |
 | `catalog_page` (`page_id`) | one per listing response: `endpoint, catalog, group, params, first_page, total, item_count, next_cursor, has_more` (auditing + `totals_available`, also after `normalize`) |
 | `catalog_motion_detail` | `/motions/{id}` responses; merged into `catalog_motion` (not a collection) |
 

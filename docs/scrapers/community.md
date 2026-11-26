@@ -86,7 +86,7 @@ Common framework flags apply (`--max-items`, `--max-pages`, `--page-size` (clamp
 
 | Flag | Default | Meaning |
 |---|---|---|
-| `--feeds` | `trending` | comma list of `trending, approved, top, model-x`, `all`, or `none` (only `--publication-ids`). Opt-in, not in `all`: `shots` (fnf-community `/generations/feed` → `community_shot`), `posts` (Community posts → `community_post`), `feed` (`/community/feed` cards → `community_feed_item`), `creators` / `talents` (aggregate creator stats → `community_creator_stats`; names only with `--with-profiles`), `music-cards` (Music Cards templates → `community_music_card` + `community_music_card_option`), `job-showcase` (Seedance 2 community "movies" → `community_showcase_job`), `collections` (motion collection Catch the Pulse → `community_collection`), `explore-cards` (explore/home cards → `community_explore_card`). `--max-items` caps each opt-in feed separately (see "Opt-in galleries and templates") |
+| `--feeds` | `trending` | comma list of `trending, approved, top, model-x`, `all`, or `none` (only `--publication-ids`). Opt-in, not in `all`: `shots` (fnf-community `/generations/feed` → `community_shot`), `posts` (Community posts → `community_post`), `feed` (`/community/feed` cards → `community_feed_item`), `creators` / `talents` (aggregate creator stats → `community_creator_stats` + every work in full → `community_creator_work`; names only with `--with-profiles`), `feed-categories` (Feed hashtag categories → `community_feed_category`), `music-cards` (Music Cards templates → `community_music_card` + `community_music_card_option`), `job-showcase` (Seedance 2 community "movies" → `community_showcase_job`), `collections` (motion collection Catch the Pulse → `community_collection`), `explore-cards` (explore/home cards → `community_explore_card`). `--max-items` caps each opt-in feed separately (see "Opt-in galleries and templates") |
 | `--type` | `all` | `all|image|video|speak|upscale`; image/video also enforced client-side |
 | `--models` | all | job_set_types, comma list and/or repeatable |
 | `--preset-ids` | — | API `preset_id` (repeatable); effect unverified |
@@ -164,6 +164,28 @@ python -m higgsfield_scraper scrape community --feeds music-cards,job-showcase,c
 python -m higgsfield_scraper scrape community --feeds job-showcase --with-raw-params --download-media full
 ```
 
+### Completeness additions (2026-11-26, docs/COMPLETENESS.md §11 #1, #3, #4, #10, #14)
+
+All additive: no field, column, kind or option was renamed or removed, and default runs / every existing option plan
+byte-identical requests (dry-runs compared against `HEAD` in a worktree).
+
+| What | Where | New fields / kind |
+|---|---|---|
+| Creator / talent works in full (#1) | `--feeds creators,talents` | kind `community_creator_work` (key `work_id = make_id("creator_work", listing, creator_user_id, rank)`), dataset `creator_works[]`: one row per `users[].items[]` with `record_id` (joins `community_creator_stats`), `listing`, `creator_user_id`, `creator_uid_key`, `rank`, `item_type`, `item_id`, `is_pinned`, `likes`, `views`, `comments`. **Shot** items (published generations) are parsed by `parse_generation`: `generation_id`, `publication_id`, `job_set_type`, `prompt`, `negative_prompt`, `enhanced_prompt` (`params.enhanced_prompt`), `settings`, `params_extra`, `raw_params` (`--with-raw-params`), `inputs[]`, `results[]`, `approved`, `pinned_at`, `upstream_usage`, `parent_id`, moderation, … **Project** items: `title`, `description`, `slug`, `project_publication_id`, `project_id`, `project_type`, `state`, `duration_seconds`, `cover_url/width/height`, `trailer_*`, `gallery_media[]` (cover + gallery + trailer: url, original/preview/thumbnail/min/download url, width, height, duration), `tags`, `categories`, `contest_key`, `author_user_ids`, `author_uid_keys`, `extra`. Authors' names / avatars and per-viewer flags are never stored. CSV: `creator_works.csv` keeps its columns and gains every full-work column; child tables `creator_work_inputs.csv`, `creator_work_results.csv`, `creator_work_media.csv`. Works of a creator card cut by `--max-items` are dropped with the card |
+| Feed post media + project video (#3) | `--feeds feed` | `community_feed_item.text` (`post.content.text`), `media[]` (`post.content.medias[]`, same model as `community_post.media`), `video_hls_url`, `video_preview_url`, `width`, `height`, `duration_seconds` (`card.video.*`), `extra` (room, `post.*`, `card.*`, `generation.*`, `top_comment.text`; people only as ids). CSV `feed_item_media.csv` (one row per post media; `feed_items.csv` keeps `media` as JSON too) |
+| Post-card counters (#4) | `--feeds posts`, `feed` | `PostMedia.card_likes`, `card_views`, `card_comments`, `card_published_at`, `job_result_thumbnail_url`, `min_result_thumbnail_url` |
+| Shot model facets (#14) | `--feeds shots` | kind `community_shot_model_facet` (key `facet_id`), dataset `shot_model_facets[]`: `model`, `media_type`, `position`, `snapshot_id`, `shots_in_run`. The API's `available_models[]` is `{model, media_type}` only (no count, checked live 2026-11-26); `shots_in_run` counts this run's shots per model. CSV `shot_model_facets.csv` |
+| `creator_uid_key` (#10) | every record with an author | `core.privacy.creator_uid_key(<clerk id>)` (= showcase/studios `creator_key`) on `community_generation`, `community_creator`, `community_comment`, `community_shot`, `community_post`, `community_feed_item`, `community_creator_stats`, `community_showcase_job`, `community_creator_work` (+ `author_uid_keys`). Null for missing / redacted ids |
+| Feed hashtag categories (CONTENT_MAP §16 GAP) | `--feeds feed-categories` (opt-in, **not** in `all`; aliases `feed_categories`, `feed-category`) | fnf-community `GET /feed/categories` (`{categories[{slug, short_title, title, description, hashtag, post_count, previews[]}]}`, 2 live) + `GET /feed/ongoing` (`{items[]}`, `[]` live). Kind `community_feed_category` (key `category_id = make_id("feed_category", source_list, slug)`), dataset `feed_categories[]`, CSV `feed_categories.csv`. 2 requests, anonymous, single responses; `--download-media` = the previews |
+
+These collections live in `CommunityDatasetExt` (runs with any opt-in feed); default runs keep `CommunityDataset`.
+`extra_stats` gains `creator_works`, `creator_works_by_type`, `shot_model_facets`, `feed_categories`.
+
+```
+python -m higgsfield_scraper scrape community --feeds creators,talents --with-raw-params
+python -m higgsfield_scraper scrape community --feeds shots,feed,posts,feed-categories --max-items 100
+```
+
 ## Output
 
 `output/dataset.json` = `{schema_version: 1, meta, generations[], creators[], comments[], pages[], stats}`
@@ -213,6 +235,7 @@ resolution/aspect-ratio tables, top settings, estimate totals, most-viewed promp
 | `meta_extra` | other `meta.*` keys (e.g. `duration`) |
 | `extra` | any other non-null top-level field (forward compatibility; `representation`/`drama` were always null) |
 | `creator` | `{user_id}` (pseudonymous Clerk id); profile fields filled only with `--with-profiles` |
+| `creator_uid_key` | `core.privacy.creator_uid_key(creator.user_id)`: one pseudonymous key per user across scrapers (added 2026-11-26) |
 | `estimated_cost` | `EstimatedCost` (see below) or null when `--estimate-cost off` |
 | `source` | provenance: endpoint, url, params, fetched_at. For detail/comments, `params` carries `publication_id` (+ `feed`) — these are labels, not query params |
 

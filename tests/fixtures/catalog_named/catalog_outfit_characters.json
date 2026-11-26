@@ -1,0 +1,27 @@
+{
+    "meta": {
+        "endpoint": "catalog_outfit_characters",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/outfits/characters",
+        "params": {},
+        "fetched_at": "2026-11-26T16:30:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "characters": [
+            {
+                "id": "d833d942-d8ff-478a-b3ce-fd13bebf9988",
+                "type": "media_input",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d833d942-d8ff-478a-b3ce-fd13bebf9988.jpg",
+                "width": 1400,
+                "height": 1911
+            },
+            {
+                "id": "8025bc4b-735d-4aec-9785-82b4a791a89e",
+                "type": "media_input",
+                "url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/8025bc4b-735d-4aec-9785-82b4a791a89e.jpg",
+                "width": 1528,
+                "height": 2048
+            }
+        ]
+    }
+}

@@ -11,7 +11,7 @@ ALIASES = {"app": "apps", "courses": "academy", "lessons": "academy", "skills": 
            "series": "originals", "mixed-media-presets": "mixed-media", "mixedmedia": "mixed-media",
            "landing": "landings", "marketing": "landings", "plugins": "landings", "room": "rooms", "promo": "promos",
            "config": "promos", "rooms-api": "room-list", "room-items": "room-content",
-           "room-discussions": "room-content"}
+           "room-discussions": "room-content", "academy_api": "academy-api", "academy-json": "academy-api"}
 
 
 def _split(value: Any) -> list[str]:
@@ -61,6 +61,10 @@ class Selection:
     def rooms_api(self) -> bool:
         return self.wants("room-list") or self.wants("room-content")
 
+    @property
+    def academy_api(self) -> bool:
+        return self.wants("academy-api")
+
 
 def add_args(p: argparse.ArgumentParser) -> None:
     g = p.add_argument_group("site: what to scrape")
@@ -69,7 +73,10 @@ def add_args(p: argparse.ArgumentParser) -> None:
                         "pages, title/description only, opt-in; 'room-list' = every room from the public rooms API "
                         "with member/works counts and room-stats (posts, discussions); 'room-content' = room-list + "
                         "each room's works (shots, projects, blog posts) and discussion posts. All three are opt-in, "
-                        "not part of 'all'; --max-items caps rooms, room items and discussions separately)")
+                        "not part of 'all'; --max-items caps rooms, room items and discussions separately; "
+                        "'academy-api' = the academy JSON API (fnf-academy: categories, courses with "
+                        "free_generations / test_count, lessons with MDX source, xp, subtitles), opt-in, not in "
+                        "'all'; --no-content = categories + course list only)")
     g.add_argument("--with-content", dest="with_content", action="store_true", default=True,
                    help="fetch every detail page (apps, courses, lessons, MCP skills, episodes) and convert bodies "
                         "to Markdown (default: on)")

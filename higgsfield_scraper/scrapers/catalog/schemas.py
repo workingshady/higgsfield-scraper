@@ -223,6 +223,15 @@ class MarketingPreset(GenericPreset):
     category_id: Optional[str] = None
 
 
+class KatanaPreset(GenericPreset):
+    """fnf-cms-api /katana-presets: GenericPreset + pseudonymous creator keys (the author's username / avatar are
+    never stored without --with-profiles; `extra.author` keeps only non-identifying fields)."""
+    author_key: Optional[str] = Field(None, description="make_id('creator', author.user_id): same hash as the "
+                                                        "showcase/studios author_key / creator_key")
+    creator_uid_key: Optional[str] = Field(None, description="core.privacy.creator_uid_key(author.user_id): the "
+                                                             "cross-scraper creator key (= author_key)")
+
+
 # ------------------------------------------------------------------ opt-in extras (2026-11-26)
 ENTITY_SCHEMA_VERSION = 1
 Credits = Optional[Union[int, float]]
@@ -313,6 +322,15 @@ class RestylePreset(_OptInEntity):
     lang: Optional[str] = None
 
 
+class OutfitCharacter(_OptInEntity):
+    """fnf /outfits/characters: the model characters offered by the outfit tool (`--kinds outfit_character`)."""
+    id: str = Field(description="API id (uuid; also the image file name)")
+    api_type: Optional[str] = Field(None, description="API `type` (media_input)")
+    url: Optional[str] = None
+    width: Optional[int] = None
+    height: Optional[int] = None
+
+
 class Page(Strict):
     """One listing response: what the API reported (totals, cursors). Used for totals_available / auditing."""
     page_id: str
@@ -345,7 +363,7 @@ MODEL_BY_KIND = {
     "catalog_mixed_media_preset": GenericPreset,
     "catalog_model_motion": ModelMotion,
     "catalog_katana_category": GenericPreset,
-    "catalog_katana_preset": GenericPreset,
+    "catalog_katana_preset": KatanaPreset,
     "catalog_color_preset": GenericPreset,
     "catalog_youtube_faceless_preset": GenericPreset,
     "catalog_camera_setting": GenericPreset,
@@ -354,6 +372,7 @@ MODEL_BY_KIND = {
     "catalog_chain_preset": ChainPreset,
     "catalog_notice": Notice,
     "catalog_restyle_preset": RestylePreset,
+    "catalog_outfit_character": OutfitCharacter,
     "catalog_page": Page,
 }
 
@@ -406,7 +425,7 @@ class CatalogDataset(Strict):
     mixed_media_presets: list[GenericPreset] = Field(default_factory=list)
     model_motions: list[ModelMotion] = Field(default_factory=list)
     katana_categories: list[GenericPreset] = Field(default_factory=list)
-    katana_presets: list[GenericPreset] = Field(default_factory=list)
+    katana_presets: list[KatanaPreset] = Field(default_factory=list)
     color_presets: list[GenericPreset] = Field(default_factory=list)
     youtube_faceless_presets: list[GenericPreset] = Field(default_factory=list)
     camera_settings: list[GenericPreset] = Field(default_factory=list)
@@ -421,3 +440,4 @@ class CatalogDatasetFull(CatalogDataset):
     chain_presets: list[ChainPreset] = Field(default_factory=list)
     notices: list[Notice] = Field(default_factory=list)
     restyle_presets: list[RestylePreset] = Field(default_factory=list)
+    outfit_characters: list[OutfitCharacter] = Field(default_factory=list)

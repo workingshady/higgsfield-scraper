@@ -1,0 +1,445 @@
+{
+    "meta": {
+        "endpoint": "projects_user_works",
+        "url": "https://fnf-api-gw.higgsfield.ai/fnf/user/user_Fake03xxxxxxxxxxxxxxxxxxxxx/v2/publications?limit=50",
+        "params": {
+            "limit": "50",
+            "creator_uid_key": "LABEL",
+            "creator_key": "LABEL"
+        },
+        "fetched_at": "2026-11-26T18:31:00+00:00",
+        "status": 200
+    },
+    "body": {
+        "total": 190,
+        "publications": [
+            {
+                "publication_type": "asset",
+                "data": {
+                    "job_set_type": "viral_hub_video",
+                    "job_set_id": "b0db3ffa-1403-471f-a5ff-ba2c97f6d678",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": {
+                        "source": "viral_hub_web"
+                    },
+                    "board_ids": [],
+                    "params": {
+                        "width": 1280,
+                        "height": 960,
+                        "prompt": "",
+                        "medias": [
+                            {
+                                "role": "start_image",
+                                "data": {
+                                    "id": "f14df7cd-5b2d-4610-9038-1b38f930d682",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake03xxxxxxxxxxxxxxxxxxxxx/f14df7cd-5b2d-4610-9038-1b38f930d682.png",
+                                    "type": "media_input",
+                                    "object_key": "user_Fake03xxxxxxxxxxxxxxxxxxxxx/f14df7cd-5b2d-4610-9038-1b38f930d682.png"
+                                }
+                            }
+                        ],
+                        "duration": 7,
+                        "resolution": "1080p",
+                        "aspect_ratio": "4:3",
+                        "chain_preset": {
+                            "id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+                            "name": "Duplicating",
+                            "slug": null,
+                            "preview_media": {
+                                "id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+                                "name": "Duplicating"
+                            }
+                        },
+                        "chain_preset_id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+                        "preset": {
+                            "id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+                            "name": "Duplicating",
+                            "slug": null,
+                            "preview_media": {
+                                "id": "25ae9fe8-c578-477c-8dcf-cf0408b95370",
+                                "name": "Duplicating"
+                            }
+                        }
+                    },
+                    "meta": {},
+                    "id": "d861ff58-9c76-4b3c-954b-a95b48e62485",
+                    "status": "completed",
+                    "ip_check_finished": true,
+                    "ip_detected": false,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "ip_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485_thumbnail.webp"
+                        },
+                        "min": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485_thumbnail.webp"
+                        },
+                        "hls": {
+                            "type": "video",
+                            "url": "https://cdn.higgsfield.ai/hls/job/d861ff58-9c76-4b3c-954b-a95b48e62485/3515e022-7d21-401c-a1b5-19dbb1eb0da0/index.m3u8",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_205123_d861ff58-9c76-4b3c-954b-a95b48e62485_thumbnail.webp"
+                        },
+                        "h264": null
+                    },
+                    "published_at": 1788912502.392706,
+                    "created_at": 1788468683.576292,
+                    "user_id": "user_Fake03xxxxxxxxxxxxxxxxxxxxx",
+                    "trace_id": "d861ff58-9c76-4b3c-954b-a95b48e62485",
+                    "cluster_hash": null,
+                    "representation": null,
+                    "publication": {
+                        "id": "19f0fe81-9f8b-4aef-b62d-d27870dc23e2",
+                        "views_count": 38,
+                        "likes_count": 0,
+                        "is_liked_by_user": null,
+                        "approved": true,
+                        "pinned_at": null
+                    },
+                    "profile": {
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "instagram_handle": null,
+                        "twitter_handle": null,
+                        "youtube_handle": null,
+                        "tiktok_handle": null,
+                        "badge": null,
+                        "badges": []
+                    },
+                    "drama": null
+                },
+                "id_": "19f0fe81-9f8b-4aef-b62d-d27870dc23e2",
+                "views": 1280,
+                "clones": 64
+            },
+            {
+                "publication_type": "asset",
+                "data": {
+                    "job_set_type": "viral_hub_video",
+                    "job_set_id": "5aaa2854-5b93-4c78-a68e-af59a08a9c75",
+                    "job_set_parent_id": null,
+                    "job_set_client_meta": {
+                        "source": "viral_hub_web"
+                    },
+                    "board_ids": [],
+                    "params": {
+                        "width": 960,
+                        "height": 1280,
+                        "prompt": "",
+                        "medias": [
+                            {
+                                "role": "start_image",
+                                "data": {
+                                    "id": "1705d39d-3ed7-4419-aa65-7ea3652ad601",
+                                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake03xxxxxxxxxxxxxxxxxxxxx/1705d39d-3ed7-4419-aa65-7ea3652ad601.png",
+                                    "type": "media_input",
+                                    "object_key": "user_Fake03xxxxxxxxxxxxxxxxxxxxx/1705d39d-3ed7-4419-aa65-7ea3652ad601.png"
+                                }
+                            }
+                        ],
+                        "duration": 8,
+                        "resolution": "1080p",
+                        "aspect_ratio": "3:4",
+                        "chain_preset": {
+                            "id": "7ca07da7-5471-48fa-80a7-97a29a7ec2bc",
+                            "name": "Lacewalker",
+                            "slug": "lacewalker",
+                            "preview_media": {
+                                "id": "7ca07da7-5471-48fa-80a7-97a29a7ec2bc",
+                                "name": "Lacewalker",
+                                "main_url": "https://cdn.higgsfield.ai/viral_hub/6d16174c-df09-4e98-83f5-903f98c0d9ed.mp4",
+                                "optimized_url": "https://cdn.higgsfield.ai/viral_hub/107328d4-5b59-4149-ade0-37ba105b02ca.webp"
+                            }
+                        },
+                        "chain_preset_id": "7ca07da7-5471-48fa-80a7-97a29a7ec2bc",
+                        "preset": {
+                            "id": "7ca07da7-5471-48fa-80a7-97a29a7ec2bc",
+                            "name": "Lacewalker",
+                            "slug": "lacewalker",
+                            "preview_media": {
+                                "id": "7ca07da7-5471-48fa-80a7-97a29a7ec2bc",
+                                "name": "Lacewalker",
+                                "main_url": "https://cdn.higgsfield.ai/viral_hub/6d16174c-df09-4e98-83f5-903f98c0d9ed.mp4",
+                                "optimized_url": "https://cdn.higgsfield.ai/viral_hub/107328d4-5b59-4149-ade0-37ba105b02ca.webp"
+                            }
+                        }
+                    },
+                    "meta": {},
+                    "id": "d5ac0979-323f-48e8-a8ae-46e73617be68",
+                    "status": "completed",
+                    "ip_check_finished": true,
+                    "ip_detected": false,
+                    "can_bypass_ip": false,
+                    "deepfake_consent_required": false,
+                    "ip_consent_required": false,
+                    "result": null,
+                    "results": {
+                        "raw": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_161355_d5ac0979-323f-48e8-a8ae-46e73617be68.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_161355_d5ac0979-323f-48e8-a8ae-46e73617be68_thumbnail.webp"
+                        },
+                        "min": {
+                            "type": "video",
+                            "url": "https://d8j0ntlcm91z4.cloudfront.net/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_161355_d5ac0979-323f-48e8-a8ae-46e73617be68.mp4",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_161355_d5ac0979-323f-48e8-a8ae-46e73617be68_thumbnail.webp"
+                        },
+                        "hls": {
+                            "type": "video",
+                            "url": "https://cdn.higgsfield.ai/hls/job/d5ac0979-323f-48e8-a8ae-46e73617be68/c21dbcdb-6ac4-4461-b4aa-280396ea54fd/index.m3u8",
+                            "thumbnail_url": "https://cdn.higgsfield.ai/user_Fake03xxxxxxxxxxxxxxxxxxxxx/hf_20260903_161355_d5ac0979-323f-48e8-a8ae-46e73617be68_thumbnail.webp"
+                        },
+                        "h264": null
+                    },
+                    "published_at": 1788912502.34285,
+                    "created_at": 1788452035.489226,
+                    "user_id": "user_Fake03xxxxxxxxxxxxxxxxxxxxx",
+                    "trace_id": "d5ac0979-323f-48e8-a8ae-46e73617be68",
+                    "cluster_hash": null,
+                    "representation": null,
+                    "can_upgrade_to_4k": false,
+                    "upgrade_options": [],
+                    "expires_at": null,
+                    "publication": {
+                        "id": "45a50c4c-4e80-499a-999a-54494bb1be9b",
+                        "views_count": 12,
+                        "likes_count": 0,
+                        "is_liked_by_user": null,
+                        "approved": true,
+                        "pinned_at": null
+                    },
+                    "profile": {
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "instagram_handle": null,
+                        "twitter_handle": null,
+                        "youtube_handle": null,
+                        "tiktok_handle": null,
+                        "badge": null,
+                        "badges": []
+                    },
+                    "drama": null
+                },
+                "id_": "45a50c4c-4e80-499a-999a-54494bb1be9b",
+                "views": 1280,
+                "clones": 64
+            },
+            {
+                "contest_badges": [],
+                "can_receive_audience_choice_votes": false,
+                "is_higgsfield_featured": false,
+                "is_talents_hub": false,
+                "contest_key": "talent_contest",
+                "duration_seconds": 402.645333,
+                "publication_type": "project_publication",
+                "publication_id": "ec14e4dc-ac28-4232-a7e3-e8f798139e98",
+                "project_id": null,
+                "snapshot_folder_id": null,
+                "name": "Couvre-feu",
+                "slug": "couvre-feu",
+                "description": "While Paris burns under curfew, two boys break into a silent apartment to wait out the night. Only one of them knows whose home this really ",
+                "cover": {
+                    "id": "0e73480a-023f-4937-898e-06b14aeca73a",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake04xxxxxxxxxxxxxxxxxxxxx/0e73480a-023f-4937-898e-06b14aeca73a.jpg",
+                    "name": null,
+                    "type": "media",
+                    "width": 2352,
+                    "height": 1760,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "5d4ca1a9-967c-474e-af09-b605e479c5e7",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/5d4ca1a9-967c-474e-af09-b605e479c5e7/08d70305-7b55-472d-9245-22d67a95bbde/index.m3u8?v=08d70305-7b55-472d-9245-22d67a95bbde",
+                        "name": "5d4ca1a9-967c-474e-af09-b605e479c5e7.mp4",
+                        "type": "video",
+                        "width": 1920,
+                        "height": 1080,
+                        "min_url": null,
+                        "duration": 402.645333,
+                        "object_fit": "contain",
+                        "thumbnail_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/5d4ca1a9-967c-474e-af09-b605e479c5e7/08d70305-7b55-472d-9245-22d67a95bbde/thumbnail.webp?v=08d70305-7b55-472d-9245-22d67a95bbde",
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake04xxxxxxxxxxxxxxxxxxxxx/5d4ca1a9-967c-474e-af09-b605e479c5e7.mp4",
+                        "preview_url": "https://cdn.higgsfield.ai/card_preview/video_input/5d4ca1a9-967c-474e-af09-b605e479c5e7/compressed.mp4",
+                        "download_url": "https://cdn.higgsfield.ai/hls/video_input_watermarked/5d4ca1a9-967c-474e-af09-b605e479c5e7/08d70305-7b55-472d-9245-22d67a95bbde/download.mp4?v=08d70305-7b55-472d-9245-22d67a95bbde&download=5d4ca1a9-967c-474e-af09-b605e479c5e7.mp4"
+                    }
+                ],
+                "thumbnail_url": null,
+                "author_user_ids": [
+                    "user_Fake04xxxxxxxxxxxxxxxxxxxxx"
+                ],
+                "authors": [
+                    {
+                        "id": "user_Fake04xxxxxxxxxxxxxxxxxxxxx",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "[redacted]",
+                        "location": null,
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 0,
+                        "total_projects_likes": 0,
+                        "followers_count": 60,
+                        "badges": [
+                            {
+                                "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                                "name": "Higgsfield Talent",
+                                "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                                "description": null
+                            }
+                        ]
+                    }
+                ],
+                "stats": null,
+                "views": 1910,
+                "likes": 46
+            },
+            {
+                "contest_badges": [],
+                "can_receive_audience_choice_votes": true,
+                "is_higgsfield_featured": true,
+                "is_talents_hub": false,
+                "contest_key": "ai_film_festival",
+                "duration_seconds": 367.125333,
+                "publication_type": "project_publication",
+                "publication_id": "323c5cce-472f-402c-9a3e-71b342ebc733",
+                "project_id": "323c5cce-472f-402c-9a3e-71b342ebc733",
+                "snapshot_folder_id": "a78f8c29-59e7-45a4-864d-4d35a1d6b7d2",
+                "name": "Buzkashi",
+                "slug": "buzkashi",
+                "description": "A boy copies his uncle's every move, hoping to inherit his courage. He inherited fear instead",
+                "cover": {
+                    "id": "0803e867-97d4-4a3b-b4bb-a5f4bd657a0a",
+                    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake04xxxxxxxxxxxxxxxxxxxxx/0803e867-97d4-4a3b-b4bb-a5f4bd657a0a.jpg",
+                    "type": "media",
+                    "width": 2752,
+                    "height": 1536,
+                    "min_url": null,
+                    "duration": null,
+                    "object_fit": "cover",
+                    "thumbnail_url": null
+                },
+                "gallery_media": [
+                    {
+                        "id": "1d8a9ead-6aa7-4f76-a66f-9d42c5e2543e",
+                        "url": "https://cdn.higgsfield.ai/hls/video_input/1d8a9ead-6aa7-4f76-a66f-9d42c5e2543e/index.m3u8",
+                        "type": "video",
+                        "width": 3840,
+                        "height": 2160,
+                        "min_url": null,
+                        "duration": 367.125333,
+                        "object_fit": "contain",
+                        "thumbnail_url": null,
+                        "original_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_Fake04xxxxxxxxxxxxxxxxxxxxx/1d8a9ead-6aa7-4f76-a66f-9d42c5e2543e.mp4"
+                    }
+                ],
+                "thumbnail_url": null,
+                "author_user_ids": [
+                    "user_Fake04xxxxxxxxxxxxxxxxxxxxx"
+                ],
+                "authors": [
+                    {
+                        "id": "user_Fake04xxxxxxxxxxxxxxxxxxxxx",
+                        "full_name": null,
+                        "username": "[redacted]",
+                        "avatar_url": "[redacted]",
+                        "headline": "[redacted]",
+                        "location": null,
+                        "is_owner": true,
+                        "is_followed": false,
+                        "total_projects_views": 0,
+                        "total_projects_likes": 0,
+                        "followers_count": 60,
+                        "badges": [
+                            {
+                                "id": "97bbd9d5-6c6b-416b-960c-5d141c7229f8",
+                                "name": "Higgsfield Talent",
+                                "icon_url": "https://d2ol7oe51mr4n9.cloudfront.net/content_user_id/d49d5a77-072d-4ebf-8881-0f000e6f985a.png",
+                                "description": null
+                            }
+                        ]
+                    }
+                ],
+                "stats": {
+                    "stack": [
+                        {
+                            "count": 1725,
+                            "job_set_type": "nano_banana_2",
+                            "credits_spent": 0
+                        },
+                        {
+                            "count": 195,
+                            "job_set_type": "seedance_2_5",
+                            "credits_spent": 48100
+                        },
+                        {
+                            "count": 32,
+                            "job_set_type": "kling3_0",
+                            "credits_spent": 7600
+                        },
+                        {
+                            "count": 19,
+                            "job_set_type": "cinematic_video_editor",
+                            "credits_spent": 5200
+                        },
+                        {
+                            "count": 4,
+                            "job_set_type": "seedream_v4_5",
+                            "credits_spent": 100
+                        },
+                        {
+                            "count": 4,
+                            "job_set_type": "image_auto",
+                            "credits_spent": 0
+                        },
+                        {
+                            "count": 3,
+                            "job_set_type": "text2image_gpt",
+                            "credits_spent": 0
+                        }
+                    ],
+                    "size_bytes": 34141449586,
+                    "credits_spent": 61000,
+                    "generations_count": 1982
+                },
+                "views": 19854,
+                "likes": 235
+            },
+            {
+                "publication_type": "folder",
+                "folder_id": "0b7a1c9e-5d1f-4c55-9d7e-5f3a9e8b1c21",
+                "name": "Moodboard",
+                "thumbnail_url": null,
+                "created_at": 1795000000.5
+            },
+            {
+                "publication_type": "contest_submission",
+                "submission_id": "6f0c2d7e-1a2b-4c3d-8e9f-0a1b2c3d4e5f",
+                "contest_id": "7834f30d-cfbf-4a1e-9d29-a2373b581c26",
+                "contest_slug": "wcc-the-escape",
+                "thumbnail_url": "https://cdn.higgsfield.ai/contest/thumb.webp",
+                "preview_url": null,
+                "video_url": "https://cdn.higgsfield.ai/contest/video.mp4",
+                "title": "The Escape",
+                "description": null,
+                "created_at": 1795000001.0
+            },
+            {
+                "publication_type": "blog_post",
+                "id": "skipped"
+            }
+        ],
+        "has_more": true,
+        "cursor": 1788912498.785095
+    }
+}

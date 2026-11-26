@@ -5,16 +5,18 @@ import argparse
 from dataclasses import asdict, dataclass, field
 from typing import Any, Iterable, Optional
 
-from .endpoints import (CMS_LANGS, DEFAULT_WHATS, EXPLORE_DEFAULT_PAGES, EXPLORE_SORTS, EXPLORE_SOURCES, L10N_LANGS,
-                        OPT_IN_WHATS, PUBLIC_WHATS, REELS_SOURCES, WHAT, WHATS)
+from .endpoints import (ALL_SOURCE_NAMES, CMS_LANGS, DEFAULT_WHATS, EXPLORE_DEFAULT_PAGES, EXPLORE_SORTS,
+                        EXPLORE_SOURCES, L10N_LANGS, MAIN_FEED_DEFAULT_PAGES, NAME_ONLY_WHATS, OPT_IN_WHATS,
+                        PUBLIC_WHATS, REELS_SOURCES, WHAT, WHATS)
 
 
 def add_args(p: argparse.ArgumentParser) -> None:
     g = p.add_argument_group("showcase: what to scrape")
     g.add_argument("--what", default=None,
                    help="comma list of sources, 'public' (default: every public source except the opt-in ones) or "
-                        "'all' (+ opt-in " + ", ".join(sorted(OPT_IN_WHATS)) + " and login-only `season`). "
-                        "Available: " + ", ".join(WHATS))
+                        "'all' (+ opt-in " + ", ".join(sorted(OPT_IN_WHATS)) + " and login-only `season`; "
+                        "by name only, never in 'all': " + ", ".join(sorted(NAME_ONLY_WHATS)) + "). "
+                        "Available: " + ", ".join(ALL_SOURCE_NAMES))
     g.add_argument("--lang", default="en",
                    help="language for CMS lists and Property Studio titles (en, es, de, ja, ko; zh titles only)")
     g.add_argument("--explore-sources", default=",".join(EXPLORE_SOURCES),
@@ -31,10 +33,13 @@ def add_args(p: argparse.ArgumentParser) -> None:
     g.add_argument("--reels-sources", default=",".join(REELS_SOURCES),
                    help="Shorts Studio preset lists for reels_presets/reels_comments: higgsfield (curated, ~40), "
                         "community (user-published, ~75) (default: both)")
+    g.add_argument("--main-feed-pages", type=int, default=MAIN_FEED_DEFAULT_PAGES,
+                   help=f"main_feed (home Explore feed, opt-in by name): pages of 20 items (default "
+                        f"{MAIN_FEED_DEFAULT_PAGES}; 0 = until the cursor ends; --max-pages / --max-items also apply)")
     o = p.add_argument_group("showcase: personal data")
     o.add_argument("--with-profiles", action="store_true",
-                   help="opt-in: keep creator user_id/username/avatar on explore variants, effect samples and reels "
-                        "presets/comments, and the reference reel's author handle (default: only a pseudonymous "
+                   help="opt-in: keep creator user_id/username/avatar on explore / main-feed variants, effect "
+                        "samples and reels presets/comments, and the reference reel's author handle (default: only a pseudonymous "
                         "creator_key hash)")
 
 
@@ -49,13 +54,14 @@ class Selection:
     effects: Optional[list[str]] = None
     with_profiles: bool = False
     reels_sources: list[str] = field(default_factory=lambda: list(REELS_SOURCES))
+    main_feed_pages: int = MAIN_FEED_DEFAULT_PAGES
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 
     def resolve(self) -> list[str]:
         ws = list(self.what) if self.what is not None else list(DEFAULT_WHATS)
-        return [w for w in WHATS if w in ws]
+        return [w for w in ALL_SOURCE_NAMES if w in ws]
 
     def explore_sorts(self) -> list[str]:
         return list(EXPLORE_SORTS) if self.explore_sort == "both" else [self.explore_sort]
@@ -87,8 +93,10 @@ def parse_what(value: Any) -> Optional[list[str]]:
             out.append("explore_categories")
         elif k in ("reels", "shorts_studio", "ai_reels"):
             out.append("reels_presets")
+        elif k in ("main", "home_feed", "mainfeed"):
+            out.append("main_feed")
         else:
-            raise ValueError(f"unknown showcase source {raw!r}; available: {', '.join(WHATS)}")
+            raise ValueError(f"unknown showcase source {raw!r}; available: {', '.join(ALL_SOURCE_NAMES)}")
     return list(dict.fromkeys(out))
 
 
@@ -98,7 +106,8 @@ def _truthy(v: Any) -> bool:
 
 def build(what: Any = None, lang: Any = "en", explore_sources: Any = None, explore_sort: Any = "new",
           explore_pages: Any = EXPLORE_DEFAULT_PAGES, explore_categories: Any = None, effects: Any = None,
-          with_profiles: Any = False, reels_sources: Any = None) -> Selection:
+          with_profiles: Any = False, reels_sources: Any = None,
+          main_feed_pages: Any = MAIN_FEED_DEFAULT_PAGES) -> Selection:
     lang = str(lang or "en").lower()
     if lang not in L10N_LANGS:
         raise ValueError(f"lang must be one of {L10N_LANGS} (CMS lists: {CMS_LANGS})")
@@ -117,23 +126,28 @@ def build(what: Any = None, lang: Any = "en", explore_sources: Any = None, explo
     bad = [s for s in reels if s not in REELS_SOURCES]
     if bad or not reels:
         raise ValueError(f"unknown reels source(s) {bad}; available: {REELS_SOURCES}")
+    mf = int(main_feed_pages if main_feed_pages not in (None, "") else MAIN_FEED_DEFAULT_PAGES)
+    if mf < 0:
+        raise ValueError("main_feed_pages must be >= 0")
     return Selection(what=parse_what(what), lang=lang, explore_sources=sources, explore_sort=sort,
                      explore_pages=pages, explore_categories=cats,
                      effects=_list(effects) if effects not in (None, "") else None,
-                     with_profiles=_truthy(with_profiles), reels_sources=reels)
+                     with_profiles=_truthy(with_profiles), reels_sources=reels, main_feed_pages=mf)
 
 
 def make_selection(a: argparse.Namespace) -> Selection:
     return build(what=a.what, lang=a.lang, explore_sources=a.explore_sources, explore_sort=a.explore_sort,
                  explore_pages=a.explore_pages, explore_categories=a.explore_categories, effects=a.effects,
-                 with_profiles=a.with_profiles, reels_sources=a.reels_sources)
+                 with_profiles=a.with_profiles, reels_sources=a.reels_sources,
+                 main_feed_pages=getattr(a, "main_feed_pages", MAIN_FEED_DEFAULT_PAGES))
 
 
 def selection_from_dict(d: Optional[dict]) -> Selection:
     """Accepts Selection.to_dict() (manifest) and string kwargs (`scrapy crawl showcase -a what=api_models`)."""
     d = dict(d or {})
     return build(**{k: d[k] for k in ("what", "lang", "explore_sources", "explore_sort", "explore_pages",
-                                       "explore_categories", "effects", "with_profiles", "reels_sources")
+                                       "explore_categories", "effects", "with_profiles", "reels_sources",
+                                       "main_feed_pages")
                        if k in d})
 
 

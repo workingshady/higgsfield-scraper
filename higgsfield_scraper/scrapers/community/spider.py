@@ -25,6 +25,7 @@ from .endpoints import (CMS_API_BASE, CMS_BASE, COLLECTION_SLUGS, COLLECTIONS_PA
                         GALLERY_FEEDS, JOB_SHOWCASE_SLUGS, MUSIC_CARD_OPTION_GROUPS,
                         MUSIC_CARD_OPTIONS_ENDPOINT, MUSIC_CARD_OPTIONS_PATH, MUSIC_CARDS_PATH,
                         JOB_SHOWCASE_PAGES, JOB_SHOWCASE_SSR_KEY, SITE_BASE)
+from .endpoints import (FEED_CATEGORIES_PATH, FEED_ONGOING_ENDPOINT, FEED_ONGOING_PATH, SINGLE_RESPONSE_FEEDS)
 from .parsers import _items_of, parse_posts, repr_cursor
 
 EXTRA_FEED_OF = {v: k for k, v in EXTRA_ENDPOINTS.items()}
@@ -32,7 +33,7 @@ HTML_HEADERS = {"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9
 EXTRA_ID_FIELD = {"community_shot": "shot_id", "community_post": "post_id", "community_feed_item": "feed_item_id",
                   "community_creator_stats": "record_id", "community_music_card": "music_card_id",
                   "community_showcase_job": "generation_id", "community_collection": "collection_id",
-                  "community_explore_card": "card_id"}
+                  "community_explore_card": "card_id", "community_feed_category": "category_id"}
 
 
 def next_page(body: Any, sent_cursor: Optional[str], new_ids: int) -> tuple[Optional[str], str]:
@@ -137,7 +138,7 @@ class CommunitySpider(BaseApiSpider):
         if sel.with_comments and not sel.wants("posts"):   # with --feeds posts the listing itself finds threads
             yield self._posts()
         for feed in sel.extra_feeds:
-            if feed in GALLERY_FEEDS:
+            if feed in SINGLE_RESPONSE_FEEDS:
                 yield from self._gallery_first(feed)
                 continue
             r = self._extra(feed)
@@ -186,8 +187,8 @@ class CommunitySpider(BaseApiSpider):
 
     # ------------------------------------------------------------ opt-in gallery / template sources
     def _gallery_first(self, feed: str) -> Iterator[Any]:
-        """First requests of --feeds music-cards | job-showcase | collections | explore-cards (all public; sent
-        without a session like the other opt-in pages)."""
+        """First requests of --feeds music-cards | job-showcase | collections | explore-cards | feed-categories (all
+        public; sent without a session like the other opt-in pages)."""
         if not self.page_allowed(feed):
             return
         ep = EXTRA_ENDPOINTS[feed]
@@ -208,6 +209,9 @@ class CommunitySpider(BaseApiSpider):
             r = self._explore_cards(1, 0)
             if r is not None:
                 yield r
+        elif feed == "feed-categories":                # fnf-community, public, single responses
+            yield self.api_request(ep, FEED_CATEGORIES_PATH, None, base=COMMUNITY_BASE)
+            yield self.api_request(FEED_ONGOING_ENDPOINT, FEED_ONGOING_PATH, None, base=COMMUNITY_BASE, priority=2)
 
     def parse_ssr(self, response, **kw):
         """HTML page -> the JSON its TanStack SSR state carries (loaderData[JOB_SHOWCASE_SSR_KEY] as {data: [...]}),
@@ -290,6 +294,9 @@ class CommunitySpider(BaseApiSpider):
         mx = self.common.max_items
         feed = EXTRA_FEED_OF.get(response.meta.get("endpoint"))
         for x in super().parse_api(response, **kw):
+            if isinstance(x, scrapy.Item) and x.get("kind") == "community_creator_work" and                     x.get("record_id") in self._extra_dropped:   # works of a creator card cut by --max-items
+                self._extra_dropped.add(str(x.get("work_id")))
+                continue
             if feed is not None and isinstance(x, scrapy.Item) and x.get("kind") == EXTRA_KINDS[feed]:
                 ident = str(x.get(EXTRA_ID_FIELD[x["kind"]]))
                 if (feed, ident) not in self._extra_seen:
@@ -308,7 +315,7 @@ class CommunitySpider(BaseApiSpider):
     def _extra_follow_up(self, env, entities) -> Iterator[Any]:
         sel = self.selection
         feed = EXTRA_FEED_OF[env.endpoint]
-        if feed in GALLERY_FEEDS:
+        if feed in SINGLE_RESPONSE_FEEDS:
             yield from self._gallery_follow_up(env, feed)
             return
         body = env.body if isinstance(env.body, dict) else {}

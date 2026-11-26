@@ -14,7 +14,9 @@ log = logging.getLogger(__name__)
 
 FEED_ALIASES = {"model_x": "model-x", "modelx": "model-x", "trending_top": "top", "trending-top": "top",
                 "music_cards": "music-cards", "job_showcase": "job-showcase", "showcase-jobs": "job-showcase",
-                "explore_cards": "explore-cards", "collection": "collections"}
+                "explore_cards": "explore-cards", "collection": "collections",
+                "feed_categories": "feed-categories", "feed-category": "feed-categories",
+                "feed_category": "feed-categories"}
 
 
 def _split(value: Any) -> list[str]:
@@ -126,7 +128,8 @@ def add_args(p: argparse.ArgumentParser) -> None:
                         "(Music Cards templates: lyrics, recipients, preview videos, ~111 + option lists), "
                         "job-showcase (Seedance 2 community 'movies': 54 jobs with prompt, inputs, all result "
                         "variants), collections (motion collection Catch the Pulse), explore-cards (explore/home "
-                        "cards, ~192). --max-items caps each opt-in feed separately")
+                        "cards, ~192), feed-categories (Feed hashtag contest categories with post counts and "
+                        "previews, + /feed/ongoing). --max-items caps each opt-in feed separately")
     g.add_argument("--type", default="all", choices=TYPES,
                    help="media type filter (API `type`). image|video are also enforced client-side because the "
                         "approved feed ignores it; speak|upscale are server-side only (default: %(default)s)")
