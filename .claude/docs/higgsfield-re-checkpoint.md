@@ -12,7 +12,7 @@
 | Job set types priced | **87** (incl. `scene_switch`, priced but no frontend code) |
 | Public `__HF_FF` flags | **empty** for the anonymous request on 2026-11-26 (an earlier crawl of `/ai/video` got 23; `f_24c5dcf4` Seedance 2.5 Flash on, `f_3a0922bf` Kling 4.0 Flash on, `f_6a87092e` Wan 4.0 off) |
 | Pricing baseline | `runs/20261126-100141_pricing-baseline-v3` (31 files; `scripts/check_pricing_identity.py`) |
-| Tests | **370 passed, 1 skipped** (`.venv\Scripts\python -m pytest -q`, 2026-11-26, after commit `fc9eda3`) |
+| Tests | **370 passed, 1 skipped** (`.venv\Scripts\python -m pytest -q`, 2026-11-26, after commit `d0429ec`) |
 | Scrapers | `pricing`, `community`, `catalog`, `projects`, `blog`, `site`, `account` (opt-in, login required) |
 
 ---
@@ -171,5 +171,13 @@ Smaller ideas: viral-preset price-matrix flattening (MODEL_LOADING §8 #4); Edit
 
 | Date | Build | Costs version | What changed |
 |---|---|---|---|
-| 2026-11-26 | `548e0f3a` | anonymous `0cee3218…` (87 types) / logged in `9048fa70…` (88, + `magi_2`) | Login audit (`LOGIN_COVERAGE.md`, REVERSE_ENGINEERING §16). Commit `fc9eda3`: `pricing --logged-in-prices` and `--sections account`, new `account` scraper (7 scrapers), `catalog --kinds chain_preset,notice,restyle_preset` (+ `--include-hidden`, `--with-profiles`), `projects --public-series`. `/jobs/accessible` Cloudflare-challenged for the crawler (not evaded). Docs updated for the audit corrections. Tests 370 passed, 1 skipped |
+| 2026-11-26 | `548e0f3a` | anonymous `0cee3218…` (87 types) / logged in `9048fa70…` (88, + `magi_2`) | Login audit (`LOGIN_COVERAGE.md`, REVERSE_ENGINEERING §16). Commit `d0429ec`: `pricing --logged-in-prices` and `--sections account`, new `account` scraper (7 scrapers), `catalog --kinds chain_preset,notice,restyle_preset` (+ `--include-hidden`, `--with-profiles`), `projects --public-series`. `/jobs/accessible` Cloudflare-challenged for the crawler (not evaded). Docs updated for the audit corrections. Tests 370 passed, 1 skipped |
 | 2026-11-26 | `548e0f3a` | `0cee3218…` (87 types) | First checkpoint. Pricing (incl. login-only, baseline v3), 6 scrapers, model loading, products, cost formulas, jobs/storage, Editing Room, Property Studio documented. Catalog/community login endpoints fixed (public bases). Anonymous `__HF_FF` empty |
+
+## History rewrite (2026-11-26)
+
+At the owner's request the whole Git history was rewritten with `git-filter-repo` and force-pushed: the 9 real Clerk
+user ids that older commits contained were replaced with `user_REDACTEDHnn`, and the `Co-Authored-By` trailer was
+removed from every commit message (no trailers from now on). Every commit id changed (e.g. `fc9eda3` -> `d0429ec`);
+ids quoted in these docs were updated. The final tree was verified byte-identical (same tree hash), with the same 24
+subjects, bodies, authors and dates. A local pre-rewrite mirror backup is at `D:/higgsfield-scraper-backup-20261126-130804.git` (not on GitHub).

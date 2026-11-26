@@ -280,7 +280,7 @@ are marked "LOGIN ONLY"; they are public on `https://fnf-api-gw.higgsfield.ai/fn
 
 ## Implementation status
 
-As of commit `fc9eda3` (2026-11-26). Everything implemented is **opt-in**: default runs of every scraper are unchanged.
+As of commit `d0429ec` (2026-11-26). Everything implemented is **opt-in**: default runs of every scraper are unchanged.
 Field names sometimes differ from the §3 sketches; the scraper docs are authoritative.
 
 | Recommendation (§1, §2, §3) | Status | How / where |
