@@ -3,7 +3,7 @@
 For every Higgsfield.ai product: which raw `job_set_type` (model id) it sends, which vendor is behind that
 model, how the product works, and what it costs. Credit **formulas** are in
 [`COST_FORMULAS.md`](COST_FORMULAS.md); this page gives per-product price summaries and worked examples only.
-Deep dives: [Editing Room](products/EDITING_ROOM.md) (`videoshop_*` job types, timeline, server rendering) and
+Where each model actually runs (vendor API, cloud, fal/Replicate?): [`PROVIDERS.md`](PROVIDERS.md). Deep dives: [Editing Room](products/EDITING_ROOM.md) (`videoshop_*` job types, timeline, server rendering) and
 [Property Studio](products/PROPERTY_STUDIO.md) (`/realtor-studio/*` walkthrough chain).
 
 **Date:** 2026-11-26. **Build studied:** `548e0f3a` (`samples/higgsfield/js2/`, 580 chunks).

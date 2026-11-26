@@ -1,0 +1,288 @@
+{
+    "_note": "Redacted provider-fingerprint examples from public community jobs (GET only). Prompts, user ids and media paths removed; request ids truncated. Generated from runs/*provider-evidence*, *_pe-*, *_pa-*, *_pv-* on 2026-11-26.",
+    "examples": [
+        {
+            "vendor": "alibaba",
+            "job_set_type": "wan2_5_video",
+            "params": {
+                "width": 1456,
+                "height": 816,
+                "draw_input_image": null,
+                "input_audio": null,
+                "resolution": "1080p",
+                "duration": 5,
+                "seed": 96566,
+                "mode": "regular",
+                "is_draw": false,
+                "preset_family": "wan2_5_video",
+                "name": "Wan AI Sample 12",
+                "aspect_ratio": null,
+                "motion_id": null,
+                "motion": null
+            },
+            "job_set_client_meta": null,
+            "meta_keys": [
+                "duration"
+            ],
+            "trace_id_equals_id": false
+        },
+        {
+            "vendor": "bfl",
+            "job_set_type": "flux_3_image",
+            "meta.cost": 10.0
+        },
+        {
+            "vendor": "bfl",
+            "job_set_type": "flux_3_image",
+            "meta.cost": 4.8
+        },
+        {
+            "vendor": "bytedance",
+            "job_set_type": "seedance_2_5",
+            "params": {
+                "width": 1440,
+                "height": 1080,
+                "genre": "auto",
+                "duration": 9,
+                "resolution": "1080p",
+                "aspect_ratio": "4:3",
+                "generate_audio": true,
+                "multi_shots": false,
+                "multi_shot_mode": "custom",
+                "speedramp": "auto",
+                "prompt_language": "en",
+                "model": "default",
+                "extension_mode": null,
+                "bitrate_mode": "high",
+                "draft": false,
+                "seed": null,
+                "draft_job_id": null
+            },
+            "job_set_client_meta": null,
+            "meta_keys": [],
+            "trace_id_equals_id": true
+        },
+        {
+            "vendor": "google",
+            "job_set_type": "nano_banana_2_1",
+            "meta.cost": 0.057105
+        },
+        {
+            "vendor": "google",
+            "job_set_type": "nano_banana_2_1",
+            "meta.cost": 0.0489735
+        },
+        {
+            "vendor": "google",
+            "job_set_type": "nano_banana_flash",
+            "meta.cost": {
+                "input": "0.0001365",
+                "output": "0.11688",
+                "thinking": "0",
+                "total": "0.1170165",
+                "input_tokens": 273,
+                "output_tokens": 1948,
+                "thinking_tokens": 0,
+                "total_tokens": 2221
+            }
+        },
+        {
+            "vendor": "google",
+            "job_set_type": "outpaint",
+            "meta.cost": {
+                "input": "0.001156",
+                "output": "0.1344",
+                "thinking": "0.002628",
+                "total": "0.138184",
+                "input_tokens": 578,
+                "output_tokens": 1120,
+                "thinking_tokens": 219,
+                "total_tokens": 1917
+            }
+        },
+        {
+            "vendor": "higgsfield",
+            "job_set_type": "text2image_soul_v2",
+            "params": {
+                "width": 1152,
+                "height": 2048,
+                "batch_size": 1,
+                "seed": 987504,
+                "enhance_prompt": false,
+                "use_sage_attention": false,
+                "quality": "1080p",
+                "use_relax": false,
+                "use_refiner": false,
+                "use_green": true,
+                "use_green_aidar": false,
+                "style_id": "3db34ab5-3439-4317-9e03-08dc30852e69",
+                "style_strength": 1.0
+            },
+            "job_set_client_meta": null,
+            "meta_keys": [],
+            "trace_id_equals_id": true
+        },
+        {
+            "vendor": "kuaishou",
+            "job_set_type": "kling3_0",
+            "params": {
+                "width": 1920,
+                "height": 1080,
+                "duration": 6,
+                "aspect_ratio": "16:9",
+                "multi_shots": false,
+                "sound": "on",
+                "cfg_scale": 0.5,
+                "mode": "pro",
+                "multi_shot_mode": "custom",
+                "enhance_prompt": false
+            },
+            "job_set_client_meta": null,
+            "meta_keys": [],
+            "trace_id_equals_id": true
+        },
+        {
+            "vendor": "minimax",
+            "job_set_type": "minimax_hailuo",
+            "params": {
+                "width": 2048,
+                "height": 1152,
+                "enhance_prompt": true,
+                "duration": 6,
+                "resolution": "1080",
+                "draw_input_image": null,
+                "input_image_end": null,
+                "motion_id": "76629ef1-ca01-481d-8874-e561a105a86c",
+                "is_draw": false,
+                "application": null,
+                "model": "minimax-2.3"
+            },
+            "job_set_client_meta": null,
+            "meta_keys": [
+                "duration"
+            ],
+            "trace_id_equals_id": false
+        },
+        {
+            "vendor": "openai",
+            "job_set_type": "gpt_image_2",
+            "meta.cost": {
+                "request_id": "req_958a…",
+                "input_text_tokens": 16,
+                "input_image_tokens": 3502,
+                "cached_text_input_tokens": 0,
+                "cached_image_input_tokens": 0,
+                "output_text_tokens": 0,
+                "output_image_tokens": 3902
+            }
+        },
+        {
+            "vendor": "openai",
+            "job_set_type": "gpt_image_2",
+            "meta.cost": {
+                "request_id": "req_f454…",
+                "input_text_tokens": 144,
+                "input_image_tokens": 0,
+                "cached_text_input_tokens": 0,
+                "cached_image_input_tokens": 0,
+                "output_text_tokens": 0,
+                "output_image_tokens": 220
+            }
+        },
+        {
+            "vendor": "openai",
+            "job_set_type": "gpt_image_2_6",
+            "meta.cost": {
+                "request_id": "req_a22f…",
+                "input_text_tokens": 96,
+                "input_image_tokens": 0,
+                "cached_text_input_tokens": 0,
+                "cached_image_input_tokens": 0,
+                "output_text_tokens": 0,
+                "output_image_tokens": 660
+            }
+        },
+        {
+            "vendor": "openai",
+            "job_set_type": "gpt_image_2_6",
+            "meta.cost": {
+                "request_id": "req_6d02…",
+                "input_text_tokens": 168,
+                "input_image_tokens": 1457,
+                "cached_text_input_tokens": 0,
+                "cached_image_input_tokens": 0,
+                "output_text_tokens": 0,
+                "output_image_tokens": 1838
+            }
+        },
+        {
+            "vendor": "openai",
+            "job_set_type": "sora2_video",
+            "params": {
+                "width": 1920,
+                "height": 1080,
+                "input_image": null,
+                "duration": 12,
+                "model": "sora-2-pro",
+                "aspect_ratio": "9:16",
+                "resolution": "1080p",
+                "motion": null,
+                "link_to_ad_preset": null,
+                "social": null,
+                "style": null,
+                "music": null,
+                "language": null,
+                "speech": null,
+                "speach_tempo": null,
+                "craziness_level": null,
+                "montage": null,
+                "is_sketch": null,
+                "deflicker": false
+            },
+            "job_set_client_meta": null,
+            "meta_keys": [
+                "duration"
+            ],
+            "trace_id_equals_id": false
+        },
+        {
+            "vendor": "topaz",
+            "job_set_type": "topaz_image",
+            "params": {
+                "width": 3072,
+                "height": 5440,
+                "output_width": 3072,
+                "output_height": 5440,
+                "face_enhancement": false,
+                "face_enhancement_creativity": 0.0,
+                "face_enhancement_strength": 0.8,
+                "model": "High Fidelity V2",
+                "sharpen": 0.3,
+                "denoise": 0.1
+            },
+            "job_set_client_meta": null,
+            "meta_keys": [],
+            "trace_id_equals_id": true
+        },
+        {
+            "vendor": "xai",
+            "job_set_type": "grok_image",
+            "meta.cost": 0.022
+        },
+        {
+            "vendor": "xai",
+            "job_set_type": "grok_image",
+            "meta.cost": 0.022
+        },
+        {
+            "vendor": "xai",
+            "job_set_type": "grok_image_2_0",
+            "meta.cost": 0.08
+        },
+        {
+            "vendor": "xai",
+            "job_set_type": "grok_image_2_0",
+            "meta.cost": 0.06
+        }
+    ]
+}

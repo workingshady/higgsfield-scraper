@@ -17,6 +17,7 @@ GitHub shows this page when you open the `docs/` folder.
 | Understand **Higgsfield prices and plans** | [`PRICING.md`](PRICING.md), then [`ENDPOINTS.md`](ENDPOINTS.md) for field details |
 | Know **how credits are calculated** for a model | [`COST_FORMULAS.md`](COST_FORMULAS.md) (formulas and variation tables) |
 | Know **which model and provider** a product uses | [`PRODUCTS.md`](PRODUCTS.md) |
+| Know **who makes each model and where it runs** (fal? Replicate? vendor API?) | [`PROVIDERS.md`](PROVIDERS.md) |
 | Understand how the website **loads and calls models** | [`MODEL_LOADING.md`](MODEL_LOADING.md) |
 | Understand **jobs, IDs, storage, the generation lifecycle** | [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) |
 | Look at **everything Higgsfield has** (features, routes, APIs) | [`HIGGSFIELD_DATA_INVENTORY.md`](HIGGSFIELD_DATA_INVENTORY.md) |
@@ -68,6 +69,7 @@ Each guide covers endpoints, options, output entities and fields, CSV tables, ex
 |---|---|---:|
 | [`MODEL_LOADING.md`](MODEL_LOADING.md) | How tools load models: hard-coded registry in the JS, runtime gating (feature flags, price check, plan), `defineJob` parameter schemas, Seedance 2.5 deep dive, create/upload/status flow, per-tool differences, dynamic parts | 640 |
 | [`PRODUCTS.md`](PRODUCTS.md) | Every product → raw model id (`job_set_type`) → provider (ByteDance, Google, OpenAI, xAI, Alibaba…) → endpoint, params, examples (Seedance, GPT Image…), price summary. ⚙️ catalog of 175 job types (`scripts/gen_model_catalog.py`) | 980 |
+| [`PROVIDERS.md`](PROVIDERS.md) | Model sources: maker per model family, access path / inference platform with evidence (OpenAI/Gemini/xAI billing records in real jobs, vendor labels in the public API docs, JS switches like `use_alibaba`), fal/Replicate search (0 fingerprints in 925 jobs + 744 JS chunks), infrastructure, how to re-check (`scripts/provider_evidence.py`) | 450 |
 | [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) | Job / job set / publication / project / media ids, lifecycle (upload → create → SSE status → result), CDN storage and file naming, library and workspaces, browser storage, chains, workflows (apps), Canvas, publishing | 835 |
 | [`products/EDITING_ROOM.md`](products/EDITING_ROOM.md) | Editing Room ("videoshop"): AI re-shoot tools (Genjutsu, Angles, Camera move, Relight, Brush), timeline data model, server-side rendering, FCP7 export, autosave, credits, endpoints | 370 |
 | [`products/PROPERTY_STUDIO.md`](products/PROPERTY_STUDIO.md) | Property Studio ("realtor studio"): floor plan → narrated 3D walkthrough chain with review gates, apps, `/realtor-studio/*` endpoints, progress stream, quotes and eligibility | 350 |
