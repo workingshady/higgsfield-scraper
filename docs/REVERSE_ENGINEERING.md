@@ -19,6 +19,7 @@ Related documents:
 | [`COST_FORMULAS.md`](COST_FORMULAS.md) | Credit and cost formulas for every model, scenarios, variation tables |
 | [`PRODUCTS.md`](PRODUCTS.md) | Products → model ids → providers, examples, model catalog |
 | [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) | Job ids, lifecycle, storage, library, chains, workflows |
+| [`products/EDITING_ROOM.md`](products/EDITING_ROOM.md), [`products/PROPERTY_STUDIO.md`](products/PROPERTY_STUDIO.md) | Editing Room and Property Studio deep dives |
 
 ---
 
