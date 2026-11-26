@@ -10,18 +10,20 @@
   <img alt="Python 3.10+" src="https://img.shields.io/badge/python-3.10%2B-0f1113?style=flat-square&labelColor=0f1113&color=d1fe17">
   <img alt="Scrapy 2.x" src="https://img.shields.io/badge/scrapy-2.x-0f1113?style=flat-square&labelColor=0f1113&color=9ce6f3">
   <img alt="pydantic v2" src="https://img.shields.io/badge/pydantic-v2-0f1113?style=flat-square&labelColor=0f1113&color=9ce6f3">
-  <img alt="8 scrapers" src="https://img.shields.io/badge/scrapers-8-0f1113?style=flat-square&labelColor=0f1113&color=d1fe17">
+  <img alt="10 scrapers" src="https://img.shields.io/badge/scrapers-10-0f1113?style=flat-square&labelColor=0f1113&color=d1fe17">
   <img alt="unofficial" src="https://img.shields.io/badge/status-unofficial-0f1113?style=flat-square&labelColor=0f1113&color=ff005b">
 </p>
 
 # higgsfield-scraper
 
 Scrapy scrapers for **public [Higgsfield.ai](https://higgsfield.ai) data**: prices, model credit costs, community
-generations (prompt + model + settings + estimated cost) and community pages (shots, posts, Feed, creators, comments,
-rooms), preset/asset catalogs, projects & contests down to every asset, brief and comment, the blog / help center,
-site pages (apps, academy, MCP skills, original series, landings) and showcase/example content (Canvas templates,
-Editing Room, Property Studio, video explore, effect samples, API models); plus an opt-in `account` scraper for
-*your own* balances and jobs (login required). **8 scrapers.** Data comes from the site's JSON
+generations (prompt + model + settings + estimated cost) and community pages (shots, posts, Feed, creators and their
+works, comments, rooms), preset/asset catalogs, projects & contests down to every asset, brief and comment, the blog /
+help center, site pages (apps, academy, MCP skills, original series, landings), showcase/example content (Canvas
+templates, Editing Room, Property Studio, video explore, effect samples, reels, the home feed, API models), the
+**studios & marketplaces** (community apps, games, skills, AI employees, Playable Ads, AI Influencer, every studio's
+published outputs) and the **model registry** read from the site's JS bundle; plus an opt-in `account` scraper for
+*your own* balances and jobs (login required). **10 scrapers.** Data comes from the site's JSON
 APIs wherever they exist (embedded page data or HTML only for page-only content), is validated with pydantic, and lands in
 a timestamped run folder as indented JSON, complete CSVs, JSONL feeds and a full HTTP archive. The `export` command
 turns run folders into browsable folders or ready-to-load datasets (Hugging Face, WebDataset, JSONL).
@@ -38,7 +40,9 @@ option editing, login with emailed code, a test request and a live progress pane
 | Doc | Contents |
 |---|---|
 | [`CLI.md`](CLI.md) | **Every command and option**, interactive mode, recipes, exit codes |
-| [`docs/scrapers/`](docs/scrapers/) | One page per scraper: [community](docs/scrapers/community.md) · [catalog](docs/scrapers/catalog.md) · [projects](docs/scrapers/projects.md) (incl. the nested data model) · [blog](docs/scrapers/blog.md) · [site](docs/scrapers/site.md) · [account](docs/scrapers/account.md) · [showcase](docs/scrapers/showcase.md) · [cost estimate](docs/scrapers/cost-estimate.md) |
+| [`docs/scrapers/`](docs/scrapers/) | One page per scraper: [community](docs/scrapers/community.md) · [catalog](docs/scrapers/catalog.md) · [projects](docs/scrapers/projects.md) (incl. the nested data model) · [blog](docs/scrapers/blog.md) · [site](docs/scrapers/site.md) · [account](docs/scrapers/account.md) · [showcase](docs/scrapers/showcase.md) · [studios](docs/scrapers/studios.md) · [models](docs/scrapers/models.md) · [cost estimate](docs/scrapers/cost-estimate.md) |
+| [`docs/CONTENT_MAP.md`](docs/CONTENT_MAP.md) | **Every content source on the site** (videos, images, audio, templates, prompts, models, users, comments), visibility, live totals, and which option covers it; "scrape everything" sizes |
+| [`docs/COMPLETENESS.md`](docs/COMPLETENESS.md) | Completeness audit: is anything dropped between `raw/` and `output/`, per product and model; fix list (#1–#17 done) |
 | [`docs/EXPORT.md`](docs/EXPORT.md) | The `export` command: layouts (tree, Hugging Face, WebDataset, JSONL), dedup, idempotent writes, loading examples, privacy and licensing |
 | [`docs/COMMUNITY_COVERAGE.md`](docs/COMMUNITY_COVERAGE.md) | Every Community page (Feed, Shots, Creators, Rooms, …): endpoints, JS evidence, totals, data model, logged-in check, how to scrape it all |
 | [`docs/ENGAGEMENT.md`](docs/ENGAGEMENT.md) | Likes, views, comments, votes: where each count lives, public or not, old vs new items, how to track them over time |
@@ -54,7 +58,7 @@ option editing, login with emailed code, a test request and a live progress pane
 | [`docs/HIGGSFIELD_DATA_INVENTORY.md`](docs/HIGGSFIELD_DATA_INVENTORY.md) | Everything on Higgsfield: features, routes, APIs, public vs login |
 | [`docs/LOGIN_COVERAGE.md`](docs/LOGIN_COVERAGE.md) | Login audit: what a session really unlocks (extra `lite` plan and `magi_2` cost row, the account's own money state and jobs), every probed login endpoint, service prefixes, implementation status |
 | [`docs/ADDING_A_SCRAPER.md`](docs/ADDING_A_SCRAPER.md) | The scraper contract — how to add a new one |
-| [`docs/higgsfield.postman_collection.json`](docs/higgsfield.postman_collection.json) | 115 requests (pricing, community, catalog, projects, blog, site + login), generated by `scripts/make_postman.py` |
+| [`docs/higgsfield.postman_collection.json`](docs/higgsfield.postman_collection.json) | 164 requests in 10 folders (pricing, community, catalog, projects, blog, site, showcase, studios, models + login), generated by `scripts/make_postman.py` |
 
 ---
 
@@ -69,34 +73,38 @@ option editing, login with emailed code, a test request and a live progress pane
 
 ## 1. What it scrapes
 
+<p align="center"><img alt="the 10 scrapers and what each collects" src="docs/assets/scrapers.svg" width="100%"></p>
+
 By category (what you get, which scraper, the command). Everything is public unless marked; every opt-in is off by
-default, so default runs never change.
+default, so default runs never change. Where every piece of content on the site lives and which option covers it:
+[`docs/CONTENT_MAP.md`](docs/CONTENT_MAP.md).
 
 | Category | Data | Scraper · command |
 |---|---|---|
-| **Pricing & plans** | Plans (USD before/after offer, renewal, discounts, $/credit), the credit cost of every model, benefits, comparison matrix, marketing copy, 25 regional plan sets; opt-in logged-in rows (`lite`, `magi_2`) | `pricing` · `scrape pricing --sections all` |
-| **Community & engagement** | Gallery generations (model, prompt, settings, inputs, results, likes/views, estimated cost); opt-in Community pages: shots, posts, the Feed, creator/talent stats, comment threads of shots/projects/blogs/posts | `community` · `scrape community --max-items 300` · `scrape community --feeds shots,posts,feed --with-comments` |
-| **Templates & presets** | Motions, avatars, voices, sounds, styles, viral-hub presets (price matrices), soul/marketing/katana/mixed-media presets, chain presets (credit prices), notices, restyle presets | `catalog` · `scrape catalog --kinds all` |
-| **Projects, contests & nested assets** | Project publications, recommended feeds, contests (rules, prizes, judges, winners), submissions and entries, original series; opt-in per project: folders, **every asset with prompt and model**, the brief as Markdown, stats + model stack, comments, related projects; contests by slug, a user's projects | `projects` · `scrape projects --what contests --contest talent-contest --with-submissions --with-project-assets --with-project-brief` |
-| **Content (blog / help / academy)** | Blog posts, talent and community posts, Creator Hub and Enterprise help centers, case studies, changelog (full text, Markdown); academy courses and lessons | `blog` · `scrape blog` · `site` · `scrape site --what academy` |
-| **Site pages** | Apps (+ credit cost per template), MCP skills + bundles, original-series episodes, mixed-media presets, ~165 landing/plugin pages, promo APIs; opt-in community rooms (88 rooms, their works and discussions) | `site` · `scrape site` · `scrape site --what room-content` |
-| **Showcase & examples** | Canvas templates, Editing Room examples (edits + renders), Property Studio presets, video explore (~49k community items with likes), effect sample generations, public API models (83 endpoints, parameters, prices), Cinema Studio controls, faceless / Intone / Seedance / motion-control showcases | `showcase` · `scrape showcase` |
+| **Pricing, plans & credits** | Plans (USD before/after offer, renewal, discounts, $/credit), the credit cost of every model, benefits, comparison matrix, marketing copy, 25 regional plan sets; opt-in logged-in rows (`lite`, `magi_2`); `diff` and `crosscheck` against the official `pricing.md` | `pricing` · `scrape pricing --sections all` |
+| **Community & creators** | Gallery generations (model, prompt, settings, inputs, results, likes/views, estimated cost); opt-in Community pages: shots (+ model facets), posts, the Feed, creator/talent stats **and every showcased work in full**, comment threads of shots/projects/blogs/posts, Feed hashtag categories; one pseudonymous `creator_uid_key` per user across all scrapers | `community` · `scrape community --max-items 300` · `scrape community --feeds shots,posts,feed,creators,talents --with-comments` |
+| **Templates, presets & catalog** | Motions, avatars, voices, sounds, styles, viral-hub presets (price matrices), soul/marketing/katana/mixed-media presets, chain presets (credit prices), notices, restyle presets, outfit characters; music cards, collections and explore cards (`community --feeds`) | `catalog` · `scrape catalog --kinds all` · `--kinds outfit_character` |
+| **Projects & contests** | Project publications, recommended and **trending** feeds (ranking + total), contests (rules, prizes, judges, winners), submissions and entries, contest participation counters, original series; opt-in per project: folders, **every asset with prompt and model**, the brief as Markdown, stats + model stack, comments, related projects; contests by slug, a user's projects, **the published works and stats of users found in the run** | `projects` · `scrape projects --what all,trending,contest-participation` · `--with-project-assets --with-project-brief --with-user-works` |
+| **Studios & marketplaces** | Community apps marketplace (~59.6k apps: views, likes, dislikes, remixes, credits used), games (plays), skills and AI employees (installs, usage), Playable Ads presets, AI Influencer builder options, the published outputs of every studio (Marketing Studio, Cinema Studio, Canvas, AI Influencer, …) with likes/views and comments | `studios` · `scrape studios` · `scrape studios --what galleries --with-comments` |
+| **Showcase, reels & main feed** | Canvas templates, Editing Room examples (edits + renders), Property Studio presets, video explore (~49k community items with likes), effect sample generations + effect presets (price matrices), public API models (83 endpoints, parameters, prices), Cinema Studio controls, faceless / Intone / Seedance / motion-control showcases; opt-in Shorts Studio reels presets + comments and the home **main feed** | `showcase` · `scrape showcase` · `scrape showcase --what reels_presets,reels_comments,main_feed` |
+| **Models** | The model registry from the site's public JS bundle (~130 job types: parameter schema with enums / ranges / defaults, media roles and limits, routes, plan tiers, feature-flag gating, featured order, picker menus), joined with the credit costs and the published-shots facet; one record per frontend build | `models` · `scrape models` |
+| **Blog, site & academy** | Blog posts, talent and community posts, Creator Hub and Enterprise help centers, case studies, changelog (full text, Markdown); apps (+ credit cost per template), academy courses and lessons (+ the academy JSON API: free generations, tests, MDX lessons), MCP skills + bundles, original-series episodes, mixed-media presets, ~165 landing/plugin pages, promo APIs; opt-in community rooms (88 rooms, their works and discussions) | `blog` · `scrape blog` · `site` · `scrape site --what all,room-content,academy-api` |
 | **Your account** (login) | Your plan, balances, wallet, subscription, auto top-up; your jobs with the credits actually charged; estimate-vs-actual check | `account` · `scrape account --with-jobs` |
-
-Then [`export`](#8-export-datasets-from-run-folders) turns any run into a browsable folder or a dataset, and
-`scripts/merge_generations.py` counts and dedupes every video/image across runs.
+| **Export, dedupe, diff & menu** | `export` turns runs into browsable folders or datasets (tree, Hugging Face, WebDataset, JSONL); `scripts/merge_generations.py` counts and dedupes every video/image across runs (likes/views deltas with `--compare`); `diff` / `crosscheck` for pricing; an interactive `menu` | [§8](#8-export-datasets-from-run-folders) · `export --run runs/<id> --layout hf` · `menu` |
 
 Per scraper:
 
 | Scraper | Data | Login needed? |
 |---|---|---|
 | **`pricing`** (default) | Every plan with USD prices before/after offer and on renewal, discounts, $/credit; the **credit cost of every model** (≈95 models × every resolution/quality/mode/audio option); plan benefits, comparison matrix, marketing copy; 25 regional plan sets. Opt-in: `--logged-in-prices` (the rows only logged-in users see: `lite` annual plan, `magi_2`), `--sections account` (your wallet, subscription, top-up settings) | No (top-ups / bundles / credit price, `--logged-in-prices`, `--sections account`: yes) |
-| **`community`** | Community generations: model (`job_set_type`), **prompt**, settings, inputs, result media, engagement; feeds `trending`, `approved`, `top`, `model-x`; optional detail, creator profiles (opt-in), comments, and an **estimated credit + USD cost per generation**; opt-in Community pages `--feeds shots,posts,feed,creators,talents` and their comment threads (`--with-comments`) | No |
-| **`catalog`** | Presets & assets: motions (+ samples, details), avatars, voices, reference voices, sounds, styles, soul samples, viral-hub types & presets (with price matrices); opt-in group (`--kinds login`): soul styles, per-model motions, mixed media, katana, faceless, marketing presets (public CMS lists), color presets and camera settings (login); opt-in public kinds: **chain presets with credit prices**, per-model **notices**, **restyle presets** | Only color presets / camera settings |
-| **`projects`** | Community projects (films / series / carousels), recommended feeds, contests (rules, rewards, judges, winners) and contest submissions; original series from the public `fnf-series` service with `--public-series`; opt-in nested project data (`--with-project-assets/-brief/-stats/-comments/-related`), `--contest <slug>`, `--contest-tabs`, `--users <handle>` | No |
+| **`community`** | Community generations: model (`job_set_type`), **prompt**, settings, inputs, result media, engagement; feeds `trending`, `approved`, `top`, `model-x`; optional detail, creator profiles (opt-in), comments, and an **estimated credit + USD cost per generation**; opt-in Community pages `--feeds shots,posts,feed,creators,talents` (creators/talents with every work in full) and their comment threads (`--with-comments`); opt-in `--feeds music-cards,job-showcase,collections,explore-cards,feed-categories` | No |
+| **`catalog`** | Presets & assets: motions (+ samples, details), avatars, voices, reference voices, sounds, styles, soul samples, viral-hub types & presets (with price matrices); opt-in group (`--kinds login`): soul styles, per-model motions, mixed media, katana, faceless, marketing presets (public CMS lists), color presets and camera settings (login); opt-in public kinds: **chain presets with credit prices**, per-model **notices**, **restyle presets**; name-only `outfit_character` | Only color presets / camera settings |
+| **`projects`** | Community projects (films / series / carousels), recommended feeds, contests (rules, rewards, judges, winners) and contest submissions; original series from the public `fnf-series` service with `--public-series`; opt-in nested project data (`--with-project-assets/-brief/-stats/-comments/-related`), `--contest <slug>`, `--contest-tabs`, `--users <handle>`; opt-in `--what trending,contest-participation` and `--with-user-works` | No |
 | **`blog`** | Blog posts + authors, talent/community posts, Creator Hub help center, case studies, changelog, Enterprise help — metadata **and full article text** (Markdown + plain text) | No |
-| **`site`** | Site pages nothing else covers: **apps** (templates + **credit cost per generation**), **academy** courses + lessons (Markdown), **MCP** skills + bundles (agent prompts, example conversations), **original-series** films/episodes (views, likes), mixed-media presets, ~165 model/feature/plugin **landing pages** (Markdown, FAQ, HowTo), optional community rooms (`--what rooms` page titles, `room-list` all rooms with counts, `room-content` + their works and discussions); plus the public promo APIs (sale schedule, business unlimited offers, game-gift networks) | No |
-| **`showcase`** | Example / showcase content: Canvas templates, Editing Room examples (edits, renders), Property Studio presets, video explore (categories, curated and ~49k community items with likes, variants with prompts), effect sample generations, public API models (parameters, prices), Cinema Studio controls, faceless / Intone / Seedance / motion-control showcases | No (opt-in `season`: yes) |
+| **`site`** | Site pages nothing else covers: **apps** (templates + **credit cost per generation**), **academy** courses + lessons (Markdown), **MCP** skills + bundles (agent prompts, example conversations), **original-series** films/episodes (views, likes), mixed-media presets, ~165 model/feature/plugin **landing pages** (Markdown, FAQ, HowTo), optional community rooms (`--what rooms` page titles, `room-list` all rooms with counts, `room-content` + their works and discussions) and the academy JSON API (`--what academy-api`); plus the public promo APIs (sale schedule, business unlimited offers, game-gift networks) | No |
+| **`showcase`** | Example / showcase content: Canvas templates, Editing Room examples (edits, renders), Property Studio presets, video explore (categories, curated and ~49k community items with likes, variants with prompts), effect sample generations + effect presets, public API models (parameters, prices), Cinema Studio controls, faceless / Intone / Seedance / motion-control showcases; opt-in Shorts Studio reels presets + comments (`--what reels_presets,reels_comments`) and the home main feed (`--what main_feed`, by name only) | No (opt-in `season`: yes) |
+| **`studios`** (opt-in) | Studio & marketplace content: community apps (+ views / likes / dislikes / remixes / credits), games (+ plays), skills & AI employees (+ installs / usage), Playable Ads presets, AI Influencer options, published outputs of every studio (+ likes / views, optional comments). Options `--what`, `--apps-sort`, `--studios`, `--gallery-feeds`, `--gallery-pages`, `--with-comments`, `--lang` | No |
+| **`models`** (opt-in) | Model registry from the public JS bundle (~130 job types with params schema, enums, ranges, defaults, media roles / limits, routes, plan tiers, flag gating, featured order, picker menus) + `/job-sets/costs` + the Shots `available_models` facet; build id recorded. Options `--pages`, `--max-chunks`, `--no-costs`, `--no-shots` | No |
 | **`account`** (opt-in) | **Your own** account: plan, balances (credits), wallet, subscription, auto top-up, free gens, generation seconds; `--with-jobs` your jobs with the **credits actually charged**; `--compare-estimate` checks the cost estimator against those charges. Never part of a default run; field whitelists, hashed job ids, prompts redacted unless `--with-prompts` | **Yes** |
 
 Run `python -m higgsfield_scraper scrapers` to list them with examples.
@@ -160,14 +168,26 @@ python -m higgsfield_scraper scrape projects --what contests --contest talent-co
 python -m higgsfield_scraper scrape site --what room-content
 python -m higgsfield_scraper scrape showcase
 
+# Studios & marketplaces, the model registry (opt-in scrapers, public)
+python -m higgsfield_scraper scrape studios --what apps,games,skills,employees --max-items 200
+python -m higgsfield_scraper scrape studios --what galleries --studios marketing_studio --with-comments
+python -m higgsfield_scraper scrape models                          # ~800 requests, ~16 min
+
+# More opt-in extras (selected by name only)
+python -m higgsfield_scraper scrape community --feeds music-cards,collections,explore-cards,feed-categories
+python -m higgsfield_scraper scrape showcase --what main_feed,reels_presets
+python -m higgsfield_scraper scrape projects --what trending,contest-participation --max-pages 2
+python -m higgsfield_scraper scrape site --what academy-api
+python -m higgsfield_scraper scrape catalog --kinds outfit_character
+
 # Scrape everything: every public scraper, one run folder each (account is login-only, run it separately)
-for s in pricing community catalog projects blog site showcase; do python -m higgsfield_scraper scrape $s --label all-$s; done
-# + the opt-in extras: see CLI.md "Scrape everything (all 8 scrapers)"
+for s in pricing community catalog projects blog site showcase studios models; do python -m higgsfield_scraper scrape $s --label all-$s; done
+# + the opt-in extras: see CLI.md "Scrape everything (all 10 scrapers)"
 
 # Export a run as a browsable folder / dataset, and count + dedupe all videos and images across runs
 python -m higgsfield_scraper export --run runs/<run-id>                 # website-like tree under exports/
 python -m higgsfield_scraper export --run runs/<run-id> --layout hf     # Hugging Face ImageFolder / VideoFolder
-python scripts/merge_generations.py --latest community,catalog,projects,site,showcase
+python scripts/merge_generations.py --latest community,catalog,projects,site,showcase,studios
 
 # Past runs
 python -m higgsfield_scraper runs
@@ -182,11 +202,11 @@ python -m higgsfield_scraper menu     # explicit (alias: -i / --interactive)
 ```
 
 ```
-┌─────────────────────── higgsfield-scraper 0.1.0 · interactive ────────────────────────┐
-│ scrapers: pricing · community · catalog · projects · blog · site · account · showcase │
-│ session:  not logged in                                                               │
-│ Ctrl-C = back · flags: python -m higgsfield_scraper --help                            │
-└───────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────── higgsfield-scraper 0.1.0 · interactive ─────────────────────────────────┐
+│ scrapers: pricing · community · catalog · projects · blog · site · account · showcase · studios · models │
+│ session:  not logged in                                                                                  │
+│ Ctrl-C = back · flags: python -m higgsfield_scraper --help                                               │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ? What do you want to do?
  » Scrape                     pick scrapers, options, run
    Normalize a past run       re-parse raw/ offline
@@ -325,13 +345,15 @@ Full reference with every choice and default: **[`CLI.md`](CLI.md)**. Summary:
 | Scraper | Options |
 |---|---|
 | pricing | `--sections` (incl. opt-in `account`), `--plan-sets us\|tiers\|all\|ps_…`, `--billing`, `--plan-types`, `--models`, `--categories`, `--marketing-versions`, `--locale`, `--usd-reference`, `--include-hidden-plans`, `--include-raw-cost`, `--logged-in-prices` |
-| community | `--feeds` (incl. opt-in `shots`, `posts`, `feed`, `creators`, `talents`), `--type`, `--models`, `--preset-ids`, `--resolution`, `--publication-ids`, `--detail`, `--with-comments`, `--with-profiles`, `--with-raw-params`, `--estimate-cost off\|images\|videos\|all`, `--estimate-version 1\|2` (2 = exact site formulas, opt-in), `--usd-reference`, `--usd-plan-set` |
-| catalog | `--kinds public\|login\|all\|<list>` (opt-in kinds `chain_preset`, `notice`, `restyle_preset`), `--with-samples`, `--with-details`, `--lang`, `--include-login-only auto\|yes\|no`, `--keep-placeholders`, `--include-hidden`, `--with-profiles` |
-| projects | `--what`, `--categories`, `--featured`, `--scope`, `--with-details`, `--with-submissions`, `--contest-status`, `--contest-types`, `--entry-keys`, `--entry-tab`, `--submission-ordering`, `--max-submissions`, `--public-series`, `--with-project-assets`, `--with-project-brief`, `--with-project-stats`, `--with-project-comments`, `--with-project-related`, `--users`, `--contest`, `--contest-tabs`, `--with-profiles` |
+| community | `--feeds` (incl. opt-in `shots`, `posts`, `feed`, `creators`, `talents`, `music-cards`, `job-showcase`, `collections`, `explore-cards`, `feed-categories`), `--type`, `--models`, `--preset-ids`, `--resolution`, `--publication-ids`, `--detail`, `--with-comments`, `--with-profiles`, `--with-raw-params`, `--estimate-cost off\|images\|videos\|all`, `--estimate-version 1\|2` (2 = exact site formulas, opt-in), `--usd-reference`, `--usd-plan-set` |
+| catalog | `--kinds public\|login\|all\|<list>` (opt-in kinds `chain_preset`, `notice`, `restyle_preset`; name-only `outfit_character`), `--with-samples`, `--with-details`, `--lang`, `--include-login-only auto\|yes\|no`, `--keep-placeholders`, `--include-hidden`, `--with-profiles` |
+| projects | `--what`, `--categories`, `--featured`, `--scope`, `--with-details`, `--with-submissions`, `--contest-status`, `--contest-types`, `--entry-keys`, `--entry-tab`, `--submission-ordering`, `--max-submissions`, `--public-series`, `--with-project-assets`, `--with-project-brief`, `--with-project-stats`, `--with-project-comments`, `--with-project-related`, `--users`, `--contest`, `--contest-tabs`, `--what trending,contest-participation` (opt-in), `--trending-sort`, `--trending-filter`, `--trending-with-contest`, `--with-user-works`, `--with-profiles` |
 | blog | `--what`, `--with-content`/`--no-content`, `--locale`, `--tags`, `--since`, `--include-author-avatars`, `--no-markdown` |
-| site | `--what` (incl. opt-in `rooms`, `room-list`, `room-content`), `--with-content`/`--no-content`, `--only`, `--with-profiles`, `--no-markdown` |
+| site | `--what` (incl. opt-in `rooms`, `room-list`, `room-content`, `academy-api`), `--with-content`/`--no-content`, `--only`, `--with-profiles`, `--no-markdown` |
 | account | `--with-jobs`, `--compare-estimate`, `--job-types`, `--estimate-version`, `--with-prompts` (login required; limits `--max-items` / `--max-pages` / `--page-size` apply to jobs) |
-| showcase | `--what` (`public`, `all`, or `canvas_templates`, `editing_room_examples`, `property_studio_examples`, `explore_categories`/`explore`, `effect_examples`, `api_models`, `cinema_controls`, `faceless_showcases`, `intone_examples`, `seedance_presets`, `motion_control_presets`, `season`), `--lang`, `--explore-sources`, `--explore-sort new\|trending\|both`, `--explore-pages`, `--explore-categories`, `--effects`, `--with-profiles` |
+| showcase | `--what` (`public`, `all`, or `canvas_templates`, `editing_room_examples`, `property_studio_examples`, `explore_categories`/`explore`, `effect_examples`, `api_models`, `cinema_controls`, `faceless_showcases`, `intone_examples`, `seedance_presets`, `motion_control_presets`, `season`, opt-in `reels_presets`, `reels_comments`, `main_feed`), `--lang`, `--explore-sources`, `--explore-sort new\|trending\|both`, `--explore-pages`, `--explore-categories`, `--effects`, `--reels-sources`, `--main-feed-pages`, `--with-profiles` |
+| studios | `--what apps,games,skills,employees,playable_presets,influencer_options,galleries\|all`, `--lang`, `--apps-sort trending\|most_viewed\|popular\|newest`, `--studios`, `--gallery-feeds`, `--gallery-pages`, `--with-comments`, `--with-profiles` |
+| models | `--pages`, `--max-chunks` (800; 0 = no cap), `--no-costs`, `--no-shots` |
 | export | `--run` (repeatable, globs), `--out`, `--layout tree\|hf\|webdataset\|jsonl`, `--group-by`, `--per-asset`, `--media auto\|link\|copy\|hardlink\|none`, `--download-missing-media thumbs\|full`, `--max-media-files`, `--max-media-mb`, `--only`, `--filter`, `--shard-mb`, `--dry-run`, `--force`, `--runs-dir` |
 
 **Exit codes:** `0` success · `1` failure · `2` usage error · `3` partial (some non-200s / invalid items / limit hit
@@ -414,7 +436,8 @@ generations get a price. Details: [`docs/scrapers/cost-estimate.md`](docs/scrape
 ## 11. Privacy & safety
 
 - **Personal data is opt-in:** creator usernames, handles and avatars are redacted (`[redacted]`) in output, `raw/` and
-  `http/` unless you pass `--with-profiles`.
+  `http/` unless you pass `--with-profiles`. People are joined across scrapers by one pseudonymous key,
+  `creator_uid_key` (a hash of the user id).
 - **CDN media URLs are kept as they are** (owner decision, 2026-11-26): Higgsfield's media addresses contain the
   uploader's Clerk user id (`user_…`) in the path, and downloads need them. All other personal fields stay redacted
   unless `--with-profiles`.
@@ -436,10 +459,12 @@ higgsfield_scraper/
   interactive/               menu mode (Rich + questionary), built dynamically from the registry
   core/                      ScraperDef + registry, BaseApiSpider, CommonOptions, auth (Clerk), privacy,
                              redaction, exporting (JSON/CSV), dataset meta
-  scrapers/<name>/           community · catalog · projects · blog · site · account · showcase — endpoints, options,
+  scrapers/<name>/           community · catalog · projects · blog · site · account · showcase · studios · models — endpoints, options,
                              parsers, schemas, dataset, spider (pricing: scrapers/pricing.py adapts the original modules below)
   scrapers/projects/         + nested.py (folders/assets traversal), yjs.py + brief.py (Yjs brief → Markdown)
-  scrapers/showcase/         Canvas, Editing Room, Property Studio, explore, effects, API models, CMS showcases
+  scrapers/showcase/         Canvas, Editing Room, Property Studio, explore, effects, reels, main feed, API models, CMS showcases
+  scrapers/studios/          marketplaces (apps, games, skills, employees), Playable Ads, AI Influencer, studio galleries
+  scrapers/models/           JS bundle → model registry (jsparse.py, extract.py; no JS execution) + costs + shots facet
   export/                    `export` command: run folders → tree / hf / webdataset / jsonl (read-only)
   spiders/ parsers/ schemas/ assemble.py exporters.py   the pricing scraper
   pricing_diff.py            `diff`: compare two pricing runs

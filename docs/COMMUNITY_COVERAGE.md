@@ -50,7 +50,7 @@ Bases: `fnf` = `https://fnf-api-gw.higgsfield.ai/fnf`, `fnf-community` = `https:
 | Shared pages (`/genjutsu\|katana\|what-if\|ai-reels\|ai-influencer/shared/$code`, `/shared/$code`, `/share/$id`, `/s/$code`) | `/preset-shares/{code}`, `/what-if/presets/shared/{code}`, shared asset loader | one shared preset / asset | public **per code** | — | **Not enumerable** (codes only from `POST …/share`; never guessed) |
 | `/share/folder` | the viewer's folders | — | **login** | — | Not added (personal) |
 | `/character`, `/character-sheet`, `/moodboard`, `/template`, `/select-template` | custom references, reference elements, job creation, flow steps | the viewer's characters / tools | **login** / tool | — | Not added (personal tools) |
-| `/characters`, `/avatars` (inventory child paths) | `/ads-studio/characters`, `/ads-studio/avatars`; `/avatars` 301 → `/ai-influencer` | — | — | `studios` scraper | skipped (other agent's scope) |
+| `/characters`, `/avatars` (inventory child paths) | `/ads-studio/characters`, `/ads-studio/avatars`; `/avatars` 301 → `/ai-influencer` | — | — | `studios` scraper | skipped (other agent's scope). Checked by `studios` (2026-11-26): Ads Studio pages are the user's own workspace (login); AI Influencer = `studios --what influencer_options,galleries` |
 | `/avatar/*` | fnf `/avatars`, `/avatar-presets` (+ `category`) | avatars, avatar presets | public | **yes**: `catalog` | duplicate |
 | `/music-cards` (flagged page) | fnf-cms-api `/music-cards-presets`, `/music-cards-{styles,occasions,roles}` | 111 song-card templates: lyrics, example recipients, preview videos; 79 options | public API | no | **`community --feeds music-cards`** → `community_music_card`, `community_music_card_option` |
 | Ideas / tips / prompt suggestions | `/tips/random` (401, random single tip), `/users/suggestions` (people) | — | login / personal | — | Not added (no public list) |
@@ -242,7 +242,7 @@ All per-model gallery loaders call the same function `ua()`/`GL()`/`KL()` (`/pub
 | `/seedance-2-community` | `hoe(80,'seedance_2_0')` = `ZL()` `GL({approved:!0, model})` **+ `getSeedanceMovies('seedance-2-0')`** | publications: `--feeds approved --models seedance_2_0` (total 77); movies: **added `--feeds job-showcase`** |
 | `/seedance-4k-community` | `Mae(80)` = `QL()` `GL({approved:!0, model:'seedance_2_0', resolution:'4k'})` | `--feeds approved --models seedance_2_0 --resolution 4k` |
 | `/kling-30-community` | `ua({model: ['kling_o3_image_reference','kling_o3_flf','kling3_0'], size:40, approved:!0})` | `--feeds approved --models kling_o3_image_reference,kling_o3_flf,kling3_0` (total 29) |
-| `/soul-community`, `/gpt-image-2-community`, `/marketing-studio-community`, `/soul-cinema-community` | `ua({...pc\|sc\|lc\|dc, size:80})`: `text2image_soul_v2`, `imagegen_2_0`, `marketing_studio_video`, `soul_cinematic` (approved) | `--feeds approved --models <that>` (totals 136 / 17 / 33 / 4,626) |
+| `/soul-community`, `/gpt-image-2-community`, `/marketing-studio-community`, `/soul-cinema-community` | `ua({...pc\|sc\|lc\|dc, size:80})`: `text2image_soul_v2`, `imagegen_2_0`, `marketing_studio_video`, `soul_cinematic` (approved) | `--feeds approved --models <that>` (totals 136 / 17 / 33 / 4,626). The Marketing Studio community (`/marketing-studio-community`) is the approved feed with `model=marketing_studio_video` (SSR = the same 33); it is also collected, with the trending Marketing Studio models and comments, by `scrape studios --what galleries --studios marketing_studio [--with-comments]` (docs/scrapers/studios.md) |
 | `/mixed-media-community/` | `Voe(150)` = `YL()` `GL({filter:'video', approved:!0, model:'mixed_media'})` | `--feeds approved --models mixed_media --type video` (total 142) |
 | `/wan-video/` | `lse(12)` = `qL()` `GL({filter:'video', approved:!0, model:'wan2_5_video'})` | `--feeds approved --models wan2_5_video --type video` (total 61) |
 | `/(explore)/$slug` (e.g. a CMS block page) | `Wi(slug)` = cms `/blocks/{id}`, `Gi(slug)` = cms `/blocks/{id}/items` (`Eo(slug)` must be a UUID; `/blocks/kling-30-community` → 404 "Block not found") | no block id found in the bundle → **not enumerable** |
@@ -422,7 +422,9 @@ CSV layout: one row per record, every JSON leaf a column (nested objects → dot
 PostMedia: `index, type, url (job_result.url), project_publication_id, job_id, blog_post_id, card_id, card_title,
 card_slug, card_description, card_cover_url, video_url, video_hls_url, video_preview_url, video_thumbnail_url, width
 (px), height (px), duration_seconds (s), card_stats{generations_count, credits_spent (credits), free_generations,
-size_bytes (bytes), stack[]}, extra`.
+size_bytes (bytes), stack[]}, extra`; added 2026-11-26 (COMPLETENESS #4): `card_likes`, `card_views`,
+`card_comments` (counts: `card.like_count / views_count / comment_count`), `card_published_at` (UTC),
+`job_result_thumbnail_url`, `min_result_thumbnail_url`. Posts also gained `creator_uid_key`.
 
 ### `community_feed_item` (`csv/feed_items.csv`) — key `feed_item_id = make_id("feed_item", item_type, item_id)`
 | Field | Type | Unit | Source | Null |
@@ -440,8 +442,41 @@ size_bytes (bytes), stack[]}, extra`.
 | reading_time_minutes | int | min | `card.reading_time_minutes` | yes |
 | project_stats | dict | credits, bytes | `card.stats` | yes |
 | created_at | datetime | UTC | `created_at` | yes |
-| top_comment_id, top_comment_likes | str, int | — | `top_comment.id/like_count` (text not stored) | yes |
+| top_comment_id, top_comment_likes | str, int | — | `top_comment.id/like_count` (text in `extra["top_comment.text"]` since 2026-11-26) | yes |
 | author | PersonRef | — | `author{…}` | names **personal** |
+| creator_uid_key | str | — | `creator_uid_key(author.id)` (added 2026-11-26) | yes |
+| text, media[] | str, PostMedia list | — | `post.content.text`, `post.content.medias[]` (post items; added 2026-11-26) | yes / [] |
+| video_hls_url, video_preview_url, width, height, duration_seconds | str, int, float | px, s | `card.video.*` (project cards; added 2026-11-26) | yes |
+| extra | dict | — | other non-null fields: `room`, `post.*`, `card.*`, `generation.*`, `made_with.*`, `top_comment.text` (people only as ids, viewer flags dropped) | {} |
+
+`csv/feed_item_media.csv`: one row per post media (`feed_item_id`, `item_id` + PostMedia fields).
+
+### `community_creator_work` (`csv/creator_works.csv` + `csv/creator_work_{inputs,results,media}.csv`) — key `work_id = make_id("creator_work", listing, creator_user_id, rank)` (added 2026-11-26)
+One row per `users[].items[]` of creators / talents (the light `works[]` on the card stays as is; `creator_works.csv`
+keeps its old columns and gains these).
+| Field | Type | Unit | Source | Null |
+|---|---|---|---|---|
+| record_id, listing, creator_user_id, creator_uid_key | str | — | the card (`community_creator_stats`) | no / key null if id redacted |
+| rank | int | rank | index in `items[]` (= `works[]` index) | no |
+| item_type, item_id, is_pinned | str, str, bool | — | `type`, publication id, `is_pinned` | no / yes |
+| likes, views, comments | int | count | project `likes/views/comments`; shot `publication.likes_count/views_count` (no comments) | yes |
+| approved, pinned_at | bool, datetime | UTC | shot `publication.*` | yes |
+| generation_id, publication_id, job_set_type, job_set_id, parent_id, media_type, status, prompt, negative_prompt, enhanced_prompt, settings.*, params_extra, raw_params, inputs[], results[], moderation.*, upstream_usage, meta_extra, client_meta, … | — | — | shot items = generation objects, parsed by `parse_generation` (same as `community_generation`); `raw_params` only with `--with-raw-params` | yes |
+| title, description, slug, project_publication_id, project_id, project_type, state, duration_seconds | str / float | s | project card `name`, `description`, `slug`, `publication_id`, `project_id`, `type`, `state`, `duration_seconds` | yes |
+| cover_url/_width/_height, trailer_url/_thumbnail_url/_duration_seconds | str / int / float | px, s | `cover`, `trailer` | yes |
+| gallery_media[] (`index, role (cover/gallery/trailer), media_id, type, name, url, original_url, preview_url, thumbnail_url, min_url, download_url, width, height, duration_seconds, object_fit, extra`) | list | px, s | `cover`, `gallery_media[]`, `trailer` | [] |
+| tags, categories, contest_key, author_user_ids, author_uid_keys | list / str | — | same (authors only as ids) | [] / yes |
+| extra | dict | — | other non-null item fields (awards, contest_badges, flags; `team.id`) | {} |
+
+### `community_shot_model_facet` (`csv/shot_model_facets.csv`) — key `facet_id = make_id("shot_model_facet", model, media_type)` (added 2026-11-26)
+`model` (job_set_type), `media_type`, `position` (order in `available_models[]`), `snapshot_id`, `shots_in_run`
+(shots of this run with that model: the API sends no per-model count), `extra`.
+
+### `community_feed_category` (`csv/feed_categories.csv`) — key `category_id = make_id("feed_category", source_list, slug)` (added 2026-11-26)
+`source_list` (`categories` = fnf-community `/feed/categories`, `ongoing` = `/feed/ongoing`), `position`, `slug`,
+`short_title`, `title`, `description`, `hashtag` (caption hashtag; absent on some), `post_count`, `previews[]`
+(image URLs), `extra`. Live 2026-11-26: 2 categories (`discord-3-years-300k` 217 posts, `best-trailers-by-katana`
+104), ongoing `[]`.
 
 ### `community_creator_stats` (`csv/creator_stats.csv` + `csv/creator_works.csv`) — key `record_id = make_id("creator_stats", listing, user_id)`
 | Field | Type | Unit | Source | Null |
@@ -579,6 +614,9 @@ stored), `extra`.
 | community | `--feeds job-showcase` | `community_showcase_job` | off |
 | community | `--feeds collections` | `community_collection` | off |
 | community | `--feeds explore-cards` | `community_explore_card` | off |
+| community | `--feeds creators`, `--feeds talents` (2026-11-26) | + `community_creator_work` (every work in full) | off |
+| community | `--feeds shots` (2026-11-26) | + `community_shot_model_facet` | off |
+| community | `--feeds feed-categories` (2026-11-26) | `community_feed_category` (`/feed/categories` + `/feed/ongoing`) | off (not part of `--feeds all`) |
 
 `--max-items` caps each opt-in feed (and rooms / room items / room discussions) separately; the page size never
 exceeds what is left. `--max-pages` caps pages per feed, per room list and per comment thread. `--type image|video`
@@ -598,6 +636,14 @@ Live checks (`--max-items 20`, 2026-11-26):
 - Proof the defaults did not change: `scrape community --dry-run`, `--feeds all`, `--feeds all --with-comments
   --estimate-cost all` and `--feeds shots,posts,feed,creators,talents --with-comments` print byte-identical
   stdout and stderr before (git HEAD) and after the change.
+- Completeness additions (2026-11-26): `community --feeds shots,posts,feed,creators,talents,feed-categories
+  --max-items 20`: 20 shots, 167 shot model facets, 20 posts, 20 feed items, 40 creator cards with **218 creator works**
+  (178 projects, 40 shots; = sum of `works_count`), 2 feed categories; SUCCESS. Re-normalizing the old run
+  `20261126-133046_cov-community-extras` and re-running `scripts/completeness_audit.py`: dropped paths for
+  `community_creators` 125 → 10, `community_talents` 147 → 10, `community_feed` 57 → 7, `community_posts_list` 8 → 3,
+  `community_shots` 1 → 0; what is left is viewer flags, author people data and badge ids/icons (intended). Dry-runs
+  of the default and of `--feeds all --with-comments --estimate-cost all`, `--feeds shots,posts,feed,creators,talents
+  --with-comments`, `--feeds music-cards,job-showcase,collections,explore-cards` are identical to git HEAD.
 
 ## 7. Not scraped, and why
 - Room chat / voice calls: no public message stream (no WebSocket/SSE in the bundle; calls need a login).

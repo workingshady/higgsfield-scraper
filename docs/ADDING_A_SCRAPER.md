@@ -2,7 +2,8 @@
 
 Every Higgsfield scraper is a package `higgsfield_scraper/scrapers/<name>/` whose `__init__.py` exposes
 `SCRAPER: ScraperDef` (see `higgsfield_scraper/core/base.py`). It is already registered in
-`higgsfield_scraper/core/registry.py` (`community`, `catalog`, `projects`, `blog`). The framework provides everything
+`higgsfield_scraper/core/registry.py` (`SCRAPER_MODULES`: `pricing`, `community`, `catalog`, `projects`, `blog`,
+`site`, `account`, `showcase`, `studios`, `models`; a new scraper adds one line there). The framework provides everything
 else, for free and identically for every scraper:
 
 | Provided by the framework | Where |

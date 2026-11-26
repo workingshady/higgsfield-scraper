@@ -1,8 +1,9 @@
 # higgsfield-scraper
 
 Python **Scrapy** project that scrapes public Higgsfield.ai data by reverse-engineering its data sources and storing
-validated, versioned records. Eight scrapers (`python -m higgsfield_scraper scrapers`): `pricing` (default), `community`,
-`catalog`, `projects`, `blog`, `site`, `showcase`, and the opt-in, login-only `account` (the user's own balances and jobs;
+validated, versioned records. Ten scrapers (`python -m higgsfield_scraper scrapers`): `pricing` (default), `community`,
+`catalog`, `projects`, `blog`, `site`, `showcase`, `studios` (marketplaces, studio presets and galleries), `models` (model
+registry from the public JS bundle), and the opt-in, login-only `account` (the user's own balances and jobs;
 never in a default run); plus `diff` / `crosscheck` for pricing, `export` (run folders → browsable / dataset folders,
 `docs/EXPORT.md`), `scripts/merge_generations.py` (dedupe generations across runs) and an interactive menu (`menu`).
 
@@ -54,7 +55,7 @@ higgsfield_scraper/
   middlewares.py                           # HttpArchiveMiddleware -> <run>/http/ (request/response/body/curl/HAR)
   run/ (context.py, logging_setup.py, manager.py, retention.py)   # run folders, logs, manifest, `runs clean`
   core/                                    # ScraperDef/registry, BaseApiSpider, auth (Clerk), privacy, redact, exporting
-  scrapers/<name>/                         # community, catalog, projects, blog, site, account, showcase (pricing = scrapers/pricing.py + the modules above)
+  scrapers/<name>/                         # community, catalog, projects, blog, site, account, showcase, studios, models (pricing = scrapers/pricing.py + the modules above)
   scrapers/showcase/                       # Canvas, Editing Room, Property Studio, explore, effects, API models, CMS showcases
   export/                                  # `export` command: runs -> tree / hf / webdataset / jsonl (read-only on runs/)
   estimate/                                # per-generation cost estimator

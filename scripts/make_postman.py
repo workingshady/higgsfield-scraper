@@ -214,6 +214,93 @@ site = folder("site", "Public site pages not covered elsewhere: apps, academy, M
     req("Business unlimited offers", "/business-unlim/state"),
     req("Game gift networks", "/game-gift/networks"),
 ])
+# --- opt-in sources added 2026-11-26 (all public GETs; see docs/CONTENT_MAP.md §16 and the scraper guides)
+community["item"] += [
+    req("Shots feed (fnf-community)", "/generations/feed", [("limit", "50"), ("cursor", "{{cursor}}")],
+        "community --feeds shots; body also has available_models[] (shot model facets).", base="{{community_base}}"),
+    req("Feed hashtag categories (fnf-community)", "/feed/categories", (), "community --feeds feed-categories.",
+        base="{{community_base}}"),
+    req("Feed ongoing (fnf-community)", "/feed/ongoing", (), "community --feeds feed-categories.", base="{{community_base}}"),
+    req("Music cards presets", "/music-cards-presets", [("lang", "{{locale}}")], "community --feeds music-cards "
+        "(+ /music-cards-styles, -occasions, -roles).", base="{{cms_api_base}}"),
+    req("Collection (Catch the Pulse)", "/collections/catch-the-pulse", (), "community --feeds collections."),
+    req("Explore / home cards (CMS)", "/cards", [("size", "100"), ("cursor", "1")], "community --feeds explore-cards.",
+        base="{{cms_base}}"),
+    req("Seedance 2 community page (SSR HTML)", "/seedance-2-community", base="{{site_base}}", tests=OK,
+        desc="community --feeds job-showcase reads loaderData.seedanceMovies from this page (the fnf "
+             "/jobs/showcase/seedance-2-0 API answered a Cloudflare challenge to the crawler; never evaded)."),
+]
+catalog["item"] += [req("Outfit characters", "/outfits/characters", (), "catalog --kinds outfit_character (by name only).")]
+projects["item"] += [
+    req("Trending projects", "/project-publications/trending", [("limit", "50"), ("cursor", "{{cursor}}")],
+        "projects --what trending; optional sort (most_viewed|most_liked|newest|oldest), filter "
+        "(all|non_contest|contest|talents_hub), with_contest=true. Has `total`."),
+    req("Contest participation counters", "/contest-participations/publications/counters",
+        [("contest_key", "ai_film_festival")], "projects --what contest-participation (contest_key ai_film_festival|talent_contest)."),
+    req("Contest participation config", "/contest-participations/config", [("contest_key", "ai_film_festival")]),
+    req("User works (all types)", "/user/{{user_id}}/v2/publications", [("limit", "50"), ("cursor", "{{cursor}}")],
+        "projects --with-user-works: only for users already found in a run; outputs pseudonymous."),
+    req("User stats", "/user/{{user_id}}/stats", (), "posts_count, likes_count, views_count. projects --with-user-works."),
+]
+site["item"] += [
+    req("Academy API categories", "/api/v1/categories", (), "site --what academy-api.", base="{{academy_base}}"),
+    req("Academy API courses", "/api/v1/courses", (), "+ free_generations, test_count.", base="{{academy_base}}"),
+    req("Academy API course", "/api/v1/courses/{{course}}", (), "objectives, authors, lessons[] with access.",
+        base="{{academy_base}}"),
+    req("Academy API lesson", "/api/v1/lessons/{{lesson_id}}", (), "content_mdx, xp_reward, subtitles.", base="{{academy_base}}"),
+]
+showcase = folder("showcase", "Example / showcase content (public). docs/scrapers/showcase.md.", [
+    req("Canvas templates", "/api/templates", (), base="https://canvas-worker.higgsfield.ai"),
+    req("Editing Room examples (CMS)", "/videoshop-examples", [("lang", "{{locale}}")], base="{{cms_base}}"),
+    req("Editing Room project examples", "/videoshop/project-examples"),
+    req("Property Studio page (SSR HTML)", "/property-studio", base="{{site_base}}", tests=OK),
+    req("Video explore categories (CMS)", "/higgsfield-multiplier/video-explore/v2/categories", [("lang", "{{locale}}")],
+        base="{{cms_base}}"),
+    req("Video explore (CMS)", "/higgsfield-multiplier/video-explore/v2",
+        [("lang", "{{locale}}"), ("source", "community"), ("size", "20"), ("cursor", "1"), ("sort", "new")], base="{{cms_base}}"),
+    req("Effects sitemap", "/effects/sitemap.xml", base="{{site_base}}", tests=OK),
+    req("Effect examples page (SSR HTML)", "/effects/examples/{{slug}}", base="{{site_base}}", tests=OK),
+    req("Public API OpenAPI", "/docs/openapi.json", base="https://docs.higgsfield.ai"),
+    req("Cinema Studio creative controls (CMS)", "/cinema-studio-4-0/creative-controls", [("lang", "{{locale}}")], base="{{cms_base}}"),
+    req("Faceless showcases (CMS)", "/youtube-faceless-showcases", [("lang", "{{locale}}"), ("size", "20")], base="{{cms_base}}"),
+    req("Intone explore (CMS)", "/intone/explore", [("lang", "{{locale}}"), ("size", "20"), ("cursor", "1")], base="{{cms_base}}"),
+    req("Seedance 2.0 presets (CMS)", "/seedance-2-0", [("lang", "{{locale}}")], base="{{cms_base}}"),
+    req("Kling motion-control presets (CMS)", "/kling-motion-control-presets", [("lang", "{{locale}}")], base="{{cms_base}}"),
+    req("Reels presets", "/ai-reels-presets", [("lang", "{{locale}}")], "showcase --what reels_presets (&source=community for "
+        "the community list).", base="{{cms_api_base}}"),
+    req("Reels preset detail", "/ai-reels-presets/{{slug}}", [("lang", "{{locale}}")], base="{{cms_api_base}}"),
+    req("Main feed (CMS)", "/main-feed", [("lang", "{{locale}}"), ("size", "20")],
+        "showcase --what main_feed (by name only); opaque cursor, no total.", base="{{cms_base}}"),
+    req("Season", "/v1/season", (), "showcase --what season.", auth=True, base="https://fnf-api-gw.higgsfield.ai/fnf-score"),
+])
+studios = folder("studios", "Marketplaces, studio presets and per-studio galleries (public). docs/scrapers/studios.md.", [
+    req("App categories", "/api/v1/apps/categories", (), "Not /api/v1/categories (404).", base="{{apps_base}}"),
+    req("Community apps", "/api/v1/apps/community", [("limit", "100"), ("offset", "0"), ("sort", "trending")],
+        "sort trending|most_viewed|popular|newest; next_offset; no total.", base="{{apps_base}}"),
+    req("Community games", "/api/v1/games/community", [("limit", "100"), ("offset", "0")], base="{{skills_base}}"),
+    req("Community skills", "/api/v1/skills/community", [("limit", "100")], "next_cursor.", base="{{skills_base}}"),
+    req("AI employees", "/api/v1/ai-agents/community", [("limit", "100")], "next_cursor.", base="{{skills_base}}"),
+    req("Playable Ads presets (CMS)", "/playable-ads-presets", [("size", "100"), ("cursor", "1"), ("lang", "{{locale}}")],
+        base="{{cms_base}}"),
+    req("AI Influencer config (CMS)", "/ai-influencer-config", [("lang", "{{locale}}")], base="{{cms_base}}"),
+    req("Studio gallery, approved", "/publications/community/approved",
+        [("size", "50"), ("model", "marketing_studio_video"), ("approved", "true")],
+        "= /marketing-studio-community. model= repeatable (approved sums them)."),
+    req("Studio gallery, trending", "/publications/community/trending", [("size", "50"), ("model", "cinematic_studio_image")],
+        "Trending honours only the last model value: one request per model."),
+    req("Gallery item comments (fnf-community)", "/entities/generation_publication/{{publication_id}}/comments",
+        [("limit", "20")], "studios --with-comments.", base="{{community_base}}"),
+])
+models = folder("models", "Model registry from the public JS bundle (no API) + costs + Shots facet. docs/scrapers/models.md.", [
+    req("Tool page (SSR HTML)", "/ai/video", base="{{site_base}}", tests=OK,
+        desc="buildId/commit, window.__HF_FF flags, modulepreload chunk list."),
+    req("JS chunk", "/tanstack/assets/{{chunk}}", base="https://assets.higgsfield.ai", tests=OK,
+        desc="e.g. 548e0f3a-<hash>.js; the scraper extracts defineJob / routes / gating / plans without running JS."),
+    req("Model credit costs", "/job-sets/costs", (), "in_costs + costs version."),
+    req("Shots facet (fnf-community)", "/generations/feed", [("limit", "1")], "available_models[] -> shot_facets.",
+        base="{{community_base}}"),
+])
+
 clerk = folder("Login (Clerk)", "Reproduces `python -m higgsfield_scraper login` (password -> emailed code -> session) and "
                "token minting. Base {{clerk_base}} = https://higgsfield.ai/_clerk. Every call needs the query "
                "params __clerk_api_version=2026-11-18&_clerk_js_version=6.46.3 and a Cookie: __client=... (set "
@@ -254,9 +341,12 @@ col = {
         ("preset_id", ""),
         ("brief_base", "https://dam-editor-worker.higgsfield.ai"), ("folder_id", ""), ("handle", ""),
         ("contest_slug", "talent-contest"),
+        ("apps_base", "https://fnf-api-gw.higgsfield.ai/fnf-apps-marketplace"),
+        ("skills_base", "https://fnf-api-gw.higgsfield.ai/fnf-skills-marketplace"),
+        ("academy_base", "https://fnf-api-gw.higgsfield.ai/fnf-academy"), ("user_id", ""), ("lesson_id", ""), ("chunk", ""),
         ("token", ""), ("client_cookie", ""), ("sign_in_id", ""), ("session_id", ""), ("email", ""), ("password", ""), ("code", "")]]
     + [{"key": "plan_set_keys_reference", "value": ", ".join(PLAN_SET_KEYS)}],
-    "item": [pricing, community, catalog, projects, blog, site, clerk],
+    "item": [pricing, community, catalog, projects, blog, site, showcase, studios, models, clerk],
 }
 OUT.write_text(json.dumps(col, ensure_ascii=False, indent=4), encoding="utf-8")
 print(f"wrote {OUT} — {sum(len(f['item']) for f in col['item'])} requests in {len(col['item'])} folders")

@@ -98,8 +98,8 @@ row("published", "Per-model community galleries", "`/soul-community`, `/soul-cin
     "`/mixed-media-community/$id`, `/nano-banana-pro-preview/$id`, `/sora-video/$id`, `/wan-video/$id`, "
     "`/motion/$id/publication/$id`, `/mixed-media-presets/publication/$id`",
     "image, video", total="subsets of the gallery (`model=` filter)", comments="`generation_publication`",
-    engagement="views, likes", prompt="yes", model="yes", covered="in progress (agent) — per-model galleries; "
-    "today reachable with `community --models <job_set_type>`", evidence="routes.json; inventory §2.5")
+    engagement="views, likes", prompt="yes", model="yes", covered="`community --feeds approved --models <job_set_type>` (COMMUNITY_COVERAGE.md §3b); "
+    "studio galleries (Marketing / Cinema Studio, Canvas, AI influencer …) also `studios --what galleries`", evidence="routes.json; inventory §2.5")
 row("published,trends", "Video explore (Higgsfield Multiplier), community", f"`{CMS}/higgsfield-multiplier/video-explore/v2?source=community&sort=new|trending&size=20&cursor`",
     "video trends + variants (original / edit / generation), prompts", total="49,237",
     comments="count only (`comments_count`)", engagement="likes (+ views/comments/times_made on top items)",
@@ -112,7 +112,7 @@ row("published,trends", "Video explore, curated (Higgsfield)", "`…/video-explo
 row("published,trends,reels", "CMS main feed (home 'Explore' feed of Genjutsu community presets)", f"`{CMS}/main-feed?lang&size=20&cursor`",
     "video presets (original video + edit/generation variants), title, description", total="no total (cursor); 13 of 20 ids also in video explore",
     comments="count only (`comments_count`)", engagement="likes, views, comments, times_made",
-    prompt="variant params", model="yes (`job_set_type`, e.g. `hf_mult_replace_object`)", covered="**GAP**",
+    prompt="variant params", model="yes (`job_set_type`, e.g. `hf_mult_replace_object`)", covered="`showcase --what main_feed` (+ `--main-feed-pages`; by name only, not in `all`)",
     evidence="chunk `uBUqSEKZIqX571QB` (`Sn('/main-feed')`); sample `content_map/cms_main_feed.json`")
 row("published,templates", "Soul samples", "`/fnf/soul-samples`", "image + prompt", total="1,263", comments="no",
     engagement="none", prompt="yes", model="yes (soul)", covered="`catalog` (default)", evidence="scrapers/catalog.md",
@@ -131,7 +131,7 @@ row("published,text", "Project publications (films, series, carousels)", "`/fnf/
     evidence="scrapers/projects.md")
 row("published,trends", "Trending project publications (ranking + total)", "`/fnf/project-publications/trending?limit&cursor&sort&filter&with_contest`",
     "same objects as above", total="15,276", comments="`project_publication`", engagement="views, likes, comments",
-    prompt="—", model="—", covered="**GAP** (objects reachable via `projects`, this ranking and its total are not)",
+    prompt="—", model="—", covered="`projects --what trending` (+ `--trending-sort`, `--trending-filter`, `--trending-with-contest`)",
     evidence="COMMUNITY_COVERAGE.md (Discovery); live total", total_url=f"{GW}/fnf/project-publications/trending?limit=1")
 row("published", "Contest entries (festival, talent contest)", "`/fnf/contest-participations/publications?tab&contest_key&size&cursor`",
     "film projects", total="4,516 public (counters: 66,645 total, 62,129 private)", comments="`project_publication`",
@@ -139,7 +139,7 @@ row("published", "Contest entries (festival, talent contest)", "`/fnf/contest-pa
     covered="`projects --what entries`", evidence="probe `contest_participation_counters.json`",
     total_url=f"{GW}/fnf/contest-participations/publications?size=1")
 row("published", "Contest participation counters + config", "`/fnf/contest-participations/publications/counters`, `/config`",
-    "counts, rules", total="66,645 / 4,516 public", comments="no", engagement="—", covered="**GAP** (tiny)",
+    "counts, rules", total="66,645 / 4,516 public", comments="no", engagement="—", covered="`projects --what contest-participation`",
     evidence="sample `content_map/contest_participation_counters.json`")
 row("published,shorts", "Contest submissions", "`/fnf/contests/{id}/submissions?limit≤100&offset&ordering`", "video",
     total="9,158 over 10 contests", comments="no public thread (entity `contest_submission` → 400)",
@@ -162,7 +162,7 @@ row("published,templates", "Editing Room example projects + renders", "`/fnf/vid
 row("published,users", "A user's published works", "`/fnf/user/{user_id}/v2/publications?publication_type&limit=50&cursor`",
     "assets (generations with prompt/params/results), projects, submissions", total="per user (`total`)",
     comments="by type", engagement="views, clones", prompt="yes", model="yes",
-    covered="**GAP (privacy: opt-in only)**; projects only via `projects --users`", evidence="chunk `3On2TPGk30aH8MrG`; "
+    covered="`projects --with-user-works` (opt-in, pseudonymous; only users already found in the run)", evidence="chunk `3On2TPGk30aH8MrG`; "
     "sample `content_map/fnf_user_v2_publications.json`")
 
 # ---------------------------------------------------------------- avatars / influencer
@@ -174,15 +174,15 @@ row("avatars,templates", "Avatar presets", "`/fnf/avatar-presets`", "preset medi
     total_url=f"{GW}/fnf/avatar-presets?size=1")
 row("avatars", "Avatar / character pages and galleries", "`/avatars`, `/avatar/$category`, `/characters`, `/character`, `/cast`",
     "avatar galleries", total="—", comments="—", engagement="—", prompt="—", model="—",
-    covered="in progress (agent) — characters / avatars", evidence="routes.json")
+    covered="nothing separate: `/characters`, `/avatars` = Ads Studio (login, personal); `/avatars` 301 → `/ai-influencer` (`studios`)", evidence="routes.json")
 row("avatars,private", "Own characters (Soul ID / custom references / elements)", "`/fnf/custom-references`, `/v2/reference-elements/*`, `/kling-elements/{id}`",
     "trained characters, reference media", vis="login (own data)", pub="private", total="per account", comments="no",
     engagement="—", covered="not scraped (personal library)", evidence="LOGIN_COVERAGE.md §2.4")
 row("avatars", "Outfit characters", "`/fnf/outfits/characters`", "2 model images", total="2", comments="no",
-    engagement="none", covered="**GAP** (trivial)", evidence="chunk `sGxtyi5DXhlNSfix`; sample `content_map/fnf_outfits_characters.json`")
+    engagement="none", covered="`catalog --kinds outfit_character` (by name only)", evidence="chunk `sGxtyi5DXhlNSfix`; sample `content_map/fnf_outfits_characters.json`")
 row("influencer,templates", "AI influencer builder options", f"`{CMS}/ai-influencer-config` (= `fnf-cms-api`)",
     "4 categories → subcategories → options with preview media", total="4 categories", comments="no", engagement="none",
-    prompt="no (trait config)", model="`ai_influencer`", covered="**GAP**",
+    prompt="no (trait config)", model="`ai_influencer`", covered="`studios --what influencer_options`",
     evidence="chunk `YNwTwBIMiHh-jeot`; sample `content_map/cms_ai_influencer_config.json`")
 row("influencer,published", "AI influencer outputs in the gallery", "`…/publications/community/trending?model=ai_influencer`",
     "image + trait config", total="1,017", comments="`generation_publication`", engagement="views, likes",
@@ -201,12 +201,12 @@ row("trends,templates", "Viral effects / viral-hub presets", "`/fnf/viral-hub/pr
     evidence="scrapers/catalog.md", total_url=f"{GW}/fnf/viral-hub/presets/all?limit=1&lang=en")
 row("trends,templates", "Collections (`/collection/catch-the-pulse`, `/collection/effects`)", "`/fnf/collections/{slug}`",
     "curated preset lists (name, media, params, tags)", total="catch-the-pulse: 15", comments="no", engagement="none",
-    prompt="params", model="preset", covered="in progress (agent) — collections",
+    prompt="params", model="preset", covered="`community --feeds collections`",
     evidence="chunk `tCLaulKUdGQfxqgZ` (`HW`); sample `content_map/fnf_collection_catch_the_pulse.json`")
 row("trends", "Sora trends (`/sora-trends`, `/sora-trends/$category`)", "route only", "redirect to `/ai/video` with a preset prompt",
     total="—", covered="nothing to scrape (client redirect, chunk `qQFcAZLo87VHkLMU`)", evidence="chunk `qQFcAZLo87VHkLMU`")
 row("trends", "Feed hashtag categories", "`/fnf-community/feed/categories`, `/feed/ongoing`", "hashtag contests with post counts, previews",
-    total="2 categories; ongoing `[]`", comments="no", engagement="`post_count`", covered="**GAP** (tiny)",
+    total="2 categories; ongoing `[]`", comments="no", engagement="`post_count`", covered="`community --feeds feed-categories`",
     evidence="COMMUNITY_COVERAGE.md §3")
 row("trends", "Contests trending / weekly latest", "`/fnf/contests/trending`, `/contests/weekly-challenge/latest`",
     "—", total="204 / 404", covered="nothing to scrape", evidence="scrapers/projects.md")
@@ -215,20 +215,20 @@ row("trends,shorts", "Faceless 'hot right now'", "`/fnf/youtube-faceless/hot-rig
 
 # ---------------------------------------------------------------- reels
 row("reels", "Reels (showcase)", "`/ai-reels`, reels showcase sources", "short vertical videos", total="—",
-    covered="in progress (agent) — reels (showcase)", evidence="task brief")
+    covered="`showcase --what reels_presets,reels_comments`", evidence="task brief")
 row("reels,private", "Shared reels", "`/ai-reels/shared/$code`", "one shared reel", vis="share-code only",
     pub="private (link)", covered="not scraped (never enumerate codes)", evidence="routes.json")
 row("reels,published", "Viral transform outputs (reels made with effects)", "gallery `model=viral_transform_image|viral_transform_video`",
     "image/video", total="12 / 0 today", comments="`generation_publication`", engagement="views, likes", prompt="yes",
     model="yes", covered="`community --models viral_transform_image,viral_transform_video`", evidence="live totals")
 row("reels,templates", "Genjutsu for reels / Genjutsu presets", "`/genjutsu-for-reels`, CMS main feed `genjutsu` items",
-    "video presets", total="see main feed", covered="**GAP** (via main feed row)", evidence="routes.json")
+    "video presets", total="see main feed", covered="`showcase --what main_feed` (`genjutsu` items)", evidence="routes.json")
 
 # ---------------------------------------------------------------- shorts
 row("shorts", "Shorts / Shorts Studio / Short Drama / Production / Popcorn / AI Host / Faceless Studio",
     "`/shorts/$id`, `/shorts-studio/$id`, `/short-drama/$projectId`, `/production/$episodeId`, `/popcorn`, "
     "`/ai-host/channel/$id`, `/faceless-studio/channel/$id`", "studio projects, episodes, storyboards",
-    total="—", covered="in progress (agent) — `studios` scraper", evidence="routes.json; PRODUCTS.md §3.18–3.19")
+    total="—", covered="checked by `studios`: no public listing (per-user projects, scrapers/studios.md §7); published outputs via `studios --what galleries`", evidence="routes.json; PRODUCTS.md §3.18–3.19")
 row("shorts,templates", "YouTube faceless presets + showcases", f"`{CMS}/youtube-faceless-presets`, `/youtube-faceless-showcases`",
     "presets; showcase videos", total="12 presets; 9 showcases", comments="no", engagement="none",
     covered="`catalog --kinds youtube_faceless_preset`; `showcase --what faceless_showcases`", evidence="catalog.md, showcase.md",
@@ -273,13 +273,13 @@ row("templates", "Katana categories + presets", "`/fnf-cms-api/katana-categories
     total="3 / ~100+", covered="`catalog --kinds katana_category,katana_preset`", evidence="catalog.md")
 row("templates", "Marketing Studio v2 catalog + presets", f"`{CMS}/marketing-studio-v2/catalog`, `/categories/{{slug}}/presets`",
     "ad presets (prompts, media)", total="7 categories; 1,051 presets (`total` is global, not per category)",
-    prompt="yes", covered="`catalog --kinds marketing_category,marketing_preset`; brands/products/community: in progress (agent)",
+    prompt="yes", covered="`catalog --kinds marketing_category,marketing_preset`; community gallery: `studios --what galleries --studios marketing_studio`; brands/products: not public (Ads Studio workspace)",
     evidence="catalog.md; live")
 row("templates", "Playable-ads presets", f"`{CMS}/playable-ads-presets?size&cursor`", "game ad presets (video, poster, game, recreate)",
-    total="112", covered="in progress (agent) — ads / studios", evidence="chunk `uBUqSEKZIqX571QB`; sample",
+    total="112", covered="`studios --what playable_presets`", evidence="chunk `uBUqSEKZIqX571QB`; sample",
     total_url=f"{CMS}/playable-ads-presets?size=1&cursor=1&lang=en")
 row("templates", "Music cards presets", f"`{CMS}/music-cards-presets?q&category`", "song cards: lyrics, music, video, style",
-    total="111 (26 categories)", prompt="lyrics", covered="in progress (agent) — music-cards",
+    total="111 (26 categories)", prompt="lyrics", covered="`community --feeds music-cards`",
     evidence="chunk `Hba1h6PAxZ4rbHsX`; sample")
 row("templates", "Seedance 2.0 presets / Kling motion-control presets / Intone examples", f"`{CMS}/seedance-2-0`, `/kling-motion-control-presets`, `/intone/explore`",
     "preview media", total="14 / 36 / 18", covered="`showcase --what seedance_presets,motion_control_presets,intone_examples`",
@@ -311,7 +311,7 @@ row("ideas,private", "Agent / chat suggestions, inspiration tool", "`/claudesfie
 row("ideas,users", "Follow suggestions", "`/fnf-community/users/suggestions`", "people to follow", total="10 per call",
     covered="not scraped (lists of people)", evidence="LOGIN_COVERAGE.md §2.3")
 row("ideas,text", "Prompt guides and examples (public text)", "blog guides, `/nano-banana-pro-prompt-guide`, academy lessons, MCP skill prompts, "
-    "skills marketplace `example_prompt`", "prompt examples", prompt="yes", covered="`blog`, `site --what academy,mcp,landings`; skills marketplace: GAP",
+    "skills marketplace `example_prompt`", "prompt examples", prompt="yes", covered="`blog`, `site --what academy,mcp,landings`; skills marketplace: `studios --what skills`",
     evidence="see rows in §text")
 
 # ---------------------------------------------------------------- model info
@@ -319,9 +319,8 @@ row("models", "Model prices and availability", f"`{GW}/fnf/job-sets/costs`, `pri
     "job_set_type × resolution cost rows", total="87 anon / 88 logged in", model="yes", covered="`pricing` (`--sections models`; `--logged-in-prices`)",
     evidence="ENDPOINTS.md, LOGIN_COVERAGE.md §1")
 row("models", "JS model registry (`defineJob`, menus, gating, routes)", "`assets.higgsfield.ai/tanstack/assets/*.js`",
-    "~100 job types: params schema, enums, plans, flags", model="yes", covered="offline only: `scripts/gen_model_catalog.py` → PRODUCTS.md §4; "
-    "**GAP**: no `models` scraper", evidence="MODEL_LOADING.md §2–3, §8")
-row("models", "Feature flags `__HF_FF`", "any SSR page", "23 flags (model gating)", model="gating", covered="`scripts/re_check_changes.py` (monitor); no scraper",
+    "~100 job types: params schema, enums, plans, flags", model="yes", covered="`scrape models` (live, build by build); offline: `scripts/gen_model_catalog.py` → PRODUCTS.md §4", evidence="MODEL_LOADING.md §2–3, §8")
+row("models", "Feature flags `__HF_FF`", "any SSR page", "23 flags (model gating)", model="gating", covered="`scrape models` (`builds[].flags`, gating status); `scripts/re_check_changes.py` (monitor)",
     evidence="MODEL_LOADING.md §1")
 row("models", "Public API model docs", "`docs.higgsfield.ai/llms-full.txt`, `/docs/openapi.json`", "83 endpoints, 580 params, prices",
     total="83", model="yes", covered="`showcase --what api_models`", evidence="showcase.md")
@@ -345,7 +344,7 @@ row("users", "Profile preview card", "`/fnf-community/profiles/{username}/previe
     engagement="followers, following, likes, views, rating", covered="not scraped (creators feed gives the same counts)",
     evidence="chunk `2LEglrRfQ_sthOCg`; shape-only sample")
 row("users", "User stats", "`/fnf/user/{user_id}/stats`", "posts, likes, views", total="per user",
-    covered="**GAP (opt-in, pseudonymous)**", evidence="live 200 anonymous")
+    covered="`projects --with-user-works` (`user_stats`; opt-in, pseudonymous)", evidence="live 200 anonymous")
 row("users", "User projects (`/@user/projects`)", "`/fnf/project-publications/{username}/{slug}`, user project list",
     "projects", covered="`projects --users <handles>`", evidence="scrapers/projects.md")
 row("users", "Followers / following / room members", "`/fnf/users/{id}/subscribers|subscriptions`, `/fnf-community/rooms/{id}/followers`",
@@ -361,24 +360,24 @@ row("text", "Talent + community blog posts", "`/fnf/community/discovery/talents/
 row("text", "Help centers, case studies, changelog", "`/creator-hub/*`, `/enterprise-help-center/*`", "articles",
     total="75 + 30 help, 24 case studies, 189 changelog", covered="`blog` (default)", evidence="scrapers/blog.md")
 row("text", "Academy courses + lessons", "`/academy/*` SSR; `fnf-academy /api/v1/courses`", "lessons (Markdown), videos",
-    total="17 courses, 179 lessons", covered="`site --what academy` (JSON list with `free_generations`: open item)", evidence="site.md; LOGIN_COVERAGE.md")
+    total="17 courses, 179 lessons", covered="`site --what academy`; JSON API (`free_generations`, `test_count`, MDX): `site --what academy-api`", evidence="site.md; LOGIN_COVERAGE.md")
 row("text", "MCP skills + bundles", "`/mcp`, `/mcp/{slug}`, `/mcp/bundles/{id}`", "prompt packages", total="75 + 3",
     prompt="yes", covered="`site --what mcp`", evidence="scrapers/site.md")
 row("text,templates", "Skills marketplace (builtin + community)", f"`{GW}/fnf-skills-marketplace/api/v1/skills/builtin`, `/skills/community?limit≤100&cursor`, "
     "`/skills/community/{id}/content`", "agent skills: description, `example_prompt`, examples, preview media",
     total="80 builtin + 632 community", engagement="usage_total, usage_count, installs_count, unique_users_count",
-    prompt="yes (`example_prompt`)", covered="**GAP** (check overlap with the studios agent's 'marketplace' first)",
+    prompt="yes (`example_prompt`)", covered="`studios --what skills` (community skills; the `/skills/builtin` list is not fetched)",
     evidence="chunk `73K2QNngizhBbx6B`; samples `content_map/skills_*.json`")
 row("text,templates", "Apps marketplace (community-built apps, games, websites)", f"`{GW}/fnf-apps-marketplace/api/v1/apps/community?offset&limit=50`",
     "apps: cover image/video, description, `credits_usage`", total="≈ 59,550 (binary search on offset)",
-    engagement="views, likes, dislikes, remixes", covered="in progress (agent) — apps marketplace", evidence="ENGAGEMENT.md §11; live")
+    engagement="views, likes, dislikes, remixes", covered="`studios --what apps` (+ categories)", evidence="ENGAGEMENT.md §11; live")
 row("text", "Employees / games / connectors marketplace", "`/marketplace/{employees,games,connectors}`, `/api/v1/ai-agents/`",
-    "AI employees, games", covered="in progress (agent) — marketplace / other studios", evidence="routes.json")
+    "AI employees, games", covered="`studios --what employees,games` (connectors: not collected)", evidence="routes.json")
 row("text", "Rooms", "`/fnf-community/rooms`, `/rooms/{id}`, room-stats, discussions", "rooms, works, discussion posts",
     total="89 rooms", comments="discussion posts", engagement="followers, works", covered="`site --what room-list|room-content`",
     evidence="COMMUNITY_COVERAGE.md", total_url=f"{GW}/fnf-community/rooms?limit=1")
 row("text", "Magazine issues", "`/community/magazine/$issue` (+ `static.higgsfield.ai/public/magazine/…`)", "static issue",
-    covered="in progress (agent) — magazine", evidence="COMMUNITY_COVERAGE.md §1")
+    covered="not scraped (no data API: issues are bundled JS modules, COMMUNITY_COVERAGE.md §3b)", evidence="COMMUNITY_COVERAGE.md §1")
 row("text", "Promo APIs", "`/fnf/datetime-settings`, `/business-unlim/state`, `/game-gift/networks`", "promo windows",
     total="17 / 8 / 37", covered="`site --what promos`", evidence="scrapers/site.md")
 

@@ -17,6 +17,10 @@ block. Host `GW` = `https://fnf-api-gw.higgsfield.ai`. Item ids in the evidence 
   Project-publication counts did not move in 4.5 min (low-activity items, so live vs cached is unproven there).
 - **Not collected yet** by any scraper: the community apps marketplace (views/likes/dislikes/remixes) — listed in
   §11. The CMS video-explore community feed (likes) is now collected by `scrape showcase`.
+  **Update 2026-11-26:** the marketplaces are now collected by the opt-in `scrape studios` (apps: views / likes /
+  dislikes / remixes / credits; games: plays / unique players / remixes; skills and AI employees: installs / unique
+  users / usage; per-studio galleries: views / likes + comments), see §11. The CMS main feed (likes / views /
+  comments / `times_made`) is `scrape showcase --what main_feed`.
 - **No engagement at all**: MCP skills, `/apps/*` app pages, viral-hub presets, CMS blog posts, all other showcase
   sources (canvas templates, editing-room examples, Property Studio, effect samples, API models, CMS showcases).
 
@@ -144,14 +148,20 @@ is base64 `{after:[ts,id],context}`, a crafted older `after` returns empty → *
 
 | Content | Metric | API field | Endpoint | Public anon? | Anonymous vs logged in | Collected by |
 |---|---|---|---|---|---|---|
-| Community apps marketplace | views / likes / dislikes / remixes / credits spent | `views_count`, `likes_count`, `dislikes_count`, `remixes_count`, `credits_usage` | `GW/fnf-apps-marketplace/api/v1/apps/community?offset` (50/page, `next_offset`) | yes | same; personal `my_reaction` stays null | **none** (`docs/LOGIN_COVERAGE.md` only) — candidate for `site`/`community` |
+| Community apps marketplace | views / likes / dislikes / remixes / credits spent | `views_count`, `likes_count`, `dislikes_count`, `remixes_count`, `credits_usage` | `GW/fnf-apps-marketplace/api/v1/apps/community?limit≤100&offset&sort` (`next_offset`) | yes | same; personal `my_reaction` stays null | `scrape studios --what apps` → `apps.engagement.{views, likes, dislikes, remixes, credits_usage}` (+ `--apps-sort`) |
+| Community games | plays / unique players / remixes | `plays_count`, `unique_players_count`, `remixes_count` | `GW/fnf-skills-marketplace/api/v1/games/community?limit&offset` | yes | same | `scrape studios --what games` → `plays`, `unique_players`, `remixes` |
+| Skills marketplace (community) | installs / unique users / usage | `installs_count`, `unique_users_count`, `usage_count` | `GW/fnf-skills-marketplace/api/v1/skills/community?limit&cursor` | yes | same (`usage_total/usage_personal` empty, personal: dropped) | `scrape studios --what skills` → `installs`, `unique_users`, `usage` |
+| AI employees marketplace | installs / unique users / usage | same fields | `GW/fnf-skills-marketplace/api/v1/ai-agents/community?limit&cursor` | yes | same; `owned_by_current_user`, `installed_*` per viewer (dropped) | `scrape studios --what employees` |
+| Studio galleries (Marketing Studio, Cinema Studio, Canvas, AI influencer, …) | views / likes; comments | `publication.views_count`, `likes_count`; comment `like_count`, `dislike_count`, `reply_count` | `GW/fnf/publications/community/{approved,trending}?model=…`; `fnf-community /entities/generation_publication/{id}/comments` | yes | same; `is_liked_by_user` / `is_mine` per viewer (dropped) | `scrape studios --what galleries [--with-comments]` → `gallery_items.engagement`, `comments` |
 | `/apps/*` app pages | — | none | SSR | — | — | `scrape site --what apps` (no counts) |
 | Viral-hub presets | — | none (no uses/likes) | `GW/fnf/viral-hub/presets/all` | — | — | `scrape catalog` |
 | MCP skills / bundles | — | none (`installations`, `view_label` are UI text) | SSR `/mcp/*` | — | — | `scrape site --what mcp` |
 | Creators | aggregate likes / views / followers | `likes_count`, `views_count`, `followers_count` | community discovery | yes | same | `scrape community --feeds creators\|talents` |
 
 Apps marketplace: offsets 200, 1000, 3000 → 50 items each (`published_at` back to 2026-07-07; at offset 1000 only
-2/50 have likes > 0); end not reached.
+2/50 have likes > 0); end not reached. Later the same day: ≈ 59,560 listings by offset binary search (`sort=newest`),
+`limit` up to 100; games 1,299, skills 632, employees 296 (`docs/scrapers/studios.md` §1). Apps, games, skills and
+employees have **no comment API**; only gallery generations do (`generation_publication`).
 
 ## 12. Showcase items (`scrape showcase`)
 

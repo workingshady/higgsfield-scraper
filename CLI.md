@@ -11,7 +11,7 @@ commands:
   scrape       fetch live data into a new run folder (`scrape <scraper> -h`)   (default if no command is given)
   normalize    re-parse a run's raw/ responses offline into a new run
   show         print tables from a pricing run's dataset
-  scrapers     list available scrapers (pricing, community, catalog, projects, blog, site, account, showcase)
+  scrapers     list available scrapers (pricing, community, catalog, projects, blog, site, account, showcase, studios, models)
   auth-check   check login/session configuration (never prints secrets)
   login        log in with HF_EMAIL/HF_PASSWORD from .env (step 1), then --code (step 2)
   plan-sets    list plan_set_keys, presets and the frontend tier mapping
@@ -74,16 +74,19 @@ picked runs, optional `.md`/`.json` report; `crosscheck` a run with pricing.md, 
 ## Contents
 
 1. [`scrape` pricing](#1-scrape-pricing-the-default-scraper): all options
-   [1b. Every scraper: complete option reference](#1b-every-scraper-complete-option-reference) (shared, limits, pricing, community, catalog, projects, blog, site, account, showcase)
+   [1b. Every scraper: complete option reference](#1b-every-scraper-complete-option-reference) (shared, limits, pricing, community, catalog, projects, blog, site, account, showcase, studios, models)
    [1c. Examples: opt-in kinds, flags and the `account` scraper](#1c-examples-opt-in-kinds-flags-and-the-account-scraper)
    [1d. Projects: nested project data, contests by slug, user projects](#1d-projects-nested-project-data-contests-by-slug-user-projects)
    [1e. Community pages: shots, posts, Feed, creators, talents, comment threads](#1e-community-pages-shots-posts-feed-creators-talents-comment-threads)
    [1f. Site: community rooms (`room-list`, `room-content`)](#1f-site-community-rooms-room-list-room-content)
    [1g. `scrape showcase`: every source and option](#1g-scrape-showcase-every-source-and-option)
+   [1h. Opt-in extras of the content-map round](#1h-opt-in-extras-of-the-content-map-round-2026-11-26) (feeds, main feed, trending projects, user works, outfits, academy API, `creator_uid_key`)
+   [1i. `scrape studios`](#1i-scrape-studios-marketplaces-studio-presets-and-galleries)
+   [1j. `scrape models`](#1j-scrape-models-the-model-registry-from-the-public-js-bundle)
 2. [Option details: every choice and when to use it](#2-option-details), incl.
    [Logged-in pricing](#logged-in-pricing-auth-section) (`auth`, [`--logged-in-prices`](#--logged-in-prices-opt-in-the-rows-only-logged-in-users-see),
    [`--sections account`](#--sections-account-opt-in-the-accounts-own-pricing-state))
-3. [Recipes: common combinations](#3-recipes), incl. [scrape everything](#scrape-everything-all-8-scrapers)
+3. [Recipes: common combinations](#3-recipes), incl. [scrape everything](#scrape-everything-all-10-scrapers)
 4. [`normalize`](#4-normalize)
 5. [`show`](#5-show)
 6. [`scrapers`, `login`, `auth-check`, `runs`, `runs clean`, `show-config`, `diff`, `crosscheck`, `plan-sets`, `sections`, `schema`](#6-info-commands)
@@ -152,13 +155,15 @@ It takes about 10 s, makes 6 requests and downloads about 4 MB (most of that is 
 
 ## 1b. Every scraper: complete option reference
 
-`scrape` with no scraper name means `scrape pricing` (backward compatible). Every scraper takes the shared options;
-community, catalog, projects, blog, site, account and showcase also take the limit/media options. Per-scraper guides:
-`docs/scrapers/` ([`community`](docs/scrapers/community.md), [`catalog`](docs/scrapers/catalog.md),
+`scrape` with no scraper name means `scrape pricing` (backward compatible). There are **10 scrapers**
+(`python -m higgsfield_scraper scrapers`). Every scraper takes the shared options; community, catalog, projects, blog,
+site, account, showcase, studios and models also take the limit/media options (`models` ignores them). Per-scraper
+guides: `docs/scrapers/` ([`community`](docs/scrapers/community.md), [`catalog`](docs/scrapers/catalog.md),
 [`projects`](docs/scrapers/projects.md), [`blog`](docs/scrapers/blog.md), [`site`](docs/scrapers/site.md),
-[`account`](docs/scrapers/account.md), [`showcase`](docs/scrapers/showcase.md)). The tables below are generated;
-examples for the opt-in flags are in [§1c](#1c-examples-opt-in-kinds-flags-and-the-account-scraper) to
-[§1g](#1g-scrape-showcase-every-source-and-option).
+[`account`](docs/scrapers/account.md), [`showcase`](docs/scrapers/showcase.md), [`studios`](docs/scrapers/studios.md),
+[`models`](docs/scrapers/models.md)). The tables below are generated (`python scripts/gen_cli_tables.py`); examples
+for the opt-in flags are in [§1c](#1c-examples-opt-in-kinds-flags-and-the-account-scraper) to
+[§1j](#1j-scrape-models-the-model-registry-from-the-public-js-bundle).
 
 <!-- BEGIN scraper-options -->
 <!-- generated from the argparse definitions; regenerate with scripts/gen_cli_tables.py -->
@@ -190,7 +195,7 @@ examples for the opt-in flags are in [§1c](#1c-examples-opt-in-kinds-flags-and-
 | `--scrapy-log-level` | — | SCRAPY_LOG_LEVEL | Scrapy's own loggers (default INFO, -vv: DEBUG) |
 | `--split-logs` | off | flag | also write logs/app.log and logs/scrapy.log |
 
-### Limits and media (community, catalog, projects, blog, site, account, showcase)
+### Limits and media (community, catalog, projects, blog, site, account, showcase, studios, models)
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
@@ -226,7 +231,7 @@ Community generations: model (job_set_type), prompt, settings, inputs, results, 
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--feeds` | `trending` | FEEDS | comma list of feeds: trending (main feed, ~78.6k), approved (curated, ~6.7k, mostly video), top (single page, &lt;=100), model-x (featured model showcase), 'all', or 'none' (only --publication-ids) (default: trending). Opt-in Community pages, never part of 'all': shots (/community/generations, fnf-community generations feed), posts (Community posts, ~24k), feed (the /community/feed mix of shots, projects, blogs and posts), creators (/community/creators, ~650, aggregate stats; names only with --with-profiles), talents (Talents hub, ~80), music-cards (Music Cards templates: lyrics, recipients, preview videos, ~111 + option lists), job-showcase (Seedance 2 community 'movies': 54 jobs with prompt, inputs, all result variants), collections (motion collection Catch the Pulse), explore-cards (explore/home cards, ~192). --max-items caps each opt-in feed separately |
+| `--feeds` | `trending` | FEEDS | comma list of feeds: trending (main feed, ~78.6k), approved (curated, ~6.7k, mostly video), top (single page, &lt;=100), model-x (featured model showcase), 'all', or 'none' (only --publication-ids) (default: trending). Opt-in Community pages, never part of 'all': shots (/community/generations, fnf-community generations feed), posts (Community posts, ~24k), feed (the /community/feed mix of shots, projects, blogs and posts), creators (/community/creators, ~650, aggregate stats; names only with --with-profiles), talents (Talents hub, ~80), music-cards (Music Cards templates: lyrics, recipients, preview videos, ~111 + option lists), job-showcase (Seedance 2 community 'movies': 54 jobs with prompt, inputs, all result variants), collections (motion collection Catch the Pulse), explore-cards (explore/home cards, ~192), feed-categories (Feed hashtag contest categories with post counts and previews, + /feed/ongoing). --max-items caps each opt-in feed separately |
 | `--type` | `all` | `all` `image` `video` `speak` `upscale` | media type filter (API `type`). image\|video are also enforced client-side because the approved feed ignores it; speak\|upscale are server-side only (default: all) |
 | `--models` | — | JOB_SET_TYPES | job_set_type filter, comma list and/or repeatable, e.g. --models seedance_2_5,nano_banana_2 (API `model`, trending/approved; enforced client-side for top/model-x) |
 | `--preset-ids` | — | IDS | preset/motion id filter (API `preset_id`, repeatable). Passed through; server effect unverified |
@@ -249,6 +254,7 @@ python -m higgsfield_scraper scrape community --max-items 200 --estimate-cost al
 python -m higgsfield_scraper scrape community --max-items 50 --with-profiles --download-media thumbs
 python -m higgsfield_scraper scrape community --feeds shots,posts,feed --max-items 100 --with-comments
 python -m higgsfield_scraper scrape community --feeds creators,talents
+python -m higgsfield_scraper scrape community --feeds feed-categories
 ```
 
 ### `scrape catalog`
@@ -257,7 +263,7 @@ Preset & asset catalogs: motions (+samples/details), avatars, voices, sounds, st
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--kinds` | — | KINDS | comma list of catalog kinds (short names like motion,voice or catalog_motion), or 'public' (default), 'login', 'all'. Opt-in extras (only by name or 'all'): chain_preset, notice, restyle_preset. Available: motion, motion_sample, avatar, avatar_preset, voice, reference_voice, sound, style, soul_sample, viral_type, viral_preset, soul_style, mixed_media_preset, model_motion, katana_category, katana_preset, color_preset, youtube_faceless_preset, camera_setting, marketing_category, marketing_preset, chain_preset, notice, restyle_preset |
+| `--kinds` | — | KINDS | comma list of catalog kinds (short names like motion,voice or catalog_motion), or 'public' (default), 'login', 'all'. Opt-in extras (only by name or 'all'): chain_preset, notice, restyle_preset. Name-only (not even in 'all'): outfit_character. Available: motion, motion_sample, avatar, avatar_preset, voice, reference_voice, sound, style, soul_sample, viral_type, viral_preset, soul_style, mixed_media_preset, model_motion, katana_category, katana_preset, color_preset, youtube_faceless_preset, camera_setting, marketing_category, marketing_preset, chain_preset, notice, restyle_preset, outfit_character |
 | `--with-samples` | off | flag | also fetch the sample videos of every motion (1 request per motion, ~419; --max-pages caps the number of sample requests) |
 | `--with-details` | off | flag | also fetch /motions/{id} per motion (adds description + real preview media for the kling/minimax/seedance/wan families; ~419 requests; --max-pages caps them) |
 | `--lang` | `en` | LANG | language for viral-hub, soul styles, mixed media, katana (default: en) |
@@ -280,7 +286,7 @@ Community projects (films/series/carousels), recommended feeds, contest entries,
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--what` | `all` | WHAT | comma list of ['publications', 'recommended', 'contests', 'entries', 'series'] or 'all' (default). 'series' needs a login session unless --public-series |
+| `--what` | `all` | WHAT | comma list of ['publications', 'recommended', 'contests', 'entries', 'series'] or 'all' (default). 'series' needs a login session unless --public-series. Opt-in (not in 'all'): ['trending', 'contest-participation'] |
 | `--categories` | — | CATEGORIES | publication category slugs (server-side filter), e.g. spotlight,open-sourced-by-higgsfield |
 | `--featured` | off | flag | publications listing: only featured (featured=true) |
 | `--scope` | `all` | SCOPE | recommended feed scopes: ['community', 'ai_film_festival', 'talent_contest', 'ad_contest', 'discord'] or 'all' (default) |
@@ -301,6 +307,10 @@ Community projects (films/series/carousels), recommended feeds, contest entries,
 | `--users` | — | USERS | comma list of handles: list their public projects (adds 'user-projects' to --what). Handles are inputs only; outputs stay pseudonymous unless --with-profiles |
 | `--contest` | — | CONTESTS | comma list of contest slugs (e.g. talent-contest,wcc-the-place-you-know): fetch these contests by slug instead of listing all contests |
 | `--contest-tabs` | — | CONTEST_TABS | entry tabs of a --contest that has an entries listing (talent-contest, festival): ['latest', 'trending', 'most_watched', 'all_entries', 'submissions'] or 'all' (default: --entry-tab). Needs --with-submissions |
+| `--trending-sort` | — | `default` `most_viewed` `most_liked` `newest` `oldest` | --what trending: ranking order (default: the site's default ranking; not sent) |
+| `--trending-filter` | — | `all` `non_contest` `contest` `talents_hub` | --what trending: filter (default: not sent = every project) |
+| `--trending-with-contest` | off | flag | --what trending: with_contest=true (ignored when --trending-filter is given, like the site) |
+| `--with-user-works` | off | flag | published works (generations with prompt/params/results, projects, folders, contest submissions) + stats of users ALREADY found in this run (owners of --users projects, contest entrants and submitters); never enumerates users. Pseudonymous (creator_uid_key) unless --with-profiles |
 | `--with-profiles` | off | flag | opt-in: include authors'/contestants' usernames, names, avatars, headlines, locations, judge links and profile-based page URLs (default: pseudonymous author keys only) |
 
 ```bash
@@ -310,6 +320,7 @@ python -m higgsfield_scraper scrape projects --what publications --categories sp
 python -m higgsfield_scraper scrape projects --what recommended --scope ai_film_festival --max-pages 2
 python -m higgsfield_scraper scrape projects --what contests --contest-status closed --contest-types weekly
 python -m higgsfield_scraper scrape projects --what publications --max-items 50 --download-media thumbs
+python -m higgsfield_scraper scrape projects --what trending,contest-participation --max-pages 2
 ```
 
 ### `scrape blog`
@@ -342,7 +353,7 @@ Site pages: apps (+ credit cost), academy courses & lessons (Markdown), MCP skil
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--what` | `apps,academy,mcp,originals,mixed-media,landings,promos` | WHAT | comma list of ['apps', 'academy', 'mcp', 'originals', 'mixed-media', 'landings', 'rooms', 'promos', 'room-list', 'room-content'] or 'all' (default: apps,academy,mcp,originals,mixed-media,landings,promos; 'rooms' = community room pages, title/description only, opt-in; 'room-list' = every room from the public rooms API with member/works counts and room-stats (posts, discussions); 'room-content' = room-list + each room's works (shots, projects, blog posts) and discussion posts. All three are opt-in, not part of 'all'; --max-items caps rooms, room items and discussions separately) |
+| `--what` | `apps,academy,mcp,originals,mixed-media,landings,promos` | WHAT | comma list of ['apps', 'academy', 'mcp', 'originals', 'mixed-media', 'landings', 'rooms', 'promos', 'room-list', 'room-content', 'academy-api'] or 'all' (default: apps,academy,mcp,originals,mixed-media,landings,promos; 'rooms' = community room pages, title/description only, opt-in; 'room-list' = every room from the public rooms API with member/works counts and room-stats (posts, discussions); 'room-content' = room-list + each room's works (shots, projects, blog posts) and discussion posts. All three are opt-in, not part of 'all'; --max-items caps rooms, room items and discussions separately; 'academy-api' = the academy JSON API (fnf-academy: categories, courses with free_generations / test_count, lessons with MDX source, xp, subtitles), opt-in, not in 'all'; --no-content = categories + course list only) |
 | `--with-content` | off | flag | fetch every detail page (apps, courses, lessons, MCP skills, episodes) and convert bodies to Markdown (default: on) |
 | `--no-content` | off | flag | index pages only where an index exists (apps, academy, mcp, originals): fewer requests, no lesson/landing text |
 | `--only` | — | ONLY | keep only detail pages whose URL path contains one of these strings (comma list), e.g. 'kling,/plugins/,blockbuster-4k' |
@@ -380,11 +391,11 @@ python -m higgsfield_scraper scrape account --with-jobs --compare-estimate --max
 
 ### `scrape showcase`
 
-Showcase/example content: Canvas templates, Editing Room examples, Property Studio presets, video-explore feeds (+likes), effect sample generations, public API models, Cinema Studio controls, faceless/Intone/Seedance/motion-control showcases; opt-in Shorts Studio reels presets/comments and login `season`
+Showcase/example content: Canvas templates, Editing Room examples, Property Studio presets, video-explore feeds (+likes), effect sample generations, public API models, Cinema Studio controls, faceless/Intone/Seedance/motion-control showcases; opt-in Shorts Studio reels presets/comments, the home main feed (`--what main_feed`, by name only) and login `season`
 
 | Option | Default | Accepts | Meaning |
 |---|---|---|---|
-| `--what` | — | WHAT | comma list of sources, 'public' (default: every public source except the opt-in ones) or 'all' (+ opt-in reels_comments, reels_presets and login-only `season`). Available: canvas_templates, editing_room_examples, property_studio_examples, explore_categories, effect_examples, api_models, cinema_controls, faceless_showcases, intone_examples, seedance_presets, motion_control_presets, season, reels_presets, reels_comments |
+| `--what` | — | WHAT | comma list of sources, 'public' (default: every public source except the opt-in ones) or 'all' (+ opt-in reels_comments, reels_presets and login-only `season`; by name only, never in 'all': main_feed). Available: canvas_templates, editing_room_examples, property_studio_examples, explore_categories, effect_examples, api_models, cinema_controls, faceless_showcases, intone_examples, seedance_presets, motion_control_presets, season, reels_presets, reels_comments, main_feed |
 | `--lang` | `en` | LANG | language for CMS lists and Property Studio titles (en, es, de, ja, ko; zh titles only) |
 | `--explore-sources` | `higgsfield,community` | EXPLORE_SOURCES | video explore feeds: higgsfield (curated, ~35), community (~49k) (default: both) |
 | `--explore-sort` | `new` | `new` `trending` `both` | community explore sort: new (page-numbered, has `total`), trending (opaque cursor), both |
@@ -392,7 +403,8 @@ Showcase/example content: Canvas templates, Editing Room examples, Property Stud
 | `--explore-categories` | — | EXPLORE_CATEGORIES | also crawl the community feed per category: comma list or 'all' (from /categories) |
 | `--effects` | — | EFFECTS | only these /effects/examples slugs (comma list); default: every slug in the sitemap |
 | `--reels-sources` | `higgsfield,community` | REELS_SOURCES | Shorts Studio preset lists for reels_presets/reels_comments: higgsfield (curated, ~40), community (user-published, ~75) (default: both) |
-| `--with-profiles` | off | flag | opt-in: keep creator user_id/username/avatar on explore variants, effect samples and reels presets/comments, and the reference reel's author handle (default: only a pseudonymous creator_key hash) |
+| `--main-feed-pages` | `3` | MAIN_FEED_PAGES | main_feed (home Explore feed, opt-in by name): pages of 20 items (default 3; 0 = until the cursor ends; --max-pages / --max-items also apply) |
+| `--with-profiles` | off | flag | opt-in: keep creator user_id/username/avatar on explore / main-feed variants, effect samples and reels presets/comments, and the reference reel's author handle (default: only a pseudonymous creator_key hash) |
 
 ```bash
 python -m higgsfield_scraper scrape showcase
@@ -402,6 +414,48 @@ python -m higgsfield_scraper scrape showcase --what effect_examples --effects ac
 python -m higgsfield_scraper scrape showcase --what property_studio_examples --lang de --download-media thumbs
 python -m higgsfield_scraper scrape showcase --what reels_presets,reels_comments --max-items 20
 python -m higgsfield_scraper scrape showcase --what all --max-items 30   # + opt-in reels, login season
+python -m higgsfield_scraper scrape showcase --what main_feed --main-feed-pages 2   # home feed, by name
+```
+
+### `scrape studios`
+
+Studio & marketplace content: community apps (+views/likes/dislikes/remixes/credits), games (+plays), skills & AI employees (+usage), Playable Ads presets, AI Influencer options, published outputs of every studio (+likes/views, optional comments)
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--what` | — | WHAT | comma list of sources, 'public' or 'all' (same: every source is public; default: all). Available: apps, games, skills, employees, playable_presets, influencer_options, galleries |
+| `--lang` | `en` | LANG | language of the CMS lists (playable presets, AI influencer options): en es de ja ko |
+| `--apps-sort` | `trending` | `trending` `most_viewed` `popular` `newest` | community apps order (JS default `trending`; unknown values fall back to it) |
+| `--studios` | — | STUDIOS | galleries: only these studios (comma list; default all): marketing_studio, ads_studio, cinema_studio, ai_influencer, canvas, shorts_drama, ai_host, property_studio, editing_room |
+| `--gallery-feeds` | `approved,trending` | GALLERY_FEEDS | galleries: approved (curated) and/or trending (default: both) |
+| `--gallery-pages` | `3` | GALLERY_PAGES | galleries: pages (50 items) per studio and feed (default 3; 0 = until the end; --max-pages also applies) |
+| `--with-comments` | off | flag | galleries: also fetch the public comments of every gallery item (1+ request per item) |
+| `--with-profiles` | off | flag | opt-in: keep author user_id/name/avatar (apps, games, skills, employees, gallery items, comments) (default: only a pseudonymous author_key hash) |
+
+```bash
+python -m higgsfield_scraper scrape studios
+python -m higgsfield_scraper scrape studios --what apps --apps-sort most_viewed --max-items 500
+python -m higgsfield_scraper scrape studios --what games,skills,employees
+python -m higgsfield_scraper scrape studios --what galleries --studios marketing_studio,cinema_studio --gallery-pages 0 --with-comments
+python -m higgsfield_scraper scrape studios --what playable_presets --download-media thumbs
+python -m higgsfield_scraper scrape studios --what playable_presets,influencer_options --lang de
+```
+
+### `scrape models`
+
+Model registry from the public JS bundle: ~130 job types with params schema (enums, ranges, defaults), media roles/limits, routes, plan tiers, flag gating, featured order, picker menus; + /job-sets/costs and the Shots available_models facet; build id recorded
+
+| Option | Default | Accepts | Meaning |
+|---|---|---|---|
+| `--pages` | `/ai/video,/ai/image,/lipsync-studio,/mixed-media` | PAGES | comma list of tool pages whose JS bundle is crawled (default: /ai/video,/ai/image,/lipsync-studio,/mixed-media) |
+| `--max-chunks` | `800` | MAX_CHUNKS | max JS chunks fetched (default 800; 0 = no cap). Preloaded chunks of the pages come first, then imports of chunks holding model data, then everything else; ~540 reach the whole registry |
+| `--no-costs` | off | flag | skip /job-sets/costs (in_costs, costs version) |
+| `--no-shots` | off | flag | skip the Shots feed facet (available_models -&gt; shot_facets, in_shots) |
+
+```bash
+python -m higgsfield_scraper scrape models
+python -m higgsfield_scraper scrape models --max-chunks 300 --no-shots
+python -m higgsfield_scraper scrape models --pages /ai/video,/ai/image --max-chunks 0
 ```
 <!-- END scraper-options -->
 
@@ -554,6 +608,15 @@ Evidence, data model and totals: [`docs/COMMUNITY_COVERAGE.md`](docs/COMMUNITY_C
 | `feed` | `/community/feed` | `fnf-community /feed?limit≤50&cursor` (shots, projects, blog posts, posts) | `community_feed_item` → `feed_items.csv` |
 | `creators` | `/community/creators` | `fnf /community/discovery/v2/creators?all=true&sort=default` (~650) | `community_creator_stats` → `creator_stats.csv`, `creator_works.csv` |
 | `talents` | Talents hub | `fnf /community/discovery/talents?sort=rating&offset` (~80) | same kind, `listing = talents` |
+| `music-cards` | `/music-cards` | `fnf-cms-api /music-cards-presets` + `/music-cards-{styles,occasions,roles}` (111 templates) | `community_music_card`, `community_music_card_option` → `music_cards.csv`, `music_card_options.csv` |
+| `job-showcase` | `/seedance-2-community` (movies) | the page's SSR state (`loaderData.seedanceMovies`; 5 movies, 54 jobs) | `community_showcase_job` → `showcase_jobs.csv` |
+| `collections` | `/collection/catch-the-pulse` | `fnf /collections/catch-the-pulse` (15 motions) | `community_collection` → `collections.csv`, `collection_items.csv` |
+| `explore-cards` | explore / home cards | `cms /cards?size&cursor` (192) | `community_explore_card` → `explore_cards.csv` |
+| `feed-categories` | Feed hashtag contests | `fnf-community /feed/categories` + `/feed/ongoing` | `community_feed_category` → `feed_categories.csv` |
+
+Since 2026-11-26, `creators` / `talents` also emit every showcased work in full (`community_creator_work` →
+`creator_works.csv` + inputs / results / media CSVs) and `shots` emits the model facet (`community_shot_model_facet`
+→ `shot_model_facets.csv`); the requests are unchanged. Details: [§1h](#1h-opt-in-extras-of-the-content-map-round-2026-11-26).
 
 - `--max-items` caps **each** opt-in feed separately (gallery feeds share one budget). `--max-pages` caps pages per
   feed and per comment thread. `--type image|video` and `--models` are passed to the shots feed.
@@ -640,10 +703,16 @@ flow, field tables and gaps: [`docs/scrapers/showcase.md`](docs/scrapers/showcas
 | `season` | `fnf-api-gw /fnf-score/v1/season` | `showcase_season` | **login only**; `null` (no active season) |
 | `reels_presets` (alias `reels`; **opt-in**) | `fnf-cms-api /ai-reels-presets?lang=[&source=community]` + `/ai-reels-presets/{slug}` | `showcase_reels_preset` → `reels_presets` (Shorts Studio example reels: output video, prompt, script, inputs, reference reel stats, recreates) | 40 curated + 75 community |
 | `reels_comments` (**opt-in**) | `fnf-community /entities/generation_publication/{id}/comments` | `showcase_reels_comment` → `reels_comments` | 73 threads, 0 comments |
+| `main_feed` (**by name only**, not in `all`) | `cms /main-feed?lang&size=20[&cursor]` | `showcase_main_feed_item`, `showcase_main_feed_variant` → `main_feed_items`, `main_feed_variants` (Genjutsu presets with likes / views / comments / `times_made`, variants with prompt and params; playable-ad game rows) | no total; page 1 = 17 genjutsu + 3 game rows |
+
+`effect_examples` also emits `showcase_effect_preset` → `effect_presets` since 2026-11-26 (the page's template: inputs,
+param choices, credit price matrix), and input media carry `source_role` / `source_type` (the raw role) next to
+`role = input`. `explore` is accepted as an alias of `explore_categories` (it is not listed in `--help`).
 
 `--what` default = every public source except the opt-in reels sources (`public`, unchanged); `all` = public +
-`reels_presets` + `reels_comments` + `season`. `season` is skipped cleanly without
-a session and not scheduled with `--auth off`.
+`reels_presets` + `reels_comments` + `season`; `main_feed` is selected **only by name** (`--what main_feed` or
+`--what all,main_feed`), so `--what all` plans the same requests as before it was added. `season` is skipped cleanly
+without a session and not scheduled with `--auth off`.
 
 | Option | Default | Effect |
 |---|---|---|
@@ -654,6 +723,7 @@ a session and not scheduled with `--auth off`.
 | `--explore-categories LIST\|all` | off | also crawl the community feed per category (names from `/categories`) |
 | `--effects LIST` | every sitemap slug | only these `/effects/examples` slugs |
 | `--reels-sources` | both | Shorts Studio lists: `higgsfield` (curated, ~40), `community` (~75); comments exist only on community presets |
+| `--main-feed-pages N` | 3 | `main_feed` only: pages of 20 rows; `0` = until the cursor ends; `--max-pages` and `--max-items` (per kind) also stop paging |
 | `--with-profiles` | off | keep creator `user_id` / `username` / avatar on explore variants, effect samples and reels presets/comments, plus the reference reel's author handle (default: only a pseudonymous `creator_key`) |
 | `--max-items` | no limit | **per kind** (reels presets: per list, curated and community; reels comments: per thread count) |
 | `--max-pages` | — | per explore feed, per JS-chunk discovery, per effect page sequence |
@@ -670,6 +740,7 @@ python -m higgsfield_scraper scrape showcase --what property_studio_examples --l
 python -m higgsfield_scraper scrape showcase --what editing_room_examples,cinema_controls,faceless_showcases,intone_examples,seedance_presets,motion_control_presets
 python -m higgsfield_scraper scrape showcase --what reels_presets,reels_comments --max-items 20   # opt-in Shorts Studio reels + comments
 python -m higgsfield_scraper scrape showcase --what all --max-items 30                         # + login-only season
+python -m higgsfield_scraper scrape showcase --what main_feed --main-feed-pages 2              # home feed (by name only)
 ```
 
 ```
@@ -704,6 +775,224 @@ The dry run never lists the `season` request (the session is resolved when the c
 follow-ups (Property Studio JS chunks and l10n files, `llms-full.txt`, category feeds, effect pages from the
 sitemap). Outputs: `dataset.json`, `json/<collection>.json` and complete CSVs (one per collection plus child tables
 such as `explore_variants__media.csv`, `api_models__parameters.csv`); see [§7](#output-of-the-other-scrapers).
+
+
+## 1h. Opt-in extras of the content-map round (2026-11-26)
+
+These options close the gaps of [`docs/CONTENT_MAP.md`](docs/CONTENT_MAP.md) §16 and the fixes of
+[`docs/COMPLETENESS.md`](docs/COMPLETENESS.md) §11. **All are opt-in and selected by name only**: the default run and
+every existing `all` selection (`--what all`, `--feeds all`, `--kinds all`) plan exactly the same requests as before
+(dry-runs compared byte for byte against the previous commit). Every request is a public, anonymous GET.
+
+| Scraper | Option | Endpoint(s) (GET) | Output (kind → collection / CSV) | Guide |
+|---|---|---|---|---|
+| `community` | `--feeds feed-categories` (aliases `feed_categories`, `feed-category`) | `fnf-community /feed/categories` + `/feed/ongoing` | `community_feed_category` → `feed_categories`, `feed_categories.csv` (slug, title, hashtag, `post_count`, previews) | [community.md](docs/scrapers/community.md) |
+| `community` | `--feeds music-cards` | `fnf-cms-api /music-cards-presets` + `/music-cards-{styles,occasions,roles}` | `community_music_card`, `community_music_card_option` → `music_cards.csv`, `music_card_recipients.csv`, `music_card_options.csv` | [community.md](docs/scrapers/community.md) |
+| `community` | `--feeds job-showcase` | page `/seedance-2-community` (SSR state = fnf `/jobs/showcase/seedance-2-0`, which challenges the crawler) | `community_showcase_job` → `showcase_jobs.csv` (+ `_inputs`, `_results`) | [community.md](docs/scrapers/community.md) |
+| `community` | `--feeds collections` | fnf `/collections/catch-the-pulse` | `community_collection` → `collections.csv`, `collection_items.csv` | [community.md](docs/scrapers/community.md) |
+| `community` | `--feeds explore-cards` | cms `/cards?size&cursor` | `community_explore_card` → `explore_cards.csv` | [community.md](docs/scrapers/community.md) |
+| `community` | `--feeds creators,talents` (new output, same requests) | same as before | + `community_creator_work` → `creator_works.csv` + `creator_work_{inputs,results,media}.csv`: every work of every creator card in full (shots parsed like gallery generations; project cards with media) | [COMMUNITY_COVERAGE.md](docs/COMMUNITY_COVERAGE.md) |
+| `community` | `--feeds shots` (new output, same requests) | same as before | + `community_shot_model_facet` → `shot_model_facets.csv` (the feed's `available_models[]`) | [community.md](docs/scrapers/community.md) |
+| `showcase` | `--what main_feed` (+ `--main-feed-pages N`, default 3, `0` = to the end) | cms `/main-feed?lang&size=20[&cursor]` | `showcase_main_feed_item`, `showcase_main_feed_variant` → `main_feed_items`, `main_feed_variants` (+ `__media`, `__inputs`) | [showcase.md §11](docs/scrapers/showcase.md) |
+| `showcase` | `--what reels_presets,reels_comments` (+ `--reels-sources higgsfield,community`) | `fnf-cms-api /ai-reels-presets[?source=community]`, `/ai-reels-presets/{slug}`; `fnf-community /entities/generation_publication/{id}/comments` | `showcase_reels_preset`, `showcase_reels_comment` | [showcase.md §10](docs/scrapers/showcase.md) |
+| `showcase` | `--what effect_examples` (new output, same requests) | same pages | + `showcase_effect_preset` → `effect_presets` (inputs, param choices, credit price matrix) | [showcase.md](docs/scrapers/showcase.md) |
+| `projects` | `--what trending` (+ `--trending-sort`, `--trending-filter`, `--trending-with-contest`) | fnf `/project-publications/trending?limit≤50&cursor[&sort&filter&with_contest]` | publications + `projects_trending_row` → `trending`, `trending.csv` (position, `total_reported`, snapshot) | [projects.md](docs/scrapers/projects.md) |
+| `projects` | `--what contest-participation` (per `--entry-keys`, default both) | fnf `/contest-participations/publications/counters`, `/config` (`contest_key`) | `contest_participation`, `contest_participation.csv` (total / public / private + stage, windows, limits) | [projects.md](docs/scrapers/projects.md) |
+| `projects` | `--with-user-works` | fnf `/user/{user_id}/v2/publications`, `/user/{user_id}/stats` | `projects_user_work` → `user_works` (+ `user_work_variants.csv`, `user_work_inputs.csv`), `projects_user_stats` → `user_stats` | [projects.md](docs/scrapers/projects.md) |
+| `catalog` | `--kinds outfit_character` (**not** even in `--kinds all`) | fnf `/outfits/characters` | `catalog_outfit_character` → `outfit_characters` | [catalog.md](docs/scrapers/catalog.md) |
+| `site` | `--what academy-api` (not in `--what all`) | `fnf-academy /api/v1/categories`, `/courses`, `/courses/{slug}`, `/lessons/{id}` | `site_academy_api_{category,course,lesson}` → `academy_api_*` (+ child CSVs) | [site.md](docs/scrapers/site.md) |
+
+Option details:
+
+- **`--trending-sort`** `default|most_viewed|most_liked|newest|oldest`: the ranking of `--what trending`. `default`
+  (or no flag) sends no `sort`, like the web app. **`--trending-filter`** `all|non_contest|contest|talents_hub`: sent as
+  `filter`; without it no filter is sent (every project). **`--trending-with-contest`**: sends `with_contest=true`;
+  ignored when `--trending-filter` is given (the site does the same). The label of each listing row records the
+  combination (`trending[:filter=…][:sort=…][:with_contest]`). Trending publications count against `--max-items` and
+  are followed by `--with-details` / `--with-project-*` like any other listing.
+- **`--with-user-works`**: reads the published works (assets = full generations with prompt, params, results;
+  projects; folders; contest submissions) and the stats of users **already found in this run**: the owner of each
+  project in a `--users` listing or in the contest entries listing, and every contest submitter. Broad listings
+  (publications, recommended, trending) never add users, and users are never enumerated. Rows carry
+  `creator_uid_key` (+ `creator_key`); ids, names and avatars only with `--with-profiles`. `--max-pages` caps each
+  user's pages. Works with `generation_key = job:<id>` merge with community generations in
+  `scripts/merge_generations.py`.
+- **`--main-feed-pages N`**: pages of 20 rows of the home feed (default 3; `0` = until the cursor ends). Paging also
+  stops at `--max-pages`, `--max-items` (per kind) or an unchanged/empty cursor. The feed is personalised per anonymous
+  session and has no total.
+- **`--reels-sources`**: `higgsfield` (curated, ~40) and/or `community` (~75); comments exist only on community presets.
+- `--max-items` caps each opt-in feed / kind separately; `--download-media` covers the new media (previews, posters,
+  outputs) like any other kind.
+
+```bash
+python -m higgsfield_scraper scrape community --feeds feed-categories,music-cards,job-showcase,collections,explore-cards
+python -m higgsfield_scraper scrape community --feeds creators,talents --with-raw-params        # every work in full
+python -m higgsfield_scraper scrape showcase --what main_feed --main-feed-pages 0                 # whole home feed
+python -m higgsfield_scraper scrape showcase --what all,main_feed --max-items 30                  # `all` + the main feed
+python -m higgsfield_scraper scrape projects --what trending --trending-sort most_viewed --trending-filter contest --max-pages 2
+python -m higgsfield_scraper scrape projects --what all,trending,contest-participation           # all + the two extras
+python -m higgsfield_scraper scrape projects --what contests --contest talent-contest --with-submissions --max-submissions 5 --with-user-works
+python -m higgsfield_scraper scrape catalog --kinds outfit_character
+python -m higgsfield_scraper scrape site --what academy-api                                      # 2 + 17 + ~180 requests
+python -m higgsfield_scraper scrape site --what academy-api --no-content                         # categories + course list
+```
+
+```
+$ python -m higgsfield_scraper scrape projects --what trending,contest-participation --dry-run
+GET https://fnf-api-gw.higgsfield.ai/fnf/project-publications/trending?limit=50
+GET https://fnf-api-gw.higgsfield.ai/fnf/contest-participations/publications/counters?contest_key=ai_film_festival
+GET https://fnf-api-gw.higgsfield.ai/fnf/contest-participations/config?contest_key=ai_film_festival
+GET https://fnf-api-gw.higgsfield.ai/fnf/contest-participations/publications/counters?contest_key=talent_contest
+GET https://fnf-api-gw.higgsfield.ai/fnf/contest-participations/config?contest_key=talent_contest
+
+$ python -m higgsfield_scraper scrape projects --what trending --trending-sort most_viewed --trending-filter contest --dry-run
+GET https://fnf-api-gw.higgsfield.ai/fnf/project-publications/trending?limit=50&filter=contest&sort=most_viewed
+
+$ python -m higgsfield_scraper scrape community --feeds feed-categories,music-cards,job-showcase,collections,explore-cards --dry-run
+GET https://fnf-api-gw.higgsfield.ai/fnf-community/feed/categories
+GET https://fnf-api-gw.higgsfield.ai/fnf-community/feed/ongoing
+GET https://fnf-api-gw.higgsfield.ai/fnf-cms-api/music-cards-presets?lang=en
+GET https://fnf-api-gw.higgsfield.ai/fnf-cms-api/music-cards-styles?lang=en
+GET https://fnf-api-gw.higgsfield.ai/fnf-cms-api/music-cards-occasions?lang=en
+GET https://fnf-api-gw.higgsfield.ai/fnf-cms-api/music-cards-roles?lang=en
+GET https://higgsfield.ai/seedance-2-community
+GET https://fnf-api-gw.higgsfield.ai/fnf/collections/catch-the-pulse
+GET https://cms.higgsfield.ai/cards?size=100
+
+$ python -m higgsfield_scraper scrape showcase --what main_feed --dry-run
+GET https://cms.higgsfield.ai/main-feed?lang=en&size=20
+
+$ python -m higgsfield_scraper scrape catalog --kinds outfit_character --dry-run
+GET https://fnf-api-gw.higgsfield.ai/fnf/outfits/characters
+
+$ python -m higgsfield_scraper scrape site --what academy-api --dry-run
+GET https://fnf-api-gw.higgsfield.ai/fnf-academy/api/v1/categories
+GET https://fnf-api-gw.higgsfield.ai/fnf-academy/api/v1/courses
+```
+
+`--with-user-works` adds nothing to a dry run: its users are only known once the listings have been read.
+
+**New field everywhere: `creator_uid_key`.** Every record with an author, creator or owner (community, projects,
+showcase, studios, catalog katana presets) now also carries `creator_uid_key` = `core/privacy.py:creator_uid_key(<Clerk
+user id>)` = `make_id("creator", id)`: one pseudonymous key per user, the same in every scraper (it equals the
+showcase/studios `creator_key` / `author_key`). It is `null` when the id is missing or redacted. Existing keys
+(`author_key`, `creator_key`, `user_id`) are unchanged.
+
+## 1i. `scrape studios`: marketplaces, studio presets and galleries
+
+Opt-in scraper (2026-11-26) for the public content of Higgsfield's studio products and marketplaces. GET only,
+~1 request/s, never with a token (every source answers anonymously and identically with a session). Guide with JS
+evidence, schema, HTTP flow and limits: [`docs/scrapers/studios.md`](docs/scrapers/studios.md).
+
+| `--what` | Source (GET) | Kinds → collection | Size (2026-11-26) |
+|---|---|---|---|
+| `apps` | `fnf-apps-marketplace /api/v1/apps/categories` + `/api/v1/apps/community?limit=100&offset&sort` | `studios_app_category` → `app_categories`, `studios_app` → `apps` (views, likes, dislikes, remixes, `credits_usage`, author key, cover media) | 8 categories, ≈ 59,560 apps (no total) |
+| `games` | `fnf-skills-marketplace /api/v1/games/community?limit=100&offset` | `studios_game` → `games` (plays, unique players, remixes, game URL, source zip) | 1,299 |
+| `skills` | `fnf-skills-marketplace /api/v1/skills/community?limit=100&cursor` | `studios_skill` → `skills` (installs, unique users, usage, `example_prompt`, `content_url`) | 632 |
+| `employees` | `fnf-skills-marketplace /api/v1/ai-agents/community?limit=100&cursor` | `studios_employee` → `employees` (public instructions, features, example videos, connectors, installs/usage) | 296 |
+| `playable_presets` | `cms /playable-ads-presets?size=100&cursor=<page>&lang` | `studios_playable_preset` → `playable_presets` (HTML builds, videos, posters, recreate prompt/settings) | 112 |
+| `influencer_options` | `cms /ai-influencer-config?lang` | `studios_influencer_option` → `influencer_options` (category → subcategory → option, with media) | 143 options |
+| `galleries` | `fnf /publications/community/{approved,trending}?size=50&model=…` per studio; with `--with-comments` `fnf-community /entities/generation_publication/{id}/comments` | `studios_gallery_item` → `gallery_items` (job, prompt, settings, inputs, outputs, likes/views, `generation_key`), `studios_comment` → `comments` | 2,112 published outputs (approved 74 + trending 2,038) |
+
+Default and `all` = `public` = every source (there is no login-only source). `--max-items` caps each kind separately
+(child kinds `studios_app_category` and `studios_comment` are not counted); for galleries it caps all studios together,
+in `--studios` order.
+
+| Option | Default | Effect |
+|---|---|---|
+| `--what LIST` | all | comma list of the sources above, `all` or `public` |
+| `--lang` | `en` | language of the CMS lists (`playable_presets`, `influencer_options`): `en es de ja ko` (labels and titles translated) |
+| `--apps-sort` | `trending` | community apps order: `trending` (the app's default), `most_viewed`, `popular`, `newest` (unknown values fall back to `trending`) |
+| `--studios LIST` | all | galleries only: `marketing_studio`, `ads_studio`, `cinema_studio`, `ai_influencer`, `canvas`, `shorts_drama`, `ai_host`, `property_studio`, `editing_room` (each maps to its job types, `endpoints.STUDIO_MODELS`) |
+| `--gallery-feeds` | `approved,trending` | galleries only: which community feed(s) |
+| `--gallery-pages N` | 3 | galleries only: pages of 50 per studio × feed (× model for trending); `0` = until `has_more` is false; `--max-pages` also applies |
+| `--with-comments` | off | galleries only: also read the public top-level comments of every kept gallery item (1+ request per item, sequential) |
+| `--with-profiles` | off | keep author `user_id` / name / avatar on apps, games, skills, employees, gallery items and comments (default: only the pseudonymous `author_key` + `creator_uid_key`) |
+| `--max-items`, `--max-pages`, `--page-size` | — | shared limits (see the table in §1b) |
+| `--download-media` | `none` | `thumbs` = images, `full` = videos, `all` = every media URL incl. gallery inputs and HTML / zip builds |
+
+Notes: trending honours only the **last** `model` value (approved sums them), so trending is requested once per model
+of each studio (the default run plans 64 first requests). A job in both feeds is kept once. Apps, games, skills and
+employees have no comment API. Ads Studio, AI Host, Short Drama, Production and Popcorn have no public content (the
+user's own workspace); their published outputs, if any, come through `--what galleries`.
+
+```bash
+python -m higgsfield_scraper scrape studios                                                   # every source
+python -m higgsfield_scraper scrape studios --what apps --apps-sort most_viewed --max-items 500
+python -m higgsfield_scraper scrape studios --what games,skills,employees
+python -m higgsfield_scraper scrape studios --what galleries --studios marketing_studio,cinema_studio --gallery-pages 0 --with-comments
+python -m higgsfield_scraper scrape studios --what galleries --gallery-feeds approved             # curated outputs only
+python -m higgsfield_scraper scrape studios --what playable_presets --download-media thumbs
+python -m higgsfield_scraper scrape studios --what playable_presets,influencer_options --lang de
+python -m higgsfield_scraper scrape studios --what apps --max-requests 2000 --label all-apps   # all ≈ 59.6k apps (≈ 600 pages)
+```
+
+```
+$ python -m higgsfield_scraper scrape studios --what apps,games,skills,employees,playable_presets,influencer_options --dry-run
+GET https://fnf-api-gw.higgsfield.ai/fnf-apps-marketplace/api/v1/apps/categories
+GET https://fnf-api-gw.higgsfield.ai/fnf-apps-marketplace/api/v1/apps/community?limit=100&offset=0&sort=trending
+GET https://fnf-api-gw.higgsfield.ai/fnf-skills-marketplace/api/v1/games/community?limit=100&offset=0
+GET https://fnf-api-gw.higgsfield.ai/fnf-skills-marketplace/api/v1/skills/community?limit=100
+GET https://fnf-api-gw.higgsfield.ai/fnf-skills-marketplace/api/v1/ai-agents/community?limit=100
+GET https://cms.higgsfield.ai/playable-ads-presets?size=100&cursor=1&lang=en
+GET https://cms.higgsfield.ai/ai-influencer-config?lang=en
+
+$ python -m higgsfield_scraper scrape studios --what galleries --studios marketing_studio --dry-run
+GET https://fnf-api-gw.higgsfield.ai/fnf/publications/community/approved?size=50&model=marketing_studio_video&model=marketing_studio_image&model=marketing_studio_2_image&model=marketing_studio_v2_video&model=marketing_studio_v2_reference2video&model=marketing_storyboard&model=marketing_studio_hook&approved=true
+GET https://fnf-api-gw.higgsfield.ai/fnf/publications/community/trending?size=50&model=marketing_studio_video
+GET https://fnf-api-gw.higgsfield.ai/fnf/publications/community/trending?size=50&model=marketing_studio_image
+…                                                     (one trending request per Marketing Studio model)
+```
+
+Live run (2026-11-26, `scrape studios --max-items 20 --with-comments`): 4.5 min, 0 errors; 8 app categories, 20 of
+each kind, 1 comment.
+
+## 1j. `scrape models`: the model registry from the public JS bundle
+
+Opt-in scraper (2026-11-26). There is no public "models" API: the model list, each model's parameter schema
+(`defineJob`), routes, plan tiers, feature-flag gating, featured order and picker menus are static code in the website's
+JavaScript. `scrape models` downloads the tool pages and their JS chunks, extracts those facts **without executing any
+JS** (regexes + bracket matching), joins them with `/job-sets/costs` and the Shots `available_models` facet, and
+records the frontend build, so runs can be diffed build by build. GET only, anonymous. Guide:
+[`docs/scrapers/models.md`](docs/scrapers/models.md).
+
+| Option | Default | Effect |
+|---|---|---|
+| `--pages LIST` | `/ai/video,/ai/image,/lipsync-studio,/mixed-media` | tool pages (site paths) whose JS bundle is crawled; their preloaded chunks are fetched first |
+| `--max-chunks N` | 800 | max JS chunks fetched; `0` = no cap. Chunks are queued by priority (page preloads, then imports of chunks with model data, then the rest), so the cap cuts the least useful ones; ≈ 540–670 chunks reach the whole registry with the default pages. Hitting the cap is recorded in `meta.limits_hit` and `builds[].coverage` |
+| `--no-costs` | off | skip `/job-sets/costs` (`in_costs` = null, no `costs_version`) |
+| `--no-shots` | off | skip the Shots feed facet (`in_shots` = null, no `shot_facets`) |
+| shared options | | `--delay`, `--max-requests`, `--max-minutes`, `--auth`, logging … apply; `--max-items`, `--max-pages`, `--download-media` have **no effect** |
+
+Output collections: `job_types` (one row per `job_set_type`: output, business flags, prompt policy, media roles /
+counts, params schema with enums / ranges / defaults, validate ranges, wire keys, route, featured rank, gate status,
+plan tier, `in_registry` / `in_routes` / `in_costs` / `in_shots`), `menu_entries` (picker entries with titles and
+badges), `builds` (build id, commit, flags, costs version, coverage), `chunks` (url, size, sha256, markers) and
+`shot_facets`; CSVs per collection + `job_type_params.csv`. Bodies are reduced to compact JSON extracts **before**
+they reach `http/` and `raw/` (a run reads ~20 MB of JS; the extract keeps `size` + `sha256`), so
+`normalize --run <id> --scraper models` re-joins `raw/` offline.
+
+```bash
+python -m higgsfield_scraper scrape models                                          # 4 pages, ≤ 800 chunks, costs + facet (~10–16 min)
+python -m higgsfield_scraper scrape models --max-chunks 300 --no-shots              # quicker, may not reach the whole registry
+python -m higgsfield_scraper scrape models --pages /ai/video,/ai/image --max-chunks 0   # no cap
+python -m higgsfield_scraper normalize --run runs/<id> --scraper models             # re-join raw/ offline
+```
+
+```
+$ python -m higgsfield_scraper scrape models --dry-run
+GET https://higgsfield.ai/ai/video
+GET https://higgsfield.ai/ai/image
+GET https://higgsfield.ai/lipsync-studio
+GET https://higgsfield.ai/mixed-media
+GET https://fnf-api-gw.higgsfield.ai/fnf/job-sets/costs
+GET https://fnf-api-gw.higgsfield.ai/fnf-community/generations/feed?limit=1
+```
+
+The JS chunks (`assets.higgsfield.ai/tanstack/assets/<chunk>.js`) follow at runtime. Live (2026-11-26, build
+`548e0f3a`, default options): 806 requests, 16.4 min, coverage complete; 164 job types (119 with a `defineJob`),
+96 menu entries, 167 shot facets. Known limits: settings spread from another module (`...y(j)`, e.g. `seedance_2_5`)
+are kept as a `...` param with the spread source, not inlined; `--max-chunks 0` (no cap) has not been run live yet.
 
 ---
 
@@ -1038,36 +1327,63 @@ GET https://pricing.higgsfield.ai/v2/pricing-config?locale=en
 | Showcase / example content | `python -m higgsfield_scraper scrape showcase` | — | — |
 | Video-explore community feed with likes, to the end | `python -m higgsfield_scraper scrape showcase --what explore --explore-sources community --explore-pages 0` | ~2,470 | — |
 | Browsable / dataset folder from a run | `python -m higgsfield_scraper export --run runs/<id> --layout tree` ([§6b](#6b-export-run-folders--browsable--dataset-folders)) | 0 | seconds |
-| Count and dedupe every video / image across runs | `python scripts/merge_generations.py --latest community,catalog,projects,site,showcase` ([§6c](#6c-count-and-dedupe-generations-scriptsmerge_generationspy)) | 0 | seconds |
+| Apps / games / skills / AI-employees marketplaces | `python -m higgsfield_scraper scrape studios --what apps,games,skills,employees` ([§1i](#1i-scrape-studios-marketplaces-studio-presets-and-galleries)) | apps ≈ 600 pages | — |
+| Every studio's published outputs + comments | `python -m higgsfield_scraper scrape studios --what galleries --gallery-pages 0 --with-comments` | — | — |
+| Model registry of the current frontend build | `python -m higgsfield_scraper scrape models` ([§1j](#1j-scrape-models-the-model-registry-from-the-public-js-bundle)) | ≈ 806 | ~16 min |
+| Trending projects ranking + contest counters | `python -m higgsfield_scraper scrape projects --what trending,contest-participation` | 5+ | — |
+| Home main feed | `python -m higgsfield_scraper scrape showcase --what main_feed --main-feed-pages 0` | — | — |
+| Academy JSON (free generations, MDX lessons) | `python -m higgsfield_scraper scrape site --what academy-api` | ≈ 200 | — |
+| Count and dedupe every video / image across runs | `python scripts/merge_generations.py --latest community,catalog,projects,site,showcase,studios` ([§6c](#6c-count-and-dedupe-generations-scriptsmerge_generationspy)) | 0 | seconds |
 
-### Scrape everything (all 8 scrapers)
+### Scrape everything (all 10 scrapers)
 
 One run folder per scraper; nothing is shared between runs. Without `--max-items` some feeds are large (community
-trending ≈ 75k generations, explore ≈ 49k items, contest entries thousands), so start with a cap and raise it.
+trending ≈ 75k generations, explore ≈ 49k items, apps ≈ 59.6k, contest entries thousands), so start with a cap and
+raise it. **The default `--max-requests 5000` stops large runs**: raise it (e.g. `--max-requests 200000`) and use
+`--max-minutes` as a time box. Full sizes and times: [`docs/CONTENT_MAP.md`](docs/CONTENT_MAP.md) §18.
 
 ```bash
-# 1. every public scraper with its default selection
-for s in pricing community catalog projects blog site showcase; do python -m higgsfield_scraper scrape $s --label all-$s; done
+# 1. every public scraper with its default selection (studios and models have no "default run" elsewhere: they run here)
+for s in pricing community catalog projects blog site showcase studios models; do python -m higgsfield_scraper scrape $s --label all-$s; done
 
-# 2. + every public opt-in extra
+# 2. + every public opt-in extra (each scraper's `all` and the options that are selected by name only)
 python -m higgsfield_scraper scrape pricing --sections all --plan-sets all --marketing-versions all --include-hidden-plans --include-raw-cost --label all-prices
-python -m higgsfield_scraper scrape community --feeds all,shots,posts,feed,creators,talents --with-comments --max-items 5000 --label all-community
-python -m higgsfield_scraper scrape catalog --kinds all --include-hidden --with-samples --with-details --label all-catalog
-python -m higgsfield_scraper scrape projects --with-details --with-submissions --public-series --label all-projects
-python -m higgsfield_scraper scrape projects --what contests --contest talent-contest --with-submissions --max-submissions 50 --with-project-assets --with-project-brief --with-project-stats --with-project-comments --with-project-related --label talent-nested
+python -m higgsfield_scraper scrape community --feeds all,shots,posts,feed,creators,talents,music-cards,job-showcase,collections,explore-cards,feed-categories --with-comments --with-raw-params --max-items 5000 --max-requests 100000 --label all-community
+python -m higgsfield_scraper scrape catalog --kinds all,outfit_character --include-hidden --with-samples --with-details --label all-catalog
+python -m higgsfield_scraper scrape projects --what all,trending,contest-participation --with-details --with-submissions --public-series --max-requests 50000 --label all-projects
+python -m higgsfield_scraper scrape projects --what contests --contest talent-contest --with-submissions --max-submissions 50 --with-project-assets --with-project-brief --with-project-stats --with-project-comments --with-project-related --with-user-works --label talent-nested
 python -m higgsfield_scraper scrape blog --what all,community --label all-blog
-python -m higgsfield_scraper scrape site --what all,room-content --label all-site
-python -m higgsfield_scraper scrape showcase --what all --explore-sort both --explore-pages 0 --label all-showcase
+python -m higgsfield_scraper scrape site --what all,room-content,academy-api --label all-site
+python -m higgsfield_scraper scrape showcase --what all,main_feed --explore-sort both --explore-pages 0 --explore-categories all --main-feed-pages 0 --max-requests 20000 --label all-showcase
+python -m higgsfield_scraper scrape studios --gallery-pages 0 --with-comments --max-requests 50000 --label all-studios
+python -m higgsfield_scraper scrape models --max-chunks 0 --label all-models
 
 # 3. with a login only: your own account (never part of a default run)
+python -m higgsfield_scraper scrape pricing --sections all,account --logged-in-prices --label logged-in-prices
 python -m higgsfield_scraper scrape account --with-jobs --max-items 200
 
 # 4. turn runs into datasets, count/dedupe all videos and images
 python -m higgsfield_scraper export --run "runs/*all-community*" --layout hf
-python scripts/merge_generations.py --latest community,catalog,projects,site,showcase
+python scripts/merge_generations.py --latest community,catalog,projects,site,showcase,studios
 ```
 
-Windows (PowerShell): `foreach ($s in 'pricing','community','catalog','projects','blog','site','showcase') { python -m higgsfield_scraper scrape $s --label all-$s }`.
+The opt-in extras in step 2, by scraper (none of them is in a default run; ★ = selected **by name only**, not even
+by that scraper's `all`):
+
+| Scraper | Opt-in extras |
+|---|---|
+| `pricing` | `--sections all` (adds `auth` with a login), `--plan-sets all`, `--marketing-versions all`, `--include-hidden-plans`, `--include-raw-cost`; login: `--logged-in-prices`, `--sections account` ★ |
+| `community` | `--feeds shots,posts,feed,creators,talents,music-cards,job-showcase,collections,explore-cards,feed-categories` ★ (none of them is in `--feeds all`), `--with-comments`, `--with-raw-params`, `--detail`, `--estimate-cost all`, `--with-profiles` (personal data) |
+| `catalog` | `--kinds all` (public + login group + `chain_preset`, `notice`, `restyle_preset`), `outfit_character` ★, `--with-samples`, `--with-details`, `--include-hidden` |
+| `projects` | `--public-series`, `--with-details`, `--with-submissions`, `--with-project-assets/-brief/-stats/-comments/-related`, `--contest`, `--contest-tabs`, `--users`, `trending` ★, `contest-participation` ★, `--with-user-works` |
+| `blog` | `--what all,community` |
+| `site` | `--what rooms`, `room-list`, `room-content`, `academy-api` ★ (none of them is in `--what all`) |
+| `showcase` | `--what all` (+ reels presets / comments, login `season`), `main_feed` ★, `--explore-pages 0`, `--explore-sort both`, `--explore-categories all`, `--main-feed-pages 0` |
+| `studios` | the whole scraper; `--gallery-pages 0`, `--with-comments` |
+| `models` | the whole scraper; `--max-chunks 0` |
+| `account` | the whole scraper (login); `--with-jobs`, `--compare-estimate`, `--with-prompts` |
+
+Windows (PowerShell): `foreach ($s in 'pricing','community','catalog','projects','blog','site','showcase','studios','models') { python -m higgsfield_scraper scrape $s --label all-$s }`.
 
 Windows Task Scheduler / cron example:
 
@@ -1605,7 +1921,14 @@ opt-in features of 2026-11-26:
 | `community --feeds shots / posts / feed / creators,talents` | `csv/shots.csv` / `posts.csv` + `post_media.csv` / `feed_items.csv` / `creator_stats.csv` + `creator_works.csv` |
 | `community --with-comments` | `csv/comments.csv` (`thread_type` = `publication`, `generation_publication`, `project_publication`, `blog_post`) |
 | `site --what room-list / room-content` | `csv/rooms.csv` / + `room_items.csv`, `room_discussions.csv`, `room_discussion_media.csv` |
-| `showcase` | one collection + CSV per kind (`canvas_templates`, `editing_room_examples`, `editing_room_projects`, `editing_room_renders`, `property_studio_examples`, `explore_categories`, `explore_items`, `explore_variants`, `effect_samples`, `api_models`, `cinema_controls`, `faceless_showcases`, `intone_examples`, `seedance_presets`, `motion_control_presets`, `seasons`) + child CSVs `<collection>__media.csv`, `__inputs`, `__edits`, `__scenes`, `__segments`, `api_models__parameters.csv`, `api_models__prices.csv` |
+| `site --what academy-api` | `academy_api_categories`, `academy_api_courses` (+ `_objectives`, `_authors`, `_examples`, `_lessons`), `academy_api_lessons` (+ `_video_subtitles`, `_video_cues`, `_resources`) |
+| `community --feeds creators,talents` / `shots` / `feed-categories` | + `creator_works.csv`, `creator_work_inputs.csv`, `creator_work_results.csv`, `creator_work_media.csv` / + `shot_model_facets.csv` / `feed_categories.csv` |
+| `community --feeds music-cards / job-showcase / collections / explore-cards` | `music_cards.csv` + `music_card_recipients.csv`, `music_card_options.csv` / `showcase_jobs.csv` + `_inputs`, `_results` / `collections.csv` + `collection_items.csv` / `explore_cards.csv`; `gallery_stats.csv` |
+| `projects --what trending / contest-participation / --with-user-works` | `trending.csv` / `contest_participation.csv` / `user_works` (+ `user_work_variants.csv`, `user_work_inputs.csv`), `user_stats` |
+| `catalog --kinds outfit_character` | `outfit_characters` |
+| `studios` | `app_categories`, `apps`, `games`, `skills`, `employees`, `playable_presets`, `influencer_options`, `gallery_items`, `comments` + child CSVs `<collection>__media.csv`, `employees__features.csv`, `gallery_items__inputs.csv` |
+| `models` | `job_types`, `menu_entries`, `builds`, `chunks`, `shot_facets` + `job_type_params.csv` (one row per parameter) |
+| `showcase` | one collection + CSV per kind (`canvas_templates`, `editing_room_examples`, `editing_room_projects`, `editing_room_renders`, `property_studio_examples`, `explore_categories`, `explore_items`, `explore_variants`, `effect_samples`, `api_models`, `cinema_controls`, `faceless_showcases`, `intone_examples`, `seedance_presets`, `motion_control_presets`, `seasons`; opt-in `reels_presets`, `reels_comments`, `main_feed_items`, `main_feed_variants`; `effect_presets` with `effect_examples`) + child CSVs `<collection>__media.csv`, `__inputs`, `__edits`, `__scenes`, `__segments`, `api_models__parameters.csv`, `api_models__prices.csv` |
 | `export` (not a run) | `exports/<run>-<layout>/` (gitignored): `README.md`, `export_manifest.json`, `errors.log` + the layout's files ([§6b](#6b-export-run-folders--browsable--dataset-folders)) |
 | `scripts/merge_generations.py` | `runs/generations_index/generations_index.csv`, `.json`, `duplicates.json` ([§6c](#6c-count-and-dedupe-generations-scriptsmerge_generationspy)) |
 

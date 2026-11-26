@@ -1,9 +1,9 @@
-"""Generate README assets (dark + light banner, architecture diagram) in a Higgsfield-inspired palette.
+"""Generate README assets (dark + light banner, architecture diagram, scrapers overview) in a Higgsfield-inspired palette.
 
 Palette taken from higgsfield.ai's own CSS (theme-color #0f1113, signature lime #d1fe17, tertiary cyan #9ce6f3,
 pink #ff005b, IBM Plex Mono). The banner says "UNOFFICIAL" and uses no Higgsfield logo or wordmark.
 
-    python scripts/make_assets.py      ->  docs/assets/banner-dark.svg, banner-light.svg, architecture.svg
+    python scripts/make_assets.py      ->  docs/assets/banner-dark.svg, banner-light.svg, architecture.svg, scrapers.svg
 """
 from __future__ import annotations
 
@@ -22,8 +22,9 @@ THEMES = {
 SANS = "Inter, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif"
 MONO = "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
 
-SCRAPERS = ["pricing", "community", "catalog", "projects", "blog", "site", "account", "showcase"]
-PILL_FONT, PILL_GAP = 13, 8            # 8 pills in one row must end before the flow nodes (x = 820)
+SCRAPERS = ["pricing", "community", "catalog", "projects", "blog", "site", "showcase", "studios", "models", "account"]
+PILL_FONT, PILL_GAP = 13, 8            # each pill row must end before the flow nodes (x = 820)
+PILL_ROWS = (SCRAPERS[:5], SCRAPERS[5:])   # 10 pills do not fit one row at 13 px: two rows of five
 
 
 def pill_width(name: str) -> int:
@@ -31,17 +32,19 @@ def pill_width(name: str) -> int:
 
 
 def banner(t: dict) -> str:
-    pills, x = [], 64
-    for i, name in enumerate(SCRAPERS):
-        w = pill_width(name)
-        first = i == 0
-        pills.append(
-            f'<rect x="{x}" y="226" width="{w}" height="34" rx="17" fill="{t["lime"] if first else t["pill_bg"]}" '
-            f'stroke="{t["lime"] if first else t["line"]}" stroke-width="1.5"/>'
-            f'<text x="{x + w / 2}" y="247.5" text-anchor="middle" font-family="{MONO}" font-size="{PILL_FONT}" font-weight="600" '
-            f'fill="{t["lime_ink"] if first else t["text"]}">{name}</text>')
-        x += w + PILL_GAP
-    assert x - PILL_GAP <= 800, f"pills end at {x - PILL_GAP}, overlapping the flow nodes at 820"
+    pills = []
+    for r, row in enumerate(PILL_ROWS):
+        x, y = 64, 200 + r * 38
+        for name in row:
+            w = pill_width(name)
+            first = name == SCRAPERS[0]
+            pills.append(
+                f'<rect x="{x}" y="{y}" width="{w}" height="30" rx="15" fill="{t["lime"] if first else t["pill_bg"]}" '
+                f'stroke="{t["lime"] if first else t["line"]}" stroke-width="1.5"/>'
+                f'<text x="{x + w / 2}" y="{y + 19.5}" text-anchor="middle" font-family="{MONO}" font-size="{PILL_FONT}" font-weight="600" '
+                f'fill="{t["lime_ink"] if first else t["text"]}">{name}</text>')
+            x += w + PILL_GAP
+        assert x - PILL_GAP <= 800, f"pills end at {x - PILL_GAP}, overlapping the flow nodes at 820"
     nodes = [("/plans", 64), ("/job-sets/costs", 118), ("/publications", 172)]
     flow = "".join(
         f'<rect x="820" y="{y}" width="150" height="30" rx="8" fill="{t["surface"]}" stroke="{t["line"]}"/>'
@@ -55,7 +58,7 @@ def banner(t: dict) -> str:
         for n, y in [("JSON", 64), ("CSV", 118), ("HAR", 172)])
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
   <title id="title">higgsfield-scraper (unofficial)</title>
-  <desc id="desc">Unofficial, reverse-engineered Scrapy scrapers for public Higgsfield.ai data: pricing, community, catalog, projects, blog, site (apps, academy, MCP), account, showcase; cost estimates, export to datasets, interactive menu.</desc>
+  <desc id="desc">Unofficial, reverse-engineered Scrapy scrapers for public Higgsfield.ai data, 10 scrapers: pricing, community, catalog, projects, blog, site (apps, academy, MCP), showcase, studios (marketplaces, studio galleries), models (JS model registry), account; cost estimates, export to datasets, cross-run dedupe, interactive menu.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <path d="M32 0H0V32" fill="none" stroke="{t["grid"]}" stroke-opacity="{t["grid_op"]}" stroke-width="1"/>
@@ -74,11 +77,11 @@ def banner(t: dict) -> str:
   <text x="123" y="62" text-anchor="middle" font-family="{MONO}" font-size="12" font-weight="600" letter-spacing="1.5" fill="{t["pink"]}">UNOFFICIAL</text>
   <text x="196" y="62" font-family="{MONO}" font-size="12" letter-spacing="1" fill="{t["muted"]}">REVERSE-ENGINEERED · SCRAPY · PYDANTIC</text>
 
-  <text x="62" y="140" font-family="{SANS}" font-size="66" font-weight="800" letter-spacing="-2" fill="{t["text"]}">higgsfield<tspan fill="{t["lime_text"]}">-scraper</tspan></text>
-  <text x="64" y="184" font-family="{SANS}" font-size="22" fill="{t["sub"]}">Every public Higgsfield.ai dataset — validated, organized, exported.</text>
-  <rect x="64" y="200" width="64" height="4" rx="2" fill="{t["lime"]}"/>
+  <text x="62" y="132" font-family="{SANS}" font-size="66" font-weight="800" letter-spacing="-2" fill="{t["text"]}">higgsfield<tspan fill="{t["lime_text"]}">-scraper</tspan></text>
+  <text x="64" y="172" font-family="{SANS}" font-size="22" fill="{t["sub"]}">Every public Higgsfield.ai dataset — validated, organized, exported.</text>
+  <rect x="64" y="184" width="64" height="4" rx="2" fill="{t["lime"]}"/>
   {"".join(pills)}
-  <text x="64" y="294" font-family="{MONO}" font-size="14" fill="{t["muted"]}"><tspan fill="{t["lime_text"]}">$</tspan> python -m higgsfield_scraper menu<tspan dx="18" fill="{t["muted"]}"># or: scrape &lt;scraper&gt; · export · diff</tspan></text>
+  <text x="64" y="298" font-family="{MONO}" font-size="14" fill="{t["muted"]}"><tspan fill="{t["lime_text"]}">$</tspan> python -m higgsfield_scraper menu<tspan dx="18" fill="{t["muted"]}"># or: scrape &lt;scraper&gt; · export · diff</tspan></text>
 
   {flow}
   <circle cx="1084" cy="133" r="17" fill="{t["lime"]}"/>
@@ -143,7 +146,7 @@ def architecture() -> str:
     add(f'<text x="32" y="44" font-family="{SANS}" font-size="22" font-weight="800" fill="{t["text"]}">higgsfield-scraper '
         f'<tspan fill="{t["lime"]}">·</tspan> container view of one run</text>')
     add(f'<text x="34" y="66" font-family="{SANS}" font-size="13" fill="{t["muted"]}">Data flows left → right. '
-        f'Numbers give the order of events. Same machinery for all 8 scrapers; the export command then turns finished runs into dataset folders.</text>')
+        f'Numbers give the order of events. Same machinery for all 10 scrapers; the export command then turns finished runs into dataset folders.</text>')
 
     # lanes (trust boundaries)
     lane(20, 270, "HIGGSFIELD", "external systems (read-only)")
@@ -151,9 +154,10 @@ def architecture() -> str:
     lane(972, 288, "LOCAL DISK", "runs/&lt;timestamp&gt;_&lt;label&gt;/")
 
     # external
-    box(36, 136, 238, 92, "fnf-api-gw · cms.higgsfield.ai", ["plans · costs · publications ·", "folders · community · CMS lists"], core=True)
+    box(36, 136, 238, 92, "fnf-api-gw · cms.higgsfield.ai", ["plans · costs · publications ·", "folders · community · CMS lists",
+                                                                 "marketplaces · academy"], core=True)
     box(36, 244, 238, 74, "pricing.higgsfield.ai", ["pricing-config (marketing copy)"])
-    box(36, 334, 238, 74, "higgsfield.ai", ["pages · sitemaps · docs · examples"])
+    box(36, 334, 238, 74, "higgsfield.ai", ["pages · sitemaps · examples", "JS bundle (model registry)"])
     box(36, 424, 238, 92, "Clerk auth", ["login once (emailed code)", "→ fresh 60 s tokens"], optional=True)
     box(36, 532, 238, 74, "Media CDN", ["images · videos (opt-in)"], optional=True)
 
@@ -233,11 +237,82 @@ def architecture() -> str:
     return "\n".join(o) + "\n"
 
 
+# Scraper overview cards: (name, tag, three short lines). Tags: default · public · opt-in · login.
+CARDS = [
+    ("pricing", "default", ["plans · offers · renewals", "credit cost of every model", "benefits · compare · copy"]),
+    ("community", "public", ["gallery generations + prompts", "shots · posts · creators", "comments · cost estimate"]),
+    ("catalog", "public", ["motions · avatars · voices", "styles · viral presets", "chain · restyle · outfits"]),
+    ("projects", "public", ["films · contests · entries", "assets · briefs · comments", "trending · user works"]),
+    ("blog", "public", ["blog · talent posts", "help centers · case studies", "changelog (full text)"]),
+    ("site", "public", ["apps · academy (+ JSON API)", "MCP skills · original series", "landings · rooms · promos"]),
+    ("showcase", "public", ["Canvas · Editing Room", "video explore · effects", "reels · main feed · API docs"]),
+    ("studios", "opt-in", ["apps · games · skills", "AI employees · playable ads", "studio galleries + comments"]),
+    ("models", "opt-in", ["JS model registry per build", "params · enums · limits", "gating · plans · costs"]),
+    ("account", "login", ["your plan · balances", "your jobs + real credits", "estimate vs actual"]),
+]
+CARD_FONT = 12.5
+
+
+def text_width(s: str, size: float, mono: bool = False) -> float:
+    """Rough advance width: mono 0.62 em, sans (Inter/Segoe) ≈ 0.56 em average for this text."""
+    return len(s) * size * (0.62 if mono else 0.56)
+
+
+def scrapers_overview() -> str:
+    """The 10 scrapers as cards in two rows (dark theme), with what each collects and the tools that follow."""
+    t = THEMES["dark"]
+    W, PAD, GAP, CW, CH = 1280, 32, 16, 230, 124
+    tag_col = {"default": t["lime"], "public": t["sub"], "opt-in": t["cyan"], "login": t["pink"]}
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="490" viewBox="0 0 {W} 490" role="img" aria-labelledby="st sd">',
+         '<title id="st">higgsfield-scraper — the 10 scrapers</title>',
+         '<desc id="sd">Ten scrapers and what each collects: ' + "; ".join(f"{n} ({g}): {', '.join(ls)}" for n, g, ls in CARDS)
+         + '. Then export, merge_generations, diff and the interactive menu.</desc>',
+         f'<rect width="{W}" height="490" rx="18" fill="{t["bg"]}"/>',
+         f'<text x="{PAD}" y="44" font-family="{SANS}" font-size="22" font-weight="800" fill="{t["text"]}">higgsfield-scraper '
+         f'<tspan fill="{t["lime"]}">·</tspan> 10 scrapers</text>',
+         f'<text x="{PAD + 2}" y="66" font-family="{SANS}" font-size="13" fill="{t["muted"]}">'
+         f'<tspan fill="{t["lime"]}">default</tspan> = what <tspan font-family="{MONO}">scrape</tspan> runs · '
+         f'<tspan fill="{t["sub"]}">public</tspan> = no login · <tspan fill="{t["cyan"]}">opt-in</tspan> = public, run by name · '
+         f'<tspan fill="{t["pink"]}">login</tspan> = your own account only. Every scraper has more opt-in options (CLI.md).</text>']
+    assert PAD * 2 + CW * 5 + GAP * 4 <= W
+    for i, (name, tag, lines) in enumerate(CARDS):
+        x = PAD + (i % 5) * (CW + GAP)
+        y = 88 + (i // 5) * (CH + GAP)
+        col = tag_col[tag]
+        o.append(f'<rect x="{x}" y="{y}" width="{CW}" height="{CH}" rx="12" fill="{t["surface"]}" '
+                 f'stroke="{t["lime"] if tag == "default" else t["line"]}" stroke-width="1.6"/>')
+        o.append(f'<text x="{x + 14}" y="{y + 28}" font-family="{MONO}" font-size="16" font-weight="700" fill="{t["text"]}">{name}</text>')
+        tw = text_width(tag, 11, mono=True) + 16
+        assert 14 + text_width(name, 16, mono=True) + 8 + tw <= CW - 10, f"{name}: name + tag overflow"
+        o.append(f'<rect x="{x + CW - 12 - tw}" y="{y + 12}" width="{tw}" height="22" rx="11" fill="none" stroke="{col}" stroke-width="1.2"/>')
+        o.append(f'<text x="{x + CW - 12 - tw / 2}" y="{y + 27}" text-anchor="middle" font-family="{MONO}" font-size="11" '
+                 f'fill="{col}">{tag}</text>')
+        for j, ln in enumerate(lines):
+            assert 14 + text_width(ln, CARD_FONT) <= CW - 12, f"{name}: line {ln!r} overflows the card"
+            o.append(f'<text x="{x + 14}" y="{y + 60 + j * 20}" font-family="{SANS}" font-size="{CARD_FONT}" fill="{t["sub"]}">{ln}</text>')
+    y = 88 + 2 * (CH + GAP) + 4
+    o.append(f'<rect x="{PAD}" y="{y}" width="{W - 2 * PAD}" height="94" rx="12" fill="{t["surface"]}" stroke="{t["cyan"]}" '
+             f'stroke-width="1.4" stroke-dasharray="6 5"/>')
+    o.append(f'<text x="{PAD + 16}" y="{y + 28}" font-family="{MONO}" font-size="12" font-weight="700" letter-spacing="1.5" '
+             f'fill="{t["lime"]}">THEN, ON THE RUN FOLDERS</text>')
+    tools = [("export", "tree · Hugging Face · WebDataset · JSONL"), ("merge_generations.py", "count + dedupe across runs"),
+             ("diff · crosscheck", "pricing changes · vs pricing.md"), ("menu", "interactive mode")]
+    tx = PAD + 16
+    for name, sub in tools:
+        o.append(f'<text x="{tx}" y="{y + 56}" font-family="{MONO}" font-size="14" font-weight="600" fill="{t["text"]}">{name}</text>')
+        o.append(f'<text x="{tx}" y="{y + 76}" font-family="{SANS}" font-size="12.5" fill="{t["sub"]}">{sub}</text>')
+        tx += 300
+        assert tx - 300 + max(text_width(name, 14, True), text_width(sub, 12.5)) <= W - PAD - 8, f"{name} overflows"
+    o.append("</svg>")
+    return "\n".join(o) + "\n"
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "banner-dark.svg").write_text(banner(THEMES["dark"]), encoding="utf-8")
     (OUT / "banner-light.svg").write_text(banner(THEMES["light"]), encoding="utf-8")
     (OUT / "architecture.svg").write_text(architecture(), encoding="utf-8")
+    (OUT / "scrapers.svg").write_text(scrapers_overview(), encoding="utf-8")
     old = OUT / "banner.svg"
     if old.exists():
         old.unlink()

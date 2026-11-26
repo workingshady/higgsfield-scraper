@@ -54,6 +54,11 @@ The scraper does **not** obey robots.txt by default (owner decision; `--obey-rob
 per run. It only calls the read-only GET endpoints listed below. The bundle also contains purchase, checkout and
 offer-mutation endpoints, and these must **never** be called (§8).
 
+**Terms of use.** Higgsfield's Terms of Use (higgsfield.ai/terms-of-use-agreement) §5.1(vi) prohibit automated
+scraping and §5.1(v) restrict reverse engineering; users own their inputs/outputs (§4). This project collects only
+public data with GET requests, no bot-protection bypass, and redacts personal data by default; running it is the
+operator's responsibility.
+
 ## 3. Tech-stack fingerprint
 
 | Layer | Finding | Evidence |
@@ -538,3 +543,49 @@ they hold real handles). GET only, ~1 req/s, anonymous first, then compared with
 * Implemented as opt-in flags of `scrape projects` (`--with-project-assets/-brief/-stats/-comments/-related`,
   `--contest`, `--contest-tabs`, `--users`). Full write-up, field map, ER model and the anonymous/logged-in table:
   [`scrapers/projects.md`](scrapers/projects.md#nested-data-model-opt-in-2026-11-26).
+
+## 18. Seventh round (2026-11-26): studios, models and the content-map gaps
+
+Build `548e0f3a`. GET only, anonymous, ~1 req/s; every source below answers identically with a session (a login adds
+no public data). Full write-ups: [`scrapers/studios.md`](scrapers/studios.md), [`scrapers/models.md`](scrapers/models.md),
+[`CONTENT_MAP.md`](CONTENT_MAP.md) §16, [`COMPLETENESS.md`](COMPLETENESS.md) §11.
+
+* **Two marketplace services.** Apps live on `GW/fnf-apps-marketplace` (`/api/v1/apps/community`, `/api/v1/apps/categories`);
+  games, skills and AI employees live on **`GW/fnf-skills-marketplace`** (`/api/v1/games/community`,
+  `/api/v1/skills/community`, `/api/v1/ai-agents/community`). The same games path on the apps base answers 401. The
+  bases come from service helpers in the router chunk (`Nxe` → apps, `Mxe` → skills). → `scrape studios`.
+* **Apps categories path.** The earlier 404 (`LOGIN_COVERAGE.md`) was `/api/v1/categories`, a wrong path; the app calls
+  `/api/v1/apps/categories` (8 categories, `?type=` optional).
+* **Studio galleries** are the ordinary community feeds filtered by model: `/marketing-studio-community` = approved
+  feed `model=marketing_studio_video` (SSR shows the same 33). Trending honours only the **last** `model` value
+  (approved sums them), so the scraper asks trending once per model. → `studios --what galleries`.
+* **CMS main feed** (`cms.higgsfield.ai/main-feed?lang&size=20&cursor`, chunk `uBUqSEKZIqX571QB`): the home
+  "Explore" feed of Genjutsu presets + playable-ad game rows; opaque cursor, no total, personalised per session
+  (`user_id` is only sent for a logged-in principal; never here). → `showcase --what main_feed` (by name only).
+* **Academy JSON API** on `GW/fnf-academy/api/v1/{categories,courses,courses/{slug},lessons/{id}}`, public. It was
+  listed as 401 because the first guess used the `fnf` gateway path (`fnf/api/v1/courses`), which answers 401 to any
+  path without a token. Adds `free_generations`, `test_count`, lesson MDX, `xp_reward`, subtitles. → `site --what
+  academy-api`.
+* **Trending projects** `GW/fnf/project-publications/trending?limit≤50&cursor&sort&filter&with_contest`: the only
+  project listing with a `total` (15,360–15,383 live). Enums from the 422 messages: `sort` = default, most_viewed,
+  most_liked, newest, oldest; `filter` = all, non_contest, contest, talents_hub. → `projects --what trending`.
+  Contest counters/config: `/contest-participations/publications/counters`, `/config` (`contest_key` =
+  `ai_film_festival` | `talent_contest`) → `projects --what contest-participation`.
+* **User works** `GW/fnf/user/{user_id}/v2/publications?limit≤50&cursor` (no `publication_type` = all types: assets
+  with full job, projects, folders, contest submissions) and `/user/{user_id}/stats`. Public; used only for users
+  already found in a run, never enumerated. → `projects --with-user-works` (pseudonymous `creator_uid_key`).
+* **Outfits** `GW/fnf/outfits/characters` (chunk `sGxtyi5DXhlNSfix`): 2 model images, public →
+  `catalog --kinds outfit_character` (by name only).
+* **Feed hashtag categories** `fnf-community /feed/categories` + `/feed/ongoing` → `community --feeds feed-categories`.
+* **Cloudflare on `fnf /jobs/showcase/seedance-2-0`.** The crawler's GET got a Cloudflare "Just a moment" 403
+  (twice) while a bare GET passed. Not evaded: `community --feeds job-showcase` reads the public page
+  `/seedance-2-community` instead and takes the same JSON from its SSR state (`loaderData.seedanceMovies`).
+* **Model registry** has no API: `defineJob` schemas, route table, featured ids, flag gating, plan tiers and picker
+  menus are static code in the JS bundle. `scrape models` reads it without executing JS (regexes + bracket matching),
+  joins `/job-sets/costs` and the Shots `available_models` facet, and stores compact extracts instead of the ~20 MB of
+  JS per run. Known limits: settings spread from another module (`...y(j)`) are kept as a `...` param, not inlined.
+* **Identity across scrapers.** `core/privacy.py:creator_uid_key(<clerk id>)` = `make_id("creator", id)` (the
+  showcase/studios hash) is now on every record with an author (`creator_uid_key`), so one user has one key.
+* **Option design rule (from this round on):** existing `all` selections (`--what all`, `--feeds all`, `--kinds all`)
+  stay frozen, so their request plans are byte-identical before/after; new sources are selected by name only
+  (`main_feed`, `trending`, `contest-participation`, `academy-api`, `feed-categories`, `outfit_character`).

@@ -128,9 +128,9 @@ Value: **H**igh / **M**edium / **L**ow.
 | `GW/fnf-series/series?limit=100` / `…/series/{slug}` | 200 **anon** | `{items[35]{id, slug, name, short_description, full_description, author_type, state, is_series, portrait/landscape/background/logo/trailer, is_hero, display_order, categories[], cast[], tags[], vote_count, subscriber_count, engagement_score, episodes[{23 keys}], duration_seconds, …}}` | yes (`is_vote_triggered`/`is_notify_triggered` per-user) | — | M | `projects`: switch `SERIES`/`SERIES_DETAIL` to the `fnf-series` base and drop `LOGIN_ONLY` |
 | `GW/fnf-academy/api/v1/courses` | 200 **anon** | list[17] `{id, slug, title, description, lesson_count, test_count, has_certificate, difficulty, reading_minutes, duration_minutes, **free_generations**, categories[], preview_media, featured_position, published_at}` | yes | — | M | `site --what academy`: use this JSON for the course list (adds `free_generations` per course); `/api/v1/courses/{slug}` for detail |
 | `GW/fnf-cms-api/applications/explore?apps_per_category=20` | 200 **anon** | list[8] categories `{id, slug, name, description, icon, priority, apps[{9 keys}], seo_*}` | yes | — | L | `site --what apps` already gets this from HTML; optional JSON source |
-| `GW/fnf-apps-marketplace/api/v1/apps/community` | 200 **anon** | `{items[50]{id, app_id, user_id, author{3}, name, description, category, app_url, views/remixes/likes/dislikes_count, **credits_usage**, is_featured, is_higgsfield, type, published_at, …}, next_offset}` | yes | author (public creator) | M | new `site --what marketplace-apps` (or `catalog`): community-built apps with credit usage; redact authors like `community` |
+| `GW/fnf-apps-marketplace/api/v1/apps/community` | 200 **anon** | `{items[50]{id, app_id, user_id, author{3}, name, description, category, app_url, views/remixes/likes/dislikes_count, **credits_usage**, is_featured, is_higgsfield, type, published_at, …}, next_offset}` | yes | author (public creator) | M | new `site --what marketplace-apps` (or `catalog`): community-built apps with credit usage; redact authors like `community`. **Built 2026-11-26** as `scrape studios --what apps` |
 | `GW/fnf-apps-marketplace/api/v1/apps/personal` | 200 | `{apps: []}` | per-user | — | L | skip |
-| `GW/fnf-apps-marketplace/api/v1/categories` | 404 | — | — | — | — | path not on this base (unresolved) |
+| `GW/fnf-apps-marketplace/api/v1/categories` | 404 | — | — | — | — | **wrong path**: the app calls `GW/fnf-apps-marketplace/api/v1/apps/categories` (200 anon, `{items[{slug, label, description, position, app_types[]}]}`, 8 categories; `scrape studios --what apps`, docs/scrapers/studios.md §3) |
 | `GW/fnf-score/v1/season` | 200 | `null` (no active season for this account) | per-user progress | — | L | skip until a season exists; `/v1/season/weekly-canvas` 404 |
 | `GW/fnf/v2/quizzes/user` | 200 | `{quiz{usage_plan, experience, features[], creation_goals[], source, frustration, …}, enterprise_quiz_required}` | per-user | **yes** (onboarding answers) | L | skip. (`/v2/quizzes` itself is a POST) |
 
@@ -273,7 +273,9 @@ are marked "LOGIN ONLY"; they are public on `https://fnf-api-gw.higgsfield.ai/fn
 - Flags: per-user `__HF_FF` was **not** observed (would need a POST server function). `/user/features` and `/feature`
   are identical logged in and anonymous.
 - Service bases were found by probing likely prefixes; the minified wrapper functions that pick the base were not
-  resolved for `/api/v1/categories` (404 on `fnf-apps-marketplace`).
+  resolved for `/api/v1/categories` (404 on `fnf-apps-marketplace`). **Resolved 2026-11-26:** the correct path is
+  `/api/v1/apps/categories` (`X={community:'/api/v1/apps/community',categories:'/api/v1/apps/categories',…}` in the
+  apps chunk); games, skills and AI employees live on `fnf-skills-marketplace` (docs/scrapers/studios.md §3).
 - `country_code` (IP-derived) appears in plans and `/user/meta`; it is not recorded in any sample.
 
 ---
@@ -295,8 +297,8 @@ Field names sometimes differ from the §3 sketches; the scraper docs are authori
 | Restyle presets (§2.2) | **implemented** | `scrape catalog --kinds restyle_preset` |
 | Series via the public `fnf-series` base (§2.2, §4) | **implemented (opt-in)** | `scrape projects --what series --public-series` (+ `--with-details` for `/series/{slug}`). The default run keeps the legacy `/fnf/series` path so its output does not change; the `endpoints.py` comment now explains this (the §4 "code not changed" note is outdated) |
 | Doc corrections listed in §4 | **done** | `HIGGSFIELD_DATA_INVENTORY.md` §5/§8, `MODEL_LOADING.md` §2.1/§5/§6–§9, `COST_FORMULAS.md` §4/§5.1/§5.3/§5.4/§8, `PRICING.md` §6.1/§10, `REVERSE_ENGINEERING.md` §5.2/§9/§16 |
-| Academy course list from `fnf-academy/api/v1/courses` (adds `free_generations`) (§2.2) | open | `site --what academy` still reads the academy pages (SSR loader state) |
-| Community-built apps from `fnf-apps-marketplace/api/v1/apps/community` (`credits_usage`) (§2.2) | open | not scraped |
+| Academy course list from `fnf-academy/api/v1/courses` (adds `free_generations`) (§2.2) | **implemented (opt-in, 2026-11-26)** | `scrape site --what academy-api` (categories, courses with `free_generations` / `test_count`, lessons with MDX source); `site --what academy` still reads the pages, unchanged. [`scrapers/site.md`](scrapers/site.md) |
+| Community-built apps from `fnf-apps-marketplace/api/v1/apps/community` (`credits_usage`) (§2.2) | **implemented (opt-in, 2026-11-26)** | `scrape studios --what apps` (+ categories via `/api/v1/apps/categories`; games, skills, AI employees too). [`scrapers/studios.md`](scrapers/studios.md) |
 | `applications/explore` as a JSON source for `site --what apps` (§2.2) | open (optional) | `site` keeps the HTML source |
 | Discount fields `discount_percent_off` / `discount_duration*` flattened on plans (§3.1) | not done as sketched | plans keep the API's nested `discount` object |
 | Team / paid-account shapes (seat bonus, credit price, admin capabilities, unlimited grants, scoped credits) | open | needs a team or paid account; kept as scrubbed generic objects in `account` |

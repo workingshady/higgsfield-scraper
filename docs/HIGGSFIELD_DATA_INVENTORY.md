@@ -306,6 +306,13 @@ built, and the login audit's other recommendations are implemented as opt-in fla
 **Update 2026-11-26 (commit `de0f5b8`):** eight scrapers; new `showcase` scraper, nested project data, the Community
 pages, room content, the `export` command and the cross-run dedupe script (rows below). Every addition is opt-in and
 public (a session adds no public data on community, projects or showcase).
+**Update 2026-11-26 (commits `9039a3f`, `d994459`):** ten scrapers; new opt-in `studios` (apps / games / skills /
+AI-employees marketplaces, Playable Ads presets, AI Influencer options, per-studio galleries + comments) and `models`
+(model registry from the public JS bundle + `/job-sets/costs` + the Shots facet). The apps-marketplace gap is closed,
+and the content-map gaps are covered by opt-in options ([`CONTENT_MAP.md`](CONTENT_MAP.md) §16): `showcase --what
+main_feed`, `projects --what trending,contest-participation`, `projects --with-user-works`, `community --feeds
+feed-categories,music-cards,job-showcase,collections,explore-cards`, `catalog --kinds outfit_character`, `site --what
+academy-api`. Every record with an author gains `creator_uid_key` (one pseudonymous key per user).
 
 | Scraper | Status | Docs |
 |---|---|---|
@@ -322,7 +329,10 @@ public (a session adds no public data on community, projects or showcase).
 | Community rooms | ✅ built (opt-in): `site --what room-list` (88 rooms + room-stats), `--what room-content` (+ works and discussion posts) | [`COMMUNITY_COVERAGE.md`](COMMUNITY_COVERAGE.md), [`scrapers/site.md`](scrapers/site.md) |
 | `export` command | ✅ built: run folders → tree / Hugging Face / WebDataset / JSONL, deduped, read-only | [`EXPORT.md`](EXPORT.md) |
 | Dedupe / count generations | ✅ built: `scripts/merge_generations.py` (one row per generation across runs; `--compare` for likes/views deltas) | [`scrapers/showcase.md`](scrapers/showcase.md#8-dedupe-scriptsmerge_generationspy), [`ENGAGEMENT.md`](ENGAGEMENT.md) |
-| Community apps marketplace (`fnf-apps-marketplace/api/v1/apps/community`) | ⏳ **gap**: public, with views / likes / dislikes / remixes / credits spent, but collected by no scraper | [`ENGAGEMENT.md`](ENGAGEMENT.md) §11 |
+| Community apps marketplace (`fnf-apps-marketplace/api/v1/apps/community`) | ✅ **closed 2026-11-26**: `scrape studios --what apps` (views / likes / dislikes / remixes / credits spent, `--apps-sort`; categories from `/api/v1/apps/categories`) | [`scrapers/studios.md`](scrapers/studios.md), [`ENGAGEMENT.md`](ENGAGEMENT.md) §11 |
+| `studios` | ✅ built (2026-11-26, opt-in): apps (~59.6k) + categories, games (1,299), skills (632), AI employees (296), Playable Ads presets (112), AI Influencer options (143), published outputs of every studio (`--what galleries`, + `--with-comments`) | [`scrapers/studios.md`](scrapers/studios.md) |
+| `models` | ✅ built (2026-11-26, opt-in): `defineJob` registry (~130 job types: params schema, enums, ranges, media roles), route table, featured order, flag gating, plan tiers, picker menus, joined with `/job-sets/costs` and the Shots `available_models` facet; build id per run | [`scrapers/models.md`](scrapers/models.md) |
+| Content-map gaps | ✅ built (2026-11-26, opt-in): `showcase --what main_feed` / `reels_presets,reels_comments`, `projects --what trending,contest-participation` + `--with-user-works`, `community --feeds feed-categories,music-cards,job-showcase,collections,explore-cards`, `catalog --kinds outfit_character`, `site --what academy-api` | [`CONTENT_MAP.md`](CONTENT_MAP.md), [`COMPLETENESS.md`](COMPLETENESS.md) |
 | effects pages | ✅ example generations now in `showcase --what effect_examples`; the presets themselves stay in `catalog` (viral presets) | [`scrapers/showcase.md`](scrapers/showcase.md), [`scrapers/site.md`](scrapers/site.md) |
 | `/feature`, `/user/meta`, `/user/features`, `/youtube-faceless/hot-right-now`, `/contests/trending` | ➖ not built: flags / empty | [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) §14 |
 
@@ -347,6 +357,10 @@ CSVs, and `normalize`.
 | — | pricing: `pricing.md` cross-check | official US markdown vs `ps_a3` | — | Easy | |
 
 **Suggested order:** community → presets → projects/contests → blog → help center → site crawler.
+
+**Status 2026-11-26:** every item of this plan is built (`presets` became `catalog`, `helpcenter` went into `blog`),
+plus `showcase`, `studios` and `models`. The next build items now come from [`CONTENT_MAP.md`](CONTENT_MAP.md) §16
+(all done as of 2026-11-26) and the backlog in `.claude/docs/higgsfield-re-checkpoint.md`.
 
 ## 9. robots.txt status (for reference; the scraper doesn't obey it by default)
 - `fnf-api-gw.higgsfield.ai` (all APIs above): **no robots.txt**.
