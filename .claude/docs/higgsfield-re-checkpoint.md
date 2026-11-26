@@ -8,12 +8,12 @@
 | Last updated | **2026-11-26** |
 | Machine state file | [`.claude/re-state.json`](../re-state.json) (written by `re_check_changes.py --save`) |
 | Frontend build | `548e0f3a` (buildId `45776133266-1-production`, commit `7b1a78f4…`); previous `8a801a77` (2026-11-25) |
-| `/job-sets/costs` version | `0cee321863e207292a9facc5db75a99be4f292b03865ace9c025bd229f9b8f77` |
+| `/job-sets/costs` version | `0cee321863e207292a9facc5db75a99be4f292b03865ace9c025bd229f9b8f77` (anonymous); logged in `9048fa70…` (88 types, + `magi_2`) |
 | Job set types priced | **87** (incl. `scene_switch`, priced but no frontend code) |
 | Public `__HF_FF` flags | **empty** for the anonymous request on 2026-11-26 (an earlier crawl of `/ai/video` got 23; `f_24c5dcf4` Seedance 2.5 Flash on, `f_3a0922bf` Kling 4.0 Flash on, `f_6a87092e` Wan 4.0 off) |
 | Pricing baseline | `runs/20261126-100141_pricing-baseline-v3` (31 files; `scripts/check_pricing_identity.py`) |
-| Tests | **313 passed, 1 skipped** (`.venv\Scripts\python -m pytest -q`, 2026-11-26; includes the in-progress catalog/community changes) |
-| Scrapers | `pricing`, `community`, `catalog`, `projects`, `blog`, `site` |
+| Tests | **370 passed, 1 skipped** (`.venv\Scripts\python -m pytest -q`, 2026-11-26, after commit `fc9eda3`) |
+| Scrapers | `pricing`, `community`, `catalog`, `projects`, `blog`, `site`, `account` (opt-in, login required) |
 
 ---
 
@@ -23,11 +23,17 @@
 |---|---|---|---|---|
 | Pricing (plans, compare, benefits, costs, marketing, `pricing.md`) | done | `pricing` | [`PRICING.md`](../../docs/PRICING.md), [`ENDPOINTS.md`](../../docs/ENDPOINTS.md), [`ENDPOINT_FIELDS.md`](../../docs/ENDPOINT_FIELDS.md) | 2026-11-26 |
 | Login-only pricing (packages, unlim-catalog, adjustable credits, credit-price) | done for a personal account; `credit-price` 500 without a team | `pricing --sections all,auth` | [`PRICING.md`](../../docs/PRICING.md) §10 | 2026-11-26 |
+| Logged-in price rows (`lite` annual plan, `magi_2` cost row) | done (opt-in; anonymous rows unchanged, extra rows `visibility="logged_in"`, both costs versions in `meta.logged_in_prices`) | `pricing --logged-in-prices` | [`PRICING.md`](../../docs/PRICING.md) §10, [`CLI.md`](../../CLI.md) | 2026-11-26 |
+| Account pricing state (wallet, subscription, auto top-up, free gens, generation seconds + packs, bundle status) | done (opt-in, whitelisted, never in `all`) | `pricing --sections account` | [`CLI.md`](../../CLI.md), [`ENDPOINTS.md`](../../docs/ENDPOINTS.md) | 2026-11-26 |
+| Account scraper (snapshot, own jobs with real `cost`, estimate vs actual) | done; `/jobs/accessible` Cloudflare-challenged for the crawler (recorded, not evaded), so `--compare-estimate` not run live | `account` | [`scrapers/account.md`](../../docs/scrapers/account.md) | 2026-11-26 |
+| Login audit (what a session unlocks) | **done** | — | [`LOGIN_COVERAGE.md`](../../docs/LOGIN_COVERAGE.md), [`REVERSE_ENGINEERING.md`](../../docs/REVERSE_ENGINEERING.md) §16 | 2026-11-26 |
 | Community generations | done | `community` | [`scrapers/community.md`](../../docs/scrapers/community.md), [`cost-estimate.md`](../../docs/scrapers/cost-estimate.md) | 2026-11-26 |
 | Community comments | done (public on `/fnf-community`; Community posts only, gallery items have none) | `community --with-comments` | `scrapers/community.md` | 2026-11-26 |
 | Catalogs (public) | done | `catalog` | [`scrapers/catalog.md`](../../docs/scrapers/catalog.md) | 2026-11-25 |
 | Catalogs opt-in `login` group | done (public on CMS / `fnf-cms-api`; color + camera need a login) | `catalog --kinds login` | `scrapers/catalog.md` | 2026-11-26 |
+| Catalog kinds `chain_preset` (credit prices), `notice`, `restyle_preset` | done (opt-in, public; `--include-hidden`, `--with-profiles`) | `catalog --kinds chain_preset,notice,restyle_preset` | `scrapers/catalog.md` | 2026-11-26 |
 | Projects, series, contests | done | `projects` | [`scrapers/projects.md`](../../docs/scrapers/projects.md) | 2026-11-25 |
+| Original series (public `fnf-series`) | done (opt-in; the default run keeps the legacy login-only path) | `projects --what series --public-series` | `scrapers/projects.md` | 2026-11-26 |
 | Blog, help centers, case studies, changelog, talent posts | done | `blog` | [`scrapers/blog.md`](../../docs/scrapers/blog.md) | 2026-11-25 |
 | Site pages (apps, academy, MCP, series, landings, promos) | done | `site` | [`scrapers/site.md`](../../docs/scrapers/site.md) | 2026-11-25 |
 | Model loading (registry, flags, `defineJob`, gating) | documented; no scraper | — (backlog 3) | [`MODEL_LOADING.md`](../../docs/MODEL_LOADING.md) | 2026-11-26 (build `548e0f3a`) |
@@ -43,8 +49,8 @@
 guessed from the JS (`fnf/soul-styles`, `fnf/<model>-motions`, `fnf/publications/{id}/comments`, …) returned **404**.
 The real paths (documented in `docs/scrapers/catalog.md` and `community.md`) live on other bases: CMS `https://cms.higgsfield.ai{path}?lang=`, `fnf-api-gw…/fnf-cms-api{path}`
 (katana), and `fnf-api-gw…/fnf-community` (posts + comments). Most of them turn out to be **public**. Only
-`/color-presets` and `/camera-settings` really need a session. When that work lands, mark these rows done and update
-`HIGGSFIELD_DATA_INVENTORY.md` §5 and `REVERSE_ENGINEERING.md` (they still list these paths as login-only).
+`/color-presets` and `/camera-settings` really need a session. `HIGGSFIELD_DATA_INVENTORY.md` §5, `MODEL_LOADING.md`
+§6–§8 and `REVERSE_ENGINEERING.md` §16 were updated after the login audit (`LOGIN_COVERAGE.md` §4 corrections).
 
 ## 2. Key findings
 
@@ -75,11 +81,24 @@ The real paths (documented in `docs/scrapers/catalog.md` and `community.md`) liv
 25. Editing Room is an AI re-shoot editor (4 `videoshop_*` types, server-side render, FCP7 export); public examples give real preset ids. → [EDITING_ROOM §1](../../docs/products/EDITING_ROOM.md#1-tldr)
 26. Property Studio is a server-side agent pipeline with review gates; no cost rows, 1500–2000 credit UI estimate. → [PROPERTY_STUDIO §1](../../docs/products/PROPERTY_STUDIO.md#1-tldr)
 27. Our estimator disagrees with the JS formulas in 19 documented cases. → [COST_FORMULAS §8](../../docs/COST_FORMULAS.md#8-our-estimator-vs-the-js-formulas)
+28. **Logged in sees more prices:** `/subscriptions/v2/plans` (ps_a3) has 15 plans instead of 14 (+ `lite` annual,
+    $12/year, 85 % off forever) and `/job-sets/costs` 88 rows instead of 87 (+ `magi_2`, 1080p 2.5 credits/s) with
+    another `version` (`9048fa70…` vs `0cee3218…`). The shared rows are identical; `hf-workspace-id` changes nothing.
+    → [LOGIN_COVERAGE §1](../../docs/LOGIN_COVERAGE.md#1-tldr)
+29. **Gateway rule:** `fnf-api-gw…/fnf/` answers 401 for *any* path without a token (auth before routing) and 404 for
+    unknown paths with one, so 401 ≠ login-only. 14 service prefixes (`fnf-cms-api`, `fnf-series`, `fnf-academy`,
+    `fnf-community`, `fnf-score`, …) host the real paths; most "login-only" catalogs are public there.
+    → [REVERSE_ENGINEERING §16](../../docs/REVERSE_ENGINEERING.md#16-fifth-round-2026-11-26-login-audit)
+30. What a session really adds: those price rows, the account's own money state (wallet balances in cost units ×100,
+    `credits_per_dollar` 18) and its own library (`/jobs/accessible` with the actual charged `cost`).
+    → [LOGIN_COVERAGE §1](../../docs/LOGIN_COVERAGE.md#1-tldr), [scrapers/account.md](../../docs/scrapers/account.md)
 
 ## 3. Open questions / unknowns
 
 **Pricing and credits**
-- Real charged credits vs the client formula (no real charge observed). → COST_FORMULAS §9
+- Real charged credits vs the client formula: the `account --with-jobs --compare-estimate` tooling exists, but
+  Cloudflare challenges `/jobs/accessible` for the Scrapy crawl (`403 cf-mitigated: challenge`, 2026-11-26) while a
+  single plain GET passed. Not evaded; wait and retry later, or check whether the challenge persists. → COST_FORMULAS §8, `scrapers/account.md`
 - Generation-seconds deduction, balance order across wallets, refund rules. → COST_FORMULAS §5, §9
 - `/workspaces/credit-price` on a team workspace (500 on a personal account). → PRICING §10
 - Prices for other countries (needs a real request from that country; not spoofed).
@@ -104,14 +123,24 @@ The real paths (documented in `docs/scrapers/catalog.md` and `community.md`) liv
 - Property Studio LLM, image/video models and prompts (server-side); `exploded_view` unreleased (inferred). → PROPERTY_STUDIO §11
 
 **Login-only data**
-- Remaining login-only endpoints (account, workspaces, notices, presets, social): audited in `docs/LOGIN_COVERAGE.md`. → `docs/scrapers/catalog.md`, `community.md`
-- `/notices`, `/workspaces/settings`, `/job-set-chain-presets`, `/mixed-media/configs`, `/restyle/presets`: known 401 anonymously, not yet called with a session. → MODEL_LOADING §6
+- Login-only endpoints (account, workspaces, notices, presets, social): **audited** in `docs/LOGIN_COVERAGE.md`
+  (`/notices`, chain presets, restyle presets are public on `fnf-cms-api`; `/workspaces/settings` = `{configs: []}`;
+  `/mixed-media/configs` = the user's own configs).
+- Is the `lite` annual plan offered to every logged-in user or only to a cohort (free / low-cohort accounts)? One
+  account tested; `/user` and `/user/meta` expose a `cohort` label (likely selector, inferred). → LOGIN_COVERAGE §1, §5
+- Per-user `__HF_FF` flags: not readable with GET (SSR ignores a bare `__session` cookie); the refresh is a POST
+  TanStack server function, which is out of bounds. → MODEL_LOADING §7
+- Team / paid accounts: seat bonus, credit price, admin capabilities, auto top-up, unlimited grants, scoped credits
+  (only a free personal workspace was tested). → LOGIN_COVERAGE §5
 
 ## 4. Prioritized backlog
 
 | # | Item | Next steps | Docs to update |
 |---|---|---|---|
-| 1 | ~~Verify and finish the login catalogs and comments~~ **done 2026-11-26**. Next: implement the `LOGIN_COVERAGE.md` recommendations as opt-in options | When it lands: re-run `catalog --kinds login --max-pages 1` and `community --with-comments --max-items 5` with a session; confirm public vs session-required by byte comparison; then probe the other 401 paths (`/notices`, `/workspaces/settings`, `/job-set-chain-presets`, `/restyle/presets`, `/mixed-media/configs`) with the session and the correct base | `HIGGSFIELD_DATA_INVENTORY.md` §5, `REVERSE_ENGINEERING.md` (new round), this checkpoint |
+| 1 | ~~Verify and finish the login catalogs and comments~~ **done 2026-11-26**. ~~Login audit and its recommendations as opt-in options~~ **done 2026-11-26** (`--logged-in-prices`, `--sections account`, `scrape account`, `catalog --kinds chain_preset,notice,restyle_preset`, `projects --public-series`; see [LOGIN_COVERAGE "Implementation status"](../../docs/LOGIN_COVERAGE.md#implementation-status)). Still open from the audit: `site --what academy` from the `fnf-academy` JSON, marketplace community apps | — | `LOGIN_COVERAGE.md`, `scrapers/site.md` |
+| 1a | **Estimator vs actual charges** (blocked) | `scrape account --with-jobs --compare-estimate --max-items 20` once `/jobs/accessible` is no longer Cloudflare-challenged for the crawler; never evade the challenge. Then feed mismatches into backlog 2 | COST_FORMULAS §8, `scrapers/account.md` |
+| 1b | **`normalize` of `runs/20261125-131446_projects-smoke` fails** with a `listing` validation error (pre-existing, not caused by the 2026-11-26 changes) | Reproduce with `normalize --run runs/20261125-131446_projects-smoke`; fix the projects schema/parser so old raw data re-parses; add a test | `scrapers/projects.md` |
+| 1c | **Schema export of `catalog` uses the old `CatalogDataset`** | `ScraperDef.dataset_model` in `scrapers/catalog/__init__.py` is `CatalogDataset`, so `python -m higgsfield_scraper schema` omits the opt-in collections; the per-run schema already switches to `CatalogDatasetFull` when one is selected | `scrapers/catalog.md` |
 | 2 | **Fix the cost estimator's 19 differences** from the JS formulas | Work through [COST_FORMULAS §8](../../docs/COST_FORMULAS.md#8-our-estimator-vs-the-js-formulas): `ceil` per generation, `params.model == "video_edit"` + source length, per-family batch rules, JS default durations, viral `ceil(units/100)`, `scene_switch` add-on costs in `parsers/costs.py`; one test per case. Pricing output may change → baseline procedure | COST_FORMULAS §8, `scrapers/cost-estimate.md`, baseline |
 | 3 | **`models` registry scraper** (JS registry + costs + flags) | Design in [MODEL_LOADING §8](../../docs/MODEL_LOADING.md#8-what-we-can-and-cant-scrape): fetch tool pages → chunk graph → regex `defineJob`, routes, gating, featured ids, plan tiers → join on `job_set_type` with `/job-sets/costs` + `__HF_FF`; store the build id; fixtures = a few saved chunks | new `docs/scrapers/models.md`, ADDING_A_SCRAPER flow |
 | 4 | **Monitor costs version / new job types** (e.g. `scene_switch`) | Schedule `re_check_changes.py` daily (or wrap it in a `monitor` command); on change run `pricing` + `diff`; document new types | this checkpoint changelog, PRODUCTS §5 |
@@ -142,4 +171,5 @@ Smaller ideas: viral-preset price-matrix flattening (MODEL_LOADING §8 #4); Edit
 
 | Date | Build | Costs version | What changed |
 |---|---|---|---|
+| 2026-11-26 | `548e0f3a` | anonymous `0cee3218…` (87 types) / logged in `9048fa70…` (88, + `magi_2`) | Login audit (`LOGIN_COVERAGE.md`, REVERSE_ENGINEERING §16). Commit `fc9eda3`: `pricing --logged-in-prices` and `--sections account`, new `account` scraper (7 scrapers), `catalog --kinds chain_preset,notice,restyle_preset` (+ `--include-hidden`, `--with-profiles`), `projects --public-series`. `/jobs/accessible` Cloudflare-challenged for the crawler (not evaded). Docs updated for the audit corrections. Tests 370 passed, 1 skipped |
 | 2026-11-26 | `548e0f3a` | `0cee3218…` (87 types) | First checkpoint. Pricing (incl. login-only, baseline v3), 6 scrapers, model loading, products, cost formulas, jobs/storage, Editing Room, Property Studio documented. Catalog/community login endpoints fixed (public bases). Anonymous `__HF_FF` empty |

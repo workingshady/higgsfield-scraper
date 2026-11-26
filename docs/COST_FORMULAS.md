@@ -276,7 +276,7 @@ re-runs and Canvas nodes.
 | `grok_video_v15_lite` | `d × cps[res]` |
 | `grok_video` / `grok_video_edit` | `ceil(d × 1.5)` / `ceil(min(src, 8) × 2)` |
 | `happy_horse_video` | `ceil(d × cps[res]) × max(1,b)` |
-| `magi_2` | `ceil₀.₀₁(ceil₀.₀₁(base_credits + d × cps[1080p]) × b)` (no costs row today → `null`, server-priced; unlimited never applies) |
+| `magi_2` | `ceil₀.₀₁(ceil₀.₀₁(base_credits + d × cps[1080p]) × b)` (unlimited never applies). **Anonymously** `/job-sets/costs` has no `magi_2` row → `null`, server-priced. **Logged in** (audit 2026-11-26, [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) §1) the row exists: `1080p: base_credits 0, cost_per_second 2.5` → e.g. 5 s = 12.5 credits. `scrape pricing --logged-in-prices` adds it with `visibility: "logged_in"` |
 | `flux_3_video` | `d × cps[res][with/without video]` (static fallback `{720p:{5.5,13},1080p:{9,17},2k:7,4k:13}` is stale; live 6/8/10/13) |
 | `seedance_2_0`, `_fast` | `ceil(d × cps[model][res]) × b` (default `d=4`) |
 | `seedance_2_0_mini`, `seedance_mini_unlimited` | `ceil(d × {480p:1,720p:2.5}) × b` (live mini .5/1, discounted) |
@@ -437,8 +437,11 @@ types (−67 %), `gpt_image_2_5` (many rows), `seedream_v5_pro` and `3d_jutsu_an
   (`HlGaE28…`): `h({modelVersion,isUnlimited,isUseFreeGens,isUseGenerationSeconds})` → Flash-type models
   (`tY`: Wan Flash ids, `grok_video_v15_lite`, `genjutsu-flash`, `kling_4_0_flash`) get **no** unlimited, free gens or
   generation seconds; `seedance_2_5_flash` (`XJ`) gets unlimited only.
-- **Coverage check** (`Bu6Xbu7ZDQajrDWS.js`): a grant from `GET /workspaces/settings` (`unlimited_settings[]`,
-  login) covers a generation iff the type matches, the time window is active (`start_date`, `end_date`,
+- **Grant source:** `GET /workspaces/settings` (login) returns `{configs: [...]}` on the wire (`{configs: []}` for
+  the audited free personal account). The client maps `configs` → `unlimited_settings` and drops grants with
+  `status == "locked"` (`548e0f3a-tCLaulKUdGQfxqgZ.js`, `Lj`/`eM`; [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) §2.1).
+  The `account` scraper does the same (`unlimited_grants`).
+- **Coverage check** (`Bu6Xbu7ZDQajrDWS.js`): a grant from `unlimited_settings[]` covers a generation iff the type matches, the time window is active (`start_date`, `end_date`,
   `team_end_date` for shared workspaces), every requested option is in the grant's lists (`models`, `modes`,
   `resolutions`, `qualities`, `output_formats`, `dynamic_ranges`, `durations`), `duration ≤ max_duration`, **and
   `batch_size ≤ 1`**:
@@ -481,8 +484,16 @@ types (−67 %), `gpt_image_2_5` (many rows), `seedream_v5_pro` and `3d_jutsu_an
 - `use_free_daily_credits` (free plan "limited daily credits") is sent for Wan 2.5, Veo 3.1 and the legacy envelopes.
 - Wallet (`2B_Cs0zHIGw5q2ts.js`): `subscription_balance`, `total_credits`, `credits_balance`, `on_demand_credits`
   (top-ups), `bonus_credits` + `bonus_credits_expire_at`, `scoped_credits[{scope: mcp|supercomputer|playable_ads|
-  micro_drama_ads, balance/100, expires_at}]` (scoped balances are stored in cost units), `group_credit_allocation`
-  (team seats), `allocation_cycle`. Which balance is spent first is server-side (unknown).
+  micro_drama_ads, balance/100, expires_at}]`, `group_credit_allocation` (team seats), `allocation_cycle`. Which
+  balance is spent first is server-side (unknown).
+- **Confirmed live** (`GET /workspaces/wallet`, login audit 2026-11-26, [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md)
+  §2.1): the fields above plus `workspace_id`, `expire_days`, `credit_limit`, `next_credit_allocation_date` and
+  `wallet_created_at`. **All** wallet balances are in cost units (credits × 100), not only `scoped_credits`:
+  `credits_balance 888` = 8.88 credits. `GET /user` reports the same balances in **credits** (floats:
+  `subscription_credits`, `package_credits`, `bonus_credits`, `daily_credits`, `total_plan_credits`) plus legacy
+  per-model buckets (`soul_credits`, `wan2_5_video_credits`, `text2keyframes_credits`, `face_swap_credits`,
+  `qwen_camera_control_credits`, `character_swap_credits`). A job's charged `cost` in `/jobs/accessible` is in cost
+  units too (`112` = 1.12 credits, matching the drop in `/user.package_credits`).
 - Workspaces: costs are fetched with the workspace id; team plans allocate credits per seat; `hf-workspace-id` is
   sent on jobs; shared workspaces handle `not_enough_credits` by notifying the owner.
 
@@ -493,7 +504,12 @@ There is no client-side balance comparison in the generation path. The server re
 `minimum_pro_plan_required`, …), and the error handler opens the top-up/upgrade modal; in a shared workspace it
 shows the owner/credits dialog instead (`if(v===\`not_enough_credits\`){…return C===\`shared\`?(Ao(e),…):((0,c.p)(),…)}`).
 Auto top-up exists (`/workspaces/wallet/auto-top-up`, `…/dry-run`); package sizes and prices are server-driven
-(slider "boost credits" in `ZGItCEvS…`) and not public.
+(slider "boost credits" in `ZGItCEvS…`) and not public. Login audit 2026-11-26 ([`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md)
+§2.1): `/workspaces/wallet/auto-top-up` is **team-only** (409 `workspace_is_not_shared` on a personal workspace);
+personal accounts read `GET /v2/auto-top-ups/settings` instead: `{state, is_eligible, is_on_demand_only, threshold,
+refill_options[], options[], selected_option, default_option, credits_per_dollar: 18, current_refill_amount,
+on_demand_credits, modal_type, currency: "usd", expire_days: 90}`. `credits_per_dollar` (18) looks global
+(**inferred**: one account seen). Recorded by `scrape pricing --sections account` and `scrape account`.
 
 ### 5.5 Refunds
 
@@ -683,6 +699,12 @@ against the formulas above by feeding the same params to `CostEstimator.estimate
 | 17 | Models with static JS prices (Veo, Sora, Nano Banana 2, Soul, lipsync, Kling 2.6, MiniMax H3/Hailuo, Flux 2, Seedream v4.5 …) | `unpriced` or compare-table fallback | static tables (§4) | no JS-table fallback in the estimator |
 | 18 | Unlimited with `batch_size > 1` | note only | never unlimited | `use_unlim` note ignores the batch rule |
 | 19 | GPT Image missing combination | `unpriced`/`approximate` | high/2k row | JS fallback row |
+
+**Validation against real charges.** `scrape account --with-jobs --compare-estimate` (login required,
+[`scrapers/account.md`](scrapers/account.md)) runs this estimator on the params of the account's own jobs and
+compares the result with the `cost` the server actually charged (`match` = |diff| ≤ 0.01 credits). It could not be
+run live yet: as of 2026-11-26 Cloudflare challenges `/jobs/accessible` for the Scrapy crawl (`403 cf-mitigated:
+challenge`; recorded, not evaded), so it is covered only by offline tests on synthetic fixtures.
 
 Agreements: Seedance 2.5 generate/extend at integer products, `with_video` detection, Kling 3.0 mode × sound,
 GPT Image / Nano Banana 2.1 / Seedream / Recraft / Ideogram per-image prices, ElevenLabs block pricing, `original_*`

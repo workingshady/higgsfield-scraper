@@ -21,6 +21,8 @@ GitHub shows this page when you open the `docs/` folder.
 | Understand **jobs, IDs, storage, the generation lifecycle** | [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) |
 | Look at **everything Higgsfield has** (features, routes, APIs) | [`HIGGSFIELD_DATA_INVENTORY.md`](HIGGSFIELD_DATA_INVENTORY.md) |
 | Scrape community, catalogs, contests, blog or site pages | [`scrapers/`](#3-scrapers-one-guide-each) |
+| See what logging in adds (extra price rows, your own account data) | [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md), then [`scrapers/account.md`](scrapers/account.md) |
+| Record **your own** balances and jobs (real charged credits) | [`scrapers/account.md`](scrapers/account.md) |
 | Add a new scraper | [`ADDING_A_SCRAPER.md`](ADDING_A_SCRAPER.md) |
 | See how something was discovered (evidence) | [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) |
 | Continue the reverse engineering where it stopped | [`../.claude/docs/higgsfield-re-checkpoint.md`](../.claude/docs/higgsfield-re-checkpoint.md), then the [playbook](../.claude/docs/higgsfield-re-playbook.md) ([§10](#10-for-contributors--claude-claude)) |
@@ -31,18 +33,18 @@ GitHub shows this page when you open the `docs/` folder.
 
 | Doc | Contains | Lines |
 |---|---|---:|
-| 🧭 [`../README.md`](../README.md) | Overview of the 6 scrapers, setup, quick start, interactive menu, login, options summary, run-folder layout, logging, privacy, architecture, contributing | 330 |
-| 🧭 [`../CLI.md`](../CLI.md) | Every command (`scrape`, `menu`, `normalize`, `show`, `diff`, `crosscheck`, `login`, `auth-check`, `runs`, `runs clean`, `show-config`, `schema`…), every flag of every scraper (⚙️ option tables), recipes, output files, exit codes, environment variables, troubleshooting | 1,010 |
+| 🧭 [`../README.md`](../README.md) | Overview of the 7 scrapers, setup, quick start, interactive menu, login, options summary, run-folder layout, logging, privacy, architecture, contributing | 400 |
+| 🧭 [`../CLI.md`](../CLI.md) | Every command (`scrape`, `menu`, `normalize`, `show`, `scrapers`, `diff`, `crosscheck`, `login`, `auth-check`, `runs`, `runs clean`, `show-config`, `schema`…), every flag of every scraper (⚙️ option tables), examples for the opt-in kinds/flags and `scrape account`, logged-in pricing, recipes, output files, exit codes, environment variables, troubleshooting | 1,210 |
 | [`../.env.example`](../.env.example) | Login options A/B/C (email + password + code, browser cookie, one-off token) and default settings | 40 |
-| [`../CLAUDE.md`](../CLAUDE.md) | Project rules for contributors and Claude: conventions, layout, required pre-commit checks | 95 |
+| [`../CLAUDE.md`](../CLAUDE.md) | Project rules for contributors and Claude: conventions, layout, required pre-commit checks | 105 |
 
 ## 2. Higgsfield pricing, credits and plans
 
 | Doc | Contains | Lines |
 |---|---|---:|
-| 🧭 [`PRICING.md`](PRICING.md) | **Standalone pricing reference.** Lookup table vs formula, the 9 pricing endpoints plus `pricing.md` with raw JSON and every key, plan math (before/after offer, renewal, discounts, $/credit, seats), all 25 plan sets, offers and sale schedule, benefits, compare, marketing config, login-only pricing, raw → output mapping. ⚙️ current price snapshot (`scripts/gen_pricing_snapshot.py`) | 1,200 |
-| [`COST_FORMULAS.md`](COST_FORMULAS.md) | **Credit formulas for every model**: variables, rounding, batch, per second/image/character, surcharges, edit/extend/draft, unlimited and free gens, credits → USD, worked scenarios, estimator differences. ⚙️ rate tables and variation tables (Seedance, GPT Image, all 87 priced types) (`scripts/gen_cost_tables.py`) | 3,480 |
-| [`ENDPOINTS.md`](ENDPOINTS.md) | Pricing endpoints: URL, params, auth, response structure, meaning of every field, output entity | 280 |
+| 🧭 [`PRICING.md`](PRICING.md) | **Standalone pricing reference.** Lookup table vs formula, the 9 pricing endpoints plus `pricing.md` with raw JSON and every key, plan math (before/after offer, renewal, discounts, $/credit, seats), all 25 plan sets, offers and sale schedule, benefits, compare, marketing config, login-only pricing (incl. the logged-in-only `lite` plan and `magi_2` row, `--logged-in-prices`, `--sections account`), raw → output mapping. ⚙️ current price snapshot (`scripts/gen_pricing_snapshot.py`) | 1,260 |
+| [`COST_FORMULAS.md`](COST_FORMULAS.md) | **Credit formulas for every model**: variables, rounding, batch, per second/image/character, surcharges, edit/extend/draft, unlimited and free gens, credits → USD, worked scenarios, estimator differences. ⚙️ rate tables and variation tables (Seedance, GPT Image, all 87 priced types) (`scripts/gen_cost_tables.py`) | 3,510 |
+| [`ENDPOINTS.md`](ENDPOINTS.md) | Pricing endpoints: URL, params, auth, response structure, meaning of every field, output entity; logged-in differences and the account endpoints | 310 |
 | ⚙️ [`ENDPOINT_FIELDS.md`](ENDPOINT_FIELDS.md) | Every JSON path of every pricing response, with types and example values (`scripts/gen_endpoint_fields.py`) | 460 |
 | [`scrapers/cost-estimate.md`](scrapers/cost-estimate.md) | How the community scraper estimates the cost of each generation (sources, fallbacks, coverage) | 140 |
 
@@ -54,22 +56,24 @@ Each guide covers endpoints, options, output entities and fields, CSV tables, ex
 |---|---|---|
 | `pricing` | [`PRICING.md`](PRICING.md), [`ENDPOINTS.md`](ENDPOINTS.md) | Plans, offers, model credit costs, benefits, comparison, marketing |
 | `community` | [`scrapers/community.md`](scrapers/community.md) | Generations: model, prompt, settings, results, engagement, estimated cost |
-| `catalog` | [`scrapers/catalog.md`](scrapers/catalog.md) | Motions, avatars, voices, sounds, styles, viral presets, login-only catalogs |
-| `projects` | [`scrapers/projects.md`](scrapers/projects.md) | Projects, series, contests (rules, prizes, judges, winners), submissions |
+| `catalog` | [`scrapers/catalog.md`](scrapers/catalog.md) | Motions, avatars, voices, sounds, styles, viral presets; opt-in group (mostly public CMS lists; color presets + camera settings need a login); opt-in public kinds chain presets (credit prices), notices, restyle presets |
+| `projects` | [`scrapers/projects.md`](scrapers/projects.md) | Projects, contests (rules, prizes, judges, winners), submissions; original series from the public `fnf-series` service (`--public-series`) |
 | `blog` | [`scrapers/blog.md`](scrapers/blog.md) | Blog, talent posts, help centers, case studies, changelog (full text) |
 | `site` | [`scrapers/site.md`](scrapers/site.md) | Apps (+ credit cost), academy courses and lessons, MCP skills and bundles, original series, landings, promos |
+| `account` | [`scrapers/account.md`](scrapers/account.md) | **Opt-in, login required:** your own balances, plan, subscription, auto top-up; your jobs with the credits actually charged; estimate-vs-actual comparison |
 
 ## 4. How Higgsfield works inside (reverse engineering)
 
 | Doc | Contains | Lines |
 |---|---|---:|
-| [`MODEL_LOADING.md`](MODEL_LOADING.md) | How tools load models: hard-coded registry in the JS, runtime gating (feature flags, price check, plan), `defineJob` parameter schemas, Seedance 2.5 deep dive, create/upload/status flow, per-tool differences, dynamic parts | 620 |
+| [`MODEL_LOADING.md`](MODEL_LOADING.md) | How tools load models: hard-coded registry in the JS, runtime gating (feature flags, price check, plan), `defineJob` parameter schemas, Seedance 2.5 deep dive, create/upload/status flow, per-tool differences, dynamic parts | 640 |
 | [`PRODUCTS.md`](PRODUCTS.md) | Every product → raw model id (`job_set_type`) → provider (ByteDance, Google, OpenAI, xAI, Alibaba…) → endpoint, params, examples (Seedance, GPT Image…), price summary. ⚙️ catalog of 175 job types (`scripts/gen_model_catalog.py`) | 980 |
 | [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) | Job / job set / publication / project / media ids, lifecycle (upload → create → SSE status → result), CDN storage and file naming, library and workspaces, browser storage, chains, workflows (apps), Canvas, publishing | 835 |
 | [`products/EDITING_ROOM.md`](products/EDITING_ROOM.md) | Editing Room ("videoshop"): AI re-shoot tools (Genjutsu, Angles, Camera move, Relight, Brush), timeline data model, server-side rendering, FCP7 export, autosave, credits, endpoints | 370 |
 | [`products/PROPERTY_STUDIO.md`](products/PROPERTY_STUDIO.md) | Property Studio ("realtor studio"): floor plan → narrated 3D walkthrough chain with review gates, apps, `/realtor-studio/*` endpoints, progress stream, quotes and eligibility | 350 |
-| [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) | The research log: stack, method, endpoint inventory, how the frontend picks prices, geo pricing, data shapes, verification, change monitoring; §13 login (Clerk) and community/catalog/projects/content; §14 site pages; §15 model loading | 430 |
-| [`HIGGSFIELD_DATA_INVENTORY.md`](HIGGSFIELD_DATA_INVENTORY.md) | Everything Higgsfield offers: feature catalog, public APIs with params, 1,384 sitemap pages, login-only and blocked areas, scraper status; appendix of 589 frontend routes and 728 API paths with probe results | 1,360 |
+| [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) | The research log: stack, method, endpoint inventory, how the frontend picks prices, geo pricing, data shapes, verification, change monitoring; §13 login (Clerk) and community/catalog/projects/content; §14 site pages; §15 model loading; §16 login audit (gateway 401 rule, service prefixes, logged-in differences) | 510 |
+| [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) | Login audit (2026-11-26): what a session unlocks, logged-in vs anonymous differences (`lite` plan, `magi_2`, costs versions), every probed login endpoint with status and shape, service prefixes, proposed schemas, doc corrections, implementation status | 300 |
+| [`HIGGSFIELD_DATA_INVENTORY.md`](HIGGSFIELD_DATA_INVENTORY.md) | Everything Higgsfield offers: feature catalog, public APIs with params, 1,384 sitemap pages, login-only and blocked areas, scraper status; appendix of 589 frontend routes and 728 API paths with probe results | 1,380 |
 | [`endpoints/higgsfield.md`](endpoints/higgsfield.md) | Short per-site entry point (expected by the `reverse-engineer-site` skill), pointing here | 15 |
 
 ## 5. Developing the scraper
@@ -87,7 +91,7 @@ Each guide covers endpoints, options, output entities and fields, CSV tables, ex
 
 | File | What it is |
 |---|---|
-| ⚙️ [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) | 96 requests for every scraper plus the Clerk login flow; import into Postman (`scripts/make_postman.py`) |
+| ⚙️ [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) | 105 requests for every scraper plus the Clerk login flow; import into Postman (`scripts/make_postman.py`) |
 | ⚙️ [`assets/`](assets/) | Banner (dark/light) and architecture diagram SVGs (`scripts/make_assets.py`) |
 
 ## 7. Raw samples (`samples/higgsfield/`)
@@ -104,6 +108,8 @@ Captured website responses used as evidence by the docs. Usernames are redacted.
 | `model_loading/` | GET probe responses (costs, flags, presets, settings) | MODEL_LOADING, COST_FORMULAS |
 | `products/` | Product config samples (videoshop, UI strings, costs) | PRODUCTS |
 | `editing_room/`, `property_studio/` | Example projects, CMS examples, voice list | products/ docs |
+| `login_endpoints/` | The opt-in catalog lists (soul/veo3 styles, per-model motions, mixed media, katana, faceless, marketing, color presets, camera settings) and the Community-post comments, captured with a login (redacted) | `scrapers/catalog.md`, `scrapers/community.md` |
+| `login_audit/` | Login audit (redacted): logged-in-only plan and cost rows, chain presets, notices, restyle presets, series, courses, applications, marketplace apps, flags; per-user account endpoints as **types only** (`account_endpoint_shapes.json`) | `LOGIN_COVERAGE.md` |
 
 Not in git (too large or private): `samples/higgsfield/js/`, `js2/` (downloaded JS bundles), `recon2/`, `inventory/bodies/`, `probe/`.
 
@@ -113,7 +119,7 @@ Run these after a new scrape, then commit. Each one rewrites only the text betwe
 
 | Command | Refreshes |
 |---|---|
-| `python scripts/gen_pricing_snapshot.py --write docs/PRICING.md` | Current plan and model price snapshot |
+| `python scripts/gen_pricing_snapshot.py --write docs/PRICING.md --run <id>` | Current plan and model price snapshot. Pass a live, anonymous `ps_a3` run: without `--run` it takes the newest successful pricing run of any kind (see PRICING §12) |
 | `python scripts/gen_cost_tables.py --write docs/COST_FORMULAS.md` | Rate tables in COST_FORMULAS.md |
 | `python scripts/gen_cost_tables.py --variations --write docs/COST_FORMULAS.md` | Variation tables in COST_FORMULAS.md |
 | `python scripts/gen_model_catalog.py --write` | Model catalog in PRODUCTS.md |

@@ -21,6 +21,7 @@ Related documents:
 | [`PRODUCTS.md`](PRODUCTS.md) | Products → model ids → providers, examples, model catalog |
 | [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) | Job ids, lifecycle, storage, library, chains, workflows |
 | [`products/EDITING_ROOM.md`](products/EDITING_ROOM.md), [`products/PROPERTY_STUDIO.md`](products/PROPERTY_STUDIO.md) | Editing Room and Property Studio deep dives |
+| [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) | Login audit (2026-11-26): what a session unlocks, every probed login endpoint, logged-in vs anonymous differences, service prefixes (§16) |
 
 ---
 
@@ -117,6 +118,9 @@ Also public but not scraped: `GET https://higgsfield.ai/pricing.md`, an official
 
 The token is the `__session` cookie from higgsfield.ai while logged in (DevTools → Application → Cookies). Clerk
 rotates it about every 60 s.
+
+A 401 here is not proof that a path is login-only: the `fnf` gateway answers 401 for *any* path without a token
+(see §16). The full list of what a session unlocks is in [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md).
 
 ### 5.3 Other paths found in the bundle (not called)
 
@@ -258,7 +262,8 @@ Ultra (3k / 6k / 9k credits), Team and Scale cost the same in every plan set.
 - Each card is identified by `billing_period × tab × plan_type`. Team appears on both the `individual` and
   `business` tabs.
 - Cards include legacy plan types that are no longer sold (`basic`, `lite`, `standby`, `pro`, `max`) plus
-  `enterprise`.
+  `enterprise`. **Correction (login audit 2026-11-26, §16):** `lite` is still **sold to logged-in users**, as an
+  annual plan (100 credits/month, $12/year, 85 % off forever on ps_a3). The anonymous `/plans` response omits it.
 - Entitlement types: `unlimited` (with `duration_days`, for example 7 or 365, and `null` meaning while subscribed),
   `free_gens` (with `count`), `included`, and `none`.
 - `caps` contains `max_resolution`, `max_duration_s`, and `concurrency{count, per: member, pool}`.
@@ -443,3 +448,63 @@ the tool pages into `samples/higgsfield/js2/`, gitignored) plus GET-only probes 
   called); chains use `/chains/*`, apps `POST /workflows`; status by polling `POST /jobs/status-batch`.
 - `scene_switch` appeared in `/job-sets/costs` with no frontend code yet: prices and availability can change without
   a deploy, new base models can't.
+
+## 16. Fifth round (2026-11-26): login audit
+
+Full write-up: [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md). Build `548e0f3a`, one **free personal (non-team)** account,
+GET only at about 1 req/s with `Authorization: Bearer <Clerk JWT>` and `Origin: https://higgsfield.ai`;
+`hf-workspace-id` was added where the frontend sends it and never changed a response. Redacted samples:
+`samples/higgsfield/login_audit/` (per-user endpoints saved as types only in `account_endpoint_shapes.json`).
+
+**The gateway rule: 401 ≠ login-only.** `fnf-api-gw.higgsfield.ai/fnf/…` checks auth **before** routing, so *any*
+path answers 401 without a token; with a token, an unknown path answers **404**. Most of the "login-only catalogs"
+of the first inventory were such paths: the frontend calls them through a base helper that puts them on another
+service, where they are **public**:
+
+| JS call | Wrong guess | Real, public endpoint |
+|---|---|---|
+| `/series` | `/fnf/series` (401 anon / 404 auth) | `/fnf-series/series?limit=100` (35 series), `/fnf-series/series/{slug}` |
+| `/api/v1/courses` | `/fnf/api/v1/courses` | `/fnf-academy/api/v1/courses` (17 courses) |
+| `/applications/explore` | `/fnf/applications/explore` | `/fnf-cms-api/applications/explore?apps_per_category=20` |
+| `/job-set-chain-presets` | `/fnf/job-set-chain-presets` | `/fnf-cms-api/job-set-chain-presets` (48, 58 with `show_hidden=true`; with credit prices) |
+| `/restyle/presets` | `/fnf/restyle/presets` | `/fnf-cms-api/restyle-presets` (21) |
+| `/notices` | `/fnf/notices` | `https://cms.higgsfield.ai/notices` = `/fnf-cms-api/notices` (10 per-model notices) |
+| soul styles, per-model motions, mixed media, katana, faceless, marketing presets | `/fnf/<path>` | `https://cms.higgsfield.ai/<path>` or `/fnf-cms-api/<path>` (found in the previous commit; see `scrapers/catalog.md`) |
+
+Only `/color-presets` and `/camera-settings` (catalog) really need a session. To place a path, find the base helper
+in the JS (e.g. `Ixe(path, lang)` = `https://cms.higgsfield.ai{path}?lang=…`, `_V(path)` = `…/fnf-cms-api{path}`)
+instead of trusting a 401.
+
+**Service prefixes** on `https://fnf-api-gw.higgsfield.ai/` found in the bundle: `fnf`, `fnf-academy`, `fnf-ai-cmo`,
+`fnf-aitys`, `fnf-apps-marketplace`, `fnf-campaign-api`, `fnf-cms-api`, `fnf-community`, `fnf-higgsclaw-cron`,
+`fnf-meet`, `fnf-notification`, `fnf-score`, `fnf-series`, `fnf-skills-marketplace`.
+
+**Logged-in vs anonymous differences** (the anonymous pricing scrape is not complete):
+
+| Endpoint | Anonymous | Logged in |
+|---|---|---|
+| `/subscriptions/v2/plans?plan_set_key=ps_a3` | 14 plans | 15: + `lite` / annual, 100 credits/month, $12/year ($1/month), list $84, `discount {percent_off: 85, duration: "forever"}`. The 14 shared rows are byte-identical |
+| `/job-sets/costs` | 87 rows, `version` `0cee3218…` | 88 rows, `version` `9048fa70…`: + `magi_2` (1080p, `base_credits` 0, `cost_per_second` 2.5). Stable over anon → auth → anon re-checks |
+| `/user/features`, `/feature` | 3 flags / 1 legacy flag | identical |
+| `window.__HF_FF` | 23 flags, `userId: null` | not readable with GET: the SSR page ignores a bare `__session` cookie; per-user flags are refreshed by a POST server function (out of bounds) |
+
+Whether `lite` is offered to every logged-in user or only some cohorts is **unknown** (one account; `/user` and
+`/user/meta` expose a `cohort` label, the likely selector, **inferred**). The scraper keeps the anonymous output and
+adds the logged-in-only rows on request: `scrape pricing --logged-in-prices` (`visibility: "logged_in"`,
+`meta.logged_in_prices` with both costs versions).
+
+**What the session adds** (verified): the pricing deltas above; the account's own money state (`/user` balances in
+credits, `/workspaces/wallet` balances in cost units ×100, `/workspaces/subscription`, `/v2/auto-top-ups/settings`
+with `credits_per_dollar: 18`, free gens, generation seconds and packs, bundle status, `/workspaces/notice`); and the
+account's own library (`/jobs/accessible` with the **actual charged `cost`** per job in cost units, assets, folders,
+custom references, custom restyle presets, own mixed-media configs). Team-only endpoints answer 409
+`workspace_is_not_shared` (`/workspaces/admin-capabilities`, `/workspaces/wallet/auto-top-up`) or 500
+(`/workspaces/credit-price`) on a personal workspace. Implemented as opt-in: `scrape pricing --sections account`
+(whitelisted wallet / subscription / top-up / bundle fields) and the `account` scraper
+([`scrapers/account.md`](scrapers/account.md)).
+
+**Cloudflare challenge on `/jobs/accessible` (not evaded).** During the audit, and for a single plain GET, the
+endpoint answered 200. Requests from the Scrapy crawl of the `account` scraper got `403` with
+`cf-mitigated: challenge`. The scraper records this in `meta.limits_hit` (`bot protection (cloudflare challenge) on
+account_jobs`), ends the run `partial` and makes no attempt to get past it, so the estimate-vs-actual comparison
+(`--compare-estimate`) has not run live yet.

@@ -33,6 +33,9 @@ This file summarizes and links. The evidence lives in `docs/` (index: [`docs/REA
 | `python -m higgsfield_scraper login` / `auth-check` | Sign in (email code on a new device), cache `__client`, check the session | `... login --code 123456`, `... auth-check` |
 | `core.auth.TokenProvider` | Mint a fresh JWT (≈ 60 s life) inside a one-off probe script; **don't print it** | `tok = TokenProvider.from_env().get()` then `headers={"Authorization": f"Bearer {tok}"}` |
 | Scrapers (`scrape <name>`) | Capture real responses into `runs/<ts>_.../raw` + `http/` (request, response, curl, HAR) | `python -m higgsfield_scraper scrape community --max-items 50 --with-raw-params` |
+| `scrape pricing --logged-in-prices` | Fetch plans + costs a second time **with** the session and append the rows only logged-in users see (`visibility="logged_in"`; both costs versions in `meta.logged_in_prices`). The quickest logged-in vs anonymous price diff | `python -m higgsfield_scraper scrape pricing --sections all --logged-in-prices` |
+| `scrape pricing --sections account` | Whitelisted snapshot of the account's wallet, subscription, auto top-up, free gens, generation seconds + packs, bundle status (never part of `all`) | `python -m higgsfield_scraper scrape pricing --sections account --label my-balance` |
+| `scrape account` | The user's own snapshot; `--with-jobs` own jobs with the real charged `cost`; `--compare-estimate` estimator vs real charge (login required; see `docs/scrapers/account.md`) | `python -m higgsfield_scraper scrape account --with-jobs --compare-estimate --max-items 20` |
 | `normalize` | Re-parse an old run offline after changing a parser | `python -m higgsfield_scraper normalize --run runs/<id>` |
 | `diff` / `crosscheck` | Pricing changes between runs; `pricing.md` vs `ps_a3` | `python -m higgsfield_scraper diff` |
 | `scripts/check_pricing_identity.py` | Commit gate: pricing output must stay byte-identical to the baseline | `python scripts/check_pricing_identity.py` |
@@ -175,7 +178,9 @@ raw envelopes in `tests/fixtures/<name>/`, `tests/test_<name>.py` (incl. the CSV
 | Fact | Value / note | Source |
 |---|---|---|
 | Main API | `https://fnf-api-gw.higgsfield.ai/fnf` (FastAPI; 422 lists enums) | REVERSE_ENGINEERING §3 |
-| Other gateway bases | `/fnf-cms-api` (katana), `/fnf-community` (community posts, comments), `/fnf-notification/notifications/stream` (SSE) | `docs/scrapers/catalog.md`, `community.md`, JOBS_AND_STORAGE §3.5 |
+| Other gateway bases | `/fnf-cms-api` (katana, chain presets, restyle presets, notices, applications), `/fnf-community` (community posts, comments, suggestions, related), `/fnf-series` (original series), `/fnf-academy` (courses), `/fnf-score` (season), `/fnf-notification/notifications/stream` (SSE); 14 prefixes in all | `docs/scrapers/catalog.md`, `community.md`, LOGIN_COVERAGE §1, JOBS_AND_STORAGE §3.5 |
+| Gateway auth rule | `/fnf/<anything>` → 401 without a token (auth before routing), 404 for unknown paths with one | REVERSE_ENGINEERING §16 |
+| Logged-in deltas | ps_a3 plans 15 vs 14 (+ `lite` annual); costs 88 vs 87 rows (+ `magi_2`), `version` `9048fa70…` vs `0cee3218…` | LOGIN_COVERAGE §1 |
 | CMS | `https://cms.higgsfield.ai{path}?lang=` (soul styles, model motions, mixed-media, marketing studio, videoshop examples) | `docs/scrapers/catalog.md` |
 | Pricing config | `https://pricing.higgsfield.ai/v2/pricing-config` (rest of the host is behind Cloudflare Access) | PRICING §2.5 |
 | Canvas | `https://canvas-worker.higgsfield.ai/api/*`; `/api/templates` public; graph sync over WebSocket | JOBS_AND_STORAGE §6.3 |
@@ -209,3 +214,8 @@ raw envelopes in `tests/fixtures/<name>/`, `tests/test_<name>.py` (incl. the CSV
 | 11 | A loop variable named `label` overwrote the outer `label`, corrupting `meta.label` (fixed in `5756475`, baseline v2) | Don't reuse outer names in loops; the identity check catches this class of bug |
 | 12 | `window.__HF_FF` came back `{}` for an anonymous request (an earlier crawl got 23 flags) | Treat an empty flag list as "unknown", not "all off"; `re_check_changes.py` ignores it |
 | 13 | Windows cp1252 console crashed on `→`/`✅`; mintty (Git Bash) can't run the interactive menu | `PYTHONIOENCODING=utf-8`; run `menu` in PowerShell / Windows Terminal |
+| 14 | The first inventory marked many paths "login-only" because they answered 401 under `/fnf/`. The fnf gateway answers 401 for **any** unknown path without a token (404 with one), so 401 ≠ "login-only" | Find the base helper in the JS (`Ixe` → `cms.higgsfield.ai`, `_V` → `/fnf-cms-api`, `ho` → `/fnf-series`, …) and probe the path on that base, anonymous **and** logged in |
+| 15 | In this Scrapy version (2.19), a spider's `custom_settings` dict **replaces** the project's `DOWNLOADER_MIDDLEWARES` dict, which would silently drop auth, the HTTP archive and the access log | Merge in a `update_settings` classmethod (`dict(settings.getdict(...))` + the new entry, `priority="spider"`), as `AccountSpider` does |
+| 16 | Cloudflare challenged `/jobs/accessible` (`403 cf-mitigated: challenge`) for the Scrapy crawl while a single plain request passed | Record it (`meta.limits_hit`, run `partial`) and stop; never try to evade a challenge (no header/TLS tricks, no browser automation to pass it) |
+| 17 | Logged-in responses of "public" endpoints contained extra rows (`lite` plan, `magi_2` cost row, another costs `version`) | Before assuming a session changes nothing, compare logged-in vs anonymous bodies (row counts, ids, `version`), re-check anon → auth → anon |
+| 18 | Real Clerk user ids (`user_…`) were hidden inside CDN media URL paths of samples and fixtures, not only in `user_id` fields | Redaction must scan URL paths and every string value, not just known keys; grep samples for `user_[A-Za-z0-9]{27}` before committing |

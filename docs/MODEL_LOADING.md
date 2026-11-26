@@ -123,8 +123,10 @@ plans = { seedance_2_5: PREMIUM, seedance_2_5_flash: PREMIUM, seedance_2_0_fast:
 // legacy basic/starter users with planVersion <= 30 keep veo-3-1-lite, seedance_2_0 and private-ui
 ```
 
-**(d) "Unlimited" badges.** These come from `GET /workspaces/settings` (login only), which returns
-`unlimited_settings[]` with `{job_set_type, models[], start_date, end_date, team_end_date, status}`, re-polled
+**(d) "Unlimited" badges.** These come from `GET /workspaces/settings` (login only). On the wire it returns
+`{configs: [...]}` (verified 2026-11-26, empty for a free personal account; [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) §2.1); the client maps
+`configs` to `unlimited_settings[]` with `{job_set_type, models[], start_date, end_date, team_end_date, status}` and
+drops grants with `status == "locked"`. It is re-polled
 around grant transitions. They also come from static marketplace bundles, such as `jobSetTypes:
 ["nano_banana_pro_unlimited","gpt_image_2_unlimited","kling_3_unlimited","seedance_2_5", …]` in
 `548e0f3a-2B_Cs0zHIGw5q2ts.js`, and from public promo windows in `/datetime-settings` (e.g.
@@ -436,12 +438,12 @@ posts, 9 had `prompt_language:"zh"`, all were `1080p`, durations were 9–30 s, 
 | Soul (image) | `/soul`, `/soul/{styleId}`, `/ai/image?model=soul` | `text2image_soul_v2`, `soul_cinematic`, `text2image_soul` | `/jobs/v2/text2image_soul_v2`, `/jobs/v2/soul_cinematic` | `style_id` + `style_strength` (styles from `/soul-styles`, login), `quality` 720p/1080p, `seed`, `custom_reference`, internal flags (`use_green`, `use_refiner`); `credits = batchSize × 0.125` in the def (unit unclear) |
 | Apps | `/apps`, `/apps/{slug}` | Per-app job types (`HEADSHOT`, `OUTPAINT`, `KEYFRAMES_FACESWAP`, `CHARACTER_SWAP_V2`, `NANO_BANANA_ANIMAL`, `STICKER_MATCHCUT`, `BEAT_FIT`, `AI_STYLIST`, …; table `app-slug-type-jobsets`) | `POST /workflows` `{width, height, params:[{id,value}], application_slug, application_template_slug}`; some apps use their own job (`/jobs/face-swap`, `/jobs/nano-banana-2-ai-stylist`, `/chains/beat-fit-nano-banana`, …) | Fixed template: page loader `appPreset.{image,video,animate}Template = {slug, inputs[{id,type,properties}], cost}`. The **credit cost is static in the template**, not computed |
 | Viral hub / effects | `/viral-effects`, `/effects`, `/effects/use/{slug}` | `viral_hub_video` (preset = a node graph) | `POST /chains/viral-hub` `{params:{preset_id, medias, …}, use_free_gens}` | Presets from `/viral-hub/presets/all` (public): `inputs[]` bound to graph nodes, `param_choices` per node, `price_matrix[{key, credit_units}]`. **credits = ceil(credit_units / 100)**. E.g. `floating-fall`: default 8400 → 84 cr, 16:9 1080p 14400 → 144 cr |
-| Mixed media | `/mixed-media`, `/mixed-media-presets/preset/{id}` | chain (stored as preset samples) | `POST /chains/mixed-media`, `/chains/mixed-media-preview`; config `GET /mixed-media/configs?preset_id=` (401) | Video input: mp4/mov, ≤ 10 s, ≤ 50 MB, ratio 1/3–3 |
+| Mixed media | `/mixed-media`, `/mixed-media-presets/preset/{id}` | chain (stored as preset samples) | `POST /chains/mixed-media`, `/chains/mixed-media-preview`; `GET /mixed-media/configs?preset_id=` (login: the user's own saved configs `{total, cursor, items}`, not a preset config) | Video input: mp4/mov, ≤ 10 s, ≤ 50 MB, ratio 1/3–3 |
 | Lipsync / Speak | `/lipsync-studio`, `/speak`, `/kling-lipsync` | `wan2_5_speak` (`speak-wan-2.5(-fast)`), `kling-speak`, `kling2_6_lipsync`, `kling-lipsync`, `sync-so`, `infinite-talk`, `hf_speak_v2`, `veo3-speak`, `veo3-1-speak` | `/jobs/wan2-5-speak`, `/jobs/kling-speak`, `/jobs/kling2-6-lipsync`, `/jobs/sync-so`, `/jobs/infinite-talk`, `/jobs/veo3-speak` … | Image or video plus an audio upload (`POST /audio` wav/mp3/webm) or TTS voice; picker tags e.g. `720p-1080p · Audio · 10s` |
 | Audio / TTS / dubbing | `/audio` | `elevenlabs_v4(_turbo)`, `text2speech_v2`, `qwen_audio_tts`, `seed_audio`, `voice_change_merge`, `dubbing_lipsync` | `/jobs/v2/{type}`; `/chains/dubbing`, `/chains/voice-change` | Separate audio runtime (`createAudioFnfSubmit`) |
 | Upscale | `/upscale`, `/ai-video-upscaler` | image: `topaz_image`, `topaz_image_generative`, `nano_banana_2_upscale`; video: `topaz_video`, `bytedance_video_upscale`, `flux_video_upscale`, `seedance_2_5_kling_upscale` ("Higgsfield Enhance", 4 cr/s at 1080p) | `/jobs/topaz-image`, `/jobs/topaz-video`, `/jobs/v2/bytedance_video_upscale`, `/jobs/nano-banana-2-upscale` | `output_width/height`, Topaz `model` + enhancement (`focus_fix_level`, denoise/blur/grain), `frame_interpolation {model:"apo-8", fps 15–240, slowmo 1–16}`; Topaz price is a server quote (`?dry_run=true`) |
 | Cinema Studio | `/cinema-studio`, `/cinematic-video-generator` (landing) | `cinematic_studio_video_4_0` (also `_3_5`, `_v2`, `cinematic_studio_3_0`, `_image`, `_soul_cast`, `_soul_location`) | `/jobs/v2/cinematic_studio_video_4_0`, … | Seedance-like schema plus CMS ids `genre_id`, `era_id`, `pacing_id`, `light_id`/`light`/`light_custom[]`, `camera_model_id`, `camera_lens_id`, `camera_aperture_id`, `color_palette`, `prompt_language` en/zh; batch 1–4; 30 images / 10 videos / 10 audios; priced from the `cinematic_studio_video_4_0` costs row |
-| AI Influencer | `/ai-influencer`, `/ai-influencer-studio` | `ai_influencer` (image), `ai_influencer_motion_control(_flash)`, `ai_influencer_replace_object(_flash)`, `ai_influencer_restyle` | `/jobs/v2/{type}`; restyle → `/jobs/v2/restyle` | `config {age, gender, ethnicity_origin_base, hair, eye_color, skin_color, …}`; restyle presets `GET /restyle/presets` (401) |
+| AI Influencer | `/ai-influencer`, `/ai-influencer-studio` | `ai_influencer` (image), `ai_influencer_motion_control(_flash)`, `ai_influencer_replace_object(_flash)`, `ai_influencer_restyle` | `/jobs/v2/{type}`; restyle → `/jobs/v2/restyle` | `config {age, gender, ethnicity_origin_base, hair, eye_color, skin_color, …}`; restyle presets: public `GET /fnf-cms-api/restyle-presets` (21; `catalog --kinds restyle_preset`); the user's own in `GET /fnf/restyle/presets/custom` (login) |
 | Canvas / Flow | `/canvas/{id}`, `/flow/*` | any registry type as a node | `canvas-worker.higgsfield.ai` (`/api/canvases`, `/api/templates/{id}/use`, node `/run`) | Same `defineJob` schemas; node fields such as `{nodeType:"seedance_2_5", fieldId:"bitrate_mode"}` |
 | MCP / agents | `/mcp`, `/mcp/{skill}`, `/mcp/bundles/{id}` | "35+ models and tools" | Remote MCP server `https://mcp.higgsfield.ai/mcp` (needs a Higgsfield login via OAuth; not connected) | Skills are prompt bundles (site scraper: 75 skills, 3 bundles). The page says it uses the same credits and models; tool schemas weren't inspected (login needed) |
 
@@ -468,29 +470,34 @@ posts, 9 had `prompt_language:"zh"`, all were `1080p`, durations were 9–30 s, 
 
 ## 6. All related endpoints
 
-Base: `https://fnf-api-gw.higgsfield.ai/fnf`. "public" = verified 200 without auth on 2026-11-26.
-"login" = verified 401 `{"detail":"Invalid or expired token"}`. "JS" = seen only in the bundle, **not called**.
+Base: `https://fnf-api-gw.higgsfield.ai/fnf` unless another base is named. "public" = verified 200 without auth on
+2026-11-26. "login" = needs a session, confirmed 200 with one in the login audit ([`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md)). "JS" = seen only in
+the bundle, **not called**. A 401 without a token proves nothing on its own: the `fnf` gateway answers 401 for *any*
+path without a token and 404 for unknown paths with one, so several "login" rows of the first version turned out to
+be public endpoints on another service base (`cms.higgsfield.ai`, `/fnf-cms-api`).
 
 | Method | Path | Auth | Purpose |
 |---|---|---|---|
-| GET | `/job-sets/costs` | public | Cost table for 87 job types (`version` hash changes on every price change) |
+| GET | `/job-sets/costs` | public | Cost table for 87 job types (`version` hash changes on every price change). **Differs when logged in:** 88 rows (+ `magi_2`) and another `version` (`9048fa70…` vs `0cee3218…`, 2026-11-26) |
 | GET | `/feature` | public | `{"ZGV5a2hhbg":false}` (one legacy flag; base64 name) |
 | GET | `/user/features` | public (anon defaults) | `generate_persisted_cache`, `has_nb_bonus_seedream_free_gens`, `has_seedream_batch_gens` |
 | GET | `/datetime-settings` | public | Promo / free-gen / unlimited windows (`freegens_seedance_2_5_1080p`, …) |
 | GET | `/viral-hub/presets/all`, `/viral-hub/types` | public | Viral presets with graph inputs, `param_choices`, `price_matrix` |
 | GET | `/motions?size=…`, `/motion-samples?motion_id=…&size=…` | public (422 without the required params) | Motion catalog of all families (`catalog` scraper) |
-| GET | `/kling-motions`, `/kling2-6-motions`, `/seedance-motions`, `/minimax-motions`, `/wan2-2-motions`, `/wan2-5-motions`, `/veo3-styles` | login | Per-vendor preset lists (`catalog --kinds login`) |
-| GET | `/soul-styles`, `/soul-cinematic-styles`, `/soul-keyframe-styles` | login | Soul styles (`style_id`); public alternative: `/soul-samples` |
+| GET | `https://cms.higgsfield.ai` `/kling-motions`, `/kling2-6-motions`, `/seedance-motions`, `/minimax-motions`, `/wan2-2-motions`, `/wan2-5-motions`, `/veo3-styles` | public (401 / 404 under `/fnf`) | Per-vendor preset lists (`catalog --kinds login`, the opt-in group) |
+| GET | `https://cms.higgsfield.ai` `/soul-styles`, `/soul-cinematic-styles`, `/soul-keyframe-styles` | public (401 / 404 under `/fnf`) | Soul styles (`style_id`) |
 | GET | `/publications/community/{trending,approved,model-x}` | public | Real `params`/`results` per `job_set_type` |
 | GET | `https://cms.higgsfield.ai/higgsfield-multiplier/video-explore/v2/categories` | public | CMS trend categories (also `/video-explore/v2`, `/v2/{id}`) |
-| GET | `/notices` | login | CMS `job_set_notices[]` and `header_notices[]` (per-model banners and badges) |
-| GET | `/job-set-chain-presets?product_key=&show_hidden=` | login | Chain presets per product |
-| GET | `/workspaces/settings` | login | `unlimited_settings[]` (unlimited grants per `job_set_type`/model) |
-| GET | `/mixed-media/configs?preset_id=` | login | Mixed-media preset config |
-| GET | `/restyle/presets` (+ `/restyle/presets/custom`) | login | AI Influencer restyle presets |
-| GET | `/jobs`, `/jobs/accessible`, `/jobs/{id}`, `/job-sets/{id}` | JS (login) | Feed, job and job-set details |
+| GET | `https://cms.higgsfield.ai/notices` (= `/fnf-cms-api/notices`; `/fnf/notices` is 404) | public | CMS `job_set_notices[]` and `header_notices[]` (per-model banners and badges; `catalog --kinds notice`) |
+| GET | `/fnf-cms-api/job-set-chain-presets?product_key=&show_hidden=` | public | Chain presets per product, with `cost_credits` / `discount_credits` (`catalog --kinds chain_preset`) |
+| GET | `/workspaces/settings` | login | Wire format `{configs: [...]}`; the client maps it to `unlimited_settings[]` (unlimited grants per `job_set_type`/model) and drops `status == "locked"` |
+| GET | `/mixed-media/configs?preset_id=` | login | The user's **own saved configs** for that preset (`{total, cursor, items}`), not a preset config |
+| GET | `/fnf-cms-api/restyle-presets` | public | AI Influencer restyle presets (`catalog --kinds restyle_preset`) |
+| GET | `/restyle/presets/custom` | login | The user's own restyle uploads |
+| GET | `/jobs/accessible` | login (confirmed 200) | The user's jobs; each item carries the charged `cost` in cost units (credits × 100). `scrape account --with-jobs` |
+| GET | `/jobs`, `/jobs/{id}`, `/job-sets/{id}` | JS (login) | Feed, job and job-set details |
 | GET | `/input-{image,video,audio}s/{id}`, `/media/status` | JS (login) | Uploaded media and IP/NSFW status |
-| GET | `/user`, `/workspaces`, `/workspaces/details`, `/workspaces/wallet` | JS (login) | User, workspace and credit balance |
+| GET | `/user`, `/workspaces`, `/workspaces/details`, `/workspaces/wallet` | login (confirmed 200) | User, workspace and credit balance (wallet balances in cost units ×100) |
 | POST | `/jobs/v2/{type}`, `/jobs/{kebab-type}` | JS, mutation | **Create a generation** |
 | POST | `/jobs/v2/{type}/dry-run`, `/jobs/{route}?dry_run=true` | JS, mutation-shaped | Guest availability / server cost quote |
 | POST | `/chains/{viral-hub,mixed-media,mixed-media-preview,motion-control,reframe,reframe/batch,dubbing,voice-change,draw-to-video,beat-fit-nano-banana,sticker-matchcut,game-character-creator,seedance-eye-mask-sam}` | JS, mutation | Multi-step (chain) jobs |
@@ -526,12 +533,12 @@ clears `ddChallengeContainer`. Public GETs at about 1 req/s never hit a challeng
 
 | Mechanism | Where | What it can change without a deploy |
 |---|---|---|
-| `window.__HF_FF = {userId, flags:{f_<hash>:bool}, payloads:{}}` | Inline `<script>` in every SSR page. Refreshed per signed-in user via a TanStack server function (`POST`, id `c06cd72b…`) and cached in react-query `["feature-flags", userId]` | Show/hide flagged models (Seedance 2.5 Flash, Kling 4.0 Flash, Wan 4.0), features and A/B variants. 23 flags on `/ai/video`; names are hashed (`f_3a0922bf`) |
-| `/job-sets/costs` | Fetched by the web adapter and the UI | Prices, discounts (`original_cost_per_second`), and **availability** of `pricedAs` models. A new `job_set_type` can appear here first (`scene_switch` on 2026-11-26) |
+| `window.__HF_FF = {userId, flags:{f_<hash>:bool}, payloads:{}}` | Inline `<script>` in every SSR page. Refreshed per signed-in user via a TanStack server function (`POST`, id `c06cd72b…`) and cached in react-query `["feature-flags", userId]`. Per-user values **cannot be read with a GET**: the SSR page ignores a bare `__session` cookie (still `userId: null`), and the refresh is a POST (out of bounds) | Show/hide flagged models (Seedance 2.5 Flash, Kling 4.0 Flash, Wan 4.0), features and A/B variants. 23 flags on `/ai/video`; names are hashed (`f_3a0922bf`) |
+| `/job-sets/costs` | Fetched by the web adapter and the UI | Prices, discounts (`original_cost_per_second`), and **availability** of `pricedAs` models. A new `job_set_type` can appear here first (`scene_switch` on 2026-11-26). The response **differs when logged in** (+ `magi_2`, another `version`) |
 | `/datetime-settings` | Public | Free-gen, unlimited and promo windows per model |
-| `/workspaces/settings` | Login | Unlimited grants per model and time window (badges, `use_unlim`) |
+| `/workspaces/settings` | Login | Unlimited grants per model and time window (badges, `use_unlim`); wire `{configs: [...]}` → client `unlimited_settings` |
 | `/user/features`, `/feature` | Public / per user | A few per-user switches |
-| `/notices` | Login | CMS banners and badges per `job_set_type` (`cms-job-set-notice-*` components) |
+| `/notices` (`cms.higgsfield.ai`) | Public | CMS banners and badges per `job_set_type` (`cms-job-set-notice-*` components) |
 | CMS catalogs | `/viral-hub/presets/all`, `/motions`, `/apps/{slug}` loaders, `/mixed-media-presets`, `cms.higgsfield.ai` | New effects, motions, apps and their prices: **these are new "models" from the user's point of view, with no deploy** |
 | A/B cookies | `hf_ab_id`, `hf_es_ab*`, `hf_mob_vp_ab*` (cookie-consent list) | Layout experiments |
 | PostHog | `phc_nAcCHDBUspNpjMXoEt7RUffSwfjsVsYAPVwEeHAfsWEd` at `e.higgsfield.ai` | Analytics; the flags above are evaluated server-side (likely PostHog-backed, given the `payloads` key; inferred) |
@@ -548,8 +555,9 @@ plan table and cost formula all live in the bundle. Deploys are frequent: the bu
 
 - Live prices and model availability: `/job-sets/costs` (already the `models` section).
 - Feature-flag states for anonymous users: parse `__HF_FF` from any page (one GET).
-- Viral presets with their full price matrix (`catalog`), the `/motions` catalog (`catalog`; per-vendor lists and
-  Soul styles need a login), and app templates with static costs (`site`).
+- Viral presets with their full price matrix (`catalog`), the `/motions` catalog and the per-vendor lists and Soul
+  styles from `cms.higgsfield.ai` (`catalog`, opt-in group), chain presets with credit prices, notices and restyle
+  presets (`catalog --kinds chain_preset,notice,restyle_preset`), and app templates with static costs (`site`).
 - Promo windows: `/datetime-settings` (`site --what promos`).
 - Real per-model `params` and results from the community feeds (`community --with-raw-params`).
 - **The whole model registry from the JS bundle**: menu entries, `defineJob` schemas (enums, defaults, ranges,
@@ -557,11 +565,13 @@ plan table and cost formula all live in the bundle. Deploys are frequent: the bu
 
 **Can't (without login, or never):**
 
-- `/notices`, `/workspaces/settings` (unlimited), `/job-set-chain-presets`, `/mixed-media/configs`,
-  `/restyle/presets`, `/seedance-motions`: 401 without login on the `fnf` gateway, but the gateway returns 401 for *any*
-  unknown path without a token. `/seedance-motions` and the other motion/style lists are public on `cms.higgsfield.ai`
-  (verified 2026-11-26, see `scrapers/catalog.md`); the rest are checked in `LOGIN_COVERAGE.md`.
-- Per-user flag values (`__HF_FF` for a signed-in user).
+- `/workspaces/settings` (unlimited grants) and `/mixed-media/configs` (the user's own configs): login only.
+  `/notices`, `/job-set-chain-presets`, the restyle presets, `/seedance-motions` and the other motion/style lists
+  were first thought login-only because the `fnf` gateway answers 401 for *any* path without a token; they are
+  **public** on `cms.higgsfield.ai` / `/fnf-cms-api` (verified 2026-11-26, see [`scrapers/catalog.md`](scrapers/catalog.md)
+  and [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md)) and scraped by `catalog`.
+- Per-user flag values (`__HF_FF` for a signed-in user): not readable with GET (SSR ignores a bare `__session`
+  cookie; the refresh is a POST server function).
 - MCP tool schemas (OAuth).
 - Anything that creates jobs, uploads or quotes prices server-side (`dry_run`): mutations, out of scope.
 
@@ -599,7 +609,9 @@ plan table and cost formula all live in the bundle. Deploys are frequent: the bu
 | `__HF_FF` is in the SSR HTML with the flag values listed | **Verified live** (anon, `/ai/video`) |
 | `/job-sets/costs` content, Seedance 2.5 rows, new `scene_switch` | **Verified live** |
 | `/feature`, `/user/features`, `/datetime-settings`, `/viral-hub/presets/all`, `/viral-hub/types`, CMS categories public | **Verified live** |
-| `/notices`, `/job-set-chain-presets`, `/workspaces/settings`, `/mixed-media/configs`, `/restyle/presets`, `/seedance-motions` need login | **Verified live** (401) |
+| `/workspaces/settings` (`{configs: []}`), `/mixed-media/configs` (own configs), `/jobs/accessible`, `/user`, `/workspaces*` need login | **Verified live** (401 anonymous, 200 logged in; [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md)) |
+| `/notices`, `/job-set-chain-presets`, restyle presets, per-vendor motions, Soul styles are public on `cms.higgsfield.ai` / `/fnf-cms-api` (the `/fnf` 401 was the gateway rule) | **Verified live** (2026-11-26) |
+| `/job-sets/costs` differs logged in (+ `magi_2`, other `version`) | **Verified live** (re-checked anon → auth → anon) |
 | Community `params`/`results` shapes for `seedance_2_5` | **Verified live** (public feed) |
 | Model menu, gating, plan tiers, `defineJob` schemas, limits, route table | **From JS**, read in two builds (stable between them) |
 | Create endpoints, request bodies, billing flags, upload flow, status-batch, cancel | **From JS, not called** |

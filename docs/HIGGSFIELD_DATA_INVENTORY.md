@@ -193,7 +193,10 @@ pseudonymous or drop the `profile.*` fields.
 | `GET /sounds` | `size` | 11 | `name, description, sound_url, waveform_url` |
 | `GET /soul-samples` | `size` | **1,263** | Soul model sample generations (same shape as community generations, without profile) |
 | `GET /viral-hub/types` | — | 6 | viral effect categories (`id, name, slug, priority`). `/viral-hub/presets?lang=` returned empty without `category` |
-| 🔒 `/soul-styles`, `/mixed-media-presets`, `/veo3-styles`, `/kling-motions`, `/seedance-motions`, `/wan2-*-motions`, `/minimax-motions`, `/series`, `/katana-categories` | | | Login |
+| ~~🔒~~ `/soul-styles`, `/mixed-media-presets`, `/veo3-styles`, `/kling-motions`, `/seedance-motions`, `/wan2-*-motions`, `/minimax-motions`, `/katana-categories` | | | First listed as login-only (401 under `/fnf`). **Public** on `cms.higgsfield.ai` / `/fnf-cms-api` (2026-11-26): `catalog` opt-in group, see [`scrapers/catalog.md`](scrapers/catalog.md) |
+| `GET /fnf-cms-api/job-set-chain-presets` | `show_hidden`, `product_key` | 48 (58 with hidden) | chain presets with `cost_credits` / `discount_credits` (`catalog --kinds chain_preset`) |
+| `GET https://cms.higgsfield.ai/notices` | `lang` | 10 | per-model notices / badges (`catalog --kinds notice`) |
+| `GET /fnf-cms-api/restyle-presets` | `size`, `cursor`, `lang` | 21 | restyle presets (`catalog --kinds restyle_preset`) |
 
 ### 3.3 Projects, series and contests
 
@@ -207,6 +210,7 @@ pseudonymous or drop the `profile.*` fields.
 | `GET /contests/by-id/{id}` | — | detail (50 KB) | + `settings, rewards, rules_effective_at, results_published` |
 | `GET /contests/{id}/submissions` | — | list | contest entries |
 | `GET /contests/trending` | — | 204 (empty right now) | |
+| `GET /fnf-series/series` (base `https://fnf-api-gw.higgsfield.ai/fnf-series`) | `limit` | 35 | original series + episodes; `/series/{slug}` detail. Public (`projects --what series --public-series`); the `/fnf/series` guess is 401 anonymous / 404 logged in |
 
 ### 3.4 Blog and talent content
 
@@ -258,8 +262,13 @@ Also: `https://higgsfield.ai/pricing.md` is a markdown snapshot of the US prices
 > **Correction 2026-11-26 (verified with a real login):** the soul/veo3 styles, per-model motion lists, mixed-media,
 > katana, faceless and marketing catalogs below are **public** on other bases (`cms.higgsfield.ai`, `/fnf-cms-api`),
 > and comments are public on `/fnf-community`. The `fnf/<path>` guesses return 404 even when logged in. Only
-> `/color-presets` and `/camera-settings` need a session. The rest of this list is re-checked in
-> `LOGIN_COVERAGE.md` (login audit, in progress).
+> `/color-presets` and `/camera-settings` need a session. The rest of this list was re-checked in the login audit
+> [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) (§2 every probed endpoint, §4 corrections); the table below includes those corrections.
+>
+> Service prefixes on `https://fnf-api-gw.higgsfield.ai/` found in the bundle: `fnf`, `fnf-academy`, `fnf-ai-cmo`,
+> `fnf-aitys`, `fnf-apps-marketplace`, `fnf-campaign-api`, `fnf-cms-api`, `fnf-community`, `fnf-higgsclaw-cron`,
+> `fnf-meet`, `fnf-notification`, `fnf-score`, `fnf-series`, `fnf-skills-marketplace`. A path that 401s under `/fnf`
+> may live, public, under one of these.
 
 **Caveat:** the gateway checks auth **before** routing, so unknown paths and website routes (e.g. `/about`, `/pricing`)
 also return 401. The 283 paths below are a mix of real login-only APIs and non-API strings found in the JS.
@@ -269,13 +278,14 @@ With your own session token (`--token`), these would return **your account's** d
 | Area | Examples |
 |---|---|
 | Your content | `/assets`, `/assets/favourites`, `/folders`, `/library/`, `/jobs/accessible`, `/media/accessible`, `/video/accessible`, `/file/accessible`, `/custom-references` (your trained characters), `/reference-elements` |
-| Your account and billing | `/user`, `/user/profile`, `/user/free-gens/v2`, `/user/offers`, `/user/personal-promo`, `/workspaces/*` (details, capabilities, subscription, usage stats, seat bonus), `/subscriptions/v2/packages`, `/subscriptions/bundle/unlim-catalog` |
-| Catalogs that need any session | `/soul-styles`, `/soul-cinematic-styles`, `/soul-keyframe-styles`, `/mixed-media-presets`, `/veo3-styles`, per-model motion lists (`/kling-motions`, `/kling2-6-motions`, `/seedance-motions`, `/wan2-2-motions`, `/wan2-5-motions`, `/minimax-motions`), `/series`, `/katana-categories`, `/camera-settings`, `/applications/explore`, `/academy/_catalog`, `/api/v1/courses` |
-| Social | `/users/search`, `/users/feed`, `/users/suggestions`, `/publications/{id}/comments`, `/publications/{id}/related` |
-| Studios | `/mangaka/*`, `/realtor-studio/*`, `/youtube-faceless/channels`, `/chains/*`, `/lipsync/*`, `/v1/season`, `/v2/quizzes` |
+| Your account and billing | Confirmed 200 with a session: `/user`, `/user/profile`, `/user/meta` (`cohort`), `/user/free-gens/v2`, `/user/offers` (`[]`, no longer called by the bundle), `/user/personal-promo`, `/user/generation-seconds`, `/generation-seconds/packs`, `/v2/auto-top-ups/settings` (`credits_per_dollar` 18), `/subscriptions/bundle/{all-unlim/status,seedance-unlimited}`, `/workspaces`, `/workspaces/{details,capabilities,wallet,settings,subscription,seat-bonus,notice}`, `/subscriptions/v2/packages`, `/subscriptions/bundle/unlim-catalog`. `/workspaces/admin-capabilities` and `/workspaces/wallet/auto-top-up` answer 409 `workspace_is_not_shared` on personal workspaces. Scraped (whitelisted) by `scrape pricing --sections account` and the `account` scraper |
+| Catalogs that need any session | Only `/color-presets` and `/camera-settings`. **Public** on other bases: the soul styles, `/mixed-media-presets`, `/veo3-styles`, per-model motion lists, `/katana-categories` (`cms.higgsfield.ai`, `/fnf-cms-api`), `/series` (`fnf-series`), `/applications/explore` (`fnf-cms-api`), `/api/v1/courses` (`fnf-academy`). `/academy/_catalog` is a frontend route, not an API. The 401s came from calling them under `/fnf/` (see the caveat) |
+| Social | `/users/search`; `/users/feed` (login-only on `fnf-community`, not `/fnf`). **Public** on `fnf-community`: `/users/suggestions`, `/publications/{id}/related`, and the Community-post comments |
+| Studios | `/mangaka/*`, `/realtor-studio/*`, `/youtube-faceless/channels`, `/chains/*`, `/lipsync/*`; `/v1/season` lives on `fnf-score` (200 `null` with a session); `/v2/quizzes` is a POST (only `/v2/quizzes/user` is a GET, personal) |
 
-Catalogs such as soul styles and per-model motions are probably the same for every user, so one logged-in run
-would capture them.
+Catalogs such as soul styles and per-model motions turned out to be public (see the correction above). What a
+session really adds is listed in [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) §1: the logged-in-only `lite` annual plan and `magi_2` cost row, the
+account's own money state and its own library.
 
 ## 6. Blocked by bot protection (⛔ do not scrape)
 `/jobs`, `/media` and `/v2/reference-elements/picker` returned **403 with a DataDome captcha**
@@ -291,15 +301,18 @@ redeem, invite. The full rule is the `MUTATION` regex in `scripts/recon_probe.py
 ## 8. Scraper status
 
 **Update 2026-11-25:** six scrapers are built (`python -m higgsfield_scraper scrapers`); `site` covers the sitemap page types that were left (§4).
+**Update 2026-11-26:** seven scrapers; the opt-in `account` scraper (plan #7 below, specified in [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) §3.4) is
+built, and the login audit's other recommendations are implemented as opt-in flags (see the table).
 
 | Scraper | Status | Docs |
 |---|---|---|
-| `pricing` | ✅ built | [`ENDPOINTS.md`](ENDPOINTS.md) |
+| `pricing` | ✅ built; opt-in `--logged-in-prices` (rows only logged-in users see: `lite` annual, `magi_2`, tagged `visibility="logged_in"`) and `--sections account` (own wallet, subscription, auto top-up, …; never part of `all`) | [`ENDPOINTS.md`](ENDPOINTS.md), [`PRICING.md`](PRICING.md) §10 |
 | `community` | ✅ built, with an optional cost estimate | [`scrapers/community.md`](scrapers/community.md), [`scrapers/cost-estimate.md`](scrapers/cost-estimate.md) |
-| `catalog` | ✅ built: public catalogs, plus the opt-in group (mostly public CMS lists; color/camera need a login) | [`scrapers/catalog.md`](scrapers/catalog.md) |
-| `projects` | ✅ built | [`scrapers/projects.md`](scrapers/projects.md) |
+| `catalog` | ✅ built: public catalogs, plus the opt-in group (mostly public CMS lists; color/camera need a login), plus opt-in public kinds `chain_preset` (credit prices; `--include-hidden`), `notice`, `restyle_preset`; `--with-profiles` | [`scrapers/catalog.md`](scrapers/catalog.md) |
+| `projects` | ✅ built; `--public-series` reads the original series from the public `fnf-series` service | [`scrapers/projects.md`](scrapers/projects.md) |
 | `blog` | ✅ built: blog, help centers, case studies, changelog, talent posts | [`scrapers/blog.md`](scrapers/blog.md) |
 | `site` | ✅ built: apps (+ credit cost per template), academy courses + lessons (Markdown), MCP skills + bundles, original-series series + episodes, mixed-media presets, landing/plugin pages (Markdown, FAQ, HowTo), rooms (opt-in, title only), promo APIs (`/datetime-settings`, `/business-unlim/state`, `/game-gift/networks`) | [`scrapers/site.md`](scrapers/site.md) |
+| `account` | ✅ built (opt-in, login required): own balances / plan / subscription snapshot, `--with-jobs` (own jobs with the credits actually charged), `--compare-estimate` (estimator vs real charge; `/jobs/accessible` was Cloudflare-challenged for the crawler on 2026-11-26, recorded, not evaded) | [`scrapers/account.md`](scrapers/account.md) |
 | effects pages | ➖ not built: same presets as `catalog` viral presets; samples = community generations | [`scrapers/site.md`](scrapers/site.md) |
 | `/feature`, `/user/meta`, `/user/features`, `/youtube-faceless/hot-right-now`, `/contests/trending` | ➖ not built: flags / empty | [`REVERSE_ENGINEERING.md`](REVERSE_ENGINEERING.md) §14 |
 
@@ -318,7 +331,7 @@ CSVs, and `normalize`.
 | 4 | **`blog`** | blog + talent posts (API), full list via sitemap | 351 | Easy | Optional article text from `content_url` |
 | 5 | **`helpcenter`** | creator-hub help center + enterprise help (HTML) | 151 | Medium | Official credits, refunds and plan rules |
 | 6 | **`site`** | sitemap crawler: marketing, apps, effects, academy, original series, MCP pages | 1,384 | Medium–hard | Per-page-type parsers |
-| 7 | **`account`** (token) | your library, usage, credits, offers + login-only catalogs | your account | Medium | Token expires about every 60 s |
+| 7 | **`account`** (token) | your library, usage, credits, offers + login-only catalogs | your account | Medium | Token expires about every 60 s. **Built 2026-11-26** (spec: [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md) §3.4; the catalogs turned out public and went to `catalog`) |
 | — | pricing: `diff` command | compare two runs (prices, offers, new models) | — | Easy | Daily monitoring |
 | — | pricing: `--locales all` | benefits and marketing text in 8 languages | — | Easy | |
 | — | pricing: `pricing.md` cross-check | official US markdown vs `ps_a3` | — | Easy | |

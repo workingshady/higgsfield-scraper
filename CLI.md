@@ -8,14 +8,20 @@ This file covers every command, option, choice, default and combination, with re
 python -m higgsfield_scraper <command> [options]
 
 commands:
-  scrape      fetch live data into a new run folder            (default if no command is given)
-  normalize   re-parse a run's raw/ responses offline into a new run
-  show        print tables from a run's dataset
-  plan-sets   list plan_set_keys, presets and the frontend tier mapping
-  sections    list sections and the endpoints they call
-  runs        list recent runs
-  schema      export JSON Schemas
-  menu        interactive menu (also -i / --interactive; default with no args on a terminal)
+  scrape       fetch live data into a new run folder (`scrape <scraper> -h`)   (default if no command is given)
+  normalize    re-parse a run's raw/ responses offline into a new run
+  show         print tables from a pricing run's dataset
+  scrapers     list available scrapers (pricing, community, catalog, projects, blog, site, account)
+  auth-check   check login/session configuration (never prints secrets)
+  login        log in with HF_EMAIL/HF_PASSWORD from .env (step 1), then --code (step 2)
+  plan-sets    list plan_set_keys, presets and the frontend tier mapping
+  sections     list pricing sections and the endpoints they call
+  runs         list recent runs (`runs clean -h`: delete old run folders)
+  show-config  print the resolved configuration (flags/env/.env), secrets redacted
+  schema       export JSON Schemas of every scraper
+  diff         compare two pricing runs (plans, offers, model credits, benefits)
+  crosscheck   compare a run's ps_a3 prices with the official higgsfield.ai/pricing.md
+  menu         interactive menu (also -i / --interactive; default with no args on a terminal)
 ```
 
 `python -m higgsfield_scraper --sections plans` is the same as `python -m higgsfield_scraper scrape --sections plans`.
@@ -64,8 +70,11 @@ picked runs, optional `.md`/`.json` report; `crosscheck` a run with pricing.md, 
 ## Contents
 
 1. [`scrape` pricing](#1-scrape-pricing-the-default-scraper): all options
-   [1b. Every scraper: complete option reference](#1b-every-scraper-complete-option-reference) (community, catalog, projects, blog, shared, limits, logging)
-2. [Option details: every choice and when to use it](#2-option-details)
+   [1b. Every scraper: complete option reference](#1b-every-scraper-complete-option-reference) (shared, limits, pricing, community, catalog, projects, blog, site, account)
+   [1c. Examples: opt-in kinds, flags and the `account` scraper](#1c-examples-opt-in-kinds-flags-and-the-account-scraper)
+2. [Option details: every choice and when to use it](#2-option-details), incl.
+   [Logged-in pricing](#logged-in-pricing-auth-section) (`auth`, [`--logged-in-prices`](#--logged-in-prices-opt-in-the-rows-only-logged-in-users-see),
+   [`--sections account`](#--sections-account-opt-in-the-accounts-own-pricing-state))
 3. [Recipes: common combinations](#3-recipes)
 4. [`normalize`](#4-normalize)
 5. [`show`](#5-show)
@@ -82,14 +91,14 @@ picked runs, optional `.md`/`.json` report; `crosscheck` a run with pricing.md, 
 ```
 python -m higgsfield_scraper scrape [--sections S] [--plan-sets P] [--billing B] [--marketing-versions V] [--locale L]
                              [--plan-types T] [--models M] [--categories C]
-                             [--usd-reference R] [--include-hidden-plans] [--include-raw-cost]
+                             [--usd-reference R] [--include-hidden-plans] [--include-raw-cost] [--logged-in-prices]
                              [--label X] [--runs-dir D] [--log-level LVL] [--file-log-level LVL] [--scrapy-log-level LVL]
                              [--token JWT] [--cache] [--dry-run]
 ```
 
 | Group | Option | Default | Accepts |
 |---|---|---|---|
-| What to fetch | `--sections` | `plans,compare,benefits,models,marketing` | comma list of `plans compare benefits models marketing auth`, or `all` |
+| What to fetch | `--sections` | `plans,compare,benefits,models,marketing` | comma list of `plans compare benefits models marketing auth account`, or `all` (`all` never includes `account`) |
 | | `--plan-sets` | `us` | comma list of any of the 25 `plan_set_key`s and/or presets `us`, `tiers`, `all` |
 | | `--billing` | `monthly,annual` | `monthly`, `annual` (for `/compare`) |
 | | `--marketing-versions` | `latest` | `latest`, `all`, or versions such as `v51,v50` / `51` / `v51.0.0` |
@@ -100,6 +109,7 @@ python -m higgsfield_scraper scrape [--sections S] [--plan-sets P] [--billing B]
 | Output | `--usd-reference` | `plus:annual` | `<plan_type>:<billing_period>`, for example `ultra:annual`, `plus:monthly` |
 | | `--include-hidden-plans` | off | flag |
 | | `--include-raw-cost` | off | flag |
+| | `--logged-in-prices` | off | flag: also add the plan / model rows only logged-in users see, tagged `visibility="logged_in"` (needs a login; see [below](#--logged-in-prices-opt-in-the-rows-only-logged-in-users-see)) |
 | Run | `--label` | auto (`full-ps_a3`, `models-ps_a3`, …) | any text (slugified) |
 | | `--runs-dir` | `runs` (env `HF_RUNS_DIR`) | path |
 | | `--log-level` | `INFO` (env `HF_LOG_LEVEL`) | `DEBUG INFO WARNING ERROR` (console) |
@@ -133,7 +143,10 @@ It takes about 10 s, makes 6 requests and downloads about 4 MB (most of that is 
 ## 1b. Every scraper: complete option reference
 
 `scrape` with no scraper name means `scrape pricing` (backward compatible). Every scraper takes the shared options;
-community, catalog, projects and blog also take the limit/media options. Per-scraper guides: `docs/scrapers/`.
+community, catalog, projects, blog, site and account also take the limit/media options. Per-scraper guides:
+`docs/scrapers/` ([`account`](docs/scrapers/account.md), [`catalog`](docs/scrapers/catalog.md),
+[`projects`](docs/scrapers/projects.md), …). The tables below are generated; examples for the newer opt-in flags are
+in [§1c](#1c-examples-opt-in-kinds-flags-and-the-account-scraper).
 
 <!-- BEGIN scraper-options -->
 <!-- generated from the argparse definitions; regenerate with scripts/gen_cli_tables.py -->
@@ -341,6 +354,72 @@ python -m higgsfield_scraper scrape account --with-jobs --compare-estimate --max
 ```
 <!-- END scraper-options -->
 
+## 1c. Examples: opt-in kinds, flags and the `account` scraper
+
+Everything here is **opt-in** (added 2026-11-26): without these flags every scraper's output is unchanged.
+
+**Pricing with a login** (details: [Logged-in pricing](#logged-in-pricing-auth-section)):
+
+```bash
+python -m higgsfield_scraper scrape pricing --sections all --logged-in-prices        # + rows only logged-in users see (lite annual, magi_2)
+python -m higgsfield_scraper scrape pricing --sections all,account --logged-in-prices # + the account's own wallet, subscription, top-up settings
+python -m higgsfield_scraper scrape pricing --sections account --label my-balance     # account records only
+```
+
+With a login, `--sections all --logged-in-prices --dry-run` adds two requests after the `auth` ones:
+
+```
+GET https://fnf-api-gw.higgsfield.ai/fnf/subscriptions/v2/plans?with_localization=true&plan_set_key=ps_a3   [auth]
+GET https://fnf-api-gw.higgsfield.ai/fnf/job-sets/costs   [auth]
+```
+
+**Catalog: chain presets (credit prices), notices, restyle presets** (public, no login; never in the default run,
+`--kinds public` or the `login` group; included by `--kinds all`). Guide: [`docs/scrapers/catalog.md`](docs/scrapers/catalog.md).
+
+```bash
+python -m higgsfield_scraper scrape catalog --kinds chain_preset,notice,restyle_preset
+python -m higgsfield_scraper scrape catalog --kinds chain_preset --include-hidden      # + presets the app hides (is_hidden=true)
+python -m higgsfield_scraper scrape catalog --kinds chain_preset --with-profiles       # keep the `collaborator` credit
+python -m higgsfield_scraper scrape catalog --kinds notice --lang de                   # notices are translated
+```
+
+```
+$ python -m higgsfield_scraper scrape catalog --kinds chain_preset,notice,restyle_preset --dry-run
+GET https://fnf-api-gw.higgsfield.ai/fnf-cms-api/job-set-chain-presets?lang=en
+GET https://cms.higgsfield.ai/notices?lang=en
+GET https://fnf-api-gw.higgsfield.ai/fnf-cms-api/restyle-presets?size=100&lang=en
+```
+
+**Projects: original series from the public `fnf-series` service** (no login). Guide:
+[`docs/scrapers/projects.md`](docs/scrapers/projects.md).
+
+```bash
+python -m higgsfield_scraper scrape projects --what series --public-series                  # 35 series + episodes
+python -m higgsfield_scraper scrape projects --what series --public-series --with-details   # + /series/{slug}
+```
+
+```
+$ python -m higgsfield_scraper scrape projects --what series --public-series --dry-run
+GET https://fnf-api-gw.higgsfield.ai/fnf-series/series?limit=100
+```
+
+**`scrape account`** (login required; your own data; never part of a default run). Guide:
+[`docs/scrapers/account.md`](docs/scrapers/account.md).
+
+```bash
+python -m higgsfield_scraper scrape account                                             # snapshot (11 endpoints)
+python -m higgsfield_scraper scrape account --with-jobs --max-items 100                 # + your jobs with the credits charged
+python -m higgsfield_scraper scrape account --with-jobs --job-types seedance_2_5 --max-items 50
+python -m higgsfield_scraper scrape account --with-jobs --compare-estimate --max-items 20   # estimator vs real charge
+python -m higgsfield_scraper scrape account --with-jobs --with-prompts --max-items 20   # opt-in: STORES your prompt text
+```
+
+- Without a session the run makes no request and ends `failure` (exit 1) with a message on how to log in.
+- `/jobs/accessible` was Cloudflare-challenged for the crawl on 2026-11-26 (`403 cf-mitigated: challenge`): the
+  run records it in `meta.limits_hit`, ends `partial` and does not try to get past it.
+- `scrape account --dry-run` prints the "needs a login session" message and no requests even with a working login
+  (the session is resolved when the crawl starts).
+
 ---
 
 ## 2. Option details
@@ -354,8 +433,9 @@ python -m higgsfield_scraper scrape account --with-jobs --compare-estimate --max
 | `benefits` | `/subscriptions/v2/plan-benefits` | `benefit_cards[]`, `tab_badges` | Unlimited models, free generations, caps, campaigns per plan |
 | `models` | `/job-sets/costs` **+ `plan-benefits` + `plans`** for names, entitlements and USD | `models[]` | Credit cost of every model and option |
 | `marketing` | `pricing.higgsfield.ai/v2/pricing-config` | `marketing[]` | Card copy, taglines, feature lists, version history |
-| `auth` | 4 login-only endpoints | `auth.credit_packages[]`, `auth.payloads[]` | Top-up packs, unlimited bundles, credit price. **Needs `--token`** |
-| `all` | every section above; `auth` is included when you are logged in (`login`, `HF_CLERK_CLIENT` or `--token`), or when you write `all,auth` | everything | Full snapshot |
+| `auth` | 4 login-only endpoints | `auth.credit_packages[]`, `auth.payloads[]` | Top-up packs, unlimited bundles, credit price. **Needs a login** (`login`, `HF_CLERK_CLIENT` or `--token`) |
+| `account` | 8 login-only account endpoints (wallet, subscription, auto top-up, free gens, generation seconds + packs, bundle status) | `account.records[]` | The account's own pricing state, whitelisted. **Opt-in, needs a login, never part of `all`** (see [below](#--sections-account-opt-in-the-accounts-own-pricing-state)) |
+| `all` | every section above except `account`; `auth` is included when you are logged in (`login`, `HF_CLERK_CLIENT` or `--token`), or when you write `all,auth` | everything | Full snapshot |
 
 Enrichment requests are fetched so the joins work, but their sections only appear in the output if you selected
 them. For example, `--sections models` also calls `plans` (so it can compute USD estimates) but writes no
@@ -657,6 +737,11 @@ GET https://pricing.higgsfield.ai/v2/pricing-config?locale=en
 | Compare copy v40 and v51 | `python -m higgsfield_scraper scrape --sections marketing --marketing-versions v40,v51` | 2 | ~4 s |
 | German copy | `python -m higgsfield_scraper scrape --sections benefits,marketing --locale de` | 2 | ~5 s |
 | Logged-in extras | `python -m higgsfield_scraper scrape --sections all --token "$HF_TOKEN"` | 10 | ~12 s |
+| + rows only logged-in users see (lite, magi_2) | `python -m higgsfield_scraper scrape --sections all --logged-in-prices` (saved login) | 12 | — |
+| The account's own balances / top-up settings | `python -m higgsfield_scraper scrape --sections account --label my-balance` (saved login) | 8 | — |
+| Your jobs vs the estimator | `python -m higgsfield_scraper scrape account --with-jobs --compare-estimate --max-items 20` (saved login) | — | — |
+| Chain-preset credit prices, notices, restyle presets | `python -m higgsfield_scraper scrape catalog --kinds chain_preset,notice,restyle_preset --include-hidden` | 4 | — |
+| Original series without a login | `python -m higgsfield_scraper scrape projects --what series --public-series` | 1 | — |
 | Everything possible | `python -m higgsfield_scraper scrape --sections all --plan-sets all --marketing-versions all --include-raw-cost --include-hidden-plans` | 78 | ~2 min |
 | Quiet, for cron/CI | `python -m higgsfield_scraper scrape --label cron --log-level WARNING --scrapy-log-level WARNING` | 6 | ~10 s |
 | Re-parse after a code change | `python -m higgsfield_scraper normalize --run runs/<id>` | 0 | ~3 s |
@@ -987,12 +1072,18 @@ run_id                                  status   secs    country  counts
 20261125-105241_all-plan-sets-reparsed  success  4.75    EG       plan_sets=25, plans=340, models=95, …
 ```
 
-**`schema [--out DIR]`** (default `schemas/`) writes `dataset.schema.json` plus one schema per entity:
-`plan_set plan model benefit_card comparison marketing_plan credit_package auth_payload`.
+**`schema [--out DIR]`** (default `schemas/`) writes the JSON Schemas of every scraper: the pricing
+`dataset.schema.json`, one `<scraper>.dataset.schema.json` per other scraper (community, catalog, projects, blog,
+site, account) and one `<entity>.schema.json` per entity kind (`plan`, `model`, `catalog_chain_preset`,
+`account_job`, …).
 
 ```
-wrote 9 schemas to schemas
+wrote 81 schemas to schemas          (2026-11-26)
 ```
+
+Note: `catalog.dataset.schema.json` is the plain `CatalogDataset` (without the opt-in `chain_presets` / `notices` /
+`restyle_presets` collections); a run that selects one of them writes the full schema to its own
+`output/schema/dataset.schema.json`.
 
 ---
 
@@ -1037,7 +1128,8 @@ runs/<yyyymmdd-HHMMSS>_<label>/
     marketing_plans.csv                tagline, credits_*, billing_periods.*, ui.*, special_deal
     marketing_promo_items.csv          promo lines per plan
     marketing_features.csv             version × plan × group × feature
-    auth_credit_packages.csv / auth_payloads.csv   (with --token)
+    auth_credit_packages.csv / auth_payloads.csv   (with a login: `auth` section)
+    account.csv / account_items.csv    (only with --sections account; json/account.json too)
   output/items/<kind>.jsonl            Scrapy feeds written live during the crawl (one item per line, before joins)
   output/schema/dataset.schema.json
 runs/LATEST          newest run id      runs/index.jsonl   one summary line per run

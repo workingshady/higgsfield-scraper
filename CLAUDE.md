@@ -1,8 +1,9 @@
 # higgsfield-scraper
 
 Python **Scrapy** project that scrapes public Higgsfield.ai data by reverse-engineering its data sources and storing
-validated, versioned records. Six scrapers (`python -m higgsfield_scraper scrapers`): `pricing` (default), `community`,
-`catalog`, `projects`, `blog`, `site`; plus `diff` / `crosscheck` for pricing and an interactive menu (`menu`).
+validated, versioned records. Seven scrapers (`python -m higgsfield_scraper scrapers`): `pricing` (default), `community`,
+`catalog`, `projects`, `blog`, `site`, and the opt-in, login-only `account` (the user's own balances and jobs; never in
+a default run); plus `diff` / `crosscheck` for pricing and an interactive menu (`menu`).
 
 ## Knowledge base (read the relevant one before working)
 
@@ -52,7 +53,7 @@ higgsfield_scraper/
   middlewares.py                           # HttpArchiveMiddleware -> <run>/http/ (request/response/body/curl/HAR)
   run/ (context.py, logging_setup.py, manager.py, retention.py)   # run folders, logs, manifest, `runs clean`
   core/                                    # ScraperDef/registry, BaseApiSpider, auth (Clerk), privacy, redact, exporting
-  scrapers/<name>/                         # community, catalog, projects, blog (pricing = the modules above)
+  scrapers/<name>/                         # community, catalog, projects, blog, site, account (pricing = scrapers/pricing.py + the modules above)
   estimate/                                # per-generation cost estimator
   interactive/                             # menu mode (Rich + questionary), built dynamically from the registry
   extensions.py                            # heartbeat
@@ -65,8 +66,10 @@ runs/                                      # run output (gitignored)
 
 ## Higgsfield specifics
 
-- Pricing data comes from 5 public JSON endpoints + 4 login-only ones; the other scrapers are documented in
-  `docs/scrapers/<name>.md`. Docs: `docs/REVERSE_ENGINEERING.md` (findings),
+- Pricing data comes from 5 public JSON endpoints + 4 login-only ones (`auth` section); opt-in extras with a login:
+  `--logged-in-prices` (plans + costs re-fetched with the session, rows only logged-in users see tagged
+  `visibility="logged_in"`) and `--sections account` (8 whitelisted account endpoints, never part of `all`). What a
+  session unlocks: `docs/LOGIN_COVERAGE.md`. The other scrapers are documented in `docs/scrapers/<name>.md`. Docs: `docs/REVERSE_ENGINEERING.md` (findings),
   `docs/ENDPOINTS.md` (field meanings), `docs/ENDPOINT_FIELDS.md` (generated: `python scripts/gen_endpoint_fields.py`),
   `CLI.md` (every option — update it when adding/changing a CLI flag; regenerate its scraper option tables with
   `python scripts/gen_cli_tables.py`), Postman collection (`python scripts/make_postman.py`).

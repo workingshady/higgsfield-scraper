@@ -12,6 +12,9 @@ Out of scope (handled by another task): login-only catalog kinds (soul styles, m
 Redacted samples: [`samples/higgsfield/login_audit/`](../samples/higgsfield/login_audit/) (ids, authors and UUIDs
 redacted, lists cut to 2 items; per-user endpoints saved as **types only** in `account_endpoint_shapes.json`).
 
+Which recommendations are implemented (and with which flag) and which are still open:
+[Implementation status](#implementation-status) at the end. The sections below are the audit as it was written.
+
 ---
 
 ## 1. TL;DR
@@ -272,3 +275,28 @@ are marked "LOGIN ONLY"; they are public on `https://fnf-api-gw.higgsfield.ai/fn
 - Service bases were found by probing likely prefixes; the minified wrapper functions that pick the base were not
   resolved for `/api/v1/categories` (404 on `fnf-apps-marketplace`).
 - `country_code` (IP-derived) appears in plans and `/user/meta`; it is not recorded in any sample.
+
+---
+
+## Implementation status
+
+As of commit `fc9eda3` (2026-11-26). Everything implemented is **opt-in**: default runs of every scraper are unchanged.
+Field names sometimes differ from the §3 sketches; the scraper docs are authoritative.
+
+| Recommendation (§1, §2, §3) | Status | How / where |
+|---|---|---|
+| Logged-in plans: extra `lite` / annual row (§2.1, §3.1) | **implemented** | `scrape pricing --logged-in-prices`: plans re-fetched with the session (`plans_logged_in`); rows only in the logged-in response appended with `visibility: "logged_in"` (not `audience`, which already means individual/business). [`PRICING.md`](PRICING.md) §10, [`../CLI.md`](../CLI.md) "Logged-in pricing" |
+| Logged-in costs: extra `magi_2` row, both `version` hashes (§2.1, §3.1) | **implemented** | same flag (`job_costs_logged_in`); model tagged `visibility: "logged_in"`; `meta.logged_in_prices` = `{costs_version_anonymous, costs_version_logged_in, logged_in_only_plan_ids, logged_in_only_model_ids, differing_rows}` |
+| Wallet, subscription, auto top-up (`credits_per_dollar`, `options[]`), free gens, generation seconds, generation-seconds packs, all-unlim status, seedance-unlimited tiers (§2.1) | **implemented** | `scrape pricing --sections account` (8 whitelisted endpoints, never part of `all`). The packs and seedance-unlimited tiers went here, not into the `auth` section as §2.1 suggested, so default logged-in `--sections all` output is unchanged |
+| `account` scraper (§1 #5, §3.4): snapshot incl. `/user` balances, `/user/meta` cohort, `/workspaces/settings` grants, `/workspaces/notice`, personal promo | **implemented** | `scrape account` (11 snapshot endpoints, field whitelists, redaction before the archives). [`scrapers/account.md`](scrapers/account.md) |
+| Own jobs with the real charged `cost` (§2.4) and estimate-vs-actual check | **implemented, blocked live** | `scrape account --with-jobs [--compare-estimate]`. `/jobs/accessible` answered `403 cf-mitigated: challenge` to the Scrapy crawl on 2026-11-26 (a single plain GET passed): recorded in `meta.limits_hit`, run `partial`, not evaded. The comparison is covered by offline tests only |
+| Chain presets with credit prices (§2.2, §3.2) | **implemented** | `scrape catalog --kinds chain_preset` (+ `--include-hidden` for the `show_hidden=true` presets, `is_hidden`; `--with-profiles` keeps `collaborator`) |
+| Per-model notices (§2.2, §3.3) | **implemented** | `scrape catalog --kinds notice` |
+| Restyle presets (§2.2) | **implemented** | `scrape catalog --kinds restyle_preset` |
+| Series via the public `fnf-series` base (§2.2, §4) | **implemented (opt-in)** | `scrape projects --what series --public-series` (+ `--with-details` for `/series/{slug}`). The default run keeps the legacy `/fnf/series` path so its output does not change; the `endpoints.py` comment now explains this (the §4 "code not changed" note is outdated) |
+| Doc corrections listed in §4 | **done** | `HIGGSFIELD_DATA_INVENTORY.md` §5/§8, `MODEL_LOADING.md` §2.1/§5/§6–§9, `COST_FORMULAS.md` §4/§5.1/§5.3/§5.4/§8, `PRICING.md` §6.1/§10, `REVERSE_ENGINEERING.md` §5.2/§9/§16 |
+| Academy course list from `fnf-academy/api/v1/courses` (adds `free_generations`) (§2.2) | open | `site --what academy` still reads the academy pages (SSR loader state) |
+| Community-built apps from `fnf-apps-marketplace/api/v1/apps/community` (`credits_usage`) (§2.2) | open | not scraped |
+| `applications/explore` as a JSON source for `site --what apps` (§2.2) | open (optional) | `site` keeps the HTML source |
+| Discount fields `discount_percent_off` / `discount_duration*` flattened on plans (§3.1) | not done as sketched | plans keep the API's nested `discount` object |
+| Team / paid-account shapes (seat bonus, credit price, admin capabilities, unlimited grants, scoped credits) | open | needs a team or paid account; kept as scrubbed generic objects in `account` |
