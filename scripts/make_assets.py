@@ -151,14 +151,14 @@ def architecture() -> str:
     lane(972, 288, "LOCAL DISK", "runs/&lt;timestamp&gt;_&lt;label&gt;/")
 
     # external
-    box(36, 136, 238, 92, "fnf-api-gw.higgsfield.ai", ["JSON APIs: plans · costs ·", "publications · motions · contests"], core=True)
+    box(36, 136, 238, 92, "fnf-api-gw · cms.higgsfield.ai", ["plans · costs · publications ·", "folders · community · CMS lists"], core=True)
     box(36, 244, 238, 74, "pricing.higgsfield.ai", ["pricing-config (marketing copy)"])
-    box(36, 334, 238, 74, "higgsfield.ai", ["pages: apps · academy · MCP · blog"])
+    box(36, 334, 238, 74, "higgsfield.ai", ["pages · sitemaps · docs · examples"])
     box(36, 424, 238, 92, "Clerk auth", ["login once (emailed code)", "→ fresh 60 s tokens"], optional=True)
     box(36, 532, 238, 74, "Media CDN", ["images · videos (opt-in)"], optional=True)
 
     # process
-    box(322, 136, 190, 92, "CLI · menu", ["scrape &lt;scraper&gt; [options]", "menu · diff · login · show"], mono=False)
+    box(322, 136, 190, 92, "CLI · menu", ["scrape &lt;scraper&gt; [options]", "menu · export · diff · login"], mono=False)
     box(322, 244, 190, 74, "RunManager", ["run folder · logs · manifest"])
     add(f'<rect x="322" y="334" width="190" height="272" rx="12" fill="none" stroke="{t["line"]}" stroke-dasharray="4 4"/>')
     add(f'<text x="336" y="356" font-family="{MONO}" font-size="11.5" font-weight="700" letter-spacing="1" '
@@ -192,7 +192,7 @@ def architecture() -> str:
             f'fill="{t["text"] if sub else t["cyan"]}">{name.strip()}</text>')
         if who:
             add(f'<text x="1230" y="{y}" text-anchor="end" font-family="{SANS}" font-size="11.5" fill="{t["muted"]}">← {who}</text>')
-    add(f'<text x="1004" y="528" font-family="{SANS}" font-size="12" fill="{t["muted"]}">also: runs/LATEST · runs/index.jsonl</text>')
+    add(f'<text x="1004" y="528" font-family="{SANS}" font-size="12" fill="{t["muted"]}">also: runs/LATEST · index.jsonl · exports/</text>')
     add(f'<text x="1004" y="550" font-family="{SANS}" font-size="12" fill="{t["muted"]}">exit 0 ok · 3 partial · 4 blocked · 1 fail</text>')
     add(f'<text x="1004" y="580" font-family="{SANS}" font-size="12" fill="{t["muted"]}">JSON indent 4 · CSVs complete</text>')
 
