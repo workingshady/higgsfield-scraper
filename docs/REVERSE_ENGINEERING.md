@@ -16,6 +16,7 @@ Related documents:
 | [`../CLI.md`](../CLI.md) | How to run the scraper |
 | [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) | Ready-made requests |
 | [`MODEL_LOADING.md`](MODEL_LOADING.md) | How tools load models: JS registry, flags, param schemas, cost formulas, create/poll flow (§15) |
+| [`PRICING.md`](PRICING.md) | Standalone pricing & plans reference with current snapshot |
 | [`COST_FORMULAS.md`](COST_FORMULAS.md) | Credit and cost formulas for every model, scenarios, variation tables |
 | [`PRODUCTS.md`](PRODUCTS.md) | Products → model ids → providers, examples, model catalog |
 | [`JOBS_AND_STORAGE.md`](JOBS_AND_STORAGE.md) | Job ids, lifecycle, storage, library, chains, workflows |
@@ -132,6 +133,10 @@ rotates it about every 60 s.
   already returns the full price table.
 
 ## 6. How the frontend picks prices (de-minified from the bundle)
+
+> Prices quoted in this section are from 2026-11-25 and some have since changed (e.g. Ultra annual on 2026-11-26).
+> The complete, current reference, including all 25 plan sets (`ps_a7`, `mob_v1`, the `*_q` quarterly sets), is
+> [`PRICING.md`](PRICING.md).
 
 ```js
 // plan-set selection

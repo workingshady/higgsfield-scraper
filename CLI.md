@@ -613,7 +613,8 @@ table to stdout.
 | `benefits` | substring of `plan_type` | plan × billing × tab: unlimited models, free gens |
 | `compare` | substring of a feature name | the matrix per plan set and billing (one column per plan type) |
 
-**`show plans`** (US):
+**`show plans`** (US). Example output from 2026-11-25; prices change (e.g. Ultra annual moved on 2026-11-26).
+Current prices: [`docs/PRICING.md`](docs/PRICING.md) snapshot, or run the command yourself:
 
 ```
 set    plan     billing  credits/mo  seats  before/mo $  after/mo $  renew/mo $  off %  applies        $/credit

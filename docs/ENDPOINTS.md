@@ -7,6 +7,7 @@
 > [`scrapers/cost-estimate.md`](scrapers/cost-estimate.md). Every endpoint, including the Clerk login flow, is in
 > [`higgsfield.postman_collection.json`](higgsfield.postman_collection.json) (96 requests). The full site map is in
 > [`HIGGSFIELD_DATA_INVENTORY.md`](HIGGSFIELD_DATA_INVENTORY.md).
+> **How pricing works end to end** (plan math, plan sets, offers, benefits, model credits, snapshot): [`PRICING.md`](PRICING.md).
 
 
 This document covers each endpoint's URL and parameters, auth, response structure, the meaning of every field, and
