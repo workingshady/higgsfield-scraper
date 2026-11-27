@@ -1856,42 +1856,59 @@ More in [`docs/ENGAGEMENT.md`](docs/ENGAGEMENT.md#14-how-to-track-likes-over-tim
 
 ## 6d. Top trending ideas and templates: `scripts/trending_ideas.py`
 
-One command that scrapes the trending lists (capped, GET only), ranks every template / video and packages the top N
-with prompts, settings, reference inputs and example videos, one folder per idea. Higgsfield already ranks these
-lists server-side, so nothing is crawled exhaustively (≈ 10 min of scraping + asset downloads).
+One command that scrapes Higgsfield's own trending-sorted lists (one run per feed, capped, GET only), ranks every
+template / reel / ad / video / film by how fast it is trending, and packages the best ones with prompts, settings,
+reference inputs and example videos, one folder per idea, organized by category.
 
 ```bash
-python scripts/trending_ideas.py                         # scrape + rank + top 100 with assets
+python scripts/trending_ideas.py                         # scrape + rank + top 100 overall + top 20 per category
 python scripts/trending_ideas.py --no-scrape --top 50    # re-rank the latest trend-* runs
 python scripts/trending_ideas.py --no-scrape --compare exports/trending/<older>/ideas.json   # + "rising" score
 ```
 
 | Step | What |
 |---|---|
-| scrape | `showcase --what main_feed,explore_categories,reels_presets --explore-sort trending`, `community --feeds trending,approved --type video`, `studios --what galleries` (labels `trend-showcase`, `trend-community`, `trend-studios`) |
-| candidates | main feed / explore presets (`uses` = times made), Shorts/Reels presets (`recreates` + the original social reel's views/likes), community videos, studio outputs (Marketing Studio ads, Cinema Studio, …) |
+| scrape (labels `trend-*`) | `showcase --what main_feed,explore_categories,reels_presets --explore-sort trending` (15 pages), `community --feeds trending --type video` (1000), one `--feeds trending --models <m>` run per video model (`--video-models`; the trending feed is ~97 % images and honours one `model=` per request) and, as a separate run, `--feeds approved` (300), `studios --what galleries --gallery-feeds trending,approved`, `projects --what trending` (200), `catalog --kinds viral_preset,viral_type,marketing_preset,marketing_category` |
+| categories | `reels_shorts` (Shorts Studio presets: remakes + the original social reel's views/likes), `ads` (Marketing/Ads Studio outputs, ad-model videos), `templates` (home-feed + Explore presets: times made), `videos` (community + Cinema Studio + other studios), `films` (trending projects) |
 | dedupe | publication id, job id, output media key, title |
-| score | percentile inside each source: usage 45 %, likes 30 %, views 25 % (missing metrics re-weighted); with `--compare` 50 % popularity + 50 % growth |
-| pick | top N, at most `--max-per-source` (25) per source so the list stays mixed |
+| score | 40 % rank inside its source (Higgsfield trending position 30 %, usage = times made / remakes 25 %, views/day 15 %, likes/day 10 %, likes 10 %, views 10 %; missing signals re-weighted, sources under 10 items damped) + 60 % the same reach signals ranked across all sources (usage only within its category). With `--compare`: 50 % popularity + 50 % growth |
+| pick | overall top N (at most `--max-per-source` per source) + top K of every category |
+| featured | catalog viral effects (main-page picks first) and ad templates in site order: no public popularity numbers, so they are listed separately, not scored |
 
 | Option | Default | Meaning |
 |---|---|---|
-| `--top` | 100 | ideas to package |
-| `--pages` | 5 | pages per trending list (main feed, explore); studios use half |
-| `--videos` | 500 | community videos per feed |
+| `--top` | 100 | overall top ideas to package |
+| `--per-category` | 20 | also package the top K of every category |
+| `--featured` | 30 | featured viral effects / ad templates to package (each) |
+| `--pages` | 15 | pages of the main feed and Explore trending |
+| `--videos` / `--approved` | 1000 / 300 | community trending / approved videos |
+| `--video-models` / `--per-model` | 12 video models / 100 | video models whose trending list is scraped separately, and items per model |
+| `--gallery-pages` | 3 | studio gallery pages (50) per studio and feed |
+| `--films` | 200 | trending projects |
 | `--no-scrape` / `--runs DIR…` | – | reuse the latest `trend-*` runs / read these run folders |
 | `--compare FILE` | – | a previous `ideas.json`: adds `score_rising` and per-idea growth |
-| `--max-per-source` | 25 | diversity cap |
+| `--max-per-source` | 25 | diversity cap inside the overall top |
 | `--no-download` | off | links only |
-| `--max-outputs` / `--max-inputs` | 2 / 4 | example videos / reference inputs per idea |
-| `--max-mb` / `--delay` | 60 / 0.3 | skip larger files / seconds between downloads |
+| `--max-outputs` / `--max-inputs` | 2 / 4 | example outputs / reference inputs per idea |
+| `--max-mb` / `--delay` | 80 / 0.3 | skip larger files / seconds between downloads |
 | `--out` | `exports/trending/<timestamp>` | output folder |
 
-Output: `index.md` (ranked table), `top.csv`, `top.json`, `ideas.json` (snapshot for `--compare`), and
-`ideas/NNN_<slug>/` with `README.md` (what it is, prompt, model, settings, user inputs, engagement, source page),
-`contest_brief.md` (an idea-submission draft with the facts filled in and blanks for your own hook and twist),
-`prompt.txt`, `idea.json`, `assets/` (example outputs + thumbnails) and `inputs/` (reference inputs). Downloads are
-cached once per URL in `exports/trending/_cache/` and hard-linked into the idea folders.
+Output:
+
+```
+index.md                 overall top N, top K per category, featured templates
+top.csv / top.json       the packaged ideas;  ideas.json = every candidate's metrics (for --compare)
+categories/<cat>.md|csv  EVERY candidate of that category, ranked, with links and metrics
+ideas/<cat>/NNN_<slug>/  README.md (what it is, prompt, model, settings, user inputs, trend metrics, source),
+                         contest_brief.md (idea-submission draft: facts filled in, your hook/twist left blank),
+                         prompt.txt, idea.json, assets/ (example outputs + thumbnails), inputs/ (reference inputs)
+featured/<viral_effects|ad_templates>/NN_<slug>/   the same for Higgsfield-featured templates
+```
+
+`NNN` is the overall rank. Note: Higgsfield's live community *video* trending list is a short recent window
+(29 videos on 2026-11-27: `seedance_2_5` 9, `magi_2` 19, `wan2_5_video` 1); the larger trend pools are the home feed,
+Explore trending, Shorts/Reels presets and the studio galleries, which the script reads too. Downloads are cached once per URL in `exports/trending/_cache/` and hard-linked into the
+idea folders.
 
 ## 7. Output
 
