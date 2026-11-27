@@ -1900,7 +1900,8 @@ index.md                 overall top N, top K per category, featured templates
 top.csv / top.json       the packaged ideas;  ideas.json = every candidate's metrics (for --compare)
 categories/<cat>.md|csv  EVERY candidate of that category, ranked, with links and metrics
 ideas/<cat>/NNN_<slug>/  README.md (what it is, prompt, model, settings, user inputs, trend metrics, source),
-                         contest_brief.md (idea-submission draft: facts filled in, your hook/twist left blank),
+                         brief.md (idea name, hook, concept, trend it rides, user input, target user,
+                         reference links: Higgsfield page / original / MP4, visual files), all from the idea's data,
                          prompt.txt, idea.json, assets/ (example outputs + thumbnails), inputs/ (reference inputs)
 featured/<viral_effects|ad_templates>/NN_<slug>/   the same for Higgsfield-featured templates
 ```
@@ -1909,6 +1910,22 @@ featured/<viral_effects|ad_templates>/NN_<slug>/   the same for Higgsfield-featu
 (29 videos on 2026-11-27: `seedance_2_5` 9, `magi_2` 19, `wan2_5_video` 1); the larger trend pools are the home feed,
 Explore trending, Shorts/Reels presets and the studio galleries, which the script reads too. Downloads are cached once per URL in `exports/trending/_cache/` and hard-linked into the
 idea folders.
+
+`python scripts/idea_briefs.py exports/trending/<timestamp>` (re)writes every idea's `brief.md` plus `briefs.md` /
+`briefs.csv` (all briefs in one table) for an existing package. Every field comes from the idea's own data:
+
+| Field | Source |
+|---|---|
+| Idea name | template / reel / film title, else the first meaningful words of the prompt |
+| Hook | reel: first line of the narration script; prompt: its 0–2 s segment or first scene sentence; template: description |
+| Concept | description, else the first sentences of the prompt (headings, camera and style lines skipped) |
+| Trend it rides | format tags + uses / remakes, views, likes, views/day, trending position, the original reel's reach, hashtags |
+| User input | the inputs the generation really used (photos per person, presenter photo, product photos, reference video) + text |
+| Target user | rule from the category + the idea's topic / hashtags / formats |
+| Reference link | Higgsfield page · original (social reel / source video / trailer) · direct MP4 links |
+| Visual files | up to 5 downloaded files of the idea (outputs, thumbnails, inputs), each ≤ 100 MB |
+
+Fields the source does not contain say "Not in the source data".
 
 ## 7. Output
 

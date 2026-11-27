@@ -20,7 +20,7 @@ Pipeline (each step can be skipped):
                   top.csv / top.json            the packaged ideas
                   ideas.json                    every candidate's metrics (use as --compare next time)
                   categories/<cat>.md|.csv      EVERY candidate of that category, ranked (links, metrics, prompt)
-                  ideas/<cat>/NNN_<slug>/       README.md, contest_brief.md, prompt.txt, idea.json,
+                  ideas/<cat>/NNN_<slug>/       README.md, brief.md, prompt.txt, idea.json,
                                                 assets/ (example outputs + thumbnails), inputs/ (references)
                   featured/<viral_effects|ad_templates>/NN_<slug>/   Higgsfield-featured templates with previews
                 categories: reels_shorts, ads, templates, videos, films
@@ -601,7 +601,7 @@ def write_idea(c: dict, d: Path, a, brief_too=True) -> None:
         (d / "prompt.txt").write_text(c["prompt"], encoding="utf-8")
     (d / "README.md").write_text(readme(c), encoding="utf-8")
     if brief_too:
-        (d / "contest_brief.md").write_text(brief(c), encoding="utf-8")
+        write_brief(c, d)
 
 
 def package(chosen: list[dict], C: list[dict], featured: dict[str, list[dict]], out: Path, a) -> None:
@@ -732,24 +732,12 @@ def readme(c: dict) -> str:
     return "\n".join(L)
 
 
-def brief(c: dict) -> str:
-    ins = ", ".join(sorted({f"{m.get('type') or 'file'} ({m.get('role') or 'input'})" for m in c["inputs"]})) or "?"
-    trend = (f"{fmt(c['uses'])} uses/remakes, {fmt(c['likes'])} likes, {fmt(c['views'])} views"
-             + (f", {fmt(c['views_per_day'])} views/day" if c.get("views_per_day") else "")
-             + (f", #{c['position']} in Higgsfield trending" if c.get("position") else "") + f" ({c['source']})")
-    return "\n".join([
-        f"# Contest brief draft: {title_of(c)}", "",
-        "Inspiration only. The contest rejects copies of competitor templates: add your own twist and 2+ MyZesty features.", "",
-        "| Field | Draft |", "|---|---|",
-        f"| Idea name | _your name for the twist_ (inspired by: {title_of(c)}) |",
-        "| Hook | _what stops the scroll in the first 2 s_ |",
-        f"| Concept | {(c['description'] or (c['prompt'] or '')[:200]).replace('|', '/').replace(chr(10), ' ')} |",
-        f"| Reference | {c['page_url'] or (c['outputs'][0]['url'] if c['outputs'] else '')} |",
-        f"| Trend | {trend} |",
-        f"| User input | {ins} |",
-        "| Visual | see assets/ (example output) and inputs/ (reference inputs) |",
-        "| Target user | _who uses it and for what_ |",
-        "| MyZesty features | _AI Animate / Product Video / Story+ / Ads Creator / Templates_ |", ""])
+def write_brief(c: dict, d: Path) -> None:
+    """brief.md: idea name, hook, concept, trend, user input, target user, reference links, visual files
+    (scripts/idea_briefs.py, filled only from this idea's data)."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import idea_briefs
+    idea_briefs.write_brief(c, d)
 
 
 # --------------------------------------------------------------------------------------------- main
