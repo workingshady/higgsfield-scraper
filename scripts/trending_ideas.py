@@ -445,6 +445,63 @@ def pick(C: list[dict], top: int, per_category: int, max_per_source: int) -> lis
     return sorted(chosen.values(), key=lambda c: c["rank"])
 
 
+# --------------------------------------------------------------------------------------------- near-duplicates + themes
+def _norm_text(p: str | None) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"<<<[^>]*>>>|[^\w\s]", " ", (p or "").lower())).strip()
+
+
+def merge_near_duplicates(C: list[dict], threshold: float = 0.85) -> list[dict]:
+    """Untitled videos with (almost) the same prompt are one idea (e.g. the same prompt re-run in another colour).
+    C must be sorted best-first: the best keeps its place, the others become `alternates` of it."""
+    import difflib
+    kept: list[dict] = []
+    for c in C:
+        text = _norm_text(c["prompt"])[:500]
+        if c["kind"] == "video" and not c["title"] and len(text) > 60:
+            toks = set(text.split())
+            for k in kept:
+                if k["category"] != c["category"] or not k.get("_text"):
+                    continue
+                if len(toks & k["_toks"]) / max(1, len(toks | k["_toks"])) < 0.6:
+                    continue
+                if difflib.SequenceMatcher(None, text, k["_text"]).ratio() >= threshold:
+                    k.setdefault("alternates", []).append({
+                        "key": c["key"], "source": c["source"], "likes": c["likes"], "views": c["views"],
+                        "prompt": c["prompt"], "outputs": c["outputs"][:1], "page_url": c["page_url"]})
+                    break
+            else:
+                c["_text"], c["_toks"] = text, toks
+                kept.append(c)
+            continue
+        kept.append(c)
+    for c in kept:
+        c.pop("_text", None)
+        c.pop("_toks", None)
+    return kept
+
+
+THEMES = {
+    "UGC / selfie / vlog": r"\bugc\b|selfie|front camera|front-facing|vlog|filmed on (an |a )?(iphone|smartphone)",
+    "Get ready with me / try-on / outfit": r"get ready with me|grwm|try-on|try on|outfit|mirror",
+    "Unboxing / product review": r"unbox|product review|reviewing|haul",
+    "Commercial / brand ad": r"commercial|advert|\bbrand\b|product shot|packshot",
+    "One take / oner": r"one take|unbroken|single continuous|no cuts|\boner\b|long take",
+    "POV / first person": r"\bpov\b|first-person|first person",
+    "Dance / performance": r"danc|choreograph|performance",
+    "Character / face swap": r"\breplace\b|\bswap\b",
+    "Cars / driving": r"\bcar\b|drive|driving|highway|supercar|racing",
+    "Drama / emotional": r"breakup|monologue|crying|tears|emotional|heartbreak",
+    "Animation / anime": r"anime|animation|2\.5d|hand-drawn|cartoon|pixar",
+    "Story / life lesson reel": r"story|lesson|tips|how to|learn|first time",
+}
+
+
+def themes_of(c: dict) -> list[str]:
+    parts = (c["title"], c["description"], c["prompt"], c["topic"], " ".join(map(str, c["hashtags"] or [])))
+    text = " ".join(str(x) for x in parts if x).lower()
+    return [t for t, rx in THEMES.items() if re.search(rx, text)]
+
+
 # --------------------------------------------------------------------------------------------- 5. package
 def slug(s: str | None, n=50) -> str:
     s = re.sub(r"[^a-z0-9]+", "-", (s or "").lower()).strip("-")
@@ -585,6 +642,13 @@ def package(chosen: list[dict], C: list[dict], featured: dict[str, list[dict]], 
         write_csv(out / "categories" / f"{cat}.csv", rows)
         (out / "categories" / f"{cat}.md").write_text(table_md(f"{CATEGORIES[cat]}: all {len(rows)}", rows, "../"),
                                                      encoding="utf-8")
+    T = ["# Ideas grouped by format / theme", "",
+         "Same-family ideas (e.g. two different UGC try-on ads) land in the same group. An idea can be in several.", ""]
+    for th in THEMES:
+        rows = [c for c in C if th in (c.get("themes") or [])]
+        if rows:
+            T += [f"## {th} ({len(rows)})", ""] + table_md("", rows, "../").splitlines()[2:] + [""]
+    (out / "categories" / "themes.md").write_text("\n".join(T), encoding="utf-8")
     (out / "index.md").write_text(index_md(top, chosen, C, featured, a), encoding="utf-8")
 
 
@@ -609,7 +673,7 @@ def index_md(top, chosen, C, featured, a) -> str:
          "Candidates: " + ", ".join(f"{k} {v}" for k, v in Counter(c["category"] for c in C).most_common())
          + " · sources: " + ", ".join(f"{k} {v}" for k, v in Counter(c["source"] for c in C).most_common()), "",
          "Every candidate of a category (ranked, with links): " + " · ".join(
-             f"[{cat}](categories/{cat}.md)" for cat in CATEGORIES), "", ""]
+             f"[{cat}](categories/{cat}.md)" for cat in CATEGORIES) + " · grouped by format: [themes](categories/themes.md)", "", ""]
     L += ["## Top overall", ""] + table_md("", top).splitlines()[2:] + [""]
     for cat, label in CATEGORIES.items():
         rows = [c for c in chosen if c["category"] == cat][: a.per_category]
@@ -659,6 +723,12 @@ def readme(c: dict) -> str:
         L += [f"Source: {c['page_url']}", ""]
     if c.get("also_in"):
         L += ["Also found in: " + ", ".join(sorted(set(c["also_in"]))), ""]
+    if c.get("themes"):
+        L += ["**Format / theme** " + " · ".join(c["themes"]), ""]
+    if c.get("alternates"):
+        L += [f"## Alternate versions of this idea ({len(c['alternates'])}, near-identical prompt)"]
+        L += [f"- {fmt(x['views'])} views, {fmt(x['likes'])} likes ({x['source']}): "
+              + (x["outputs"][0]["url"] if x["outputs"] else (x["page_url"] or x["key"])) for x in c["alternates"]] + [""]
     return "\n".join(L)
 
 
@@ -729,6 +799,12 @@ def main(argv=None) -> int:
         return 1
     prev = json.loads(Path(a.compare).read_text(encoding="utf-8")) if a.compare else None
     score(C, prev)
+    n0 = len(C)
+    C = merge_near_duplicates(C)
+    for i, c in enumerate(C, 1):
+        c["rank"] = i
+        c["themes"] = themes_of(c)
+    print(f"[dedupe] near-duplicate prompts merged: {n0 - len(C)} (kept as alternates)")
     chosen = pick(C, a.top, a.per_category, a.max_per_source)
     out = Path(a.out) if a.out else ROOT / "exports" / "trending" / dt.datetime.now().strftime("%Y%m%d-%H%M%S")
     print(f"[rank] {len(raw)} candidates -> {len(C)} unique -> {len(chosen)} idea folders -> {out}")
