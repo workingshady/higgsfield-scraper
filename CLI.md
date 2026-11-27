@@ -92,6 +92,7 @@ picked runs, optional `.md`/`.json` report; `crosscheck` a run with pricing.md, 
 6. [`scrapers`, `login`, `auth-check`, `runs`, `runs clean`, `show-config`, `diff`, `crosscheck`, `plan-sets`, `sections`, `schema`](#6-info-commands)
    [6b. `export`: run folders → browsable / dataset folders](#6b-export-run-folders--browsable--dataset-folders)
    [6c. Count and dedupe generations: `scripts/merge_generations.py`](#6c-count-and-dedupe-generations-scriptsmerge_generationspy)
+   [6d. Top trending ideas and templates: `scripts/trending_ideas.py`](#6d-top-trending-ideas-and-templates-scriptstrending_ideaspy)
 7. [Output: what a run produces](#7-output), incl. [the other scrapers' files](#output-of-the-other-scrapers)
 8. [Exit codes, environment variables, `.env`](#8-exit-codes-and-environment)
 9. [Plain Scrapy (`scrapy crawl higgsfield -a …`)](#9-plain-scrapy)
@@ -1852,6 +1853,45 @@ More in [`docs/ENGAGEMENT.md`](docs/ENGAGEMENT.md#14-how-to-track-likes-over-tim
 [`docs/scrapers/showcase.md`](docs/scrapers/showcase.md#8-dedupe-scriptsmerge_generationspy).
 
 ---
+
+## 6d. Top trending ideas and templates: `scripts/trending_ideas.py`
+
+One command that scrapes the trending lists (capped, GET only), ranks every template / video and packages the top N
+with prompts, settings, reference inputs and example videos, one folder per idea. Higgsfield already ranks these
+lists server-side, so nothing is crawled exhaustively (≈ 10 min of scraping + asset downloads).
+
+```bash
+python scripts/trending_ideas.py                         # scrape + rank + top 100 with assets
+python scripts/trending_ideas.py --no-scrape --top 50    # re-rank the latest trend-* runs
+python scripts/trending_ideas.py --no-scrape --compare exports/trending/<older>/ideas.json   # + "rising" score
+```
+
+| Step | What |
+|---|---|
+| scrape | `showcase --what main_feed,explore_categories,reels_presets --explore-sort trending`, `community --feeds trending,approved --type video`, `studios --what galleries` (labels `trend-showcase`, `trend-community`, `trend-studios`) |
+| candidates | main feed / explore presets (`uses` = times made), Shorts/Reels presets (`recreates` + the original social reel's views/likes), community videos, studio outputs (Marketing Studio ads, Cinema Studio, …) |
+| dedupe | publication id, job id, output media key, title |
+| score | percentile inside each source: usage 45 %, likes 30 %, views 25 % (missing metrics re-weighted); with `--compare` 50 % popularity + 50 % growth |
+| pick | top N, at most `--max-per-source` (25) per source so the list stays mixed |
+
+| Option | Default | Meaning |
+|---|---|---|
+| `--top` | 100 | ideas to package |
+| `--pages` | 5 | pages per trending list (main feed, explore); studios use half |
+| `--videos` | 500 | community videos per feed |
+| `--no-scrape` / `--runs DIR…` | – | reuse the latest `trend-*` runs / read these run folders |
+| `--compare FILE` | – | a previous `ideas.json`: adds `score_rising` and per-idea growth |
+| `--max-per-source` | 25 | diversity cap |
+| `--no-download` | off | links only |
+| `--max-outputs` / `--max-inputs` | 2 / 4 | example videos / reference inputs per idea |
+| `--max-mb` / `--delay` | 60 / 0.3 | skip larger files / seconds between downloads |
+| `--out` | `exports/trending/<timestamp>` | output folder |
+
+Output: `index.md` (ranked table), `top.csv`, `top.json`, `ideas.json` (snapshot for `--compare`), and
+`ideas/NNN_<slug>/` with `README.md` (what it is, prompt, model, settings, user inputs, engagement, source page),
+`contest_brief.md` (an idea-submission draft with the facts filled in and blanks for your own hook and twist),
+`prompt.txt`, `idea.json`, `assets/` (example outputs + thumbnails) and `inputs/` (reference inputs). Downloads are
+cached once per URL in `exports/trending/_cache/` and hard-linked into the idea folders.
 
 ## 7. Output
 

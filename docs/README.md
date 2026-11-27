@@ -32,6 +32,7 @@ GitHub shows this page when you open the `docs/` folder.
 | Find **likes / views / comments** and track them over time | [`ENGAGEMENT.md`](ENGAGEMENT.md) |
 | **Export** runs as browsable folders or datasets (Hugging Face, WebDataset, JSONL) | [`EXPORT.md`](EXPORT.md), [`../CLI.md` §6b](../CLI.md#6b-export-run-folders--browsable--dataset-folders) |
 | **Count and dedupe all videos / images** across runs | [`../CLI.md` §6c](../CLI.md#6c-count-and-dedupe-generations-scriptsmerge_generationspy) (`scripts/merge_generations.py`), [`scrapers/showcase.md` §8](scrapers/showcase.md#8-dedupe-scriptsmerge_generationspy) |
+| **Top 100 trending ideas / templates** with prompts, inputs and example videos | [`../CLI.md` §6d](../CLI.md#6d-top-trending-ideas-and-templates-scriptstrending_ideaspy) (`scripts/trending_ideas.py`) |
 | See what logging in adds (extra price rows, your own account data) | [`LOGIN_COVERAGE.md`](LOGIN_COVERAGE.md), then [`scrapers/account.md`](scrapers/account.md) |
 | Record **your own** balances and jobs (real charged credits) | [`scrapers/account.md`](scrapers/account.md) |
 | Add a new scraper | [`ADDING_A_SCRAPER.md`](ADDING_A_SCRAPER.md) |

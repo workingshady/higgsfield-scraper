@@ -328,6 +328,7 @@ Full reference with every choice and default: **[`CLI.md`](CLI.md)**. Summary:
 | `crosscheck [--run RUN] [--json] [--save]` | Compare a run's `ps_a3` prices and plan benefits with the official `higgsfield.ai/pricing.md` |
 | `export --run RUN [--layout tree\|hf\|webdataset\|jsonl] …` | Read-only export of run folders into a browsable / dataset folder (§8, [`docs/EXPORT.md`](docs/EXPORT.md)) |
 | `python scripts/merge_generations.py [runs…] [--latest …] [--compare OLD]` | Count and dedupe generations across runs; likes/views deltas between snapshots |
+| `python scripts/trending_ideas.py [--top 100] [--no-scrape] [--compare OLD]` | Scrape the trending lists, rank every template/video and package the top N (prompt, settings, reference inputs, example videos, contest brief) one folder per idea ([CLI.md §6d](CLI.md#6d-top-trending-ideas-and-templates-scriptstrending_ideaspy)) |
 
 **Shared by every scraper**
 
@@ -475,6 +476,7 @@ higgsfield_scraper/
   extensions.py              heartbeat
   run/                       run folders, manifest, logging setup, RunManager, retention
 scripts/merge_generations.py  count + dedupe generations across runs (likes/views deltas with --compare)
+scripts/trending_ideas.py     top trending ideas/templates, ranked and packaged with prompts + assets
 docs/  scripts/  tests/  samples/
 runs/  exports/              output (gitignored)
 ```
